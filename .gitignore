@@ -7,3 +7,4 @@ secret.json
 # Ignore the environment related files
 # setup_venv.sh
 /_venv/
+/res/
