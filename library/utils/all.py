@@ -45,3 +45,10 @@ class OptimizationProblem(BaseModel):
     objective: str
     constraints: list[str]
     parameters: list[str]
+class SimilarityScore(BaseModel):
+    objective_differences : list[str]
+    objective_similarity_score : int
+    constraint_differences : list[str]
+    constraint_similarity_score : int
+    parameter_differences : list[str]
+    parameter_similarity_score : int
