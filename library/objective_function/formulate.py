@@ -1,3 +1,3 @@
 
-def formulate_problems():
+def extract_formulations():
     return
