@@ -6,7 +6,6 @@ from ..utils.all import load_openai_api_key, check_file_existence, Problem
 
 OPENAI_API_KEY = load_openai_api_key()
 client = OpenAI(api_key = OPENAI_API_KEY)
-print(client)
 
 def generate_new_dataset(source_dataset_folder, target_dataset_folder):
     problems = [f for f in os.listdir(source_dataset_folder) if os.path.isdir(os.path.join(source_dataset_folder, f))]
@@ -23,7 +22,7 @@ def generate_new_dataset(source_dataset_folder, target_dataset_folder):
             # get original description
             with open(source_problem_paths[problem], "r") as f:
                 state = json.load(f)
-                original_problem_description = state['description']
+            original_problem_description = state['description']
             system_prompt =  "Give a vague single sentence description of the problem. "
             user_prompt = "Problem: " + original_problem_description
             completion = client.beta.chat.completions.parse(model="gpt-4o-2024-08-06", 
@@ -41,6 +40,6 @@ def generate_new_dataset(source_dataset_folder, target_dataset_folder):
             complete_problems.append(problem)
         except:
             incomplete_problems.append(problem)
-    print(target_problem_paths)
-
+        if problem == problems[3]:
+            break
     return complete_problems, incomplete_problems
