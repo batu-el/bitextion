@@ -2,10 +2,10 @@
 # gets the code from library
 # makes computations
 # saves the results in res
-from library.data_generation.generate import generate_new_dataset
-from library.simulation.simulate import simulate_conversations
-from library.objective_function.formulate import extract_formulations
-from library.objective_function.score import score_formulations
+from lib.data_generation.generate import generate_new_dataset
+from lib.simulation.simulate import simulate_conversations
+from lib.objective_function.formulate import extract_formulations
+from lib.objective_function.score import score_formulations
 
 # Run the function
 if __name__ == "__main__":
