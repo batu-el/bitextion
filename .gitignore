@@ -1,10 +1,3 @@
-# Ignore data folder
 /data/
-
-# Ignore secret.json file
-secret.json
-
-# Ignore the environment related files
-# setup_venv.sh
-/_venv/
-/res/
+/secret/
+/dte_env/
