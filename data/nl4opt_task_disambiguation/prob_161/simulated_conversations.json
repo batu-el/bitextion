@@ -1,0 +1,45 @@
+{
+  "vague_description": "The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.",
+  "detailed_description": "A toy store decides to deliver gifts using two shipping companies, a new one and an old one. The new company can deliver \\param{GiftsNew} gifts per trip while the old company can deliver \\param{GiftsOld} gifts per trip. The new company uses \\param{DieselNew} liters of diesel per trip while the old company uses \\param{DieselOld} liters of diesel per trip. The toy store needs to deliver at least \\param{MinGifts} gifts. There can be at most \\param{MaxTripsNew} trips made by the new company. In order to make sure that the old company does not go out of business, at least \\param{MinPercentOld} of all trips must be made by the old company. How many trips should each company make to minimize the total amount of diesel used?",
+  "target_objective": "Minimize the total amount of diesel used for delivering the gifts",
+  "target_constraints": [
+    "Number of trips by the new company is non-negative",
+    "Number of trips by the old company is non-negative",
+    "At least MinGifts gifts must be delivered in total",
+    "At most MaxTripsNew trips can be made by the new company",
+    "At least MinPercentOld percent of all trips must be made by the old company"
+  ],
+  "target_parameters": [
+    "Number of gifts delivered by the new company per trip",
+    "Number of gifts delivered by the old company per trip",
+    "Amount of diesel used by the new company per trip",
+    "Amount of diesel used by the old company per trip",
+    "Minimum total number of gifts that need to be delivered",
+    "Maximum number of trips the new company can make",
+    "Minimum percentage of all trips that must be made by the old company"
+  ],
+  "Expert": {
+    "(0,)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.",
+    "(0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Are there specific constraints on the number of trips each company must make?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Are there specific constraints on the number of trips each company must make?\nUser: Yes\n\nExpert: Is there a maximum limit on the diesel usage for the delivery trips?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Are there specific constraints on the number of trips each company must make?\nUser: Yes\n\nExpert: Is there a maximum limit on the diesel usage for the delivery trips?\nUser: No\n\nExpert: Are there specific gift delivery requirements that each company must satisfy individually?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.",
+    "(0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Is there a constraint requiring a minimum percentage of trips to be conducted by one specific company?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Is there a constraint requiring a minimum percentage of trips to be conducted by one specific company?\nUser: Yes\n\nExpert: Does the problem involve a constraint on the total diesel usage beyond the objective function of minimizing diesel usage?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Is there a constraint requiring a minimum percentage of trips to be conducted by one specific company?\nUser: Yes\n\nExpert: Does the problem involve a constraint on the total diesel usage beyond the objective function of minimizing diesel usage?\nUser: No\n\nExpert: Do the problem descriptions specify a maximum number of trips that each company can handle per day?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.",
+    "(0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Are there any fixed constraints on the total number of delivery trips that can be allocated to each company?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Are there any fixed constraints on the total number of delivery trips that can be allocated to each company?\nUser: Yes\n\nExpert: Are there any fixed constraints on the total number of delivery trips that can be allocated to each company?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Are there any fixed constraints on the total number of delivery trips that can be allocated to each company?\nUser: Yes\n\nExpert: Are there any fixed constraints on the total number of delivery trips that can be allocated to each company?\nUser: Yes\n\nExpert: Are the fixed constraints on the total number of delivery trips that can be allocated to each company equal for both companies?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.",
+    "(0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Is the objective function to minimize diesel usage explicitly given as a numerical optimization problem or is it formulated in terms of another objective that involves minimizing diesel usage?\nUser: Yes, the objective function is explicitly focused on minimizing diesel usage, given the parameters and constraints provided.\n",
+    "(0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Is the objective function to minimize diesel usage explicitly given as a numerical optimization problem or is it formulated in terms of another objective that involves minimizing diesel usage?\nUser: Yes, the objective function is explicitly focused on minimizing diesel usage, given the parameters and constraints provided.\n\nExpert: Does the problem description explicitly mention a physical distance between delivery points or locations?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Is the objective function to minimize diesel usage explicitly given as a numerical optimization problem or is it formulated in terms of another objective that involves minimizing diesel usage?\nUser: Yes, the objective function is explicitly focused on minimizing diesel usage, given the parameters and constraints provided.\n\nExpert: Does the problem description explicitly mention a physical distance between delivery points or locations?\nUser: No\n\nExpert: Is there at least one constraint listed in the problem?\nUser: Yes\n"
+  }
+}

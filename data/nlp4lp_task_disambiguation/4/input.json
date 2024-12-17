@@ -1,0 +1,14 @@
+{
+  "vague_description": "Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.",
+  "detailed_description": "The goal is to find the minimal number of nurses the hospital needs to hire for a planning period of \\param{Period}. The hospital has a known demand for nurses across a week, specified by the array \\param{Demand}, where each element corresponds to the demand for a particular day in the period.",
+  "target_objective": "Minimize the number of nurses that the hospital needs to hire for the planning period",
+  "target_constraints": [
+    "Number of nurses is non-negative",
+    "The number of nurses hired must meet or exceed the demand for each day of the period"
+  ],
+  "target_parameters": [
+    "Number of days",
+    "The planning period for nurse staffing",
+    "Array of demands for nurses for days"
+  ]
+}

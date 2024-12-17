@@ -1,0 +1,467 @@
+{
+  "vague_description": "A business must strategically allocate limited resources to maximize returns on product sales.",
+  "detailed_description": "A electronics store sells premium desktops with more power as well as regular desktops for everyday use. Each premium desktop costs the store \\var{CostPremium} to make and yields a profit of \\var{ProfitPremium}. Each regular desktop costs the store \\var{CostRegular} to make and yields a profit of \\var{ProfitRegular}. The store sells at most \\var{MaxDesktops} desktops each month and wants to spend at most \\var{MaxBudget} on making the desktops. How many of each should be made and sold to maximize profit?",
+  "target_objective": "Maximize the store's profit from selling desktops",
+  "target_constraints": [
+    "Number of premium desktops is an integer",
+    "Number of regular desktops is an integer",
+    "Number of premium desktops is non-negative",
+    "Number of regular desktops is non-negative",
+    "The store can sell at most MaxDesktops desktops each month",
+    "Total cost for producing premium and regular desktops can not exceed MaxBudget"
+  ],
+  "target_parameters": [
+    "Cost to make one premium desktop",
+    "Profit from selling one premium desktop",
+    "Cost to make one regular desktop",
+    "Profit from selling one regular desktop",
+    "Maximum number of desktops sold per month",
+    "Maximum budget for making desktops per month"
+  ],
+  "Expert": {
+    "(0,)": "User: A business must strategically allocate limited resources to maximize returns on product sales.",
+    "(0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Is there a fixed budget or limit on the resources available for allocation in this problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Is there a fixed budget or limit on the resources available for allocation in this problem?\nUser: Yes\n\nExpert: Are there multiple products involved in this resource allocation strategy?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Is there a fixed budget or limit on the resources available for allocation in this problem?\nUser: Yes\n\nExpert: Are there multiple products involved in this resource allocation strategy?\nUser: Yes\n\nExpert: Are there specific monetary values or cost associated with allocating resources to each product?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A business must strategically allocate limited resources to maximize returns on product sales.",
+    "(0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Does the problem explicitly specify a numerical value for both the available budget and production capacity?\nUser: No\n",
+    "(0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Does the problem explicitly specify a numerical value for both the available budget and production capacity?\nUser: No\n\nExpert: Do any problems include marketing costs as part of the constraints or parameters?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Does the problem explicitly specify a numerical value for both the available budget and production capacity?\nUser: No\n\nExpert: Do any problems include marketing costs as part of the constraints or parameters?\nUser: No\n\nExpert: Do any of the problems include a constraint requiring that demand for each product be met?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A business must strategically allocate limited resources to maximize returns on product sales.",
+    "(0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Are the returns on product sales directly related to a single performance metric that can be measured and compared across different allocation scenarios?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Are the returns on product sales directly related to a single performance metric that can be measured and compared across different allocation scenarios?\nUser: Yes\n\nExpert: Is the business constrained by a fixed budget for resource allocation?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Are the returns on product sales directly related to a single performance metric that can be measured and compared across different allocation scenarios?\nUser: Yes\n\nExpert: Is the business constrained by a fixed budget for resource allocation?\nUser: Yes\n\nExpert: With a fixed budget constraint, is the total resource allocation amount known and unchanging?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A business must strategically allocate limited resources to maximize returns on product sales.",
+    "(0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Are there more than two unique parameters in the problem description?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Are there more than two unique parameters in the problem description?\nUser: Yes\n\nExpert: Do the problem constraints contain the phrase 'limited resources'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Are there more than two unique parameters in the problem description?\nUser: Yes\n\nExpert: Do the problem constraints contain the phrase 'limited resources'?\nUser: Yes\n\nExpert: Does the objective or any of the parameters contain the word 'returns'?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource availability",
+            "Expected return on product sales",
+            "Constraints on resource allocations",
+            "Total number of products",
+            "Sales data for each product",
+            "Market demand for each product",
+            "Cost of resources",
+            "Profit margins for each product",
+            "Timeframe for resource allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the returns on product sales through strategic allocation of limited resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited resources must be allocated strategically.",
+            "Each product has a specific resource requirement.",
+            "Resources cannot be exceeded in the allocation.",
+            "The goal is to maximize returns from the sales of products."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "fixed budget or limit on resources",
+            "maximize returns on product sales"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize returns on product sales while adhering to a fixed budget constraint on resource allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total allocation of resources cannot exceed the fixed budget or limit available."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Budget Limit",
+            "Number of Products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To strategically allocate limited resources across multiple products to maximize returns on sales while adhering to a fixed budget constraint."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total allocation of resources cannot exceed a fixed budget.",
+            "Resources must be distributed among multiple products."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fixed budget for resource allocation",
+            "Multiple products available",
+            "Monetary cost associated with each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize total returns on product sales by optimally allocating limited resources across multiple products, subject to budget constraints and specific costs associated with resource allocation to each product."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a fixed budget or limit on the resources available for allocation.",
+            "Resources must be allocated to multiple products.",
+            "There are specific monetary values or costs associated with allocating resources to each product."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Budget Constraint",
+            "Production Capacity",
+            "Resource Availability",
+            "Market Demand",
+            "Price Elasticity",
+            "Cost Structure"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Strategically allocate limited resources to maximize returns on product sales."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total resources available (e.g., budget, manpower, materials) are limited and cannot be exceeded.",
+            "The allocation must satisfy minimum operational requirements to ensure product functionality and quality.",
+            "The allocation should adhere to any contractual or legal obligations related to resource use.",
+            "Resource allocation decisions must ensure that no product line is neglected, maintaining a balance to prevent loss of market share in any segment.",
+            "The resource allocation should consider future market trends and potential shifts in demand to avoid over-investment in declining products."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources available for product sales (e.g., financial budget, workforce, production capacity) are not numerically specified.",
+            "Objective is to maximize returns on product sales.",
+            "Constraints may include factors like resource allocation limits and sales performance indicators."
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize returns on product sales through strategic allocation of limited resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited resources available for allocation (e.g., budget and production capacity are not explicitly quantified)",
+            "Objective to maximize returns on product sales"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation",
+            "Maximizing Returns",
+            "Product Sales",
+            "Limited Resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize returns on product sales through strategic allocation of limited resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited resources available for allocation.",
+            "Objective to maximize returns on product sales."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Available budget",
+            "Production capacity",
+            "Demand satisfaction"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize returns on product sales given limited resource allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited resources available for allocation",
+            "Objective is to maximize returns from product sales"
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources",
+            "Maximize returns",
+            "Product sales"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to strategically allocate limited resources in a way that maximizes returns on product sales."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each product requires a specific amount of the limited resources.",
+            "The total allocation of resources cannot exceed the available supply.",
+            "The demand for each product must be met without exceeding a certain limit.",
+            "Resource allocation must respect production capacity constraints for each product.",
+            "Certain products may have minimum investment levels to be viable.",
+            "Resources allocated should adhere to any existing contracts or pre-set agreements."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources",
+            "Maximize returns",
+            "Product sales",
+            "Performance metric"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the return on product sales by strategically allocating limited resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must not exceed the total available resources.",
+            "The allocation should be distributed across various products or departments such that the returns are maximized.",
+            "The performance metric for evaluating returns should be consistent and applicable to all scenarios.",
+            "Each allocation scenario should be feasible and realizable given the business's operational capacity."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Single performance metric for returns",
+            "Fixed budget constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the returns on product sales by strategically allocating the fixed budget for resources across different products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The returns on product sales must be evaluated using a single performance metric that can be applied uniformly across different resource allocation scenarios.",
+            "The total allocation of resources must not exceed the fixed budget available to the business for this purpose."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "strategic allocation of resources",
+            "maximize returns",
+            "single performance metric",
+            "fixed budget constraint",
+            "total resource allocation amount"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize returns on product sales by strategically allocating resources with a fixed budget constraint."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total resource allocation must not exceed the fixed budget.",
+            "Each resource allocation scenario should be measurable by a performance metric tied to returns on product sales."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Product types",
+            "Available resources",
+            "Cost of resources",
+            "Expected return on each product",
+            "Maximum demand for each product",
+            "Resource capacity or constraints",
+            "Time required for production or resource allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the returns on product sales by strategically allocating limited business resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources are limited and must be allocated strategically.",
+            "Product sales returns should be maximized.",
+            "Assume a fixed budget or resource quantity that limits allocations.",
+            "Each product or category of products may have different costs associated with resource allocation.",
+            "The allocation must respect any minimum or maximum constraints for each product category.",
+            "There could be interdependencies between products affecting sales when resources are allocated to them."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Product sales",
+            "Maximize returns"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To strategically allocate limited resources to maximize returns on product sales."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited resources (e.g., budget, manpower).",
+            "Maximizing product sales returns.",
+            "More than two unique parameters (e.g., different products, various market segments, time constraints)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "limited resources",
+            "maximize returns",
+            "product sales",
+            "allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize returns on product sales by strategically allocating limited resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The business must allocate resources within the available limits.",
+            "Resources are not unlimited and thus finite.",
+            "Each product has a specific resource requirement.",
+            "Resource allocation must be done to maximize returns."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Product Sales",
+            "Limited Resources",
+            "Maximize Returns"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize product sales while considering the constraints of limited resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Allocate resources such that the sum of allocations does not exceed total available resources",
+            "Each product must receive some portion of the resources",
+            "Resources cannot be negative"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    }
+  }
+}

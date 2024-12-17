@@ -1,0 +1,462 @@
+{
+  "vague_description": "Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.",
+  "detailed_description": "A cruise company can either have two types of trips, a large cruise ship or a small cruise ship. A large cruise ship trip can carry \\param{LargeShipCapacity} customers and produces \\param{LargeShipPollution} units of pollution. A small cruise ship trip can carry \\param{SmallShipCapacity} customers and produces \\param{SmallShipPollution} units of pollution. There can be at most \\param{MaxLargeShipTrips} large cruise ship trips and at least \\param{MinSmallShipTripPercent} of the total trips must be made by small cruise ships. If the cruise company aims to transport at least \\param{MinCustomers} customers, how many of each size of cruise ships should the company use to minimize the total amount of pollution produced?",
+  "target_objective": "Minimize the total amount of pollution produced by the cruise ships",
+  "target_constraints": [
+    "Number of large cruise ship trips is non-negative",
+    "Number of small cruise ship trips is non-negative",
+    "Number of large cruise ship trips is at most MaxLargeShipTrips",
+    "At least MinSmallShipTripPercent of total trips must be small cruise ship trips",
+    "Total customers transported must be at least MinCustomers"
+  ],
+  "target_parameters": [
+    "Number of customers a large cruise ship can carry",
+    "Pollution units produced by a large cruise ship trip",
+    "Number of customers a small cruise ship can carry",
+    "Pollution units produced by a small cruise ship trip",
+    "Maximum number of large cruise ship trips",
+    "Minimum percentage of total trips that must be by small cruise ships",
+    "Minimum number of customers the company aims to transport"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.",
+    "(0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does each type of cruise ship have specific pollution and capacity metrics that influence the optimization?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does each type of cruise ship have specific pollution and capacity metrics that influence the optimization?\nUser: Yes\n\nExpert: Is there a constraint on the total number of trips that can be made by all cruise ships combined?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does each type of cruise ship have specific pollution and capacity metrics that influence the optimization?\nUser: Yes\n\nExpert: Is there a constraint on the total number of trips that can be made by all cruise ships combined?\nUser: No\n\nExpert: Are there specific customer demand levels that each type of cruise ship must meet?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.",
+    "(0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does the problem include a constraint related to compliance with a budget for cruise operations?\nUser: No.\n",
+    "(0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does the problem include a constraint related to compliance with a budget for cruise operations?\nUser: No.\n\nExpert: Is the total operational capacity of the fleet a constraint in the problem description?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does the problem include a constraint related to compliance with a budget for cruise operations?\nUser: No.\n\nExpert: Is the total operational capacity of the fleet a constraint in the problem description?\nUser: No.\n\nExpert: Does the problem include constraints related to dock scheduling or availability?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.",
+    "(0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Is the number of trips for each type of cruise ship limited by a fixed capacity or constraint, such as a port's berthing capacity or a ship's own operational limitations?\nUser: No.\n",
+    "(0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Is the number of trips for each type of cruise ship limited by a fixed capacity or constraint, such as a port's berthing capacity or a ship's own operational limitations?\nUser: No.\n\nExpert: Is the objective of minimizing pollution solely focused on reducing the total number of trips across all types of cruise ships, or are there additional factors such as emission intensity, fuel type, or other environmental considerations?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Is the number of trips for each type of cruise ship limited by a fixed capacity or constraint, such as a port's berthing capacity or a ship's own operational limitations?\nUser: No.\n\nExpert: Is the objective of minimizing pollution solely focused on reducing the total number of trips across all types of cruise ships, or are there additional factors such as emission intensity, fuel type, or other environmental considerations?\nUser: No.\n\nExpert: Is there a linear or constant relationship between the number of trips and the corresponding pollution generated, or are there diminishing marginal returns, such as a point of diminishing returns where additional trips result in disproportionately more pollution?\nUser: No.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.",
+    "(0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does the problem description mention any objective other than minimizing pollution?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does the problem description mention any objective other than minimizing pollution?\nUser: No\n\nExpert: Do the constraints involve any information about the total number of trips or the total demand for trips?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does the problem description mention any objective other than minimizing pollution?\nUser: No\n\nExpert: Do the constraints involve any information about the total number of trips or the total demand for trips?\nUser: Yes\n\nExpert: Are there any constraints explicitly mentioned in the problem description?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trips for each type of cruise ship"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution while meeting customer demand for cruise ship trips."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of trips for each type of cruise ship must satisfy customer demand, implying that the sum of passengers from all trips must meet or exceed the required passenger capacity.",
+            "Pollution output must be minimized, indicating a need to account for emissions based on the number of trips and the type of cruise ships used.",
+            "Each cruise ship can only make a certain number of trips within the given time frame, e.g., weekly or monthly limits based on operational capacity.",
+            "The number of each type of cruise ship trips must be a non-negative integer, as fractional trips are not feasible.",
+            "Operational costs should be within budget constraints, potentially balancing between cost and environmental impact."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trips for each type of cruise ship",
+            "Customer demand",
+            "Pollution metrics for each type of cruise ship",
+            "Capacity metrics for each type of cruise ship"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize the total pollution emitted by the cruise ships while ensuring that customer demand is met, by determining the optimal number of trips for each type of cruise ship, considering their respective pollution and capacity metrics."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "For each type of cruise ship, the number of trips must meet customer demand.",
+            "For each type of cruise ship, the pollution level per trip is accounted for in the total pollution objective, which must be minimized.",
+            "Each cruise ship type has a capacity constraint that affects the number of trips needed to meet demand.",
+            "The optimization must consider the balance between meeting customer demand and minimizing total pollution."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Customer demand for trips",
+            "Pollution metrics per cruise ship type",
+            "Capacity metrics per cruise ship type"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution by determining the optimal number of trips for each type of cruise ship to meet customer demand without a constraint on the total number of trips."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of trips for each type of cruise ship should meet overall customer demand.",
+            "Each type of cruise ship has specific pollution metrics that must be considered in the optimization.",
+            "Each type of cruise ship has specific capacity metrics that must be considered in the optimization."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cruise ship capacities",
+            "Pollution metrics for each cruise ship type"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of trips for each type of cruise ship that minimizes pollution while ensuring that the combined capacity of all trips meets the overall customer demand across all cruise ship types."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each type of cruise ship has specific pollution metrics.",
+            "Each type of cruise ship has specific capacity metrics.",
+            "There is no constraint on the total number of trips."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trips per cruise ship type: binary variable representing whether a cruise ship type takes a trip",
+            "Customer demand: continuous variable or parameter representing the demand for each type of cruise ship trip",
+            "Pollution per trip per cruise ship type: coefficient representing the pollution output for each trip made by a specific type of cruise ship"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution while meeting the customer demand for cruise trips."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of trips for each cruise ship type must fulfill the customer demand for that type.",
+            "Each ship type has specific pollution limits that cannot be exceeded on any trip.",
+            "There is a maximum number of trips any cruise ship can make due to scheduling or maintenance restrictions."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal number of trips for each type of cruise ship",
+            "Customer demand",
+            "Minimization of pollution"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each type of cruise ship must complete a minimum number of trips to meet customer demand.",
+            "The total number of trips across all cruise ship types must not exceed the maximum infrastructure capacity of the ports.",
+            "Environmental regulations limit pollution levels, impacting the number of trips each type of cruise ship can make.",
+            "Operational constraints such as crew availability and maintenance schedules may limit the number of trips per type of cruise ship."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "types of cruise ships",
+            "number of trips for each type of cruise ship",
+            "customer demand",
+            "minimization of pollution"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution while meeting customer demand with the optimal number of trips for each cruise ship type."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Meet customer demand for each type of cruise ship.",
+            "Minimize pollution during operations."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Customer demand satisfaction for each type of cruise ship",
+            "Minimization of pollution"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of trips for each type of cruise ship in order to meet customer demand while minimizing pollution."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Meet customer demand for each type of cruise ship.",
+            "Minimize pollution from cruise operations."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of trips for each type of cruise ship",
+            "customer demand",
+            "pollution levels",
+            "types of cruise ships"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution while satisfying customer demand for cruises by determining the optimal number of trips for each type of cruise ship."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total number of trips for each cruise ship type must meet or exceed customer demand.",
+            "Emissions from all cruise ship trips combined must remain below a set pollution threshold.",
+            "Each ship type can only make a maximum number of trips defined by operational or logistical constraints.",
+            "Every cruise ship must make a minimum number of trips if it operates.",
+            "The capacity of each ship type should match the expected number of passengers for each trip.",
+            "Fuel consumption for each trip must be within the fuel availability limits."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trips for each type of cruise ship",
+            "Customer demand",
+            "Pollution levels"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution by determining the optimal number of trips for each type of cruise ship while meeting customer demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of trips for each type of cruise ship is not limited by a port's berthing capacity.",
+            "There are no operational limitations on the number of trips for each type of cruise ship.",
+            "Customer demand for cruise ship trips must be met.",
+            "Pollution needs to be minimized."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trips for each type of cruise ship",
+            "Customer demand",
+            "Pollution level for each trip type"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution, without specific constraints on the number of trips-related capacities or additional environmental factors considered."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each type of cruise ship must meet customer demand.",
+            "There is no fixed capacity limitation for the number of trips for each cruise ship type.",
+            "The objective is to minimize the total number of trips across all cruise ship types to minimize pollution."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of trips for each type of cruise ship",
+            "total pollution generated by all cruise ships combined",
+            "customer demand for trips"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No fixed capacity constraint related to port berthing or operational limitations for each type of cruise ship.",
+            "Minimizing pollution does not involve reducing the total number of trips across all types of cruise ships.",
+            "Pollution generation is not subject to diminishing returns with increasing trips."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trips for each type of cruise ship",
+            "Customer demand",
+            "Pollution levels"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution by determining the optimal number of trips for each type of cruise ship that meets customer demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of trips for all cruise ships must meet or exceed customer demand for each cruise type or destination.",
+            "Pollution emissions for each trip type or destination must not exceed regulatory limits.",
+            "The number of trips for each cruise ship type should be within the operational capacity of the shipping company (e.g., maximum trips per ship type).",
+            "The combined pollution from all trips must meet an overall pollution minimization or reduction target set by the company or regulations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trips for each type of cruise ship",
+            "Customer demand for trips",
+            "Pollution per trip for each type of ship"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of trips for each type of cruise ship must meet customer demand.",
+            "The number of trips should aim to minimize pollution.",
+            "Trips are limited by the number of available cruise ships.",
+            "There may be regulations or limits on emissions per trip or total emissions.",
+            "Fuel consumption should be minimized as it correlates with pollution levels."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Meet customer demand",
+            "Minimize pollution",
+            "Total number of trips",
+            "Total demand for trips"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution created by cruise ships while meeting customer demand for trips."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of trips made by all types of cruise ships must meet customer demand.",
+            "The solution must minimize pollution, implying that there might be constraints on emissions per trip or total emissions allowed.",
+            "Each trip of any type of cruise ship could potentially have its own capacity limits that must be accounted for when meeting demand.",
+            "There may also be operational or capacity-related constraints like a maximum number of trips each cruise ship type is allowed to make within the given time period."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal number of trips for each type of cruise ship",
+            "Minimize pollution",
+            "Meet customer demand",
+            "Total number of trips constraint",
+            "Total demand for trips constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution while meeting customer demand for trips."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of trips for all cruise ship types must meet or exceed customer demand.",
+            "Each type of cruise ship must operate a minimum number of trips or reach a specific trip quota.",
+            "The pollution created by the total number of trips for all types of cruise ships must not exceed a certain threshold.",
+            "The number of trips for each type of cruise ship is a non-negative integer."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 3
+      }
+    }
+  }
+}

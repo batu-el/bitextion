@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determine the optimal mix of two extraction processes based on resource constraints and output.",
+  "detailed_description": "There are two ways to extract metal from mined ores. The first way is to use process J and the second is process P. Process J can extract \\param{MetalJ} units of metal using \\param{WaterJ} units of water and produces \\param{PollutionJ} units of pollution. Process P can extract \\param{MetalP} units of metal using \\param{WaterP} units of water and produces \\param{PollutionP} units of pollution. There can be at most \\param{MaxWater} units of water and \\param{MaxPollution} units of pollution. How many of each type of processes should be performed to maximize the amount of metal extracted?",
+  "target_objective": "Maximize the total amount of metal extracted from mined ores",
+  "target_constraints": [
+    "Number of process J operations is non-negative",
+    "Number of process P operations is non-negative",
+    "Total water used in both processes cannot exceed MaxWater",
+    "Total pollution from both processes cannot exceed MaxPollution"
+  ],
+  "target_parameters": [
+    "Units of metal extracted using process J",
+    "Units of water used by process J",
+    "Units of pollution produced by process J",
+    "Units of metal extracted using process P",
+    "Units of water used by process P",
+    "Units of pollution produced by process P",
+    "Maximum units of water available",
+    "Maximum units of pollution allowable"
+  ]
+}

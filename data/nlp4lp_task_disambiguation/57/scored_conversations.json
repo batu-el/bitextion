@@ -1,0 +1,509 @@
+{
+  "vague_description": "The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.",
+  "detailed_description": "PROBLEM TYPE\nLP\n\nINPUT FORMAT \n\n{\n    \"time_required\": [[TimeRequired for p in 1, ..., P] for m in 1, ..., M],\n    \"machine_costs\": [MachineCosts for m in 1, ..., M],\n    \"availability\": [Availability for m in 1, ..., M],\n    \"prices\": [Prices for p in 1, ..., P],\n    \"min_batches\": [MinBatches for p in 1, ..., P],\n    \"standard_cost\": StandardCost,\n    \"overtime_cost\": OvertimeCost,\n    \"overtime_hour\": OvertimeHour\n}\n\n\nOBJECTIVE\nHow many batches of each part should the manufacturer produce each month to maximize profit?",
+  "target_objective": "Maximize profit from producing and selling parts",
+  "target_constraints": [
+    "Each part p requires TimeRequired for p hours of machine time on machine m",
+    "Machine m is available for Availability for m hours per month",
+    "At least MinBatches for p batches of each part p must be produced",
+    "Overtime operation is allowed for up to OvertimeHour hours",
+    "The number of batches produced for any part must be non-negative"
+  ],
+  "target_parameters": [
+    "Number of machines",
+    "Number of part types",
+    "Time required to produce one batch of part p on machine m",
+    "Cost of operating machine m for one month",
+    "Number of hours machine m is available each month without overtime",
+    "Price received for selling one batch of part p",
+    "Minimum number of batches of part p to be produced",
+    "Standard cost for operating all machines during normal operating hours",
+    "Extra cost for operating a machine in overtime per hour",
+    "Number of overtime hours available for machine m"
+  ],
+  "Expert": {
+    "(0,)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.",
+    "(0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Are there specific production capacity limits for each product that need to be considered in the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Are there specific production capacity limits for each product that need to be considered in the optimization problem?\nUser: Yes\n\nExpert: Are there constraints related to the availability of raw materials for production?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Are there specific production capacity limits for each product that need to be considered in the optimization problem?\nUser: Yes\n\nExpert: Are there constraints related to the availability of raw materials for production?\nUser: No\n\nExpert: Are there any specific deadlines or time-related constraints for the completion of the production schedule?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.",
+    "(0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Does the problem involve multiple types of products with distinct production or cost parameters?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Does the problem involve multiple types of products with distinct production or cost parameters?\nUser: Yes\n\nExpert: Does the problem include a constraint related to inventory storage capacity?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Does the problem involve multiple types of products with distinct production or cost parameters?\nUser: Yes\n\nExpert: Does the problem include a constraint related to inventory storage capacity?\nUser: No\n\nExpert: Is there a constraint that specifically limits the total production time available across all product types in each candidate problem?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.",
+    "(0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Are there any fixed costs or minimum production requirements that the manufacturer must adhere to?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Are there any fixed costs or minimum production requirements that the manufacturer must adhere to?\nUser: Yes\n\nExpert: Are fixed costs or minimum production requirements dependent on the quantity of products manufactured?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Are there any fixed costs or minimum production requirements that the manufacturer must adhere to?\nUser: Yes\n\nExpert: Are fixed costs or minimum production requirements dependent on the quantity of products manufactured?\nUser: No\n\nExpert: Are the fixed costs or minimum production requirements affected by external factors such as demand, availability of resources, or seasonality?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.",
+    "(0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Does the optimization problem involve maximizing profits explicitly stated as the objective?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Does the optimization problem involve maximizing profits explicitly stated as the objective?\nUser: Yes\n\nExpert: Does the problem description include any constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Does the optimization problem involve maximizing profits explicitly stated as the objective?\nUser: Yes\n\nExpert: Does the problem description include any constraints?\nUser: Yes\n\nExpert: Does the problem description include at least one constraint?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profits",
+            "Decision Variables: Production schedule (e.g., quantities of different products to produce, timing of production, etc.)",
+            "Constraints: Costs (material costs, labor costs, etc.), Production capacity, Resource availability, Demand requirements, Time constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production schedule that maximizes profits while managing costs and constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production schedule must consider the availability of raw materials.",
+            "The schedule needs to align with the company's labor constraints, such as employee working hours.",
+            "The production output must meet the demand forecast for the products.",
+            "The equipment and machinery capacity must not be exceeded.",
+            "The production process should adhere to quality standards set by the company.",
+            "Inventory holding costs should be minimized.",
+            "There may be budgetary constraints on production spending.",
+            "Deadlines and delivery schedules for finished products need to be met."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedule",
+            "Profit maximization",
+            "Production costs",
+            "Constraints",
+            "Production capacity limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by determining the optimal production schedule while managing production costs and meeting production capacity constraints for each product."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limits for each product."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize profits",
+            "Production capacity limits for each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal production schedule that maximizes profits while considering production capacity limits for each product."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limits for each product."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production capacity limits for each product",
+            "deadlines or time-related constraints for the completion of the production schedule"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profits by determining the optimal production schedule, taking into account production capacity limits and deadlines, while managing costs effectively."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limits for each product must be considered.",
+            "Specific deadlines or time-related constraints need to be adhered to in the production schedule."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedule",
+            "Profit",
+            "Cost",
+            "Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize profits by determining the optimal production schedule while managing costs and constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production schedule must align with the capacity limits of the manufacturing facilities.",
+            "The schedule must adhere to labor availability and any associated labor cost constraints.",
+            "Raw material availability must be considered to avoid shortages or excess inventory.",
+            "The production process must meet any regulatory and safety standards.",
+            "The operational budget must not be exceeded, accounting for both fixed and variable costs.",
+            "There must be flexibility to adjust for demand fluctuations while maintaining profitability.",
+            "The scheduling must allow for regular maintenance and unexpected downtimes."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production_schedule",
+            "Maximization of profits",
+            "Cost_management",
+            "Constraints",
+            "Multiple_product_types",
+            "Distinct_production_parameters",
+            "Distinct_cost_parameters"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by determining an optimal production schedule that balances production costs and constraints for multiple product types."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The problem involves multiple types of products, each with distinct production parameters.",
+            "The problem involves multiple types of products, each with distinct cost parameters."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal production schedule",
+            "Maximize profits",
+            "Multiple product types",
+            "Manage costs",
+            "Distinct production parameters",
+            "Distinct cost parameters"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal production schedule that maximizes profits for multiple product types, considering distinct production and cost parameters, without inventory storage capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production schedule must accommodate multiple product types with distinct production parameters.",
+            "The production schedule must accommodate multiple product types with distinct cost parameters.",
+            "The production schedule must maximize profits."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Multiple types of products with distinct production parameters",
+            "Multiple types of products with distinct cost parameters",
+            "Total production time constraint across all product types"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal production schedule for multiple product types to maximize profits while managing production time constraints and distinct production or cost parameters for each product type."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production time across all product types must not exceed the total available production time in each period."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Schedule",
+            "Manufacturing Costs",
+            "Profit Margins",
+            "Resource Constraints",
+            "Supply Chain Limitations",
+            "Labor Availability",
+            "Production Capacity",
+            "Demand Forecast"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profits through an optimal production schedule, while effectively managing production costs and adhering to operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production schedule must satisfy the company's capacity limitations, which include available equipment and labor force.",
+            "The schedule must ensure that the production meets the demand for the company's products.",
+            "The production process must adhere to quality standards, ensuring that each batch of products meets the required specifications.",
+            "There are inventory constraints that limit how much raw material can be stored at any given time.",
+            "The manufacturer must operate within budgetary constraints, considering costs such as labor, materials, and overhead.",
+            "There are environmental regulations that the manufacturer must comply with, possibly affecting production methods or quantities.",
+            "The production process must account for maintenance and downtime of machinery, ensuring that these do not interfere with meeting production targets.",
+            "Scheduling must be coordinated to ensure smooth operation within the supply chain, avoiding bottlenecks in production or distribution."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profit maximization",
+            "Cost management",
+            "Fixed costs",
+            "Minimum production requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production schedule that maximizes profits, taking into account fixed costs and minimum production requirements, while managing other associated constraints and costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production schedule must maximize profits.",
+            "The manufacturer must adhere to fixed costs.",
+            "There are minimum production requirements that must be met."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities for different products",
+            "Fixed costs associated with production",
+            "Minimum production requirements for each product",
+            "Manufacturing capacity constraints",
+            "Variable production costs for each product",
+            "Revenue per unit of product sold",
+            "Demand forecasts for each product",
+            "Inventory holding costs",
+            "Lead time for production and delivery"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profits while managing costs and constraints in the production schedule."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fixed costs that are independent of production quantity.",
+            "Minimum production requirements that must always be met irrespective of quantity."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedule",
+            "Fixed costs",
+            "Minimum production requirements",
+            "Demand",
+            "Availability of resources",
+            "Seasonality"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal production schedule that maximizes profits while taking into account fixed costs, minimum production requirements, and external factors such as demand, resource availability, and seasonality."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fixed costs are influenced by external factors such as demand, availability of resources, and seasonality.",
+            "There are minimum production requirements that the manufacturer must meet.",
+            "Fixed costs or minimum production requirements are not dependent on the quantity of products manufactured."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantity",
+            "Production timing",
+            "Cost of materials",
+            "Cost of labor",
+            "Capacity limitations",
+            "Demand forecasts",
+            "Inventory holding costs",
+            "Lead times",
+            "Profit margins on products",
+            "Machine availability",
+            "Workforce availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine an optimal production schedule that maximizes profits by effectively managing production costs and adhering to operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production schedule must adhere to manufacturing capacity limits.",
+            "Costs must be managed to stay within budgetary constraints.",
+            "Resource availability, such as materials and labor, must be considered and properly allocated.",
+            "Demand forecasts for the products must be met without overproducing.",
+            "Each product must be produced within its specified production timeline.",
+            "Inventory levels should not exceed storage capacity."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedule (time slots, quantities, types)",
+            "Profit (objective function)",
+            "Costs (material, labor, overhead)",
+            "Constraints (resource availability, demand, production capacity)",
+            "Production time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize profits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limits",
+            "Raw material availability",
+            "Labor availability",
+            "Machinery constraints/capacity",
+            "Demand satisfaction",
+            "Quality standards",
+            "Cost limits or budget constraints",
+            "Lead times for production and delivery",
+            "Storage capacity or inventory limits",
+            "Production time windows or shift constraints",
+            "Sustainability or environmental regulations",
+            "Supplier constraints"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profits",
+            "Constraints: Costs and other unnamed constraints related to production scheduling"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production cost must not exceed a pre-determined budget.",
+            "There is a limit on the maximum number of units that can be produced due to capacity constraints.",
+            "There is a minimum required production level that must be maintained.",
+            "Certain resources are limited and should be allocated efficiently.",
+            "There are time limitations on the production schedule, such as deadlines for completing specific production tasks.",
+            "Quality standards must be met, which may impact the production process or the choice of materials.",
+            "There might be labor constraints, including the number of working hours available or the availability of skilled labor."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedule",
+            "Profits",
+            "Costs",
+            "Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximizing profits"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production capacity of the manufacturer limits the number of units that can be produced in a given time period.",
+            "Raw material availability may constrain the amount of product that can be manufactured.",
+            "There could be labor constraints, limiting the number of hours available for production.",
+            "Budget constraints could limit the amount of money that can be spent on production costs.",
+            "There may be contractual obligations or demand constraints that require a minimum production level.",
+            "Inventory storage limitations might restrict the volume of finished goods that can be held at any time."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      }
+    }
+  }
+}

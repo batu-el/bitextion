@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.",
+  "detailed_description": "We want to know how many shares the investor needs to sell in order to raise the needed money, net of capital gains and transaction costs, \\param{K}, while maximizing the expected value of his portfolio next year. The investor initially bought \\param{Bought} shares at a purchase price of \\param{BuyPrice} per share. The current market price and expected future market price of the shares are \\param{CurrentPrice} and \\param{FuturePrice}, respectively. The transaction cost rate per share sold is \\param{TransactionRate}, and the capital gains tax rate is \\param{TaxRate}.",
+  "target_objective": "Maximize the expected value of the investor's portfolio next year",
+  "target_constraints": [
+    "Number of shares sold is non-negative",
+    "Number of shares sold is less than or equal to Bought",
+    "Amount raised from selling shares after deducting taxes and transaction costs is at least K",
+    "Capital gains tax is applied only on the profit per share (CurrentPrice - BuyPrice)"
+  ],
+  "target_parameters": [
+    "Number of different shares",
+    "Amount of each share initially bought",
+    "Purchase price of each share",
+    "Current market price of each share",
+    "Expected future market price of each share",
+    "Transaction cost rate per share sold",
+    "Capital gains tax rate on the profit from selling shares",
+    "Amount of money the investor needs to raise"
+  ]
+}

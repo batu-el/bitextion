@@ -1,0 +1,43 @@
+{
+  "vague_description": "Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.",
+  "detailed_description": "A taco stand sells regular tacos and deluxe tacos with extra meat. The stand makes x1 regular tacos at a profit of \\param{ProfitRegular} each and x2 deluxe tacos at a profit of \\param{ProfitDeluxe} each (x1 and x2 are unknown variables both greater than or equal to 0). There is a demand for at most \\param{DemandRegularMax} regular tacos and at most \\param{DemandDeluxeMax} deluxe tacos. The stand only has enough supplies to sell at most \\param{SupplyTotalMax} tacos of either type. How many of each taco should the stand make to maximize profit?",
+  "target_objective": "Maximize the total profit from regular and deluxe tacos",
+  "target_constraints": [
+    "x1 is non-negative",
+    "x2 is non-negative",
+    "The number of regular tacos (x1) is at most DemandRegularMax",
+    "The number of deluxe tacos (x2) is at most DemandDeluxeMax",
+    "The total number of tacos (x1 + x2) is at most SupplyTotalMax"
+  ],
+  "target_parameters": [
+    "Profit per regular taco",
+    "Profit per deluxe taco",
+    "Demand maximum for regular tacos",
+    "Demand maximum for deluxe tacos",
+    "Supply limit for total tacos"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.",
+    "(0, 0)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.\nExpert: Is there a specific demand constraint limiting the maximum number of regular and deluxe tacos that can be sold?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.\nExpert: Is there a specific demand constraint limiting the maximum number of regular and deluxe tacos that can be sold?\nUser: Yes\n\nExpert: Is there a constraint on the total number of available ingredients required for making both regular and deluxe tacos?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.\nExpert: Is there a specific demand constraint limiting the maximum number of regular and deluxe tacos that can be sold?\nUser: Yes\n\nExpert: Is there a constraint on the total number of available ingredients required for making both regular and deluxe tacos?\nUser: Yes\n\nExpert: Is there a profit contribution associated with each type of taco, regular and deluxe, that differs from one another?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.",
+    "(0, 0)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.\nExpert: Is there a constraint related to a budget for taco production costs in the problem description?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.\nExpert: Is there a constraint related to a budget for taco production costs in the problem description?\nUser: No\n\nExpert: Does the problem description explicitly mention the total available units of each ingredient?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.\nExpert: Is there a constraint related to a budget for taco production costs in the problem description?\nUser: No\n\nExpert: Does the problem description explicitly mention the total available units of each ingredient?\nUser: No\n\nExpert: Does the problem include specific time-based constraints for taco production?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.",
+    "(0, 0)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.\nExpert: Is there a limit on the number of tacos that can be produced in total?\nUser: Yes. The stand can only produce at most \\( \\text{SupplyTotalMax} \\) tacos in total.\n",
+    "(0, 0, 0)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.\nExpert: Is there a limit on the number of tacos that can be produced in total?\nUser: Yes. The stand can only produce at most \\( \\text{SupplyTotalMax} \\) tacos in total.\n\nExpert: Is the demand for deluxe tacos higher than the demand for regular tacos?\nUser: No. The demand for deluxe tacos is at most \\( \\text{DemandDeluxeMax} \\), which is not specified to be higher than the demand for regular tacos.\n",
+    "(0, 0, 0, 0)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.\nExpert: Is there a limit on the number of tacos that can be produced in total?\nUser: Yes. The stand can only produce at most \\( \\text{SupplyTotalMax} \\) tacos in total.\n\nExpert: Is the demand for deluxe tacos higher than the demand for regular tacos?\nUser: No. The demand for deluxe tacos is at most \\( \\text{DemandDeluxeMax} \\), which is not specified to be higher than the demand for regular tacos.\n\nExpert: Is the objective to maximize profit, assuming the prices of both regular and deluxe tacos are known?\nUser: Yes. The objective is to maximize profit, given the known profits per taco type and the constraints.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.",
+    "(0, 0)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.\nExpert: Does the problem explicitly mention at least one numerical value that can be used to calculate a constraint or an objective value?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.\nExpert: Does the problem explicitly mention at least one numerical value that can be used to calculate a constraint or an objective value?\nUser: No\n\nExpert: Are there any numerical parameter values explicitly provided within the problem description or statement?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the most profitable combination of regular and deluxe tacos a taco stand should make given constraints on demand and supply.\nExpert: Does the problem explicitly mention at least one numerical value that can be used to calculate a constraint or an objective value?\nUser: No\n\nExpert: Are there any numerical parameter values explicitly provided within the problem description or statement?\nUser: No\n\nExpert: Are there any constraints mentioned in the problem description?\nUser: Yes\n"
+  }
+}

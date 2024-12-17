@@ -1,0 +1,53 @@
+{
+  "vague_description": "How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?",
+  "detailed_description": "An oil and gas company operates on \\param{TotalLand} acres of land where they use oil wells of small and large size. Per acre of land, a small oil well can produce \\param{OilSmall} barrels of oil. Per acre of land, a large oil well can produce \\param{OilLarge} barrels of oil. However, a small oil well produces \\param{PollSmall} units of pollution and requires \\param{DrillBitSmall} drill bits per acre and a large oil well produces \\param{PollLarge} units of pollution and requires \\param{DrillBitLarge} drill bits per acre. The company has available \\param{TotalDrillBits} drill bits and due to strict environmental laws can produce at most \\param{MaxPollution} units of pollution. For how many acres should each oil well be used to maximize the total production of oil?",
+  "target_objective": "The company wants to maximize the total production of oil",
+  "target_constraints": [
+    "Small oil wells used is non-negative",
+    "Large oil wells used is non-negative",
+    "Total acres used by small and large oil wells cannot exceed TotalLand",
+    "Small oil well production is OilSmall barrels of oil per acre",
+    "Large oil well production is OilLarge barrels of oil per acre",
+    "Small oil well pollution is PollSmall units per acre",
+    "Large oil well pollution is PollLarge units per acre",
+    "Total pollution from small and large oil wells cannot exceed MaxPollution units",
+    "Small oil wells require DrillBitSmall drill bits per acre",
+    "Large oil wells require DrillBitLarge drill bits per acre",
+    "Total drill bits used by small and large oil wells cannot exceed TotalDrillBits"
+  ],
+  "target_parameters": [
+    "Total land area operated by the oil and gas company",
+    "Barrels of oil produced per acre by a small oil well",
+    "Barrels of oil produced per acre by a large oil well",
+    "Pollution units produced by a small oil well per acre",
+    "Drill bits required by a small oil well per acre",
+    "Pollution units produced by a large oil well per acre",
+    "Drill bits required by a large oil well per acre",
+    "Total available drill bits",
+    "Maximum allowed pollution units"
+  ],
+  "Expert": {
+    "(0,)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?",
+    "(0, 0)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?\nExpert: Is the objective function to maximize the total volume of oil extracted over a certain period?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?\nExpert: Is the objective function to maximize the total volume of oil extracted over a certain period?\nUser: Yes.\n\nExpert: Are there any specific geographical or geological factors that affect the oil extraction process in this problem?\nUser: {\"response\":\"No.\"}\n",
+    "(0, 0, 0, 0)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?\nExpert: Is the objective function to maximize the total volume of oil extracted over a certain period?\nUser: Yes.\n\nExpert: Are there any specific geographical or geological factors that affect the oil extraction process in this problem?\nUser: {\"response\":\"No.\"}\n\nExpert: Are the constraints related to the maximum allowable pollution defined in terms of emission limits or environmental impact thresholds?\nUser: Yes.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?",
+    "(0, 0)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?\nExpert: Does the problem description include constraints related to budget or cost limitations for drilling operations?\nUser: No\n",
+    "(0, 0, 0)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?\nExpert: Does the problem description include constraints related to budget or cost limitations for drilling operations?\nUser: No\n\nExpert: Does the problem description include constraints related to well spacing or setup time?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?\nExpert: Does the problem description include constraints related to budget or cost limitations for drilling operations?\nUser: No\n\nExpert: Does the problem description include constraints related to well spacing or setup time?\nUser: No\n\nExpert: Is the pollution limit parameter specified in metric tons of CO2 equivalent for any of the candidate problems?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?",
+    "(0, 0)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?\nExpert: Is the land area a fixed, finite resource with limited accessibility?\nUser: Yes\n",
+    "(0, 0, 0)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?\nExpert: Is the land area a fixed, finite resource with limited accessibility?\nUser: Yes\n\nExpert: Is the objective to maximize short-term oil production volume or to maximize long-term oil production rate (e.g., while also considering the depletion of the oil reservoir)?\nUser: Yes, the objective is to maximize short-term oil production volume.\n",
+    "(0, 0, 0, 0)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?\nExpert: Is the land area a fixed, finite resource with limited accessibility?\nUser: Yes\n\nExpert: Is the objective to maximize short-term oil production volume or to maximize long-term oil production rate (e.g., while also considering the depletion of the oil reservoir)?\nUser: Yes, the objective is to maximize short-term oil production volume.\n\nExpert: Are there any differences in the production costs (e.g., labor, equipment, and maintenance costs) associated with drilling at different locations within the land area?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?",
+    "(0, 0)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?\nExpert: Is the parameter list exactly the same as the constraint list in the problem description?\nUser: Yes\n",
+    "(0, 0, 0)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?\nExpert: Is the parameter list exactly the same as the constraint list in the problem description?\nUser: Yes\n\nExpert: Does the problem description contain any typos or inconsistent case usage in the objective, constraints, or parameters?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?\nExpert: Is the parameter list exactly the same as the constraint list in the problem description?\nUser: Yes\n\nExpert: Does the problem description contain any typos or inconsistent case usage in the objective, constraints, or parameters?\nUser: No\n\nExpert: Are the parameter names capitalized in the problem description?\nUser: Yes\n"
+  }
+}

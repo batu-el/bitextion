@@ -1,0 +1,45 @@
+{
+  "vague_description": "The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.",
+  "detailed_description": "An international goods exporter uses ships and planes to transport goods. A ship can take \\param{ShipCapacity} containers worth of goods and uses \\param{ShipFuel} liters of fuel per trip. A plane can take \\param{PlaneCapacity} containers worth of goods and uses \\param{PlaneFuel} liters of fuel per trip. The company needs to transport at least \\param{MinContainers} containers worth of goods. In addition, there can be at most \\param{MaxPlaneTrips} plane trips made and a minimum of \\param{MinShipTripPercentage} of the trips made must be by ship. How many of each trip should be made to minimize the total amount of fuel consumed?",
+  "target_objective": "Minimize the total amount of fuel used for transporting the containers",
+  "target_constraints": [
+    "Number of ship trips is non-negative",
+    "Number of plane trips is non-negative",
+    "At least MinContainers containers must be transported",
+    "At most MaxPlaneTrips plane trips can be made",
+    "At least MinShipTripPercentage% of all trips must be by ship"
+  ],
+  "target_parameters": [
+    "Containers a ship can take",
+    "Fuel used by a ship per trip",
+    "Containers a plane can take",
+    "Fuel used by a plane per trip",
+    "Minimum total containers that need to be transported",
+    "Maximum number of plane trips",
+    "Minimum percentage of trips that must be made by ship"
+  ],
+  "Expert": {
+    "(0,)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.",
+    "(0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Does the problem specify the total distance or duration of the travel as a constraint or an input parameter?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Does the problem specify the total distance or duration of the travel as a constraint or an input parameter?\nUser: No\n\nExpert: Are there specific limits or requirements on the number of shipments or air trips allowed in the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Does the problem specify the total distance or duration of the travel as a constraint or an input parameter?\nUser: No\n\nExpert: Are there specific limits or requirements on the number of shipments or air trips allowed in the optimization problem?\nUser: Yes\n\nExpert: Are there cost considerations for the shipments and air trips in the optimization problem?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.",
+    "(0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Does the problem involve budget constraints specifically related to air travel?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Does the problem involve budget constraints specifically related to air travel?\nUser: No\n\nExpert: Does the problem involve both air travel and shipping routes as part of the travel strategy?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Does the problem involve budget constraints specifically related to air travel?\nUser: No\n\nExpert: Does the problem involve both air travel and shipping routes as part of the travel strategy?\nUser: Yes\n\nExpert: Is there a requirement to adhere to environmental regulations limiting emissions or carbon emissions in the problem description?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.",
+    "(0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Are the shipping and air trips considered as non-discretionary tasks with fixed schedules?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Are the shipping and air trips considered as non-discretionary tasks with fixed schedules?\nUser: No\n\nExpert: Are the shipping and air trips subject to any kind of capacity constraints, such as the number of shipments or flights that can be made per day/week?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Are the shipping and air trips considered as non-discretionary tasks with fixed schedules?\nUser: No\n\nExpert: Are the shipping and air trips subject to any kind of capacity constraints, such as the number of shipments or flights that can be made per day/week?\nUser: Yes\n\nExpert: Can the number of shipments and flights be dynamically adjusted in real-time to optimize the travel strategy?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.",
+    "(0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Are all parameters related to the number of trips, transportation modes, or capacities?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Are all parameters related to the number of trips, transportation modes, or capacities?\nUser: Yes\n\nExpert: Does the problem description contain the exact words 'Fuel consumption' or 'fuel consumption'? If yes, then it is in group 1; else in group 2.\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Are all parameters related to the number of trips, transportation modes, or capacities?\nUser: Yes\n\nExpert: Does the problem description contain the exact words 'Fuel consumption' or 'fuel consumption'? If yes, then it is in group 1; else in group 2.\nUser: Yes\n\nExpert: Does the problem description explicitly mention multiple transportation modes beyond just 'shipping' and 'air trips'?\nUser: No\n"
+  }
+}

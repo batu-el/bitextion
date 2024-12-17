@@ -1,0 +1,431 @@
+{
+  "vague_description": "Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.",
+  "detailed_description": "Fit the \u2018best\u2019 straight line y = bx + a where the objective is to minimize the maximum deviation of all the \\param{K} observed values of \\param{Y} from the value predicted by the linear relationship. The observed values of y are given by \\param{Y} and the observed values of x are given by \\param{X}.",
+  "target_objective": "Minimize the maximum deviation of all K observed values from the predicted y values",
+  "target_constraints": [
+    "The deviation is the absolute difference between predicted y values and observed y values",
+    "Deviation should be minimized for all K observed values"
+  ],
+  "target_parameters": [
+    "Number of observed data points",
+    "Observed values of y",
+    "Observed values of x"
+  ],
+  "Expert": {
+    "(0,)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.",
+    "(0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is this optimization problem focused on minimizing the maximum absolute deviation from the line to the observed data points?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is this optimization problem focused on minimizing the maximum absolute deviation from the line to the observed data points?\nUser: Yes\n\nExpert: Does the optimization involve constraints on the slope or intercept of the line?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is this optimization problem focused on minimizing the maximum absolute deviation from the line to the observed data points?\nUser: Yes\n\nExpert: Does the optimization involve constraints on the slope or intercept of the line?\nUser: No\n\nExpert: Is the model trying to find the best fit line through linear programming without the use of least squares?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.",
+    "(0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is there a constraint requiring the line to pass through a specified point?\nUser: No\n",
+    "(0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is there a constraint requiring the line to pass through a specified point?\nUser: No\n\nExpert: Does the problem description include explicit constraints on how the parameters define the linear equation used for prediction?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is there a constraint requiring the line to pass through a specified point?\nUser: No\n\nExpert: Does the problem description include explicit constraints on how the parameters define the linear equation used for prediction?\nUser: No\n\nExpert: Does the problem involve minimizing the absolute deviation between observed and predicted values using a linear model?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.",
+    "(0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is the line constrained to pass through a specific point or set of points?\nUser: No\n",
+    "(0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is the line constrained to pass through a specific point or set of points?\nUser: No\n\nExpert: Is the objective to minimize the sum of the squared differences between predicted and observed values?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is the line constrained to pass through a specific point or set of points?\nUser: No\n\nExpert: Is the objective to minimize the sum of the squared differences between predicted and observed values?\nUser: No\n\nExpert: Is the objective to minimize the maximum difference (or a measure closely related to it), such as the absolute deviation or the mean absolute error?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.",
+    "(0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Does the problem contain a constraint that specifies a linear relationship?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Does the problem contain a constraint that specifies a linear relationship?\nUser: Yes\n\nExpert: Is the slope (m) explicitly mentioned as a parameter in the problem description?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Does the problem contain a constraint that specifies a linear relationship?\nUser: Yes\n\nExpert: Is the slope (m) explicitly mentioned as a parameter in the problem description?\nUser: No\n\nExpert: Does the problem explicitly mention the y-intercept (b) in the parameters or constraints?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "data points (x_i, y_i), i = 1, 2, ..., n",
+            "slope (m) of the line",
+            "intercept (c) of the line"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the maximum deviation between predicted and observed values to find the optimal straight line."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The line should be straight, meaning it is a linear function of the form y = mx + b, where m is the slope and b is the y-intercept.",
+            "The objective is to minimize the maximum difference between the observed values and the predicted values obtained from the line, commonly known as minimizing the maximum absolute deviation.",
+            "The predicted values should be calculated using the equation of the line, y = mx + b.",
+            "The differences between the observed values and the predicted values should be calculated in absolute terms, i.e., |y_observed - y_predicted|.",
+            "The solution must ensure that all data points are considered to find the line that results in the smallest possible maximum difference."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "set of observed data points",
+            "prediction function",
+            "maximum absolute deviation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find a straight line that minimizes the maximum absolute deviation from observed data points."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimize the maximum absolute deviation between predicted and observed values.",
+            "The model is a straight line, y = mx + c, where m is the slope and c is the y-intercept.",
+            "The solution must find values of m and c that minimize the specified deviation.",
+            "Deviation is the absolute difference between the observed value and the predicted value on the line, for each data point.",
+            "All data points (x_i, y_i) must be considered in the calculation of deviations.",
+            "The optimization seeks to address the worst-case deviation, focusing on minimizing the largest deviation value."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "straight line equation",
+            "maximum absolute deviation",
+            "observed data points",
+            "no constraints on slope",
+            "no constraints on intercept"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the straight line (linear model) that minimizes the maximum absolute deviation between the predicted and observed values."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective is to minimize the maximum absolute deviation between the observed data points and the predicted values on the line.",
+            "There are no constraints on the slope of the line.",
+            "There are no constraints on the intercept of the line."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize the maximum absolute deviation between predicted and observed values.",
+            "Line equation: y = mx + b, where m is the slope and b is the intercept.",
+            "Variables: m (slope), b (intercept).",
+            "No constraints on m or b.",
+            "Optimization method: Linear programming."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find a straight line that minimizes the maximum absolute deviation between the predicted values on the line and the observed values from the data points, using linear programming techniques."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization problem aims to minimize the maximum absolute deviation between the predicted values (from the line) and observed data.",
+            "There are no explicit constraints on the slope or intercept of the line.",
+            "The solution approach does not use least squares but rather a method suitable for linear programming."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "observed_values (vector): a set of observed data points.",
+            "predicted_values (vector): a set of predicted data points calculated from the straight line.",
+            "objective_function (function): a function that calculates the maximum absolute difference between predicted and observed values.",
+            "decision_variables (array): parameters of the straight line, including slope (m) and intercept (b) that can be adjusted to minimize the objective function."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the straight line that minimizes the maximum deviation between the predicted and observed values."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The line must pass through the centroid of the observed data points.",
+            "The function to minimize is the maximum absolute difference between the predicted values given by the line and the observed values.",
+            "The line can be expressed in the form y = mx + b, where m is the slope and b is the y-intercept."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "predicted values",
+            "observed values"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the straight line that minimizes the maximum absolute deviation between the predicted values given by the line and the observed values."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The line must minimize the greatest difference between predicted and observed values (Chebyshev criterion)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "coefficients of the linear equation used for prediction"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the straight line that minimizes the maximum deviation (the greatest difference) between the predicted values given by the line and the observed values from the data points."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "coefficients of the linear equation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the maximum absolute deviation between observed and predicted values using a linear model."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimize the maximum absolute deviation between observed and predicted values using a linear model.",
+            "The linear model is not required to pass through any specified point.",
+            "There are no explicit constraints on how the parameters define the linear equation used for prediction."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Minimize the maximum absolute error between predicted and observed values.",
+            "Decision variables: Coefficients of the straight line (slope and intercept).",
+            "Constraints: None."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the maximum difference between predicted and observed values."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The line is of the form y = mx + c, where m and c are the slope and y-intercept to be determined.",
+            "The objective is to minimize the maximum difference |y_i - (mx_i + c)| for all observed points (x_i, y_i).",
+            "Each (x_i, y_i) is a point such that x_i is the observed input and y_i is the observed output.",
+            "The solution should fit in the range of given x_i and y_i values, ensuring it is applicable to the observed data points."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Predicted values",
+            "Observed values"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Find the straight line (linear model) that minimizes the maximum absolute difference between the predicted values (according to the line) and the observed data values. This is an example of finding the line of best fit using the Chebyshev norm."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The line does not pass through any specific point.",
+            "The optimization criterion is to minimize the greatest difference (maximal deviation) between predicted and observed values, not the sum of squared differences or the sum of absolute differences."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize the maximum absolute difference between predicted and observed values"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the maximum (greatest) absolute difference between predicted and observed values, also known as minimizing the Chebyshev distance or using the Chebyshev norm."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization seeks to minimize the maximum difference between predicted and observed values, rather than minimizing the sum of squared differences.",
+            "The line is not required to pass through any specific point or set of points."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective: minimize maximum difference between predicted and observed values",
+            "no specific points through which the line must pass",
+            "no weighted or squared error terms"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the straight line that minimizes the maximum absolute deviation between predicted and observed values."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective is to find a straight line.",
+            "The line minimizes the maximum difference between predicted and observed values.",
+            "There are no constraints requiring the line to pass through a specific point or set of points.",
+            "The measure to minimize is related to absolute deviations, such as the maximum absolute deviation."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimize the greatest difference between predicted and observed values",
+            "find a straight line"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the straight line that minimizes the maximum absolute difference between the predicted and observed values for a set of data points."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "minimize the maximum absolute deviation between the predicted and observed values"
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Decision Variable: The slope of the straight line (m).",
+            "Decision Variable: The y-intercept of the straight line (b).",
+            "Objective Function: Minimize the maximum absolute deviation (difference) between the predicted values (mx + b) and observed values (y) for all data points.",
+            "Constraint: Ensure the relationship between variables is linear, described by y = mx + b."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the straight line (linear relationship) that minimizes the maximum deviation between the predicted values and the observed values."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The model must be a linear relationship.",
+            "The objective is to minimize the maximum deviation (chebyshev norm) between predicted and observed values."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "linear relationship constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the linear regression line (y = mx + c) that minimizes the maximum absolute error between the predicted and observed values."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The relationship between variables is linear.",
+            "The objective is to minimize the maximum difference between predicted and observed values (minimax objective)."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "The relationship is linear"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find a straight line that minimizes the maximum absolute deviation between the predicted values given by the line and the observed data."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The relationship between the variables is linear, described by the equation y = mx + b.",
+            "The objective is to minimize the maximum deviation (greatest difference) between predicted (using y = mx + b) and observed (actual) values.",
+            "There are no explicit constraints specified for the slope (m).",
+            "There are no explicit constraints specified for the y-intercept (b)."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 4
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 3
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 4
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 4
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 4
+      }
+    }
+  }
+}

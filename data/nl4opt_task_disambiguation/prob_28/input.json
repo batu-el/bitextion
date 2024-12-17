@@ -1,0 +1,23 @@
+{
+  "vague_description": "A business needs to decide the quantities of two types of items to stock in order to maximize profits while adhering to space, cost, and item ratio constraints.",
+  "detailed_description": "An electronics store wants to optimize how many phones and laptops are enough to keep in inventory. A phone will earn the store \\var{ProfitPhone} in profits, and a laptop will earn \\var{ProfitLaptop}. A phone requires \\var{SpacePhone} sq ft of floor space, whereas a laptop requires \\var{SpaceLaptop} sq ft. In total, \\var{TotalSpace} sq ft of floor space is available. The store stocks only phones and laptops. Corporate has required that at least \\var{MinLaptopRatio} of all appliances in stock be laptops. Finally, a phone costs \\var{CostPhone} for the store, and a laptop, \\var{CostLaptop}. The store wants to spend at most \\var{MaxSpend}. Formulate an LP that can be used to maximize the store's profit.",
+  "target_objective": "Maximize the store's profit from the sale of phones and laptops",
+  "target_constraints": [
+    "Number of phones is non-negative",
+    "Number of laptops is non-negative",
+    "Floor space for phones and laptops does not exceed TotalSpace",
+    "At least MinLaptopRatio of all appliances in stock must be laptops",
+    "The store spends at most MaxSpend on purchasing phones and laptops"
+  ],
+  "target_parameters": [
+    "Profit earned from one phone",
+    "Profit earned from one laptop",
+    "Floor space required by one phone",
+    "Floor space required by one laptop",
+    "Total available floor space",
+    "Minimum percentage of total appliances that must be laptops",
+    "Cost of one phone for the store",
+    "Cost of one laptop for the store",
+    "Maximum amount store wants to spend on inventory"
+  ]
+}

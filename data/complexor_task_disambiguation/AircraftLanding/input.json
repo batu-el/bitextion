@@ -1,0 +1,18 @@
+{
+  "vague_description": "The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.",
+  "detailed_description": "The Aircraft Landing Problem (ALP) is the problem of deciding a landing time on an appropriate runway for each aircraft in a given set of \\param{TotalAircrafts} aircraft such that each aircraft lands within a predetermined time window defined by an \\param{EarliestLandingTime} and a \\param{LatestLandingTime}; and separation criteria between the landing of an aircraft i, and the landing of all successive aircraft j, are respected, determined by \\param{SeparationTimeMatrix}. Each aircraft has a \\param{TargetLandingTime}, and penalties are incurred for landing after (\\param{PenaltyTimeAfterTarget}) or before (\\param{PenaltyTimeBeforeTarget}) this target time.",
+  "target_objective": "Minimize the sum of penalties incurred for each aircraft landing before or after its TargetLandingTime",
+  "target_constraints": [
+    "Each aircraft must land within its predetermined time window",
+    "Sufficient separation time must be maintained between consecutive aircraft landings as specified in the SeparationTimeMatrix"
+  ],
+  "target_parameters": [
+    "The total number of aircraft in the set",
+    "The earliest landing time for each aircraft",
+    "The latest landing time for each aircraft",
+    "The target landing time for each aircraft",
+    "The penalty incurred for each aircraft landing after the target time",
+    "The penalty incurred for each aircraft landing before the target time",
+    "The required separation time between the landing of aircraft i and aircraft j"
+  ]
+}

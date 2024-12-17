@@ -1,0 +1,41 @@
+{
+  "vague_description": "Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.",
+  "detailed_description": "Maximize the total value of the packed items, where the knapsack has a capacity of \\param{C}. Each item k has a value of \\param{Value} and a size of \\param{Size}.",
+  "target_objective": "Maximize the total value of the items packed in the knapsack",
+  "target_constraints": [
+    "The total size of the items in the knapsack must not exceed the capacity C",
+    "Each item can either be included or not in the knapsack - cannot be fractioned",
+    "The knapsack capacity C is non-negative",
+    "Each item k has a non-negative size",
+    "Each item k has a non-negative value"
+  ],
+  "target_parameters": [
+    "Total Capacity of the Knapsack",
+    "Value of item k",
+    "Size of item k"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.",
+    "(0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Are there any items with zero or negative weight or value?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Are there any items with zero or negative weight or value?\nUser: No\n\nExpert: Is there a limit to the number of each type of item that can be included in the knapsack?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Are there any items with zero or negative weight or value?\nUser: No\n\nExpert: Is there a limit to the number of each type of item that can be included in the knapsack?\nUser: No\n\nExpert: Is each item's weight and value represented by integers?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.",
+    "(0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Does the problem description explicitly mention that each item can only appear once in the knapsack?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Does the problem description explicitly mention that each item can only appear once in the knapsack?\nUser: Yes\n\nExpert: Do any of the problems use the term 'capacity' instead of 'limit' when referring to the knapsack's weight constraint?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Does the problem description explicitly mention that each item can only appear once in the knapsack?\nUser: Yes\n\nExpert: Do any of the problems use the term 'capacity' instead of 'limit' when referring to the knapsack's weight constraint?\nUser: Yes\n\nExpert: Does the problem description explicitly state that the weight and value of each item are non-negative?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.",
+    "(0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Is the value of each item a linear function of its weight?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Is the value of each item a linear function of its weight?\nUser: No\n\nExpert: Is the total value of the items a non-decreasing function of the weight of the items selected?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Is the value of each item a linear function of its weight?\nUser: No\n\nExpert: Is the total value of the items a non-decreasing function of the weight of the items selected?\nUser: No\n\nExpert: Is the weight of each item a non-negative number?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.",
+    "(0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Is the capacity of the knapsack a variable parameter or a fixed constant in the problem?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Is the capacity of the knapsack a variable parameter or a fixed constant in the problem?\nUser: Yes.\n\nExpert: Is the capacity of the knapsack a fixed constant?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Is the capacity of the knapsack a variable parameter or a fixed constant in the problem?\nUser: Yes.\n\nExpert: Is the capacity of the knapsack a fixed constant?\nUser: Yes.\n\nExpert: Is the knapsack capacity specified as a constant or a variable?\nUser: Yes.\n"
+  }
+}

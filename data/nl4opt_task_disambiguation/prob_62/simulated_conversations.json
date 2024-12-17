@@ -1,0 +1,45 @@
+{
+  "vague_description": "The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.",
+  "detailed_description": "A cell phone company is building rural and urban factories. A rural factory can make \\var{ProdRural} phones per day and requires \\var{MgrsRural} managers. An urban factory can make \\var{ProdUrban} phones per day and requires \\var{MgrsUrban} managers. The company has available \\var{TotalMgrs} managers and must make at least \\var{MinPhones} phones per day. How many of each factory type should be built to minimize the total number of factories?",
+  "target_objective": "Minimize the total number of factories",
+  "target_constraints": [
+    "The number of rural factories is an integer",
+    "The number of urban factories is an integer",
+    "The number of rural factories is non-negative",
+    "The number of urban factories is non-negative",
+    "Total managers used by rural and urban factories cannot exceed TotalMgrs",
+    "Total phones produced by rural and urban factories must be at least MinPhones per day"
+  ],
+  "target_parameters": [
+    "Phone production per day by a rural factory",
+    "Managers required per rural factory",
+    "Phone production per day by an urban factory",
+    "Managers required per urban factory",
+    "Total available managers",
+    "Minimum required phone production per day"
+  ],
+  "Expert": {
+    "(0,)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.",
+    "(0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Are there specific production capacity limits for each factory location?\nUser: No\n",
+    "(0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Are there specific production capacity limits for each factory location?\nUser: No\n\nExpert: Is there a maximum number of managers that can be allocated to each factory location?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Are there specific production capacity limits for each factory location?\nUser: No\n\nExpert: Is there a maximum number of managers that can be allocated to each factory location?\nUser: No\n\nExpert: Is there a fixed number of phone units that each manager can oversee in production at any factory?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.",
+    "(0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Do any of the candidate problems involve a transportation cost parameter?\nUser: No\n",
+    "(0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Do any of the candidate problems involve a transportation cost parameter?\nUser: No\n\nExpert: Does the problem description specify minimizing the total cost as an objective?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Do any of the candidate problems involve a transportation cost parameter?\nUser: No\n\nExpert: Does the problem description specify minimizing the total cost as an objective?\nUser: No\n\nExpert: Is the constraint related to manager allocation based on the number of factories they can oversee explicitly mentioned in the problem statement?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.",
+    "(0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Is the goal of the optimization problem to minimize the total cost of production and manager allocation?\nUser: No\n",
+    "(0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Is the goal of the optimization problem to minimize the total cost of production and manager allocation?\nUser: No\n\nExpert: Is the goal of the optimization problem to meet the phone production demands at 100% capacity, as opposed to meeting a partial capacity?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Is the goal of the optimization problem to minimize the total cost of production and manager allocation?\nUser: No\n\nExpert: Is the goal of the optimization problem to meet the phone production demands at 100% capacity, as opposed to meeting a partial capacity?\nUser: Yes\n\nExpert: Are there multiple types of phones being produced at the factory, each with different production requirements and demands?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.",
+    "(0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Is the number of factory locations a fixed parameter or an optimization decision variable?\nUser: No, the number of factory locations is not a fixed parameter; it's an optimization decision variable to minimize.\n",
+    "(0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Is the number of factory locations a fixed parameter or an optimization decision variable?\nUser: No, the number of factory locations is not a fixed parameter; it's an optimization decision variable to minimize.\n\nExpert: Does the description contain any constraints other than the number of factory locations?\nUser: Yes, the constraints include the availability of a fixed number of managers and the requirement to produce at least a minimum number of phones per day.\n",
+    "(0, 0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Is the number of factory locations a fixed parameter or an optimization decision variable?\nUser: No, the number of factory locations is not a fixed parameter; it's an optimization decision variable to minimize.\n\nExpert: Does the description contain any constraints other than the number of factory locations?\nUser: Yes, the constraints include the availability of a fixed number of managers and the requirement to produce at least a minimum number of phones per day.\n\nExpert: Is the number of managers a fixed parameter in the problem?\nUser: Yes, the number of managers is a fixed parameter in the problem.\n"
+  }
+}

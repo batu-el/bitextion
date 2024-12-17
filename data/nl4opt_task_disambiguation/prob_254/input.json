@@ -1,0 +1,21 @@
+{
+  "vague_description": "Allocating limited resources to optimize output given specific constraints.",
+  "detailed_description": "Grain is transported from a farm to local grocery stores in either large bags or tiny bags. Large bags can hold \\param{LargeBagCapacity} kg of grain and requires \\param{LargeBagEnergy} units of energy to transport. Tiny bags can hold \\param{TinyBagCapacity} kg of grain and requires \\param{TinyBagEnergy} units of energy to transport. The distribution process has access to \\param{TotalEnergy} units of energy. Because of the popularity of buying in bulk, there must be twice as many large bags as tiny bags of rice. Additionally, there must be at least \\param{MinTinyBags} tiny bags of rice. How many of each size of rice bags should be used to maximize the total amount of grain in weight?",
+  "target_objective": "Maximize the total weight of grain transported in bags",
+  "target_constraints": [
+    "Number of large bags is non-negative",
+    "Number of tiny bags is non-negative",
+    "The total energy used for transporting bags cannot exceed TotalEnergy units",
+    "There must be twice as many large bags as tiny bags",
+    "There must be at least MinTinyBags tiny bags"
+  ],
+  "target_parameters": [
+    "Capacity of a large bag",
+    "Energy required to transport a large bag",
+    "Capacity of a tiny bag",
+    "Energy required to transport a tiny bag",
+    "Total energy available for transport",
+    "Ratio of number of large bags to tiny bags",
+    "Minimum number of tiny bags required"
+  ]
+}

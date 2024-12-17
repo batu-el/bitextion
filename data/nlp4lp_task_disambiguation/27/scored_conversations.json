@@ -1,0 +1,497 @@
+{
+  "vague_description": "Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.",
+  "detailed_description": "Maximize total productive capacity at the end of the five years. The problem parameters are a matrix of coefficients \\param{InputOne}, a vector of manpower coefficients for input one \\param{ManpowerOne}, a matrix of coefficients \\param{InputTwo}, a vector of manpower coefficients for input two \\param{Manpowertwo}, initial stock levels \\param{Stock}, productive capacities \\param{Capacity}, a company-wide manpower limit \\param{ManpowerLimit}, and demand for each productive unit \\param{Demand}.",
+  "target_objective": "Maximize total productive capacity at the end of the five years",
+  "target_constraints": [
+    "There is a company-wide manpower limit denoted by ManpowerLimit",
+    "The production must meet certain demand levels specified by Demand",
+    "Each input usage and productive capacity must be non-negative"
+  ],
+  "target_parameters": [
+    "Total number of years in the planning horizon",
+    "Input one coefficients matrix",
+    "Manpower coefficients for input one",
+    "Input two coefficients matrix",
+    "Manpower coefficients for input two",
+    "Initial stock level for each of the productive units",
+    "Productive capacity for each productive unit",
+    "Company-wide manpower limit",
+    "Demand for each of the productive units at the end of the planning horizon"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Are there specific numerical limits or quantities defined for manpower, materials, or demand in this problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Are there specific numerical limits or quantities defined for manpower, materials, or demand in this problem?\nUser: Yes\n\nExpert: Is the objective function related to maximizing production output explicitly defined or quantified in terms of resource usage?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Are there specific numerical limits or quantities defined for manpower, materials, or demand in this problem?\nUser: Yes\n\nExpert: Is the objective function related to maximizing production output explicitly defined or quantified in terms of resource usage?\nUser: Yes\n\nExpert: Are there any constraints or limits on the availability or cost of resources that might affect the production output?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Do any of the problems involve constraints related to compliance with safety and regulatory standards?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Do any of the problems involve constraints related to compliance with safety and regulatory standards?\nUser: No\n\nExpert: Does the problem have constraints that include both a manpower allocation limit and a material usage standard?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Do any of the problems involve constraints related to compliance with safety and regulatory standards?\nUser: No\n\nExpert: Does the problem have constraints that include both a manpower allocation limit and a material usage standard?\nUser: Yes\n\nExpert: Do any of the candidate problems have constraints related to market demand forecast for production limits?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Is the problem a multi-period optimization problem, meaning the production output and constraints vary over the given period?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Is the problem a multi-period optimization problem, meaning the production output and constraints vary over the given period?\nUser: Yes\n\nExpert: Is the production output to be maximized subject to any capacity constraints, such as a maximum number of units that can be produced within the given period?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Is the problem a multi-period optimization problem, meaning the production output and constraints vary over the given period?\nUser: Yes\n\nExpert: Is the production output to be maximized subject to any capacity constraints, such as a maximum number of units that can be produced within the given period?\nUser: Yes\n\nExpert: Are the capacity constraints fixed and known in advance, or do they vary dynamically depending on factors like production schedule or external events?\nUser: Fixed and known in advance.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Is 'demand' mentioned as a constraint in the problem description without the word 'requirements'?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Is 'demand' mentioned as a constraint in the problem description without the word 'requirements'?\nUser: Yes\n\nExpert: Is the production output objective explicitly stated as 'Maximize' or 'maximize'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Is 'demand' mentioned as a constraint in the problem description without the word 'requirements'?\nUser: Yes\n\nExpert: Is the production output objective explicitly stated as 'Maximize' or 'maximize'?\nUser: Yes\n\nExpert: Is the production output parameter defined as part of the parameters?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Manpower constraints",
+            "Materials constraints",
+            "Demand requirements",
+            "Production output",
+            "Allocation of resources",
+            "Time period"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize production output within a given period while adhering to constraints related to manpower, materials, and demand requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total manpower available is limited to a maximum number of hours per period.",
+            "The amount of materials available cannot exceed the current inventory levels.",
+            "Demand requirements dictate that production outputs must meet minimum specified quantities.",
+            "Resource allocation should not exceed budgetary limits, if any are specified.",
+            "All production processes are subject to operational capacity limitations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "manpower limits",
+            "material limits",
+            "demand requirements",
+            "production output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize production output by optimally allocating resources within the defined constraints on manpower, materials, and demand requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a fixed limit on the total number of workers available, which restricts the manpower that can be utilized in the production process.",
+            "There is a limited quantity of materials available for production, which constrains the amount of products that can be manufactured.",
+            "The demand requirements specify a minimum number of units that need to be produced over the given period to meet market needs."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Maximize production output.",
+            "Constraint 1: Limited manpower availability.",
+            "Constraint 2: Limited supply of materials.",
+            "Constraint 3: Demand requirements must be fulfilled.",
+            "Time Period: Specific duration over which production output is to be maximized."
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize production output given constraints on manpower, materials, and demand requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Manpower availability is limited to a specific number of hours or number of workers.",
+            "Material availability is limited to a specific quantity or volume required for production.",
+            "Demand requirements impose a minimum or maximum production output.",
+            "The allocation must not exceed the available manpower hours or number of workers.",
+            "The allocation must not exceed the available quantity or volume of materials."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Manpower limits",
+            "Material limits",
+            "Demand requirements",
+            "Objective function to maximize production output",
+            "Constraints on resource availability",
+            "Cost of resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize production output over a given period while considering constraints on manpower, materials, and demand requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Manpower availability limits",
+            "Material availability limits",
+            "Demand requirements",
+            "Cost constraints",
+            "Resource usage for maximizing production output"
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Manpower availability",
+            "Material availability",
+            "Demand requirements",
+            "Production capacity",
+            "Time period for production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize production output while satisfying constraints on manpower, materials, and demand requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Manpower is limited to a certain number of hours per period.",
+            "Material availability is restricted by supply chain limits.",
+            "Production must meet or exceed minimum demand requirements.",
+            "Total production cannot surpass storage capacity.",
+            "Work shifts must comply with labor regulations.",
+            "Budget constraints limit the total cost of materials and labor."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "optimal allocation of resources",
+            "highest production output",
+            "constraints on manpower",
+            "constraints on materials",
+            "constraints on demand requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize production output by optimally allocating resources over a specified period, considering constraints on manpower, materials, and demand requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Manpower is limited to a specific number of workers available per shift.",
+            "Materials are constrained by the available inventory and supply chain limitations.",
+            "Demand requirements must be met, ensuring production targets align with market demand."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "manpower allocation limit",
+            "material usage standard",
+            "demand requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize production output by optimally allocating resources, considering manpower, materials, and demand constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Compliance with manpower allocation limits.",
+            "Adherence to material usage standards.",
+            "Meeting customer demand requirements."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "manpower allocation limit",
+            "material usage standard",
+            "market demand forecast for production limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize production output while adhering to constraints on manpower, material usage, and market demand forecasts."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Manpower allocation limit",
+            "Material usage standard",
+            "Market demand forecast for production limits"
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation",
+            "Production Output",
+            "Manpower Constraints",
+            "Materials Constraints",
+            "Demand Requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize production output while adhering to constraints on available manpower, material resources, and demand forecasts."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Manpower availability must not exceed the total workforce capacity.",
+            "Materials usage must not exceed the available inventory.",
+            "Production output must meet or exceed the minimum demand requirements.",
+            "Overtime work should be limited as per labor laws or company policies.",
+            "Production output should not exceed the maximum capacity of manufacturing facilities.",
+            "There should be a balance between different product lines based on demand priority."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Production output",
+            "Time period",
+            "Manpower constraints",
+            "Materials constraints",
+            "Demand requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total production output over the entire given period while adhering to constraints on manpower, material availability, and meeting demand requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must not exceed available manpower in any given period.",
+            "Material usage should be within the budgeted and available supply for each period.",
+            "Production output must meet or exceed demand requirements for each period.",
+            "The allocation of manpower and materials should ensure safe operational capacity limits are not breached.",
+            "All resources are to be allocated without exceeding the budget or cost constraints.",
+            "The allocation plan should adhere to environmental and regulatory compliance constraints.",
+            "The production system has a maximum operational capacity that must not be exceeded in any given period."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "manpower constraints",
+            "materials constraints",
+            "demand requirements",
+            "multi-period constraints",
+            "capacity constraints (maximum units)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize production output over a given period by optimally allocating resources, considering constraints on manpower, materials, capacity, and demand requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources must be allocated such that the total manpower does not exceed available workforce levels for each period in the given timeframe.",
+            "Material usage must remain within limits based on available supplies for each period.",
+            "Production output in each period must meet demand requirements as specified for that period.",
+            "Total production output cannot exceed the maximum production capacity for each period."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production output",
+            "Time period",
+            "Manpower constraints",
+            "Materials constraints",
+            "Demand requirements",
+            "Capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize total production output over the given period."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Manpower availability: Limited workforce hours available for allocation across various production tasks.",
+            "Material constraints: A limited quantity of raw materials, which restricts production potential.",
+            "Demand requirements: Ensure production meets specific demand levels without under or over-producing.",
+            "Capacity constraints: Predefined limits on the maximum units that can be produced within the given period."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Production output",
+            "Time period",
+            "Manpower constraints",
+            "Materials constraints",
+            "Demand requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize production output while adhering to constraints on manpower, materials, and demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Manpower is limited to a maximum of X employees working regular hours, with the possibility of Y extra overtime hours.",
+            "Material availability is constrained by supplier capacity, allowing for a maximum acquisition of Z units of raw material per month.",
+            "Demand requirements must be met with at least Q units of product A and R units of product B within the given period.",
+            "Labor laws and regulations require that each employee must receive at least T hours of break/rest within any W hours of work.",
+            "Total production capacity cannot exceed the factory's maximum throughput of L units per day due to equipment limitations.",
+            "Inventory storage is limited to a maximum hold of V units of all combined products at any given time.",
+            "Environmental regulations cap emissions to M units per month, dictating production processes."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective_function: 'maximize production output'",
+            "resource_constraints: 'manpower', 'materials'",
+            "demand_constraints: 'demand'"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize production output over a given period subject to constraints on manpower, materials, and demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Manpower is limited and must be efficiently distributed across all production units.",
+            "Materials available for production are restricted and need to be optimally allocated to different processes.",
+            "Demand for the final product must be met, influencing production capacity and priorities."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "manpower",
+            "materials",
+            "demand"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production output over a given period."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Manpower limitations",
+            "Material availability",
+            "Demand requirements"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "manpower",
+            "materials",
+            "demand"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize production output while considering constraints on manpower, materials, and demand requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "manpower",
+            "materials",
+            "demand"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 3
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 3
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "vague_description": "Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.",
+  "detailed_description": "Fit the \u2018best\u2019 straight line y = bx + a where the objective is to minimize the maximum deviation of all the \\param{K} observed values of \\param{Y} from the value predicted by the linear relationship. The observed values of y are given by \\param{Y} and the observed values of x are given by \\param{X}.",
+  "target_objective": "Minimize the maximum deviation of all K observed values from the predicted y values",
+  "target_constraints": [
+    "The deviation is the absolute difference between predicted y values and observed y values",
+    "Deviation should be minimized for all K observed values"
+  ],
+  "target_parameters": [
+    "Number of observed data points",
+    "Observed values of y",
+    "Observed values of x"
+  ],
+  "Expert": {
+    "(0,)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.",
+    "(0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is this optimization problem focused on minimizing the maximum absolute deviation from the line to the observed data points?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is this optimization problem focused on minimizing the maximum absolute deviation from the line to the observed data points?\nUser: Yes\n\nExpert: Does the optimization involve constraints on the slope or intercept of the line?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is this optimization problem focused on minimizing the maximum absolute deviation from the line to the observed data points?\nUser: Yes\n\nExpert: Does the optimization involve constraints on the slope or intercept of the line?\nUser: No\n\nExpert: Is the model trying to find the best fit line through linear programming without the use of least squares?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.",
+    "(0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is there a constraint requiring the line to pass through a specified point?\nUser: No\n",
+    "(0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is there a constraint requiring the line to pass through a specified point?\nUser: No\n\nExpert: Does the problem description include explicit constraints on how the parameters define the linear equation used for prediction?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is there a constraint requiring the line to pass through a specified point?\nUser: No\n\nExpert: Does the problem description include explicit constraints on how the parameters define the linear equation used for prediction?\nUser: No\n\nExpert: Does the problem involve minimizing the absolute deviation between observed and predicted values using a linear model?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.",
+    "(0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is the line constrained to pass through a specific point or set of points?\nUser: No\n",
+    "(0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is the line constrained to pass through a specific point or set of points?\nUser: No\n\nExpert: Is the objective to minimize the sum of the squared differences between predicted and observed values?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Is the line constrained to pass through a specific point or set of points?\nUser: No\n\nExpert: Is the objective to minimize the sum of the squared differences between predicted and observed values?\nUser: No\n\nExpert: Is the objective to minimize the maximum difference (or a measure closely related to it), such as the absolute deviation or the mean absolute error?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.",
+    "(0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Does the problem contain a constraint that specifies a linear relationship?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Does the problem contain a constraint that specifies a linear relationship?\nUser: Yes\n\nExpert: Is the slope (m) explicitly mentioned as a parameter in the problem description?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.\nExpert: Does the problem contain a constraint that specifies a linear relationship?\nUser: Yes\n\nExpert: Is the slope (m) explicitly mentioned as a parameter in the problem description?\nUser: No\n\nExpert: Does the problem explicitly mention the y-intercept (b) in the parameters or constraints?\nUser: No\n"
+  }
+}

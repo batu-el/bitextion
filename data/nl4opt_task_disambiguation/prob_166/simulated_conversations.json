@@ -1,0 +1,41 @@
+{
+  "vague_description": "The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.",
+  "detailed_description": "A car manufacturer ships their cars on large and small planes. A large plane can carry \\param{LargePlaneCapacity} cars while a small plane can carry \\param{SmallPlaneCapacity} cars. Since large planes cause more pollution, the number of large planes must be less than \\param{PollutionRatio} times the number of small planes. If the manufacturer wants to deliver at least \\param{MinimumCarsDelivered} cars, find the minimum number of planes that can be used.",
+  "target_objective": "Minimize the total number of planes used to deliver the cars",
+  "target_constraints": [
+    "The number of large planes used must be less than PollutionRatio times the number of small planes",
+    "At least MinimumCarsDelivered cars must be delivered",
+    "The number of large planes used is non-negative",
+    "The number of small planes used is non-negative"
+  ],
+  "target_parameters": [
+    "Capacity of a large plane",
+    "Capacity of a small plane",
+    "Minimum number of cars to be delivered",
+    "Pollution factor constraint for large planes"
+  ],
+  "Expert": {
+    "(0,)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.",
+    "(0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the optimization problem involve minimizing pollution as one of its objectives?\nUser: No\n",
+    "(0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the optimization problem involve minimizing pollution as one of its objectives?\nUser: No\n\nExpert: Is the objective function aimed at minimizing the number of planes used?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the optimization problem involve minimizing pollution as one of its objectives?\nUser: No\n\nExpert: Is the objective function aimed at minimizing the number of planes used?\nUser: Yes\n\nExpert: Are there constraints related to the total number of cars that need to be transported?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.",
+    "(0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the problem involve transporting cars from multiple locations?\nUser: No\n",
+    "(0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the problem involve transporting cars from multiple locations?\nUser: No\n\nExpert: Is there a constraint that mandates planes must operate at full capacity to minimize emissions per car?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the problem involve transporting cars from multiple locations?\nUser: No\n\nExpert: Is there a constraint that mandates planes must operate at full capacity to minimize emissions per car?\nUser: No\n\nExpert: Do the problem descriptions specify different pollution constraints for each type of plane rather than a uniform pollution limit for the entire operation?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.",
+    "(0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Are the pollution constraints expressed as a linear inequality?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Are the pollution constraints expressed as a linear inequality?\nUser: Yes.\n\nExpert: Are the capacity limits per plane size expressed as fixed integer capacities?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Are the pollution constraints expressed as a linear inequality?\nUser: Yes.\n\nExpert: Are the capacity limits per plane size expressed as fixed integer capacities?\nUser: Yes.\n\nExpert: Is the objective function to minimize the total number of planes used?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.",
+    "(0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the problem description include any numerical values or specific quantities?\nUser: No\n",
+    "(0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the problem description include any numerical values or specific quantities?\nUser: No\n\nExpert: Does the problem description include the 'transporting cars' phrase in the objective?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the problem description include any numerical values or specific quantities?\nUser: No\n\nExpert: Does the problem description include the 'transporting cars' phrase in the objective?\nUser: Yes\n\nExpert: Is the objective to 'minimize' the number of planes used for transporting cars?\nUser: Yes\n"
+  }
+}

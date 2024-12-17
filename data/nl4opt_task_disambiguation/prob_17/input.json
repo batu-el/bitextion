@@ -1,0 +1,27 @@
+{
+  "vague_description": "How do you maximize profits with limited resources and specific material requirements for different products?",
+  "detailed_description": "A chair produced by Elm Furniture yields a profit of \\var{ProfitChair}, while every dresser yields a \\var{ProfitDresser} profit. Each week, \\var{TotalStain} gallons of stain and \\var{TotalOak} lengths of oak wood are available. Each chair requires \\var{StainPerChair} gallons of stain and \\var{OakPerChair} lengths of oak wood, while each dresser requires \\var{StainPerDresser} gallons of stain and \\var{OakPerDresser} lengths of oak wood. Determine the maximum profit.",
+  "target_objective": "Maximize the total profit from chairs and dressers",
+  "target_constraints": [
+    "Number of chairs is an integer",
+    "Number of dressers is an integer",
+    "Number of chairs is non-negative",
+    "Number of dressers is non-negative",
+    "Total stain used for chairs and dressers cannot exceed TotalStain gallons per week",
+    "Total oak wood used for chairs and dressers cannot exceed TotalOak lengths per week",
+    "Each chair requires StainPerChair gallons of stain",
+    "Each dresser requires StainPerDresser gallons of stain",
+    "Each chair requires OakPerChair lengths of oak wood",
+    "Each dresser requires OakPerDresser lengths of oak wood"
+  ],
+  "target_parameters": [
+    "Profit for each chair produced",
+    "Profit for each dresser produced",
+    "Total gallons of stain available per week",
+    "Total lengths of oak wood available per week",
+    "Amount of stain required for one chair",
+    "Amount of oak wood required for one chair",
+    "Amount of stain required for one dresser",
+    "Amount of oak wood required for one dresser"
+  ]
+}

@@ -1,0 +1,479 @@
+{
+  "vague_description": "The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.",
+  "detailed_description": "How many of which system should DEC produce and using what memories and disks to maximize the profit for the next quarter? The parameters involved are the number of systems \\param{N}, whether a system is a workstation or not for each system \\param{IsWorkstation}, the price for each system \\param{Price}, the number of disk drives for each system \\param{DiskDrives}, the number of 256K memory boards for each system \\param{MemoryBoards}, the maximum number of CPUs available \\param{MaxCpu}, the minimum and maximum total disk drives in the system \\param{MinDisk} and \\param{MaxDisk} respectively, the minimum and maximum total memory boards \\param{MinMemory} and \\param{MaxMemory} respectively, the demand for each system \\param{Demand}, the demand for general purpose systems \\param{DemandGP} and for workstations \\param{DemandWS}, the number of preordered systems \\param{Preorder}, the number of alternative memory configurations possible \\param{AltMemory}, and the compatibility of alternative memory with each system \\param{AltCompatible}.",
+  "target_objective": "Maximize the profit, which is calculated as the sum of the product of the number of each system produced and its corresponding Price",
+  "target_constraints": [
+    "The number of systems produced is non-negative and integer",
+    "Only workstations or general-purpose systems can be produced for each system according to IsWorkstation",
+    "The production must not exceed the MaxCpu available CPUs",
+    "The total number of disk drives across all systems must be at least MinDisk and at most MaxDisk",
+    "The total number of 256K memory boards across all systems must be at least MinMemory and at most MaxMemory",
+    "The production of each system must not exceed its corresponding Demand",
+    "The total production of general purpose systems must not exceed DemandGP",
+    "The total production of workstations must not exceed DemandWS",
+    "Preorder systems must be fulfilled as specified by Preorder",
+    "Each system must be configured with compatible alternative memory configurations based on AltCompatible",
+    "The number of system configurations using alternative memory must not exceed AltMemory"
+  ],
+  "target_parameters": [
+    "Number of systems",
+    "Whether system i is a workstation",
+    "Price of system i",
+    "Number of disk drives in system i",
+    "Number of 256K memory boards in system i",
+    "Maximum number of CPUs available",
+    "Minimum total disk drives",
+    "Maximum total disk drives",
+    "Minimum total memory boards",
+    "Maximum total memory boards",
+    "Demand of system i",
+    "Demand for General Purpose systems",
+    "Demand for Workstations",
+    "Number of preordered system i",
+    "Number of alternative memory configurations possible",
+    "Whether the alternative memory is compatible with system i"
+  ],
+  "Expert": {
+    "(0,)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.",
+    "(0, 0)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.\nExpert: Are the resource constraints related to raw materials, labor, or both?\nUser: Yes, the resource constraints are related to components specifically CPUs, disk drives, and memory boards.\n",
+    "(0, 0, 0)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.\nExpert: Are the resource constraints related to raw materials, labor, or both?\nUser: Yes, the resource constraints are related to components specifically CPUs, disk drives, and memory boards.\n\nExpert: Is the objective of the optimization problem to maximize profit or minimize costs?\nUser: Yes, the objective is to maximize profit.\n",
+    "(0, 0, 0, 0)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.\nExpert: Are the resource constraints related to raw materials, labor, or both?\nUser: Yes, the resource constraints are related to components specifically CPUs, disk drives, and memory boards.\n\nExpert: Is the objective of the optimization problem to maximize profit or minimize costs?\nUser: Yes, the objective is to maximize profit.\n\nExpert: Are there any constraints related to production capacity or facility limitations?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.",
+    "(0, 0)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.\nExpert: Does any candidate problem include sustainability constraints related to energy usage similar to using renewable energy?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.\nExpert: Does any candidate problem include sustainability constraints related to energy usage similar to using renewable energy?\nUser: No\n\nExpert: Does the problem involve a constraint specifically limiting the percentage of a particular product configuration in the total production?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.\nExpert: Does any candidate problem include sustainability constraints related to energy usage similar to using renewable energy?\nUser: No\n\nExpert: Does the problem involve a constraint specifically limiting the percentage of a particular product configuration in the total production?\nUser: No\n\nExpert: Do any of the candidate problems include a constraint that sets a minimum production requirement for product configurations?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.",
+    "(0, 0)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.\nExpert: Are the production costs of the products considered in the optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.\nExpert: Are the production costs of the products considered in the optimization problem?\nUser: No\n\nExpert: Are there any constraints related to resource availability, such as limited manufacturing capacity or personnel?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.\nExpert: Are the production costs of the products considered in the optimization problem?\nUser: No\n\nExpert: Are there any constraints related to resource availability, such as limited manufacturing capacity or personnel?\nUser: Yes\n\nExpert: Are the capacities of the resources (e.g., manufacturing capacity or personnel) considered to be fixed or flexible?\nUser: Fixed\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.",
+    "(0, 0)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.\nExpert: Are product configurations listed as a constraint rather than or in addition to a parameter?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.\nExpert: Are product configurations listed as a constraint rather than or in addition to a parameter?\nUser: Yes.\n\nExpert: Does the objective function involve maximizing a 'profit' or 'revenue' related metric?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.\nExpert: Are product configurations listed as a constraint rather than or in addition to a parameter?\nUser: Yes.\n\nExpert: Does the objective function involve maximizing a 'profit' or 'revenue' related metric?\nUser: Yes.\n\nExpert: Does the objective contain the word 'Maximize' or 'Maximize' with the word 'Revenue' in the description?\nUser: Yes.\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Product Configurations",
+            "Resource Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To identify the optimal production strategy for a technology company that balances different product configurations and resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation: The total usage of resources (e.g., raw materials, labor hours) for production cannot exceed the available supply.",
+            "Product configurations: Each product configuration has specific resource requirements and production quotas that must be met.",
+            "Market demand: Production must align with market demand, ensuring that supply does not significantly exceed or fall short of demand.",
+            "Budget limitations: The total cost of production, including raw materials and labor, must remain within the company's budget constraints.",
+            "Production capacity: The company has a maximum production capacity that cannot be exceeded due to machinery and operational constraints."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "CPUs",
+            "disk drives",
+            "memory boards"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production strategy that maximizes profitability or minimizes costs for a technology company while considering constraints on availability of CPUs, disk drives, and memory boards."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must consider limited availability of CPUs, disk drives, and memory boards.",
+            "Product configurations must fit within the constraints of available components.",
+            "Total usage of each component type should not exceed its available quantity."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Product configurations",
+            "CPUs",
+            "Disk drives",
+            "Memory boards",
+            "Maximize profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by determining the optimal production strategy for a technology company considering various product configurations and constraints on components such as CPUs, disk drives, and memory boards."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited availability of CPUs for production.",
+            "Limited availability of disk drives for production.",
+            "Limited availability of memory boards for production."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "CPU availability",
+            "Disk drive availability",
+            "Memory board availability",
+            "Maximization of profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize profit for a technology company by determining the optimal production strategy considering resource constraints on components like CPUs, disk drives, and memory boards, without any production capacity or facility limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints related to the availability of CPUs.",
+            "Resource constraints related to the availability of disk drives.",
+            "Resource constraints related to the availability of memory boards."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "product configurations",
+            "resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the best production strategy that maximizes efficiency and profit while adhering to resource constraints and accommodating different product configurations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production capacity of the factory cannot exceed 10,000 units per month.",
+            "Each product configuration requires a specific amount of labor hours, not exceeding the total available hours in a month.",
+            "The budget for production costs cannot exceed $500,000 per month.",
+            "Certain key components have limited availability, restricting the number of products that can be assembled.",
+            "The production plan must meet minimum demand requirements for each product configuration.",
+            "The production process must comply with environmental regulations regarding waste and emissions."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production strategy",
+            "product configurations",
+            "resource constraints",
+            "technology company"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal production strategy for a technology company by selecting the best product configurations while considering resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production strategy must consider various product configurations.",
+            "Resource constraints are present, limiting the availability of materials, labor, or other resources needed for production.",
+            "There are no specific sustainability constraints related to energy usage such as a requirement to use renewable energy."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "product configurations",
+            "resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production strategy for a technology company by selecting the best mix of product configurations under given resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Optimization is subject to product configurations.",
+            "Resource constraints are a significant factor in determining the strategy."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Product configurations (technology features)",
+            "Resource constraints",
+            "Minimum production requirements for specific configurations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production strategy for a technology company, taking into account different product configurations, resource constraints, and a minimum production requirement for certain product configurations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimum production requirement for product configurations."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production strategy",
+            "Product configurations",
+            "Resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal production strategy for a technology company while considering various product configurations and resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production capacity for each product configuration cannot exceed the available manufacturing resources.",
+            "Total production costs should not surpass the budget allocated for the technology company.",
+            "The product configurations must comply with quality standards set by the company.",
+            "The production strategy should align with the market demand forecasts for each product.",
+            "Raw material availability may limit the total output for specific product configurations.",
+            "The strategy must adhere to labor and employment regulations within the jurisdiction of operation.",
+            "Distribution and logistics capacities may constrain the delivery and availability of the final products."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "product configurations",
+            "resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production strategy for a technology company considering various product configurations and resource constraints, but excluding production costs from consideration."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Product configurations must be accounted for in the production strategy.",
+            "There are resource limitations that need to be considered in the strategy."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "product configurations",
+            "resource constraints",
+            "limited manufacturing capacity",
+            "personnel availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal production strategy that maximizes the output of various product configurations while adhering to existing resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited manufacturing capacity.",
+            "Limited personnel."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "product configurations",
+            "resource constraints",
+            "fixed resource capacities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production strategy for a technology company by selecting the best product configurations that can be produced within the fixed resource capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability is a constraint.",
+            "Manufacturing capacity is fixed.",
+            "Personnel availability is fixed."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production strategy",
+            "Product configurations",
+            "Resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production strategy for a technology company that maximizes efficiency or profit while considering various product configurations and resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The product configurations must align with the company's technology roadmap.",
+            "Resource availability is limited by budgetary constraints, which must not be exceeded.",
+            "Production capacity must not exceed the capabilities of existing manufacturing facilities.",
+            "Labor availability is constrained by existing workforce schedules and maximum allowable hours.",
+            "Supply chain limitations due to both material availability and lead times must be accounted for.",
+            "Regulatory compliance for each product configuration must be maintained.",
+            "The strategy should result in a net positive return on investment.",
+            "Waste and byproduct generation should be minimized according to environmental policies."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource constraints",
+            "Product configurations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal production strategy for a technology company by selecting the best product configurations and managing resource allocation efficiently within given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Product configurations must be considered as constraints in the production strategy.",
+            "Resource limitations such as budget, manpower, and materials must be respected."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Technology company",
+            "Optimal production strategy",
+            "Product configurations (constraint)",
+            "Resource constraints",
+            "Maximize profit or revenue metric"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit or revenue related metric for the technology company's production strategy."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Product configurations must be treated as a constraint, dictating which products can be produced based on available resources and capabilities.",
+            "Available resources (such as raw materials, labor, and machinery) limit the total possible production capacity for all products.",
+            "There might be a mandatory minimum or a maximum limit to the number of specific products that can be produced during a given period.",
+            "Production resources, such as time, workforce, or budget constraints, must be balanced across different product lines.",
+            "Market demand constraints for each product may exist, limiting how much can be sold, thus influencing production decisions."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "product configurations",
+            "resource constraints",
+            "production strategy",
+            "profit",
+            "revenue"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit or revenue by determining the optimal production strategy for a technology company while considering product configurations and resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Product configurations as constraints, indicating some configurations are not feasible or allowed.",
+            "Resource constraints include limitations on available materials, labor, and manufacturing capacities.",
+            "Objective function involves maximizing revenue or profit.",
+            "Non-negativity constraints for decision variables indicating that production quantities cannot be negative."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      }
+    }
+  }
+}

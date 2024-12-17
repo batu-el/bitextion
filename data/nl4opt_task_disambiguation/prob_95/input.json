@@ -1,0 +1,23 @@
+{
+  "vague_description": "A company is seeking to optimize resource allocation for maximizing production while adhering to environmental and equipment constraints.",
+  "detailed_description": "A mining company has available a total of \\param{A} square miles of mining sites and considering the use of two mining techniques: heap leaching and vat leaching. For each square mile of land, heap leaching technique can have a daily production of \\param{HeapProduction} tons of rare earth oxide per square miles but it also creates \\param{HeapWaste} tons of polluted wastewater and requires \\param{HeapMachines} extraction machines. On the other hand, vat leaching technique produces \\param{VatProduction} tons of rare earth oxide per square miles per day while creating \\param{VatWaste} tons of polluted wastewater and requiring \\param{VatMachines} extraction machines. There are \\param{MachinesAvailable} machines available and due to environmental regulations, the amount of polluted wastewater must be at most \\param{WasteLimit} tons daily. Find the proportion of lands that use each mining technique in order to maximize the daily production of rare earth oxide.",
+  "target_objective": "Maximize the daily production of rare earth oxide",
+  "target_constraints": [
+    "Total land used for heap leaching and vat leaching must not exceed A square miles",
+    "Number of machines used for heap leaching plus those used for vat leaching must not exceed MachinesAvailable",
+    "Total wastewater produced by both leaching techniques must not exceed WasteLimit tons daily",
+    "The area allocated to heap leaching is non-negative",
+    "The area allocated to vat leaching is non-negative"
+  ],
+  "target_parameters": [
+    "Total area of mining sites",
+    "Daily production of rare earth oxide per square mile using heap leaching technique",
+    "Daily production of polluted wastewater per square mile using heap leaching technique",
+    "Number of extraction machines required per square mile using heap leaching technique",
+    "Daily production of rare earth oxide per square mile using vat leaching technique",
+    "Daily production of polluted wastewater per square mile using vat leaching technique",
+    "Number of extraction machines required per square mile using vat leaching technique",
+    "Total number of extraction machines available",
+    "Maximum daily production of polluted wastewater allowed by environmental regulations"
+  ]
+}

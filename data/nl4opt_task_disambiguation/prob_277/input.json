@@ -1,0 +1,22 @@
+{
+  "vague_description": "The company needs to determine the optimal number of mechanical and standard keyboards to produce within resource constraints to maximize output.",
+  "detailed_description": "A keyboard manufacturer makes mechanical and standard keyboards. The manufacturer aims to have \\param{RatioMechanicalStandard} times as many mechanical than standard keyboards. A mechanical keyboard costs \\param{PlasticPerMechanical} units of plastic and \\param{SolderPerMechanical} units of solder whereas a standard keyboard costs \\param{PlasticPerStandard} units of plastic and \\param{SolderPerStandard} unit of solder. There must be at least \\param{MinStandard} standard keyboards. If the company has available \\param{TotalPlastic} units of plastic and \\param{TotalSolder} units of solder, how many of each type should be manufactured to maximize the total number of keyboards?",
+  "target_objective": "Maximize the total number of keyboards manufactured",
+  "target_constraints": [
+    "Number of mechanical keyboards is non-negative",
+    "Number of standard keyboards is non-negative",
+    "At least MinStandard standard keyboards are produced",
+    "Total plastic use is less than or equal to TotalPlastic",
+    "Total solder use is less than or equal to TotalSolder"
+  ],
+  "target_parameters": [
+    "Ratio of mechanical keyboards to standard keyboards",
+    "Units of plastic required for one mechanical keyboard",
+    "Units of solder required for one mechanical keyboard",
+    "Units of plastic required for one standard keyboard",
+    "Units of solder required for one standard keyboard",
+    "Minimum number of standard keyboards to be produced",
+    "Total available units of plastic",
+    "Total available units of solder"
+  ]
+}

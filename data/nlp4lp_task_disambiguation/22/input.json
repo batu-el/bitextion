@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determining the optimal allocation of resources to enhance business outcomes.",
+  "detailed_description": "What maintaining, selling, storing, and manufacturing policy should the company pursue in order to maximize profit? The company has \\param{M} machines, each with a specific downtime \\param{Downtime}. There are \\param{K} products, each with an associated profit \\param{Profit} and a production time on each machine given by \\param{Time}. Products must adhere to limits given by \\param{Limit}. The price for storing products is \\param{StorePrice}, and they must keep a quantity of \\param{KeepQuantity} in the store. The company has \\param{WorkHours} work hours available for all machines combined.",
+  "target_objective": "Maximize the company's profit from its manufacturing and sales operations while considering maintenance, storage and work hour constraints",
+  "target_constraints": [
+    "Products must adhere to a production limit of Limit",
+    "A minimum quantity of KeepQuantity must be kept in storage",
+    "There are WorkHours work hours available for all machines combined",
+    "The numbers of products manufactured, maintained, sold, and stored are non-negative"
+  ],
+  "target_parameters": [
+    "Number of machines",
+    "Profit for each product",
+    "Time required to produce each product on each machine",
+    "Downtime for each machine",
+    "Limit for each product on constraints",
+    "Price for storing products",
+    "Quantity of products to keep in store",
+    "Number of work hours available"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determine the optimal production quantities of two different car models to maximize profit within specified demand and production constraints.",
+  "detailed_description": "A car manufacturer makes two versions of the same car, a regular model and a premium model. They make x1 regular models per day and x2 premium models per day. The profit per regular model is \\var{ProfitRegular} and the profit per premium model is \\var{ProfitPremium} (x1 and x2 are unknown values both greater than or equal to 0). The daily demand for these cars is limited to at most \\var{MaxDemandRegular} regular models and \\var{MaxDemandPremium} premium models. In addition, the manufacturer can make a maximum of \\var{MaxTotal} cars of either type per day. How many cars of each model should the manufacturer make in order to maximize profit?",
+  "target_objective": "Maximize (ProfitRegular * x1 + ProfitPremium * x2)",
+  "target_constraints": [
+    "x1 >= 0",
+    "x2 >= 0",
+    "x1 is an integer",
+    "x2 is an integer",
+    "x1 <= MaxDemandRegular",
+    "x2 <= MaxDemandPremium",
+    "x1 + x2 <= MaxTotal"
+  ],
+  "target_parameters": [
+    "Profit per regular model",
+    "Profit per premium model",
+    "Maximum number of regular models demanded per day",
+    "Maximum number of premium models demanded per day",
+    "Maximum number of total cars that can be made per day"
+  ]
+}

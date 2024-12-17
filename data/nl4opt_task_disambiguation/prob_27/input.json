@@ -1,0 +1,27 @@
+{
+  "vague_description": "The hobbyist must determine the best combination of model trains and planes to produce within the constraints of available materials to achieve maximum profit.",
+  "detailed_description": "A hobbyist makes model trains and planes using wood and paint. A model train requires \\var{WoodTrain} units of wood and \\var{PaintTrain} units of paint. A model plane requires \\var{WoodPlane} units of wood and \\var{PaintPlane} units of paint. The hobbyist has available \\var{TotalWood} units of wood and \\var{TotalPaint} units of paint. If the profit per model train is $\\var{ProfitTrain} and the profit per model plane is $\\var{ProfitPlane}, how many of each should be made to maximize his profit?",
+  "target_objective": "The hobbyist wants to maximize his profit",
+  "target_constraints": [
+    "Number of model trains is an integer",
+    "Number of model planes is an integer",
+    "Number of model trains is non-negative",
+    "Number of model planes is non-negative",
+    "The hobbyist can use at most TotalWood units of wood",
+    "The hobbyist can use at most TotalPaint units of paint",
+    "Each model train uses WoodTrain units of wood",
+    "Each model plane uses WoodPlane units of wood",
+    "Each model train uses PaintTrain units of paint",
+    "Each model plane uses PaintPlane units of paint"
+  ],
+  "target_parameters": [
+    "Units of wood required to make a model train",
+    "Units of paint required to make a model train",
+    "Units of wood required to make a model plane",
+    "Units of paint required to make a model plane",
+    "Total available units of wood",
+    "Total available units of paint",
+    "Profit per model train",
+    "Profit per model plane"
+  ]
+}

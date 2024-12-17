@@ -1,0 +1,26 @@
+{
+  "vague_description": "Decide how to allocate shifts to maximize tips while meeting delivery and energy constraints.",
+  "detailed_description": "A food delivery person can either have shifts on bikes or scooters. A shift on a bike can deliver \\param{OrdersBike} orders, takes \\param{EnergyBike} units of energy, and brings in \\param{TipsBike} on tips because it is faster. A shift on a scooter can deliver \\param{OrdersScooter} orders, takes \\param{EnergyScooter} units of energy, and brings in \\param{TipsScooter} on tips. The delivery person has available \\param{TotalShifts} shifts a month and has \\param{TotalEnergy} units of energy and must bring at least \\param{MinOrders} orders. He must have at least \\param{MinScooterShifts} shifts on a scooter because bikes are harder to get. How many shifts on each type of transportation should the delivery person schedule to maximize tips received?",
+  "target_objective": "Maximize the total tips received from all shifts",
+  "target_constraints": [
+    "Total number of shifts is non-negative",
+    "Number of bike shifts is non-negative",
+    "Number of scooter shifts is non-negative",
+    "Total number of shifts is at most TotalShifts",
+    "Total energy used by all shifts is at most TotalEnergy",
+    "Total number of orders delivered is at least MinOrders",
+    "Number of scooter shifts is at least MinScooterShifts"
+  ],
+  "target_parameters": [
+    "Orders delivered on a bike shift",
+    "Energy consumed on a bike shift",
+    "Tips received on a bike shift",
+    "Orders delivered on a scooter shift",
+    "Energy consumed on a scooter shift",
+    "Tips received on a scooter shift",
+    "Total shifts available per month",
+    "Total energy available",
+    "Minimum orders required",
+    "Minimum scooter shifts required"
+  ]
+}

@@ -1,0 +1,474 @@
+{
+  "vague_description": "The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.",
+  "detailed_description": "A theme park transports its visitors around the park either by scooter or rickshaw. A scooter can carry \\param{ScooterCapacity} people while a rickshaw can carry \\param{RickshawCapacity} people. To avoid excessive pollution, at most \\param{MaxRickshawProportion} of the vehicles used can be rickshaws. If the park needs to transport at least \\param{MinVisitors} visitors, minimize the total number of scooters used.",
+  "target_objective": "Minimize the total number of scooters used",
+  "target_constraints": [
+    "Number of scooters is non-negative",
+    "Number of rickshaws is non-negative",
+    "At most MaxRickshawProportion of the vehicles used can be rickshaws",
+    "At least MinVisitors visitors need to be transported"
+  ],
+  "target_parameters": [
+    "Carrying capacity of a scooter",
+    "Carrying capacity of a rickshaw",
+    "Maximum proportion of vehicles that can be rickshaws",
+    "Minimum number of visitors to be transported"
+  ],
+  "Expert": {
+    "(0,)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.",
+    "(0, 0)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.\nExpert: Are there specific limits on the number of vehicles available for use in the transportation plan?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.\nExpert: Are there specific limits on the number of vehicles available for use in the transportation plan?\nUser: No\n\nExpert: Is minimizing the total travel time for all journeys a primary objective of the transportation plan?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.\nExpert: Are there specific limits on the number of vehicles available for use in the transportation plan?\nUser: No\n\nExpert: Is minimizing the total travel time for all journeys a primary objective of the transportation plan?\nUser: No\n\nExpert: Is minimizing the total fuel consumption or emissions from the vehicles a primary objective of the transportation plan?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.",
+    "(0, 0)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.\nExpert: Does the problem involve a budgetary constraint related to the total transportation cost?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.\nExpert: Does the problem involve a budgetary constraint related to the total transportation cost?\nUser: No\n\nExpert: Do the constraints include limitations on the total number of trips or vehicle usage frequency?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.\nExpert: Does the problem involve a budgetary constraint related to the total transportation cost?\nUser: No\n\nExpert: Do the constraints include limitations on the total number of trips or vehicle usage frequency?\nUser: No\n\nExpert: Does the problem include a constraint related to a fixed fleet size that cannot be exceeded?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.",
+    "(0, 0)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.\nExpert: Are the vehicles' routes or paths constrained by a specific network or infrastructure (e.g., roads, pathways, or physical boundaries)?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.\nExpert: Are the vehicles' routes or paths constrained by a specific network or infrastructure (e.g., roads, pathways, or physical boundaries)?\nUser: No\n\nExpert: Are the vehicles subject to any time constraints, such as fixed departure or arrival times, or travel time limits?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.\nExpert: Are the vehicles' routes or paths constrained by a specific network or infrastructure (e.g., roads, pathways, or physical boundaries)?\nUser: No\n\nExpert: Are the vehicles subject to any time constraints, such as fixed departure or arrival times, or travel time limits?\nUser: No\n\nExpert: Are there any capacity or load constraints for the vehicles, such as weight limits, passenger capacity, or cargo restrictions?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.",
+    "(0, 0)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.\nExpert: Is the objective function related to minimizing a cost (either monetary cost or environmental cost)?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.\nExpert: Is the objective function related to minimizing a cost (either monetary cost or environmental cost)?\nUser: No\n\nExpert: Are the constraints specified for all candidate problems?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.\nExpert: Is the objective function related to minimizing a cost (either monetary cost or environmental cost)?\nUser: No\n\nExpert: Are the constraints specified for all candidate problems?\nUser: Yes\n\nExpert: Is the objective to maximize a quantity that is inherently non-negative?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficient transportation",
+            "Eco-friendly transportation",
+            "Large group",
+            "Limited-capacity vehicles",
+            "Specified constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize transportation efficiency and minimize environmental impact for a large group using a limited number of vehicles, while adhering to specific operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Vehicles have a limited capacity that cannot be exceeded.",
+            "The transportation method must be eco-friendly.",
+            "All members of the large group must be transported.",
+            "Time constraints must be met, possibly including pickup and drop-off times.",
+            "The solution should minimize carbon emissions.",
+            "Budget constraints might be in place."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficient transportation",
+            "Eco-friendly transportation",
+            "Large group",
+            "Limited-capacity vehicles",
+            "No limits on number of vehicles"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently allocate and utilize transportation resources to minimize environmental impact while ensuring all passengers are transported using a fleet of limited-capacity vehicles."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Vehicles must have limited-capacity.",
+            "Transportation plan must be efficient.",
+            "Transportation must be eco-friendly.",
+            "Must accommodate a large group."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficient transportation for a large group",
+            "Eco-friendly transportation solution",
+            "Limited-capacity vehicles",
+            "No specific limit on the number of vehicles available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the environmental impact of transporting a large group using limited-capacity vehicles while meeting specified constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Vehicles have limited capacity.",
+            "Transportation must be efficient.",
+            "Transportation must be eco-friendly."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Vehicles with limited capacity",
+            "Minimize total fuel consumption or emissions",
+            "No limit on the number of vehicles",
+            "Ensure efficient and eco-friendly transportation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total fuel consumption or emissions from the vehicles during transportation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must use limited-capacity vehicles efficiently.",
+            "The number of vehicles is not limited, but their use should be optimal to minimize fuel consumption or emissions.",
+            "The solution must incorporate eco-friendly transportation strategies.",
+            "There is no primary emphasis on minimizing total travel time, but it could be a secondary consideration."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Transportation efficiency",
+            "Eco-friendliness of vehicles",
+            "Group size",
+            "Vehicle capacity",
+            "Specified constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the overall environmental impact and optimize resource usage while transporting the group within the capacity and constraints of the available vehicles."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The transportation method must be efficient, minimizing time and costs.",
+            "Vehicles used must have limited capacity, possibly requiring multiple trips or coordination of several vehicles.",
+            "Eco-friendliness is a priority, suggesting the use of fuel-efficient or eco-friendly vehicles.",
+            "The transportation should be able to accommodate a large group, requiring scalability in vehicle number or size.",
+            "The solution must adhere to any specified constraints such as budget limits, time windows, or regulatory requirements."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficient transportation",
+            "Eco-friendly transportation",
+            "Large group",
+            "Limited-capacity vehicles",
+            "Specified constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles while adhering to constraints like time schedules, minimizing total travel time, and maximizing vehicle utilization."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Ensure eco-friendly transportation methods.",
+            "Use limited-capacity vehicles efficiently.",
+            "Ensure all members of the large group are transported."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficient transportation planning",
+            "Eco-friendly transportation methods",
+            "Limited-capacity vehicles"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize carbon emissions and maximize passenger capacity utilization while adhering to vehicle capacity limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited vehicle capacity",
+            "Efficient transportation requirement",
+            "Eco-friendly transportation requirement"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficient transportation",
+            "Eco-friendly transportation",
+            "Limited capacity vehicles"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently transport a large group using limited-capacity vehicles while ensuring eco-friendliness."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of people",
+            "number of vehicles",
+            "vehicle capacity",
+            "distance to destination",
+            "route availability",
+            "fuel efficiency",
+            "emission limits",
+            "time constraints",
+            "cost constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To design a transportation plan that minimizes environmental impact and maximizes efficiency while transporting a large group using a limited fleet with capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of vehicles used must not exceed a specific limit.",
+            "Each vehicle has a maximum capacity that cannot be exceeded.",
+            "The total environmental impact (e.g., emissions) must be minimized.",
+            "Transportation routes should adhere to time constraints, ensuring timely arrival.",
+            "The cost of transportation should be within the available budget."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited-capacity vehicles",
+            "Group size",
+            "Eco-friendliness criteria",
+            "No constrained network or infrastructure for routes/paths"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total environmental impact and cost of transporting a large group using limited-capacity vehicles, while adhering to constraints such as time, fuel consumption, and vehicle capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Efficient transportation for a large group",
+            "Eco-friendly transportation methods",
+            "Limited vehicle capacity",
+            "No specific network or infrastructure constraints on vehicle routes"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited vehicle capacity",
+            "Ensuring eco-friendly transportation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the utilization of limited-capacity vehicles for transporting a large group efficiently and in an environmentally sustainable manner, within the given constraints, which do not include route, time, or infrastructure limitations."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize efficiency of transportation routes",
+            "minimize environmental impact",
+            "use limited-capacity vehicles",
+            "ensure passengers or cargo stay within vehicle capacity limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the environmental impact of transporting a large group using limited-capacity vehicles while efficiently utilizing available vehicle capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The vehicles have specific capacity or load limits, which may include passenger capacity or weight restrictions."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficient transportation",
+            "Eco-friendly transportation",
+            "Large group size",
+            "Limited vehicle capacity",
+            "Specified constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total environmental impact and cost while maximizing the number of passengers transported efficiently using available vehicles."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The transportation must be efficient, minimizing total travel time.",
+            "The vehicles have limited capacity, restricting the number of passengers per vehicle.",
+            "Transportation should be eco-friendly, potentially minimizing fuel consumption or emissions.",
+            "There may be a maximum or specific number of vehicles available for use.",
+            "The transportation plan must accommodate all individuals in the group.",
+            "Routes may need to consider specific geographic or infrastructural limitations.",
+            "Scheduled timelines must be adhered to, possibly implying specific departure and arrival times."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficient transportation of a group",
+            "Eco-friendly transportation options",
+            "Limited vehicle capacity",
+            "Specific constraints on the transportation model"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize the scheduling and allocation of limited-capacity vehicles for transporting a large group efficiently and in an environmentally friendly manner, while adhering to specified constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each vehicle has a capacity limit for the number of passengers it can carry.",
+            "Transportation must be efficient, meaning routes and schedules should adhere to a reasonable time plan.",
+            "The transportation plan must be eco-friendly, likely minimizing emissions or maximizing fuel efficiency.",
+            "The entire group must be transported within a certain timeframe, potentially implying maximum travel or wait times.",
+            "Only a specified number of vehicles are available for the transportation task."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "limited-capacity vehicles",
+            "efficient transportation",
+            "eco-friendly transportation",
+            "transportation for a large group"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of passengers transported efficiently under given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited vehicle capacity",
+            "Specifying eco-friendly considerations",
+            "Ensuring efficient transportation for a large group"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficient transportation",
+            "Eco-friendly transportation",
+            "Large group",
+            "Limited-capacity vehicles",
+            "Specified constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize the transportation by achieving efficient resource utilization, possibly focusing on balancing multiple aspects like time, resource use, and compliance with constraints such as capacity and environmental factors."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Vehicles have a limited capacity.",
+            "The transportation solution must be efficient.",
+            "The transportation solution must be eco-friendly."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,470 @@
+{
+  "vague_description": "Optimize a resource management system under specific initial and final conditions.",
+  "detailed_description": "The objective is to minimize the total fuel \\sum_{t=0}^{\\param{TotalTime}-1} |\\param{a_t}| spent subject to the initial position \\param{InitialPosition}, initial velocity \\param{InitialVelocity}, final position \\param{FinalPosition}, final velocity \\param{FinalVelocity}, and total time \\param{TotalTime}.",
+  "target_objective": "Minimize the total fuel, which is the sum of absolute values of acceleration over time",
+  "target_constraints": [],
+  "target_parameters": [
+    "Initial position of the object",
+    "Initial velocity of the object",
+    "Final position of the object",
+    "Final velocity of the object",
+    "Total time over which the object is moving"
+  ],
+  "Expert": {
+    "(0,)": "User: Optimize a resource management system under specific initial and final conditions.",
+    "(0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Does the optimization problem involve constraints related to time, such as deadlines or specific timeframes for managing resources?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Does the optimization problem involve constraints related to time, such as deadlines or specific timeframes for managing resources?\nUser: Yes\n\nExpert: Are the resources being managed subject to capacity constraints, such as limits on availability or usage at any given time?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Does the optimization problem involve constraints related to time, such as deadlines or specific timeframes for managing resources?\nUser: Yes\n\nExpert: Are the resources being managed subject to capacity constraints, such as limits on availability or usage at any given time?\nUser: Yes\n\nExpert: Are there cost considerations involved, such as minimizing expenditure or staying within a budget, in the optimization problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Optimize a resource management system under specific initial and final conditions.",
+    "(0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the problem related to resource allocation?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the problem related to resource allocation?\nUser: No\n\nExpert: Does the objective of the problem involve minimizing total operational cost?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the problem related to resource allocation?\nUser: No\n\nExpert: Does the objective of the problem involve minimizing total operational cost?\nUser: No\n\nExpert: Does the objective function involve minimizing time in any form?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Optimize a resource management system under specific initial and final conditions.",
+    "(0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the optimization problem to minimize a cost or maximize a benefit?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the optimization problem to minimize a cost or maximize a benefit?\nUser: Yes\n\nExpert: Is the cost or benefit being optimized a monetary one?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the optimization problem to minimize a cost or maximize a benefit?\nUser: Yes\n\nExpert: Is the cost or benefit being optimized a monetary one?\nUser: No\n\nExpert: Is the cost or benefit being optimized related to a measurable quantity, such as energy, water, or another resource?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Optimize a resource management system under specific initial and final conditions.",
+    "(0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the problem to 'Optimize Resource Management System under Specific Initial and Final Conditions'? Or, Is the objective of the problem to 'Minimize the total cost of resource allocation'? \nUser: No\n",
+    "(0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the problem to 'Optimize Resource Management System under Specific Initial and Final Conditions'? Or, Is the objective of the problem to 'Minimize the total cost of resource allocation'? \nUser: No\n\nExpert: Is the objective stated clearly in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the problem to 'Optimize Resource Management System under Specific Initial and Final Conditions'? Or, Is the objective of the problem to 'Minimize the total cost of resource allocation'? \nUser: No\n\nExpert: Is the objective stated clearly in the problem description?\nUser: Yes\n\nExpert: Does the problem description contain any constraints related to resource availability or capacity within the timeframe of the problem? \nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource availability",
+            "initial inventory levels",
+            "final inventory targets",
+            "resource allocation rules",
+            "time constraints",
+            "demand forecast",
+            "supply chain limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To develop an optimized resource management system that meets specified initial conditions and achieves desired final conditions efficiently and effectively."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The system must start with a predefined set of resources available.",
+            "All resources must be allocated and finished by the end of the specified time period.",
+            "The allocation process must not exceed the capacity limits of the resources.",
+            "Resource usage must adhere to specified priority or importance levels.",
+            "The final state of resources must meet predefined conditions or goals.",
+            "The system should operate within a set budget or cost constraints.",
+            "Energy or resource utilization must remain within environmentally sustainable limits.",
+            "The timeline for resource allocation should not exceed a given deadline."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Initial conditions",
+            "Final conditions",
+            "Time constraints",
+            "Resource availability",
+            "Resource allocation rules",
+            "Optimization objective"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize the allocation and utilization of resources within the management system, ensuring that the specific initial and final conditions are met while adhering to time constraints and deadlines."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The resource management system optimization must adhere to specific initial conditions set for the system.",
+            "The resource management system must meet specific final conditions for successful optimization.",
+            "The optimization process must consider constraints related to deadlines or specific timeframes for managing resources."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "timeframe constraints",
+            "capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the allocation and utilization of resources over time, adhering to specific initial and final conditions, such that deadlines and capacity constraints are satisfied."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The resources must be managed within specific timeframes or deadlines.",
+            "Resources are subject to capacity constraints, such as limits on availability or usage at any given time."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Time constraints (deadlines, specific timeframes)",
+            "Capacity constraints (availability and usage limits)",
+            "Cost considerations (minimizing expenditure, budget limits)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize a resource management system while adhering to time constraints and resource capacity limits, and minimizing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization must include deadlines or specific timeframes for managing resources.",
+            "There are capacity constraints on resource availability or usage.",
+            "There are cost considerations, such as minimizing expenditure or staying within a budget."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource availability: There are constraints on the amount of resources available at the start of the optimization period.",
+            "Resource demand: Determine the demand for resources at the end of the optimization period to ensure the goals are met.",
+            "Time frame: Specify the initial and final time period over which the optimization should be conducted.",
+            "Resource allocation rules: Define rules or constraints on how resources can be allocated to various processes or entities.",
+            "Objectives: Define what needs to be optimized (e.g., minimize cost, maximize efficiency, reduce waste).",
+            "System constraints: Specify any limitations or requirements inherent in the system.",
+            "Environmental or external factors: Include any external factors that might affect the optimization process."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost while ensuring that the resources are sufficient to meet the specified initial and final conditions over a given time period."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The system must operate within the given initial conditions at the start of the optimization period.",
+            "The system must meet all specified final conditions by the end of the optimization period.",
+            "All resource allocations must adhere to specified limits and capacities.",
+            "The optimization must consider temporal constraints for resource usage and availability.",
+            "The system must operate within any legal or regulatory requirements that apply.",
+            "Any changes made to the resource management system must not exceed the allowed operational thresholds during the optimization process."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Initial Conditions",
+            "Final Conditions",
+            "Resource Management System"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to enhance the efficiency of a resource management system while adhering to given initial and final conditions."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to achieve the compliant operation of a resource management system within the specified constraints of initial and final conditions, focusing on factors other than resource allocation or operational cost minimization."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization problem aims to achieve specific initial and final conditions within the resource management system.",
+            "The objective of the optimization is not related to resource allocation.",
+            "The objective of the optimization is not related to minimizing total operational costs."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Management System",
+            "Initial Conditions",
+            "Final Conditions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the discussed optimization problem is related to improving the efficiency or effectiveness of the resource management system under specified initial and final conditions, without focusing on resource allocation, minimizing total operational cost, or minimizing time."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The system must adhere to specified initial conditions.",
+            "The system must adhere to specified final conditions.",
+            "The objective is not related to resource allocation.",
+            "Minimizing total operational cost is not the objective.",
+            "Minimizing time is not part of the objective."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource availability",
+            "initial resource allocation",
+            "final resource requirement",
+            "time constraints",
+            "cost constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the allocation and utilization of resources within the system while ensuring that the system meets specified initial and final state conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Initial resource levels must be established and are not subject to change.",
+            "Final resource levels or outputs must meet or exceed specified conditions.",
+            "Resource consumption rates must not exceed available supply at any time.",
+            "The system must make efficient use of resources while adhering to regulatory requirements.",
+            "Any changes to resource allocation during the process should not disrupt ongoing operations.",
+            "Maintain a balance between input resources and demands throughout the process.",
+            "Cost efficiency is a priority, requiring minimization of waste and excess expenditure.",
+            "The system must be adaptable to shifts in demand or resource availability without violating constraints."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Initial conditions",
+            "Final conditions",
+            "Minimize cost or maximize benefit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to either minimize a cost or maximize a benefit within a resource management system under given initial and final conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The system must adhere to specific initial conditions as defined.",
+            "The system must meet specific final conditions by the end of the process.",
+            "Constraints on available resources during the optimization process.",
+            "Time limitations must be considered (e.g., deadlines by which goals must be achieved).",
+            "The solution must comply with any external regulations or standards relevant to resource management.",
+            "Constraints on the maximum and minimum levels of resources that can be utilized.",
+            "Consideration of interactions between different resources and their effects on the system."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Management System Optimization",
+            "Initial and final conditions",
+            "Objective to minimize or maximize",
+            "Non-monetary cost or benefit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the utilization efficiency of resources to achieve specific targets while meeting certain constraints or conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The system must operate efficiently within specified initial resource levels.",
+            "Resource management must meet or exceed final conditions or targets by the end of the optimization period.",
+            "Non-monetary metrics are used for measuring the success of the system, which must be optimized.",
+            "Resource allocation and distribution constraints must be adhered to during the operation of the system."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource quantity",
+            "initial conditions",
+            "final conditions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the management of a specific resource, such as energy or water, to minimize its usage under given initial and final conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization must begin from a defined initial state of resources.",
+            "The optimization must achieve a specified final state or target for the resources.",
+            "The quantity to be optimized is a measurable resource, such as energy or water, which is neither monetary nor financial in nature.",
+            "Resource management actions must adhere to any predefined limits or capacities of the system."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "Minimize the use of resources while meeting predefined initial and final system conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Initial condition: The system starts with a fixed number of resources.",
+            "Final condition: The system should reach a pre-defined state where resources are balanced or optimized for efficiency.",
+            "Resource availability is limited and cannot exceed a certain threshold.",
+            "The system must adhere to operational and safety regulations during the optimization process.",
+            "Resource allocation must cater to both minimal operational requirements and unexpected demands.",
+            "All transactions or reallocations of resources must be documented within the system.",
+            "The optimization should not disrupt ongoing operations and must consider existing commitments."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "Optimize the efficiency and performance of resource management while adhering to predefined initial and final conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability is limited.",
+            "Initial conditions must be met before optimization begins.",
+            "Final conditions must be achieved after optimization.",
+            "Resource allocations must comply with predefined budgets.",
+            "Constraints on maximum and minimum resources that can be allocated to each task.",
+            "Resources cannot be reallocated once assigned.",
+            "Time limit for resource allocation processes.",
+            "Quality of resource usage must meet set standards."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "initial conditions",
+            "final conditions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize resource utilization efficiency while satisfying initial and final conditions specified in the system."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability is subject to specific initial conditions.",
+            "Resource allocation must satisfy specific final conditions."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective stated in description",
+            "initial conditions",
+            "final conditions",
+            "constraints on resource availability",
+            "constraints on capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize a resource management system to meet specific initial and final conditions while adhering to resource availability and capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability constraints",
+            "Capacity constraints",
+            "Initial conditions must be met",
+            "Final conditions must be satisfied",
+            "Constraints related to timeframe"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 5
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      }
+    }
+  }
+}

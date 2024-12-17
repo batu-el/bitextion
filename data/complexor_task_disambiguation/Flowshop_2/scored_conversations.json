@@ -1,0 +1,475 @@
+{
+  "vague_description": "Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.",
+  "detailed_description": "A set of \\param{JobCount} jobs need to be processed on a set of \\param{MachineCount} machines in series. All jobs have the same processing order through all the machines, from machine 1 to machine \\param{MachineCount}. Each machine can work in parallel. The workflow is as follows: the first job of the sequence goes to the first machine to be processed; meanwhile, other jobs wait. When the first machine has processed the first job, it goes to the second machine, and the second job of the sequence starts to be processed by the first machine; this process continues in sequence. The time required to process job j on machine m is \\param{ProcessingTime_{j,m}}. The problem aims to minimize the total makespan, which is the time when all jobs have been processed. The goal is to find a sequence of jobs that minimizes the makespan.",
+  "target_objective": "Minimize the total makespan, which is the time when the last job is completed on the last machine",
+  "target_constraints": [
+    "All jobs follow the same order from Machine 1 to MachineCount",
+    "Each machine can process only one job at a time"
+  ],
+  "target_parameters": [
+    "The total number of jobs to be processed",
+    "The total number of machines available for processing",
+    "The time required to process job j on machine m"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.",
+    "(0, 0)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.\nExpert: Is the problem related to job scheduling on machines, where each task requires a specific set of dependent resources and must follow a certain order?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.\nExpert: Is the problem related to job scheduling on machines, where each task requires a specific set of dependent resources and must follow a certain order?\nUser: Yes\n\nExpert: Are there any specific constraints regarding the availability or sequence of the resources needed for the tasks?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.\nExpert: Is the problem related to job scheduling on machines, where each task requires a specific set of dependent resources and must follow a certain order?\nUser: Yes\n\nExpert: Are there any specific constraints regarding the availability or sequence of the resources needed for the tasks?\nUser: No\n\nExpert: Are there any other constraints related to task execution times, such as deadlines or priorities?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.",
+    "(0, 0)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.\nExpert: Does the problem allow tasks within the same stage to overlap in execution time?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.\nExpert: Does the problem allow tasks within the same stage to overlap in execution time?\nUser: Yes\n\nExpert: Does each problem include a constraint that limits the total execution time for each stage?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.\nExpert: Does the problem allow tasks within the same stage to overlap in execution time?\nUser: Yes\n\nExpert: Does each problem include a constraint that limits the total execution time for each stage?\nUser: No\n\nExpert: Does any candidate problem description include a constraint where tasks within the same stage cannot overlap at all?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.",
+    "(0, 0)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.\nExpert: Are the tasks inherently sequential, meaning each task can only be executed after the completion of another task?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.\nExpert: Are the tasks inherently sequential, meaning each task can only be executed after the completion of another task?\nUser: Yes\n\nExpert: Are the resources required for the tasks fixed and non-depletable, or can they be replenished or shared among tasks?\nUser: Yes, the resources are fixed and non-depletable.\n",
+    "(0, 0, 0, 0)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.\nExpert: Are the tasks inherently sequential, meaning each task can only be executed after the completion of another task?\nUser: Yes\n\nExpert: Are the resources required for the tasks fixed and non-depletable, or can they be replenished or shared among tasks?\nUser: Yes, the resources are fixed and non-depletable.\n\nExpert: Can the order of the tasks be changed without affecting the overall completion time?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.",
+    "(0, 0)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.\nExpert: Does the problem description explicitly mention the total number of tasks or stages in the process?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.\nExpert: Does the problem description explicitly mention the total number of tasks or stages in the process?\nUser: No\n\nExpert: Is the 'completion time' explicitly mentioned as a parameter of the problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the most efficient sequence of tasks to optimize the completion time in a multi-stage process with dependent resources.\nExpert: Does the problem description explicitly mention the total number of tasks or stages in the process?\nUser: No\n\nExpert: Is the 'completion time' explicitly mentioned as a parameter of the problem?\nUser: Yes\n\nExpert: Is the objective of the problem explicitly stated as 'optimization', 'optimize', or 'Minimize'?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "sequence of tasks",
+            "completion time",
+            "multi-stage process",
+            "dependent resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to find the sequence of tasks that ensures the shortest total completion time in a multi-stage process, considering the dependencies and availability of resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Tasks must be executed in sequence where certain tasks depend on the completion of previous tasks.",
+            "Resources can be allocated to only one task at a time, creating a necessity for optimal resource allocation.",
+            "Each stage of the process may have specific constraints on the time a task can start or finish, based on resource availability.",
+            "Some tasks might be parallelizable or can only start after a certain number of other tasks are completed.",
+            "The total completion time must be minimized, balancing between available resources and dependent tasks."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Task sequences",
+            "Dependent resources",
+            "Completion time",
+            "Multi-stage process",
+            "Job scheduling",
+            "Machine assignments"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total completion time of all tasks by determining the most efficient sequence of tasks considering resource dependencies and task order constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each task must be assigned to exactly one machine.",
+            "Tasks have a defined order and must be processed according to a precedence constraint (a task cannot start until all its prerequisite tasks are completed).",
+            "Each machine can execute only one task at a time.",
+            "Tasks have specific dependent resources which must be available for the task to proceed.",
+            "Tasks can have different processing times.",
+            "The sequence of tasks must minimize the total completion time (makespan) of the entire process."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Tasks",
+            "Sequence of Tasks",
+            "Completion Time",
+            "Dependent Resources",
+            "Multi-Stage Process"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal sequence of tasks that minimizes the total completion time in a multi-stage scheduling process with dependent tasks but without specific constraints on resource availability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each task requires a specific set of dependent resources.",
+            "Tasks must follow a certain order.",
+            "No specific constraints on the availability or sequence of resources beyond task dependencies."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Task sequence optimization",
+            "Multi-stage process",
+            "Dependent resources",
+            "Job scheduling",
+            "Completion time",
+            "No resource availability constraints",
+            "No task deadlines",
+            "No task priorities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the completion time of tasks in a multi-stage process with dependent resources by determining the most efficient sequence of tasks."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Tasks must be scheduled in a specific order due to dependency on resources."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Task list with dependencies",
+            "Processing time for each task",
+            "Resource availability and capacity",
+            "Stage-wise constraints",
+            "Objective: Minimize completion time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the sequence of tasks that minimizes the total completion time while considering dependencies between resources in a multi-stage process."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each task must be completed before the next task that depends on it can start.",
+            "Resources needed for each task are limited and must be allocated efficiently to avoid conflicts.",
+            "No two tasks that require the same resource can be scheduled at the same time.",
+            "The completion of one task may affect the start time of another due to dependency links.",
+            "All tasks must be completed within the given timeline to meet project deadlines."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Sequence of tasks",
+            "Completion time",
+            "Multi-stage process",
+            "Dependent resources",
+            "Overlapping execution time in the same stage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total completion time of a multi-stage process by determining the optimal sequence of tasks, considering task dependencies and overlap allowance within the same stage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Tasks within the same stage can overlap in execution time.",
+            "Tasks must be executed in a specific sequence based on their dependent resources."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Multi-stage process",
+            "Tasks with dependent resources",
+            "Tasks within the same stage can overlap in execution",
+            "No total execution time constraint for each stage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total completion time of a multi-stage process by determining the most efficient sequence of tasks, considering that tasks within the same stage can overlap and there is no constraint on the total execution time for each stage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Tasks within the same stage can overlap in execution time.",
+            "No constraint limits the total execution time for each stage."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "tasks",
+            "stages",
+            "execution time",
+            "dependent resources",
+            "overlapping execution"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the sequence of tasks across multiple stages to achieve the shortest possible total completion time, considering task dependencies and allowing overlapping tasks within the same stage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Tasks within the same stage can overlap in execution time.",
+            "There is no limit on the total execution time for each stage.",
+            "Tasks within the same stage do not have any constraint that prohibits overlap."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Task sequence",
+            "Completion time",
+            "Multi-stage process",
+            "Dependent resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal sequence of tasks that minimizes the total completion time while considering the dependencies and availability of resources in a multi-stage process."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Tasks need to be executed in a specific sequence due to dependency constraints.",
+            "Resources required for each task may not be available at all times due to their dependence on other tasks.",
+            "Each task consumes certain resources and might block other tasks from starting if those resources are limited.",
+            "The completion of one task might be a prerequisite for starting one or more subsequent tasks.",
+            "The sequence should minimize the total time taken to complete all tasks.",
+            "Resource allocation needs to consider the dependent nature of the tasks.",
+            "Some resources might have a maximum capacity, which should not be exceeded when scheduling tasks.",
+            "Tasks may have different durations and resource requirements, affecting their prioritization in the sequence."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Task dependencies",
+            "Task duration",
+            "Resource availability",
+            "Resource constraints",
+            "Task sequence order"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the most efficient sequence of tasks that minimizes the total completion time in a multi-stage process where tasks have dependencies and shared resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each task must be completed before initiating the subsequent task in the sequence.",
+            "Resources required for each task are dependent and must be managed accordingly."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Sequential tasks",
+            "Fixed and non-depletable resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the most efficient sequence of tasks that minimizes the overall completion time while accounting for dependent tasks and fixed resources in a multi-stage process."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Tasks must be executed sequentially, each following the completion of its predecessor.",
+            "The resources required for tasks are fixed and non-depletable.",
+            "Tasks cannot begin until all preceding tasks have been completed."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "multi-stage process",
+            "sequence of tasks",
+            "completion time",
+            "dependent resources",
+            "sequential tasks",
+            "fixed and non-depletable resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the sequence of tasks that minimizes the total completion time in a multi-stage process with dependent resources, ensuring each task is executed only after the completion of its preceding task while effectively utilizing fixed, non-depletable resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Tasks are sequential and can only be executed after the completion of previous tasks.",
+            "Resources required for tasks are fixed and non-depletable.",
+            "The order of tasks can be changed to optimize completion time without affecting the overall schedule."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Task sequence",
+            "Task dependencies",
+            "Resource availability",
+            "Completion time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total completion time of a multi-stage process by finding the optimal sequence of tasks considering dependencies among the resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Task dependencies must be respected based on resource availability.",
+            "Each task can only begin when all prerequisite resources are available.",
+            "Resources are limited and must be allocated efficiently across tasks.",
+            "All tasks must be completed.",
+            "The sequence should minimize the total completion time of the entire process.",
+            "Tasks may have different durations and resource consumption rates."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Sequence of tasks",
+            "Completion time",
+            "Dependent resources",
+            "Multi-stage process"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal task sequence that minimizes the overall completion time in a multi-stage process with interconnected tasks and dependent resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is no explicit mention of the total number of tasks.",
+            "The task sequence must consider dependent resources.",
+            "The goal is to optimize the completion time.",
+            "The process is multi-stage, implying tasks are carried out in phases."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "completion time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the sequence of tasks to minimize the completion time in a multi-stage process with dependent resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The completion time is a parameter of the problem that needs to be optimized.",
+            "Tasks must be completed in a sequence that satisfies dependency constraints.",
+            "Resources are dependent, indicating that some tasks cannot start until certain resources are available."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "completion time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the completion time by determining the most efficient sequence of tasks in a multi-stage process with dependent resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of tasks or stages in the process is not explicitly mentioned.",
+            "The completion time is a parameter that needs to be optimized.",
+            "The objective of the problem involves optimization of the sequence of tasks to minimize completion time.",
+            "Resources for tasks are dependent on each stage."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      }
+    }
+  }
+}

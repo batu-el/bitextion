@@ -1,0 +1,14 @@
+{
+  "vague_description": "Determining the optimal values for certain variables to minimize error in a given system based on established equations.",
+  "detailed_description": "Find the lamp powers \\param{power_j} that minimize the absolute error between the illuminations \\param{ill_i} and the desired illuminations \\param{DesiredIlluminations}. The relationship between the lamp powers and the illuminations is given by coefficients \\param{Coefficients}.",
+  "target_objective": "Minimize the absolute error between the actual illumination levels and the desired illumination levels",
+  "target_constraints": [
+    "Lamp powers are non-negative"
+  ],
+  "target_parameters": [
+    "Number of different illuminations",
+    "Number of lamp powers",
+    "Coefficients relating lamp powers to illumination",
+    "Desired level of illuminations"
+  ]
+}

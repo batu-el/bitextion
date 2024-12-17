@@ -1,0 +1,21 @@
+{
+  "vague_description": "How to allocate healthcare workers within a fixed budget to meet labor hours requirements.",
+  "detailed_description": "A clinic employs nurses and pharmacists to deliver shots to patients. A nurse works \\param{HoursNurse} hours per shift while a pharmacist works \\param{HoursPharmacist} hours per shift. Nurses are paid \\param{PayNurse} per shift while pharmacists are paid \\param{PayPharmacist} per shift. Currently, the clinic needs \\param{TotalHours} hours of healthcare labor to meet needs. If the firm has a budget of \\param{Budget}, how many of each healthcare worker should be scheduled to minimize the total number of workers?",
+  "target_objective": "Minimize the total number of nurses and pharmacists",
+  "target_constraints": [
+    "Total hours worked by nurses and pharmacists must meet or exceed TotalHours",
+    "Total amount paid to nurses and pharmacists cannot exceed Budget",
+    "Number of nurses is an integer",
+    "Number of pharmacists is an integer",
+    "Number of nurses is non-negative",
+    "Number of pharmacists is non-negative"
+  ],
+  "target_parameters": [
+    "Number of hours a nurse works per shift",
+    "Number of hours a pharmacist works per shift",
+    "Payment for a nurse per shift",
+    "Payment for a pharmacist per shift",
+    "Total required hours of healthcare labor",
+    "Total budget for healthcare labor"
+  ]
+}

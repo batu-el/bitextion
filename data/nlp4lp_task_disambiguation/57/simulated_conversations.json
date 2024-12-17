@@ -1,0 +1,48 @@
+{
+  "vague_description": "The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.",
+  "detailed_description": "PROBLEM TYPE\nLP\n\nINPUT FORMAT \n\n{\n    \"time_required\": [[TimeRequired for p in 1, ..., P] for m in 1, ..., M],\n    \"machine_costs\": [MachineCosts for m in 1, ..., M],\n    \"availability\": [Availability for m in 1, ..., M],\n    \"prices\": [Prices for p in 1, ..., P],\n    \"min_batches\": [MinBatches for p in 1, ..., P],\n    \"standard_cost\": StandardCost,\n    \"overtime_cost\": OvertimeCost,\n    \"overtime_hour\": OvertimeHour\n}\n\n\nOBJECTIVE\nHow many batches of each part should the manufacturer produce each month to maximize profit?",
+  "target_objective": "Maximize profit from producing and selling parts",
+  "target_constraints": [
+    "Each part p requires TimeRequired for p hours of machine time on machine m",
+    "Machine m is available for Availability for m hours per month",
+    "At least MinBatches for p batches of each part p must be produced",
+    "Overtime operation is allowed for up to OvertimeHour hours",
+    "The number of batches produced for any part must be non-negative"
+  ],
+  "target_parameters": [
+    "Number of machines",
+    "Number of part types",
+    "Time required to produce one batch of part p on machine m",
+    "Cost of operating machine m for one month",
+    "Number of hours machine m is available each month without overtime",
+    "Price received for selling one batch of part p",
+    "Minimum number of batches of part p to be produced",
+    "Standard cost for operating all machines during normal operating hours",
+    "Extra cost for operating a machine in overtime per hour",
+    "Number of overtime hours available for machine m"
+  ],
+  "Expert": {
+    "(0,)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.",
+    "(0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Are there specific production capacity limits for each product that need to be considered in the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Are there specific production capacity limits for each product that need to be considered in the optimization problem?\nUser: Yes\n\nExpert: Are there constraints related to the availability of raw materials for production?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Are there specific production capacity limits for each product that need to be considered in the optimization problem?\nUser: Yes\n\nExpert: Are there constraints related to the availability of raw materials for production?\nUser: No\n\nExpert: Are there any specific deadlines or time-related constraints for the completion of the production schedule?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.",
+    "(0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Does the problem involve multiple types of products with distinct production or cost parameters?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Does the problem involve multiple types of products with distinct production or cost parameters?\nUser: Yes\n\nExpert: Does the problem include a constraint related to inventory storage capacity?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Does the problem involve multiple types of products with distinct production or cost parameters?\nUser: Yes\n\nExpert: Does the problem include a constraint related to inventory storage capacity?\nUser: No\n\nExpert: Is there a constraint that specifically limits the total production time available across all product types in each candidate problem?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.",
+    "(0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Are there any fixed costs or minimum production requirements that the manufacturer must adhere to?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Are there any fixed costs or minimum production requirements that the manufacturer must adhere to?\nUser: Yes\n\nExpert: Are fixed costs or minimum production requirements dependent on the quantity of products manufactured?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Are there any fixed costs or minimum production requirements that the manufacturer must adhere to?\nUser: Yes\n\nExpert: Are fixed costs or minimum production requirements dependent on the quantity of products manufactured?\nUser: No\n\nExpert: Are the fixed costs or minimum production requirements affected by external factors such as demand, availability of resources, or seasonality?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.",
+    "(0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Does the optimization problem involve maximizing profits explicitly stated as the objective?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Does the optimization problem involve maximizing profits explicitly stated as the objective?\nUser: Yes\n\nExpert: Does the problem description include any constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.\nExpert: Does the optimization problem involve maximizing profits explicitly stated as the objective?\nUser: Yes\n\nExpert: Does the problem description include any constraints?\nUser: Yes\n\nExpert: Does the problem description include at least one constraint?\nUser: Yes\n"
+  }
+}

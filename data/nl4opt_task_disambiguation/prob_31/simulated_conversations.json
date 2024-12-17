@@ -1,0 +1,45 @@
+{
+  "vague_description": "A business must strategically allocate limited resources to maximize returns on product sales.",
+  "detailed_description": "A electronics store sells premium desktops with more power as well as regular desktops for everyday use. Each premium desktop costs the store \\var{CostPremium} to make and yields a profit of \\var{ProfitPremium}. Each regular desktop costs the store \\var{CostRegular} to make and yields a profit of \\var{ProfitRegular}. The store sells at most \\var{MaxDesktops} desktops each month and wants to spend at most \\var{MaxBudget} on making the desktops. How many of each should be made and sold to maximize profit?",
+  "target_objective": "Maximize the store's profit from selling desktops",
+  "target_constraints": [
+    "Number of premium desktops is an integer",
+    "Number of regular desktops is an integer",
+    "Number of premium desktops is non-negative",
+    "Number of regular desktops is non-negative",
+    "The store can sell at most MaxDesktops desktops each month",
+    "Total cost for producing premium and regular desktops can not exceed MaxBudget"
+  ],
+  "target_parameters": [
+    "Cost to make one premium desktop",
+    "Profit from selling one premium desktop",
+    "Cost to make one regular desktop",
+    "Profit from selling one regular desktop",
+    "Maximum number of desktops sold per month",
+    "Maximum budget for making desktops per month"
+  ],
+  "Expert": {
+    "(0,)": "User: A business must strategically allocate limited resources to maximize returns on product sales.",
+    "(0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Is there a fixed budget or limit on the resources available for allocation in this problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Is there a fixed budget or limit on the resources available for allocation in this problem?\nUser: Yes\n\nExpert: Are there multiple products involved in this resource allocation strategy?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Is there a fixed budget or limit on the resources available for allocation in this problem?\nUser: Yes\n\nExpert: Are there multiple products involved in this resource allocation strategy?\nUser: Yes\n\nExpert: Are there specific monetary values or cost associated with allocating resources to each product?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A business must strategically allocate limited resources to maximize returns on product sales.",
+    "(0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Does the problem explicitly specify a numerical value for both the available budget and production capacity?\nUser: No\n",
+    "(0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Does the problem explicitly specify a numerical value for both the available budget and production capacity?\nUser: No\n\nExpert: Do any problems include marketing costs as part of the constraints or parameters?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Does the problem explicitly specify a numerical value for both the available budget and production capacity?\nUser: No\n\nExpert: Do any problems include marketing costs as part of the constraints or parameters?\nUser: No\n\nExpert: Do any of the problems include a constraint requiring that demand for each product be met?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A business must strategically allocate limited resources to maximize returns on product sales.",
+    "(0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Are the returns on product sales directly related to a single performance metric that can be measured and compared across different allocation scenarios?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Are the returns on product sales directly related to a single performance metric that can be measured and compared across different allocation scenarios?\nUser: Yes\n\nExpert: Is the business constrained by a fixed budget for resource allocation?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Are the returns on product sales directly related to a single performance metric that can be measured and compared across different allocation scenarios?\nUser: Yes\n\nExpert: Is the business constrained by a fixed budget for resource allocation?\nUser: Yes\n\nExpert: With a fixed budget constraint, is the total resource allocation amount known and unchanging?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A business must strategically allocate limited resources to maximize returns on product sales.",
+    "(0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Are there more than two unique parameters in the problem description?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Are there more than two unique parameters in the problem description?\nUser: Yes\n\nExpert: Do the problem constraints contain the phrase 'limited resources'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A business must strategically allocate limited resources to maximize returns on product sales.\nExpert: Are there more than two unique parameters in the problem description?\nUser: Yes\n\nExpert: Do the problem constraints contain the phrase 'limited resources'?\nUser: Yes\n\nExpert: Does the objective or any of the parameters contain the word 'returns'?\nUser: No\n"
+  }
+}

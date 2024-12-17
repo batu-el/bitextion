@@ -1,0 +1,23 @@
+{
+  "vague_description": "A grape farmer must determine the optimal number of small and large crates to use to maximize his grape transport, given constraints on crate capacities, customer preference, and transportation limits.",
+  "detailed_description": "A grape farmer transports his grapes in either small crates or large crates. A small crate can take \\param{SmallCrateCapacity} grapes while a large crate can take \\param{LargeCrateCapacity}. Because his customers prefer smaller crates, at least \\param{SmallToLargeRatio} times as many small crates must be used than large crates. The farmer has available at most \\param{MaxSmallCrates} small crates and at most \\param{MaxLargeCrates} large crates. In addition, his truck can take at most \\param{MaxTotalCrates} crates total and he must use at least \\param{MinLargeCrates} large crates. How many of each crate should he use to maximize the total number of grapes he can transport?",
+  "target_objective": "Maximize the total number of grapes transported in the crates",
+  "target_constraints": [
+    "Number of small crates is non-negative",
+    "Number of large crates is non-negative",
+    "Number of small crates is at least SmallToLargeRatio times the number of large crates",
+    "Up to MaxSmallCrates small crates can be used",
+    "Up to MaxLargeCrates large crates can be used",
+    "A total of up to MaxTotalCrates crates can be used",
+    "At least MinLargeCrates large crates must be used"
+  ],
+  "target_parameters": [
+    "Capacity of a small crate",
+    "Capacity of a large crate",
+    "Minimum ratio of small crates to large crates",
+    "Maximum number of small crates available",
+    "Maximum number of large crates available",
+    "Maximum total number of crates the truck can take",
+    "Minimum number of large crates that must be used"
+  ]
+}

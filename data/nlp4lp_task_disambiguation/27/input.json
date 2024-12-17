@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.",
+  "detailed_description": "Maximize total productive capacity at the end of the five years. The problem parameters are a matrix of coefficients \\param{InputOne}, a vector of manpower coefficients for input one \\param{ManpowerOne}, a matrix of coefficients \\param{InputTwo}, a vector of manpower coefficients for input two \\param{Manpowertwo}, initial stock levels \\param{Stock}, productive capacities \\param{Capacity}, a company-wide manpower limit \\param{ManpowerLimit}, and demand for each productive unit \\param{Demand}.",
+  "target_objective": "Maximize total productive capacity at the end of the five years",
+  "target_constraints": [
+    "There is a company-wide manpower limit denoted by ManpowerLimit",
+    "The production must meet certain demand levels specified by Demand",
+    "Each input usage and productive capacity must be non-negative"
+  ],
+  "target_parameters": [
+    "Total number of years in the planning horizon",
+    "Input one coefficients matrix",
+    "Manpower coefficients for input one",
+    "Input two coefficients matrix",
+    "Manpower coefficients for input two",
+    "Initial stock level for each of the productive units",
+    "Productive capacity for each productive unit",
+    "Company-wide manpower limit",
+    "Demand for each of the productive units at the end of the planning horizon"
+  ]
+}

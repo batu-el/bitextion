@@ -1,0 +1,460 @@
+{
+  "vague_description": "Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.",
+  "detailed_description": "We are aiming at maximizing total net income subject to the \\param{Cash} availability and machine capacity limitations. The problem parameters include: the initial \\param{Cash} available, the \\param{Hour}(s) required to produce each of the \\param{P} products, the \\param{Cost} to produce each of the products, the \\param{Price} at which each product can be sold, the \\param{InvestPercentage} of income from each product to be reinvested, the \\param{UpgradeHours} required for upgrading the machinery, the \\param{UpgradeCost} associated with upgrading, and the total available \\param{AvailableHours} for machine operation.",
+  "target_objective": "Maximize total net income considering production, selling price, cost, and reinvestment",
+  "target_constraints": [
+    "Initial cash available does not exceed Cash",
+    "Total production hours for all products do not exceed AvailableHours",
+    "Total cost to produce all products does not exceed Cash",
+    "Cost to upgrade machinery does not exceed Cash",
+    "Production hours for upgrading machinery do not exceed AvailableHours"
+  ],
+  "target_parameters": [
+    "Number of products",
+    "Initial cash available for investment",
+    "Hours required to produce one unit of product i",
+    "Cost to produce one unit of product i",
+    "Selling price for one unit of product i",
+    "Percentage of income to reinvest for product i",
+    "Hours required for upgrading the machinery",
+    "Cost associated with upgrading the machinery",
+    "Total available machine hours"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.",
+    "(0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the objective of your optimization problem to maximize profit?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the objective of your optimization problem to maximize profit?\nUser: Yes\n\nExpert: Are the financial constraints related to a budget or cost limits?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the objective of your optimization problem to maximize profit?\nUser: Yes\n\nExpert: Are the financial constraints related to a budget or cost limits?\nUser: Yes\n\nExpert: Do the production capabilities include limits on production capacity or availability of raw materials?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.",
+    "(0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Does the problem include specific numerical values for constraints or parameters in its description?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Does the problem include specific numerical values for constraints or parameters in its description?\nUser: No\n\nExpert: Do the constraints include satisfying minimum demand or production requirements for each product or production line?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Does the problem include specific numerical values for constraints or parameters in its description?\nUser: No\n\nExpert: Do the constraints include satisfying minimum demand or production requirements for each product or production line?\nUser: No\n\nExpert: Does the problem involve an explicit constraint on non-negativity of resource allocation?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.",
+    "(0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the objective of the optimization problem to minimize costs, maximize profits, or meet a specific production target?\nUser: Maximize profits.\n",
+    "(0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the objective of the optimization problem to minimize costs, maximize profits, or meet a specific production target?\nUser: Maximize profits.\n\nExpert: Are there any precedence relationships between different production activities, such as requiring one activity to be completed before another can start?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the objective of the optimization problem to minimize costs, maximize profits, or meet a specific production target?\nUser: Maximize profits.\n\nExpert: Are there any precedence relationships between different production activities, such as requiring one activity to be completed before another can start?\nUser: No.\n\nExpert: Are the production capabilities represented by fixed, deterministic capacities or by stochastic, uncertain capacities? \nUser: Fixed, deterministic capacities.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.",
+    "(0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the primary objective a profit-related objective?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the primary objective a profit-related objective?\nUser: Yes\n\nExpert: Does the problem description contain both 'Financial Budget' and 'Production Capacity' as constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the primary objective a profit-related objective?\nUser: Yes\n\nExpert: Does the problem description contain both 'Financial Budget' and 'Production Capacity' as constraints?\nUser: Yes\n\nExpert: Does the problem description explicitly mention the relationship between the parameters (e.g., Revenue, Cost, Production Capacity) and the objective (Maximize Profit)?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Financial constraints",
+            "Production capabilities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize resource allocation to maximize production efficiency and financial returns while adhering to budgetary and production capability constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total financial budget cannot be exceeded.",
+            "Production capabilities are limited by current machinery capacity.",
+            "Labor hours available are capped at 40 hours per week per employee.",
+            "Raw material availability is restricted to current supply levels.",
+            "Production must meet a minimum quantity to fulfill existing contracts.",
+            "No more than 20% of resources can be allocated to a single project unless critical."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit",
+            "Constraints: Finances",
+            "Constraints: Production capabilities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize profit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total budget for resource allocation must not exceed available financial resources.",
+            "Production capabilities limit the maximum amount of resources that can be used for any given process.",
+            "Resources allocated must meet minimum requirements for critical operations.",
+            "Allocations must comply with sector-specific regulations (if any).",
+            "Any unused resources should be minimized to reduce waste."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit",
+            "Constraints: Financial budget/cost limits",
+            "Constraints: Production capabilities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit while adhering to budgetary and production capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraints limit the total expenditure on resources.",
+            "Production capability constraints limit the quantity of resources or products that can be handled or produced."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize profit",
+            "budget limits",
+            "cost limits",
+            "production capacity",
+            "availability of raw materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit while considering financial and production constraints such as budget, cost limits, production capacity, and availability of raw materials."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget or cost limits on financial resources.",
+            "Limits on production capacity.",
+            "Availability of raw materials."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation",
+            "Financial Constraints",
+            "Production Capabilities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal strategy for resource allocation that maximizes resource efficiency while adhering to constraints on finances and production capabilities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total budget cannot exceed $500,000.",
+            "Maximum production capacity is 1000 units per month.",
+            "Each unit requires at least 2 hours of labor.",
+            "Labor hours available are limited to 1500 hours per month.",
+            "Each unit of production incurs a fixed cost of $200.",
+            "There is a requirement to produce a minimum of 500 units each month to meet demand."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "Minimize costs while maximizing production output within given financial and production constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Constraint on total financial budget available for resource allocation.",
+            "Constraint on maximum production capacity limiting the number of resources that can be utilized."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation Strategy",
+            "Financial Constraints",
+            "Production Capabilities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal strategy for allocating resources effectively given constraints related to finances and production capabilities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Constraints on finances affecting resource allocation",
+            "Constraints on production capabilities affecting resource allocation"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Non-negativity of resource allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize resource allocation within the constraints of finances and production capabilities, while ensuring non-negativity in the allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must be non-negative.",
+            "There are constraints on financial resources that limit the total expenditure.",
+            "Production capability limitations restrict the amount of resources that can be allocated."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation",
+            "Financial Constraints",
+            "Production Capabilities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal strategy for allocating resources that maximizes productivity while staying within budget and production constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total expenditure must not exceed the allocated budget.",
+            "Production capacity limits must be adhered to for each resource.",
+            "Resource allocation must align with the strategic goals of the organization."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective: maximize profits",
+            "constraints: financial constraints",
+            "constraints: production capabilities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits given constraints on finances and production capabilities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Financial budget limits on resource allocation.",
+            "Production capacity limits for each type of resource.",
+            "Demand requirements that must be met for the production output.",
+            "Non-negativity constraints on the allocated resources."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Amounts",
+            "Budget Constraints",
+            "Production Capabilities",
+            "Profit Coefficients",
+            "Objective: Maximize Profits",
+            "No Precedence Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profits"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total expenditure on resources must not exceed the available budget.",
+            "Production capacity limitations must be adhered to for each resource or production facility.",
+            "No precedence constraints between different production activities."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profits",
+            "Constraints on finances",
+            "Constraints on production capabilities",
+            "No precedence relationships between production activities",
+            "Fixed, deterministic capacities for production capabilities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profits"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The strategy must adhere to financial constraints.",
+            "Resource allocation must respect production capabilities which are fixed and deterministic.",
+            "There are no precedence relationships between production activities."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "financial constraints",
+            "production capabilities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources in a manner that maximizes production efficiency and output while adhering to financial and production capability constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of resources allocated must not exceed the available budget.",
+            "The production capabilities must not be exceeded by the resource allocation.",
+            "Resources must be distributed within department-specific limits.",
+            "Resource allocation should meet or exceed the minimum required production levels."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Financial Constraints",
+            "Production Capabilities",
+            "Profit Objective"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by optimally allocating resources under financial and production constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total financial expenditure cannot exceed the budget limit specified.",
+            "The utilization of resources must not exceed available production capabilities.",
+            "Any decision on resource allocation must align with the profit-maximization objective.",
+            "There are likely constraints related to labor, materials, and time that must be considered."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profit",
+            "Financial Budget",
+            "Production Capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit given constraints on financial budget and production capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must not exceed the financial budget allocated for the allocation of resources.",
+            "The solution must adhere to the production capacity limits of the resources being allocated."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profit Objective",
+            "Financial Budget Constraint",
+            "Production Capacity Constraint",
+            "Revenue Function",
+            "Cost Function"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize profit while considering constraints on financial budget and production capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Financial Budget",
+            "Production Capacity"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      }
+    }
+  }
+}

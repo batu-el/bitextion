@@ -1,0 +1,484 @@
+{
+  "vague_description": "Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.",
+  "detailed_description": "We want to know how many times should we execute each process to maximize the revenue for the next month (you can assume that the number of times that each process is executed is a floating point number). The problem involves \\param{O} options, \\param{P} price points, and \\param{L} processes with \\param{Allocated} resources, \\param{Price} at each price point, \\param{Input} required for each option in each process, \\param{Output} produced for each price point in each process, and \\param{Cost} for each process.",
+  "target_objective": "Maximize the total revenue, which is calculated based on the Price at each price point, the number of times each process is executed, and the Cost for each process",
+  "target_constraints": [
+    "Each process execution number is non-negative",
+    "Total resource allocation for all processes does not exceed Allocated resources",
+    "Inputs required for executing processes for all options do not exceed available Input for each option",
+    "Outputs produced from executing processes for all price points do not exceed the demand represented by Output at each price point"
+  ],
+  "target_parameters": [
+    "Number of options",
+    "Number of price points",
+    "Number of processes",
+    "Allocated resources for each option",
+    "Price at each price point",
+    "Input resources required for each option in each process",
+    "Output produced for each price point in each process",
+    "Cost for each process"
+  ],
+  "Expert": {
+    "(0,)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.",
+    "(0, 0)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.\nExpert: Is the objective function related to maximizing profit or minimizing cost?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.\nExpert: Is the objective function related to maximizing profit or minimizing cost?\nUser: Yes\n\nExpert: Are there any constraints related to the availability or limits of resources such as manpower, materials, or time?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.\nExpert: Is the objective function related to maximizing profit or minimizing cost?\nUser: Yes\n\nExpert: Are there any constraints related to the availability or limits of resources such as manpower, materials, or time?\nUser: Yes\n\nExpert: Are there specific operational constraints such as deadlines, quality standards, or process dependencies involved in the optimization problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.",
+    "(0, 0)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.\nExpert: Does the problem involve optimizing the sequence of process execution strategies for a single project?\nUser: No.\n",
+    "(0, 0, 0)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.\nExpert: Does the problem involve optimizing the sequence of process execution strategies for a single project?\nUser: No.\n\nExpert: Is the optimization constrained by a financial risk threshold specifically mentioned as a constraint?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.\nExpert: Does the problem involve optimizing the sequence of process execution strategies for a single project?\nUser: No.\n\nExpert: Is the optimization constrained by a financial risk threshold specifically mentioned as a constraint?\nUser: No.\n\nExpert: Does the problem involve constraints related to limited machine availability?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.",
+    "(0, 0)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.\nExpert: Is this optimization problem influenced by external market forces, such as fluctuating demand or pricing?\nUser: No\n",
+    "(0, 0, 0)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.\nExpert: Is this optimization problem influenced by external market forces, such as fluctuating demand or pricing?\nUser: No\n\nExpert: Is the objective of this optimization problem to maximize profit, minimize costs, or achieve a specific return on investment?\nUser: Yes, the objective is to maximize profit.\n",
+    "(0, 0, 0, 0)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.\nExpert: Is this optimization problem influenced by external market forces, such as fluctuating demand or pricing?\nUser: No\n\nExpert: Is the objective of this optimization problem to maximize profit, minimize costs, or achieve a specific return on investment?\nUser: Yes, the objective is to maximize profit.\n\nExpert: Is the profit maximization objective subject to any regulatory or compliance constraints?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.",
+    "(0, 0)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.\nExpert: Does the objective of the optimization problem involve maximizing a financial metric?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.\nExpert: Does the objective of the optimization problem involve maximizing a financial metric?\nUser: Yes\n\nExpert: Does the problem have any constraints? (yes/no)\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.\nExpert: Does the objective of the optimization problem involve maximizing a financial metric?\nUser: Yes\n\nExpert: Does the problem have any constraints? (yes/no)\nUser: Yes\n\nExpert: Is the objective of the problem solely to maximize a specific metric (without additional context or clarification)?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource constraints",
+            "Operational constraints",
+            "Process execution strategy",
+            "Financial performance"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal process execution strategy that maximizes financial performance while adhering to resource and operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability: Limited number of resources (e.g., labor, machinery, tools) that can be allocated to different tasks.",
+            "Budget constraints: Expenditure limits that cannot be exceeded while implementing process execution.",
+            "Time constraints: Specific deadlines for project completion or task execution which must be adhered to.",
+            "Operational constraints: Restrictions due to operational policies or procedures that must be followed.",
+            "Quality standards: Minimum acceptable quality requirements that the process execution must meet.",
+            "Compliance constraints: Adherence to financial regulations and standards relevant to the execution strategy.",
+            "Capacity constraints: Maximum production or operational capacity that cannot be surpassed."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit or minimize cost",
+            "Constraints: Resource availability",
+            "Constraints: Operational limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit given resource and operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints: Limited availability of resources such as labor, materials, and capital, which must be allocated efficiently.",
+            "Operational constraints: Limitations in production capacity, machinery, or technology that can affect process execution.",
+            "Budget constraint: A fixed budget that must not be exceeded to ensure financial optimization.",
+            "Time constraints: Deadlines or timeframes within which the process execution must be completed.",
+            "Quality constraints: Standards or specifications that must be met to ensure product or service quality.",
+            "Regulatory constraints: Compliance with legal and regulatory requirements that may impact execution strategy.",
+            "Market demand constraint: Ensuring that production aligns with market demand to avoid overproduction or underproduction."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit or minimize cost",
+            "Constraints: Resource availability, Operational constraints",
+            "Resources: Manpower, Materials, Time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to enhance financial performance by either maximizing profit or minimizing cost, while adhering to resource and operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability, including limits on manpower, materials, and time.",
+            "Objective function related to maximizing profit or minimizing cost."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Maximize profit or minimize cost",
+            "Constraints related to availability or limits of resources (manpower, materials, time)",
+            "Constraints related to operational aspects (deadlines, quality standards, process dependencies)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the execution strategy of processes with the aim of maximizing profit or minimizing cost, while considering constraints related to resources such as manpower, materials, and time, as well as operational constraints like deadlines, quality standards, or process dependencies."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints such as availability and limits of manpower, materials, and time.",
+            "Operational constraints such as deadlines, quality standards, and process dependencies."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "optimal process execution strategy",
+            "enhance financial performance",
+            "resource constraints",
+            "operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Enhance financial performance while adhering to resource and operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability limits for raw materials, labor, and machinery.",
+            "Operational constraints such as machine capacity, operational hours, and workforce limitations.",
+            "Financial budget limitations for production and operational expenses.",
+            "Market demand constraints for meeting customer requirements and deadlines.",
+            "Regulatory and compliance requirements that the process must adhere to."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "financial performance",
+            "resource constraints",
+            "operational constraints",
+            "multiple projects"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To enhance financial performance by determining the optimal process execution strategy within given resource and operational constraints, across multiple projects."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability: The optimization strategy must consider limited resources such as personnel, equipment, and materials that are available for executing various processes.",
+            "Operational constraints: There must be adherence to operational deadlines, project timelines, and the various procedural protocols established by the organization or applicable regulatory bodies.",
+            "Budgetary limitations: The strategy must not exceed the financial budget allocated for the process execution, ensuring cost-effectiveness while aiming for optimal financial performance.",
+            "Collaboration and dependency constraints: Processes may have dependencies on each other, requiring certain tasks to be completed before others can begin, and may require cross-functional team collaboration.",
+            "Non-linear sequence of executions: The strategy can involve multiple projects and does not necessitate a sequential execution of processes, allowing for parallel or interdependent execution across different projects.",
+            "Objective constraints: The primary objective is to enhance financial performance, which might include maximizing revenue or minimizing costs while maintaining quality and compliance standards."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Single Project (false)",
+            "Financial Risk Threshold Constraint (false)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to enhance financial performance through optimizing process execution strategies while considering various resource and operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints, such as limited availability of machinery, manpower, or time, which limit how processes can be sequenced or executed.",
+            "Operational constraints, potentially relating to workflow dependencies or sequence limitations, impacting the execution of processes."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "financial performance",
+            "resource constraints",
+            "operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The optimization problem's objective is to enhance financial performance through an optimal process execution strategy while considering various resource and operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints",
+            "Operational constraints"
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "process execution strategy",
+            "financial performance",
+            "resources",
+            "operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To enhance financial performance by finding the optimal process execution strategy while considering resource and operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The strategy must operate within the given resource limits, such as budgetary or personnel constraints.",
+            "All operational processes must adhere to current regulatory and compliance standards.",
+            "The execution strategy should maintain or improve existing process efficiency compared to current baselines.",
+            "There should be no negative impact on overall financial performance or profitability as a result of implementing the strategy.",
+            "The strategy should be feasible given current technological capabilities and infrastructure.",
+            "Time constraints must be considered, ensuring that processes can be executed within acceptable timeframes.",
+            "Risk management protocols should be incorporated to mitigate adverse operational impacts.",
+            "The developed strategy must be scalable to accommodate potential future changes in operational scope or resource availability.",
+            "Stakeholder acceptance and alignment should be considered as a soft constraint when defining the process execution strategy.",
+            "Resource allocation must consider not just financial resources but also available manpower, technical resources, and logistical support."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource constraints",
+            "Operational constraints",
+            "Financial performance"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To enhance financial performance by determining the optimal process execution strategy subject to existing resource and operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource limitations, such as manpower, machinery, or raw materials, that cannot be exceeded.",
+            "Operational constraints related to process execution, such as time schedules or required process sequences.",
+            "Financial targets that must be met, such as minimum profit margins or return on investment.",
+            "No influence from external market forces, so demand and pricing are considered constant or irrelevant."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource constraints",
+            "operational constraints",
+            "maximize profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profit"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints include available labor, machinery, and materials, which cannot exceed their respective capacities.",
+            "Operational constraints involve process execution timelines and sequence dependencies, ensuring processes are carried out in a feasible order.",
+            "Financial constraints may include budget limits for operational spending and investment.",
+            "External market forces such as fluctuating demand or pricing are not considered as influencing factors.",
+            "The solution must adhere to regulatory and compliance requirements specific to the industry.",
+            "There is no specific deadline for achieving the optimization; however, efficiency in the timeline may indirectly affect profit maximization."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Constraints",
+            "Operational Constraints",
+            "Objective to Maximize Profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profit"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Constraints related to resource limitations such as availability of labor, capital, and other inputs required for process execution.",
+            "Operational constraints related to process capacity, workflow, timing, and scheduling must be considered.",
+            "The objective is to maximize profit without being influenced by external market forces such as demand or pricing fluctuations.",
+            "There are no regulatory or compliance constraints impacting the optimization of the process execution strategy."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Process execution strategies",
+            "Financial performance metrics",
+            "Resource constraints",
+            "Operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal process execution strategy that enhances financial performance while adhering to resource and operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The process execution strategy must align with the current financial performance goals.",
+            "Available resources are limited, meaning the strategy must optimize the use of existing resources.",
+            "Operational constraints such as staffing levels, machinery availability, and working hours must be considered.",
+            "Financial constraints including budget limits and cost-effectiveness should be taken into account.",
+            "The strategy should comply with regulatory and compliance standards relevant to the financial sector.",
+            "The selected strategy must be feasible within the existing technological infrastructure."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Process execution strategy",
+            "Financial performance",
+            "Resource constraints",
+            "Operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the financial metric given resource and operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability such as labor, equipment, or budget.",
+            "Operational constraints like production capacity or process limitations.",
+            "Financial performance targets or limits.",
+            "Timing constraints related to market deadlines or process schedules.",
+            "Compliance with industry regulations or quality standards."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize a financial metric, presumably profit or cost efficiency",
+            "Subject to resource constraints such as limited availability of materials or manpower",
+            "Operational constraints such as workflow dependencies, time limitations, or regulatory requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize a financial metric while considering and adhering to resource and operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource limitations: There are fixed amounts of resources available for allocation, such as labor, materials, machinery, or capital.",
+            "Operational constraints: Certain operational procedures or workflows must be followed, which might limit the sequence or timing of processes.",
+            "Budget constraints: The total cost incurred should not exceed the allocated budget for process execution.",
+            "Time constraints: There might be deadlines or time windows within which processes need to be completed to ensure financial targets are met.",
+            "Capacity limitations: The maximum capacity of production units or machinery must not be exceeded.",
+            "Quality standards: Processes should comply with predefined quality standards to avoid financial penalties or loss of competitive advantage.",
+            "Regulatory constraints: Compliance with industry regulations or legal requirements that might affect process execution."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize financial metric",
+            "Subject to:",
+            "Resource constraints",
+            "Operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize a specific financial metric under given resource and operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints, including available manpower, machinery, and materials limitations.",
+            "Operational constraints, such as production capacity, time restrictions, and process dependencies."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    }
+  }
+}

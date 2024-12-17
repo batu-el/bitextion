@@ -1,0 +1,19 @@
+{
+  "vague_description": "How to balance maximizing visitor transport while minimizing environmental impact at a mountainous tourist location.",
+  "detailed_description": "A tourist spot in the mountains allows visitors to travel to the top either by hot-air balloon or gondola lift. A hot air balloon can carry \\param{BalloonCapacity} visitors while a gondola lift can carry \\param{GondolaCapacity} visitors. Each hot air balloon produces \\param{BalloonPollution} units of pollution while each gondola lift produces \\param{GondolaPollution} units of pollution. There can be at most \\param{MaxBalloons} hot-air balloon rides and at least \\param{MinVisitors} visitors need to be transported. How many of each type of transport method should be taken to minimize the total pollution produced?",
+  "target_objective": "Minimize the total pollution produced by the hot-air balloons and gondola lifts",
+  "target_constraints": [
+    "Number of hot-air balloon rides is non-negative",
+    "Number of gondola lift trips is non-negative",
+    "At most MaxBalloons hot-air balloon rides can be offered",
+    "At least MinVisitors visitors must be transported"
+  ],
+  "target_parameters": [
+    "Capacity of one hot air balloon ride",
+    "Capacity of one gondola lift",
+    "Pollution produced by one hot air balloon ride",
+    "Pollution produced by one gondola lift",
+    "Maximum number of hot air balloon rides",
+    "Minimum number of visitors to be transported"
+  ]
+}

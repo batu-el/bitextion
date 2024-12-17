@@ -1,0 +1,17 @@
+{
+  "vague_description": "Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.",
+  "detailed_description": "Minimize the total cost of the production and inventory schedule over \\param{T} periods, given \\param{Deliver} for each period, a \\param{StorageCost} for holding inventory, and a \\param{SwitchCost} for changing production between periods.",
+  "target_objective": "Minimize the total cost of production and inventory over T periods",
+  "target_constraints": [
+    "The production amount in each period is non-negative",
+    "The inventory level in each period is non-negative",
+    "The production schedule must meet the delivery requirement Deliver in each period",
+    "The switch cost is incurred when changing production between periods"
+  ],
+  "target_parameters": [
+    "Demand for the product in each period i",
+    "Cost to hold one unit of product in storage for one period",
+    "Cost to switch the production from one period to another",
+    "Total number of periods"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "vague_description": "Determining the most optimal selection from a set of choices with constraints.",
+  "detailed_description": "The Knapsack Problem is a classic optimization problem in operations research and computer science. The problem is to determine the most valuable combination of items to include in a knapsack, given a set of \\param{TotalItems} with different values and weights represented by \\param{ItemValues} and \\param{ItemWeights} respectively, and a maximum weight capacity of the knapsack \\param{MaxKnapsackWeight}. The goal is to maximize the total value of the items in the knapsack, represented by \\param{ItemValues}, without exceeding its weight capacity \\param{MaxKnapsackWeight}.",
+  "target_objective": "Maximize the total value of the items in the knapsack",
+  "target_constraints": [
+    "The total weight of the selected items must not exceed MaxKnapsackWeight",
+    "Only non-negative quantities of each item can be selected",
+    "No more than TotalItems items can be considered for selection"
+  ],
+  "target_parameters": [
+    "The total number of available items",
+    "The value of each item",
+    "The weight of each item",
+    "The maximum weight capacity of the knapsack"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the most optimal selection from a set of choices with constraints.",
+    "(0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Is the objective of the optimization problem to maximize a particular value, such as profit or efficiency?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Is the objective of the optimization problem to maximize a particular value, such as profit or efficiency?\nUser: Yes\n\nExpert: Are there any budget or resource limitations that restrict the set of choices available for selection?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Is the objective of the optimization problem to maximize a particular value, such as profit or efficiency?\nUser: Yes\n\nExpert: Are there any budget or resource limitations that restrict the set of choices available for selection?\nUser: Yes\n\nExpert: Are all choices equally beneficial, or do they have varying levels of benefit that impact the selection decision?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the most optimal selection from a set of choices with constraints.",
+    "(0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Is there a constraint that requires selecting a minimum or maximum number of items or choices from specific categories?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Is there a constraint that requires selecting a minimum or maximum number of items or choices from specific categories?\nUser: No\n\nExpert: Does the problem involve minimizing cost in its objective function?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Is there a constraint that requires selecting a minimum or maximum number of items or choices from specific categories?\nUser: No\n\nExpert: Does the problem involve minimizing cost in its objective function?\nUser: No\n\nExpert: Do the constraints in the problem description include a requirement to select items from different categories?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the most optimal selection from a set of choices with constraints.",
+    "(0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Are the constraints fixed or will they change over time?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Are the constraints fixed or will they change over time?\nUser: Yes\n\nExpert: Are the constraints deterministic, meaning they are based on known quantities and mathematically defined, or are they probabilistic or uncertain?\nUser: {\"response\":\"Yes\"}\n",
+    "(0, 0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Are the constraints fixed or will they change over time?\nUser: Yes\n\nExpert: Are the constraints deterministic, meaning they are based on known quantities and mathematically defined, or are they probabilistic or uncertain?\nUser: {\"response\":\"Yes\"}\n\nExpert: Are the objective and constraints already well-defined and given, or is the objective the only known aspect and the constraints are still being developed?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the most optimal selection from a set of choices with constraints.",
+    "(0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Does the problem statement explicitly mention the word 'maximize' for the objective function?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Does the problem statement explicitly mention the word 'maximize' for the objective function?\nUser: Yes\n\nExpert: Is the objective function either 'maximize yearly profit for a company', 'maximize revenue', 'maximize the profit', 'Maximize the profit', or 'maximize' without a specific objective?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Does the problem statement explicitly mention the word 'maximize' for the objective function?\nUser: Yes\n\nExpert: Is the objective function either 'maximize yearly profit for a company', 'maximize revenue', 'maximize the profit', 'Maximize the profit', or 'maximize' without a specific objective?\nUser: No\n\nExpert: Is the objective function to be maximized?\nUser: Yes\n"
+  }
+}

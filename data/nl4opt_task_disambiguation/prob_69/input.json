@@ -1,0 +1,24 @@
+{
+  "vague_description": "The bakery needs to decide on the optimal number of brownies and lemon squares to produce based on ingredient constraints and customer preferences.",
+  "detailed_description": "A bakery makes fiber supplemented brownies and lemon squares. Each brownie requires \\param{ChocMixBrownie} units of chocolate mix and \\param{FiberBrownie} units of fiber. Each lemon square requires \\param{LemonMixSquare} units of lemon mix and \\param{FiberSquare} units of fiber. Lemon squares sell much faster and thus the number of lemon squares made must be larger than the number of brownies made. However, to please all customers, at least \\param{MinBrownieProportion} of the items made must be brownies. If the bakery has \\param{TotalChocMix} units of chocolate mix and \\param{TotalLemonMix} units of lemon mix, how many of each should be made to minimize the total amount of fiber needed?",
+  "target_objective": "Minimize the total amount of fiber used (FiberBrownie * Number of brownies + FiberSquare * Number of lemon squares)",
+  "target_constraints": [
+    "Number of brownies is an integer",
+    "Number of lemon squares is an integer",
+    "Number of brownies is non-negative",
+    "Number of lemon squares is non-negative",
+    "Number of lemon squares > Number of brownies",
+    "Number of brownies >= MinBrownieProportion * (Number of brownies + Number of lemon squares)",
+    "ChocMixBrownie * Number of brownies <= TotalChocMix",
+    "LemonMixSquare * Number of lemon squares <= TotalLemonMix"
+  ],
+  "target_parameters": [
+    "Units of chocolate mix required for each brownie",
+    "Units of fiber required for each brownie",
+    "Units of lemon mix required for each lemon square",
+    "Units of fiber required for each lemon square",
+    "Total available units of chocolate mix",
+    "Total available units of lemon mix",
+    "Minimum proportion of the total items that must be brownies"
+  ]
+}

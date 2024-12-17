@@ -1,0 +1,463 @@
+{
+  "vague_description": "The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.",
+  "detailed_description": "We want to minimize the total prices of the foods to purchase. Each food type has a price, a nutrition matrix that contains the amount of nutrients in each food, and there is a demand for each type of nutrient to be met.",
+  "target_objective": "Minimize the total price of the foods purchased while meeting the nutritional demands",
+  "target_constraints": [
+    "The total amount of each nutrient from all food types must meet or exceed the specific demand for that nutrient",
+    "The number of units purchased from each food type is non-negative"
+  ],
+  "target_parameters": [
+    "Number of different types of food",
+    "Number of nutrients to consider",
+    "Price of food k",
+    "Demand for nutrient m",
+    "Amount of nutrient m in food k"
+  ],
+  "Expert": {
+    "(0,)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.",
+    "(0, 0)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.\nExpert: Are there any specific dietary or nutritional constraints in terms of daily intake that must be met for each nutrient?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.\nExpert: Are there any specific dietary or nutritional constraints in terms of daily intake that must be met for each nutrient?\nUser: Yes.\n\nExpert: Does each food item have a known cost and known nutrient content for all relevant nutrients?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.\nExpert: Are there any specific dietary or nutritional constraints in terms of daily intake that must be met for each nutrient?\nUser: Yes.\n\nExpert: Does each food item have a known cost and known nutrient content for all relevant nutrients?\nUser: Yes.\n\nExpert: Are there limits on the number of servings or quantities for each food item?\nUser: No.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.",
+    "(0, 0)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.\nExpert: Does Problem 0 include constraints related to specific vitamins and minerals, while Problem 1 only uses macronutrient requirements?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.\nExpert: Does Problem 0 include constraints related to specific vitamins and minerals, while Problem 1 only uses macronutrient requirements?\nUser: Yes\n\nExpert: Are upper and lower bounds for vitamin and mineral intake specified as constraints in the problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.\nExpert: Does Problem 0 include constraints related to specific vitamins and minerals, while Problem 1 only uses macronutrient requirements?\nUser: Yes\n\nExpert: Are upper and lower bounds for vitamin and mineral intake specified as constraints in the problem?\nUser: Yes\n\nExpert: Do the problem descriptions include constraints on the intake of micronutrients such as specific vitamins and minerals?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.",
+    "(0, 0)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.\nExpert: Are there any specific dietary restrictions or preferences that need to be considered, such as vegan, gluten-free, or low-carb?\nUser: No\n",
+    "(0, 0, 0)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.\nExpert: Are there any specific dietary restrictions or preferences that need to be considered, such as vegan, gluten-free, or low-carb?\nUser: No\n\nExpert: Are there any constraints on the number of food items that can be selected for the optimal combination?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.\nExpert: Are there any specific dietary restrictions or preferences that need to be considered, such as vegan, gluten-free, or low-carb?\nUser: No\n\nExpert: Are there any constraints on the number of food items that can be selected for the optimal combination?\nUser: No\n\nExpert: Is the goal to select a single optimal combination of foods, or to find a set of optimal combinations for different scenarios or scenarios of varying sizes?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.",
+    "(0, 0)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.\nExpert: Does the problem have a constraint that specifies the exact nutritional requirements (e.g., a specific amount of calories, protein, etc.)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.\nExpert: Does the problem have a constraint that specifies the exact nutritional requirements (e.g., a specific amount of calories, protein, etc.)?\nUser: Yes\n\nExpert: Are there any constraints beyond the objective?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.\nExpert: Does the problem have a constraint that specifies the exact nutritional requirements (e.g., a specific amount of calories, protein, etc.)?\nUser: Yes\n\nExpert: Are there any constraints beyond the objective?\nUser: Yes\n\nExpert: Does the problem description include a specific variety of food groups as a constraint?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "food items",
+            "nutritional values of each food item",
+            "cost of each food item",
+            "nutritional requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of selected food items while satisfying the nutritional requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total calories from the selected foods must meet the daily recommended calorie intake.",
+            "The total protein from the selected foods must meet the minimum daily recommended protein intake.",
+            "The total carbohydrates from the selected foods must meet the minimum daily recommended carbohydrate intake.",
+            "The total fats from the selected foods must meet the minimum daily recommended fat intake.",
+            "The combination of foods selected should not exceed the budget constraint."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost per unit of each food item",
+            "Nutritional content per unit of each food item",
+            "Minimum required daily intake for specific nutrients",
+            "Maximum allowed intake for certain nutrients (if any)",
+            "Availability constraints for each food item (if any)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of food while meeting specific nutritional requirements for daily intake of each nutrient."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The nutritional requirements for each nutrient, such as carbohydrates, proteins, fats, vitamins, and minerals, must be met for each chosen combination of foods.",
+            "The total cost of the selected combination of foods should be minimized.",
+            "The selected combination of foods must be within the defined daily caloric intake limits.",
+            "Each nutritional constraint should correspond to the recommended daily allowance or specific dietary guidelines for the nutrients."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost of each food item",
+            "Nutrient content of each food item",
+            "Daily minimum requirement for each nutrient",
+            "Daily maximum limit for each nutrient"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the combination of foods that satisfies all nutritional and dietary constraints while minimizing the total cost of the foods selected."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Daily intake of each nutrient must meet the specified nutritional requirements.",
+            "The cost of the selected combination of foods must be minimized.",
+            "The nutrient content of each food item is known and must be used to calculate total nutrient intake.",
+            "Each food item has an associated cost that contributes to the total cost of the combination."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Nutritional requirements for each nutrient",
+            "Cost for each food item",
+            "Nutrient content of each food item"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Identify the combination of foods that satisfies all nutritional intake requirements at the lowest possible cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total nutrient intake from selected foods must meet daily nutritional requirements for each specified nutrient.",
+            "Each food item has a known cost associated with it, and the objective is to minimize the total cost of the food selection.",
+            "There are no limits on the number of servings or quantities for each food item."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost of each food item",
+            "Nutritional contribution of each food item",
+            "Total nutritional requirements",
+            "Constraints on maximum allowable quantity of each food item (if any)",
+            "Constraints on minimum allowable quantity of each food item (if any)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of the food combination while meeting nutritional requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Nutritional requirements must be met, including specific amounts of nutrients like protein, carbohydrates, fats, vitamins, and minerals.",
+            "The selection of foods must achieve the minimum total cost.",
+            "Each food has a certain cost and a nutritional profile.",
+            "Dietary or cultural constraints on food choice may exist.",
+            "The total caloric intake must meet a daily target.",
+            "The balance of macronutrients (protein, carbs, fats) should be within recommended ranges.",
+            "Bound constraints on the quantity of each food item (e.g., maximum or minimum servings) may be applied."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Nutritional requirements including specific vitamins and minerals for Problem 0",
+            "Macronutrient requirements for Problem 1",
+            "Cost minimization for both problems"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the combination of foods that meets specified nutritional requirements for vitamins and minerals, as well as macronutrients, while minimizing total costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Problem 0 must include constraints related to both specific vitamins and minerals.",
+            "Problem 1 includes constraints only related to macronutrient requirements (such as carbohydrates, proteins, and fats)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Nutritional requirements for vitamins and minerals as constraints in Problem 0",
+            "Macronutrient requirements as constraints in Problem 1",
+            "Cost minimization objective",
+            "Upper and lower bounds for vitamin and mineral intake",
+            "Food combinations as decision variables"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal combination of foods that minimizes costs while meeting specified macronutrient and micronutrient requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Specific vitamins and minerals must meet the lower and upper bounds specified.",
+            "Macronutrient requirements must be met as specified in the problem statement.",
+            "The combination of foods must minimize costs while satisfying all nutritional constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize cost of food combination",
+            "Meet macronutrient requirements",
+            "Meet vitamin and mineral intake bounds",
+            "Constraints on specific vitamin and mineral intake"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of food while meeting nutritional requirements, including macronutrient and micronutrient constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimize costs of the food items.",
+            "Meet specific vitamin requirements with upper and lower bounds.",
+            "Meet specific mineral requirements with upper and lower bounds.",
+            "Comply with macronutrient requirements including protein, carbohydrates, and fats."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Food items",
+            "Nutritional requirements",
+            "Costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of a combination of foods that meets specified nutritional requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combination of foods selected must meet the specified nutritional requirements.",
+            "The nutritional requirements might include daily intake levels for calories, protein, vitamins, and minerals.",
+            "The cost of the selected combination of foods must be minimized.",
+            "Each food item has a known cost and nutritional profile.",
+            "There might be serving size or availability constraints for each food item."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Nutritional requirements",
+            "Food costs",
+            "Nutrient content per food",
+            "Budget constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the cost of the food combination while meeting the nutritional requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combination of foods must meet all nutritional requirements.",
+            "The total cost of the selected foods should be minimized.",
+            "There are no dietary restrictions or preferences to adhere to (such as vegan, gluten-free, or low-carb)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Nutritional requirements",
+            "Cost minimization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal combination of foods that meets nutritional requirements while minimizing costs, without specific dietary restrictions or a limit on the number of food items."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimal combination of foods must meet nutritional requirements.",
+            "The optimization should aim to minimize costs.",
+            "There are no dietary restrictions or preferences like vegan, gluten-free, or low-carb.",
+            "There is no constraint on the number of food items that can be selected."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize cost",
+            "Meet nutritional requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of a combination of foods that meets specified nutritional requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No dietary restrictions or preferences such as vegan, gluten-free, or low-carb are considered.",
+            "No constraints on the number of food items that can be selected."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Food items",
+            "Nutritional requirements",
+            "Cost per food item"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Find the optimal combination of foods that meets nutritional requirements while minimizing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total calories must be equal to or greater than the daily required intake.",
+            "Protein intake must meet the minimum daily requirement.",
+            "Carbohydrate intake must meet the minimum daily requirement.",
+            "Fat intake must meet the minimum daily requirement.",
+            "Vitamin and mineral requirements must be met according to daily nutritional guidelines.",
+            "Total cost of the selected food combination must be minimized."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost of each food item",
+            "Nutritional content of each food item (e.g., calories, protein, etc.)",
+            "Nutritional requirements (e.g., minimum and/or maximum levels for calories, protein, etc.)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal combination of foods that meets specified nutritional requirements at the minimum cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The foods selected must meet the specified nutritional requirements (e.g., a certain number of calories, grams of protein, vitamins, minerals, etc.)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "nutritionalRequirements",
+            "minimizeCosts",
+            "additionalConstraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize cost while meeting specific nutritional requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combination of foods must meet specific nutritional requirements, including a specified amount of calories.",
+            "The combination of foods must include a minimum specified amount of protein.",
+            "The combination of foods must include a minimum specified amount of carbohydrates.",
+            "The combination of foods must include a minimum specified amount of fats.",
+            "The total cost of the combination of foods must be minimized while meeting the nutritional requirements."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Nutritional Requirements: Exact amounts of nutrients that must be met.",
+            "Objective: Minimize costs."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal combination of foods that meets the specified nutritional requirements at the minimum cost, considering the imposed constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimal combination of foods must meet specific nutritional requirements.",
+            "The solution must minimize costs."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 2
+      }
+    }
+  }
+}

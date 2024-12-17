@@ -1,0 +1,47 @@
+{
+  "vague_description": "A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.",
+  "detailed_description": "A flooring company produces engineered laminate planks and carpets. The chief marketer reports an expected demand of at least \\param{Dlaminate} square feet of laminate planks and \\param{Dcarpet} square feet of carpets each week. The shipping contract requires a total of at least \\param{Dtotal} square feet of products each week. However, due to a shortage of raw materials, no more than \\param{Claminate} square feet of laminate planks and \\param{Ccarpet} square feet of carpets can be produced weekly. If a square foot of laminate planks produces a \\param{Plaminate} profit and a square foot of carpets yields a \\param{Pcarpet} profit, how many of each type of product should be made weekly to maximize the company's profit?",
+  "target_objective": "Maximize the company's weekly profit from producing laminate planks and carpets",
+  "target_constraints": [
+    "Produce at least Dlaminate square feet of laminate planks per week",
+    "Produce at least Dcarpet square feet of carpets per week",
+    "Produce a total of at least Dtotal square feet of products each week",
+    "Produce no more than Claminate square feet of laminate planks per week",
+    "Produce no more than Ccarpet square feet of carpets per week",
+    "Number of square feet of laminate planks produced is non-negative",
+    "Number of square feet of carpets produced is non-negative"
+  ],
+  "target_parameters": [
+    "Minimum expected demand for laminate planks per week",
+    "Minimum expected demand for carpets per week",
+    "Minimum total amount of products to be shipped per week",
+    "Maximum production capacity for laminate planks per week",
+    "Maximum production capacity for carpets per week",
+    "Profit per square foot for laminate planks",
+    "Profit per square foot for carpets"
+  ],
+  "Expert": {
+    "(0,)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.",
+    "(0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Are there specific production capacity limits for each type of flooring product?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Are there specific production capacity limits for each type of flooring product?\nUser: Yes\n\nExpert: Are there specific cost coefficients for each type of flooring product related to production or raw materials?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Are there specific production capacity limits for each type of flooring product?\nUser: Yes\n\nExpert: Are there specific cost coefficients for each type of flooring product related to production or raw materials?\nUser: No\n\nExpert: Are there minimum demand requirements for each type of flooring product?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.",
+    "(0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Does the problem include a constraint related to the availability or usage of raw materials?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Does the problem include a constraint related to the availability or usage of raw materials?\nUser: Yes\n\nExpert: Does the problem include a constraint that requires production quantities to meet or exceed forecasted or minimum demand levels for each product?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Does the problem include a constraint related to the availability or usage of raw materials?\nUser: Yes\n\nExpert: Does the problem include a constraint that requires production quantities to meet or exceed forecasted or minimum demand levels for each product?\nUser: Yes\n\nExpert: Do any of the problems include a budget constraint related to production costs?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.",
+    "(0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Do the production quantities of different flooring products interact with each other through a shared resource or constraint?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Do the production quantities of different flooring products interact with each other through a shared resource or constraint?\nUser: Yes\n\nExpert: Are the shared resources or constraints mentioned earlier related to production capacity, such as machines or labor?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Do the production quantities of different flooring products interact with each other through a shared resource or constraint?\nUser: Yes\n\nExpert: Are the shared resources or constraints mentioned earlier related to production capacity, such as machines or labor?\nUser: Yes\n\nExpert: Is the production capacity of the shared resources or constraints fixed and known in advance?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.",
+    "(0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Does the problem description contain a list of individual products (e.g. flooring products, products)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Does the problem description contain a list of individual products (e.g. flooring products, products)?\nUser: Yes\n\nExpert: Is there a reference to 'flooring products' in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Does the problem description contain a list of individual products (e.g. flooring products, products)?\nUser: Yes\n\nExpert: Is there a reference to 'flooring products' in the problem description?\nUser: Yes\n\nExpert: Does the problem description contain the phrase 'optimal production quantities' (case-insensitive)?\nUser: No\n"
+  }
+}

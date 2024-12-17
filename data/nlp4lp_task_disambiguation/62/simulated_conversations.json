@@ -1,0 +1,43 @@
+{
+  "vague_description": "Determine the optimal production schedule and mix of parts to balance machine usage and profit.",
+  "detailed_description": "How many batches of each part should the manufacturer produce each month to maximize profit, taking into account the number of machines (\\param{M}), the number of types of parts (\\param{P}), the time required to produce a batch on machine \\param{m} for part \\param{p} (\\param{TimeRequired}), the cost of operating machine \\param{m} for a month (\\param{MachineCosts}), the time each machine \\param{m} is available for production each month (\\param{Availability}), the price at which part \\param{p} can be sold (\\param{Prices}), and the setup time required before producing a batch of part \\param{p} (\\param{SetupTime})?",
+  "target_objective": "Maximize profit, which is the total revenue from selling the parts minus the total operating costs of the machines",
+  "target_constraints": [
+    "Each machine m can be used for up to Availability hours per month",
+    "Time required to produce a batch of part p on machine m plus the setup time for part p must not exceed the available time on machine m",
+    "Number of batches for each part is non-negative"
+  ],
+  "target_parameters": [
+    "The number of machines available",
+    "The number of types of parts to produce",
+    "The time required to produce a batch on machine m for part p",
+    "The cost of operating machine m for a month",
+    "The time each machine m is available for production each month",
+    "The price at which part p can be sold",
+    "The setup time required before producing a batch of part p"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.",
+    "(0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Are there constraints on the production capacity or availability of machines for manufacturing the parts?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Are there constraints on the production capacity or availability of machines for manufacturing the parts?\nUser: Yes\n\nExpert: Are there explicit cost or profit values associated with each part or product?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Are there constraints on the production capacity or availability of machines for manufacturing the parts?\nUser: Yes\n\nExpert: Are there explicit cost or profit values associated with each part or product?\nUser: Yes\n\nExpert: Are there specific demand requirements or sales targets for the parts to be produced?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.",
+    "(0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Does the problem description include constraints related to safety regulations or machine maintenance windows?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Does the problem description include constraints related to safety regulations or machine maintenance windows?\nUser: No\n\nExpert: Do the problem descriptions include constraints related to inventory or storage capacity?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Does the problem description include constraints related to safety regulations or machine maintenance windows?\nUser: No\n\nExpert: Do the problem descriptions include constraints related to inventory or storage capacity?\nUser: No\n\nExpert: Does the problem description include constraints related to machine setup times?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.",
+    "(0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Is the production schedule subject to any fixed time constraints, such as a limited number of shifts or production days?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Is the production schedule subject to any fixed time constraints, such as a limited number of shifts or production days?\nUser: No\n\nExpert: Is the production schedule subject to any variable time constraints, such as varying machine availability or worker schedules?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Is the production schedule subject to any fixed time constraints, such as a limited number of shifts or production days?\nUser: No\n\nExpert: Is the production schedule subject to any variable time constraints, such as varying machine availability or worker schedules?\nUser: No\n\nExpert: Are there any costs or penalties associated with production that could impact profit, such as overtime pay, inventory storage fees, or backorder costs?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.",
+    "(0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Does the problem description contain the term 'inventory'?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Does the problem description contain the term 'inventory'?\nUser: No\n\nExpert: Does the problem description contain the term 'machine maintenance' as a constraint?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Does the problem description contain the term 'inventory'?\nUser: No\n\nExpert: Does the problem description contain the term 'machine maintenance' as a constraint?\nUser: No\n\nExpert: Is the objective directly related to maximizing profit?\nUser: Yes\n"
+  }
+}

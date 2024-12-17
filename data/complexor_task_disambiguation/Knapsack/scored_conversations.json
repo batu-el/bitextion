@@ -1,0 +1,435 @@
+{
+  "vague_description": "Determining the most optimal selection from a set of choices with constraints.",
+  "detailed_description": "The Knapsack Problem is a classic optimization problem in operations research and computer science. The problem is to determine the most valuable combination of items to include in a knapsack, given a set of \\param{TotalItems} with different values and weights represented by \\param{ItemValues} and \\param{ItemWeights} respectively, and a maximum weight capacity of the knapsack \\param{MaxKnapsackWeight}. The goal is to maximize the total value of the items in the knapsack, represented by \\param{ItemValues}, without exceeding its weight capacity \\param{MaxKnapsackWeight}.",
+  "target_objective": "Maximize the total value of the items in the knapsack",
+  "target_constraints": [
+    "The total weight of the selected items must not exceed MaxKnapsackWeight",
+    "Only non-negative quantities of each item can be selected",
+    "No more than TotalItems items can be considered for selection"
+  ],
+  "target_parameters": [
+    "The total number of available items",
+    "The value of each item",
+    "The weight of each item",
+    "The maximum weight capacity of the knapsack"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the most optimal selection from a set of choices with constraints.",
+    "(0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Is the objective of the optimization problem to maximize a particular value, such as profit or efficiency?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Is the objective of the optimization problem to maximize a particular value, such as profit or efficiency?\nUser: Yes\n\nExpert: Are there any budget or resource limitations that restrict the set of choices available for selection?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Is the objective of the optimization problem to maximize a particular value, such as profit or efficiency?\nUser: Yes\n\nExpert: Are there any budget or resource limitations that restrict the set of choices available for selection?\nUser: Yes\n\nExpert: Are all choices equally beneficial, or do they have varying levels of benefit that impact the selection decision?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the most optimal selection from a set of choices with constraints.",
+    "(0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Is there a constraint that requires selecting a minimum or maximum number of items or choices from specific categories?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Is there a constraint that requires selecting a minimum or maximum number of items or choices from specific categories?\nUser: No\n\nExpert: Does the problem involve minimizing cost in its objective function?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Is there a constraint that requires selecting a minimum or maximum number of items or choices from specific categories?\nUser: No\n\nExpert: Does the problem involve minimizing cost in its objective function?\nUser: No\n\nExpert: Do the constraints in the problem description include a requirement to select items from different categories?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the most optimal selection from a set of choices with constraints.",
+    "(0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Are the constraints fixed or will they change over time?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Are the constraints fixed or will they change over time?\nUser: Yes\n\nExpert: Are the constraints deterministic, meaning they are based on known quantities and mathematically defined, or are they probabilistic or uncertain?\nUser: {\"response\":\"Yes\"}\n",
+    "(0, 0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Are the constraints fixed or will they change over time?\nUser: Yes\n\nExpert: Are the constraints deterministic, meaning they are based on known quantities and mathematically defined, or are they probabilistic or uncertain?\nUser: {\"response\":\"Yes\"}\n\nExpert: Are the objective and constraints already well-defined and given, or is the objective the only known aspect and the constraints are still being developed?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the most optimal selection from a set of choices with constraints.",
+    "(0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Does the problem statement explicitly mention the word 'maximize' for the objective function?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Does the problem statement explicitly mention the word 'maximize' for the objective function?\nUser: Yes\n\nExpert: Is the objective function either 'maximize yearly profit for a company', 'maximize revenue', 'maximize the profit', 'Maximize the profit', or 'maximize' without a specific objective?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the most optimal selection from a set of choices with constraints.\nExpert: Does the problem statement explicitly mention the word 'maximize' for the objective function?\nUser: Yes\n\nExpert: Is the objective function either 'maximize yearly profit for a company', 'maximize revenue', 'maximize the profit', 'Maximize the profit', or 'maximize' without a specific objective?\nUser: No\n\nExpert: Is the objective function to be maximized?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function to be maximized or minimized",
+            "Set of decision variables",
+            "Constraints and their nature (equality or inequality)",
+            "Bounds or limits on the variables",
+            "Type of optimization problem (linear, nonlinear, integer, etc.)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the best selection of choices that maximizes or minimizes a given objective function while satisfying certain constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each selected choice must not exceed a specified resource limit (e.g., budget, capacity).",
+            "The total number of selected choices must be within an allowable limit.",
+            "Certain choices may be mutually exclusive, implying that if one is selected, the other cannot be selected.",
+            "There can be at least one mandatory choice that must be included in any feasible solution.",
+            "Each choice can have a minimum or maximum selection quantity or restriction.",
+            "Dependencies might exist where selecting one choice necessitates the selection of another."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective to maximize value (e.g., profit, efficiency)",
+            "Constraints on the selection of choices",
+            "Set of choices to evaluate"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize value, such as profit or efficiency, within a set of choices and constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective function needs to be maximized.",
+            "There is a finite set of choices available.",
+            "Each choice might have a set of attributes or features that need to be considered.",
+            "Constraints might include budget limits, resource availability, or maximum number of choices that can be selected.",
+            "The selection process could involve binary decisions for each choice, i.e., either selected or not."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Maximize a particular value (e.g., profit, efficiency)",
+            "Constraints: Budget limitations",
+            "Constraints: Resource limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize a particular value subject to budget or resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Selection must stay within budget limits.",
+            "Resource utilization must not exceed available resources."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize a particular value (e.g., profit or efficiency)",
+            "Budget constraints",
+            "Resource limitations",
+            "Choices have varying levels of benefit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize a particular value, such as profit or efficiency, subject to budget or resource constraints, while considering varying levels of benefit among choices."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective is to maximize a particular value, such as profit or efficiency.",
+            "There are budget or resource limitations restricting the available set of choices.",
+            "Choices have varying levels of benefit that affect the selection decision."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function",
+            "Set of choices",
+            "Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To select the most optimal choice(s) from a set of available options while adhering to given constraints and maximizing or minimizing a specific criteria."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The selection must be made from a predefined set of choices equivalent to the available options.",
+            "Each choice in the set has a unique set of attributes that affect its desirability or suitability.",
+            "There may be limits on how many choices can be selected, such as a maximum or minimum number of choices allowable.",
+            "Certain choices may be incompatible with others, requiring constraints that not all combinations of choices are allowed.",
+            "Some choices may have mandatory selection requirements due to priorities or regulations.",
+            "There could be a budgetary constraint that restricts the total cost of selected choices to not exceed a certain amount.",
+            "Resources such as time, space, or capacity may limit how many or which choices can be selected."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Set of choices",
+            "Constraints on selections"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to find the optimal selection from a set of choices, considering any inherent constraints, without specific requirements for minimum or maximum numbers of items from certain categories."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective function not focused on minimizing cost",
+            "selection without constraints on number of items",
+            "no minimum/maximum item selection from categories"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the most optimal selection from a set of choices with constraints without minimizing cost."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "Maximize total utility or value from the selection of items from a set of choices with given constraints, without specific requirements on cost minimization or categorical selection."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Set of choices",
+            "Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the desired outcome while adhering to the specified constraints among the set of choices."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Choices must be distinct from one another.",
+            "Only one selection can be made from the available set of choices.",
+            "Each choice is subject to a maximum allowable cost.",
+            "The total selection cost must not exceed the budget.",
+            "There are mandatory choices that must be included in the selection.",
+            "The selection should satisfy a minimum benefit threshold."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "A set of choices",
+            "A set of constraints that are fixed or vary over time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the most optimal selection from a set of choices considering constraints that may change over time."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The constraints are fixed and will not change over time."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Dynamic Constraints",
+            "Stochastic Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal selection from a set of choices while considering both deterministic and dynamic constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Constraints are subject to change over time.",
+            "Constraints are deterministic, based on known quantities and mathematically defined."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Variable constraints over time",
+            "Deterministic constraints",
+            "Objective and constraints well-defined"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the most optimal selection from a set of choices based on fixed deterministic constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The constraints are fixed for the current problem, meaning they do not vary within the scope of one optimization instance.",
+            "There are deterministic aspects to the constraints, meaning they are based on known quantities and can be mathematically defined.",
+            "The constraints are already well-defined."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Set of choices",
+            "Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize or minimize a function subject to certain constraints applied to the choices."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each choice must meet the minimum required criteria.",
+            "The sum of selected choices cannot exceed a given budget.",
+            "The selection must include at least one choice from each category.",
+            "No more than a specified number of choices can be selected.",
+            "Certain choices are mutually exclusive and cannot be selected together."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function must be maximized",
+            "Constraints on choices exist",
+            "Finite set of choices to select from"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the objective function within the set constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective function must be maximized.",
+            "The selection must be made from a predefined set of choices.",
+            "The set of choices is finite."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize something that is not related to profit or revenue, given a set of constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The problem involves a selection from a set of choices.",
+            "The objective is to 'maximize' based on the problem statement.",
+            "There are constraints influencing the selection process."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Maximize (Explicitly mentioned but not specified what)",
+            "Constraints: There are constraints present",
+            "Set of Choices: Determine optimal selection from"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize an objective function"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The problem involves selecting from a set of choices.",
+            "Each choice has certain attributes or parameters associated with it.",
+            "The objective function is to be maximized.",
+            "The optimization must adhere to one or more constraints not explicitly specified in the conversation."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      }
+    }
+  }
+}

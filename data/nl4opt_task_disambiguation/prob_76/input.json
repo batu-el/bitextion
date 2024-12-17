@@ -1,0 +1,29 @@
+{
+  "vague_description": "Determining the optimal number of light and heavy sandwiches to produce within ingredient and time constraints.",
+  "detailed_description": "A grilled cheese shop sells a light and heavy grilled cheese sandwich. A light grilled cheese sandwich requires \\param{BreadPerLight} slices of bread and \\param{CheesePerLight} slices of cheese. A heavy grilled cheese sandwich requires \\param{BreadPerHeavy} slices of bread and \\param{CheesePerHeavy} slices of cheese. Since most people who come to the store love grilled cheese, the store must make at least \\param{HeavyToLightRatio} times as many heavy grilled cheese sandwiches as light grilled cheese sandwiches. The store has available \\param{TotalBread} slices of bread and \\param{TotalCheese} slices of cheese. If a light grilled cheese sandwich takes \\param{TimeLight} minutes to make and a heavy grilled cheese sandwich takes \\param{TimeHeavy} minutes to make, how many of each should they make to minimize the total production time?",
+  "target_objective": "Minimize the total production time for both types of grilled cheese sandwiches",
+  "target_constraints": [
+    "Number of light grilled cheese sandwiches is an integer",
+    "Number of heavy grilled cheese sandwiches is an integer",
+    "Number of light grilled cheese sandwiches is non-negative",
+    "Number of heavy grilled cheese sandwiches is non-negative",
+    "Heavy grilled cheese sandwiches must be at least HeavyToLightRatio times the number of light grilled cheese sandwiches",
+    "Total slices of bread used cannot exceed TotalBread",
+    "Total slices of cheese used cannot exceed TotalCheese",
+    "Bread used for light grilled cheese sandwiches is BreadPerLight times the number of light grilled cheese sandwiches",
+    "Cheese used for light grilled cheese sandwiches is CheesePerLight times the number of light grilled cheese sandwiches",
+    "Bread used for heavy grilled cheese sandwiches is BreadPerHeavy times the number of heavy grilled cheese sandwiches",
+    "Cheese used for heavy grilled cheese sandwiches is CheesePerHeavy times the number of heavy grilled cheese sandwiches"
+  ],
+  "target_parameters": [
+    "Number of bread slices required for a light grilled cheese sandwich",
+    "Number of cheese slices required for a light grilled cheese sandwich",
+    "Number of bread slices required for a heavy grilled cheese sandwich",
+    "Number of cheese slices required for a heavy grilled cheese sandwich",
+    "Ratio of heavy to light grilled cheese sandwiches required",
+    "Total available slices of bread",
+    "Total available slices of cheese",
+    "Time to make a light grilled cheese sandwich",
+    "Time to make a heavy grilled cheese sandwich"
+  ]
+}

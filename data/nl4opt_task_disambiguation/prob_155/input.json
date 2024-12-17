@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determine the optimal allocation of tricks between otters and dolphins to maximize entertainment while adhering to treat and performer constraints.",
+  "detailed_description": "An aquarium does shows using otters and dolphins. An otter will do \\param{OtterTricks} tricks at a time and requires \\param{OtterTreats} treats to do so. A dolphin will do \\param{DolphinTricks} trick at a time and requires \\param{DolphinTreats} treats to do so. Since dolphins are more popular, at least \\param{MinDolphins} dolphins must be used and at most \\param{MaxOtterProportion} of the performers can be otters. If the aquarium only has \\param{TotalTreats} treats available, maximize the total number of tricks that can be performed.",
+  "target_objective": "Maximize the total number of tricks performed by otters and dolphins",
+  "target_constraints": [
+    "Number of otters used is non-negative",
+    "Number of dolphins used is non-negative",
+    "At least MinDolphins dolphins must be used",
+    "At most MaxOtterProportion of the performers can be otters",
+    "The total treats used cannot exceed TotalTreats"
+  ],
+  "target_parameters": [
+    "Number of tricks performed by an otter at a time",
+    "Number of treats required by an otter to perform its tricks",
+    "Number of tricks performed by a dolphin at a time",
+    "Number of treats required by a dolphin to perform its trick",
+    "Minimum number of dolphins that must be used",
+    "Maximum proportion of performers that can be otters",
+    "Total number of treats available"
+  ]
+}

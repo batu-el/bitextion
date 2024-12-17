@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.",
+  "detailed_description": "Which generators should be working in which periods of the day to minimize the total cost given the demand (\\param{Demand}) for each period, the number of each generator (\\param{NumGenerator}), the minimum (\\param{MinLevel}) and maximum (\\param{MaxLevel}) levels of each generator, the running costs (\\param{RunCost}), the extra costs (\\param{ExtraCost}), and the start-up costs (\\param{StartCost}) for each generator?",
+  "target_objective": "Minimize the total cost of running generators, which includes running costs, extra costs for exceeding certain thresholds, and start-up costs",
+  "target_constraints": [
+    "Generator output must meet or exceed the demand for each period",
+    "Each generator can operate only within its minimum and maximum levels",
+    "The total number of generators used cannot exceed the available number of each generator"
+  ],
+  "target_parameters": [
+    "Total number of periods",
+    "Total number of generators",
+    "Demand during period t",
+    "Number of generator k",
+    "Minimum level of generator k",
+    "Maximum level of generator k",
+    "Running cost of generator k",
+    "Extra cost of generator k",
+    "Start-up cost of generator k"
+  ]
+}

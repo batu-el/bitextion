@@ -1,0 +1,21 @@
+{
+  "vague_description": "A patient needs to minimize the cost of purchasing two different types of pills to meet their medical requirements for specific compounds.",
+  "detailed_description": "Sleep inducing medicine and anti-inflammatory medicine are found in two pills, pill A and pill B. One pill A contains \\param{SleepA} units of sleep inducing medicine and \\param{AntiInflA} units of anti-inflammatory medicine. One pill B contains \\param{SleepB} units of sleep-inducing medicine and \\param{AntiInflB} unit of anti-inflammatory medicine. The cost per pill for pill A is \\param{CostA} and the cost per pill for pill B is \\param{CostB}. A patient must consume these two pills to get at least \\param{MinSleep} units of sleep-inducing medicine and \\param{MinAntiInfl} units of anti-inflammatory medicine. Formulate an LP to minimize the cost for the patient.",
+  "target_objective": "Minimize the total cost of purchasing pills A and B to meet medicinal requirements",
+  "target_constraints": [
+    "Number of pill A is non-negative",
+    "Number of pill B is non-negative",
+    "The total sleep-inducing medicine from pills A and B must be at least MinSleep units",
+    "The total anti-inflammatory medicine from pills A and B must be at least MinAntiInfl units"
+  ],
+  "target_parameters": [
+    "Units of sleep inducing medicine in pill A",
+    "Units of anti-inflammatory medicine in pill A",
+    "Units of sleep inducing medicine in pill B",
+    "Units of anti-inflammatory medicine in pill B",
+    "Cost per pill for pill A",
+    "Cost per pill for pill B",
+    "Minimum required units of sleep-inducing medicine",
+    "Minimum required units of anti-inflammatory medicine"
+  ]
+}

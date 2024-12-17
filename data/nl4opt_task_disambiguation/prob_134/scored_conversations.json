@@ -1,0 +1,485 @@
+{
+  "vague_description": "Determine the optimal eating strategy for a competition based on specific dietary constraints.",
+  "detailed_description": "A competitive eater challenges himself to eat slices of cheesecake and caramel cake. Each slice of cheesecake contains \\param{CalCheesecake} calories and \\param{SugarCheesecake} grams of sugar. Each slice of caramel cake contains \\param{CalCaramelCake} calories and \\param{SugarCaramelCake} grams of sugar. He prefers cheesecake and decides to eat at least \\param{CheeseCaramelRatio} times as many slices of cheesecake as caramel cake. However, he must also eat at least \\param{MinCaramel} slices of caramel cake. If he can consume at most \\param{MaxCalories} calories in one day, how many slices of each cake should he eat to maximize the total amount of sugar he consumes?",
+  "target_objective": "Maximize the total amount of sugar consumed from both cheesecake and caramel cake slices",
+  "target_constraints": [
+    "Number of cheesecake slices is non-negative",
+    "Number of caramel cake slices is non-negative",
+    "Number of cheesecake slices is at least CheeseCaramelRatio times the number of caramel cake slices",
+    "At least MinCaramel slices of caramel cake must be eaten",
+    "Total calorie intake from all slices must not exceed MaxCalories"
+  ],
+  "target_parameters": [
+    "Calories per slice of cheesecake",
+    "Grams of sugar per slice of cheesecake",
+    "Calories per slice of caramel cake",
+    "Grams of sugar per slice of caramel cake",
+    "Minimum ratio of cheesecake slices to caramel cake slices",
+    "Minimum number of caramel cake slices to be eaten",
+    "Maximum calorie intake"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.",
+    "(0, 0)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.\nExpert: Is the objective of the optimization problem to maximize nutritional intake while adhering to certain dietary restrictions?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.\nExpert: Is the objective of the optimization problem to maximize nutritional intake while adhering to certain dietary restrictions?\nUser: Yes.\n\nExpert: Are there specific nutrient types (e.g., calories, proteins, carbohydrates) that must be maximized or minimized within the dietary constraints?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.\nExpert: Is the objective of the optimization problem to maximize nutritional intake while adhering to certain dietary restrictions?\nUser: Yes.\n\nExpert: Are there specific nutrient types (e.g., calories, proteins, carbohydrates) that must be maximized or minimized within the dietary constraints?\nUser: Yes.\n\nExpert: Are there specific foods or ingredients that are either mandatory or prohibited in the competition's dietary rules?\nUser: No.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.",
+    "(0, 0)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.\nExpert: Do any of the candidate problems include a constraint specifying a minimum fiber intake?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.\nExpert: Do any of the candidate problems include a constraint specifying a minimum fiber intake?\nUser: No\n\nExpert: Does the problem include a constraint directly related to the variety or number of different food items consumed?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.\nExpert: Do any of the candidate problems include a constraint specifying a minimum fiber intake?\nUser: No\n\nExpert: Does the problem include a constraint directly related to the variety or number of different food items consumed?\nUser: Yes\n\nExpert: Does the problem involve a constraint on the total cost of food items?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.",
+    "(0, 0)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.\nExpert: Are there any caloric intake constraints that the competitors must adhere to during the competition?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.\nExpert: Are there any caloric intake constraints that the competitors must adhere to during the competition?\nUser: Yes.\n\nExpert: Are there any specific time windows throughout the competition during which the competitors are not allowed to eat?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.\nExpert: Are there any caloric intake constraints that the competitors must adhere to during the competition?\nUser: Yes.\n\nExpert: Are there any specific time windows throughout the competition during which the competitors are not allowed to eat?\nUser: No.\n\nExpert: Are there any restrictions on the types of food or nutrients that competitors can consume during the competition?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.",
+    "(0, 0)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.\nExpert: Does the objective of the optimization problem involve maximizing a quantity or score?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.\nExpert: Does the objective of the optimization problem involve maximizing a quantity or score?\nUser: Yes\n\nExpert: Are there any specific constraints mentioned in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal eating strategy for a competition based on specific dietary constraints.\nExpert: Does the objective of the optimization problem involve maximizing a quantity or score?\nUser: Yes\n\nExpert: Are there any specific constraints mentioned in the problem description?\nUser: Yes\n\nExpert: Does the problem description specifically mention the parameters required to compute the objective function?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Initial quantity of food (e.g., volume or weight)",
+            "Time available for consumption",
+            "Caloric intake requirements",
+            "Nutritional balance requirements (e.g., protein, carbohydrates, fat)",
+            "Speed of consumption (e.g., bites per minute)",
+            "Digestion time",
+            "Max capacity of food intake per sitting",
+            "Allergens to avoid",
+            "Hydration level maintenance",
+            "Energy expenditure during competition"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the best eating strategy that maximizes performance and/or score in a eating competition while adhering to given dietary constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The eater must consume a minimum of 2000 and a maximum of 2500 calories each day during the competition.",
+            "The daily intake should include at least 50g of protein.",
+            "No single meal can exceed 750 calories.",
+            "Include at least two leafy vegetables in each meal.",
+            "The total carb intake cannot exceed 300g per day.",
+            "Water intake should be at least 2 liters per day.",
+            "No more than 30% of total daily calories should come from fats."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Nutritional intake",
+            "Dietary restrictions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize nutritional intake while adhering to certain dietary restrictions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total calorie intake must not exceed the daily recommended limit.",
+            "Include at least 5 different types of vegetables to meet dietary guidelines.",
+            "Sodium intake must be below 2300 mg per day.",
+            "Ensure protein intake is at least 50 grams per day without going over 150 grams.",
+            "Fat intake should constitute 20% to 35% of total daily calories.",
+            "Carbohydrates should provide 45% to 65% of total daily calories.",
+            "Sugar intake must not exceed 25 grams per day.",
+            "Include at least 25 grams of fiber per day."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Nutritional intake",
+            "Dietary restrictions",
+            "Nutrient types (e.g., calories, proteins, carbohydrates)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize nutritional intake for a competition while adhering to specific dietary restrictions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total caloric intake must not exceed a specified limit per day.",
+            "Protein intake must meet a minimum requirement per meal.",
+            "Carbohydrate intake must not surpass a certain percentage of total calories consumed.",
+            "Fats must not exceed a specific amount to maintain a balanced diet according to guidelines.",
+            "Some foods might be restricted due to allergies or intolerances, thus certain ingredients should be avoided."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize nutritional intake",
+            "Adhere to dietary restrictions",
+            "Nutrient types: calories, proteins, carbohydrates"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize nutritional intake of specific nutrient types while adhering to dietary restrictions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization must adhere to dietary restrictions posed by the competition, which could involve specific limits on nutrients like calories, proteins, and carbohydrates.",
+            "The objective function should focus on maximizing nutritional intake based on certain nutrient types predefined.",
+            "There are no prohibited foods or ingredients, nor are there any mandatory ones that must be included.",
+            "Constraints must be applied to nutrient intake to ensure adherence to the dietary requirements imposed by the competition."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Type of food items allowed",
+            "Maximum total calorie intake",
+            "Minimum required protein intake",
+            "Maximum allowed fat intake",
+            "Time limit for the eating competition",
+            "Person's eating speed or capacity constraints",
+            "Competition rules on portion sizes",
+            "Hydration requirements",
+            "Nutritional value of food items (carbs, vitamins, etc.)",
+            "Allergic restrictions or food intolerances",
+            "Metabolic rate affecting digestion and stamina during the competition"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the best combination of foods and eating schedule that maximizes points in the competition while adhering to dietary restrictions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total caloric intake should not exceed 2500 calories.",
+            "Protein intake should be at least 100 grams.",
+            "Carbohydrates should make up 50% of total caloric intake.",
+            "Fat intake should not exceed 70 grams.",
+            "No more than 1500 milligrams of sodium.",
+            "Include at least 30 grams of dietary fiber."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "specific dietary constraints",
+            "optimal eating strategy"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To identify the best eating plan that maximizes the competition performance while adhering to given dietary constraints, excluding a minimum fiber intake."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "No minimum fiber intake",
+            "Constraint on variety or number of different food items consumed"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal eating strategy that maximizes performance or minimizes time within the constraints of maintaining a specific variety or number of different food items consumed during the competition."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The strategy must include a specified minimum variety or number of different food items consumed."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Specific dietary constraints without minimum fiber intake",
+            "Constraint on variety or number of different food items"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize performance in a competition by determining the optimal eating strategy that satisfies specified dietary constraints, including a constraint on the variety or number of different food items consumed."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The strategy must include a variety or a specific number of different food items to be consumed."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize nutrient intake while minimizing time spent eating",
+            "Constraints: Dietary restrictions such as vegan, vegetarian, gluten-free, etc.",
+            "Other dietary goals like calorie intake, macronutrient distribution (protein, fat, carbohydrates)",
+            "Time limit for the eating competition",
+            "Variety of food options available",
+            "Order of food consumption",
+            "Cost or availability of food items",
+            "Nutritional value of each food item.",
+            "Competitor's eating capacity or usual consumption speed."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal eating strategy that maximizes performance within the constraints of dietary requirements and competition rules."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Food items must not exceed a total of 2000 calories per day.",
+            "Participants must consume at least 0.8 grams of protein per kilogram of bodyweight.",
+            "Carbohydrate intake should not exceed 250 grams per day.",
+            "Fat intake should be less than 70 grams per day.",
+            "Participants must consume at least 30 grams of fiber per day.",
+            "No single meal should exceed 800 calories.",
+            "At least 3 meals must be consumed each day."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "caloric intake"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To identify the eating strategy that maximizes performance while adhering to dietary constraints, including caloric intake limits, during the competition."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Caloric intake must adhere to a specific limit during the competition."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Dietary constraints including caloric intake limits",
+            "No specific time windows prohibiting eating"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the competitor's performance by optimizing their eating strategy within the given caloric intake constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Caloric intake constraints exist during the competition.",
+            "No restrictions on specific time windows for eating."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Caloric intake constraints",
+            "No time window restrictions for eating",
+            "Food type and nutrient restrictions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To identify an optimal eating strategy that maximizes competitors' performance during a competition, considering dietary constraints such as caloric intake and restrictions on food types or nutrients."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Competitors must adhere to specific caloric intake limits.",
+            "Competitors are allowed to eat at any time during the competition.",
+            "Competitors face restrictions on certain types of food or nutrients they can consume."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximum calorie intake per meal",
+            "Minimum protein requirement per meal",
+            "Carbohydrate intake limit",
+            "Fat intake limit",
+            "Specific meal timing",
+            "Allergen considerations",
+            "Preferred food types"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize the eating performance in a competition while adhering to specific dietary constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The eating strategy must comply with caloric intake limits per meal.",
+            "The diet should include a balanced macronutrient distribution.",
+            "Hydration needs must be met throughout the competition.",
+            "Specific food allergens must be avoided.",
+            "Meal times must align with competition schedules to optimize energy levels.",
+            "Portion sizes must not exceed the stomach's capacity at any given time.",
+            "Food selection should enhance cognitive and physical performance.",
+            "Nutrient timing around workouts or events is crucial.",
+            "A variety of food sources should be included to prevent nutrient deficiencies."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function",
+            "Constraints",
+            "Variables"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize a quantity or score related to the optimal eating strategy within certain dietary constraints for a competition."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Dietary restrictions must be adhered to, such as limits on certain macronutrients or allergens.",
+            "The total caloric intake must remain within a specified range.",
+            "The chosen foods must be available within the context of the competition environment.",
+            "The eating strategy must fit within the specified time limits of the competition."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Maximize a quantity or score related to eating strategy.",
+            "Constraints: Dietary constraints."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize eating score while adhering to dietary constraints in a competition."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Participants must consume at least 2000 calories during the competition.",
+            "Sugar intake should not exceed 50 grams.",
+            "Sodium consumption should be less than 2300 mg.",
+            "Each meal must include at least 20 grams of protein.",
+            "Only gluten-free foods can be included due to dietary restrictions.",
+            "All consumed foods must be from a pre-approved list."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function",
+            "Dietary constraints",
+            "Competition rules"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the score or quantity achieved by following a specific eating strategy under given dietary constraints in a competition."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total caloric intake must not exceed 2500 calories per day.",
+            "Carbohydrate intake must be less than 300 grams per day.",
+            "Protein intake must be greater than 150 grams per day.",
+            "Fat intake must be less than 100 grams per day."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "vague_description": "Determine the optimal distribution of vehicle resources to maximize delivery logistics under specific constraints.",
+  "detailed_description": "A meal service company delivers meals to customers either on electric bikes or scooters. A bike can hold \\param{BikeCapacity} meals and requires \\param{BikeCharge} units of charge. A scooter can hold \\param{ScooterCapacity} meals and requires \\param{ScooterCharge} units of charge. Since the city is more friendly towards scooters, at most \\param{MaxBikeRatio} of the electric vehicles can be bikes and at least \\param{MinScooters} scooters must be used. If the company only has \\param{TotalCharge} units of charge available, how many of each vehicle should be used to maximize the number of meals that can be delivered?",
+  "target_objective": "Maximize the number of meals delivered by the company",
+  "target_constraints": [
+    "Number of bikes is non-negative",
+    "Number of scooters is non-negative",
+    "Number of meals per bike is non-negative and up to BikeCapacity",
+    "Number of meals per scooter is non-negative and up to ScooterCapacity",
+    "The total charge used by bikes and scooters cannot exceed TotalCharge",
+    "At most MaxBikeRatio of the electric vehicles can be bikes",
+    "At least MinScooters must be used"
+  ],
+  "target_parameters": [
+    "Capacity of a bike in number of meals",
+    "Units of charge required by a bike",
+    "Capacity of a scooter in number of meals",
+    "Units of charge required by a scooter",
+    "Maximum proportion of electric vehicles that can be bikes",
+    "Minimum number of scooters that must be used",
+    "Total units of charge available"
+  ]
+}

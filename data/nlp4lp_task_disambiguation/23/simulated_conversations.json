@@ -1,0 +1,47 @@
+{
+  "vague_description": "Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.",
+  "detailed_description": "The company\u2019s declared objective is to minimize redundancy. Requirement are given as \\param{K} different resources each having \\param{I} specific requirements, where \\param{Strength} is the strength of each type of resource, \\param{LessOneWaste} is the value when wastage of resources is less than optimal, \\param{MoreOneWaste} is the value when wastage of resources is more than optimal. \\param{Recruit} is the number of recruited resources of each type, \\param{CostRedundancy} is the cost of redundancy for each type of resource, \\param{NumOverman} signifies the number of overmanned positions, \\param{CostOverman} is the cost of overmanning for each type of resource, and \\param{NumShortwork} represents the number of shortworked positions with \\param{CostShort} as the cost of short working for each type of resource. How should they operate in order to do this?",
+  "target_objective": "Minimize the total cost of redundancy, overmanning, and short working for the company",
+  "target_constraints": [
+    "Recruit, NumOverman, and NumShortwork must be non-negative for each type of resource",
+    "Amount of each resource used must be at least equal to I - LessOneWaste if there is less wastage",
+    "Amount of each resource used must not exceed I + MoreOneWaste if there is more wastage"
+  ],
+  "target_parameters": [
+    "Total number of different types of resources",
+    "Number of different requirements for each type of resource",
+    "Strength of each type of resource",
+    "Value when wastage of resources is less than optimal",
+    "Value when wastage of resources is more than optimal",
+    "Number of recruited resources of each type",
+    "Cost of redundancy for each type of resource",
+    "Number of overmanned positions",
+    "Cost of overmanning for each type of resource",
+    "Number of shortworked positions",
+    "Cost of short working for each type of resource"
+  ],
+  "Expert": {
+    "(0,)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.",
+    "(0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Is the problem centered around optimizing a single objective function related to cost minimization?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Is the problem centered around optimizing a single objective function related to cost minimization?\nUser: Yes\n\nExpert: Are there specific constraints on the workforce effectiveness that need to be met in this optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Is the problem centered around optimizing a single objective function related to cost minimization?\nUser: Yes\n\nExpert: Are there specific constraints on the workforce effectiveness that need to be met in this optimization problem?\nUser: Yes\n\nExpert: Does the optimization problem include constraints related to resource availability or budget limits?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.",
+    "(0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Does the objective of the optimization problem involve maximizing workforce productivity or effectiveness, either explicitly or implicitly through associated constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Does the objective of the optimization problem involve maximizing workforce productivity or effectiveness, either explicitly or implicitly through associated constraints?\nUser: No\n\nExpert: Does the problem include a constraint specifically related to maintaining workforce effectiveness or operational efficiency?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Does the objective of the optimization problem involve maximizing workforce productivity or effectiveness, either explicitly or implicitly through associated constraints?\nUser: No\n\nExpert: Does the problem include a constraint specifically related to maintaining workforce effectiveness or operational efficiency?\nUser: No\n\nExpert: Does the problem include constraints related to departmental resource allocation beyond budget and waste limits?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.",
+    "(0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Are the costs in the optimization problem mainly fixed or variable?\nUser: The costs seem to be mainly variable, given factors like redundancy, overmanning, and short working which can fluctuate based on recruitment and resource allocation decisions.\n",
+    "(0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Are the costs in the optimization problem mainly fixed or variable?\nUser: The costs seem to be mainly variable, given factors like redundancy, overmanning, and short working which can fluctuate based on recruitment and resource allocation decisions.\n\nExpert: Are there any hard constraints (e.g. laws, regulations, equipment capacity limits) that must be satisfied in the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Are the costs in the optimization problem mainly fixed or variable?\nUser: The costs seem to be mainly variable, given factors like redundancy, overmanning, and short working which can fluctuate based on recruitment and resource allocation decisions.\n\nExpert: Are there any hard constraints (e.g. laws, regulations, equipment capacity limits) that must be satisfied in the optimization problem?\nUser: Yes\n\nExpert: Do the hard constraints you mentioned primarily involve limits on the capacity or utilization of existing equipment or personnel? \nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.",
+    "(0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Is the workforce size fixed?\nUser: No.\n",
+    "(0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Is the workforce size fixed?\nUser: No.\n\nExpert: Does the problem statement explicitly mention non-negativity constraints on all variables (workforce size, resource allocation, and/or efficiency factors)?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Is the workforce size fixed?\nUser: No.\n\nExpert: Does the problem statement explicitly mention non-negativity constraints on all variables (workforce size, resource allocation, and/or efficiency factors)?\nUser: No.\n\nExpert: Are the workforce size and resource allocation variables explicitly mentioned as being non-negative or are they allowed to be negative?\nUser: No.\n"
+  }
+}

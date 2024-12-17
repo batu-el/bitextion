@@ -1,0 +1,23 @@
+{
+  "vague_description": "Finding the optimal number of each type of machine to purchase involves balancing the delivery rate, energy consumption, and hygiene preferences under given constraints.",
+  "detailed_description": "A mall buys two types of hand sanitizer machines, a motion activated one and a manual one. The motion activated one can deliver \\param{MotionDropsPerMinute} drops per minute and consumes \\param{MotionConsumption} kWh. The manual one can deliver \\param{ManualDropsPerMinute} drops per minute and consumes \\param{ManualConsumption} kWh. Since the motion activated one is more hygienic, at most \\param{MaxManualFraction} of the machines can be manual. In addition, at least \\param{MinMotionMachines} should be motion activated. If the mall must be able to deliver at least \\param{MinDropsPerMinute} drops per minute and can use at most \\param{MaxEnergyPerMinute} kWh per minute, how many of each machine should they buy to minimize the total number of machines?",
+  "target_objective": "Minimize the total number of hand sanitizer machines the mall should buy",
+  "target_constraints": [
+    "The number of motion activated machines is non-negative",
+    "The number of manual machines is non-negative",
+    "At most MaxManualFraction of the total machines can be manual",
+    "At least MinMotionMachines should be motion activated",
+    "The mall must deliver at least MinDropsPerMinute drops per minute",
+    "The energy consumption cannot exceed MaxEnergyPerMinute kWh per minute"
+  ],
+  "target_parameters": [
+    "Number of drops per minute a motion activated machine can deliver",
+    "Energy consumption of a motion activated machine in kWh",
+    "Number of drops per minute a manual machine can deliver",
+    "Energy consumption of a manual machine in kWh",
+    "Maximum fraction of machines that can be manual",
+    "Minimum number of motion activated machines required",
+    "Minimum number of total drops per minute required",
+    "Maximum allowable energy consumption in kWh per minute"
+  ]
+}

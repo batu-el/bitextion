@@ -1,0 +1,452 @@
+{
+  "vague_description": "A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.",
+  "detailed_description": "The manufacturer wishes to find the amounts of the various alloys needed and to determine the cheapest combination given \\param{AlloyQuantity}, the total quantity of alloy to produce, \\param{Target}, the quantity of target components in the alloy, \\param{Ratio}, the ratio of each component k in alloy m, and \\param{Price}, the price of each alloy k.",
+  "target_objective": "Minimize the sum of the costs of the alloys used in the production",
+  "target_constraints": [
+    "The total quantity of alloys produced is exactly AlloyQuantity",
+    "The quantity of each target component in the alloy must be met or exceeded",
+    "The quantity of component k in alloy m must adhere to the specified Ratio",
+    "Each alloy's quantity is non-negative"
+  ],
+  "target_parameters": [
+    "Quantity of alloy to produce",
+    "Quantity of target components in the alloy",
+    "Ratio of each component k in the alloy m",
+    "Price of each alloy k"
+  ],
+  "Expert": {
+    "(0,)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.",
+    "(0, 0)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.\nExpert: Are there any budget constraints that limit the total cost of producing the metal alloy blend?\nUser: No\n",
+    "(0, 0, 0)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.\nExpert: Are there any budget constraints that limit the total cost of producing the metal alloy blend?\nUser: No\n\nExpert: Are there specific minimum or maximum limits for the quantity of each pre-defined alloy that can be used in the blend?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.\nExpert: Are there any budget constraints that limit the total cost of producing the metal alloy blend?\nUser: No\n\nExpert: Are there specific minimum or maximum limits for the quantity of each pre-defined alloy that can be used in the blend?\nUser: No\n\nExpert: Are there any specific component ratios that must be satisfied in the final metal alloy blend?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.",
+    "(0, 0)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.\nExpert: Is the total quantity of the metal alloy blend required to be exactly 1000 kg?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.\nExpert: Is the total quantity of the metal alloy blend required to be exactly 1000 kg?\nUser: Yes\n\nExpert: Does the problem formulation include constraints on the maximum allowable percentage composition of any metal component in the final blend?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.\nExpert: Is the total quantity of the metal alloy blend required to be exactly 1000 kg?\nUser: Yes\n\nExpert: Does the problem formulation include constraints on the maximum allowable percentage composition of any metal component in the final blend?\nUser: No\n\nExpert: Does the problem include constraints on the supply limits of the alloys?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.",
+    "(0, 0)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.\nExpert: Are the component ratios and quantity targets in the problem fixed or subject to change?\nUser: Yes, they are fixed.\n",
+    "(0, 0, 0)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.\nExpert: Are the component ratios and quantity targets in the problem fixed or subject to change?\nUser: Yes, they are fixed.\n\nExpert: Are the costs of the pre-defined alloys constant and not subject to fluctuations?\nUser: Yes, the costs are constant and not subject to fluctuations.\n",
+    "(0, 0, 0, 0)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.\nExpert: Are the component ratios and quantity targets in the problem fixed or subject to change?\nUser: Yes, they are fixed.\n\nExpert: Are the costs of the pre-defined alloys constant and not subject to fluctuations?\nUser: Yes, the costs are constant and not subject to fluctuations.\n\nExpert: Are there any limitations on the quantity of each pre-defined alloy that can be used in the blend?\nUser: Yes, there may be limitations on the quantity of each pre-defined alloy that can be used.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.",
+    "(0, 0)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.\nExpert: Is the objective stated in a way that implies minimizing cost?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.\nExpert: Is the objective stated in a way that implies minimizing cost?\nUser: Yes\n\nExpert: Does the problem statement explicitly mention all the parameters needed to calculate the objective function?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.\nExpert: Is the objective stated in a way that implies minimizing cost?\nUser: Yes\n\nExpert: Does the problem statement explicitly mention all the parameters needed to calculate the objective function?\nUser: Yes\n\nExpert: Does the problem statement explicitly mention a production capacity constraint or any limitation on the number of alloys that can be used in the blend?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost of each predefined alloy",
+            "Component ratios required in the final blend",
+            "Total quantity of metal blend required"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the production costs by determining the optimal combination of various pre-defined alloys that meets specific component ratios and quantity targets for the metal alloy blend."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The mix must meet specific minimum and maximum ratios of each component in the final blend.",
+            "The total quantity of the metal alloy blend must meet a specific target (for example, 1000 kg).",
+            "Each pre-defined alloy used in the mix has a cost, and the total cost should be minimized.",
+            "Certain pre-defined alloys might have availability limits (e.g., a specific alloy cannot exceed a certain quantity)."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "cost of each alloy",
+            "component ratios required in the final blend",
+            "quantity targets for the final blend",
+            "pre-defined alloys available for use"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total production cost by determining the optimal mix of pre-defined alloys that satisfy specific component ratio and quantity requirements without budget constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The blend must meet specific component ratios for the various elements in the alloy.",
+            "The blend must satisfy quantity targets for the total amount of the alloy produced.",
+            "Only predefined alloys can be used in the blend."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "cost of each pre-defined alloy",
+            "desired component ratios",
+            "target quantity of the alloy blend"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of producing a metal alloy blend by selecting the most cost-effective combination of pre-defined alloys while ensuring that the final blend meets specific component ratios and quantity targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Mix of alloys must meet specific component ratio requirements.",
+            "Mix of alloys must meet specific target quantity requirements."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "cost of pre-defined alloys",
+            "component ratios",
+            "quantity targets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total production cost of the metal alloy blend while ensuring that the blend meets specified component ratios and quantity targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The final metal alloy blend must satisfy specific component ratios."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "cost of each pre-defined alloy",
+            "component ratios required for the final blend",
+            "total quantity target for the final blend"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the costs of producing a metal alloy blend by determining the most cost-effective combination of pre-defined alloys, while ensuring the blend meets specific component ratios and quantity targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The final metal alloy must meet or exceed specified percentage ratios for each component.",
+            "The total quantity of the final metal alloy blend must meet a predefined target amount.",
+            "The cost of producing the final alloy blend must be minimized.",
+            "The quantities used from each pre-defined alloy must not exceed their available supply limits."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total quantity of metal alloy blend = 1000 kg"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the cost of producing a metal alloy blend by determining the optimal mix of various pre-defined alloys, while ensuring that the final blend meets specific component ratios and totals 1000 kg."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total quantity of the metal alloy blend must be exactly 1000 kg."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total quantity of the blend: 1000 kg",
+            "Specific component ratios must be met for the blend",
+            "No constraints on maximum percentage composition of metal components"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the production cost of a 1000 kg metal alloy blend by determining the optimal mix of pre-defined alloys, ensuring specified component ratios are met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total quantity of the metal alloy blend must be exactly 1000 kg."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total quantity of metal alloy blend = 1000 kg",
+            "No upper bounds on metal component percentages",
+            "No supply limits on the alloys"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of producing a 1000 kg metal alloy blend while meeting specific component ratio targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total quantity of the metal alloy blend must be exactly 1000 kg.",
+            "There are specific component ratios that must be met in the blend."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost of each pre-defined alloy",
+            "Component ratios required in the final metal alloy blend",
+            "Quantity target for the final metal alloy blend",
+            "Proportions of each component within each pre-defined alloy"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the production costs by determining the optimal mix of pre-defined metal alloys while satisfying required component ratios and meeting specified quantity targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Ensure the cost of the chosen alloy blend is minimized.",
+            "The blend must meet specific component ratios, likely expressed as linear equality/inequality constraints.",
+            "The quantity of the alloy blend produced must meet predefined target levels.",
+            "Potential supply constraints on each pre-defined alloy that can limit the maximum amount available for blending.",
+            "Maintain a fixed production capacity that cannot be exceeded by the total quantity of alloy blended.",
+            "The physical or chemical properties required by the alloy (e.g., density, strength) must meet specified standards."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "cost of each predefined alloy",
+            "composition of each predefined alloy",
+            "fixed component ratios",
+            "target quantity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the most cost-effective mix of pre-defined metal alloys that meets fixed component ratios and quantity targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The component ratios of the metal alloy blend must be met exactly as specified.",
+            "The quantity of the metal alloy blend produced must meet the target quantity exactly.",
+            "The mix of different pre-defined alloys must be determined within their available quantities.",
+            "The production cost should be minimized while adhering to the fixed component ratios and quantity targets."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Component ratios",
+            "Quantity targets",
+            "Cost of pre-defined alloys"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the cost of producing a metal alloy blend while meeting fixed component ratios and quantity targets using a mix of pre-defined alloys with constant costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Component ratios must be met exactly as specified.",
+            "Total quantity target of the alloy blend must be achieved.",
+            "Costs of the pre-defined alloys are constant and do not fluctuate."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost-effective mix of various pre-defined alloys",
+            "Fixed component ratios",
+            "Fixed quantity targets",
+            "Constant costs of pre-defined alloys",
+            "Limitations on quantity of each pre-defined alloy"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To calculate the most cost-effective mix of various pre-defined alloys that meets fixed component ratios and quantity targets while considering potential limitations on the quantity of each alloy."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The component ratios are fixed and must be met in the final blend.",
+            "The quantity targets for the alloy blend are fixed and must be met.",
+            "The costs of the pre-defined alloys are constant and must be minimized.",
+            "There may be limitations on the quantities of each pre-defined alloy that can be used."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost of each predefined alloy",
+            "Ratios of components required in the final alloy",
+            "Quantity targets for the final alloy",
+            "Availability or supply limits for each predefined alloy"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the production costs of a metal alloy blend by determining the optimal mix of various predefined alloys, ensuring that the blend meets specific component ratios and quantity targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total quantity of the alloy blend must meet or exceed the specified target quantity.",
+            "The blend must contain each component within specified minimum and maximum percentage ratios.",
+            "The total cost of the alloy blend must be minimized.",
+            "Each pre-defined alloy must be used in non-negative amounts and within any specified limits.",
+            "The availability of each pre-defined alloy may act as an upper bound constraint.",
+            "All component ratios must be adhered to in the final alloy blend."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Costs of pre-defined alloys",
+            "Component ratios for the blend",
+            "Quantity targets for the final product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of producing a metal alloy blend by selecting the optimal mix of various pre-defined alloys, while ensuring that specific component ratios and quantity targets are met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The metal alloy blend must consist of a mix from several pre-defined alloys.",
+            "The produced blend must meet specific component ratios.",
+            "The total quantity of the blend must meet specified targets."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost of each predefined alloy",
+            "Component ratio targets for the blend",
+            "Quantity targets for the blend"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of producing a metal alloy blend by determining the optimal mix of various pre-defined alloys that satisfies component ratios and quantity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each pre-defined alloy has a specific cost per unit.",
+            "Each pre-defined alloy contributes specific proportions of various components to the final metal alloy blend.",
+            "The final metal alloy blend must adhere to pre-specified component ratios.",
+            "The total quantity of the final metal alloy blend must meet a specific target.",
+            "The amount used of each pre-defined alloy must be non-negative."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost minimization",
+            "Specific component ratios",
+            "Quantity targets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the costs of producing a metal alloy blend."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The blend must meet specific component ratio targets.",
+            "The blend must meet specific quantity targets."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 4,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 4,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 4
+      }
+    }
+  }
+}

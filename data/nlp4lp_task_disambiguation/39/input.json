@@ -1,0 +1,17 @@
+{
+  "vague_description": "A company is looking to optimize the costs of producing a metal alloy blend by calculating the most cost-effective mix of various pre-defined alloys while meeting specific component ratios and quantity targets.",
+  "detailed_description": "The manufacturer wishes to find the amounts of the various alloys needed and to determine the cheapest combination given \\param{AlloyQuantity}, the total quantity of alloy to produce, \\param{Target}, the quantity of target components in the alloy, \\param{Ratio}, the ratio of each component k in alloy m, and \\param{Price}, the price of each alloy k.",
+  "target_objective": "Minimize the sum of the costs of the alloys used in the production",
+  "target_constraints": [
+    "The total quantity of alloys produced is exactly AlloyQuantity",
+    "The quantity of each target component in the alloy must be met or exceeded",
+    "The quantity of component k in alloy m must adhere to the specified Ratio",
+    "Each alloy's quantity is non-negative"
+  ],
+  "target_parameters": [
+    "Quantity of alloy to produce",
+    "Quantity of target components in the alloy",
+    "Ratio of each component k in the alloy m",
+    "Price of each alloy k"
+  ]
+}

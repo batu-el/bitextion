@@ -1,0 +1,448 @@
+{
+  "vague_description": "Determining the optimal use of resources to maximize output in a production process given capacity constraints.",
+  "detailed_description": "There are two specialized containers, a small and large one, that are used to make a pharmaceutical paste. The small container requires \\var{WaterSmall} units of water and \\var{PillSmall} units of the powdered pill to make \\var{PasteSmall} units of the paste. The large container requires \\var{WaterLarge} units of water and \\var{PillLarge} units of the powdered pill to make \\var{PasteLarge} units of the paste. The pharmacy has available \\var{TotalWater} units of water and \\var{TotalPill} units of the powdered pill. How many of each container should be used to maximize the amount of paste that can be made?",
+  "target_objective": "Maximize the amount of paste produced",
+  "target_constraints": [
+    "Number of small containers used is an integer",
+    "Number of large containers used is an integer",
+    "Number of small containers used is non-negative",
+    "Number of large containers used is non-negative",
+    "The total units of water used cannot exceed TotalWater",
+    "The total units of the powdered pill used cannot exceed TotalPill"
+  ],
+  "target_parameters": [
+    "Units of water required by the small container",
+    "Units of powdered pill required by the small container",
+    "Units of paste produced by the small container",
+    "Units of water required by the large container",
+    "Units of powdered pill required by the large container",
+    "Units of paste produced by the large container",
+    "Total units of water available",
+    "Total units of powdered pill available"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.",
+    "(0, 0)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.\nExpert: Is the objective function linear with respect to the decision variables?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.\nExpert: Is the objective function linear with respect to the decision variables?\nUser: Yes.\n\nExpert: Are the constraints related to resource availability linear?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.\nExpert: Is the objective function linear with respect to the decision variables?\nUser: Yes.\n\nExpert: Are the constraints related to resource availability linear?\nUser: Yes.\n\nExpert: Is the problem a linear programming problem that can be solved using methods like the simplex algorithm?\nUser: Yes.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.",
+    "(0, 0)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.\nExpert: Do any of the problems include a constraint specifically related to the storage capacity for finished products?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.\nExpert: Do any of the problems include a constraint specifically related to the storage capacity for finished products?\nUser: No\n\nExpert: Does the problem include constraints or parameters specifically related to market demand limitations for products?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.\nExpert: Do any of the problems include a constraint specifically related to the storage capacity for finished products?\nUser: No\n\nExpert: Does the problem include constraints or parameters specifically related to market demand limitations for products?\nUser: No\n\nExpert: Do the constraints include a limit on the total production cost or budget? (yes if any constraints directly reference a total cost or budget limit, no otherwise)\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.",
+    "(0, 0)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.\nExpert: Are the resources and capacity constraints directly related to production time or duration?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.\nExpert: Are the resources and capacity constraints directly related to production time or duration?\nUser: No\n\nExpert: Are the resources and capacity constraints related to physical storage or inventory limits?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.\nExpert: Are the resources and capacity constraints directly related to production time or duration?\nUser: No\n\nExpert: Are the resources and capacity constraints related to physical storage or inventory limits?\nUser: No\n\nExpert: Are the resources and capacity constraints related to personnel or labor?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.",
+    "(0, 0)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.\nExpert: Does the problem description contain the word 'limits' in its constraints or parameters?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.\nExpert: Does the problem description contain the word 'limits' in its constraints or parameters?\nUser: No\n\nExpert: Is the list of parameters in the problem description non-empty?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal use of resources to maximize output in a production process given capacity constraints.\nExpert: Does the problem description contain the word 'limits' in its constraints or parameters?\nUser: No\n\nExpert: Is the list of parameters in the problem description non-empty?\nUser: Yes\n\nExpert: Does the problem description contain 'production process' in the parameters?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource capacities",
+            "Output",
+            "Production process details",
+            "Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of resources to maximize production output within given capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total resource usage must not exceed available capacity.",
+            "Each production process can only utilize its specific allocated resources.",
+            "Resource usage in any process must be a non-negative value.",
+            "Output levels must be within the feasible production limits set by equipment capacity."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Linear",
+            "Output: Maximize output",
+            "Constraints: Capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the discussed optimization problem is to maximize output in a production process given capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the resources allocated for production does not exceed the total available capacity.",
+            "The allocation of resources must be non-negative, i.e., each allocated resource must be greater than or equal to zero."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Maximize output",
+            "Objective function is linear with respect to decision variables",
+            "Constraints: Related to resource availability",
+            "Constraints are linear",
+            "Capacity constraints on resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output in a production process given capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The constraints are linear with respect to the decision variables.",
+            "The constraints relate to resource availability, such as material, labor, and machinery, which must not exceed their respective capacities."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function",
+            "Resource availability constraints",
+            "Capacity constraints",
+            "Decision variables"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output in a production process given capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production process must not exceed resource capacity limits.",
+            "Input-resource relationships are linear with the decision variables.",
+            "The decision variables must not take negative values, indicating that negative production or resource usage is not feasible.",
+            "The combination of resource utilization must adhere to specified availability limits (resources cannot be over-utilized)."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Output maximization",
+            "Capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output in the production process given capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Available resources cannot exceed the defined capacity limits.",
+            "Resource allocation must comply with production process requirements.",
+            "Resource usage must be optimized within existing infrastructure capabilities."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource usage",
+            "Output quantity",
+            "Production capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize output in a production process given capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource capacity constraints for raw materials.",
+            "Output maximization constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource usage",
+            "Production output",
+            "Capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output in a production process given capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Capacity constraints of the production process"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output in a production process."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Capacity constraints in the production process"
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resources",
+            "Output",
+            "Capacity Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize output in a production process subject to capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must not exceed available resources.",
+            "Total production must not surpass defined maximum capacity limits.",
+            "Allocation decisions must adhere to time constraints imposed by the production schedule.",
+            "Resource usage must respect quality control standards."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production resources",
+            "capacity constraints",
+            "output",
+            "production process without time-related constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output in a production process considering resource availability and capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources are limited.",
+            "The capacity constraints do not affect production time or duration.",
+            "The objective is to maximize output within these constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resources",
+            "Capacity Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize output in a production process considering resource utilization and capacity constraints that are not related to production time, duration, physical storage, or inventory limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources and capacity constraints are not related to production time or duration.",
+            "Resources and capacity constraints are not related to physical storage or inventory limits."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "material allocation",
+            "equipment utilization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize production output subject to resource constraints unrelated to time, storage, or personnel."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The resources and capacity constraints are not related to production time or duration.",
+            "The resources and capacity constraints are not related to physical storage or inventory limits.",
+            "The resources and capacity constraints are not related to personnel or labor."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource utilization",
+            "maximizing output",
+            "production process",
+            "capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize output in a production process while adhering to resource capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total resources used must not exceed the available resources.",
+            "Output must be produced within the given capacity constraints of the production process.",
+            "Resource allocation must adhere to budgetary limitations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximizing output",
+            "capacity constraints",
+            "resource utilization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize output in a production process given capacity constraints"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total use of resources cannot exceed the available resource capacity.",
+            "Each resource used in production has a specific maximum limit, but the term 'limits' is not directly used in the problem description.",
+            "The production process should not surpass the capacity constraints set for each resource."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "output",
+            "production process",
+            "capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output in a production process"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must adhere to capacity constraints.",
+            "Resources must be allocated effectively to maximize output.",
+            "All resource allocations must be within the given parameters constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "maximizing output",
+            "capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output in a production process given capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Capacity constraints on resources.",
+            "Optimal use of resources to maximize output."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "vague_description": "The clinic faces a challenge in allocating resources between automatic and manual blood pressure machines due to reliability and capacity constraints.",
+  "detailed_description": "A clinic takes patient blood pressure either using an automatic machine or a manual machine. The automatic machine takes \\param{TAuto} minutes per patient while the manual machine takes \\param{TManual} minutes per patient. Since the automatic machine frequently breaks, at least \\param{RatioManualToAuto} times as many patients must have their blood pressure taken by the manual machine than the automatic machine. However, at least \\param{MinPatientsAuto} patients can be processed by the automatic machine. If the clinic is open for \\param{TotalTime} minutes, maximize the number of patients whose blood pressure can be taken.",
+  "target_objective": "Maximize the number of patients whose blood pressure can be taken within the clinic's operational hours",
+  "target_constraints": [
+    "The time spent on automatic machine measurements is non-negative",
+    "The time spent on manual machine measurements is non-negative",
+    "The clinic operates for a maximum of TotalTime minutes",
+    "At least RatioManualToAuto times as many patients must be processed manually than automatically",
+    "At least MinPatientsAuto patients must be processed automatically"
+  ],
+  "target_parameters": [
+    "Time taken by the automatic machine per patient",
+    "Time taken by the manual machine per patient",
+    "Minimum ratio of patients processed by the manual machine to those processed by the automatic machine",
+    "Minimum number of patients that can be processed by the automatic machine",
+    "Total clinic operation time in minutes"
+  ]
+}

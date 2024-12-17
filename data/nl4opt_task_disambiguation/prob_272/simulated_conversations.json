@@ -1,0 +1,48 @@
+{
+  "vague_description": "The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.",
+  "detailed_description": "A hospital prepares batches of medication patches and anti-biotic creams. Each medication patch requires \\param{TimeMedicationPatches} minutes to prepare and \\param{MaterialsMedicationPatches} units of materials. Each anti-biotic cream requires \\param{TimeAntiBioticCreams} minutes to prepare and \\param{MaterialsAntiBioticCreams} units of materials. Since anti-biotic creams are used more often, there must be at least twice as many anti-biotic creams as medication patches. Due to storage reasons, the hospital can make at most \\param{MaxTotalBatches} batches of medication patches and anti-biotic creams in total. The hospital has available \\param{TotalStaffTime} minutes of staff to spare and \\param{TotalMaterials} units of materials. If each batch of medication patches can treat \\param{PeopleTreatedMedicationPatches} people and each batch of anti-biotic cream can treat \\param{PeopleTreatedAntiBioticCreams} people, how many batches of each should be made to maximize the number of people that can be treated?",
+  "target_objective": "Maximize the number of people that can be treated with the batches of medication patches and anti-biotic creams",
+  "target_constraints": [
+    "Number of medication patches is non-negative",
+    "Number of anti-biotic creams is non-negative",
+    "Anti-biotic creams prepared must be at least twice the number of medication patches",
+    "At most MaxTotalBatches batches in total for medication patches and anti-biotic creams",
+    "Available staff time is at most TotalStaffTime minutes",
+    "Available materials are at most TotalMaterials units"
+  ],
+  "target_parameters": [
+    "Time required to prepare a batch of medication patches",
+    "Materials required to prepare a batch of medication patches",
+    "Time required to prepare a batch of anti-biotic creams",
+    "Materials required to prepare a batch of anti-biotic creams",
+    "Maximum total number of batches of medication patches and anti-biotic creams due to storage",
+    "Total staff time available for preparation",
+    "Total units of materials available",
+    "Number of people treated by a batch of medication patches",
+    "Number of people treated by a batch of anti-biotic creams"
+  ],
+  "Expert": {
+    "(0,)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.",
+    "(0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Are there specific resource constraints, such as limits on raw materials or production time, that restrict how many medication patches and anti-biotic creams can be produced?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Are there specific resource constraints, such as limits on raw materials or production time, that restrict how many medication patches and anti-biotic creams can be produced?\nUser: Yes\n\nExpert: Are there explicit production costs associated with manufacturing each medication patch and anti-biotic cream?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Are there specific resource constraints, such as limits on raw materials or production time, that restrict how many medication patches and anti-biotic creams can be produced?\nUser: Yes\n\nExpert: Are there explicit production costs associated with manufacturing each medication patch and anti-biotic cream?\nUser: No\n\nExpert: Is there a specific objective, such as maximizing profit or minimizing cost, that the hospital aims to achieve in this optimization problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.",
+    "(0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Is the objective of the problem to maximize a form of profit or contribution margin?\nUser: No\n",
+    "(0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Is the objective of the problem to maximize a form of profit or contribution margin?\nUser: No\n\nExpert: Does the problem include a constraint related to storage capacity limitations for the finished products?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Is the objective of the problem to maximize a form of profit or contribution margin?\nUser: No\n\nExpert: Does the problem include a constraint related to storage capacity limitations for the finished products?\nUser: Yes\n\nExpert: Does the problem description explicitly specify the storage space required per unit of medication patch or antibiotic cream?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.",
+    "(0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Do the treatment requirements and resource constraints vary depending on the type of medication (patch vs cream)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Do the treatment requirements and resource constraints vary depending on the type of medication (patch vs cream)?\nUser: Yes\n\nExpert: Do the treatment requirements and resource constraints vary depending on the type of medication (patch vs cream)? \nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Do the treatment requirements and resource constraints vary depending on the type of medication (patch vs cream)?\nUser: Yes\n\nExpert: Do the treatment requirements and resource constraints vary depending on the type of medication (patch vs cream)? \nUser: Yes\n\nExpert: Are there any constraints on the total volume of medications that the hospital can produce (i.e., capacity limitations)?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.",
+    "(0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Does the problem statement contain the word 'Minimize' in the 'objective' field?\nUser: No\n",
+    "(0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Does the problem statement contain the word 'Minimize' in the 'objective' field?\nUser: No\n\nExpert: Does the problem description explicitly include the cost of any resources or production?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Does the problem statement contain the word 'Minimize' in the 'objective' field?\nUser: No\n\nExpert: Does the problem description explicitly include the cost of any resources or production?\nUser: No\n\nExpert: Is the objective function dependent on a list of parameters?\nUser: Yes\n"
+  }
+}

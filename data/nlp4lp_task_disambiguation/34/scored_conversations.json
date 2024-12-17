@@ -1,0 +1,499 @@
+{
+  "vague_description": "Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.",
+  "detailed_description": "Which generators should be working in which periods of the day to minimize the total cost given the demand (\\param{Demand}) for each period, the number of each generator (\\param{NumGenerator}), the minimum (\\param{MinLevel}) and maximum (\\param{MaxLevel}) levels of each generator, the running costs (\\param{RunCost}), the extra costs (\\param{ExtraCost}), and the start-up costs (\\param{StartCost}) for each generator?",
+  "target_objective": "Minimize the total cost of running generators, which includes running costs, extra costs for exceeding certain thresholds, and start-up costs",
+  "target_constraints": [
+    "Generator output must meet or exceed the demand for each period",
+    "Each generator can operate only within its minimum and maximum levels",
+    "The total number of generators used cannot exceed the available number of each generator"
+  ],
+  "target_parameters": [
+    "Total number of periods",
+    "Total number of generators",
+    "Demand during period t",
+    "Number of generator k",
+    "Minimum level of generator k",
+    "Maximum level of generator k",
+    "Running cost of generator k",
+    "Extra cost of generator k",
+    "Start-up cost of generator k"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.",
+    "(0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Does the problem involve time-dependent demand variations, such as those seen in day-night cycles?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Does the problem involve time-dependent demand variations, such as those seen in day-night cycles?\nUser: Yes\n\nExpert: Are there constraints related to fuel type or availability affecting which generators can operate at certain times?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Does the problem involve time-dependent demand variations, such as those seen in day-night cycles?\nUser: Yes\n\nExpert: Are there constraints related to fuel type or availability affecting which generators can operate at certain times?\nUser: No\n\nExpert: Are there generator startup and shutdown costs involved in the optimization problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.",
+    "(0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Do any of the problem descriptions explicitly mention 'transmission losses'? (Yes or No)\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Do any of the problem descriptions explicitly mention 'transmission losses'? (Yes or No)\nUser: No\n\nExpert: Does the problem description include a constraint specifically about emission limits or environmental regulations?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Do any of the problem descriptions explicitly mention 'transmission losses'? (Yes or No)\nUser: No\n\nExpert: Does the problem description include a constraint specifically about emission limits or environmental regulations?\nUser: No\n\nExpert: Does the problem description include a constraint related to spinning reserve requirements?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.",
+    "(0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Is the problem time-dependent, meaning the optimal schedule may vary from one hour to another?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Is the problem time-dependent, meaning the optimal schedule may vary from one hour to another?\nUser: Yes\n\nExpert: Is the time-dependent nature of the problem due to varying demand or varying costs (or both)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Is the problem time-dependent, meaning the optimal schedule may vary from one hour to another?\nUser: Yes\n\nExpert: Is the time-dependent nature of the problem due to varying demand or varying costs (or both)?\nUser: Yes\n\nExpert: Is the demand (i.e., the amount of electricity to be supplied) known with complete certainty for each hour, or does it have some uncertainty associated with it?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.",
+    "(0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Are generator costs included among the parameters in the problem description?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Are generator costs included among the parameters in the problem description?\nUser: Yes\n\nExpert: Is the objective described as exactly 'minimize costs' or does it contain the exact word 'cost'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Are generator costs included among the parameters in the problem description?\nUser: Yes\n\nExpert: Is the objective described as exactly 'minimize costs' or does it contain the exact word 'cost'?\nUser: Yes\n\nExpert: Does the description contain the word 'demand'?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Minimize cost",
+            "Constraints: Balance demand and supply",
+            "Operational constraints: generator capacities, ramp rates"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Generator capacity limits must not be exceeded.",
+            "Generators must be started and stopped according to their minimum run and down times.",
+            "Demand must be met at all times across the scheduling horizon.",
+            "Operating costs should be minimized, which includes fuel costs and start-up/shut-down costs for generators.",
+            "Any maintenance schedules or mandatory downtimes for generators must be respected.",
+            "The power produced must adhere to regulatory or environmental constraints, such as emission limits or renewable energy targets."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "time-dependent demand variations",
+            "balance demand",
+            "minimize costs",
+            "adhere to operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal schedule for power generators that balances electricity demand over time, minimizes operational costs, and adheres to all necessary operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Time-dependent demand variations must be met, typically influenced by day-night cycles.",
+            "Operational constraints of each generator, such as minimum and maximum power output, must be considered.",
+            "Transition times for starting up or shutting down generators should be accounted for.",
+            "Cost minimization includes operational and maintenance costs of generators.",
+            "Load demand at all times should be satisfied without exceeding supply capabilities."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "time-dependent demand variations",
+            "minimize costs",
+            "adhere to operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Balance electricity supply with time-varying demand while minimizing operational costs subject to generator operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Generators must operate in a way that balances day-night cycle demand variations.",
+            "Generators need to minimize operational costs.",
+            "There are no constraints based on fuel type or availability."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "time-dependent demand variations",
+            "generator startup and shutdown costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal schedule for generator operation that ensures power demand is met while minimizing costs associated with fuel consumption, generator startup, and shutdown, subject to time-dependent variations in demand and operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Time-dependent demand variations (e.g., day-night cycles) must be balanced with generator output.",
+            "Generator startup and shutdown costs need to be considered in the optimization.",
+            "No constraints exist regarding fuel type or availability for operating generators."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Generator availability",
+            "Generator efficiency",
+            "Fuel costs",
+            "Demand forecasts",
+            "Maintenance schedules",
+            "Emission regulations",
+            "Start-up and shut-down costs",
+            "Ramp rates",
+            "Transmission constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find an optimal schedule for power generators that balances electricity demand while minimizing total operational costs and adhering to operational constraints such as generator capacity limits and maintenance schedules."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Generators must meet the demand at all times.",
+            "The total generated power cannot exceed the generator capacity limits.",
+            "Costs, including fuel and operational, must be kept as low as possible.",
+            "Maintenance and operational schedules must be adhered to.",
+            "Environmental regulations must be complied with, which may include emissions limits.",
+            "Ramp-up and ramp-down rates of generators must be within permissible limits."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "generator schedule",
+            "demand balance",
+            "cost minimization",
+            "operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal schedule for generators to balance demand while minimizing costs and adhering to operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Generators must meet the demand at all times.",
+            "Minimize the total operational cost.",
+            "Adhere to individual generator operational constraints, such as minimum and maximum power output.",
+            "Consider ramp-up and ramp-down rates for each generator.",
+            "Ensure total generation always equals or exceeds demand due to no transmission loss consideration."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Demand balance",
+            "Minimize costs",
+            "Operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to schedule generators in a way that balances demand while minimizing costs and adhering to operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Balance demand: The generation schedule must meet the forecasted electricity demand at all times.",
+            "Minimize costs: The scheduling should aim to minimize the total cost of operation, which may include fuel costs, start-up and shut-down costs, and other production-related expenses.",
+            "Operational constraints: Each generator has a set of operational constraints, which may include minimum and maximum output levels, ramp up and down rates, minimum up and down times.",
+            "Resource availability: Ensure that the generators have the necessary fuel and resources available to be operated as scheduled."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Demand balancing",
+            "Cost minimization",
+            "Operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal schedule for generators to balance demand while minimizing costs and adhering to operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Generator capacities must not be exceeded.",
+            "Generators must meet the total electricity demand at all times.",
+            "Startup and shutdown times of generators must be respected.",
+            "Minimum up and down times for generators must be respected.",
+            "Operational costs must be minimized."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Demand",
+            "Costs",
+            "Operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to create an optimal schedule for electricity generators that balances energy demand, minimizes operational costs, and adheres to all necessary operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Generator power output must match the electricity demand at all times.",
+            "Generator output levels must remain within their minimum and maximum capacity limits.",
+            "The startup and shutdown schedule of generators must account for minimum up and down time constraints.",
+            "Ramp rates limit the changes in output between consecutive time periods for each generator.",
+            "Total operating costs, including fuel and maintenance, should be minimized.",
+            "Emission constraints may limit the amount of emissions generated.",
+            "The reliability of the power supply must be ensured, possibly through spinning reserves or similar mechanisms.",
+            "External factors like availability of renewable sources or prices of fuel can affect the generation schedule."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Generator schedules",
+            "Electricity demand",
+            "Cost minimization",
+            "Operational constraints",
+            "Time-dependent variations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal schedule for generators that balances electricity demand, minimizes operational costs, and complies with all operational constraints, while accounting for variations over different time periods."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Hourly demand requirements must be met.",
+            "Costs should be minimized across all scheduled time periods.",
+            "Each generator may have different start-up and shut-down times.",
+            "Operational constraints such as maximum and minimum output levels for each generator must be observed.",
+            "Scheduled maintenance or downtime for each generator must be respected.",
+            "Ramp-up and ramp-down rates for each generator should not be exceeded.",
+            "Load balancing must be maintained across the network.",
+            "Contracts and regulations requiring a certain percentage of renewable energy must be adhered to.",
+            "Potential penalties for unscheduled power surges or demand drops must be considered."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Generator schedule",
+            "Demand",
+            "Costs",
+            "Time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal time-dependent schedule for generators to balance electricity demand and supply at minimum operating costs while adhering to operational constraints such as capacity limits and ramp rates."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The schedule must balance demand at all times.",
+            "The schedule must minimize costs associated with generator operation.",
+            "The schedule must adhere to operational constraints of generators, such as minimum up and downtime, ramp rates, and maximum output.",
+            "The schedule must consider time-dependent factors where demand and costs can vary hour by hour.",
+            "Generators may have maintenance or operational periods during which they cannot operate.",
+            "The solution must ensure the reliability of the power supply, preventing blackouts or shortages."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Time of the day/hourly intervals",
+            "Electricity demand",
+            "Cost of generation",
+            "Operational constraints",
+            "Uncertainty in demand"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal schedule for generators that balances electricity demand, minimizes operational costs, and adheres to operational constraints, while accounting for time-dependent variations in both demand and costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The schedule must meet the electricity demand for each hour of operation, accounting for any uncertainty in demand.",
+            "The schedule must minimize costs associated with generator operation, factoring in any time-varying cost structures.",
+            "The operational limits of each generator, such as maximum and minimum output levels, must be adhered to.",
+            "The time-dependent nature of generator schedules may require adherence to ramp-up and ramp-down constraints governing how quickly output levels can change.",
+            "Generator maintenance schedules and downtime must be considered within the optimization model."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Demand forecast",
+            "Cost minimization",
+            "Operational constraints",
+            "Generator schedules"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To balance electricity demand with minimum cost while adhering to operational constraints for generator scheduling."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total generated power must meet or exceed the demand at all times.",
+            "Generators have minimum and maximum power output levels that must be respected.",
+            "There are start-up and shut-down costs associated with operating generators that need to be minimized.",
+            "Generators require a certain minimum run-time once started, and a minimum downtime once shut off before they can be started again.",
+            "Operational constraints such as ramp rates, which limit how quickly a generator's output can increase or decrease, must be adhered to.",
+            "Environmental regulations might limit the total emissions or require emission reduction measures.",
+            "Fuel availability could limit the amount of power that can be generated, influencing the scheduling decision."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "generator_schedule",
+            "demand",
+            "generator_costs",
+            "operational_constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal schedule for generators to meet electricity demand while minimizing costs and adhering to operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The power output of each generator must be within the operational limits of that generator.",
+            "The total power generated must meet the electrical demand at all times.",
+            "Start-up and shut-down costs need to be factored into the generator cost calculations.",
+            "Some generators may have minimum up and down times, which dictate how long a generator must remain on or off once started or stopped.",
+            "The ramp-up and ramp-down rates of generators must be considered to ensure that they can change output at a feasible rate.",
+            "Emission limits or fuel usage constraints may also apply, depending on the type of generators used."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "demand",
+            "generator costs",
+            "operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs while balancing demand and adhering to operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The schedule must balance electricity demand.",
+            "The schedule must minimize costs associated with generator operation.",
+            "The schedule must adhere to operational constraints of the generators."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "generator costs",
+            "demand"
+          ]
+        },
+        "pred_objective": {
+          "objective": "minimize costs while balancing demand and adhering to operational constraints"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Generator costs must be included in the calculation.",
+            "The objective is to minimize costs.",
+            "The schedule must balance electrical demand.",
+            "Operational constraints of the generators must be adhered to."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      }
+    }
+  }
+}

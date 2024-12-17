@@ -1,0 +1,49 @@
+{
+  "vague_description": "We need to balance resource constraints and mess production to maximize the slime output.",
+  "detailed_description": "In a science club, there are two tables that can be set up to make slime. At table 1, \\param{Powder1} units of powder and \\param{Glue1} units of glue are used to make \\param{Slime1} units of slime. At table 2, \\param{Powder2} units of powder and \\param{Glue2} units of glue are used to make \\param{Slime2} units of slime. However, table 1 produces \\param{Mess1} units of mess while table 2 produces \\param{Mess2} units of mess. The science club has available \\param{TotalPowder} units of powder and \\param{TotalGlue} units of glue. If at most \\param{MaxMess} units of mess can be made, how many of each table should be set up to maximize the amount of slime produced?",
+  "target_objective": "Maximize the total amount of slime produced by both tables",
+  "target_constraints": [
+    "Number of Table 1 setups is non-negative",
+    "Number of Table 2 setups is non-negative",
+    "Total quantity of powder used by Table 1 and Table 2 does not exceed TotalPowder",
+    "Total quantity of glue used by Table 1 and Table 2 does not exceed TotalGlue",
+    "Total mess produced by Table 1 and Table 2 setups does not exceed MaxMess"
+  ],
+  "target_parameters": [
+    "Units of powder used at table 1",
+    "Units of glue used at table 1",
+    "Units of slime produced at table 1",
+    "Units of powder used at table 2",
+    "Units of glue used at table 2",
+    "Units of slime produced at table 2",
+    "Units of mess produced at table 1",
+    "Units of mess produced at table 2",
+    "Total available units of powder",
+    "Total available units of glue",
+    "Maximum allowable units of mess"
+  ],
+  "Expert": {
+    "(0,)": "User: We need to balance resource constraints and mess production to maximize the slime output.",
+    "(0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Is there a linear relationship between resource usage and slime output in the optimization model?\nUser: Yes\n",
+    "(0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Is there a linear relationship between resource usage and slime output in the optimization model?\nUser: Yes\n\nExpert: Does the optimization problem involve any budgetary constraints on resource usage?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Is there a linear relationship between resource usage and slime output in the optimization model?\nUser: Yes\n\nExpert: Does the optimization problem involve any budgetary constraints on resource usage?\nUser: Yes\n\nExpert: Are there specific limits on the amount of mess that can be produced during the slime production process?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: We need to balance resource constraints and mess production to maximize the slime output.",
+    "(0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Do any of the candidate problem descriptions include a specific constraint related to the budget for production costs?\nUser: No\n",
+    "(0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Do any of the candidate problem descriptions include a specific constraint related to the budget for production costs?\nUser: No\n\nExpert: Does the problem description include constraints related to quality or defect rates of the produced slime?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Do any of the candidate problem descriptions include a specific constraint related to the budget for production costs?\nUser: No\n\nExpert: Does the problem description include constraints related to quality or defect rates of the produced slime?\nUser: No\n\nExpert: Does the problem include environmental constraints?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: We need to balance resource constraints and mess production to maximize the slime output.",
+    "(0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Are the resource constraints fixed and known in advance, or can they vary depending on external factors?\nUser: Yes, the resource constraints (total powder, total glue, and maximum mess allowed) are fixed and known in advance.\n",
+    "(0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Are the resource constraints fixed and known in advance, or can they vary depending on external factors?\nUser: Yes, the resource constraints (total powder, total glue, and maximum mess allowed) are fixed and known in advance.\n\nExpert: Are there multiple types of slime with different production processes, or a single type of slime with a standard production process?\nUser: Yes, there are multiple types of slime with different production processes at each table.\n",
+    "(0, 0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Are the resource constraints fixed and known in advance, or can they vary depending on external factors?\nUser: Yes, the resource constraints (total powder, total glue, and maximum mess allowed) are fixed and known in advance.\n\nExpert: Are there multiple types of slime with different production processes, or a single type of slime with a standard production process?\nUser: Yes, there are multiple types of slime with different production processes at each table.\n\nExpert: Is the objective to maximize the overall slime output across all tables, or to maximize the slime output at an individual table?\nUser: Yes, the objective is to maximize the overall slime output across all tables.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: We need to balance resource constraints and mess production to maximize the slime output.",
+    "(0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Does the problem description contain the word 'resource' more than once in the 'constraints' field?\nUser: No\n",
+    "(0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Does the problem description contain the word 'resource' more than once in the 'constraints' field?\nUser: No\n\nExpert: Is the objective of the problem expressed in terms of maximization rather than minimization?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Does the problem description contain the word 'resource' more than once in the 'constraints' field?\nUser: No\n\nExpert: Is the objective of the problem expressed in terms of maximization rather than minimization?\nUser: Yes\n\nExpert: Is there at least one constraint listed in the problem description?\nUser: Yes\n"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "vague_description": "Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.",
+  "detailed_description": "Consider a diet problem. Given a set of \\param{FoodNum} foods and a set of \\param{NutrientNum}. Each food \\param{j} has a cost \\param{CostPerFood_j} and the amount of each nutrient \\param{i} it contains is \\param{AmountPerNutrient_{i,j}}. The problem aims to minimize the total cost of buying foods. It is constrained that the total amount of each nutrient \\param{i} with minimum requirements in the foods bought is at least \\param{MinReqAmount_i} and the total amount of each nutrient \\param{i} with maximum requirements in the foods bought is at most \\param{MaxReqAmount_i}. How to decide the amount of each food \\param{j} to buy ?",
+  "target_objective": "Minimize the total cost of buying foods to meet the nutritional requirements",
+  "target_constraints": [
+    "For each nutrient with a minimum requirement, the total amount in the diet must be at least MinReqAmount_i",
+    "For each nutrient with a maximum requirement, the total amount in the diet must be at most MaxReqAmount_i",
+    "Amount of each food j to be bought is non-negative"
+  ],
+  "target_parameters": [
+    "The number of foods",
+    "The number of nutrients",
+    "The cost of each food item",
+    "The minimum quantity of each food that can be bought",
+    "The maximum quantity of each food that can be bought",
+    "The minimum required amount of each nutrient",
+    "The maximum allowed amount of each nutrient",
+    "The amount of each nutrient contained in each food item"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.",
+    "(0, 0)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.\nExpert: Are there specific nutrient requirements or minimum values for each nutrient that must be met in the optimal solution?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.\nExpert: Are there specific nutrient requirements or minimum values for each nutrient that must be met in the optimal solution?\nUser: Yes\n\nExpert: Is there a maximum budget or cost limit that the total food combination should not exceed?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.\nExpert: Are there specific nutrient requirements or minimum values for each nutrient that must be met in the optimal solution?\nUser: Yes\n\nExpert: Is there a maximum budget or cost limit that the total food combination should not exceed?\nUser: No\n\nExpert: Are there any specific types of foods or food groups that must be included in the solution?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.",
+    "(0, 0)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.\nExpert: Does the problem include a constraint on sodium intake?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.\nExpert: Does the problem include a constraint on sodium intake?\nUser: No\n\nExpert: Does the problem include a constraint on fiber intake?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.\nExpert: Does the problem include a constraint on sodium intake?\nUser: No\n\nExpert: Does the problem include a constraint on fiber intake?\nUser: No\n\nExpert: Does the problem include constraints on micronutrients such as vitamins or minerals?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.",
+    "(0, 0)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.\nExpert: Is there a specific budget for the food purchases?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.\nExpert: Is there a specific budget for the food purchases?\nUser: No\n\nExpert: Is the objective to find a combination of foods that meets a specific set of nutritional requirements (e.g. daily calorie intake, macronutrient ratios) or to find a combination that minimizes the risk of nutritional deficiencies?\nUser: {\"response\":\"To find a combination of foods that meets specific nutrient requirements while minimizing the cost.\"}\n",
+    "(0, 0, 0, 0)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.\nExpert: Is there a specific budget for the food purchases?\nUser: No\n\nExpert: Is the objective to find a combination of foods that meets a specific set of nutritional requirements (e.g. daily calorie intake, macronutrient ratios) or to find a combination that minimizes the risk of nutritional deficiencies?\nUser: {\"response\":\"To find a combination of foods that meets specific nutrient requirements while minimizing the cost.\"}\n\nExpert: Are the nutrient requirements based on a specific individual's needs (e.g. age, sex, health status) or on general population recommendations?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.",
+    "(0, 0)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.\nExpert: Is at least one of the constraints related to a budget or a fixed limit?\nUser: No.\n",
+    "(0, 0, 0)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.\nExpert: Is at least one of the constraints related to a budget or a fixed limit?\nUser: No.\n\nExpert: Are there any constraints that are quantitative and numeric (e.g. total calories <= 2000, protein intake >= 100g, etc.)?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the best combination of foods to purchase that meet nutritional requirements while minimizing cost.\nExpert: Is at least one of the constraints related to a budget or a fixed limit?\nUser: No.\n\nExpert: Are there any constraints that are quantitative and numeric (e.g. total calories <= 2000, protein intake >= 100g, etc.)?\nUser: Yes.\n\nExpert: Is the objective function a maximization problem or is the problem unconstrained?\nUser: No.\n"
+  }
+}

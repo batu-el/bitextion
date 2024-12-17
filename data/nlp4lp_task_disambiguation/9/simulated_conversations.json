@@ -1,0 +1,40 @@
+{
+  "vague_description": "The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.",
+  "detailed_description": "PROBLEM TYPE\nLP\n\nINPUT FORMAT\n\n{\n    \"K\": \\param{K},\n    \"p\": [\\param{P[i]} for i in 0, ..., \\param{K}]\n    \"E[Z]\": \\param{ExpectedZ},\n    \"E[Z^2]\": \\param{ExpectedZSquared},\n}\n\nOBJECTIVE\nUse linear programming to find lower and upper bounds on \\param{E[Z^4]}.",
+  "target_objective": "Determine the lower and upper bounds on the expected value of Z raised to the fourth power",
+  "target_constraints": [
+    "Variable K is non-negative",
+    "Array p[i] is non-negative for each i in 1 to K",
+    "Lower and upper bounds for E[Z^4] should not be negative"
+  ],
+  "target_parameters": [
+    "Number of terms in the sequence",
+    "Coefficients of the linear combination",
+    "Expected value of Z",
+    "Expected value of Z squared"
+  ],
+  "Expert": {
+    "(0,)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.",
+    "(0, 0)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.\nExpert: Does the linear programming setup involve constraints on the variable whose fourth-moment expectation we are considering?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.\nExpert: Does the linear programming setup involve constraints on the variable whose fourth-moment expectation we are considering?\nUser: Yes\n\nExpert: Are the parameters provided related to the coefficients of the linear inequalities in the constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.\nExpert: Does the linear programming setup involve constraints on the variable whose fourth-moment expectation we are considering?\nUser: Yes\n\nExpert: Are the parameters provided related to the coefficients of the linear inequalities in the constraints?\nUser: Yes\n\nExpert: Are these coefficients involved in both the objective function and the constraints of the linear programming problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.",
+    "(0, 0)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.\nExpert: Does the problem involve optimizing the fourth moment with respect to a linear combination of multiple variables like X and Y?\nUser: No\n",
+    "(0, 0, 0)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.\nExpert: Does the problem involve optimizing the fourth moment with respect to a linear combination of multiple variables like X and Y?\nUser: No\n\nExpert: Does the problem involve constraints on the skewness of the random variable?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.\nExpert: Does the problem involve optimizing the fourth moment with respect to a linear combination of multiple variables like X and Y?\nUser: No\n\nExpert: Does the problem involve constraints on the skewness of the random variable?\nUser: No\n\nExpert: Is there a constraint explicitly involving the second moment E[X^2] or E[Z^2]?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.",
+    "(0, 0)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.\nExpert: Is the objective of the linear programming problem to minimize or maximize the fourth-moment expectation?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.\nExpert: Is the objective of the linear programming problem to minimize or maximize the fourth-moment expectation?\nUser: Yes\n\nExpert: Is the fourth-moment expectation a function of a single decision variable or multiple decision variables?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.\nExpert: Is the objective of the linear programming problem to minimize or maximize the fourth-moment expectation?\nUser: Yes\n\nExpert: Is the fourth-moment expectation a function of a single decision variable or multiple decision variables?\nUser: Yes\n\nExpert: Multiple decision variables\nUser: {\"response\":\"No\"}\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.",
+    "(0, 0)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.\nExpert: Are the parameters of the problem specified or provided?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.\nExpert: Are the parameters of the problem specified or provided?\nUser: Yes\n\nExpert: Is the objective function of the optimization problem to maximize or minimize?\nUser: Yes, the objective function can either seek to maximize or minimize the fourth moment, \\( E[Z^4] \\), within the linear programming framework to find its bounds.\n",
+    "(0, 0, 0, 0)": "User: The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.\nExpert: Are the parameters of the problem specified or provided?\nUser: Yes\n\nExpert: Is the objective function of the optimization problem to maximize or minimize?\nUser: Yes, the objective function can either seek to maximize or minimize the fourth moment, \\( E[Z^4] \\), within the linear programming framework to find its bounds.\n\nExpert: Are the parameters of the problem specified and provided?\nUser: Yes\n"
+  }
+}

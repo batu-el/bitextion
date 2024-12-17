@@ -1,0 +1,23 @@
+{
+  "vague_description": "How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?",
+  "detailed_description": "How should the manufacture manage the steel to maximize profit? The manufacture has to decide on the optimal quantity of \\param{SteelQuantity} tons of steel to produce, taking into account the required \\param{ManganesePercent} percent manganese and ensuring the silicon content is between \\param{SiliconMinPercent} percent and \\param{SiliconMaxPercent} percent. The available stocks contain \\param{SiliconContent} percent Silicon and \\param{ManganeseContent} percent Manganese. The price of manganese is set at \\param{ManganesePrice} per ton, and the material cost for each stock is \\param{MaterialCost}. The company sells the steel at a price of \\param{SellingPrice} per ton but also incurs a melting cost of \\param{MeltingPrice} per ton.",
+  "target_objective": "Maximize the company's profit from the steel produced",
+  "target_constraints": [
+    "Total quantity of steel produced is SteelQuantity tons",
+    "Steel must contain ManganesePercent percent manganese",
+    "Silicon content in steel must be at least SiliconMinPercent percent",
+    "Silicon content in steel must be at most SiliconMaxPercent percent"
+  ],
+  "target_parameters": [
+    "Amount of steel to produce in tons",
+    "Percentage of manganese in the steel required",
+    "Minimum percentage of silicon in the steel required",
+    "Maximum percentage of silicon in the steel allowed",
+    "Silicon content in the k-th stock",
+    "Manganese content in the k-th stock",
+    "Price of manganese per ton",
+    "Cost of the k-th stock material per ton",
+    "Selling price of steel per ton",
+    "Price to melt one ton of steel"
+  ]
+}

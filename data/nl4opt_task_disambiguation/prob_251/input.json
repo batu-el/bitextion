@@ -1,0 +1,22 @@
+{
+  "vague_description": "The company needs to determine the optimal number of freight and air trips to manage their costs and meet time-sensitive delivery commitments while staying within budget constraints.",
+  "detailed_description": "A candle-making company can move their inventory of candles using freight and air. Freight can transport \\param{FreightCapacity} tons per trip while using air can transport \\param{AirCapacity} tons per trip. Since freight take longer, the cost for each freight trip is \\param{FreightCost} while the cost over air for each trip is \\param{AirCost}. The company needs to transport at least \\param{MinimumTons} tons of candles and they have a budget of \\param{Budget}. Additionally, due to some urgent orders, at least \\param{AirFraction} of tons of candles must be transported through air. There must also be at least \\param{MinimumFreightTrips} trips through freight. How many of trip by each should be scheduled to minimize the total number of trips?",
+  "target_objective": "Minimize the total number of freight and air trips required to move the inventory",
+  "target_constraints": [
+    "At least MinimumTons tons of candles must be transported in total",
+    "The number of freight trips is non-negative",
+    "The number of air trips is non-negative",
+    "The total budget for transportation is Budget",
+    "At least AirFraction of the tons of candles must be transported by air"
+  ],
+  "target_parameters": [
+    "Freight transport capacity per trip",
+    "Air transport capacity per trip",
+    "Cost for each freight trip",
+    "Cost for each air trip",
+    "Minimum total tons of candles to be transported",
+    "Budget for transporting candles",
+    "Fraction of total tons required to be transported by air",
+    "Minimum number of trips by freight"
+  ]
+}

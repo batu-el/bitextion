@@ -1,0 +1,46 @@
+{
+  "vague_description": "Optimize the logistics and inventory management for container unloading to minimize associated costs.",
+  "detailed_description": "Determine a strategy to minimize costs from unloading (\\param{UnloadCosts}), storage (\\param{HoldingCost}), and crane rentals (\\param{CraneCost}) over the period. The demands over the time periods are given by \\param{Demands}, with a corresponding unloading capacity per period specified by \\param{UnloadCapacity}. The system starts with an initial inventory of containers given by \\param{InitContainer}, and the maximum container inventory is limited to \\param{MaxContainer}. The logistics also involve \\param{NumCranes} number of cranes with \\param{CraneCapacity} each to aid in the unloading process.",
+  "target_objective": "Minimize the total costs of UnloadCosts, HoldingCost, and CraneCost",
+  "target_constraints": [
+    "Demands must be met for each time period",
+    "Unloading capacity per period cannot exceed the specified UnloadCapacity",
+    "Maximum container inventory must not exceed MaxContainer"
+  ],
+  "target_parameters": [
+    "The number of time periods",
+    "Demand at time t",
+    "Unloading cost at time t",
+    "Unloading capacity at time t",
+    "Cost for holding containers",
+    "Maximum number of containers that can be held",
+    "Initial number of containers at the start",
+    "Number of cranes available for unloading",
+    "Capacity of each crane",
+    "Cost for renting each crane"
+  ],
+  "Expert": {
+    "(0,)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.",
+    "(0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Can you specify whether the objective is to minimize costs related to time, labor, or storage in the logistics and inventory management process?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Can you specify whether the objective is to minimize costs related to time, labor, or storage in the logistics and inventory management process?\nUser: No\n\nExpert: Are there any constraints related to the capacity of storage facilities in the logistics and inventory management process?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Can you specify whether the objective is to minimize costs related to time, labor, or storage in the logistics and inventory management process?\nUser: No\n\nExpert: Are there any constraints related to the capacity of storage facilities in the logistics and inventory management process?\nUser: Yes\n\nExpert: Are there specific time windows during which container unloading must be completed?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.",
+    "(0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Does the problem include explicit safety regulations as constraints that directly influence the unloading process?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Does the problem include explicit safety regulations as constraints that directly influence the unloading process?\nUser: No\n\nExpert: Do the constraints include any specific mention of environmental regulations or compliance requirements?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Does the problem include explicit safety regulations as constraints that directly influence the unloading process?\nUser: No\n\nExpert: Do the constraints include any specific mention of environmental regulations or compliance requirements?\nUser: No\n\nExpert: Is there a constraint related to prioritization or sequencing of container unloading based on specific criteria, such as urgency or arrival order?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.",
+    "(0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Is the container unloading process subject to time windows or scheduling constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Is the container unloading process subject to time windows or scheduling constraints?\nUser: No\n\nExpert: Is the unloading process done at a single fixed location, or are there multiple possible unloading locations? \nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Is the container unloading process subject to time windows or scheduling constraints?\nUser: No\n\nExpert: Is the unloading process done at a single fixed location, or are there multiple possible unloading locations? \nUser: No\n\nExpert: Are the containers of different types or capacities, or are they all homogeneous?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.",
+    "(0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Does the problem description contain a specified fixed number of containers, employees, equipment, or other limited resources as a constraint or parameter?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Does the problem description contain a specified fixed number of containers, employees, equipment, or other limited resources as a constraint or parameter?\nUser: Yes\n\nExpert: Does the problem description mention a fixed number of containers (or a constraint that limits the number of containers)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Does the problem description contain a specified fixed number of containers, employees, equipment, or other limited resources as a constraint or parameter?\nUser: Yes\n\nExpert: Does the problem description mention a fixed number of containers (or a constraint that limits the number of containers)?\nUser: Yes\n\nExpert: Is the number of resources (employees, equipment, etc.) fixed for the optimization problem?  [[Yes or No]] \nUser: Yes\n"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "vague_description": "A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.",
+  "detailed_description": "A daycare center has children they must pick up and can use two types of vehicles: a bus with a capacity of \\param{BusCapacity} children or a personal car with a capacity of \\param{CarCapacity} children. The daycare has to pick up at least \\param{MinChildren} children. Additionally, due to limitations of pollution, there must be more buses than personal cars. But some children require extra attention. Therefore, there must be at least \\param{MinCars} personal cars. How many of each form of transportation should the daycare center schedule for to minimize the total number of vehicles?",
+  "target_objective": "Minimize the total number of buses and personal cars scheduled",
+  "target_constraints": [
+    "Number of buses is non-negative",
+    "Number of personal cars is non-negative",
+    "The total capacity of buses and cars must accommodate at least MinChildren children",
+    "There must be more buses than personal cars",
+    "There must be at least MinCars personal cars"
+  ],
+  "target_parameters": [
+    "Capacity of a bus",
+    "Capacity of a personal car",
+    "Minimum total number of children to pick up",
+    "Minimum number of personal cars due to children needing extra attention"
+  ]
+}

@@ -1,0 +1,450 @@
+{
+  "vague_description": "The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.",
+  "detailed_description": "A sandwich company can open two types of stores, a dine-in place and a food-truck. A dine-in place can make \\var{DineInProd} sandwiches per day and requires \\var{DineInEmp} employees to operate. A food-truck can make \\var{FoodTruckProd} sandwiches per day and requires \\var{FoodTruckEmp} employees to operate. The company must make at least \\var{MinSandProd} sandwiches per day but they only have available \\var{TotalEmp} employees. How many of each type of store should the company open to minimize the total number of stores?",
+  "target_objective": "Minimize the total number of dine-in places and food-trucks",
+  "target_constraints": [
+    "Number of dine-in places is an integer",
+    "Number of food-trucks is an integer",
+    "Number of dine-in places is non-negative",
+    "Number of food-trucks is non-negative",
+    "Dine-in places and food-trucks collectively make at least MinSandProd sandwiches per day",
+    "Total number of employees used by dine-in places and food-trucks does not exceed TotalEmp"
+  ],
+  "target_parameters": [
+    "Sandwich production per day by a dine-in place",
+    "Employees needed to operate a dine-in place",
+    "Sandwich production per day by a food-truck",
+    "Employees needed to operate a food-truck",
+    "Minimum number of sandwiches to be made per day",
+    "Total available employees"
+  ],
+  "Expert": {
+    "(0,)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.",
+    "(0, 0)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.\nExpert: Is the objective to minimize the total operational cost of the dine-in places and food-trucks?\nUser: No\n",
+    "(0, 0, 0)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.\nExpert: Is the objective to minimize the total operational cost of the dine-in places and food-trucks?\nUser: No\n\nExpert: Is the objective to maximize the total profit or revenue of the dine-in places and food-trucks?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.\nExpert: Is the objective to minimize the total operational cost of the dine-in places and food-trucks?\nUser: No\n\nExpert: Is the objective to maximize the total profit or revenue of the dine-in places and food-trucks?\nUser: No\n\nExpert: Is there a target number of sandwiches that need to be produced daily as a constraint in the optimization problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.",
+    "(0, 0)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.\nExpert: Do any of the problems include explicit cost constraints for opening or operating dine-in places or food-trucks?\nUser: No\n",
+    "(0, 0, 0)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.\nExpert: Do any of the problems include explicit cost constraints for opening or operating dine-in places or food-trucks?\nUser: No\n\nExpert: Is the available workforce limit explicitly specified as a numeric value in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.\nExpert: Do any of the problems include explicit cost constraints for opening or operating dine-in places or food-trucks?\nUser: No\n\nExpert: Is the available workforce limit explicitly specified as a numeric value in the problem description?\nUser: Yes\n\nExpert: Does the problem include minimizing the workforce used as part of the objective?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.",
+    "(0, 0)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.\nExpert: Is the daily sandwich production requirement a constant value that applies to all locations (dine-in places and food-trucks) equally?\nUser: No\n",
+    "(0, 0, 0)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.\nExpert: Is the daily sandwich production requirement a constant value that applies to all locations (dine-in places and food-trucks) equally?\nUser: No\n\nExpert: Does the daily sandwich production requirement for each location type vary linearly with the number of locations of that type?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.\nExpert: Is the daily sandwich production requirement a constant value that applies to all locations (dine-in places and food-trucks) equally?\nUser: No\n\nExpert: Does the daily sandwich production requirement for each location type vary linearly with the number of locations of that type?\nUser: Yes\n\nExpert: Does the daily sandwich production requirement for each location type also vary linearly with the number of employees at that location type?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.",
+    "(0, 0)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.\nExpert: Is the objective to maximize revenue or profit?\nUser: {\"response\":\"No, the objective is to minimize the total number of stores opened while meeting production and employee constraints.\"}\n",
+    "(0, 0, 0)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.\nExpert: Is the objective to maximize revenue or profit?\nUser: {\"response\":\"No, the objective is to minimize the total number of stores opened while meeting production and employee constraints.\"}\n\nExpert: Does the problem description specify that all constraints must be satisfied simultaneously?\nUser: Yes, the problem specifies that both the sandwich production and employee constraints must be satisfied simultaneously to meet the requirements.\n",
+    "(0, 0, 0, 0)": "User: The sandwich company needs to determine the optimal number of dine-in places and food-trucks to open such that they meet their daily sandwich production requirements while staying within their available workforce limit.\nExpert: Is the objective to maximize revenue or profit?\nUser: {\"response\":\"No, the objective is to minimize the total number of stores opened while meeting production and employee constraints.\"}\n\nExpert: Does the problem description specify that all constraints must be satisfied simultaneously?\nUser: Yes, the problem specifies that both the sandwich production and employee constraints must be satisfied simultaneously to meet the requirements.\n\nExpert: Does the problem description specify at least one of the following parameters: 'Available workforce', 'Available workforce limit', 'Workforce capacity', or 'Employee workforce limit'?\nUser: Yes, the problem specifies 'TotalEmp' which represents the total available employees.\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of dine-in places to open",
+            "Number of food-trucks to open",
+            "Daily sandwich production requirements",
+            "Available workforce limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize daily sandwich production and minimize operational costs while staying within the workforce limit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total sandwich production from both dine-in places and food-trucks must meet or exceed the daily sandwich production requirements.",
+            "The total number of workers allocated to both dine-in places and food-trucks must not exceed the available workforce limit."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of dine-in places to open",
+            "Number of food-trucks to open",
+            "Daily sandwich production requirements",
+            "Available workforce limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the daily sandwich production while utilizing the available workforce efficiently."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of sandwiches produced by both dine-in places and food-trucks must meet or exceed the daily sandwich production requirement.",
+            "The combined workforce used for both dine-in places and food-trucks must not exceed the available workforce limit."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal number of dine-in places and food-trucks to meet daily sandwich production requirements within workforce constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The daily sandwich production requirements must be met.",
+            "The number of dine-in places and food-trucks must remain within the available workforce limit."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of dine-in places",
+            "Number of food-trucks",
+            "Daily sandwich production requirements",
+            "Available workforce limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal allocation of resources to meet daily sandwich production requirements while staying within workforce limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The daily sandwich production must meet the target number of sandwiches.",
+            "The solution must stay within the available workforce limit."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of dine-in places",
+            "Number of food-trucks",
+            "Daily sandwich production requirements",
+            "Available workforce limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of dine-in places and food-trucks to open that satisfy the daily sandwich production requirements without exceeding the available workforce capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of sandwiches produced by dine-in places and food-trucks should meet or exceed the daily production requirements.",
+            "The number of workers assigned to both dine-in places and food-trucks must not exceed the available workforce limit."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "daily sandwich production requirement",
+            "available workforce limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize the total sandwich production subject to workforce constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of sandwiches produced by dine-in places and food-trucks together must meet or exceed the daily sandwich production requirements.",
+            "The total workforce utilized by dine-in places and food-trucks together must not exceed the available workforce limit."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal number of dine-in places",
+            "Optimal number of food-trucks",
+            "Daily sandwich production requirements",
+            "Available workforce limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of sandwiches produced within the workforce constraints by optimally determining the number of dine-in places and food-trucks to open."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of dine-in places and food-trucks opened must not exceed the available workforce limit.",
+            "The total sandwich production from the dine-in places and food-trucks must meet the daily sandwich production requirements."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of dine-in places",
+            "number of food-trucks",
+            "daily sandwich production requirements",
+            "available workforce limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of dine-in places and food-trucks to open in order to meet the daily sandwich production requirements while staying within the available workforce limit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Sum of dine-in places and food-trucks must meet daily sandwich production requirements.",
+            "Workforce used by dine-in places and food-trucks must be within available workforce limit."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of dine-in places to open",
+            "Number of food-trucks to open",
+            "Daily sandwich production requirements",
+            "Available workforce limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize sandwich production while adhering to workforce constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of dine-in places and food-trucks must be sufficient to meet the daily sandwich production requirements.",
+            "The total workforce assigned to both the dine-in places and food-trucks must not exceed the available workforce limit."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of dine-in places to open",
+            "Number of food-trucks to open",
+            "Daily sandwich production requirements for dine-in places",
+            "Daily sandwich production requirements for food-trucks",
+            "Available workforce limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of dine-in places and food-trucks to open such that the company meets its daily sandwich production requirements while staying within the limits of their available workforce."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of sandwiches produced by both dine-in places and food-trucks must meet or exceed a certain daily requirement that varies by location.",
+            "The total workforce employed across both dine-in places and food-trucks must not exceed the available workforce limit."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of dine-in places to open",
+            "Number of food-trucks to open",
+            "Daily sandwich production requirement for dine-in places",
+            "Daily sandwich production requirement for food-trucks",
+            "Workforce limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of dine-in places and food-trucks to open in order to meet variable daily sandwich production requirements for each location type, while staying within the available workforce limit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of sandwiches produced by all dine-in places and food-trucks must meet or exceed the overall daily sandwich production requirement.",
+            "The sandwich production for each location type (dine-in places and food-trucks) varies linearly with the number of those locations.",
+            "The total workforce used by the sum of all dine-in places and food-trucks must not exceed the available workforce limit."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of dine-in places",
+            "Number of food-trucks",
+            "Daily sandwich production requirement per location",
+            "Available workforce limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of dine-in places and food-trucks to open in order to meet daily sandwich production requirements while adhering to workforce constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of dine-in places and food trucks must meet a certain daily sandwich production requirement for each location type.",
+            "The number of dine-in places and food trucks must not exceed the available workforce limit.",
+            "The daily sandwich production requirement for each location type varies linearly with the number of locations of that type."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "dine-in places",
+            "food-trucks",
+            "daily sandwich production requirement",
+            "available workforce limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize sandwich production while adhering to workforce constraints by determining the optimal allocation of resources between dine-in places and food trucks."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combined sandwich production from both dine-in places and food-trucks must meet or exceed the daily sandwich production requirements.",
+            "The number of staff allocated to both dine-in places and food-trucks must not exceed the available workforce limit."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of dine-in places",
+            "number of food-trucks",
+            "daily sandwich production requirements",
+            "available workforce limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total number of stores opened while meeting production and employee constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each dine-in place and food-truck has a different daily sandwich production capacity.",
+            "There is a daily sandwich production requirement that must be met.",
+            "There is a limit on the total available workforce which must not be exceeded.",
+            "Each type of store requires a specific number of employees.",
+            "The solution must minimize the total number of stores opened."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize the total number of stores (dine-in places and food-trucks) opened.",
+            "Constraints: Meet daily sandwich production requirements.",
+            "Constraints: Stay within available workforce limit.",
+            "All constraints must be satisfied simultaneously."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total number of dine-in places and food-trucks opened while satisfying sandwich production and employee constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of sandwiches produced by both dine-in places and food-trucks must meet the daily sandwich production requirement.",
+            "The combined workforce used by both dine-in places and food-trucks must not exceed the available workforce limit."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "dine-in places",
+            "food-trucks",
+            "sandwich production requirements",
+            "available workforce limit",
+            "TotalEmp"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total number of stores (dine-in places and food-trucks) opened."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total sandwich production from both dine-in places and food trucks must meet or exceed a specified daily production requirement.",
+            "The total number of employees allocated to both dine-in places and food trucks must not exceed the available workforce limit."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 2
+      }
+    }
+  }
+}

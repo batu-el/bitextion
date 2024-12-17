@@ -1,0 +1,543 @@
+{
+  "vague_description": "A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.",
+  "detailed_description": "A small chocolate shop makes milk chocolate and dark chocolate bars. Milk chocolate bars require \\param{CocoaMilk} units of cocoa and \\param{MilkMilk} units of milk. Dark chocolate bars require \\param{CocoaDark} units of cocoa and \\param{MilkDark} units of milk. The shop has \\param{TotalCocoa} units of cocoa and \\param{TotalMilk} units of milk available. In addition, since milk chocolate sells better, at least \\param{MilkDarkRatio} times as many milk chocolate bars need to be made as dark chocolate bars. If making a milk chocolate bar takes \\param{TimeMilk} minutes and making a dark chocolate bar takes \\param{TimeDark} minutes, how many of each should they make to minimize total production time?",
+  "target_objective": "Minimize the total production time of chocolate bars",
+  "target_constraints": [
+    "Number of milk chocolate bars is non-negative",
+    "Number of dark chocolate bars is non-negative",
+    "Total used cocoa is at most TotalCocoa units",
+    "Total used milk is at most TotalMilk units",
+    "At least MilkDarkRatio times as many milk chocolate bars as dark chocolate bars",
+    "Cocoa used for milk chocolate bars is at most CocoaMilk times the number of milk chocolate bars",
+    "Milk used for milk chocolate bars is at most MilkMilk times the number of milk chocolate bars",
+    "Cocoa used for dark chocolate bars is at most CocoaDark times the number of dark chocolate bars",
+    "Milk used for dark chocolate bars is at most MilkDark times the number of dark chocolate bars"
+  ],
+  "target_parameters": [
+    "Units of cocoa required for one milk chocolate bar",
+    "Units of milk required for one milk chocolate bar",
+    "Units of cocoa required for one dark chocolate bar",
+    "Units of milk required for one dark chocolate bar",
+    "Total units of cocoa available",
+    "Total units of milk available",
+    "Proportion of the number of milk chocolate bars to dark chocolate bars",
+    "Production time for one milk chocolate bar",
+    "Production time for one dark chocolate bar"
+  ],
+  "Expert": {
+    "(0,)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.",
+    "(0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Are there specific constraints on the total amount of cocoa and milk resources available for producing the chocolate bars?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Are there specific constraints on the total amount of cocoa and milk resources available for producing the chocolate bars?\nUser: Yes\n\nExpert: Are there production time constraints that apply individually to milk and dark chocolate bars?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Are there specific constraints on the total amount of cocoa and milk resources available for producing the chocolate bars?\nUser: Yes\n\nExpert: Are there production time constraints that apply individually to milk and dark chocolate bars?\nUser: Yes\n\nExpert: Are there required minimum production quantities for either milk or dark chocolate bars due to sales ratio agreements?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.",
+    "(0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Is the ratio constraint between the number of milk and dark chocolate bars required to be a specific fixed ratio in the problem formulation?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Is the ratio constraint between the number of milk and dark chocolate bars required to be a specific fixed ratio in the problem formulation?\nUser: Yes\n\nExpert: Is the predetermined production ratio of milk to dark chocolate bars the same across all candidate problems?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Is the ratio constraint between the number of milk and dark chocolate bars required to be a specific fixed ratio in the problem formulation?\nUser: Yes\n\nExpert: Is the predetermined production ratio of milk to dark chocolate bars the same across all candidate problems?\nUser: No\n\nExpert: Is the profit per milk chocolate bar greater than or equal to $5?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.",
+    "(0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Are the production costs of milk and dark chocolate bars equal?\nUser: No\n",
+    "(0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Are the production costs of milk and dark chocolate bars equal?\nUser: No\n\nExpert: Are the production costs of milk and dark chocolate bars equally influenced by the limited cocoa resource?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Are the production costs of milk and dark chocolate bars equal?\nUser: No\n\nExpert: Are the production costs of milk and dark chocolate bars equally influenced by the limited cocoa resource?\nUser: No\n\nExpert: Is there a minimum requirement for the total number of chocolate bars to be produced?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.",
+    "(0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Does the problem involve optimizing a function that includes at least one objective other than revenue or profit?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Does the problem involve optimizing a function that includes at least one objective other than revenue or profit?\nUser: Yes\n\nExpert: Does the problem have a fixed set of production quantities as a parameter?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Does the problem involve optimizing a function that includes at least one objective other than revenue or profit?\nUser: Yes\n\nExpert: Does the problem have a fixed set of production quantities as a parameter?\nUser: No\n\nExpert: Are there at least two specified resources that the problem seeks to use in some way (such as the number of milk and dark chocolate bars to produce, the limited cocoa resources, or the milk resources)?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "cocoa availability",
+            "milk availability",
+            "production time constraint",
+            "sales ratio milk to dark chocolate"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profit from selling milk and dark chocolate bars while ensuring that the production does not exceed the available cocoa and milk resources, meets production time constraints, and satisfies required sales ratios between milk and dark chocolate bars."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production of milk and dark chocolate bars is limited by the available amount of cocoa.",
+            "The production of milk chocolate bars is restricted by the available amount of milk.",
+            "There is a maximum production time available, which can't be exceeded when making both types of chocolate bars.",
+            "The shop must maintain a certain sales ratio between milk and dark chocolate bars, reflecting customer demand."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total amount of cocoa resources available for production",
+            "Total amount of milk resources available for production",
+            "Production time constraints",
+            "Sales ratios between milk and dark chocolate bars"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize the profit from producing milk and dark chocolate bars."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total cocoa used for milk and dark chocolate bars must not exceed available cocoa resources.",
+            "Total milk used for milk chocolate bars must not exceed available milk resources.",
+            "The production time for milk and dark chocolate bars must meet specified time constraints.",
+            "The ratio of milk to dark chocolate bars produced must adhere to a specified sales ratio."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total amount of cocoa available",
+            "Total amount of milk available",
+            "Production time for milk chocolate bars",
+            "Production time for dark chocolate bars",
+            "Sales ratios of milk to dark chocolate bars"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits or meet demand by determining the optimal production quantities of milk and dark chocolate bars within the constraints of available cocoa and milk resources, individual production time limits, and required sales ratios."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of cocoa used should not exceed the available resources.",
+            "The total amount of milk used should not exceed the available resources.",
+            "The production time for milk chocolate bars should not exceed its specific allowed time.",
+            "The production time for dark chocolate bars should not exceed its specific allowed time.",
+            "The production should adhere to determined sales ratios between milk and dark chocolate bars."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total amount of cocoa resources available",
+            "Total amount of milk resources available",
+            "Individual production time constraints for milk chocolate bars",
+            "Individual production time constraints for dark chocolate bars",
+            "Minimum production quantity for milk chocolate bars due to sales ratio agreement",
+            "Minimum production quantity for dark chocolate bars due to sales ratio agreement"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production quantity of milk and dark chocolate bars while adhering to constraints on available cocoa and milk resources, production time, and sales ratio agreements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total cocoa resource availability limits the number of milk and dark chocolate bars that can be produced.",
+            "Total milk resource availability limits the number of milk chocolate bars that can be produced.",
+            "There are maximum allowable production times for milk chocolate bars that must not be exceeded.",
+            "There are maximum allowable production times for dark chocolate bars that must not be exceeded.",
+            "Minimum production quantities for milk chocolate bars must be met as per sales ratio agreements.",
+            "Minimum production quantities for dark chocolate bars must be met as per sales ratio agreements."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "- Amount of cocoa available",
+            "- Amount of milk available",
+            "- Production time available",
+            "- Sales ratio constraint for milk to dark chocolate bars",
+            "- Cocoa required per milk chocolate bar",
+            "- Cocoa required per dark chocolate bar",
+            "- Milk required per milk chocolate bar",
+            "- Production time required for each milk chocolate bar",
+            "- Production time required for each dark chocolate bar",
+            "- Maximum production limit for milk chocolate bars",
+            "- Maximum production limit for dark chocolate bars"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profit from selling milk and dark chocolate bars by determining the optimal production quantities given the constraints on resources and production conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production of chocolate bars must not exceed the available cocoa resources.",
+            "The production of milk chocolate bars must not exceed the available milk resources.",
+            "Production time for all chocolate bars must adhere to the specified production time constraints.",
+            "The number of milk and dark chocolate bars produced must meet the predetermined sales ratios."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Milk chocolate requirement: Requires milk and cocoa resources, production time needed per bar.",
+            "Dark chocolate requirement: Requires cocoa resources, production time needed per bar.",
+            "Resource constraint: Limited availability of milk and cocoa.",
+            "Production time constraint: Limited total production time available.",
+            "Sales ratio constraint: Fixed ratio between the number of milk and dark chocolate bars to satisfy sales demand."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit or minimize cost by determining the optimal production quantities of milk and dark chocolate bars, subject to resource availability (cocoa and milk), production time constraints, and a fixed sales ratio between milk and dark chocolate bars."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let x be the number of milk chocolate bars and y be the number of dark chocolate bars.",
+            "The production should not exceed the available cocoa resources.",
+            "The production should not exceed the available milk resources.",
+            "The total production time of milk and dark chocolate bars should not exceed the available production time.",
+            "The production ratio constraint is: x/y = fixed_ratio (or x = fixed_ratio * y, where fixed_ratio is a specified constant)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of milk chocolate bars",
+            "Number of dark chocolate bars",
+            "Amount of cocoa available",
+            "Amount of milk available",
+            "Production time constraints",
+            "Sales ratio between milk and dark chocolate bars"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the production profit of the chocolate shop while adhering to constraints on cocoa, milk resources, production time, and maintaining a specific sales ratio between milk and dark chocolate bars, which varies among different scenarios."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of cocoa used in the production of both milk and dark chocolate bars cannot exceed the available cocoa resources.",
+            "The total amount of milk used in the production of milk chocolate bars cannot exceed the available milk resources.",
+            "The production time required to produce the total number of milk and dark chocolate bars must not exceed the available production time.",
+            "The number of milk and dark chocolate bars produced must adhere to a specific ratio which varies in different scenarios."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximum amount of cocoa available",
+            "Maximum amount of milk available",
+            "Total production time available",
+            "Ratio of milk to dark chocolate bars (variable per scenario)",
+            "Profit per milk chocolate bar (< $5)",
+            "Profit per dark chocolate bar",
+            "Cocoa required per milk chocolate bar",
+            "Cocoa required per dark chocolate bar",
+            "Milk required per milk chocolate bar",
+            "Production time required per milk chocolate bar",
+            "Production time required per dark chocolate bar"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the profit by determining the optimal number of milk and dark chocolate bars to produce, given constraints on cocoa and milk resources, production time, and a variable sales ratio between milk and dark chocolate bars."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Milk and dark chocolate bars must adhere to a specific production ratio that varies across different problems.",
+            "There is a limited amount of cocoa available for production.",
+            "There is a limited amount of milk available for production.",
+            "There are production time constraints that must be adhered to.",
+            "The sales ratio between milk and dark chocolate bars must be maintained."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cocoa resource limit",
+            "Milk resource limit",
+            "Production time constraints",
+            "Sales ratio requirement"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal number of milk and dark chocolate bars to produce."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of cocoa used for milk and dark chocolate bars cannot exceed the available cocoa resource capacity.",
+            "The total amount of milk used in the production of milk chocolate bars cannot exceed the available milk resource capacity.",
+            "The production time required for the total number of milk and dark chocolate bars produced must not exceed the available production time capacity.",
+            "The ratio of milk to dark chocolate bars sold must meet a certain sales ratio requirement, maintaining a balance between the two types of chocolate bars sold."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of milk chocolate bars",
+            "Number of dark chocolate bars",
+            "Available cocoa",
+            "Available milk",
+            "Production time constraints",
+            "Sales ratios",
+            "Production cost of milk chocolate bars",
+            "Production cost of dark chocolate bars"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal production quantities of milk and dark chocolate bars, considering constraints on cocoa, milk resources, production time, and required sales ratios."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let x be the number of milk chocolate bars produced.",
+            "Let y be the number of dark chocolate bars produced.",
+            "Cocoa constraint: Each milk chocolate bar requires a certain amount of cocoa and each dark chocolate bar requires a different amount, with a total cocoa availability limit.",
+            "Milk constraint: Only milk chocolate bars require milk, with a total milk availability limit.",
+            "Production time constraint: The production of each type of chocolate takes a specified amount of time, with a total production time availability limit.",
+            "Sales ratio constraint: There is a specified sales ratio that dictates the proportion of milk to dark chocolate bars that must be maintained."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of milk chocolate bars to produce",
+            "Number of dark chocolate bars to produce",
+            "Availability of cocoa resource",
+            "Availability of milk resource",
+            "Production time for milk chocolate bars",
+            "Production time for dark chocolate bars",
+            "Costs associated with milk chocolate production",
+            "Costs associated with dark chocolate production",
+            "Sales ratio requirement for milk and dark chocolate bars",
+            "Production time constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the shop's profit by determining the optimal number of milk and dark chocolate bars to produce, considering resource constraints and production costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited availability of cocoa resource.",
+            "Limited availability of milk resource.",
+            "Production time constraints.",
+            "Sales must follow specific ratios of milk to dark chocolate bars.",
+            "Production costs of milk and dark chocolate bars are not equal.",
+            "Influence of limited cocoa resource on production costs is not the same for milk and dark chocolate bars."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of milk chocolate bars to produce",
+            "Quantity of dark chocolate bars to produce",
+            "Amount of cocoa available",
+            "Amount of milk available",
+            "Production time constraints",
+            "Sales ratios for milk and dark chocolate",
+            "Different production costs for milk and dark chocolate bars",
+            "Cocoa utilization for milk chocolate",
+            "Cocoa utilization for dark chocolate",
+            "Milk utilization for milk chocolate",
+            "Milk utilization for dark chocolate"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal number of milk and dark chocolate bars to produce, considering resources constraints (cocoa, milk), production time constraints, sales ratios, and differing production costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited cocoa resource affects the production of both milk and dark chocolate bars but not equally.",
+            "Limited milk resource affects the production of milk chocolate bars.",
+            "Production time constraints must be adhered to for making both milk and dark chocolate bars.",
+            "Sales ratios between milk and dark chocolate bars must be maintained."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Available cocoa supply in kg",
+            "Available milk supply in liters",
+            "Time constraint for production in hours",
+            "Required production ratio of milk to dark chocolate bars",
+            "Cocoa consumption per milk chocolate bar",
+            "Cocoa consumption per dark chocolate bar",
+            "Milk consumption per milk chocolate bar",
+            "Milk consumption per dark chocolate bar",
+            "Production time per milk chocolate bar",
+            "Production time per dark chocolate bar"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by finding the optimal production quantities of milk and dark chocolate bars given the resource limitations and constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of cocoa used for producing milk and dark chocolate bars should not exceed the available cocoa resources.",
+            "The total amount of milk used for producing milk chocolate bars should not exceed the available milk resources.",
+            "The total production time for milk and dark chocolate bars should not exceed the available production time.",
+            "The ratio of milk to dark chocolate bars produced should meet the specified sales ratio requirement."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of milk chocolate bars",
+            "number of dark chocolate bars",
+            "amount of cocoa available",
+            "amount of milk available",
+            "production time constraints",
+            "sales ratios for milk and dark chocolate bars"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal number of milk and dark chocolate bars to produce, considering various constraints such as limited resources (cocoa and milk), production time, and required sales ratios, while optimizing a function that includes factors beyond revenue or profit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of cocoa used by milk and dark chocolate bars cannot exceed the available cocoa resources.",
+            "The total amount of milk used by milk chocolate bars cannot exceed the available milk resources.",
+            "The production time for both milk and dark chocolate bars combined cannot exceed the total available production time.",
+            "The ratio of milk chocolate bars to dark chocolate bars must meet a specified sales ratio or demand constraint."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "cocoa resource limit",
+            "milk resource limit",
+            "production time constraints",
+            "sales ratios"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize a combination of factors such as customer satisfaction by meeting sales ratios, production efficiency by optimizing the use of limited resources (cocoa and milk), and any other non-revenue related objectives the shop might prioritize."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of cocoa used in producing milk and dark chocolate bars does not exceed the available cocoa resources.",
+            "The total amount of milk used in producing milk chocolate bars does not exceed the available milk resources.",
+            "The production time required to produce milk and dark chocolate bars does not exceed the available production time.",
+            "The ratio of milk to dark chocolate bars produced must adhere to a predetermined sales ratio."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of milk chocolate bars",
+            "number of dark chocolate bars",
+            "limited cocoa resources",
+            "limited milk resources",
+            "production time constraints",
+            "sales ratios"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of milk and dark chocolate bars to maximize or achieve a specific goal, considering constraints such as limited cocoa and milk resources, production times, and required sales ratios."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited cocoa resources must be allocated between milk and dark chocolate bars.",
+            "Limited milk resources must be allocated for the production of milk chocolate bars.",
+            "Production must adhere to pre-defined time constraints.",
+            "Production must meet or maintain specific sales ratios between milk and dark chocolate bars."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 4,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 0,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 4,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 2
+      }
+    }
+  }
+}

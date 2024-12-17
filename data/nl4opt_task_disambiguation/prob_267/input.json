@@ -1,0 +1,23 @@
+{
+  "vague_description": "The company faces a constraint optimization problem involving resource allocation for producing two types of sports equipment with certain production and sales conditions.",
+  "detailed_description": "A handmade sports equipment manufacturing company makes basketballs and footballs. Basketballs require \\param{MaterialBasketball} units of materials and \\param{HourBasketball} hour to make whereas footballs require \\param{MaterialFootball} units of materials and \\param{HourFootball} hours to make. The manufacturing company has available \\param{TotalMaterial} units of materials and their workers working at max capacity can work for at most \\param{TotalHours} hours. Since basketballs sell better, there must be at least \\param{BasketballFootballRatio} times as many basketballs as footballs but the manufacturing company would like at least \\param{MinFootballs} footballs. How many of each should the manufacturing company make to maximize the total number of sports equipment produced?",
+  "target_objective": "Maximize the total number of sports equipment (basketballs and footballs) produced",
+  "target_constraints": [
+    "Total materials used cannot exceed TotalMaterial units",
+    "Total labor hours cannot exceed TotalHours hours",
+    "There must be at least BasketballFootballRatio times as many basketballs as footballs",
+    "There must be at least MinFootballs produced",
+    "Number of basketballs is non-negative",
+    "Number of footballs is non-negative"
+  ],
+  "target_parameters": [
+    "Units of materials required to make one basketball",
+    "Hours required to make one basketball",
+    "Units of materials required to make one football",
+    "Hours required to make one football",
+    "Total available units of materials",
+    "Total available working hours",
+    "Minimum ratio of basketballs to footballs",
+    "Minimum number of footballs to produce"
+  ]
+}

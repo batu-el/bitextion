@@ -1,0 +1,21 @@
+{
+  "vague_description": "The challenge is to efficiently and safely relocate a group of people using limited resources within specific constraints.",
+  "detailed_description": "Due to an accident, at least \\param{MinLocals} locals must be moved across a lake. They can either be transported over the lake by a kayak or a motorboat. Kayaks can transport \\param{PeoplePerKayak} people every trip and motorboats can transport \\param{PeoplePerMotorboat} people every trip. Kayaks take \\param{TimePerKayak} minutes per trip whereas motorboats take \\param{TimePerMotorboat} minutes per trip. Due to the limited number of motorboats available to the locals, there can be at most \\param{MaxMotorboatTrips} motorboat trips and at least \\param{MinPercentKayakTrips}% of the trips should be by kayak. How many of each transportation method should be used to minimize the total amount of time needed to transport all the locals?",
+  "target_objective": "Minimize the total amount of time needed to transport all the locals",
+  "target_constraints": [
+    "At least MinLocals locals must be transported across the lake",
+    "Each kayak trip can transport up to PeoplePerKayak people",
+    "Each motorboat trip can transport up to PeoplePerMotorboat people",
+    "At most MaxMotorboatTrips motorboat trips can be conducted",
+    "At least MinPercentKayakTrips% of the total trips must be by kayak"
+  ],
+  "target_parameters": [
+    "Minimum number of locals to be moved",
+    "Number of people per kayak trip",
+    "Number of people per motorboat trip",
+    "Time per kayak trip in minutes",
+    "Time per motorboat trip in minutes",
+    "Maximum possible motorboat trips",
+    "Minimum percentage of trips that should be by kayak"
+  ]
+}

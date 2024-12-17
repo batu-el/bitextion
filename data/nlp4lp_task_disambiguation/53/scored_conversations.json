@@ -1,0 +1,467 @@
+{
+  "vague_description": "Determining the optimal production schedule to balance costs and resource constraints.",
+  "detailed_description": "How many batches of each part should the manufacturer produce each month to maximize profit, considering the following parameters: number of machines (\\param{M}), number of parts (\\param{P}), time required (\\param{TimeRequired}), machine costs (\\param{MachineCosts}), machine availability (\\param{Availability}), selling prices (\\param{Prices}), minimum batches required (\\param{MinBatches}), extra costs (\\param{ExtraCosts}), and maximum extra hours (\\param{MaxExtra})?",
+  "target_objective": "Maximize the manufacturer's profit from part production, considering the costs and constraints on production capacity and time",
+  "target_constraints": [
+    "Number of batches of each part is non-negative",
+    "Total production time does not exceed the product of machine availability and the number of machines",
+    "Minimum production of each part must meet or exceed MinBatches",
+    "Total machine costs and extra costs should not exceed the sum of selling prices of all batches produced minus the production costs",
+    "Extra hours used cannot exceed MaxExtra hours"
+  ],
+  "target_parameters": [
+    "Number of machines",
+    "Number of parts",
+    "Time required to produce a batch of part p on machine m",
+    "Cost associated with running machine m",
+    "Availability of machine m for production each month",
+    "Price obtained from selling a batch of part p",
+    "Minimum number of batches of part p that should be produced",
+    "Extra cost incurred when running machine m beyond regular operation",
+    "Maximum extra hours machine m can be run"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal production schedule to balance costs and resource constraints.",
+    "(0, 0)": "User: Determining the optimal production schedule to balance costs and resource constraints.\nExpert: Are there specific production goals or demands that must be met within the schedule?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determining the optimal production schedule to balance costs and resource constraints.\nExpert: Are there specific production goals or demands that must be met within the schedule?\nUser: Yes.\n\nExpert: Are there upper or lower limits on the resources available for production?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal production schedule to balance costs and resource constraints.\nExpert: Are there specific production goals or demands that must be met within the schedule?\nUser: Yes.\n\nExpert: Are there upper or lower limits on the resources available for production?\nUser: Yes.\n\nExpert: Is there a non-linear relationship between production costs and production quantity?\nUser: No.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal production schedule to balance costs and resource constraints.",
+    "(0, 0)": "User: Determining the optimal production schedule to balance costs and resource constraints.\nExpert: Does the problem description include constraints related to compliance with safety and environmental regulations?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal production schedule to balance costs and resource constraints.\nExpert: Does the problem description include constraints related to compliance with safety and environmental regulations?\nUser: No\n\nExpert: Do the candidate problems include constraints related to machine maintenance schedules?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal production schedule to balance costs and resource constraints.\nExpert: Does the problem description include constraints related to compliance with safety and environmental regulations?\nUser: No\n\nExpert: Do the candidate problems include constraints related to machine maintenance schedules?\nUser: No\n\nExpert: Is the optimization objective focused solely on minimizing the total production cost, excluding inventory holding costs?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal production schedule to balance costs and resource constraints.",
+    "(0, 0)": "User: Determining the optimal production schedule to balance costs and resource constraints.\nExpert: Are the production costs affected by the timing of production (e.g., peak/off-peak hours, seasonal fluctuations), rather than just the quantity produced?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal production schedule to balance costs and resource constraints.\nExpert: Are the production costs affected by the timing of production (e.g., peak/off-peak hours, seasonal fluctuations), rather than just the quantity produced?\nUser: No\n\nExpert: Are the production costs primarily fixed costs (e.g., equipment, labor), rather than variable costs (e.g., raw materials, energy)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal production schedule to balance costs and resource constraints.\nExpert: Are the production costs affected by the timing of production (e.g., peak/off-peak hours, seasonal fluctuations), rather than just the quantity produced?\nUser: No\n\nExpert: Are the production costs primarily fixed costs (e.g., equipment, labor), rather than variable costs (e.g., raw materials, energy)?\nUser: Yes\n\nExpert: Is the optimization problem subject to constraints imposed by limited capacity and availability of resources such as labor, equipment, or raw materials?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal production schedule to balance costs and resource constraints.",
+    "(0, 0)": "User: Determining the optimal production schedule to balance costs and resource constraints.\nExpert: Is the primary objective of the problem to minimize costs related to production (e.g., production costs, labor costs, material costs)?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal production schedule to balance costs and resource constraints.\nExpert: Is the primary objective of the problem to minimize costs related to production (e.g., production costs, labor costs, material costs)?\nUser: No\n\nExpert: Does the problem have at least one constraint listed?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal production schedule to balance costs and resource constraints.\nExpert: Is the primary objective of the problem to minimize costs related to production (e.g., production costs, labor costs, material costs)?\nUser: No\n\nExpert: Does the problem have at least one constraint listed?\nUser: Yes\n\nExpert: Is the objective 'maximize'?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production schedule",
+            "costs",
+            "resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the discussed optimization problem is to determine the optimal production schedule that balances costs and resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production cost should not exceed the budget allotted for the production schedule.",
+            "The number of resources used (e.g., raw materials, labor hours) should not surpass the available resources.",
+            "The production must meet at least the minimum required output levels to satisfy demand.",
+            "The schedule should adhere to any regulatory or safety standards pertaining to production processes.",
+            "The manufacturing timeline should not exceed the deadline set for production completion."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost function",
+            "Resource constraints",
+            "Production goals",
+            "Demand constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal production schedule that minimizes costs while meeting specific production goals and adhering to resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Must meet specific production goals or demands.",
+            "Balance production costs.",
+            "Adhere to resource constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production goals or demands",
+            "Resource availability constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine an optimal production schedule that minimizes costs while meeting specific production goals, demands, and adhering to given resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Meet specific production goals or demands within the schedule.",
+            "Adhere to upper limits on resources available for production.",
+            "Adhere to lower limits on resources available for production."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedule",
+            "Costs",
+            "Resource constraints",
+            "Production goals/demands",
+            "Upper and lower limits on resources available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production schedule that minimizes production costs while meeting specific production demands and adhering to resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Meet specific production goals or demands within the schedule.",
+            "Resource usage must not exceed available upper limits.",
+            "Resource usage must meet or exceed lower limits.",
+            "Production costs are a linear function of production quantity."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production schedule",
+            "costs",
+            "resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine a schedule for production activities that minimizes production costs while adhering to resource limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production must not exceed available resources.",
+            "The production schedule must not surpass budgetary constraints.",
+            "Specific production lines are limited by operational hours.",
+            "Resource availability may vary throughout the production schedule.",
+            "Certain products may have priority and need to be produced first."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Schedule",
+            "Balance Costs",
+            "Resource Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production schedule that balances costs while adhering to resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Balance production costs",
+            "Meet resource availability constraints"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production schedule",
+            "costs",
+            "resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to create a production schedule that minimizes costs while adhering to given resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability constraints",
+            "Budget constraints",
+            "Production capacity constraints"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedule",
+            "Costs",
+            "Resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal production schedule that balances production costs and resource constraints, while ensuring efficient use of available resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production schedule must adhere to available resources constraints.",
+            "The optimization objective involves balancing costs, not just minimizing production costs.",
+            "There are no constraints related to compliance with safety and environmental regulations.",
+            "There are no constraints related to machine maintenance schedules."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production_schedule",
+            "costs",
+            "resource_constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal production schedule that minimizes costs while adhering to resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production time cannot exceed available working hours.",
+            "Resource usage must not surpass available amounts (e.g., raw materials, labor).",
+            "Production costs should not exceed the budget.",
+            "Demand for each product type must be satisfied.",
+            "Maintenance schedules must be accounted for during production planning.",
+            "Safety standards and regulations must be adhered to during production."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantity",
+            "resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To create a production schedule that minimizes production costs while adhering to resource constraints such as manpower, machinery, and material availability, independent of the timing of production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production costs are independent of the timing of production, including peak/off-peak hours and seasonal fluctuations.",
+            "The production schedule must balance costs and resource constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fixed production costs",
+            "Resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the fixed costs associated with production while ensuring that resource constraints are not violated."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The costs are primarily fixed and not significantly variable, meaning they are not dependent on the quantity of production.",
+            "Production scheduling is not affected by timing factors such as peak or off-peak hours or seasonal fluctuations.",
+            "Resource constraints for production must be considered in scheduling, despite the fixed cost nature of production."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production schedule",
+            "costs",
+            "resource constraints",
+            "fixed costs",
+            "capacity",
+            "availability of resources",
+            "labor",
+            "equipment",
+            "raw materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production schedule that minimizes fixed production costs while satisfying constraints on resource capacity and availability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited capacity of resources such as labor, equipment, or raw materials."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production_schedule",
+            "costs",
+            "resource_constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal production schedule that minimizes costs while satisfying all resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production schedule must not exceed the available resources.",
+            "Costs should remain within the allocated budget.",
+            "The schedule must ensure that production meets demand without overproduction.",
+            "Time constraints should be adhered to, ensuring that production occurs in the designated timeframes."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "balance costs",
+            "resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimally allocate resources and schedule production to ensure efficient operations without necessarily minimizing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints: The production schedule must not exceed the available resources such as labor hours, machinery capacity, and raw materials.",
+            "Balance constraint: There should be a balanced use of resources to prevent over-utilization or under-utilization across different resources.",
+            "Production constraints: The schedule must meet all production targets and deadlines to fulfill demand.",
+            "Quality constraints: Ensure that quality standards are met in the production process, avoiding any defects or rework.",
+            "Cost constraints: Even though minimizing costs is not the primary objective, costs associated with production should be within a specified budget.",
+            "Time constraints: Production schedules should align with time limitations, ensuring no delays in planned operations."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "\u8d44\u6e90\u9650\u5236"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Balance resource constraints with production requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited availability of raw materials.",
+            "Maximum number of labor hours available per week.",
+            "Production capacity limits for different products.",
+            "Meeting a minimum demand for each product type."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize objective function",
+            "subject to resource constraints",
+            "production schedule adjustments"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize efficiency or output while adhering to given resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limits per time period",
+            "Availability of raw materials and components",
+            "Labor availability and shift scheduling",
+            "Maintenance downtime periods",
+            "Storage capacity for finished goods",
+            "Quality and safety compliance standards"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

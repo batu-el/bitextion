@@ -1,0 +1,41 @@
+{
+  "vague_description": "Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.",
+  "detailed_description": "Determine the optimal path the delivery person should take to ensure the package is delivered in the least amount of time. The path is constrained by the number of east-west streets, \\param{N}, and the number of north-south streets, \\param{W}. Each east-west street segment \\param{WestTime} and each north-south street segment \\param{NorthTime} takes a certain amount of time to cross.",
+  "target_objective": "Minimize the total amount of time to deliver the package",
+  "target_constraints": [
+    "The number of east-west street segments used cannot exceed N",
+    "The number of north-south street segments used cannot exceed W",
+    "East-west street segments are non-negative",
+    "North-south street segments are non-negative"
+  ],
+  "target_parameters": [
+    "Number of east-west streets",
+    "Number of north-south streets",
+    "Time to cross street segment going west, for given street n and segment w",
+    "Time to cross street segment going north, for given street n and segment w"
+  ],
+  "Expert": {
+    "(0,)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.",
+    "(0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Are there specific time windows during which certain streets become unavailable or restricted for deliveries?\nUser: No\n",
+    "(0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Are there specific time windows during which certain streets become unavailable or restricted for deliveries?\nUser: No\n\nExpert: Are the travel times through the grid network constant throughout the day?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Are there specific time windows during which certain streets become unavailable or restricted for deliveries?\nUser: No\n\nExpert: Are the travel times through the grid network constant throughout the day?\nUser: Yes\n\nExpert: Is the objective to minimize the total travel time for a single delivery vehicle?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.",
+    "(0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the problem description include a constraint related to mandatory stops or visits?\nUser: No\n",
+    "(0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the problem description include a constraint related to mandatory stops or visits?\nUser: No\n\nExpert: Does the problem allow for backtracking or multiple visits to nodes during the journey?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the problem description include a constraint related to mandatory stops or visits?\nUser: No\n\nExpert: Does the problem allow for backtracking or multiple visits to nodes during the journey?\nUser: No\n\nExpert: Is the grid network restricted to only horizontal and vertical movements between nodes?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.",
+    "(0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the time taken to traverse each edge in the grid (street) depend only on the edge itself, or also on the path taken so far?\nUser: Yes, the time taken to traverse each edge (street) depends only on the edge itself, not on the path taken so far, assuming street conditions are consistent and there are no external factors affecting travel time dynamically.\n",
+    "(0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the time taken to traverse each edge in the grid (street) depend only on the edge itself, or also on the path taken so far?\nUser: Yes, the time taken to traverse each edge (street) depends only on the edge itself, not on the path taken so far, assuming street conditions are consistent and there are no external factors affecting travel time dynamically.\n\nExpert: Does the grid represent a finite, fixed-size network, or can it be of any size including theoretically large or infinite dimensions?\nUser: Yes, the grid represents a finite, fixed-size network defined by the parameters \\param{N} (east-west streets) and \\param{W} (north-south streets).\n",
+    "(0, 0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the time taken to traverse each edge in the grid (street) depend only on the edge itself, or also on the path taken so far?\nUser: Yes, the time taken to traverse each edge (street) depends only on the edge itself, not on the path taken so far, assuming street conditions are consistent and there are no external factors affecting travel time dynamically.\n\nExpert: Does the grid represent a finite, fixed-size network, or can it be of any size including theoretically large or infinite dimensions?\nUser: Yes, the grid represents a finite, fixed-size network defined by the parameters \\param{N} (east-west streets) and \\param{W} (north-south streets).\n\nExpert: Is there an upper bound on the value of the objective function (i.e., is there a theoretical minimum time for completing the delivery route) due to the discrete nature of the grid?\nUser: No, there is no predefined theoretical minimum time for completing the delivery route due to the discrete nature of the grid. The time is dependent on the specific time values assigned to each street segment, not just the grid's size.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.",
+    "(0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the given problem description specify a fixed starting and ending node?\nUser: No\n",
+    "(0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the given problem description specify a fixed starting and ending node?\nUser: No\n\nExpert: Can the starting node be specified as a problem parameter?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the given problem description specify a fixed starting and ending node?\nUser: No\n\nExpert: Can the starting node be specified as a problem parameter?\nUser: Yes\n\nExpert: Is the network where the solution is found represented as a grid network in the problem description?\nUser: Yes\n"
+  }
+}

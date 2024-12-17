@@ -1,0 +1,19 @@
+{
+  "vague_description": "A company must decide on the number of different types of vans to use for deliveries in order to minimize environmental impact while meeting delivery requirements.",
+  "detailed_description": "A soda company sends bottles of their soda to stores around the city in old and new vans. An old van can take \\param{OldVanCapacity} soda bottles while a new van can take \\param{NewVanCapacity} soda bottles. An old van produces \\param{OldVanPollution} units of pollution while a new van only produces \\param{NewVanPollution} units of pollution. The company needs to send at least \\param{MinBottles} bottles. In addition, at most \\param{MaxNewVans} new vans can be used. How many of each van should be used to minimize the total amount of pollution produced?",
+  "target_objective": "Minimize the total amount of pollution produced while meeting delivery requirements",
+  "target_constraints": [
+    "Number of old vans used is non-negative",
+    "Number of new vans used is non-negative",
+    "At least MinBottles bottles must be delivered",
+    "At most MaxNewVans new vans can be used"
+  ],
+  "target_parameters": [
+    "Capacity of an old van",
+    "Capacity of a new van",
+    "Pollution produced by an old van",
+    "Pollution produced by a new van",
+    "Minimum quantity of soda bottles to be sent",
+    "Maximum number of new vans allowed"
+  ]
+}

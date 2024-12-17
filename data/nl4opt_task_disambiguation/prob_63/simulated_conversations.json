@@ -1,0 +1,49 @@
+{
+  "vague_description": "The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.",
+  "detailed_description": "An ice cream store can buy two machines, a counter-top sized one and a fridge sized one, to make ice cream. The counter-top sized one can produce \\var{ProdCountertop} cones worth of ice cream every day while the fridge sized one can produce \\var{ProdFridge} cones worth of ice cream every day. The counter-top sized machine outputs \\var{HeatCountertop} units of heat while the fridge sized one outputs \\var{HeatFridge} units of heat. The ice cream store can output at most \\var{MaxHeat} units of heat per day and must produce at least \\var{MinProd} cones worth of ice cream. How many of each machine should they buy to minimize the total number of machines needed?",
+  "target_objective": "Minimize the total number of machines needed",
+  "target_constraints": [
+    "Number of counter-top machines is an integer",
+    "Number of fridge sized machines is an integer",
+    "Number of counter-top machines is non-negative",
+    "Number of fridge sized machines is non-negative",
+    "Total heat output from all machines must not exceed MaxHeat units per day",
+    "Total daily ice cream production must be at least MinProd cones",
+    "Each counter-top machine produces ProdCountertop cones of ice cream per day",
+    "Each fridge sized machine produces ProdFridge cones of ice cream per day",
+    "Each counter-top machine outputs HeatCountertop units of heat",
+    "Each fridge sized machine outputs HeatFridge units of heat"
+  ],
+  "target_parameters": [
+    "Amount of ice cream produced by the counter-top sized machine per day",
+    "Amount of ice cream produced by the fridge sized machine per day",
+    "Heat output by the counter-top sized machine",
+    "Heat output by the fridge sized machine",
+    "Maximum allowable heat output per day",
+    "Minimum required ice cream production per day"
+  ],
+  "Expert": {
+    "(0,)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.",
+    "(0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are there specific budget constraints that impact the number of machines that can be purchased?\nUser: No\n",
+    "(0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are there specific budget constraints that impact the number of machines that can be purchased?\nUser: No\n\nExpert: Does the objective involve minimizing cost or maximizing production capacity?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are there specific budget constraints that impact the number of machines that can be purchased?\nUser: No\n\nExpert: Does the objective involve minimizing cost or maximizing production capacity?\nUser: No\n\nExpert: Does the objective involve balancing production across different sizes of ice cream machines?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.",
+    "(0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Is there a constraint related to the maximum allowable heat output from the machines in BTUs per hour?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Is there a constraint related to the maximum allowable heat output from the machines in BTUs per hour?\nUser: Yes\n\nExpert: Is the production demand specified in gallons or liters per day?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Is there a constraint related to the maximum allowable heat output from the machines in BTUs per hour?\nUser: Yes\n\nExpert: Is the production demand specified in gallons or liters per day?\nUser: No\n\nExpert: Does the problem include a constraint on the total budget for purchasing machines?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.",
+    "(0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are the production and heat constraints dependent on the type and size of the ice cream machine?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are the production and heat constraints dependent on the type and size of the ice cream machine?\nUser: Yes\n\nExpert: Are the production and heat constraints dependent on the type and size of the ice cream machine?  Yes\nUser: {\"response\":\"Yes\"}\n",
+    "(0, 0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are the production and heat constraints dependent on the type and size of the ice cream machine?\nUser: Yes\n\nExpert: Are the production and heat constraints dependent on the type and size of the ice cream machine?  Yes\nUser: {\"response\":\"Yes\"}\n\nExpert: Is the objective of the optimization problem to minimize the total cost of purchasing and operating the ice cream machines?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.",
+    "(0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are there any constraints in the problem description?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are there any constraints in the problem description?\nUser: Yes\n\nExpert: Does the problem description explicitly mention or imply the existence of multiple machine sizes?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are there any constraints in the problem description?\nUser: Yes\n\nExpert: Does the problem description explicitly mention or imply the existence of multiple machine sizes?\nUser: Yes\n\nExpert: Is the problem description limited to explicitly mentioning only two constraints (production and heat)?\nUser: Yes\n"
+  }
+}

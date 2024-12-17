@@ -1,0 +1,451 @@
+{
+  "vague_description": "Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.",
+  "detailed_description": "Maximize the total value of the packed items, where the knapsack has a capacity of \\param{C}. Each item k has a value of \\param{Value} and a size of \\param{Size}.",
+  "target_objective": "Maximize the total value of the items packed in the knapsack",
+  "target_constraints": [
+    "The total size of the items in the knapsack must not exceed the capacity C",
+    "Each item can either be included or not in the knapsack - cannot be fractioned",
+    "The knapsack capacity C is non-negative",
+    "Each item k has a non-negative size",
+    "Each item k has a non-negative value"
+  ],
+  "target_parameters": [
+    "Total Capacity of the Knapsack",
+    "Value of item k",
+    "Size of item k"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.",
+    "(0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Are there any items with zero or negative weight or value?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Are there any items with zero or negative weight or value?\nUser: No\n\nExpert: Is there a limit to the number of each type of item that can be included in the knapsack?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Are there any items with zero or negative weight or value?\nUser: No\n\nExpert: Is there a limit to the number of each type of item that can be included in the knapsack?\nUser: No\n\nExpert: Is each item's weight and value represented by integers?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.",
+    "(0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Does the problem description explicitly mention that each item can only appear once in the knapsack?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Does the problem description explicitly mention that each item can only appear once in the knapsack?\nUser: Yes\n\nExpert: Do any of the problems use the term 'capacity' instead of 'limit' when referring to the knapsack's weight constraint?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Does the problem description explicitly mention that each item can only appear once in the knapsack?\nUser: Yes\n\nExpert: Do any of the problems use the term 'capacity' instead of 'limit' when referring to the knapsack's weight constraint?\nUser: Yes\n\nExpert: Does the problem description explicitly state that the weight and value of each item are non-negative?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.",
+    "(0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Is the value of each item a linear function of its weight?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Is the value of each item a linear function of its weight?\nUser: No\n\nExpert: Is the total value of the items a non-decreasing function of the weight of the items selected?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Is the value of each item a linear function of its weight?\nUser: No\n\nExpert: Is the total value of the items a non-decreasing function of the weight of the items selected?\nUser: No\n\nExpert: Is the weight of each item a non-negative number?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.",
+    "(0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Is the capacity of the knapsack a variable parameter or a fixed constant in the problem?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Is the capacity of the knapsack a variable parameter or a fixed constant in the problem?\nUser: Yes.\n\nExpert: Is the capacity of the knapsack a fixed constant?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal way to select items to include in a knapsack, ensuring the total weight does not exceed a specified limit while maximizing the overall value.\nExpert: Is the capacity of the knapsack a variable parameter or a fixed constant in the problem?\nUser: Yes.\n\nExpert: Is the capacity of the knapsack a fixed constant?\nUser: Yes.\n\nExpert: Is the knapsack capacity specified as a constant or a variable?\nUser: Yes.\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Item weights",
+            "Item values",
+            "Capacity limit of the knapsack"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the overall value of items selected subject to a weight constraint."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total weight of the selected items must not exceed the specified weight limit of the knapsack.",
+            "The items selected must maximize the total value within the specified weight limit.",
+            "Each item can either be wholly included or not included at all in the knapsack (0/1 knapsack condition)."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Weight Limit",
+            "Item Weights",
+            "Item Values"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total value of items in the knapsack without exceeding the specified weight limit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total weight of selected items <= specified weight limit",
+            "All item weights > 0",
+            "All item values > 0"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "items with positive weights",
+            "items with positive values",
+            "maximum weight limit for the knapsack"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total value of items selected to include in the knapsack such that their total weight does not exceed the specified weight limit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total weight of selected items must not exceed the specified weight limit.",
+            "The goal is to maximize the total value of the selected items.",
+            "There are no items with zero or negative weight or value.",
+            "There is no limit to the number of each type of item that can be included in the knapsack."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Item weights are positive integers",
+            "Item values are positive integers",
+            "There is no limit on the number of each type of item",
+            "Select items such that total weight does not exceed the specified limit",
+            "Maximize overall value"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the overall value of items selected while ensuring their total weight does not exceed the specified limit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total weight of selected items must not exceed the specified weight limit.",
+            "Each item can be included in the knapsack any number of times, assuming sufficient overall weight capacity.",
+            "Weights and values of items are positive integers."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "weights of each item",
+            "values of each item",
+            "total weight capacity of the knapsack"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total value of items included in the knapsack without exceeding the specified weight limit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Sum of the weights of the selected items must not exceed the specified weight limit.",
+            "Only whole items can be selected, i.e., no fractional parts of an item can be included.",
+            "Each item can either be included in its entirety or not at all (binary decision: 0 or 1 for each item)."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Item weights",
+            "Item values",
+            "Weight limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To select a subset of items such that the total weight of the selected items does not exceed a given weight limit, and the total value of the selected items is maximized, with the constraint that each item can only be selected once."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each item can only be included once in the knapsack.",
+            "The total weight of selected items must not exceed the specified weight limit."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "item values",
+            "item weights",
+            "knapsack capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the overall value of items selected to include in a knapsack, such that the total weight of the selected items does not exceed the knapsack's capacity, with each item able to appear only once."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "x_i \\in \\{0, 1\\} \\text{ for each item } i, \\text{ indicating if item } i \\text{ is included in the knapsack or not}",
+            "\\sum_{i} w_i x_i \\leq C",
+            "x_i \\geq 0",
+            "x_i \\leq 1",
+            "x_i \\text{ are integers where } i {\\text{ ranges over all items}}"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Item weights",
+            "Item values",
+            "Capacity of the knapsack"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To select a subset of items such that the total weight does not exceed the knapsack's weight capacity, while maximizing the total value of the selected items."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each item can only appear once in the knapsack.",
+            "The total weight of the selected items must not exceed the knapsack's capacity.",
+            "The weight of each item is non-negative.",
+            "The value of each item is non-negative."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of items (n)",
+            "Weight of each item (w_i)",
+            "Value of each item (v_i)",
+            "Maximum weight capacity of the knapsack (W)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total value of selected items without exceeding the knapsack's weight capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the weights of the selected items must not exceed the weight limit of the knapsack.",
+            "Each item can either be included or not included in the knapsack (binary choice)."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Item values are not a linear function of their weights",
+            "Total weight must not exceed a specified limit",
+            "The goal is to maximize overall value"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the total value of items selected for inclusion in the knapsack without exceeding the weight limit, considering that the relationship between the item's value and its weight is non-linear."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total weight of selected items must not exceed the specified limit.",
+            "The value of each item is independent and not a linear function of its weight, implying that each item has a distinct, constant value regardless of its weight.",
+            "Each item can either be included in the knapsack or excluded, indicating a binary choice per item."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Set of items: a finite set of items, each with a specific weight and value.",
+            "Weight of each item: the given weight associated with each item.",
+            "Value of each item: the associated value of each item, not a linear or non-decreasing function of weight.",
+            "Knapsack capacity: the maximum total weight that the selected items can have."
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize the overall value of items included in the knapsack, ensuring their total weight does not exceed a specified limit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total weight of the selected items must not exceed the specified weight limit (W).",
+            "The total value of selected items is not a linear function of their individual weights.",
+            "The total value of selected items is not a non-decreasing function of their total weight."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Discrete items with specific weights",
+            "Discrete items with specific non-linear values",
+            "Knapsack with a maximum weight capacity",
+            "Objective to maximize total value",
+            "Weight of selected items cannot exceed the knapsack's capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the overall value of items included in the knapsack without exceeding the specified weight limit of the knapsack."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total weight of the selected items must not exceed the specified weight limit.",
+            "The value of each item is not a linear function of its weight.",
+            "The total value of the items is not a non-decreasing function of the weight of the items selected.",
+            "The weight of each item is a non-negative number."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "weights (array of weights of the items)",
+            "values (array of values of the items)",
+            "capacity (maximum weight the knapsack can carry)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to select a combination of items to include in the knapsack such that the total weight of the selected items does not exceed a specified limit and the total value of the selected items is maximized."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "sum(weights) <= weight_limit",
+            "maximize(sum(values))"
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Capacity of the knapsack",
+            "Weights of the items",
+            "Values of the items"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the total value of selected items without exceeding the knapsack's specified weight limit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total weight of selected items must not exceed the knapsack's capacity.",
+            "Each item can either be included entirely or not at all; fractional inclusion is not allowed.",
+            "The capacity of the knapsack is a fixed value."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "capacity of knapsack",
+            "weights of items",
+            "values of items"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the overall value of items included in a knapsack without exceeding the specified weight limit of the knapsack."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total weight of the selected items must not exceed the capacity of the knapsack, which is a fixed constant."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fixed knapsack capacity: C",
+            "Item weights: W_1, W_2, ..., W_n",
+            "Item values: V_1, V_2, ..., V_n",
+            "Number of items: n"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total value of items selected for the knapsack without exceeding the specified weight capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Sum of weights of items selected <= Knapsack capacity (constant)",
+            "Items selected must maximize their total value"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 4,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 4
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "vague_description": "A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.",
+  "detailed_description": "A vine company sells vine in vintage and regular bottles. A vintage bottle can hold \\param{VintageVolume} ml of vine while a regular bottle can hold \\param{RegularVolume} ml of vine. The company has available \\param{TotalVolume} ml of vine. Because vintage bottles are mostly bought by collectors, the number of regular bottles must be at least \\param{MinRegularVintageRatio} times as much as the number of vintage bottles. However, at least \\param{MinVintageBottles} vintage bottles must be made. How many of each should be made to maximize the total number of bottles produced?",
+  "target_objective": "Maximize the total number of bottles produced",
+  "target_constraints": [
+    "Number of vintage bottles is non-negative",
+    "Number of regular bottles is non-negative",
+    "Number of regular bottles must be at least MinRegularVintageRatio times the number of vintage bottles",
+    "At least MinVintageBottles vintage bottles must be made",
+    "VintageVolume times number of vintage bottles plus RegularVolume times number of regular bottles must be less than or equal to TotalVolume"
+  ],
+  "target_parameters": [
+    "Volume of a vintage bottle of vine",
+    "Volume of a regular bottle of vine",
+    "Total volume of vine available",
+    "Minimum ratio of regular bottles to vintage bottles",
+    "Minimum number of vintage bottles to be produced"
+  ]
+}

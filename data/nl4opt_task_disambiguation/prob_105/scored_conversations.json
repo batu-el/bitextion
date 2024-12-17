@@ -1,0 +1,464 @@
+{
+  "vague_description": "Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.",
+  "detailed_description": "A cleaning company uses a cleansing chemical and odor-removing chemical to clean a house. Each unit of the cleansing chemical takes \\param{Tc} units to be effective while each unit of the odor-removing chemical takes \\param{To} minutes to be effective. The company must use at least \\param{MinCleansing} units of the cleansing chemical. In total, at least \\param{MaxTotal} units of chemicals can be used per house. Further, because the cleansing chemical is strong, there can be at most \\param{MaxRatio} times the amount of cleansing chemical as odor-removing chemical. How many units of each should be used to minimize the total time it takes for a house to be cleaned?",
+  "target_objective": "Minimize the total time taken to clean a house",
+  "target_constraints": [
+    "The amount of cleansing chemical used is at least MinCleansing units",
+    "The total amount of chemicals used is at most MaxTotal units per house",
+    "The amount of cleansing chemical cannot exceed MaxRatio times the amount of odor-removing chemical",
+    "The amount of cleansing chemical used is non-negative",
+    "The amount of odor-removing chemical used is non-negative"
+  ],
+  "target_parameters": [
+    "Time effectiveness of cleansing chemical per unit",
+    "Time effectiveness of odor-removing chemical per unit",
+    "Minimum units of cleansing chemical required",
+    "Maximum total units of chemicals used per house",
+    "Maximum ratio of cleansing to odor-removing chemical"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.",
+    "(0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Is the objective to minimize the total cleaning time while meeting the chemical composition constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Is the objective to minimize the total cleaning time while meeting the chemical composition constraints?\nUser: Yes\n\nExpert: Are there specific constraints on the quantities or proportions of the cleansing and odor-removing chemicals that must be met?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Is the objective to minimize the total cleaning time while meeting the chemical composition constraints?\nUser: Yes\n\nExpert: Are there specific constraints on the quantities or proportions of the cleansing and odor-removing chemicals that must be met?\nUser: Yes\n\nExpert: Are there any constraints related to the cost or budget for acquiring these chemicals?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.",
+    "(0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Does the problem include a constraint related to the toxicity or safety index of the chemical mix?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Does the problem include a constraint related to the toxicity or safety index of the chemical mix?\nUser: No\n\nExpert: Does the problem description involve constraints specifically related to the stability or preparation time of the chemical mix?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Does the problem include a constraint related to the toxicity or safety index of the chemical mix?\nUser: No\n\nExpert: Does the problem description involve constraints specifically related to the stability or preparation time of the chemical mix?\nUser: No\n\nExpert: Does the problem involve minimizing the time required to clean a specified area?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.",
+    "(0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Is the objective to minimize the total cost of the chemicals used?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Is the objective to minimize the total cost of the chemicals used?\nUser: No\n\nExpert: Is the cleaning time a linear function of the amount of chemicals used?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Is the objective to minimize the total cost of the chemicals used?\nUser: No\n\nExpert: Is the cleaning time a linear function of the amount of chemicals used?\nUser: Yes\n\nExpert: Are there any limitations or constraints on the availability of the chemicals?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.",
+    "(0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Does the problem description mention a constraint involving a relationship between the parameters (e.g., ratio, proportion, or inequality involving multiple variables)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Does the problem description mention a constraint involving a relationship between the parameters (e.g., ratio, proportion, or inequality involving multiple variables)?\nUser: Yes\n\nExpert: Is there a specific numerical limit on the total volume of chemicals used?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Does the problem description mention a constraint involving a relationship between the parameters (e.g., ratio, proportion, or inequality involving multiple variables)?\nUser: Yes\n\nExpert: Is there a specific numerical limit on the total volume of chemicals used?\nUser: Yes\n\nExpert: Is the problem description able to express a numerical limit or range for at least one of the constraints?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "cleansing chemical amount",
+            "odor-removing chemical amount",
+            "cleaning time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal combination of cleansing and odor-removing chemicals that satisfies certain constraints and minimizes the overall cleaning time."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The cleaning solution must remove at least 95% of odors.",
+            "The cleaning solution must reduce visible stains by at least 90%.",
+            "The concentration of chemical A should not exceed 30%.",
+            "The concentration of chemical B must be at least 20% for effective odor removal.",
+            "The total volume of the solution should not exceed 100 liters.",
+            "The solution must be non-toxic according to local safety standards."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "composition constraint for cleansing chemicals",
+            "composition constraint for odor-removing chemicals",
+            "total available chemicals",
+            "chemical effectiveness",
+            "cleaning time constraints",
+            "budget constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cleaning time while meeting the chemical composition constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The mixture must achieve a specific cleaning efficiency level.",
+            "The mixture has to meet safety regulations for chemical exposure.",
+            "The cost of the chemicals should not exceed the designated budget.",
+            "The odor removal efficacy must be above a threshold value.",
+            "The mixture's pH level should be within an acceptable range."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize the total cleaning time",
+            "Constraints: Specific quantities or proportions of cleansing and odor-removing chemicals"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal mix of cleansing and odor-removing chemicals that satisfies the constraints while minimizing the cleaning time."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the quantities of cleansing chemicals must equal a predetermined value.",
+            "The sum of the quantities of odor-removing chemicals must equal a predetermined value.",
+            "The proportion of a particular chemical in the mixture should not exceed a specified percentage of the total.",
+            "The mixture must adhere to safety standards which limit the use of certain chemicals."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize total cleaning time",
+            "Chemical composition constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cleaning time while meeting the specific constraints on the quantities or proportions of cleansing and odor-removing chemicals."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Specific constraints on the quantities or proportions of the cleansing chemicals.",
+            "Specific constraints on the quantities or proportions of the odor-removing chemicals."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cleansing chemicals mix",
+            "Odor-removing chemicals mix",
+            "Cleaning time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize cleaning time while satisfying constraints related to the use of cleansing and odor-removing chemicals."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimal mix must satisfy the chemical composition standards for safety.",
+            "The mixture must effectively remove odors according to industry standards.",
+            "The solution should not exceed budgetary constraints for chemical costs.",
+            "The mixture must comply with environmental regulations regarding disposal.",
+            "The cleansing chemicals must achieve a minimum prescribed level of cleanliness.",
+            "The solution must be prepared and applied within a maximum allowable time frame.",
+            "The chemical mix concentration must remain within prescribed limits for efficacy.",
+            "The storage capacity for chemicals should not be exceeded."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "optimal mix of cleansing chemicals",
+            "optimal mix of odor-removing chemicals",
+            "minimizing cleaning time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize cleaning time by optimizing the mix of cleansing and odor-removing chemicals while satisfying constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "minimize cleaning time"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "chemical mixture",
+            "constraints",
+            "cleaning time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cleaning time by determining the optimal mix of cleansing and odor-removing chemicals, given specific constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal mix of cleansing chemicals",
+            "Optimal mix of odor-removing chemicals",
+            "Cleaning time",
+            "Area to be cleaned"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cleaning time while determining the optimal mix of cleansing and odor-removing chemicals that meet given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "cleansing and odor-removing chemicals must satisfy certain unspecified constraints",
+            "minimize cleaning time required to clean a specified area"
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Proportion of cleansing chemicals",
+            "Proportion of odor-removing chemicals",
+            "Cleaning time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize cleaning time."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The chosen chemicals must effectively clean the targeted surfaces.",
+            "The chemicals must be safe for the environment and comply with safety regulations.",
+            "The odor-removing chemicals must neutralize odors for a specified duration of time.",
+            "The combined use of chemicals should not exceed the budget for cleaning supplies.",
+            "There should not be any harmful chemical interactions or reactions.",
+            "The cleaning time should be minimized while ensuring these criteria are met."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cleansing Chemical A amount",
+            "Cleansing Chemical B amount",
+            "Odor-Removing Chemical amount",
+            "Cleaning time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize cleaning time"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The cleaning solution must satisfy the required cleansing effectiveness level.",
+            "The solution must meet odor-removal standards.",
+            "The total volume of chemicals used must not exceed a maximum limit.",
+            "The concentration of each chemical in the mix must be within safety regulations."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize cleaning time",
+            "Constraints: satisfy mixing ratios or other chemical constraints",
+            "Variables: amount and ratio of cleansing and odor-removing chemicals",
+            "Cleaning time is a linear function of the chemical amounts"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize cleaning time by determining the optimal mix of cleansing and odor-removing chemicals."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Cleaning time is a linear function of the amount of chemicals used.",
+            "The optimal mix must satisfy specific chemical constraints either in composition, concentration, or chemical reaction limits.",
+            "The optimal mix must remove odor effectively.",
+            "The mix should not exceed maximum allowable use for each chemical."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cleansing chemicals",
+            "Odor-removing chemicals",
+            "Cleaning time",
+            "Mix ratio of chemicals"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize cleaning time by determining the optimal mix of cleansing and odor-removing chemicals."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The cleaning time is a linear function of the amount of chemicals used.",
+            "The optimal mix must combine cleansing and odor-removing capabilities.",
+            "No constraints on the availability of the chemicals."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "cleansing chemical mix",
+            "odor-removing chemical mix",
+            "cleaning time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize cleaning time by determining the optimal mix of cleansing and odor-removing chemicals that satisfy given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The mix of chemicals must adhere to safety regulations.",
+            "The total volume of the chemical mixture must not exceed the storage capacity of the cleaning equipment.",
+            "The mixture should effectively remove a minimum percentage of odor.",
+            "The mixture should effectively clean within a specified time frame.",
+            "The cost of the chemical mixture should not exceed the budget."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "amount of cleansing chemicals",
+            "amount of odor-removing chemicals",
+            "cleaning time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize cleaning time by selecting the optimal mix of chemicals while satisfying constraints regarding their proportions or quantities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The ratio of cleansing chemicals to odor-removing chemicals must be maintained at a specific value to ensure effectiveness.",
+            "The total amount of chemicals used cannot exceed a certain weight or volume due to safety regulations.",
+            "The mixture must achieve a minimum threshold of effectiveness in both cleansing and odor removal.",
+            "The time to prepare and apply the mixture should not exceed a specified duration.",
+            "Budget constraints may limit the use of certain more expensive chemicals."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "cleansing chemicals",
+            "odor-removing chemicals",
+            "cleaning time",
+            "constraint on the proportion or relationship between cleansing and odor-removing chemicals",
+            "numerical limit on the total volume of chemicals"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize cleaning time by optimizing the mix of cleansing and odor-removing chemicals, considering constraints on chemical ratios and total volume limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a specific ratio or proportion that must be maintained between the cleansing and odor-removing chemicals.",
+            "There is a numerical limit on the total volume of chemicals that can be used."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "mix_ratio_constraint",
+            "total_volume_constraint",
+            "time_constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the cleaning time by determining the optimal mix of cleansing and odor-removing chemicals, while satisfying constraints such as a relationship between parameters and a numerical limit on the total volume of chemicals used."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "A relationship constraint involving ratios or proportions between cleansing and odor-removing chemicals.",
+            "A numerical limit on the total volume of chemicals used."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 4,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      }
+    }
+  }
+}

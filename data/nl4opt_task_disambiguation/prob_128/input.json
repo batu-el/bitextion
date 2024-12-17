@@ -1,0 +1,24 @@
+{
+  "vague_description": "Determine the optimal production levels for two types of hand sanitizer given resource constraints and production limitations to maximize the cleaning effect.",
+  "detailed_description": "A company makes both liquid and foam hand sanitizer. Liquid hand sanitizer requires \\param{WaterL} units of water and \\param{AlcoholL} units of alcohol. Foam hand sanitizer requires \\param{WaterF} units of water and \\param{AlcoholF} units of alcohol. The company has available \\param{WaterTotal} units of water and \\param{AlcoholTotal} units of alcohol. The number of foam hand sanitizers made must exceed the number of liquid hand sanitizers. In addition, at most \\param{MaxLiquid} liquid hand sanitizers can be made. If each liquid hand sanitizer can clean \\param{CleanHandsL} hands and each foam hand sanitizer can clean \\param{CleanHandsF} hands, how many of each should the company make to maximize the number of hands that can be cleaned?",
+  "target_objective": "Maximize the total number of hands cleaned by the produced hand sanitizers",
+  "target_constraints": [
+    "Number of liquid hand sanitizers is non-negative",
+    "Number of foam hand sanitizers is non-negative",
+    "Total water used in liquid hand sanitizers is at most WaterTotal",
+    "Total alcohol used in liquid hand sanitizers is at most AlcoholTotal",
+    "The number of foam hand sanitizers must exceed the number of liquid hand sanitizers",
+    "Up to MaxLiquid liquid hand sanitizers can be made"
+  ],
+  "target_parameters": [
+    "Units of water required to make one unit of liquid hand sanitizer",
+    "Units of alcohol required to make one unit of liquid hand sanitizer",
+    "Units of water required to make one unit of foam hand sanitizer",
+    "Units of alcohol required to make one unit of foam hand sanitizer",
+    "Total units of water available",
+    "Total units of alcohol available",
+    "Maximum number of liquid hand sanitizers that can be produced",
+    "Number of hands that can be cleaned by one unit of liquid hand sanitizer",
+    "Number of hands that can be cleaned by one unit of foam hand sanitizer"
+  ]
+}

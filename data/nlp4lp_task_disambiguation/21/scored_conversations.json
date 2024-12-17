@@ -1,0 +1,523 @@
+{
+  "vague_description": "The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.",
+  "detailed_description": "What selling, storing and manufacturing policy should the company pursue in order to maximize profit? The company has \\param{M} machines and produces \\param{K} different products. Each product k has a profit of \\param{Profit}. The time taken to manufacture product k on machine m is given by \\param{Time}. There are maintenance times for each machine m in each time period i, denoted by \\param{Maintain}. The limit for storing product k for time period i is given by \\param{Limit}, and the company has a store price of \\param{StorePrice}. The company aims to keep a quantity of \\param{KeepQuantity} for product k, and there are \\param{WorkHours} working hours available for production.",
+  "target_objective": "Maximize the company's profit from selling its products while minimizing storage and production costs",
+  "target_constraints": [
+    "Each machine can operate up to WorkHours per time period",
+    "Storage limit for product k in time period i is given by Limit",
+    "The number of machines utilized is limited to M",
+    "Maintenance, manufacturing, and storage times fit within the available WorkHours",
+    "Products must have non-negative production and storage quantities"
+  ],
+  "target_parameters": [
+    "Number of machines",
+    "Profit for product k",
+    "Time taken by product k on machine m",
+    "Maintenance time for machine m in time period i",
+    "Limit of storing product k for time period i",
+    "Price for storing products",
+    "Quantity of product k to keep",
+    "Number of working hours"
+  ],
+  "Expert": {
+    "(0,)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.",
+    "(0, 0)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.\nExpert: Is the optimization problem linear or does it contain any nonlinear relationships?\nUser: The information provided suggests a linear optimization problem. The objectives and constraints, such as production times, storage limits, and profit calculations, all appear to be linear in nature. Therefore, the problem is linear.\n",
+    "(0, 0, 0)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.\nExpert: Is the optimization problem linear or does it contain any nonlinear relationships?\nUser: The information provided suggests a linear optimization problem. The objectives and constraints, such as production times, storage limits, and profit calculations, all appear to be linear in nature. Therefore, the problem is linear.\n\nExpert: Are there integer or binary variables involved, indicating that this might be a mixed-integer linear programming problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.\nExpert: Is the optimization problem linear or does it contain any nonlinear relationships?\nUser: The information provided suggests a linear optimization problem. The objectives and constraints, such as production times, storage limits, and profit calculations, all appear to be linear in nature. Therefore, the problem is linear.\n\nExpert: Are there integer or binary variables involved, indicating that this might be a mixed-integer linear programming problem?\nUser: Yes\n\nExpert: Are there any constraints related to machine maintenance schedules that impose restrictions on production capabilities over time?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.",
+    "(0, 0)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.\nExpert: Does the problem include environmental regulations or sustainability goals as constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.\nExpert: Does the problem include environmental regulations or sustainability goals as constraints?\nUser: No\n\nExpert: Does the problem include labor availability constraints as a part of its constraints list?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.\nExpert: Does the problem include environmental regulations or sustainability goals as constraints?\nUser: No\n\nExpert: Does the problem include labor availability constraints as a part of its constraints list?\nUser: Yes\n\nExpert: Does the problem include budgetary constraints that limit total expenditure on resources, labor, and maintenance?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.",
+    "(0, 0)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.\nExpert: Is the objective of this optimization problem to maximize profit?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.\nExpert: Is the objective of this optimization problem to maximize profit?\nUser: Yes.\n\nExpert: Are there any constraints on the production capacity or machine usage limits?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.\nExpert: Is the objective of this optimization problem to maximize profit?\nUser: Yes.\n\nExpert: Are there any constraints on the production capacity or machine usage limits?\nUser: Yes.\n\nExpert: Are these production capacity/machine usage limits fixed or variable (e.g., dependent on maintenance schedules or storage capacities)?\nUser: Yes, they are variable, dependent on maintenance schedules and storage capacities.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.",
+    "(0, 0)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.\nExpert: Does the problem description mention profit maximization as part of the objective?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.\nExpert: Does the problem description mention profit maximization as part of the objective?\nUser: Yes\n\nExpert: Is the objective of the optimization problem stated in a way that implies a profit metric directly?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge is designing a comprehensive strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability.\nExpert: Does the problem description mention profit maximization as part of the objective?\nUser: Yes\n\nExpert: Is the objective of the optimization problem stated in a way that implies a profit metric directly?\nUser: Yes\n\nExpert: Are all constraints in the problem in lowercase or title case?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production resources allocation",
+            "machine maintenance schedules",
+            "storage capacities",
+            "multiple products",
+            "profitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently manage production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production resources are limited and must be allocated optimally among multiple products.",
+            "Machine maintenance schedules need to be planned without significantly disrupting production.",
+            "Storage capacities are fixed and must be managed to accommodate inventory from multiple products.",
+            "The strategy must comply with all operational and safety regulations.",
+            "There is a need to balance short-term profitability with long-term sustainability and efficiency.",
+            "Resource allocation must consider varying demands and production cycles for different products."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Linear objective function to maximize profitability",
+            "Constraints on production resources, such as labor and raw material availability",
+            "Machine maintenance schedules as constraints on equipment availability",
+            "Constraints on storage capacities for the products",
+            "Linear relationships in production times",
+            "Linear relationships in profit calculations per product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profitability by optimally managing production resources, machine maintenance schedules, and storage capacities for multiple products within the constraints of linear relationships."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limits for each product must not be exceeded.",
+            "Total machine operating hours must adhere to available machine time schedules.",
+            "Storage capacities for finished products must not be exceeded.",
+            "Production times for each product must stay within the available production hours.",
+            "Profit calculations based on production and sales must align with linear relationships.",
+            "Maintenance schedules must not conflict with production schedules.",
+            "Total production and maintenance resource allocations must not exceed the total available resources."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production resources",
+            "machine maintenance schedules",
+            "storage capacities",
+            "production times",
+            "storage limits",
+            "profit calculations",
+            "integer or binary variables indicating mixed-integer linear programming"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently manage production resources, machine maintenance schedules, and storage capacities for multiple products in order to achieve optimal profitability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production resources are limited and must be allocated efficiently across multiple products.",
+            "Machine maintenance schedules must be incorporated to avoid downtime or resource wastage.",
+            "Storage capacities are finite and need to manage inventory without exceeding limits.",
+            "The problem involves linear relationships in terms of production times and profit calculations.",
+            "Some decision variables must be integer or binary, indicating constraints on quantities or states that cannot be fractional."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production resource allocation for multiple products",
+            "Machine maintenance schedules",
+            "Storage capacities",
+            "Profitability objectives",
+            "Linear constraints",
+            "Integer variables",
+            "Binary variables",
+            "Constraints on production capabilities over time due to maintenance restrictions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Achieve optimal profitability by efficiently managing production resources, machine maintenance schedules, and storage capacities for multiple products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production volume for each product must not exceed the machine production capacities.",
+            "Machine maintenance schedules create periods during which certain machines are unavailable for production.",
+            "The allocation of products to storage must not exceed the available storage capacity at any time.",
+            "Production decisions are subject to binary variables indicating whether a particular product is produced within a given time period.",
+            "Integer constraints may exist for the number of batch runs or shifts scheduled for production."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production resources",
+            "machine maintenance schedules",
+            "storage capacities",
+            "multiple products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To design a strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products in order to achieve optimal profitability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints: Production resources are limited, and their allocation must be optimized across different products to avoid shortages or wastage.",
+            "Machine maintenance schedules: Machines require regular maintenance, which restricts their availability for production and must be scheduled without significantly disrupting the production process.",
+            "Storage constraints: There are limitations on storage capacities for raw materials, work-in-progress items, and finished goods, which must be managed to prevent delays or stockouts.",
+            "Profitability: The solution should aim to maximize overall profitability, taking into account the costs associated with production, maintenance, and storage.",
+            "Demand fulfillment: Production schedules must meet the demand for each product without exceeding production capabilities or storage capacities.",
+            "Product mix: Different products have different resource requirements and profitability margins, so the strategy must consider the optimal product mix.",
+            "Operational constraints: There might be operational constraints such as labor availability and shift scheduling that affect production capabilities."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production resources",
+            "machine maintenance schedules",
+            "storage capacities",
+            "optimal profitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To design a strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Manage production resources effectively for multiple products.",
+            "Schedule machine maintenance without disrupting production.",
+            "Utilize available storage capacities efficiently.",
+            "Focus on achieving optimal profitability without considering environmental regulations or sustainability goals."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production resources allocation",
+            "machine maintenance scheduling",
+            "storage capacity management",
+            "labor availability",
+            "multiple product profitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently manage production resources, machine maintenance schedules, and storage capacities across multiple products to achieve optimal profitability, while considering labor availability constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Efficient management of production resources",
+            "Machine maintenance schedules",
+            "Storage capacities for multiple products",
+            "Labor availability constraints"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production resources",
+            "machine maintenance schedules",
+            "storage capacities",
+            "labor availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Develop a strategy to efficiently manage production resources, machine maintenance schedules, and storage capacities for multiple products to maximize profitability while adhering to labor availability constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Manage production resources for multiple products.",
+            "Schedule machine maintenance efficiently.",
+            "Manage storage capacities for multiple products.",
+            "Incorporate labor availability constraints."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production resources",
+            "Machine maintenance schedules",
+            "Storage capacities",
+            "Multiple products",
+            "Optimal profitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To achieve optimal profitability by efficiently managing production resources, machine maintenance schedules, and storage capacities for multiple products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production resources available are limited by the production capacity of machines and labor.",
+            "Maintenance schedules must be aligned with production demands to minimize downtime and maximize efficiency.",
+            "Storage capacities are limited and must be managed to avoid overstocking or stockouts, impacting product availability and costs.",
+            "Multiple products have different production requirements and must be scheduled to optimize resource utilization without exceeding capacity.",
+            "Profitability objectives must guide the allocation of resources, prioritizing high-margin products while balancing demand for others."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production resources",
+            "machine maintenance schedules",
+            "storage capacities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profit"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources are limited and must be allocated across various production lines.",
+            "Machine maintenance schedules need to be integrated into production planning to minimize downtime.",
+            "Storage capacity is limited and must be managed across multiple products.",
+            "The production process must adhere to predefined operating hours and labor constraints.",
+            "Each product has a different profit margin, influencing production priorities.",
+            "There is a demand forecast for each product that needs to be met or optimized against."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production_resources",
+            "Machine_maintenance_schedules",
+            "Storage_capacities",
+            "Multiple_products",
+            "Maximize_profit",
+            "Production_capacity_constraints",
+            "Machine_usage_limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by efficiently managing production resources, machine maintenance schedules, and storage capacities for multiple products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limits for each product type.",
+            "Maximum machine usage time must not be exceeded."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production resource allocation for multiple products",
+            "Machine maintenance schedules coordination",
+            "Storage capacities management",
+            "Production capacity limits",
+            "Machine usage limits",
+            "Profit maximization objective"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity is variable and dependent on maintenance schedules.",
+            "Machine usage limits are variable and are influenced by storage capacities."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production resources",
+            "Machine maintenance schedules",
+            "Storage capacities",
+            "Multiple products",
+            "Profitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To develop a strategy that efficiently manages production resources, machine maintenance schedules, and storage capacities for multiple products to achieve optimal profitability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability (e.g. raw materials, workforce hours) is limited and needs to be allocated efficiently among multiple products.",
+            "Machine maintenance schedules must be integrated into the production planning to minimize downtime.",
+            "Storage capacities for finished products are limited and may affect production scheduling and delivery timelines.",
+            "There may be demand constraints for different products, requiring production planning to align with market needs to avoid overproduction or shortages.",
+            "Profitability goals require balancing production costs, maintenance expenses, and potential revenue from sales.",
+            "Production priorities may be set, requiring some products to be prioritized over others depending on strategic goals or contracts.",
+            "There could be environmental or regulatory limitations that must be adhered to within the production process.",
+            "Lead times for raw materials might affect scheduling and require careful planning to align with production cycles."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production resources",
+            "machine maintenance schedules",
+            "storage capacities",
+            "multiple products",
+            "profit maximization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to achieve optimal profitability by efficiently managing production resources, machine maintenance schedules, and storage capacities for multiple products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production must not exceed the available resources (e.g., raw materials, labor) at any given time.",
+            "Machine maintenance schedules must be planned such that they do not interrupt production beyond acceptable limits, ensuring that the machines are operational when needed.",
+            "Storage capacities must not be exceeded; the production strategy should account for the available storage space for all products.",
+            "Production resources distributed among multiple products must align with their respective demands to avoid shortages or overproduction.",
+            "The cost of production, machine maintenance, and storage should be accounted for within the budgetary constraints.",
+            "Production timelines should align with delivery schedules to ensure timely deliveries without incurring additional holding costs."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production resources",
+            "Machine maintenance schedules",
+            "Storage capacities",
+            "Multiple products",
+            "Profit maximization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profitability by efficiently managing production resources, machine maintenance schedules, and storage capacities for multiple products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production of products cannot exceed the available production resource capacity.",
+            "Machine maintenance schedules must not conflict with production schedules, ensuring machines are operational when needed for production.",
+            "Storage capacities must not be exceeded, meaning inventory of products at any time must be within storage limits.",
+            "Production, maintenance, and storage allocations should contribute towards maximizing overall profitability.",
+            "Each product has a defined production capacity limit that cannot be surpassed.",
+            "Resources allocated for production and maintenance must adhere to budgetary constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production resources",
+            "Machine maintenance schedules",
+            "Storage capacities",
+            "Multiple products",
+            "Profit maximization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing the allocation of production resources, maintenance scheduling, and storage usage for multiple products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "production resources must be allocated efficiently to meet demand for multiple products.",
+            "machine maintenance schedules need to be planned to minimize downtime while ensuring optimal production capacity.",
+            "storage capacities should not be exceeded at any point in time.",
+            "all processes must comply with specified budgetary limitations.",
+            "material availability should align with production schedules to avoid delays.",
+            "quality standards must be maintained during production to avoid product rejections.",
+            "delivery timelines must be met to ensure customer satisfaction.",
+            "energy consumption should be minimized to reduce operational costs."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      }
+    }
+  }
+}

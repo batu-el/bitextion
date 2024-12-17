@@ -1,0 +1,19 @@
+{
+  "vague_description": "Determine optimal ingredient proportions within time constraints for product effectiveness.",
+  "detailed_description": "Both coconut oil and lavender need to be added to a body wash. One unit of coconut oil takes \\param{CoconutOilTime} minutes to be effective while one unit of lavender takes \\param{LavenderTime} minutes to be effective. The body wash must contain at least \\param{MinCoconutOilUnits} units of coconut oil and at most \\param{MaxCombinedUnits} units of both ingredients. Since too much coconut oil can make the body wash too oily, there can be at most \\param{MaxOilLavenderRatio} times the amount of coconut oil as lavenders in the body wash. How many units of each should be added to the body wash to minimize the total amount of time it takes for the mixture to be effective? (Note: one must be added before the other)",
+  "target_objective": "Minimize the total effective time for the body wash mixture",
+  "target_constraints": [
+    "Coconut oil units are non-negative",
+    "Lavender units are non-negative",
+    "At least MinCoconutOilUnits units of coconut oil must be added",
+    "At most MaxCombinedUnits of coconut oil and lavender can be added in total",
+    "The ratio of coconut oil to lavender units cannot exceed MaxOilLavenderRatio"
+  ],
+  "target_parameters": [
+    "Time in minutes for one unit of coconut oil to be effective",
+    "Time in minutes for one unit of lavender to be effective",
+    "Minimum required units of coconut oil",
+    "Maximum allowed units of both ingredients combined",
+    "Maximum allowed ratio of units of coconut oil to units of lavender"
+  ]
+}

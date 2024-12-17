@@ -1,0 +1,16 @@
+{
+  "vague_description": "Optimize production schedules to increase profit while adhering to machine capacity limitations.",
+  "detailed_description": "Formulate the problem of determining the quantities of each spare part to be made during the month so as to maximize \\param{Profit}. Each spare part k requires \\param{Time} on machine s, and each machine s has a maximum monthly capacity of \\param{Capacity}.",
+  "target_objective": "Maximize the total profit from the production of spare parts",
+  "target_constraints": [
+    "Every spare part quantity produced is non-negative",
+    "Total time used on each machine for all spare parts cannot exceed the machine's monthly capacity"
+  ],
+  "target_parameters": [
+    "Number of spare parts to be produced",
+    "Number of machines available",
+    "The time taken to make one unit of spare part k on machine s",
+    "Profit from producing one unit of spare part k",
+    "Capacity of machine s for the month"
+  ]
+}

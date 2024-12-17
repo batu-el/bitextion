@@ -1,0 +1,476 @@
+{
+  "vague_description": "The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.",
+  "detailed_description": "A hospital prepares batches of medication patches and anti-biotic creams. Each medication patch requires \\param{TimeMedicationPatches} minutes to prepare and \\param{MaterialsMedicationPatches} units of materials. Each anti-biotic cream requires \\param{TimeAntiBioticCreams} minutes to prepare and \\param{MaterialsAntiBioticCreams} units of materials. Since anti-biotic creams are used more often, there must be at least twice as many anti-biotic creams as medication patches. Due to storage reasons, the hospital can make at most \\param{MaxTotalBatches} batches of medication patches and anti-biotic creams in total. The hospital has available \\param{TotalStaffTime} minutes of staff to spare and \\param{TotalMaterials} units of materials. If each batch of medication patches can treat \\param{PeopleTreatedMedicationPatches} people and each batch of anti-biotic cream can treat \\param{PeopleTreatedAntiBioticCreams} people, how many batches of each should be made to maximize the number of people that can be treated?",
+  "target_objective": "Maximize the number of people that can be treated with the batches of medication patches and anti-biotic creams",
+  "target_constraints": [
+    "Number of medication patches is non-negative",
+    "Number of anti-biotic creams is non-negative",
+    "Anti-biotic creams prepared must be at least twice the number of medication patches",
+    "At most MaxTotalBatches batches in total for medication patches and anti-biotic creams",
+    "Available staff time is at most TotalStaffTime minutes",
+    "Available materials are at most TotalMaterials units"
+  ],
+  "target_parameters": [
+    "Time required to prepare a batch of medication patches",
+    "Materials required to prepare a batch of medication patches",
+    "Time required to prepare a batch of anti-biotic creams",
+    "Materials required to prepare a batch of anti-biotic creams",
+    "Maximum total number of batches of medication patches and anti-biotic creams due to storage",
+    "Total staff time available for preparation",
+    "Total units of materials available",
+    "Number of people treated by a batch of medication patches",
+    "Number of people treated by a batch of anti-biotic creams"
+  ],
+  "Expert": {
+    "(0,)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.",
+    "(0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Are there specific resource constraints, such as limits on raw materials or production time, that restrict how many medication patches and anti-biotic creams can be produced?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Are there specific resource constraints, such as limits on raw materials or production time, that restrict how many medication patches and anti-biotic creams can be produced?\nUser: Yes\n\nExpert: Are there explicit production costs associated with manufacturing each medication patch and anti-biotic cream?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Are there specific resource constraints, such as limits on raw materials or production time, that restrict how many medication patches and anti-biotic creams can be produced?\nUser: Yes\n\nExpert: Are there explicit production costs associated with manufacturing each medication patch and anti-biotic cream?\nUser: No\n\nExpert: Is there a specific objective, such as maximizing profit or minimizing cost, that the hospital aims to achieve in this optimization problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.",
+    "(0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Is the objective of the problem to maximize a form of profit or contribution margin?\nUser: No\n",
+    "(0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Is the objective of the problem to maximize a form of profit or contribution margin?\nUser: No\n\nExpert: Does the problem include a constraint related to storage capacity limitations for the finished products?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Is the objective of the problem to maximize a form of profit or contribution margin?\nUser: No\n\nExpert: Does the problem include a constraint related to storage capacity limitations for the finished products?\nUser: Yes\n\nExpert: Does the problem description explicitly specify the storage space required per unit of medication patch or antibiotic cream?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.",
+    "(0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Do the treatment requirements and resource constraints vary depending on the type of medication (patch vs cream)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Do the treatment requirements and resource constraints vary depending on the type of medication (patch vs cream)?\nUser: Yes\n\nExpert: Do the treatment requirements and resource constraints vary depending on the type of medication (patch vs cream)? \nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Do the treatment requirements and resource constraints vary depending on the type of medication (patch vs cream)?\nUser: Yes\n\nExpert: Do the treatment requirements and resource constraints vary depending on the type of medication (patch vs cream)? \nUser: Yes\n\nExpert: Are there any constraints on the total volume of medications that the hospital can produce (i.e., capacity limitations)?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.",
+    "(0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Does the problem statement contain the word 'Minimize' in the 'objective' field?\nUser: No\n",
+    "(0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Does the problem statement contain the word 'Minimize' in the 'objective' field?\nUser: No\n\nExpert: Does the problem description explicitly include the cost of any resources or production?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The hospital needs to determine the optimal number of medication patches and anti-biotic creams to produce within their resource constraints and treatment requirements.\nExpert: Does the problem statement contain the word 'Minimize' in the 'objective' field?\nUser: No\n\nExpert: Does the problem description explicitly include the cost of any resources or production?\nUser: No\n\nExpert: Is the objective function dependent on a list of parameters?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of medication patches to produce",
+            "Number of anti-biotic creams to produce",
+            "Resource constraints",
+            "Treatment requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of medication patches and anti-biotic creams to produce given the resource constraints and treatment requirements of the hospital."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of patches and creams produced should not exceed the available production capacity.",
+            "The production of medication patches must consume no more than the available units of a critical raw material specific to patches.",
+            "The production of anti-biotic creams should adhere to the limit of another essential raw material pertinent to creams.",
+            "A minimum quantity of medication patches must be produced to meet the hospital's treatment protocol for a specific condition.",
+            "Anti-biotic cream production should at least meet the baseline demand to ensure adequate supply for regular prescriptions.",
+            "Both the patches and creams together must stay within the budget allocated for raw materials and production costs."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "medication patches",
+            "anti-biotic creams",
+            "resource constraints",
+            "treatment requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the production of medication patches and anti-biotic creams within the given resource constraints and treatment requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a limited amount of raw materials available for the production of medication patches and anti-biotic creams.",
+            "The production time for creating medication patches and anti-biotic creams is limited."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Constraints: Limited raw materials",
+            "Resource Constraints: Limited production time",
+            "Treatment Requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the number of medication patches and anti-biotic creams produced within the given resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of available raw materials limits the combined production of medication patches and anti-biotic creams.",
+            "The total production time available constrains the maximum number of medication patches and anti-biotic creams that can be produced."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of medication patches to produce",
+            "Number of anti-biotic creams to produce",
+            "Resource constraints (e.g., raw materials, production time)",
+            "Treatment requirements",
+            "Objective (maximize/minimize)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of medication patches and anti-biotic creams to produce."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource limits on raw materials.",
+            "Resource limits on production time."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of medication patches",
+            "number of anti-biotic creams"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production efficiency and meet treatment requirements while adhering to resource constraints for medication patches and antibiotic creams."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each medication patch requires 2 units of chemical A and 3 units of chemical B.",
+            "Each anti-biotic cream requires 1 unit of chemical A and 2 units of chemical B.",
+            "The total availability of chemical A is 100 units.",
+            "The total availability of chemical B is 150 units.",
+            "The hospital must produce at least 20 medication patches to meet treatment requirements.",
+            "The hospital must produce at least 30 anti-biotic creams to meet treatment requirements."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of medication patches to produce",
+            "number of anti-biotic creams to produce",
+            "resource constraints such as raw materials, budget, and labor",
+            "treatment requirements including specific medication needs or effectiveness targets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal number of medication patches and antibiotic creams to produce to meet treatment requirements and operate within resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each patch requires 2 units of material A and 3 units of labor, while each cream requires 1 unit of material A and 4 units of labor.",
+            "The hospital has a maximum of 100 units of material A and 180 units of labor available.",
+            "Each patch is required to provide relief to at least 3 patients, whereas each cream needs to provide relief to at least 2 patients.",
+            "The hospital needs to produce at least 10 patches and 5 creams to meet the minimum demand."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of medication patches to produce",
+            "Number of anti-biotic creams to produce",
+            "Storage capacity limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal production quantities of medication patches and anti-biotic creams that meet specific treatment demands while adhering to storage capacity limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production of medication patches and anti-biotic creams must not exceed the available storage capacity for finished products."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal number of medication patches to produce",
+            "Optimal number of antibiotic creams to produce"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of medication patches and anti-biotic creams to produce within resource constraints and storage capacity limitations to meet treatment requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Storage capacity limitations for finished products"
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of medication patches to produce",
+            "Number of anti-biotic creams to produce"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize treatment coverage while adhering to resource limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combined production of medication patches and antibiotic creams must not exceed the available manufacturing capacity of the hospital.",
+            "The total cost of producing patches and creams must not exceed the budget allocated by the hospital for these medications.",
+            "The supply of raw materials required for manufacturing both patches and creams is limited and must be distributed between the two without exceeding the available quantities.",
+            "The production must meet a minimum requirement of medication patches and antibiotic creams to ensure adequate treatment availability.",
+            "The production process must comply with regulatory standards, limiting the types and quantities of ingredients used.",
+            "The logistics capability of the hospital sets a maximum limit on how many patches and creams can be shipped to different locations within a given time frame."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource constraints for medication patches",
+            "resource constraints for anti-biotic creams",
+            "treatment requirements for medication patches",
+            "treatment requirements for anti-biotic creams"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production quantities of medication patches and anti-biotic creams that maximally utilize available resources while satisfying treatment demand requirements for both products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total quantity of medication patches must not exceed the available production capacity for patches.",
+            "The total quantity of anti-biotic creams must not exceed the available production capacity for creams.",
+            "The production of medication patches must meet a minimum treatment requirement determined by patient demand.",
+            "The production of anti-biotic creams must meet a minimum treatment requirement determined by patient demand.",
+            "The combined production of medication patches and anti-biotic creams must stay within the total available budget for production.",
+            "The ingredient allocation to both medication patches and anti-biotic creams must not exceed available supplies.",
+            "Regulatory constraints must be adhered to for the maximum allowable production limits of each type of medication."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal number of medication patches",
+            "Optimal number of anti-biotic creams",
+            "Resource constraints for patches",
+            "Resource constraints for creams",
+            "Treatment requirements for patches",
+            "Treatment requirements for creams"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production quantities of medication patches and antibiotic creams that meet the treatment requirements while adhering to resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production of medication patches and anti-biotic creams is limited by resource availability.",
+            "Treatment requirements dictate specific needs for patches and creams, potentially affecting the quantity produced.",
+            "Resource constraints (e.g., materials, labor, machinery) apply differently to patches and creams, indicating distinct production limitations for each.",
+            "Possibly varying minimum production quantities for patches and creams to meet treatment demand.",
+            "Maximum resource usage caps (e.g., budget constraints, material limits) need to be adhered to for overall production."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of medication patches",
+            "Number of anti-biotic creams",
+            "Resource constraints for patches",
+            "Resource constraints for creams",
+            "Treatment requirements for patches",
+            "Treatment requirements for creams",
+            "Capacity limitations on total volume"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production quantities of medication patches and anti-biotic creams that satisfy treatment requirements and adhere to resource constraints, while considering capacity limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Treatment requirements vary between medication patches and anti-biotic creams.",
+            "Resource constraints vary between medication patches and anti-biotic creams.",
+            "There are capacity limitations on the total volume of medications the hospital can produce."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of medication patches to produce",
+            "Number of anti-biotic creams to produce"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production quantities of medication patches and anti-biotic creams that maximize treatment efficiency while staying within resource limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production cost of medication patches and anti-biotic creams cannot exceed the hospital's allocated budget for manufacturing.",
+            "The combined production capacity for both medication patches and anti-biotic creams is limited to the available human resources and machinery hours.",
+            "The production must meet a minimum threshold of medication patches needed for current patient treatments.",
+            "The production must ensure a minimum quantity of anti-biotic creams required for treating certain conditions.",
+            "The total amount of raw materials used for production cannot exceed the available inventory."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective",
+            "constraints",
+            "treatment requirements",
+            "resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of medication patches and anti-biotic creams to produce within resource constraints and treatment requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of medication patches produced should not exceed the available production capacity for patches.",
+            "The total number of anti-biotic creams produced should not exceed the available production capacity for creams.",
+            "The sum of medication patches and anti-biotic creams produced should not consume more resources than available.",
+            "The number of each product produced should meet at least the minimum treatment requirements for patients."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource constraints on medication patches and anti-biotic creams",
+            "Treatment requirements for medication patches and anti-biotic creams"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize treatment coverage given production constraints"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of medication patches produced should not exceed the available supply of raw materials designated for patches.",
+            "The total number of anti-biotic creams produced must be within the limits of the raw materials procured for creams.",
+            "The combined production of medication patches and anti-biotic creams must meet the minimum treatment demand of the hospital.",
+            "The production capacity of the machinery used to manufacture both patches and creams should not be exceeded."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of medication patches",
+            "number of anti-biotic creams",
+            "resource constraints",
+            "treatment requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production of medication patches and anti-biotic creams within resource constraints and treatment requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of medication patches and anti-biotic creams produced must not exceed the available resources (e.g., labor hours, raw materials).",
+            "The production must satisfy the minimum treatment requirements, possibly implying a minimum quantity that must be produced for each product type.",
+            "There may be a maximum capacity or limit to how many patches or creams can be produced, depending on the facility's capacity or storage limitations.",
+            "The combination of medication patches and anti-biotic creams must address patient treatment needs effectively, indicating a certain ratio or balance may be required."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "vague_description": "Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.",
+  "detailed_description": "Formulate the problem of determining the quantities of each spare part to be made during the month so as to maximize profit. The number of different spare parts is \\param{K}. The number of machines capable of making the spare parts is \\param{S}. The time taken to make spare part \\param{k} on machine \\param{s} is given by \\param{Time}. The profit obtained from making spare part \\param{k} is \\param{Profit}. Each machine \\param{s} has a capacity of \\param{Capacity} for the spare parts.",
+  "target_objective": "Maximize the total profit from producing the spare parts",
+  "target_constraints": [
+    "Quantities of each spare part must be non-negative",
+    "Time to produce each spare part must not exceed the available machine time",
+    "Total time used on each machine s must not exceed its capacity Capacity"
+  ],
+  "target_parameters": [
+    "Number of different spare parts",
+    "Number of machines capable of making the spare parts",
+    "Time taken to make spare part k on machine s",
+    "Profit obtained from making spare part k",
+    "Capacity of machine s for the spare parts"
+  ],
+  "Expert": {
+    "(0,)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.",
+    "(0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Are there multiple types of spare parts being produced, each with different production times and profit margins?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Are there multiple types of spare parts being produced, each with different production times and profit margins?\nUser: Yes\n\nExpert: Are there specific constraints regarding the maximum capacity or availability of each machine used in the production process?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Are there multiple types of spare parts being produced, each with different production times and profit margins?\nUser: Yes\n\nExpert: Are there specific constraints regarding the maximum capacity or availability of each machine used in the production process?\nUser: Yes\n\nExpert: Are there constraints related to the availability of raw materials required to produce the spare parts?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.",
+    "(0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Do the problem descriptions include a constraint related to meeting minimum production or demand requirements for spare parts?\nUser: No\n",
+    "(0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Do the problem descriptions include a constraint related to meeting minimum production or demand requirements for spare parts?\nUser: No\n\nExpert: Does the problem description include constraints related to machine setup times when switching production from one spare part to another?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Do the problem descriptions include a constraint related to meeting minimum production or demand requirements for spare parts?\nUser: No\n\nExpert: Does the problem description include constraints related to machine setup times when switching production from one spare part to another?\nUser: No\n\nExpert: Do the constraints include limiting the production capacity of spare parts based on raw material availability?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.",
+    "(0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Is the objective function based on a linear or non-linear relationship between the production quantities of the spare parts and the profit?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Is the objective function based on a linear or non-linear relationship between the production quantities of the spare parts and the profit?\nUser: Yes\n\nExpert: Are the constraints of machines' capacity and time for producing spare parts represented by linear equations?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Is the objective function based on a linear or non-linear relationship between the production quantities of the spare parts and the profit?\nUser: Yes\n\nExpert: Are the constraints of machines' capacity and time for producing spare parts represented by linear equations?\nUser: Yes\n\nExpert: Do the constraints of machines' capacity and time for producing spare parts have the same time horizon or time period as the objective function (i.e., do they all operate over the same time period)?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.",
+    "(0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Does the problem description contain a specific, numerical constraint, such as a machine's capacity or production time?\nUser: No\n",
+    "(0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Does the problem description contain a specific, numerical constraint, such as a machine's capacity or production time?\nUser: No\n\nExpert: Is the word 'machine' in the objective or parameters description of the problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Does the problem description contain a specific, numerical constraint, such as a machine's capacity or production time?\nUser: No\n\nExpert: Is the word 'machine' in the objective or parameters description of the problem?\nUser: Yes\n\nExpert: Are machines' capacity mentioned before 'time for producing various spare parts' in the problem description?\nUser: No\n"
+  }
+}

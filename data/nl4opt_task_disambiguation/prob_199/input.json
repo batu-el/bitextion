@@ -1,0 +1,25 @@
+{
+  "vague_description": "A company needs to find a cost-effective solution to meet dietary requirements for its employees.",
+  "detailed_description": "A car manufacturing company makes hamburgers and chicken wraps for workers. They need to ensure workers get at least \\param{C} calories, \\param{P} grams of protein, and \\param{Cr} grams of carbs. One hamburger costs \\param{HamburgerCost} and contains \\param{HamburgerCalories} calories, \\param{HamburgerProtein} grams of protein, and \\param{HamburgerCarbs} grams of carbs. One chicken wrap costs \\param{WrapCost} and contains \\param{WrapCalories} calories, \\param{WrapProtein} grams of protein, and \\param{WrapCarbs} grams of carbs. What is the minimum cost diet that the company can provide for its workers?",
+  "target_objective": "Minimize the total cost of providing hamburgers and chicken wraps to meet the dietary requirements",
+  "target_constraints": [
+    "Total calories must be at least C",
+    "Total grams of protein must be at least P",
+    "Total grams of carbs must be at least Cr",
+    "Number of hamburgers is non-negative",
+    "Number of chicken wraps is non-negative"
+  ],
+  "target_parameters": [
+    "Minimum required calories per worker",
+    "Minimum required protein in grams per worker",
+    "Minimum required carbohydrates in grams per worker",
+    "Cost of one hamburger",
+    "Calories provided by one hamburger",
+    "Protein provided by one hamburger in grams",
+    "Carbohydrates provided by one hamburger in grams",
+    "Cost of one chicken wrap",
+    "Calories provided by one chicken wrap",
+    "Protein provided by one chicken wrap in grams",
+    "Carbohydrates provided by one chicken wrap in grams"
+  ]
+}

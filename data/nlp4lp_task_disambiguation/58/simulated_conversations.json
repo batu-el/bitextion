@@ -1,0 +1,51 @@
+{
+  "vague_description": "Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.",
+  "detailed_description": "Determine the quantity of batches for each part the manufacturer should produce every month, ensuring all constraints are met, where the manufacturer has \\param{P} different parts, \\param{M} machines, \\param{TimeRequired} matrix indicating the time each machine takes to produce a part, \\param{MachineCosts} indicating the cost of each machine, \\param{Availability} of each machine, \\param{Prices} of each part, \\param{MinBatches} required for each part, a \\param{StandardCost} of running a machine per hour, an \\param{OvertimeCost} for running a machine beyond the standard hours, an \\param{OvertimeHour} available for overtime work for each machine, and a \\param{MinProfit} that the manufacturer aims to achieve.",
+  "target_objective": "Determine the optimal quantity of batches for each part to maximize the manufacturer's monthly profit, given machine availability and costs, while meeting the minimum batch requirements and not exceeding the overtime limits.",
+  "target_constraints": [
+    "Each machine's use time per part must not exceed the machine's availability",
+    "Each machine has a limited number of overtime hours that can be used",
+    "There is a minimum number of batches to be produced for each part",
+    "The total standard and overtime costs must enable achieving a minimum target profit",
+    "All produced batches for each part must be non-negative",
+    "The time used on each machine when producing parts must be non-negative",
+    "Overtime used on each machine must be non-negative and cannot exceed the available overtime hours"
+  ],
+  "target_parameters": [
+    "Number of machines",
+    "Number of parts to be produced",
+    "Time required to produce each part 'p' on machine 'm'",
+    "Cost associated with each machine 'm'",
+    "Availability in hours of each machine 'm' per month",
+    "Price obtained from selling each part 'p'",
+    "Minimum number of batches of part 'p' that must be produced",
+    "Standard cost for a machine to run for one hour",
+    "Overtime cost for a machine to run for one hour beyond the standard availability",
+    "Numbers of overtime hours available for a machine to run beyond standard availability",
+    "The minimum profit the manufacturer wants to achieve"
+  ],
+  "Expert": {
+    "(0,)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.",
+    "(0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Does the problem specify the available resources, such as raw materials and labor?\nUser: No\n",
+    "(0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Does the problem specify the available resources, such as raw materials and labor?\nUser: No\n\nExpert: Does the problem include information about production costs per unit for each product involved?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Does the problem specify the available resources, such as raw materials and labor?\nUser: No\n\nExpert: Does the problem include information about production costs per unit for each product involved?\nUser: No\n\nExpert: Are there constraints related to the capacity or availability of the machines used in production?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.",
+    "(0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Is the production time constraint for machine usage specified on a weekly basis in the problem?\nUser: No\n",
+    "(0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Is the production time constraint for machine usage specified on a weekly basis in the problem?\nUser: No\n\nExpert: Is the total production cost constraint explicitly defined as an exact dollar value budget in the problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Is the production time constraint for machine usage specified on a weekly basis in the problem?\nUser: No\n\nExpert: Is the total production cost constraint explicitly defined as an exact dollar value budget in the problem?\nUser: No\n\nExpert: Does the problem include a constraint requiring production levels to meet a minimum demand for each product type?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.",
+    "(0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Are the production costs considered as fixed costs or variable costs in the optimization problem?\nUser: Fixed costs\n",
+    "(0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Are the production costs considered as fixed costs or variable costs in the optimization problem?\nUser: Fixed costs\n\nExpert: Are there any constraints on the production capacity of the machines?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Are the production costs considered as fixed costs or variable costs in the optimization problem?\nUser: Fixed costs\n\nExpert: Are there any constraints on the production capacity of the machines?\nUser: Yes\n\nExpert: Is the production capacity of the machines considered constant or time-varying, meaning does the capacity change over time due to factors like maintenance or seasonal variability? \nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.",
+    "(0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Is the objective function phrase including maximizing profit case sensitive?\nUser: No\n",
+    "(0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Is the objective function phrase including maximizing profit case sensitive?\nUser: No\n\nExpert: Does the description list the objective as 'Maximize Profit' in a case-sensitive manner?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Is the objective function phrase including maximizing profit case sensitive?\nUser: No\n\nExpert: Does the description list the objective as 'Maximize Profit' in a case-sensitive manner?\nUser: No\n\nExpert: Does the candidate problem description include a specific objective value (e.g., 'maximize profit') rather than a general expression (e.g., 'maximize', 'maximize' without a specific value)?\nUser: Yes\n"
+  }
+}

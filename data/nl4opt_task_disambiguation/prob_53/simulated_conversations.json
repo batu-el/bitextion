@@ -1,0 +1,47 @@
+{
+  "vague_description": "Determine the optimal allocation of resources to maximize output.",
+  "detailed_description": "There are two processes, process A and process B, to plate a coin with gold. Process A requires \\var{GoldA} units of gold, \\var{WireA} wires, and can plate \\var{CoinsA} coins. Process B requires \\var{GoldB} units of gold, \\var{WireB} wires, and can plate \\var{CoinsB} coins. There are \\var{TotalGold} units of gold and \\var{TotalWires} wires available. How many processes of each type should be run to maximize the total number of coins that can be plated?",
+  "target_objective": "Maximize the total number of coins plated by running an optimal number of operations for each process",
+  "target_constraints": [
+    "Number of Process A operations is an integer",
+    "Number of Process B operations is an integer",
+    "Number of Process A operations is non-negative",
+    "Number of Process B operations is non-negative",
+    "Total units of gold used by Process A and B cannot exceed TotalGold",
+    "Total wires used by Process A and B cannot exceed TotalWires"
+  ],
+  "target_parameters": [
+    "Gold requirement for process A",
+    "Wire requirement for process A",
+    "Number of coins plated by process A",
+    "Gold requirement for process B",
+    "Wire requirement for process B",
+    "Number of coins plated by process B",
+    "Total units of gold available",
+    "Total number of wires available"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal allocation of resources to maximize output.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Does the problem involve any constraints on the total amount of resources available?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Does the problem involve any constraints on the total amount of resources available?\nUser: Yes\n\nExpert: Are there multiple types of resources involved in this allocation problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Does the problem involve any constraints on the total amount of resources available?\nUser: Yes\n\nExpert: Are there multiple types of resources involved in this allocation problem?\nUser: Yes\n\nExpert: Are there any constraints or requirements on the minimum or maximum output levels for the problem?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of resources to maximize output.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Does the problem include any constraints related to quality standards that products must meet?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Does the problem include any constraints related to quality standards that products must meet?\nUser: No\n\nExpert: Does the problem involve a budget constraint in terms of monetary units?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Does the problem include any constraints related to quality standards that products must meet?\nUser: No\n\nExpert: Does the problem involve a budget constraint in terms of monetary units?\nUser: No\n\nExpert: Does the problem involve distinct types of resources needing allocation (e.g., labor, raw materials, machine hours) with specific constraints for each type?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal allocation of resources to maximize output.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Are the resources and outputs being compared across different projects or departments within the organization?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Are the resources and outputs being compared across different projects or departments within the organization?\nUser: Yes\n\nExpert: Are the resources being used in a way that varies depending on the project or department they are assigned to (e.g., are resources dedicated to specific projects or can they be reassigned between projects)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Are the resources and outputs being compared across different projects or departments within the organization?\nUser: Yes\n\nExpert: Are the resources being used in a way that varies depending on the project or department they are assigned to (e.g., are resources dedicated to specific projects or can they be reassigned between projects)?\nUser: Yes\n\nExpert: Is the objective to maximize output in terms of a specific metric that can be quantitatively measured (e.g., revenue, profit, units produced)?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of resources to maximize output.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Are any of the constraints containing the word 'resource' or any derivatives (e.g., 'resources', 'resource allocation', etc.)?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Are any of the constraints containing the word 'resource' or any derivatives (e.g., 'resources', 'resource allocation', etc.)?\nUser: No\n\nExpert: Do any of the problem constraints involve time-based constraints (specifically: time, production time, season, weather conditions, etc.)?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Are any of the constraints containing the word 'resource' or any derivatives (e.g., 'resources', 'resource allocation', etc.)?\nUser: No\n\nExpert: Do any of the problem constraints involve time-based constraints (specifically: time, production time, season, weather conditions, etc.)?\nUser: No\n\nExpert: Are there any constraints listed for the given problem?\nUser: Yes\n"
+  }
+}

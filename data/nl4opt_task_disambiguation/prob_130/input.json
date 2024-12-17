@@ -1,0 +1,21 @@
+{
+  "vague_description": "A person is experiencing difficulty in selecting the optimal quantities of two medications to achieve the desired therapeutic effects within specified constraints.",
+  "detailed_description": "A patient in the hospital can take two different pain killers, pain killer 1 and pain killer 2. Per dose, pain killer 1 delivers \\param{LegMedicinePainKiller1} units of medicine to the legs and \\param{BackMedicinePainKiller1} units of medicine to the back. Per dose, pain killer 2 delivers \\param{LegMedicinePainKiller2} units of medicine to the legs and \\param{BackMedicinePainKiller2} units of medicine to the back. In addition, pain killer 1 delivers \\param{SleepMedicinePainKiller1} units of sleeping medicine and pain killer 2 delivers \\param{SleepMedicinePainKiller2} units of sleeping medicine. At most \\param{MaxSleepMedicine} units of sleep medicine should be delivered and at least \\param{MinLegMedicine} units of medicine should be delivered to the legs. How many doses of each should be taken to maximize the amount of medicine delivered to the back?",
+  "target_objective": "Maximize the total amount of medicine delivered to the back",
+  "target_constraints": [
+    "Number of doses of pain killer 1 is non-negative",
+    "Number of doses of pain killer 2 is non-negative",
+    "Total amount of sleep medicine from both pain killers is at most MaxSleepMedicine units",
+    "Total amount of leg medicine from both pain killers is at least MinLegMedicine units"
+  ],
+  "target_parameters": [
+    "Amount of leg medicine per dose of pain killer 1",
+    "Amount of back medicine per dose of pain killer 1",
+    "Amount of leg medicine per dose of pain killer 2",
+    "Amount of back medicine per dose of pain killer 2",
+    "Amount of sleep medicine per dose of pain killer 1",
+    "Amount of sleep medicine per dose of pain killer 2",
+    "Maximum units of sleep medicine allowed",
+    "Minimum units of leg medicine required"
+  ]
+}

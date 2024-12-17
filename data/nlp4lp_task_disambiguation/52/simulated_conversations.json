@@ -1,0 +1,44 @@
+{
+  "vague_description": "The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.",
+  "detailed_description": "How many batches of each part should the manufacturer produce each month to maximize profit? The manufacturer has \\param{M} machines and \\param{P} parts to be produced. Each machine m has an associated cost of \\param{MachineCosts}, time requirement \\param{TimeRequired}, and availability \\param{Availability} per month. Each part p has a selling price \\param{Prices} and a production minimum requirement \\param{MinBatches}.",
+  "target_objective": "Maximize the manufacturer's profit from producing parts, which is calculated from the selling prices of parts minus the costs of using machines",
+  "target_constraints": [
+    "Number of batches for each part p is non-negative",
+    "Each machine m can be used for up to Availability[m] hours per month",
+    "Each part p must be produced in at least MinBatches[p] batches",
+    "The total time used on each machine m by all parts p does not exceed TimeRequired[m][p] multiplied by the number of batches for part p, summed across all parts"
+  ],
+  "target_parameters": [
+    "Number of machines",
+    "Number of parts to be produced",
+    "Time required to produce a batch of part p on machine m",
+    "Cost associated with running machine m",
+    "Availability of machine m per month",
+    "Selling price of a batch of part p",
+    "Minimum number of batches of part p that should be produced"
+  ],
+  "Expert": {
+    "(0,)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.",
+    "(0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Does the optimization problem include constraints on the maximum production capacity for the machines involved?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Does the optimization problem include constraints on the maximum production capacity for the machines involved?\nUser: Yes\n\nExpert: Are there different types of products being manufactured that have distinct production requirements and profit margins?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Does the optimization problem include constraints on the maximum production capacity for the machines involved?\nUser: Yes\n\nExpert: Are there different types of products being manufactured that have distinct production requirements and profit margins?\nUser: Yes\n\nExpert: Are there constraints related to the availability or cost of raw materials needed for production?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.",
+    "(0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Do the candidate problems include constraints related to inventory levels or storage capacity limits?\nUser: No\n",
+    "(0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Do the candidate problems include constraints related to inventory levels or storage capacity limits?\nUser: No\n\nExpert: Is there a constraint related to the non-negativity or integer requirement of production quantities?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Do the candidate problems include constraints related to inventory levels or storage capacity limits?\nUser: No\n\nExpert: Is there a constraint related to the non-negativity or integer requirement of production quantities?\nUser: Yes\n\nExpert: Do all candidate problems include constraints specifically related to machine operating costs?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.",
+    "(0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Is time a limiting factor in the production process that affects the objective of maximizing profits?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Is time a limiting factor in the production process that affects the objective of maximizing profits?\nUser: Yes\n\nExpert: Is the production process subject to any time-dependent constraints such as a limited number of production shifts or a maximum working hour limit?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Is time a limiting factor in the production process that affects the objective of maximizing profits?\nUser: Yes\n\nExpert: Is the production process subject to any time-dependent constraints such as a limited number of production shifts or a maximum working hour limit?\nUser: Yes\n\nExpert: Is the time-dependent constraint you mentioned a hard limit (i.e., cannot exceed it) or a soft limit (i.e., there are penalties for exceeding it)?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.",
+    "(0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Does the problem description contain a parameter related to the production quantity or levels?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Does the problem description contain a parameter related to the production quantity or levels?\nUser: Yes\n\nExpert: Does the objective function contain the word 'maximize'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Does the problem description contain a parameter related to the production quantity or levels?\nUser: Yes\n\nExpert: Does the objective function contain the word 'maximize'?\nUser: Yes\n\nExpert: Does the problem description contain the word 'maximize' (case-insensitive) in its 'objective' field?\nUser: Yes\n"
+  }
+}

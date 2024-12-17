@@ -1,0 +1,19 @@
+{
+  "vague_description": "Optimizing fleet composition for a tourism company balancing capacity, pollution, and customer demand.",
+  "detailed_description": "A tourism company can buy sedans or buses to add to their fleet of vehicles to increase their capacity for more tourists. A sedan can seat \\param{SedanCapacity} tourists per day but results in \\param{SedanPollution} units of pollution. A bus can seat \\param{BusCapacity} tourists per day but results in \\param{BusPollution} units of pollution. The city has limited this tourism company to producing at most \\param{MaxPollution} units of pollutants per day. To make a profit, this tourism company must take care of at least \\param{MinCustomers} customers per day. Planning to make a profit, how many sedans and how many buses should this tourism company purchase to decrease the total number of vehicles needed?",
+  "target_objective": "Minimize the total number of vehicles needed to meet customer and pollution constraints",
+  "target_constraints": [
+    "Number of sedans is non-negative",
+    "Number of buses is non-negative",
+    "Total pollution from sedans and buses cannot exceed MaxPollution",
+    "Total capacity of sedans and buses must be at least MinCustomers"
+  ],
+  "target_parameters": [
+    "Seating capacity per sedan per day",
+    "Pollution units per sedan",
+    "Seating capacity per bus per day",
+    "Pollution units per bus",
+    "Maximum allowed pollution units per day",
+    "Minimum number of customers to be served per day for profit"
+  ]
+}

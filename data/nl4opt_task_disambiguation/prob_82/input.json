@@ -1,0 +1,19 @@
+{
+  "vague_description": "Determine the optimal combination of small and large butcher shops to meet production and labor constraints with minimal shop count.",
+  "detailed_description": "A hot dog company can build two types of butcher shops, a small shop and a large shop. A small shop can make \\param{HotDogsSmall} hot dogs per day and requires \\param{WorkersSmall} workers. A large shop can make \\param{HotDogsLarge} hot dogs per day and requires \\param{WorkersLarge} workers. The company must make at least \\param{MinHotDogs} hot dogs per day but they only have available \\param{TotalWorkers} workers. How many of each butcher shop should the company build to minimize the total number of butcher shops?",
+  "target_objective": "Minimize the total number of small and large butcher shops",
+  "target_constraints": [
+    "Number of small shops is non-negative",
+    "Number of large shops is non-negative",
+    "Total daily hot dogs produced by small and large shops must be at least MinHotDogs",
+    "Total workers for small and large shops must not exceed TotalWorkers"
+  ],
+  "target_parameters": [
+    "Number of hot dogs produced per day by a small shop",
+    "Number of workers required for a small shop",
+    "Number of hot dogs produced per day by a large shop",
+    "Number of workers required for a large shop",
+    "Minimum number of hot dogs that must be produced per day",
+    "Total number of workers available"
+  ]
+}

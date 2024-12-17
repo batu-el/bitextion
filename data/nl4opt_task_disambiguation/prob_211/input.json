@@ -1,0 +1,23 @@
+{
+  "vague_description": "A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.",
+  "detailed_description": "A flooring company produces engineered laminate planks and carpets. The chief marketer reports an expected demand of at least \\param{Dlaminate} square feet of laminate planks and \\param{Dcarpet} square feet of carpets each week. The shipping contract requires a total of at least \\param{Dtotal} square feet of products each week. However, due to a shortage of raw materials, no more than \\param{Claminate} square feet of laminate planks and \\param{Ccarpet} square feet of carpets can be produced weekly. If a square foot of laminate planks produces a \\param{Plaminate} profit and a square foot of carpets yields a \\param{Pcarpet} profit, how many of each type of product should be made weekly to maximize the company's profit?",
+  "target_objective": "Maximize the company's weekly profit from producing laminate planks and carpets",
+  "target_constraints": [
+    "Produce at least Dlaminate square feet of laminate planks per week",
+    "Produce at least Dcarpet square feet of carpets per week",
+    "Produce a total of at least Dtotal square feet of products each week",
+    "Produce no more than Claminate square feet of laminate planks per week",
+    "Produce no more than Ccarpet square feet of carpets per week",
+    "Number of square feet of laminate planks produced is non-negative",
+    "Number of square feet of carpets produced is non-negative"
+  ],
+  "target_parameters": [
+    "Minimum expected demand for laminate planks per week",
+    "Minimum expected demand for carpets per week",
+    "Minimum total amount of products to be shipped per week",
+    "Maximum production capacity for laminate planks per week",
+    "Maximum production capacity for carpets per week",
+    "Profit per square foot for laminate planks",
+    "Profit per square foot for carpets"
+  ]
+}

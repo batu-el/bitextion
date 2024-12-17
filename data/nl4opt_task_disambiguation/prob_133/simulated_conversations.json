@@ -1,0 +1,45 @@
+{
+  "vague_description": "The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.",
+  "detailed_description": "A pharmaceutical company has \\param{TotalPainkillerUnits} units of painkiller medicine and makes daytime and nighttime painkiller pills. A daytime pill has \\param{DaytimePainkillerUnits} units of painkiller medicine and \\param{DaytimeSleepUnits} units of sleep medicine. A nighttime pill has \\param{NighttimePainkillerUnits} units of painkiller medicine and \\param{NighttimeSleepUnits} units of sleep medicine. Since some people don\u2019t want the sleeping effect, at least \\param{MinimumDaytimePercentage} of the pills must be daytime pills. However, at least \\param{MinimumNighttimePills} nighttime pills must be made. How many of each pill should be made to minimize the total amount of sleep medicine required?",
+  "target_objective": "Minimize the total amount of sleep medicine used in the pills",
+  "target_constraints": [
+    "Total units of painkiller medicine used cannot exceed TotalPainkillerUnits",
+    "At least MinimumDaytimePercentage % of the total number of pills must be daytime pills",
+    "At least MinimumNighttimePills nighttime pills must be made",
+    "Number of daytime pills is non-negative",
+    "Number of nighttime pills is non-negative"
+  ],
+  "target_parameters": [
+    "Total units of painkiller medicine available",
+    "Units of painkiller medicine per daytime pill",
+    "Units of sleep medicine per daytime pill",
+    "Units of painkiller medicine per nighttime pill",
+    "Units of sleep medicine per nighttime pill",
+    "Minimum percentage of pills that must be daytime pills",
+    "Minimum number of nighttime pills required"
+  ],
+  "Expert": {
+    "(0,)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.",
+    "(0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Is there a specific numerical production constraint or limitation on either type of pharmaceutical pill?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Is there a specific numerical production constraint or limitation on either type of pharmaceutical pill?\nUser: Yes.\n\nExpert: Are the production constraints related to the total number of pills that can be produced within a given time frame?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Is there a specific numerical production constraint or limitation on either type of pharmaceutical pill?\nUser: Yes.\n\nExpert: Are the production constraints related to the total number of pills that can be produced within a given time frame?\nUser: Yes.\n\nExpert: Are there specific cost factors associated with the production of each type of pill that impact the objective function of the optimization problem?\nUser: No.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.",
+    "(0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Does the problem involve a constraint on the minimum production requirement for Pill B or its equivalent to meet demand or market share needs?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Does the problem involve a constraint on the minimum production requirement for Pill B or its equivalent to meet demand or market share needs?\nUser: Yes\n\nExpert: Is the primary objective of the problem to maximize profit rather than production output?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Does the problem involve a constraint on the minimum production requirement for Pill B or its equivalent to meet demand or market share needs?\nUser: Yes\n\nExpert: Is the primary objective of the problem to maximize profit rather than production output?\nUser: No\n\nExpert: Does any problem description include a monetary production budget as a constraint?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.",
+    "(0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Are there any physical or material constraints on the production of these pills (e.g. limited raw materials, equipment capacity)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Are there any physical or material constraints on the production of these pills (e.g. limited raw materials, equipment capacity)?\nUser: Yes\n\nExpert: Are these physical or material constraints related to the availability of a single critical resource that is shared between the two types of pills? \nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Are there any physical or material constraints on the production of these pills (e.g. limited raw materials, equipment capacity)?\nUser: Yes\n\nExpert: Are these physical or material constraints related to the availability of a single critical resource that is shared between the two types of pills? \nUser: Yes\n\nExpert: Is this shared critical resource used in the exact same proportion by both types of pills?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.",
+    "(0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Is the objective function specified as a maximization problem (e.g., 'Maximize' or 'maximize')?\nUser: No\n",
+    "(0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Is the objective function specified as a maximization problem (e.g., 'Maximize' or 'maximize')?\nUser: No\n\nExpert: Is the objective function explicitly stated as a minimization of a numerical value or is it a general term like 'minimize' or 'minimize production costs'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Is the objective function specified as a maximization problem (e.g., 'Maximize' or 'maximize')?\nUser: No\n\nExpert: Is the objective function explicitly stated as a minimization of a numerical value or is it a general term like 'minimize' or 'minimize production costs'?\nUser: Yes\n\nExpert: Does the problem description explicitly mention 'costs' or 'cost' as one of the parameters?\nUser: No\n"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "vague_description": "Determine the optimal box distribution to meet mask demand while adhering to packaging constraints.",
+  "detailed_description": "A mask making company ships masks to their retail stores using small boxes and large boxes. A small box holds \\param{SmallBoxCapacity} masks whereas a large box holds \\param{LargeBoxCapacity} masks. Since small boxes are easier to stack and will be used first to stock stores, there must be at least \\param{MinSmallToLargeRatio} times as many small boxes as large boxes. Additionally, at least \\param{MinLargeBoxes} large boxes must be used. If at least \\param{MinMasksRequired} masks are required to be distributed, how many of each size of box should be used to minimize the total number of boxes needed?",
+  "target_objective": "Minimize the total number of boxes needed to ship the masks",
+  "target_constraints": [
+    "Number of small boxes is non-negative",
+    "Number of large boxes is non-negative",
+    "Number of small boxes must be at least MinSmallToLargeRatio times the number of large boxes",
+    "At least MinLargeBoxes large boxes must be used",
+    "At least MinMasksRequired masks must be distributed"
+  ],
+  "target_parameters": [
+    "Number of masks a small box can hold",
+    "Number of masks a large box can hold",
+    "Minimum ratio of the number of small boxes to large boxes",
+    "Minimum number of large boxes required",
+    "Minimum number of masks required to be distributed"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "vague_description": "The challenge is determining the optimal operational hours for each factory to meet production targets while managing resource constraints.",
+  "detailed_description": "A drug company is making allergy pills and fever reducing pills in two factories, factory 1 and factory 2. Factory 1 produces \\param{AllergyPillsFactory1} allergy pills and \\param{FeverPillsFactory1} fever reducing pills per hour. Factory 2 produces \\param{AllergyPillsFactory2} allergy pills and \\param{FeverPillsFactory2} fever reducing pills per hour. Factory 1 is much more efficient and only requires \\param{CompoundFactory1} units of a rare compound while factory 2 requires \\param{CompoundFactory2} units of a rare compound. The company only has available \\param{TotalCompound} units of the rare compound. If the company must make at least \\param{MinAllergyPills} allergy pills and \\param{MinFeverPills} fever reducing pills, how many hours should each factory be run to minimize the total time needed?",
+  "target_objective": "Minimize the total operational time of the two factories",
+  "target_constraints": [
+    "Available rare compound is limited to TotalCompound units",
+    "At least MinAllergyPills allergy pills must be produced",
+    "At least MinFeverPills fever reducing pills must be produced",
+    "Factory operational hours are non-negative"
+  ],
+  "target_parameters": [
+    "Allergy pills produced per hour by factory 1",
+    "Fever reducing pills produced per hour by factory 1",
+    "Allergy pills produced per hour by factory 2",
+    "Fever reducing pills produced per hour by factory 2",
+    "Units of rare compound required by factory 1",
+    "Units of rare compound required by factory 2",
+    "Total units of the rare compound available",
+    "Minimum required allergy pills",
+    "Minimum required fever reducing pills"
+  ]
+}

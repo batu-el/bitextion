@@ -1,0 +1,21 @@
+{
+  "vague_description": "A factory needs to transport a minimum number of employees using a combination of limited company car rides and taxi rides, with certain capacity constraints and cost considerations.",
+  "detailed_description": "A factory provides rides for its employees in either taxis or company cars. Each taxi ride can take \\param{TaxiCapacity} employees while each company car ride can take \\param{CarCapacity} employees. Since buying and maintaining cars is expensive, at most \\param{MaxCarRideProportion} of the rides can be company car rides. However, there has to be at least \\param{MinCarRides} company car rides. If the company needs to transport at least \\param{MinEmployees} employees, how many rides of each should be done to minimize the total number of taxi rides.",
+  "target_objective": "Minimize the total number of taxi rides",
+  "target_constraints": [
+    "Each taxi ride can carry up to TaxiCapacity employees",
+    "Each company car ride can carry up to CarCapacity employees",
+    "At most MaxCarRideProportion of the rides can be company car rides",
+    "There must be at least MinCarRides of company car rides",
+    "There must be enough rides to transport at least MinEmployees employees",
+    "Number of taxi rides is non-negative",
+    "Number of company car rides is non-negative"
+  ],
+  "target_parameters": [
+    "Number of employees that a taxi ride can take",
+    "Number of employees that a company car ride can take",
+    "Maximum proportion of the total rides that can be company car rides",
+    "Minimum number of company car rides",
+    "Minimum number of employees to be transported"
+  ]
+}

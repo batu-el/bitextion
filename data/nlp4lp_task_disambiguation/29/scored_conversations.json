@@ -1,0 +1,495 @@
+{
+  "vague_description": "Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.",
+  "detailed_description": "Maximize the total manpower requirement over five years. The manpower requirements for operations one in year k is \\param{ManpowerOne}, and for operations two is \\param{ManpowerTwo}. The stock level of product k at the beginning of the year is \\param{Stock}, the production capacity for product k for the year is \\param{Capacity}, and the demand for product k for the year is \\param{Demand}. The input one coefficient for product k with respect to product j is \\param{InputOne}, and the input two coefficient for product k with respect to product j is \\param{InputTwo}.",
+  "target_objective": "Maximize the total manpower requirement over five years",
+  "target_constraints": [],
+  "target_parameters": [
+    "The number of years over which the total manpower requirement is maximized",
+    "Manpower requirements for operations one in year k",
+    "Manpower requirements for operations two in year k",
+    "Stock level of product k at the beginning of the year",
+    "Production capacity for product k for the year",
+    "Demand for product k for the year",
+    "Input one coefficient for product k with respect to product j",
+    "Input two coefficient for product k with respect to product j"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.\nExpert: Are there any specific constraints on the availability or usage of resources over the multi-year period in this optimization problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.\nExpert: Are there any specific constraints on the availability or usage of resources over the multi-year period in this optimization problem?\nUser: Yes\n\nExpert: Are the resource constraints based on annual limits rather than an aggregate limit over the entire multi-year period?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.\nExpert: Are there any specific constraints on the availability or usage of resources over the multi-year period in this optimization problem?\nUser: Yes\n\nExpert: Are the resource constraints based on annual limits rather than an aggregate limit over the entire multi-year period?\nUser: Yes\n\nExpert: Is the objective of the optimization problem to minimize costs while meeting production and stock demands?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.\nExpert: Does the problem allow for backorders to fulfill demand requirements?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.\nExpert: Does the problem allow for backorders to fulfill demand requirements?\nUser: No\n\nExpert: Do any of the candidate problems involve managing workforce levels with associated hiring and firing costs as part of the constraints or parameters?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.\nExpert: Does the problem allow for backorders to fulfill demand requirements?\nUser: No\n\nExpert: Do any of the candidate problems involve managing workforce levels with associated hiring and firing costs as part of the constraints or parameters?\nUser: No\n\nExpert: Does the problem involve specific limits on production change rates between consecutive periods?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.\nExpert: Is the problem time-sensitive, such that delaying production or shipments of goods would incur significant costs or penalties?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.\nExpert: Is the problem time-sensitive, such that delaying production or shipments of goods would incur significant costs or penalties?\nUser: No\n\nExpert: Is the objective of the problem to minimize total costs, including production and inventory holding costs?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.\nExpert: Is the problem time-sensitive, such that delaying production or shipments of goods would incur significant costs or penalties?\nUser: No\n\nExpert: Is the objective of the problem to minimize total costs, including production and inventory holding costs?\nUser: No\n\nExpert: Is the objective of the problem to maximize the overall profit or revenue, taking into account sales and production volumes?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.\nExpert: Is there at least one constraint that explicitly mentions a time horizon, such as years, periods, or time?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.\nExpert: Is there at least one constraint that explicitly mentions a time horizon, such as years, periods, or time?\nUser: Yes\n\nExpert: Are there any constraints related to maximizing a particular value (e.g., profit, revenue, or capacity utilization)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.\nExpert: Is there at least one constraint that explicitly mentions a time horizon, such as years, periods, or time?\nUser: Yes\n\nExpert: Are there any constraints related to maximizing a particular value (e.g., profit, revenue, or capacity utilization)?\nUser: Yes\n\nExpert: Does the problem statement explicitly mention a 'time horizon' or a 'limited duration' associated with the optimization problem?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource constraints",
+            "Production demands",
+            "Stock demands",
+            "Multi-year time horizon",
+            "Objective function (e.g., cost minimization)",
+            "Production capacity",
+            "Storage capacity",
+            "Demand forecast",
+            "Lead times"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the allocation of resources in order to efficiently meet production and stock demands over a multi-year period."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production capacity per year should not exceed 200,000 units.",
+            "The minimum stock level must be maintained at 10,000 units at all times.",
+            "The maximum budget for resource allocation per year is $5,000,000.",
+            "Labor resources are capped at 500 workers per year.",
+            "Material costs should not surpass $2,000,000 annually.",
+            "Annual demand projection must be met with a service level of at least 95%.",
+            "Environmental impact metrics, such as carbon emissions, should not exceed 50,000 kg CO2 per year.",
+            "Each year, at least 5% of resources must be allocated to research and development."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource availability",
+            "usage constraints",
+            "production demands",
+            "stock demands",
+            "multi-year planning horizon"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the allocation of resources to satisfy production and stock demands over a multi-year period while adhering to specific constraints on resource availability and usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability is limited and cannot exceed predefined annual quotas.",
+            "Certain resources may only be used during specific periods of the year due to seasonal variations.",
+            "Stock levels must be maintained above a minimum threshold to ensure supply chain continuity.",
+            "Resource usage must comply with environmental regulations limiting emissions and waste.",
+            "Financial constraints require that the total allocation cost does not exceed the budget for each year.",
+            "Human resource constraints include a maximum working hour limit per employee per week.",
+            "Production must meet a minimum quality standard, which requires specific high-quality resources.",
+            "There are contractual obligations to use a specified amount of locally sourced materials."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "multi-year period",
+            "production demands",
+            "stock demands",
+            "annual resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of resources on an annual basis to meet production and stock demands while adhering to specific constraints on resource availability or usage for each year over a multi-year period."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource usage is limited annually, not on an aggregate basis over the entire multi-year period."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Multi-year period",
+            "Specific constraints on the availability or usage of resources",
+            "Annual resource constraints",
+            "Objective not centered on cost minimization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit while meeting production and stock demands over a multi-year period."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability is limited on an annual basis, not as an aggregate over the multi-year period.",
+            "Production and stock demands must be met for each year individually.",
+            "No indication that cost minimization is the objective of the optimization."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total available resources",
+            "Production demand for each year",
+            "Stock demand for each year",
+            "Maximum production capacity per year",
+            "Minimum stock level per year",
+            "Resource usage per unit of production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of resources to meet production and stock demands over a multi-year period."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity is limited to x units per year.",
+            "Stock level should not fall below the minimum safety stock level of y units.",
+            "Resources allocated cannot exceed the budget of $z each year.",
+            "Resources allocation must adhere to labor and machine hour availability each year.",
+            "Meet a minimum of a% of demand in each year.",
+            "Maintain a buffer stock of b% of annual demand to mitigate supply chain disruptions."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Production demands",
+            "Stock demands",
+            "Multi-year period",
+            "No backorders"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to allocate resources optimally to satisfy production and stock demands over a multi-year period without permitting backorders."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No backorders are allowed."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "allocation of resources",
+            "meet production demands",
+            "meet stock demands",
+            "multi-year period",
+            "no backorders"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of resources to meet production and stock demands over a multi-year period without allowing for backorders."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Backorders are not allowed.",
+            "Managing workforce levels with hiring and firing costs is not a constraint."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "production demands",
+            "stock demands",
+            "multi-year period",
+            "no backorders"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources optimally to meet production and stock demands across multiple years, ensuring demand is met without allowing any backorders."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Backorders are not allowed to fulfill demand requirements."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource_allocation",
+            "production_capacity",
+            "stock_demands",
+            "time_horizon",
+            "costs",
+            "budgets",
+            "resource_availability",
+            "production_constraints",
+            "stock_constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources efficiently to satisfy both production and stock requirements over several years."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of resources allocated cannot exceed the available supply for each year.",
+            "Production demands for each product must be met for each year.",
+            "Stock demands must be met by the end of the multi-year period.",
+            "Resource allocation decisions for each year must be feasible given the production capacity limits.",
+            "The allocation must ensure that any interdependencies or co-production requirements between products are met.",
+            "Any legal or regulatory constraints pertinent to resource allocation across multi-year periods must be adhered to."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "production demands",
+            "stock demands",
+            "multi-year period",
+            "no significant penalties for delayed production or shipments"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources effectively to meet production and stock demands over a multi-year period without incurring time-sensitive costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The resource allocation must meet production demands for each period.",
+            "The resource allocation must meet stock demands for each period.",
+            "Resources cannot be allocated beyond the available supply in any period.",
+            "There are no penalties for delaying production or shipments, implying flexibility in scheduling production and distribution throughout the multi-year period."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "multi-year period",
+            "production demands",
+            "stock demands",
+            "resource allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize the allocation of resources to meet production and stock demands over a multi-year period, potentially focusing on maximizing efficiency or meeting certain production goals rather than minimizing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation should meet production demands over a multi-year period.",
+            "The allocation should meet stock demands over a multi-year period."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "allocation of resources",
+            "production demands",
+            "stock demands",
+            "multi-year planning"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimally allocate resources to ensure production and stock demands are consistently met over a multi-year period, possibly focusing on meeting demand or optimizing resource usage without directly minimizing costs or maximizing profit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of resources should meet production demands.",
+            "The allocation of resources should meet stock demands.",
+            "There are no significant costs or penalties associated with delaying production or shipments."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Goals",
+            "Stock Levels",
+            "Time Horizon",
+            "Resource Types",
+            "Initial Resource Availability",
+            "Cost of Resources",
+            "Demand Forecast",
+            "Production Capacity",
+            "Holding Costs",
+            "Constraints (e.g., resource availability, production limits)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal allocation of resources to meet production and stock demands over a multi-year period."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability is limited and must be distributed optimally to ensure production is uninterrupted.",
+            "Production must meet or exceed the demand forecast for each year in the multi-year period.",
+            "Stock levels must be maintained to meet sudden increases in demand without causing stockouts.",
+            "Resource allocation should minimize costs while maximizing efficiency.",
+            "There should be a balance between different types of resources ensuring none are over-utilized or under-utilized.",
+            "The allocation plan must comply with regulatory and safety requirements.",
+            "Environmental impact of resource allocation decisions must be minimized.",
+            "Flexibility should be ensured to quickly adapt to changes in market conditions."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "production demands",
+            "stock demands",
+            "time horizon (years, periods)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal allocation of resources to satisfy production and stock demands over a specified multi-year period by considering the constraints related to time."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of resources must meet production and stock demands over a multi-year period."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "time horizon",
+            "production capacity",
+            "stock demand",
+            "resource availability",
+            "profit maximization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal allocation of resources to maximize a specific value (such as profit, revenue, or capacity utilization) while meeting production and stock demands over a specified multi-year period."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The time horizon for resource allocation is established over multiple years or periods.",
+            "There is a constraint to maximize value such as profit, revenue, or capacity utilization."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Time horizon",
+            "Profit",
+            "Revenue",
+            "Capacity utilization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal allocation of resources to maximize a specific value, such as profit or revenue, while meeting production and stock demands over a multi-year time horizon."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must satisfy production demands over a multi-year time horizon.",
+            "The solution should maintain stock levels across a specified time period.",
+            "Resource allocation must also consider maximization of profit, revenue, or capacity utilization."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    }
+  }
+}

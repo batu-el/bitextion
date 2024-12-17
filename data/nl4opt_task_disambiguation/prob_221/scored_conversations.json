@@ -1,0 +1,471 @@
+{
+  "vague_description": "How can the company balance production and cost constraints to optimize its profit from software license sales?",
+  "detailed_description": "Platinum Database sells two types of subscription software packages: a personal license and a commercial license which will cost \\param{PersonalLicenseCost} and \\param{CommercialLicenseCost} to generate respectively. The marketing department estimates that they can sell at most \\param{MaxLicenses} licenses for both versions combined a month. The profit per personal license is \\param{PersonalLicenseProfit} and the profit per commercial version is \\param{CommercialLicenseProfit}. If the company does not want to spend more than \\param{TotalCostLimit}, how many of each software package should they produce to maximize the profits.",
+  "target_objective": "Maximize the profit from the sale of personal and commercial software licenses",
+  "target_constraints": [
+    "Number of personal licenses produced is non-negative",
+    "Number of commercial licenses produced is non-negative",
+    "Combined number of personal and commercial licenses produced cannot exceed MaxLicenses",
+    "Total cost to produce personal and commercial licenses cannot exceed TotalCostLimit"
+  ],
+  "target_parameters": [
+    "Cost to generate a personal license",
+    "Cost to generate a commercial license",
+    "Maximum number of licenses sold per month",
+    "Profit per personal license",
+    "Profit per commercial license",
+    "Total cost limit"
+  ],
+  "Expert": {
+    "(0,)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?",
+    "(0, 0)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?\nExpert: Does the company have specific constraints on the minimum or maximum number of software licenses they must sell?\nUser: No, the company only has a maximum constraint on the total number of licenses they can sell per month, which is given as \\( \\texttt{MaxLicenses} \\).\n",
+    "(0, 0, 0)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?\nExpert: Does the company have specific constraints on the minimum or maximum number of software licenses they must sell?\nUser: No, the company only has a maximum constraint on the total number of licenses they can sell per month, which is given as \\( \\texttt{MaxLicenses} \\).\n\nExpert: Are there constraints related to the production capacity in terms of total costs or resources available for producing these licenses?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?\nExpert: Does the company have specific constraints on the minimum or maximum number of software licenses they must sell?\nUser: No, the company only has a maximum constraint on the total number of licenses they can sell per month, which is given as \\( \\texttt{MaxLicenses} \\).\n\nExpert: Are there constraints related to the production capacity in terms of total costs or resources available for producing these licenses?\nUser: Yes\n\nExpert: Are there any known coefficients for the relationship between the number of licenses sold and the resulting profit?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?",
+    "(0, 0)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?\nExpert: Does the problem description include a constraint related to maintaining a minimum percentage of sales relative to production?\nUser: No\n",
+    "(0, 0, 0)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?\nExpert: Does the problem description include a constraint related to maintaining a minimum percentage of sales relative to production?\nUser: No\n\nExpert: Is there a constraint requiring the sales revenue to cover fixed costs or ensure a minimum profit margin in the problem description?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?\nExpert: Does the problem description include a constraint related to maintaining a minimum percentage of sales relative to production?\nUser: No\n\nExpert: Is there a constraint requiring the sales revenue to cover fixed costs or ensure a minimum profit margin in the problem description?\nUser: No\n\nExpert: Does the problem description include constraints related to production quality standards?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?",
+    "(0, 0)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?\nExpert: Are the production costs and revenue from software license sales directly related to the number of licenses sold?\nUser: Yes\n",
+    "(0, 0, 0)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?\nExpert: Are the production costs and revenue from software license sales directly related to the number of licenses sold?\nUser: Yes\n\nExpert: Is there a limit to the number of licenses that can be sold, such as a fixed market size or regulatory constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?\nExpert: Are the production costs and revenue from software license sales directly related to the number of licenses sold?\nUser: Yes\n\nExpert: Is there a limit to the number of licenses that can be sold, such as a fixed market size or regulatory constraints?\nUser: Yes\n\nExpert: Is the number of licenses sold the only variable that affects production costs or revenue from software license sales?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?",
+    "(0, 0)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?\nExpert: Does the problem have more than one constraint that involves costs (e.g., 'Cost of Production', 'Cost constraint', 'production cost', etc.)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?\nExpert: Does the problem have more than one constraint that involves costs (e.g., 'Cost of Production', 'Cost constraint', 'production cost', etc.)?\nUser: Yes\n\nExpert: Does the problem description mention 'Maximize' or 'Maximize' in the objective?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How can the company balance production and cost constraints to optimize its profit from software license sales?\nExpert: Does the problem have more than one constraint that involves costs (e.g., 'Cost of Production', 'Cost constraint', 'production cost', etc.)?\nUser: Yes\n\nExpert: Does the problem description mention 'Maximize' or 'Maximize' in the objective?\nUser: Yes\n\nExpert: Does the objective include the word 'profit'?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production capacity: maximum number of software licenses that can be produced within a given time frame.",
+            "Cost constraints: budget available for production, marketing, and distribution of software licenses.",
+            "Sales price per license: the price at which each software license is sold.",
+            "Demand forecast: projected demand for software licenses based on market research.",
+            "Fixed costs: costs that do not change with the level of production, such as rent, salaries, and utilities.",
+            "Variable costs: costs that vary with production volume, such as raw materials and distribution.",
+            "Profit margin: desired profit margin per software license sold.",
+            "Production time: time required to produce one software license."
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profit from software license sales by balancing production levels with cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The pricing of software licenses must be competitive with market standards.",
+            "Total production cost must not exceed the allocated budget.",
+            "The production capacity is limited to 100,000 units per month.",
+            "The software product must meet all quality assurance standards set by the industry.",
+            "Compliance with all legal and regulatory licensing requirements is mandatory."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "MaxLicenses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit from software license sales by balancing production and cost constraints while adhering to the maximum sales constraint of MaxLicenses per month."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "TotalLicenses \\\\leq MaxLicenses"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "MaxLicenses - a constraint on the total number of software licenses the company can sell per month."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the company's profit from software license sales by balancing production costs and adhering to the maximum sales constraint, ensuring resource availability and cost-effectiveness in production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of licenses sold per month must not exceed MaxLicenses.",
+            "Production costs must not exceed the allocated budget for license production.",
+            "Resources used in license production must not exceed available resources."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximum number of licenses that can be sold per month: MaxLicenses",
+            "Constraints on production capacity related to total costs or resources",
+            "Coefficients for the relationship between the number of licenses sold and profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from software license sales while considering production capacity constraints and adhering to a maximum sales limit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The company can sell up to \\( \\texttt{MaxLicenses} \\) software licenses per month.",
+            "There is a production capacity constraint related to the total costs or resources available.",
+            "There are defined coefficients that relate the number of licenses sold to the resulting profit."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production constraints",
+            "cost constraints",
+            "profit from software license sales"
+          ]
+        },
+        "pred_objective": {
+          "objective": "balancing production and cost constraints to maximize profit from software license sales"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity for software licenses cannot exceed 10,000 units per month.",
+            "The cost of producing each software license is fixed and should not surpass $5 per license.",
+            "Monthly software license sales should cover all fixed and variable costs to ensure a break-even point.",
+            "The total expenditure on marketing and sales efforts must remain within the allocated budget of $50,000 per month.",
+            "Each software license sale must contribute at least 20% profit margin after covering all costs."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production capacity",
+            "cost constraints",
+            "profit from software license sales",
+            "software license sales"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from software license sales by balancing production and cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production must not exceed a certain maximum capacity.",
+            "Total cost should not exceed the company's budget.",
+            "Sales revenue should cover at least the variable costs of production."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production costs",
+            "software license sales",
+            "balance between production and cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize profit from software license sales by balancing production and cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production must not exceed the company\u2019s capacity.",
+            "The cost of production should not surpass the allocated budget for that period.",
+            "Selling price per license must remain competitive within the market standards.",
+            "Delivery timelines for software completion and release must be adhered to.",
+            "Quality standards for the software must be maintained to ensure customer satisfaction."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production constraints",
+            "Cost constraints",
+            "Profit from software license sales"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the company's profit from software license sales by balancing production and cost constraints, without any specific requirements regarding sales relative to production, revenue covering fixed costs, ensuring a minimum profit margin, or adhering to production quality standards."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production capacity",
+            "Cost constraints",
+            "Revenue from software licenses",
+            "Material costs",
+            "Labor costs",
+            "Marketing expenses",
+            "Overhead costs",
+            "Price of software licenses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit from software license sales while satisfying production and cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fixed production capacity limiting the number of software licenses produced and sold within a given time period.",
+            "Budgetary constraints imposing a maximum amount that can be spent on production and marketing without exceeding financial limits.",
+            "Market demand constraints where the number of sales is limited by the projected market demand for the software licenses.",
+            "Pricing constraints as the company needs to set a price point that balances competitiveness with profitability.",
+            "Regulatory constraints that may limit the geographical regions where licenses can be sold or require additional costs for compliance.",
+            "Quality control constraints ensuring that all sold licenses meet the company\u2019s standards and customer expectations.",
+            "Resource availability constraints such as manpower, technology infrastructure, and other inputs necessary for production and distribution."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of licenses sold"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize profit from software license sales by balancing production and cost constraints, ensuring that the number of licenses sold maximizes revenue while minimizing production costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production cost is directly related to the number of licenses sold.",
+            "Revenue generated is directly related to the number of licenses sold.",
+            "The company must balance between maximizing license sales and minimizing production costs to achieve optimal profit."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of Licenses Sold",
+            "Production Costs",
+            "Revenue from Software License Sales",
+            "Fixed Market Size",
+            "Regulatory Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by adjusting the number of software licenses sold, considering production costs and constraints like market size and regulatory limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The revenue generated from software license sales is directly related to the number of licenses sold.",
+            "There are production and cost constraints that must be balanced to optimize profit.",
+            "There is a limit to the number of licenses that can be sold due to a fixed market size or regulatory constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of licenses sold",
+            "production costs",
+            "revenue from software license sales",
+            "market size limit",
+            "regulatory constraints",
+            "other variables affecting production cost and revenue"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the company's profit from software license sales by balancing production and cost constraints, considering the number of licenses sold in relation to production costs, gross revenue, market limitations, and other influencing variables."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production cost is directly related to the number of software licenses sold.",
+            "There is a fixed market size or regulatory constraint limiting the number of licenses that can be sold.",
+            "Factors other than the number of licenses sold affect production costs and revenue."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production capacity limit",
+            "Cost constraints",
+            "Sales revenue",
+            "Profit margin",
+            "Fixed and variable costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit from software license sales by balancing production levels and associated costs while adhering to operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of production must not exceed the budget allocated for the fiscal year.",
+            "The production output must meet or exceed the minimum market demand for the software licenses.",
+            "The pricing strategy must stay competitive without causing a significant reduction in sales volume.",
+            "The company's operational resources, such as staff and technology, have a finite capacity that cannot be exceeded.",
+            "Any strategy implemented should comply with industry regulations and standards.",
+            "The quality of the software must not be compromised to reduce costs.",
+            "The company must maintain a certain level of customer satisfaction, which implies a minimum standard for support and service."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost of Production",
+            "Cost constraint",
+            "production cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize profit from software license sales by balancing production volume and associated costs under given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The cost of production should not exceed a specific budget limit.",
+            "The production capacity must meet a minimum quota of software licenses.",
+            "The cost constraint must be aligned with a defined expenditure plan.",
+            "The company must maximize profit while considering the balance between production costs and revenue from license sales."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production constraint",
+            "Cost of Production",
+            "Cost constraint",
+            "production cost",
+            "Maximize"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit from software license sales while balancing production and cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Cost of Production",
+            "Cost constraint",
+            "Production cost"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production",
+            "Cost of Production",
+            "Cost constraint",
+            "production cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from software license sales while considering production and cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Cost of Production",
+            "Cost constraint",
+            "production cost"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

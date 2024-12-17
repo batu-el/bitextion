@@ -1,0 +1,45 @@
+{
+  "vague_description": "Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.",
+  "detailed_description": "A cruise company can either have two types of trips, a large cruise ship or a small cruise ship. A large cruise ship trip can carry \\param{LargeShipCapacity} customers and produces \\param{LargeShipPollution} units of pollution. A small cruise ship trip can carry \\param{SmallShipCapacity} customers and produces \\param{SmallShipPollution} units of pollution. There can be at most \\param{MaxLargeShipTrips} large cruise ship trips and at least \\param{MinSmallShipTripPercent} of the total trips must be made by small cruise ships. If the cruise company aims to transport at least \\param{MinCustomers} customers, how many of each size of cruise ships should the company use to minimize the total amount of pollution produced?",
+  "target_objective": "Minimize the total amount of pollution produced by the cruise ships",
+  "target_constraints": [
+    "Number of large cruise ship trips is non-negative",
+    "Number of small cruise ship trips is non-negative",
+    "Number of large cruise ship trips is at most MaxLargeShipTrips",
+    "At least MinSmallShipTripPercent of total trips must be small cruise ship trips",
+    "Total customers transported must be at least MinCustomers"
+  ],
+  "target_parameters": [
+    "Number of customers a large cruise ship can carry",
+    "Pollution units produced by a large cruise ship trip",
+    "Number of customers a small cruise ship can carry",
+    "Pollution units produced by a small cruise ship trip",
+    "Maximum number of large cruise ship trips",
+    "Minimum percentage of total trips that must be by small cruise ships",
+    "Minimum number of customers the company aims to transport"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.",
+    "(0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does each type of cruise ship have specific pollution and capacity metrics that influence the optimization?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does each type of cruise ship have specific pollution and capacity metrics that influence the optimization?\nUser: Yes\n\nExpert: Is there a constraint on the total number of trips that can be made by all cruise ships combined?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does each type of cruise ship have specific pollution and capacity metrics that influence the optimization?\nUser: Yes\n\nExpert: Is there a constraint on the total number of trips that can be made by all cruise ships combined?\nUser: No\n\nExpert: Are there specific customer demand levels that each type of cruise ship must meet?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.",
+    "(0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does the problem include a constraint related to compliance with a budget for cruise operations?\nUser: No.\n",
+    "(0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does the problem include a constraint related to compliance with a budget for cruise operations?\nUser: No.\n\nExpert: Is the total operational capacity of the fleet a constraint in the problem description?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does the problem include a constraint related to compliance with a budget for cruise operations?\nUser: No.\n\nExpert: Is the total operational capacity of the fleet a constraint in the problem description?\nUser: No.\n\nExpert: Does the problem include constraints related to dock scheduling or availability?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.",
+    "(0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Is the number of trips for each type of cruise ship limited by a fixed capacity or constraint, such as a port's berthing capacity or a ship's own operational limitations?\nUser: No.\n",
+    "(0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Is the number of trips for each type of cruise ship limited by a fixed capacity or constraint, such as a port's berthing capacity or a ship's own operational limitations?\nUser: No.\n\nExpert: Is the objective of minimizing pollution solely focused on reducing the total number of trips across all types of cruise ships, or are there additional factors such as emission intensity, fuel type, or other environmental considerations?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Is the number of trips for each type of cruise ship limited by a fixed capacity or constraint, such as a port's berthing capacity or a ship's own operational limitations?\nUser: No.\n\nExpert: Is the objective of minimizing pollution solely focused on reducing the total number of trips across all types of cruise ships, or are there additional factors such as emission intensity, fuel type, or other environmental considerations?\nUser: No.\n\nExpert: Is there a linear or constant relationship between the number of trips and the corresponding pollution generated, or are there diminishing marginal returns, such as a point of diminishing returns where additional trips result in disproportionately more pollution?\nUser: No.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.",
+    "(0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does the problem description mention any objective other than minimizing pollution?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does the problem description mention any objective other than minimizing pollution?\nUser: No\n\nExpert: Do the constraints involve any information about the total number of trips or the total demand for trips?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.\nExpert: Does the problem description mention any objective other than minimizing pollution?\nUser: No\n\nExpert: Do the constraints involve any information about the total number of trips or the total demand for trips?\nUser: Yes\n\nExpert: Are there any constraints explicitly mentioned in the problem description?\nUser: Yes\n"
+  }
+}

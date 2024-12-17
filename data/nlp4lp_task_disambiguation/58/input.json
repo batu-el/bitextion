@@ -1,0 +1,27 @@
+{
+  "vague_description": "Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.",
+  "detailed_description": "Determine the quantity of batches for each part the manufacturer should produce every month, ensuring all constraints are met, where the manufacturer has \\param{P} different parts, \\param{M} machines, \\param{TimeRequired} matrix indicating the time each machine takes to produce a part, \\param{MachineCosts} indicating the cost of each machine, \\param{Availability} of each machine, \\param{Prices} of each part, \\param{MinBatches} required for each part, a \\param{StandardCost} of running a machine per hour, an \\param{OvertimeCost} for running a machine beyond the standard hours, an \\param{OvertimeHour} available for overtime work for each machine, and a \\param{MinProfit} that the manufacturer aims to achieve.",
+  "target_objective": "Determine the optimal quantity of batches for each part to maximize the manufacturer's monthly profit, given machine availability and costs, while meeting the minimum batch requirements and not exceeding the overtime limits.",
+  "target_constraints": [
+    "Each machine's use time per part must not exceed the machine's availability",
+    "Each machine has a limited number of overtime hours that can be used",
+    "There is a minimum number of batches to be produced for each part",
+    "The total standard and overtime costs must enable achieving a minimum target profit",
+    "All produced batches for each part must be non-negative",
+    "The time used on each machine when producing parts must be non-negative",
+    "Overtime used on each machine must be non-negative and cannot exceed the available overtime hours"
+  ],
+  "target_parameters": [
+    "Number of machines",
+    "Number of parts to be produced",
+    "Time required to produce each part 'p' on machine 'm'",
+    "Cost associated with each machine 'm'",
+    "Availability in hours of each machine 'm' per month",
+    "Price obtained from selling each part 'p'",
+    "Minimum number of batches of part 'p' that must be produced",
+    "Standard cost for a machine to run for one hour",
+    "Overtime cost for a machine to run for one hour beyond the standard availability",
+    "Numbers of overtime hours available for a machine to run beyond standard availability",
+    "The minimum profit the manufacturer wants to achieve"
+  ]
+}

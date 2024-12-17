@@ -1,0 +1,473 @@
+{
+  "vague_description": "The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.",
+  "detailed_description": "An international goods exporter uses ships and planes to transport goods. A ship can take \\param{ShipCapacity} containers worth of goods and uses \\param{ShipFuel} liters of fuel per trip. A plane can take \\param{PlaneCapacity} containers worth of goods and uses \\param{PlaneFuel} liters of fuel per trip. The company needs to transport at least \\param{MinContainers} containers worth of goods. In addition, there can be at most \\param{MaxPlaneTrips} plane trips made and a minimum of \\param{MinShipTripPercentage} of the trips made must be by ship. How many of each trip should be made to minimize the total amount of fuel consumed?",
+  "target_objective": "Minimize the total amount of fuel used for transporting the containers",
+  "target_constraints": [
+    "Number of ship trips is non-negative",
+    "Number of plane trips is non-negative",
+    "At least MinContainers containers must be transported",
+    "At most MaxPlaneTrips plane trips can be made",
+    "At least MinShipTripPercentage% of all trips must be by ship"
+  ],
+  "target_parameters": [
+    "Containers a ship can take",
+    "Fuel used by a ship per trip",
+    "Containers a plane can take",
+    "Fuel used by a plane per trip",
+    "Minimum total containers that need to be transported",
+    "Maximum number of plane trips",
+    "Minimum percentage of trips that must be made by ship"
+  ],
+  "Expert": {
+    "(0,)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.",
+    "(0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Does the problem specify the total distance or duration of the travel as a constraint or an input parameter?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Does the problem specify the total distance or duration of the travel as a constraint or an input parameter?\nUser: No\n\nExpert: Are there specific limits or requirements on the number of shipments or air trips allowed in the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Does the problem specify the total distance or duration of the travel as a constraint or an input parameter?\nUser: No\n\nExpert: Are there specific limits or requirements on the number of shipments or air trips allowed in the optimization problem?\nUser: Yes\n\nExpert: Are there cost considerations for the shipments and air trips in the optimization problem?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.",
+    "(0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Does the problem involve budget constraints specifically related to air travel?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Does the problem involve budget constraints specifically related to air travel?\nUser: No\n\nExpert: Does the problem involve both air travel and shipping routes as part of the travel strategy?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Does the problem involve budget constraints specifically related to air travel?\nUser: No\n\nExpert: Does the problem involve both air travel and shipping routes as part of the travel strategy?\nUser: Yes\n\nExpert: Is there a requirement to adhere to environmental regulations limiting emissions or carbon emissions in the problem description?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.",
+    "(0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Are the shipping and air trips considered as non-discretionary tasks with fixed schedules?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Are the shipping and air trips considered as non-discretionary tasks with fixed schedules?\nUser: No\n\nExpert: Are the shipping and air trips subject to any kind of capacity constraints, such as the number of shipments or flights that can be made per day/week?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Are the shipping and air trips considered as non-discretionary tasks with fixed schedules?\nUser: No\n\nExpert: Are the shipping and air trips subject to any kind of capacity constraints, such as the number of shipments or flights that can be made per day/week?\nUser: Yes\n\nExpert: Can the number of shipments and flights be dynamically adjusted in real-time to optimize the travel strategy?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.",
+    "(0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Are all parameters related to the number of trips, transportation modes, or capacities?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Are all parameters related to the number of trips, transportation modes, or capacities?\nUser: Yes\n\nExpert: Does the problem description contain the exact words 'Fuel consumption' or 'fuel consumption'? If yes, then it is in group 1; else in group 2.\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.\nExpert: Are all parameters related to the number of trips, transportation modes, or capacities?\nUser: Yes\n\nExpert: Does the problem description contain the exact words 'Fuel consumption' or 'fuel consumption'? If yes, then it is in group 1; else in group 2.\nUser: Yes\n\nExpert: Does the problem description explicitly mention multiple transportation modes beyond just 'shipping' and 'air trips'?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "travel strategy",
+            "fuel consumption",
+            "shipping constraints",
+            "air trip constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize fuel consumption for travel."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The travel strategy must minimize fuel consumption.",
+            "Shippings must be completed within the given deadlines.",
+            "Air trips should not exceed the allocated budget.",
+            "All routes must comply with safety regulations and travel advisories."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fuel consumption (objective to minimize)",
+            "Constraints on shippings",
+            "Constraints on air trips"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize fuel consumption during travel while adhering to constraints on shipping and air trips."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimize fuel consumption.",
+            "Adhere to shipping constraints (e.g., cargo capacity, delivery schedule).",
+            "Adhere to air trip constraints (e.g., flight schedules, passenger limits)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize fuel consumption",
+            "Optimize travel strategy",
+            "Constraints on number of shipments",
+            "Constraints on number of air trips"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize fuel consumption during the travel within specified constraints on the number of shipping and air trips."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimize fuel consumption",
+            "Adhere to specific limits or requirements on the number of shipments allowed",
+            "Adhere to specific limits or requirements on the number of air trips allowed"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fuel Consumption",
+            "Constraints on Shipments",
+            "Constraints on Air Trips"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize fuel consumption in a travel strategy while adhering to constraints on the number of shipments and air trips."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must minimize fuel consumption.",
+            "There are specific limits or requirements on the number of shipments allowed.",
+            "There are specific limits or requirements on the number of air trips allowed."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize fuel consumption",
+            "Constraints on shipping routes",
+            "Constraints on air travel routes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize fuel consumption for travel."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total fuel consumption must be minimized.",
+            "All necessary shipping routes must be completed.",
+            "All required air trips must be completed.",
+            "A maximum allowed fuel consumption for each trip or route."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "fuel consumption",
+            "shippings constraint",
+            "air trips constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize fuel consumption while adhering to constraints on shippings and air trips."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of ships available is limited.",
+            "All cargo must reach its destination within a specified time frame.",
+            "Air travel routes have specific flight schedules that must be adhered to.",
+            "There are specific cargo weight limits for both shipping and air travel.",
+            "Certain destinations may only be accessible via shipping or air travel.",
+            "Weather conditions can affect both shipping and air travel schedules.",
+            "Fuel consumption rates vary depending on the vehicle type.",
+            "Ships and aircraft have a maximum travel distance before requiring refueling."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimize fuel consumption",
+            "adhering to constraints on shippings",
+            "adhering to constraints on air trips"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize fuel consumption while adhering to constraints on shippings and air trips."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The travel strategy must minimize fuel consumption.",
+            "The strategy must include both air travel and shipping routes.",
+            "The strategy should not consider budget constraints specifically related to air travel."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "air travel routes",
+            "shipping routes",
+            "fuel consumption"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize fuel consumption for a combined travel strategy involving air travel and shipping routes."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The strategy must minimize fuel consumption.",
+            "The strategy must utilize both air travel and shipping routes.",
+            "Air travel and shipping schedules must be adhered to.",
+            "There are no budgetary constraints related to air travel.",
+            "There are no emissions or carbon emissions regulations to consider."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "fuel consumption",
+            "shippings constraints",
+            "air trips constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize fuel consumption for travel while satisfying constraints on shipping and air travel requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimize fuel consumption.",
+            "Adhere to shipping schedule constraints.",
+            "Adhere to air trip schedule constraints.",
+            "Ensure all items are transported to their destinations without delay."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize total fuel consumption",
+            "Constraints:",
+            "- Constraints on shipping tasks",
+            "- Constraints on air trips",
+            "- Constraints on the schedule and sequence of tasks"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize fuel consumption in travel strategy while adhering to constraints on shippings and air trips."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Shipping schedules are flexible and can be adjusted.",
+            "Air trip schedules are flexible and can be modified.",
+            "Total fuel consumption must be minimized."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "optimal travel strategy",
+            "minimize fuel consumption",
+            "shipping constraints on number per day/week",
+            "air trip constraints on number per day/week"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize fuel consumption while satisfying capacity constraints on shipping and air trips."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The fuel consumption must be minimized.",
+            "There are capacity constraints on the number of shippings and air trips that can be made per day or week."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimize fuel consumption",
+            "constraints on shipping capacity",
+            "constraints on air trip capacity",
+            "dynamic adjustment of shipments",
+            "dynamic adjustment of flights"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize fuel consumption while adhering to dynamic scheduling constraints on shipments and air trips."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of shipments and flights per day/week is limited by capacity constraints.",
+            "Both shipments and air trips can be dynamically adjusted in real-time."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fuel Consumption",
+            "Shipping Constraints",
+            "Air Trip Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize fuel consumption while adhering to constraints on shippings and air trips."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total fuel consumption for both shipping and air trips must be minimized.",
+            "There must be a maximum limit on the number of shipping trips allowed.",
+            "There is a maximum number of air trips allowed.",
+            "There might be a minimum or maximum distance per trip that must be adhered to.",
+            "Certain routes may be prioritized or restricted based on weather conditions or regulations.",
+            "Fuel consumption rates may vary depending on the type of cargo or the load being transported.",
+            "There might be specific departure and arrival time windows that must be respected.",
+            "There could be a budget constraint related to the total cost of transportation."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trips",
+            "Transportation modes",
+            "Capacities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize fuel consumption in travel strategies while ensuring compliance with constraints related to the number of trips, transportation modes, and capacities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of trips must be within a given limit.",
+            "Both shipping and air trip options are available, but each have distinct fuel efficiencies that should be considered when optimizing fuel consumption.",
+            "There may be capacity restrictions for each mode of transportation, e.g., a maximum load for shipping or a passenger limit for air trips.",
+            "Each mode of transport might have specific routes that need to be adhered to."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fuel consumption",
+            "Number of trips",
+            "Transportation modes",
+            "Capacities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize fuel consumption while adhering to constraints on shipping and air trips."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fuel consumption needs to be minimized.",
+            "The number and capacities of trips must adhere to existing constraints.",
+            "Transportation modes include both shipping and air trips.",
+            "All solutions must abide by a pre-defined limit on the number of trips for each transportation mode."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of trips",
+            "transportation modes",
+            "capacities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize fuel consumption for travel strategy while adhering to shipping and air trip constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The strategy must minimize fuel consumption.",
+            "The solution must adhere to constraints related to the number of shipping trips.",
+            "The solution must adhere to constraints related to the number of air trips.",
+            "Only shipping and air trips are considered as transportation modes."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    }
+  }
+}

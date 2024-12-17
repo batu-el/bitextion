@@ -1,0 +1,469 @@
+{
+  "vague_description": "Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.",
+  "detailed_description": "A factory has two machines, A and B. Each day, machine A can make \\param{ItemsAMadePerDay} items and consumes \\param{ElectricityA} kWh. Machine B can make \\param{ItemsBMadePerDay} items and consumes \\param{ElectricityB} kWh per day. The factory must produce at least \\param{MinItems} items per day and has \\param{MaxElectricity} kWh of electricity available per day. Since there are not many workers that can operate both machines, at most \\param{MaxPercentB} of the machines must be of type B. Further, at least \\param{MinMachineA} machines of type A should be used. How many of each machine should be used to minimize the total number of machines?",
+  "target_objective": "Minimize the total number of machines used (both A and B)",
+  "target_constraints": [
+    "Number of items made by machine A and B together is at least MinItems per day",
+    "Total electricity consumption by machines A and B is at most MaxElectricity kWh per day",
+    "Number of machine B is at most MaxPercentB percent of the total number of machines",
+    "Number of machine A used is at least MinMachineA",
+    "Total electricity used by machine A is at most ElectricityA * number of machine A",
+    "Total electricity used by machine B is at most ElectricityB * number of machine B"
+  ],
+  "target_parameters": [
+    "Number of items machine A can make per day",
+    "Electricity consumed by machine A per day",
+    "Number of items machine B can make per day",
+    "Electricity consumed by machine B per day",
+    "Minimum total items the factory must produce per day",
+    "Maximum amount of electricity available for the factory per day",
+    "Maximum percentage of type B machines",
+    "Minimum number of machine A to be used"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.",
+    "(0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Are there specific production targets for machines A and B that must be met?\nUser: No, the only constraints are the total production requirement, electricity consumption, and machine ratio limits.\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Are there specific production targets for machines A and B that must be met?\nUser: No, the only constraints are the total production requirement, electricity consumption, and machine ratio limits.\n\nExpert: Can machines A and B produce different quantities per unit time?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Are there specific production targets for machines A and B that must be met?\nUser: No, the only constraints are the total production requirement, electricity consumption, and machine ratio limits.\n\nExpert: Can machines A and B produce different quantities per unit time?\nUser: Yes.\n\nExpert: Are there upper and lower bounds on the number of machines A and B that can be used?\nUser: Yes.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.",
+    "(0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the objective of the optimization problem to minimize the total number of machines used?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the objective of the optimization problem to minimize the total number of machines used?\nUser: Yes\n\nExpert: Is the production requirement or target specified as a fixed numerical value rather than a variable?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the objective of the optimization problem to minimize the total number of machines used?\nUser: Yes\n\nExpert: Is the production requirement or target specified as a fixed numerical value rather than a variable?\nUser: Yes\n\nExpert: Is the energy consumption limit greater than or equal to 5000 energy units per day in the problem description?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.",
+    "(0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the production level a fixed value or can it be adjusted within certain limits?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the production level a fixed value or can it be adjusted within certain limits?\nUser: Yes.\n\nExpert: Are there any restrictions or limitations on the usage of machine A relative to machine B?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the production level a fixed value or can it be adjusted within certain limits?\nUser: Yes.\n\nExpert: Are there any restrictions or limitations on the usage of machine A relative to machine B?\nUser: Yes.\n\nExpert: Is the amount of energy required to run machine A different from the amount of energy required to run machine B?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.",
+    "(0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the objective of the problem to minimize a cost (or revenue) function, or to minimize a quantity that represents the level of resource usage, not necessarily linked to a monetary value?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the objective of the problem to minimize a cost (or revenue) function, or to minimize a quantity that represents the level of resource usage, not necessarily linked to a monetary value?\nUser: No\n\nExpert: Does the problem statement explicitly mention the objective as minimizing the total machine usage, using the phrase 'minimize total machine usage' exactly, regardless of case?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the objective of the problem to minimize a cost (or revenue) function, or to minimize a quantity that represents the level of resource usage, not necessarily linked to a monetary value?\nUser: No\n\nExpert: Does the problem statement explicitly mention the objective as minimizing the total machine usage, using the phrase 'minimize total machine usage' exactly, regardless of case?\nUser: Yes\n\nExpert: Does the problem description explicitly mention 'production levels' or 'energy levels' as parameters?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of machine A units to allocate (x)",
+            "Number of machine B units to allocate (y)",
+            "Production constraint for machine A",
+            "Production constraint for machine B",
+            "Energy consumption limit for machine A",
+            "Energy consumption limit for machine B",
+            "Total machine usage cost function"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total usage of machines A and B, subject to meeting production and energy constraints in the factory."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of machine A units used should not exceed the available capacity.",
+            "The total number of machine B units used should not exceed the available capacity.",
+            "The combined production output of machines A and B should meet or exceed the factory's production target.",
+            "The energy consumption of machine A should not exceed the factory's energy limit for machine A.",
+            "The energy consumption of machine B should not exceed the factory's energy limit for machine B.",
+            "The combined energy consumption of machines A and B should not exceed the overall factory's energy limit."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total production requirement",
+            "Electricity consumption limit",
+            "Machine ratio limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total usage of machines A and B while meeting the total production requirement, adhering to electricity consumption limits, and respecting machine ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production requirement must be met.",
+            "Electricity consumption must not exceed the available energy.",
+            "There are limits on the ratio of machines A and B that can be used."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total production requirement",
+            "Electricity consumption",
+            "Machine ratio limits",
+            "Production rate of Machine A",
+            "Production rate of Machine B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total usage of machines A and B subject to meeting the overall production target, staying within electricity consumption limits, and adhering to predefined ratio limits of machines A to B."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production requirement must be met by the combined output of machines A and B.",
+            "The electricity consumption of machines A and B should not exceed a certain limit.",
+            "There are specific ratio limits on the number of machines A to B."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total production requirement",
+            "Electricity consumption limit",
+            "Machine ratio limits between A and B",
+            "Production rates of machines A and B",
+            "Upper and lower bounds on number of machines A and B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total number of machines A and B used in the factory while satisfying production requirements, energy consumption limits, and specific machine ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combined production of machines A and B must meet a total production requirement.",
+            "The electricity consumption of the machines must not exceed a certain limit.",
+            "There are specific ratio limits on the usage of machines A to B.",
+            "Machine A and B each have upper and lower bounds on their number of units."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production constraints: Quality requirements, minimum output needs, etc.",
+            "Energy constraints: Energy consumption limits and efficiency requirements.",
+            "Objective: Minimize total machine usage of A and B."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total usage of machines A and B under production and energy constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total machine usage should be minimized.",
+            "The production requirement of the factory must be met.",
+            "The energy consumption of the machines should not exceed given limits."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Allocation of machines A and B",
+            "Production constraints",
+            "Energy constraints",
+            "Minimization of total machine usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total number of machines used (both A and B) while meeting production requirements and staying within energy constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production from machines A and B must meet a specified demand.",
+            "Each machine type (A or B) has a maximum capacity it can produce.",
+            "Total energy consumed by machines A and B must not exceed a specified energy limit.",
+            "Both machines contribute to the production of a homogeneous product, thus their outputs can be aggregated."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "machines A and B allocation",
+            "production target",
+            "energy constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total number of machines used in the factory."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production output from machines A and B must meet or exceed a fixed numerical production requirement.",
+            "The total energy consumption by machines A and B must not exceed a specified energy consumption limit."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize total machine usage of machines A and B",
+            "Production requirement: Fixed numerical value",
+            "Energy consumption limit: >= 5000 energy units/day"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of machines A and B in the factory to meet production and energy constraints while minimizing the total machine usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production achieved by machines A and B must meet or exceed the fixed production target.",
+            "The total energy consumption by machines A and B should not exceed 5000 energy units per day."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of machines A to use",
+            "Number of machines B to use",
+            "Production constraint (e.g., produce at least X units)",
+            "Energy constraint (e.g., do not exceed Y energy units)",
+            "Minimize total machine usage (objective function)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total machine usage of machines A and B while satisfying production and energy constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production output must meet or exceed the factory's demand, which is represented by a set production target.",
+            "Each machine A and machine B has a maximum production capacity that cannot be exceeded.",
+            "The total energy consumption of machines A and B together must not exceed the factory's energy availability.",
+            "The number of each type of machine used must be a non-negative integer.",
+            "The goal is to minimize the total number of machines used, subject to meeting the production and energy constraints."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production level: adjustable within limits",
+            "Energy consumption limit",
+            "Machine A usage",
+            "Machine B usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total machine usage while satisfying the production and energy constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine A and B allocation must meet or exceed a certain minimum production level P.",
+            "The total energy consumption of machines A and B must not exceed a maximum energy limit E.",
+            "The allocation should minimize total machine usage, which could refer to operational hours or the number of machines used."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production level (fixed or adjustable within limits)",
+            "Constraints on energy consumption",
+            "Minimize total machine usage",
+            "Restrictions on usage of machine A relative to machine B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal allocation of machines A and B in a factory to minimize total machine usage while meeting production and energy constraints, respecting certain restrictions or limitations on the usage of machine A relative to machine B."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production must meet a specified level, but can be adjusted within given limits.",
+            "There are energy constraints that need to be satisfied.",
+            "There are restrictions on the usage ratio or manner between machines A and B."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production level limits",
+            "Usage restriction between machine A and machine B",
+            "Energy requirement of machine A",
+            "Energy requirement of machine B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total usage of machines A and B while satisfying the production and energy constraints with specified limitations on machine usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production level must be within certain limits.",
+            "There are restrictions on the usage ratio between machine A and machine B.",
+            "Machine A and machine B have different energy consumption requirements."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production constraints",
+            "Energy constraints",
+            "Minimization of total machine usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total usage of machines A and B in the factory while satisfying production and energy constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of machines A and B cannot exceed the available machines.",
+            "The production from machines A and B should meet the minimum production targets set by the factory.",
+            "The energy consumption of machines A and B should not exceed the maximum energy capacity available to the factory.",
+            "The usage of machines A and B should be minimized to achieve cost-efficiency or other operational goals."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of machine A units allocated (integer)",
+            "Number of machine B units allocated (integer)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total machine usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production by machines A and B must meet or exceed a specified production target.",
+            "The energy consumed by machines A and B must not exceed a specified maximum energy usage limit.",
+            "The allocation of machines must minimize the total number of machines used.",
+            "Each machine type can operate only within its specific capacity limits."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "machines A and B",
+            "production constraints",
+            "energy constraints",
+            "total machine usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total machine usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of machines A and B allocated must result in production levels that meet or exceed the factory's required output.",
+            "The allocation of machines must comply with energy constraints, where the total energy usage must not exceed the factory's energy capacity."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "machines A",
+            "machines B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "minimize total machine usage"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production and energy constraints must be met.",
+            "Minimize the total machine usage."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 1
+      }
+    }
+  }
+}

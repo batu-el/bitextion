@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determine the optimal number of trips a mail delivery service should make using two types of boats with different capacities and fuel requirements, given constraints on trip limits and percentage use of the faster boat, to deliver a specific amount of mail efficiently.",
+  "detailed_description": "A mail delivery service in an island village delivers mail by regular and speed boats. A regular boat can carry \\param{RegularCapacity} pieces of mail per trip and uses \\param{RegularFuel} liters of gas. A speed boat can carry \\param{SpeedCapacity} pieces of mail per trip and uses \\param{SpeedFuel} liters of gas. There can be at most \\param{MaxRegularTrips} regular boat trips. Since customers want their mail as fast as possible, at least \\param{MinSpeedPercentage} of the trips must be made by speed boats. If the service needs to deliver \\param{TotalMail} pieces of mail, how many trips of each should be made to minimize the total amount of gas consumed?",
+  "target_objective": "Minimize the total amount of gas consumed for delivering all the mail",
+  "target_constraints": [
+    "Number of regular boat trips is non-negative",
+    "Number of speed boat trips is non-negative",
+    "Number of regular boat trips is at most MaxRegularTrips",
+    "At least MinSpeedPercentage of the total number of trips are made by speed boats",
+    "Total pieces of mail delivered is at least TotalMail"
+  ],
+  "target_parameters": [
+    "Maximum number of mail pieces a regular boat can carry per trip",
+    "Fuel usage of a regular boat per trip",
+    "Maximum number of mail pieces a speed boat can carry per trip",
+    "Fuel usage of a speed boat per trip",
+    "Maximum number of regular boat trips allowed",
+    "Minimum percentage of trips that must be made by speed boats",
+    "Total number of pieces of mail to be delivered"
+  ]
+}

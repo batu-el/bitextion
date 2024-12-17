@@ -1,0 +1,438 @@
+{
+  "vague_description": "How can the company optimize transportation given restrictions on the number of trucks relative to containers?",
+  "detailed_description": "An oil and gas company is sending their oil to the port using containers and trucks. A container can hold \\param{ContainerCapacity} units of oil while a truck can hold \\param{TruckCapacity} units of oil. Due to government restrictions, the number of trucks used has to at most \\param{TruckContainerRatio} times the number of containers used. If at least \\param{MinimumUnits} units of oil need to be sent to the port and at least \\param{MinimumContainers} containers need to be used, minimize the total number of containers and trucks needed.",
+  "target_objective": "Minimize the total number of containers and trucks needed to transport the oil",
+  "target_constraints": [
+    "Number of containers used is non-negative",
+    "Number of trucks used is non-negative",
+    "Number of trucks used is at most TruckContainerRatio times the number of containers used",
+    "At least MinimumUnits units of oil need to be sent to the port",
+    "At least MinimumContainers containers need to be used"
+  ],
+  "target_parameters": [
+    "Capacity of a container",
+    "Capacity of a truck",
+    "Maximum ratio of number of trucks to number of containers",
+    "Minimum total units of oil to send to the port",
+    "Minimum number of containers to use"
+  ],
+  "Expert": {
+    "(0,)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?",
+    "(0, 0)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?\nExpert: Are there specific constraints on the ratio or number of trucks to containers that must be adhered to in this transportation optimization problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?\nExpert: Are there specific constraints on the ratio or number of trucks to containers that must be adhered to in this transportation optimization problem?\nUser: Yes\n\nExpert: Is there a specific cost function or objective that needs to be minimized, such as transportation cost or time?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?\nExpert: Are there specific constraints on the ratio or number of trucks to containers that must be adhered to in this transportation optimization problem?\nUser: Yes\n\nExpert: Is there a specific cost function or objective that needs to be minimized, such as transportation cost or time?\nUser: No\n\nExpert: Is the optimization problem focused on maximizing the number of containers transported within the truck number constraints?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?",
+    "(0, 0)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?\nExpert: Does the problem include constraints related to fuel consumption or a fuel budget?\nUser: No.\n",
+    "(0, 0, 0)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?\nExpert: Does the problem include constraints related to fuel consumption or a fuel budget?\nUser: No.\n\nExpert: Does the problem involve a constraint related to legal driving hours or maximum allowable working hours?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?\nExpert: Does the problem include constraints related to fuel consumption or a fuel budget?\nUser: No.\n\nExpert: Does the problem involve a constraint related to legal driving hours or maximum allowable working hours?\nUser: No.\n\nExpert: Does the problem description specify that each truck can carry only one container?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?",
+    "(0, 0)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?\nExpert: Is the objective of the optimization problem to minimize the total distance traveled by the trucks?\nUser: No\n",
+    "(0, 0, 0)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?\nExpert: Is the objective of the optimization problem to minimize the total distance traveled by the trucks?\nUser: No\n\nExpert: Is the objective of the optimization problem to minimize the total cost of transportation?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?\nExpert: Is the objective of the optimization problem to minimize the total distance traveled by the trucks?\nUser: No\n\nExpert: Is the objective of the optimization problem to minimize the total cost of transportation?\nUser: No\n\nExpert: Is the objective of the optimization problem to minimize the time taken to deliver all containers?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?",
+    "(0, 0)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?\nExpert: Is the number of trucks fixed?\nUser: No\n",
+    "(0, 0, 0)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?\nExpert: Is the number of trucks fixed?\nUser: No\n\nExpert: Is the number of containers fixed?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: How can the company optimize transportation given restrictions on the number of trucks relative to containers?\nExpert: Is the number of trucks fixed?\nUser: No\n\nExpert: Is the number of containers fixed?\nUser: No\n\nExpert: Is the number of trucks a variable that needs to be determined as part of the optimization problem?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trucks",
+            "Number of containers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize transportation costs while ensuring that the number of trucks used is efficiently allocated to carry all available containers, considering restrictions on the maximum number of trucks that can be used."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of trucks available is limited and cannot exceed a certain maximum.",
+            "Each truck has a fixed number of containers it can carry.",
+            "The total number of containers that need to be transported is fixed and known beforehand.",
+            "No more than the available trucks can be used; if trucks are exceeding the total, adjustments should be made to stay within the fleet limits."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "trucks",
+            "containers",
+            "truck-to-container ratio constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize transportation costs while ensuring the number of trucks meets the specified ratio or requirements relative to the number of containers."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of trucks must not exceed the number of containers.",
+            "Each truck is allowed to carry a specified maximum number of containers.",
+            "The total weight of containers assigned to a truck must not exceed the truck's weight capacity.",
+            "The total volume of containers assigned to a truck must not exceed the truck's volume capacity.",
+            "There should be a minimum and/or maximum number of trucks utilized in the transportation plan."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trucks",
+            "Number of containers",
+            "Truck to container ratio constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the use of transportation resources by determining the optimal number and configuration of trucks to efficiently manage container transportation within given ratio constraints, without a specific focus on minimizing cost or time."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The relative number of trucks to containers must comply with given restrictions."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Restrictions on the number of trucks relative to containers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize transportation by adhering to specific truck-to-container ratio constraints without focusing on minimizing costs or maximizing container transport."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of trucks must be a specific ratio to the number of containers."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trucks",
+            "Number of containers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize the total transportation cost while ensuring that the number of trucks used is adequate to transport the total number of containers, considering the restrictions on the truck-to-container ratio."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Number of trucks must be less than or equal to the number of containers.",
+            "Each truck can carry a fixed maximum number of containers.",
+            "Ensure that all containers are transported with the available trucks."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of trucks",
+            "number of containers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize transportation costs while adhering to restrictions on the number of trucks relative to containers."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Number of trucks must be equal to or greater than number of containers divided by a fixed capacity per truck."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of Trucks",
+            "Number of Containers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize transportation by determining the optimal allocation of a limited number of trucks to containers while minimizing cost or maximizing efficiency without considering fuel consumption or legal working hour constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Number of trucks is limited relative to the number of containers."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trucks",
+            "Number of containers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the transportation cost while adhering to restrictions on the number of trucks compared to the number of containers being transported."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Number of trucks available is limited relative to the number of containers needing transport."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of available trucks",
+            "Number of containers to be transported",
+            "Capacity of each truck",
+            "Distance to be covered",
+            "Fuel costs",
+            "Time constraints",
+            "Driver availability",
+            "Maintenance schedule of trucks"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the transportation costs while adhering to the constraints on the ratio of trucks to containers and ensuring efficient delivery schedules."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of trucks must be sufficient to carry all the containers.",
+            "Each truck can carry a limited capacity of containers.",
+            "The total number of containers exceeds the capacity that a single truck can carry, implying multiple trucks are needed.",
+            "The goal is to minimize the number of trucks used without exceeding their carrying capacity.",
+            "There may be legal or company policy restrictions on the maximum and minimum number of trucks that can be used."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Trucks",
+            "Containers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the allocation of containers to trucks while adhering to the restrictions on the number of trucks available relative to the containers needing transportation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of trucks must be less than or equal to the number of containers."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trucks",
+            "Number of containers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize transportation considering restrictions without specifying a particular optimization objective."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of trucks must not exceed the number of available trucks in the fleet.",
+            "There are specific ratios of trucks to containers that cannot be violated.",
+            "Each container must fit within the available capacity of the assigned truck.",
+            "Trucks must adhere to any legal load and weight restrictions set by regulatory bodies.",
+            "Routes may need to adhere to specific timing or scheduling constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trucks",
+            "Number of containers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The conversation does not explicitly state the objective of the optimization problem. Further information would be needed to determine the specific goal of the optimization."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Constraints on the number of trucks relative to containers"
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Truck count",
+            "Container count",
+            "Truck capacity",
+            "Maximum daily hours for drivers",
+            "Fuel budget",
+            "Regulatory constraints",
+            "Route distance",
+            "Container weight",
+            "Loading and unloading time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total transportation cost while respecting the constraint that each truck can carry a maximum of 3 containers and ensuring every available container is transported."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each truck can carry a maximum number of containers.",
+            "The total number of containers to transport cannot exceed the combined capacity of all available trucks.",
+            "Only a fixed number of trucks are available for transportation at any given time.",
+            "All containers must reach their destination within a specified time frame."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trucks",
+            "Number of containers",
+            "Transportation capacity",
+            "Cost per truck",
+            "Distance to destinations",
+            "Fuel consumption per truck"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize transportation by determining the optimal number of trucks needed relative to the number of containers, given certain restrictions on their relationship."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of trucks is not fixed.",
+            "The solution must consider the restrictions between the number of trucks and the number of containers."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trucks relative to containers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the allocation of trucks to containers to minimize transportation costs or maximize efficiency, considering that both the number of trucks and containers are variable."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of trucks should be less than or equal to the number of containers."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of trucks"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize transportation by determining the optimal number of trucks needed to transport a given number of containers efficiently."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of trucks is a variable to be determined.",
+            "There is a restriction based on the relationship between trucks and containers, but it's not specified.",
+            "Both the number of trucks and containers are variable and not fixed."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "vague_description": "Jacob needs to strategize on how to allocate his total investment by deciding the appropriate amounts to invest in both a clothing company and a tech company, while considering investment limitations and expected returns, in order to maximize profit.",
+  "detailed_description": "Jacob has \\var{TotalInvestment} to invest. He has decided to invest in his favorite clothing company and his favorite tech company. He has decided that the money invested in his favorite clothing company must be at least \\var{InvestmentRatio} times as much as the amount invested in his favorite tech company. He has also limited himself to invest at most \\var{MaxTechInvestment} in his favorite tech company. If the money invested in his favorite clothing company earns \\var{ReturnRateClothing} and the money invested in his favorite tech company earns \\var{ReturnRateTech}, how much should he invest in each to maximize his profit?",
+  "target_objective": "Maximize Jacob's total profit from both investments",
+  "target_constraints": [
+    "Clothing investment must be at least InvestmentRatio times the tech investment",
+    "Tech investment must be non-negative",
+    "Clothing investment must be non-negative",
+    "Jacob can invest at most MaxTechInvestment in the tech company",
+    "Total investment (clothing + tech) must be equal to TotalInvestment"
+  ],
+  "target_parameters": [
+    "Total amount of money available for investment",
+    "Minimum investment ratio in the favorite clothing company over the tech company",
+    "Maximum investment in the favorite tech company",
+    "Annual return rate of the favorite clothing company",
+    "Annual return rate of the favorite tech company"
+  ]
+}

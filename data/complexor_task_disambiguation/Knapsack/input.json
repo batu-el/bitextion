@@ -1,0 +1,16 @@
+{
+  "vague_description": "Determining the most optimal selection from a set of choices with constraints.",
+  "detailed_description": "The Knapsack Problem is a classic optimization problem in operations research and computer science. The problem is to determine the most valuable combination of items to include in a knapsack, given a set of \\param{TotalItems} with different values and weights represented by \\param{ItemValues} and \\param{ItemWeights} respectively, and a maximum weight capacity of the knapsack \\param{MaxKnapsackWeight}. The goal is to maximize the total value of the items in the knapsack, represented by \\param{ItemValues}, without exceeding its weight capacity \\param{MaxKnapsackWeight}.",
+  "target_objective": "Maximize the total value of the items in the knapsack",
+  "target_constraints": [
+    "The total weight of the selected items must not exceed MaxKnapsackWeight",
+    "Only non-negative quantities of each item can be selected",
+    "No more than TotalItems items can be considered for selection"
+  ],
+  "target_parameters": [
+    "The total number of available items",
+    "The value of each item",
+    "The weight of each item",
+    "The maximum weight capacity of the knapsack"
+  ]
+}

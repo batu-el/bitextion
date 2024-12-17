@@ -1,0 +1,423 @@
+{
+  "vague_description": "A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.",
+  "detailed_description": "A florist transports his flowers to stores in small bouquets and large bouquets. A small bouquet has \\param{SmallBouquetSize} flowers while a large bouquet has \\param{LargeBouquetSize} flowers. The florist can transport at most \\param{MaxSmallBouquets} small bouquets and \\param{MaxLargeBouquets} large bouquets. In total, he can transport at most \\param{MaxTotalBouquets} bouquets and he must transport at least \\param{MinLargeBouquets} large bouquets. Since small bouquets are more popular, he must transport at least \\param{MinSmallLargeRatio} times as many small bouquets as large bouquets. How many of each bouquet should he transport to maximize the total number of flowers that reach the stores?",
+  "target_objective": "Maximize the total number of flowers transported to the stores",
+  "target_constraints": [
+    "Number of small bouquets is non-negative",
+    "Number of large bouquets is non-negative",
+    "At most MaxSmallBouquets small bouquets can be transported",
+    "At most MaxLargeBouquets large bouquets can be transported",
+    "A total of at most MaxTotalBouquets bouquets can be transported",
+    "At least MinLargeBouquets large bouquets must be transported",
+    "The number of small bouquets must be at least MinSmallLargeRatio times the number of large bouquets"
+  ],
+  "target_parameters": [
+    "Number of flowers in a small bouquet",
+    "Number of flowers in a large bouquet",
+    "Maximum number of small bouquets that can be transported",
+    "Maximum number of large bouquets that can be transported",
+    "Total maximum number of bouquets that can be transported",
+    "Minimum number of large bouquets that must be transported",
+    "Minimum ratio of small bouquets to large bouquets"
+  ],
+  "Expert": {
+    "(0,)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.",
+    "(0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Is there a specific total weight or volume limit for the bouquets that the florist can transport at once?\nUser: No.\n",
+    "(0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Is there a specific total weight or volume limit for the bouquets that the florist can transport at once?\nUser: No.\n\nExpert: Are there constraints on the number of each type of bouquet that can be displayed at a delivery location?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Is there a specific total weight or volume limit for the bouquets that the florist can transport at once?\nUser: No.\n\nExpert: Are there constraints on the number of each type of bouquet that can be displayed at a delivery location?\nUser: No.\n\nExpert: Are there constraints related to the availability or budget of flowers needed to create each type of bouquet?\nUser: No.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.",
+    "(0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Does the problem involve variable transportation costs or budgets for transporting bouquets?\nUser: No.\n",
+    "(0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Does the problem involve variable transportation costs or budgets for transporting bouquets?\nUser: No.\n\nExpert: Do the constraints include a limit on the total number of bouquets that can be transported based on the vehicle capacity?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Does the problem involve variable transportation costs or budgets for transporting bouquets?\nUser: No.\n\nExpert: Do the constraints include a limit on the total number of bouquets that can be transported based on the vehicle capacity?\nUser: Yes.\n\nExpert: Do any of the problems have a constraint that directly limits the number of flowers based on a specific minimum requirement?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.",
+    "(0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Is the florist constrained by a limited capacity, such as a fixed number of vehicles or inventory space, when transporting the bouquets?\nUser: No\n",
+    "(0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Is the florist constrained by a limited capacity, such as a fixed number of vehicles or inventory space, when transporting the bouquets?\nUser: No\n\nExpert: Is the florist constrained by time, such as a specific delivery deadline or time window, when transporting the bouquets?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Is the florist constrained by a limited capacity, such as a fixed number of vehicles or inventory space, when transporting the bouquets?\nUser: No\n\nExpert: Is the florist constrained by time, such as a specific delivery deadline or time window, when transporting the bouquets?\nUser: No\n\nExpert: Are the profits or revenues from selling the small and large bouquets different?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.",
+    "(0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Does the problem mention at least one specific hard constraint that translates to a traditional linear inequality (e.g. <=, >=, =) in its constraints section?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Does the problem mention at least one specific hard constraint that translates to a traditional linear inequality (e.g. <=, >=, =) in its constraints section?\nUser: Yes\n\nExpert: Does the problem description mention the number of flower bouquets of any type as a free parameter?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Does the problem mention at least one specific hard constraint that translates to a traditional linear inequality (e.g. <=, >=, =) in its constraints section?\nUser: Yes\n\nExpert: Does the problem description mention the number of flower bouquets of any type as a free parameter?\nUser: No\n\nExpert: Is the objective function to maximize flower delivery clear and unambiguous (i.e., without any ambiguity or additional information required)?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small bouquets",
+            "Number of large bouquets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of flower bouquets delivered while considering the constraints on the transportation capacity and the size differences between small and large bouquets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total weight of the small and large bouquets cannot exceed the maximum weight capacity of the delivery vehicle.",
+            "The total number of flowers in the bouquets should match the daily flower delivery quota.",
+            "The number of small bouquets is limited by the availability of small bouquet wrapping materials.",
+            "The number of large bouquets is limited by the availability of large bouquet wrapping materials.",
+            "Transportation regulations may limit the total volume occupied by the bouquets in the delivery vehicle."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of flower deliveries by determining the optimal number of small and large bouquets to transport."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize flower delivery",
+            "Constraints: None"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal number of small and large bouquets to transport in order to maximize the flower delivery, assuming there are no weight, volume, or display constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "To maximize the number of flower deliveries by determining the optimal number of small and large bouquets to transport."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small bouquets",
+            "Number of large bouquets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the number of flower deliveries by determining the optimal number of small and large bouquets to transport under given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total weight of the bouquets must not exceed the maximum load capacity of the delivery vehicle.",
+            "The number of small and large bouquets must be non-negative integers.",
+            "The cost of transporting the bouquets must not exceed the budget allocated for transportation.",
+            "Each type of bouquet requires a specific amount of space, and the combined space required must not exceed the available space in the vehicle."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small bouquets",
+            "Number of large bouquets",
+            "Flower delivery constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of small and large bouquets to transport to maximize the number of flower deliveries while ensuring all constraints related to capacity, time, or other resources are met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let S be the number of small bouquets and L be the number of large bouquets.",
+            "The florist has a limit on the total number of bouquets due to the space in the delivery vehicle, such as S + L <= maximum bouquets capacity.",
+            "Each type of bouquet (small and large) may have specific space requirements, e.g., a small bouquet requires 's' space units and a large bouquet requires 'l' space units.",
+            "The total space requirement should not exceed the available space in the delivery vehicle: s*S + l*L <= available space in vehicle.",
+            "There may be constraints related to the availability of flowers, for instance, certain flowers are limited and affect how many small or large bouquets can be made.",
+            "Profit maximization is the objective, which implies maximizing the function P = p1*S + p2*L where p1 and p2 are the profits per small and large bouquet, respectively.",
+            "The number of bouquets, S and L, must be greater than or equal to zero: S >= 0, L >= 0."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "The number of small bouquets",
+            "The number of large bouquets",
+            "Vehicle capacity",
+            "Objective: Maximize flower delivery"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the number of flowers delivered given the capacity constraints of the delivery vehicle."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of small and large bouquets must not exceed the vehicle capacity."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of small bouquets",
+            "number of large bouquets",
+            "vehicle capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of small and large bouquets to transport in order to maximize flower delivery, given constraints on vehicle capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of bouquets cannot exceed the vehicle's capacity."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small bouquets to transport",
+            "Number of large bouquets to transport"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of flowers delivered by determining the optimal number of small and large bouquets to transport, considering the constraints of transport capacity, flower availability, and demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total weight of small and large bouquets cannot exceed the maximum transport capacity of the delivery vehicle.",
+            "The total volume occupied by the small and large bouquets must be within the delivery vehicle's volume capacity.",
+            "There may be a limiting factor on the number of small and large bouquets that can be made based on the availability of flowers.",
+            "The proportion or ratio of small to large bouquets might need to satisfy customer demand or a promotional requirement.",
+            "Both types of bouquets should satisfy a minimum quality or flower count standard before they can be delivered."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small bouquets",
+            "Number of large bouquets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal number of small and large bouquets to transport in order to maximize flower delivery."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small bouquets",
+            "Number of large bouquets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize the number of flower deliveries that can be made by determining the optimal number of small and large bouquets to transport."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small bouquets",
+            "Number of large bouquets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of small and large bouquets to transport in order to maximize the delivery of flowers, considering no constraints on vehicle capacity, inventory space, or delivery time, and assuming equal profits from both bouquet types."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small bouquets",
+            "Number of large bouquets",
+            "Total weight capacity of the vehicle",
+            "Volume capacity of the vehicle",
+            "Minimum number of each type of bouquet required",
+            "Cost or profit associated with transporting each type of bouquet"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of flowers delivered by determining the optimal number of small and large bouquets for transportation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each large bouquet occupies twice the space of a small bouquet.",
+            "The van used for transport has a maximum capacity of 100 bouquet units.",
+            "There are 200 small bouquets and 150 large bouquets available.",
+            "The total weight of bouquets must not exceed 500 kilograms.",
+            "A small bouquet weighs 1 kilogram, and a large bouquet weighs 2 kilograms.",
+            "Only whole bouquets can be transported (no fractions)."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Small bouquets",
+            "Large bouquets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total number of small and large bouquets delivered while adhering to transport constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total weight of the bouquets cannot exceed a specified weight limit.",
+            "The number of small bouquets must not exceed a given maximum number that can be transported.",
+            "The total number of flowers used in both types of bouquets can\u2019t surpass the florist's stock.",
+            "The volume occupied by the bouquets in the transport vehicle must not exceed its capacity."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of small bouquets",
+            "number of large bouquets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of flower deliveries."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total weight of small and large bouquets combined must not exceed a certain weight capacity of the vehicle.",
+            "The total volume of small and large bouquets combined must not exceed a certain volume capacity of the vehicle.",
+            "The delivery must satisfy a minimum number of small bouquets.",
+            "The delivery must satisfy a minimum number of large bouquets."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Maximize flower delivery",
+            "Constraints include traditional linear inequalities",
+            "No free parameters for number of bouquets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal number of small and large bouquets to transport in order to maximize the flower delivery, given specific constraints that include at least one traditional linear inequality."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of small bouquets to be transported is a fixed value, not a free parameter.",
+            "The number of large bouquets to be transported is a fixed value, not a free parameter."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

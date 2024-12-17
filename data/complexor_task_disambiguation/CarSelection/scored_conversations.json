@@ -1,0 +1,479 @@
+{
+  "vague_description": "The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.",
+  "detailed_description": "The Car Selection Problem is a mixed integer programming model that aims to assign \\param{ParticipantNum} participants to \\param{CarNum} cars in a way that maximizes the total number of assignments. Each participant is interested in a subset of cars, represented by \\param{InterestMatrix_{p,c}}, where p and c index participants and cars, respectively. The objective is to find the optimal assignment of participants to cars that satisfies certain constraints.",
+  "target_objective": "Maximize the total number of participant-to-car assignments",
+  "target_constraints": [
+    "Each participant is assigned to at most one car",
+    "A participant can only be assigned to a car if they are interested in that car (InterestMatrix_{p,c} = 1)",
+    "The assignment of a participant to a car is a binary decision (either 0 or 1)"
+  ],
+  "target_parameters": [
+    "The total number of participants",
+    "The total number of available cars",
+    "A binary matrix indicating whether a participant is interested in a particular car (1 for interested and 0 for not interested)"
+  ],
+  "Expert": {
+    "(0,)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.",
+    "(0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the objective of the optimization problem to minimize or maximize a specific goal?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the objective of the optimization problem to minimize or maximize a specific goal?\nUser: Yes\n\nExpert: Is the specific goal of the optimization problem related to minimizing costs or maximizing efficiency?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the objective of the optimization problem to minimize or maximize a specific goal?\nUser: Yes\n\nExpert: Is the specific goal of the optimization problem related to minimizing costs or maximizing efficiency?\nUser: No\n\nExpert: Is the specific goal of the optimization problem related to maximizing participant satisfaction or resource utilization?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.",
+    "(0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the primary objective of the problem to maximize the overall satisfaction score of participants?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the primary objective of the problem to maximize the overall satisfaction score of participants?\nUser: No\n\nExpert: Is there a constraint related to a budget limit for the total cost of assigning participants to resources?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the primary objective of the problem to maximize the overall satisfaction score of participants?\nUser: No\n\nExpert: Is there a constraint related to a budget limit for the total cost of assigning participants to resources?\nUser: No\n\nExpert: Does the problem include a constraint that some tasks require a minimum number of participants to be assigned before they can start?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.",
+    "(0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the objective of the optimization problem to minimize costs?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the objective of the optimization problem to minimize costs?\nUser: No\n\nExpert: Is the objective of the optimization problem to maximize efficiency or productivity?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the objective of the optimization problem to minimize costs?\nUser: No\n\nExpert: Is the objective of the optimization problem to maximize efficiency or productivity?\nUser: Yes\n\nExpert: Does the optimization problem involve allocating a limited number of resources across multiple tasks or activities?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.",
+    "(0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Does the problem description mention any constraints? If so, is the objective function to either minimize or maximize a value?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Does the problem description mention any constraints? If so, is the objective function to either minimize or maximize a value?\nUser: Yes\n\nExpert: Is the objective of the problem explicitly stated as 'minimize'?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Does the problem description mention any constraints? If so, is the objective function to either minimize or maximize a value?\nUser: Yes\n\nExpert: Is the objective of the problem explicitly stated as 'minimize'?\nUser: No\n\nExpert: Is the objective of the problem to minimize something?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Participants",
+            "Resources",
+            "Constraints",
+            "Goal"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Assign participants to resources to achieve optimal allocation given certain constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each participant must be assigned to exactly one resource.",
+            "Each resource has a limited capacity that cannot be exceeded.",
+            "The total cost of resource allocation must not exceed the available budget.",
+            "Each participant has specific needs or preferences that should be met.",
+            "The allocation should maximize a certain objective function, such as efficiency or satisfaction."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Either maximize or minimize a specific goal related to assigning participants to resources.",
+            "Participants: The set of entities that need to be assigned to resources.",
+            "Resources: The set of entities to which participants are assigned.",
+            "Constraints: Conditions that must be met in the assignment process, e.g., capacity limits, availability, and compatibility."
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to assign participants to resources to either minimize or maximize a specific goal within the constraints of the problem."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each participant can be assigned to only one resource.",
+            "A resource can have multiple participants assigned, but shall not exceed its capacity.",
+            "The total number of resources is fixed and cannot be exceeded.",
+            "Certain participants require specific resources or types of resources due to specific needs or compatibility.",
+            "There is a budget constraint limiting the overall cost of assigning participants to resources.",
+            "Geographical or time zone constraints may limit certain participants from being assigned to resources in different locations or time zones.",
+            "Participants have preferences which should be considered in the assignment.",
+            "Resources may have operational hours that must coincide with participant availability."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Assign participants to resources",
+            "Constrained optimization",
+            "Achieve a specific goal",
+            "The specific goal is not related to minimizing costs or maximizing efficiency"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is neither to minimize costs nor to maximize efficiency, but rather to achieve another specific goal not related to cost minimization or efficiency maximization in the assignment of participants to resources under constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each participant can be assigned to only one resource.",
+            "Each resource has a limited capacity of participants it can accommodate.",
+            "All participants must be assigned to a resource.",
+            "The assignment should not violate any additional specific resource or participant requirements."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective is to maximize participant satisfaction or resource utilization",
+            "Participants to resources assignment",
+            "Constraints present in the system"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize participant satisfaction or resource utilization"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each participant can be assigned to one or multiple resources.",
+            "Each resource has a limited capacity that cannot be exceeded.",
+            "The assignment of participants to resources should aim to maximize participant satisfaction and/or resource utilization.",
+            "Participants may have preferences over which resources they are assigned to, and assignments should consider these preferences to enhance satisfaction.",
+            "The number ofavailable resources is fixed and cannot be changed.",
+            "Resources may have operational constraints, such as time or availability, that affect assignments.",
+            "There may be specific rules or regulations that dictate how certain participants can be matched with resources."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "participants",
+            "resources",
+            "constraints",
+            "goal"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimally assign participants to resources such that a specific goal or set of goals is achieved while adhering to given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each participant must be assigned exactly one resource.",
+            "Each resource has a limited capacity and cannot be exceeded.",
+            "All resources must be utilized if there are enough participants available.",
+            "The total cost of assignment must not exceed the given budget.",
+            "The distance or time for each participant to access the assigned resource must be minimized.",
+            "Certain participants are not compatible with certain resources and cannot be assigned to them."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Participants",
+            "Resources",
+            "Constraints",
+            "Objective function"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The primary objective is to optimize the allocation of resources to participants under specific constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Participants can only be assigned to one resource at a time.",
+            "Each resource has a limited capacity of participants it can accommodate.",
+            "There may be specific requirements or prerequisites for participants to be assigned to certain resources.",
+            "The total number of participants assigned must not exceed the total number available.",
+            "Certain resources may also have a minimum number of participants required to be considered viable.",
+            "Some participants may have preferences or rankings for which resources they would like to be assigned to."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "participants",
+            "resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the problem is to efficiently assign participants to resources while adhering to certain constraints, but it is not focused on maximizing satisfaction or minimizing costs."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Assigning participants to resources",
+            "Constrained optimization",
+            "Specific goal"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Assign participants to resources such that a specific, unstated goal is achieved without focusing on maximizing satisfaction or minimizing costs."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "participants",
+            "resources",
+            "constraints",
+            "goal"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimally assign participants to resources while adhering to constraints in order to maximize or achieve a specific goal, such as efficiency, cost reduction, or satisfaction."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each participant must be assigned to exactly one resource.",
+            "Each resource can only host a limited number of participants.",
+            "The total cost of assigning participants to resources must not exceed a specified budget.",
+            "Participants may have preferences towards certain resources, and these should be respected as much as possible.",
+            "The assignment should maximize the utilization of each resource.",
+            "Specific pairs of participants may need to be assigned to the same resource or separated based on their compatibility."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "participants",
+            "resources",
+            "constraints",
+            "specific goal"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to assign participants to resources in a way that optimally achieves a specific goal, which is not cost minimization."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Participants must be assigned to one and only one resource.",
+            "Each resource has a capacity limit that cannot be exceeded by the participants assigned to it.",
+            "No participant can be assigned to multiple resources simultaneously.",
+            "There may be priority rules for assigning certain participants to specific resources."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Participants",
+            "Resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize efficiency or productivity"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each participant can be assigned to only one resource.",
+            "Each resource has a limited capacity that cannot be exceeded by the sum of demands of assigned participants.",
+            "The time availability of participants and resources must align for an assignment to be possible.",
+            "Certain participants may have restrictions that allow them to be assigned only to specific resources.",
+            "The total number of participants assigned must meet or exceed a pre-specified minimum requirement.",
+            "Priorities or preferences may exist which impact the assignment order or choice."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize efficiency",
+            "resource allocation",
+            "constrained optimization",
+            "assign participants to resources",
+            "limited resources",
+            "multiple tasks or activities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize efficiency or productivity by optimally allocating a limited number of resources across multiple tasks or activities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited number of resources available for allocation.",
+            "Multiple tasks or activities require resource assignments.",
+            "Maximizing efficiency or productivity is the key objective."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "participants",
+            "resources",
+            "constraints",
+            "goal"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Assign participants to resources in a way that maximizes efficiency and utilization, while adhering to certain constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each participant can be assigned to only one resource.",
+            "Each resource has a maximum capacity of participants that cannot be exceeded.",
+            "Participants may have specific requirements or preferences that must be considered in the assignment.",
+            "The total cost of assigning participants to resources should not exceed a certain budget.",
+            "Some resources may have priority levels that influence the assignment allocations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function",
+            "Participants",
+            "Resources",
+            "Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to assign participants to resources in a way that either minimizes costs or maximizes efficiency, subject to certain constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Participants can only be assigned to a limited number of resources.",
+            "Each resource has limited capacity and cannot be exceeded.",
+            "Certain resources may not be eligible for assignment to certain participants due to predefined criteria.",
+            "The total cost of assigning participants must not exceed a given budget.",
+            "The objective is to either minimize costs or maximize resource utilization or participant satisfaction based on the problem description."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "participant_resource_assignment",
+            "objective_function",
+            "maximize_value",
+            "constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Participants must be assigned to available resources.",
+            "Each participant can be assigned only one resource.",
+            "Each resource can only accommodate a limited number of participants.",
+            "There is a specific goal that must be achieved through this assignment."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Participants",
+            "Resources",
+            "Constraints",
+            "Goal",
+            "Objective function: maximize"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize a value"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Participants must be assigned to resources.",
+            "Each resource has a limited capacity.",
+            "Each participant can only be assigned to one resource.",
+            "Certain resources may only be assigned to specific participants or groups of participants based on predefined criteria."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      }
+    }
+  }
+}

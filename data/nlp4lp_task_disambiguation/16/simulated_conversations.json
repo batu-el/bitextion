@@ -1,0 +1,48 @@
+{
+  "vague_description": "Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.",
+  "detailed_description": "We want to maximize the daily profit of the company, which is the total revenue minus the total cost. The company has \\param{N} different products, each requiring \\param{AssemblyHour} hours for assembly, \\param{TestingHour} hours for testing, and with a material cost of \\param{MaterialCost}. The company cannot exceed \\param{MaxAssembly} hours for assembly and \\param{MaxTesting} hours for testing. Each product can be sold at \\param{Price}, but there is an opportunity to work \\param{MaxOvertimeAssembly} overtime hours for assembly at a cost of \\param{OvertimeAssemblyCost} per hour. Additionally, a material discount of \\param{MaterialDiscount} is offered when a purchase reaches the \\param{DiscountThreshold}.",
+  "target_objective": "Maximize the total daily profit, which is the total revenue minus the total cost including overtime costs, regular material costs, and considering material discounts",
+  "target_constraints": [
+    "Total assembly hours must not exceed MaxAssembly hours",
+    "Total testing hours must not exceed MaxTesting hours",
+    "The number of products produced is non-negative",
+    "The number of overtime assembly hours used is at most MaxOvertimeAssembly"
+  ],
+  "target_parameters": [
+    "Number of different products",
+    "Hours required to assemble product i",
+    "Hours required to test product i",
+    "Material cost for product i",
+    "Maximum total hours available for assembly",
+    "Maximum total hours available for testing",
+    "Selling price for product i",
+    "Maximum overtime hours available for assembly",
+    "Overtime cost for assembly per hour",
+    "Discount on material cost when a certain threshold is reached",
+    "Threshold for the quantity to reach to obtain the material discount"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.",
+    "(0, 0)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.\nExpert: Is there a fixed number of different product types to choose from for production?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.\nExpert: Is there a fixed number of different product types to choose from for production?\nUser: Yes\n\nExpert: Are there any production capacity constraints for each product type?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.\nExpert: Is there a fixed number of different product types to choose from for production?\nUser: Yes\n\nExpert: Are there any production capacity constraints for each product type?\nUser: No\n\nExpert: Are there cost elements such as variable and fixed costs that affect profitability?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.",
+    "(0, 0)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.\nExpert: Does the problem include a constraint on the budget for raw materials?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.\nExpert: Does the problem include a constraint on the budget for raw materials?\nUser: No\n\nExpert: Is there a constraint related to the availability or limits of specific components, raw materials, or resources for production in the problem description?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.\nExpert: Does the problem include a constraint on the budget for raw materials?\nUser: No\n\nExpert: Is there a constraint related to the availability or limits of specific components, raw materials, or resources for production in the problem description?\nUser: No\n\nExpert: Is there a constraint related to quality standards for each product?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.",
+    "(0, 0)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.\nExpert: Are the profit contributions of different products fixed or variable over the course of a day?\nUser: This information was not provided. Do you have details on whether the profit contributions are fixed or variable?\n",
+    "(0, 0, 0)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.\nExpert: Are the profit contributions of different products fixed or variable over the course of a day?\nUser: This information was not provided. Do you have details on whether the profit contributions are fixed or variable?\n\nExpert: Are the profit contributions of different products affected by factors that change on a daily basis, such as market conditions or production capacity?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.\nExpert: Are the profit contributions of different products fixed or variable over the course of a day?\nUser: This information was not provided. Do you have details on whether the profit contributions are fixed or variable?\n\nExpert: Are the profit contributions of different products affected by factors that change on a daily basis, such as market conditions or production capacity?\nUser: No\n\nExpert: Are the profit contributions of different products constant regardless of production levels?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.",
+    "(0, 0)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.\nExpert: Does the candidate problem description specify the constraints of the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.\nExpert: Does the candidate problem description specify the constraints of the optimization problem?\nUser: Yes\n\nExpert: Is the production capacity constraint quantifiable?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal product mix and resource allocation to achieve maximum daily profitability considering constraints.\nExpert: Does the candidate problem description specify the constraints of the optimization problem?\nUser: Yes\n\nExpert: Is the production capacity constraint quantifiable?\nUser: Yes\n\nExpert: Is the objective of the problem written entirely in lowercase letters?\nUser: No\n"
+  }
+}

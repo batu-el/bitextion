@@ -1,0 +1,519 @@
+{
+  "vague_description": "A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.",
+  "detailed_description": "A printing company sells math workbooks and English workbooks. To meet demand, they must make at least \\param{MinMath} math workbooks and at least \\param{MinEnglish} English workbooks. However, they can make at most \\param{MaxMath} math workbooks and at most \\param{MaxEnglish} English workbooks. The company has a contract with a school to send at least \\param{MinTotalWorkbooks} workbooks of either type. If the profit per math workbook is $\\param{ProfitMath} and the profit per English workbook is $\\param{ProfitEnglish}, how many of each should the company make to maximize profit?",
+  "target_objective": "Maximize the company's profit from workbook production",
+  "target_constraints": [
+    "Number of math workbooks is at least MinMath",
+    "Number of math workbooks is at most MaxMath",
+    "Number of English workbooks is at least MinEnglish",
+    "Number of English workbooks is at most MaxEnglish",
+    "Total number of workbooks is at least MinTotalWorkbooks"
+  ],
+  "target_parameters": [
+    "Minimum number of math workbooks to be made",
+    "Minimum number of English workbooks to be made",
+    "Maximum number of math workbooks to be made",
+    "Maximum number of English workbooks to be made",
+    "Minimum total number of workbooks to be sent under the contract",
+    "Profit per math workbook",
+    "Profit per English workbook"
+  ],
+  "Expert": {
+    "(0,)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.",
+    "(0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Are there specific costs and profit values associated with producing each type of workbook?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Are there specific costs and profit values associated with producing each type of workbook?\nUser: Yes\n\nExpert: Do the math and English workbooks have different profit margins per unit?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Are there specific costs and profit values associated with producing each type of workbook?\nUser: Yes\n\nExpert: Do the math and English workbooks have different profit margins per unit?\nUser: Yes\n\nExpert: Are there constraints on the total available resources, such as materials or labor, that affect the production of both math and English workbooks?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.",
+    "(0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Does the problem description include a constraint related to production hours or budget limits?\nUser: No\n",
+    "(0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Does the problem description include a constraint related to production hours or budget limits?\nUser: No\n\nExpert: Is the upper limit for the total production of workbooks (both math and English combined) specified as exactly 8000 units in the constraints?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Does the problem description include a constraint related to production hours or budget limits?\nUser: No\n\nExpert: Is the upper limit for the total production of workbooks (both math and English combined) specified as exactly 8000 units in the constraints?\nUser: No\n\nExpert: Is the profit per math workbook greater than the profit per English workbook?\nUser: The problem description does not explicitly state the profit per workbook, so it cannot be determined from the information provided.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.",
+    "(0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Are the profit margins for math and English workbooks the same?\nUser: No\n",
+    "(0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Are the profit margins for math and English workbooks the same?\nUser: No\n\nExpert: Are the production costs for math and English workbooks different?\nUser: The original prompt does not provide information about production costs for math and English workbooks. Therefore, based purely on the prompt, I cannot determine if the production costs are different.\n\nSo the answer is: No, the production costs are not specified, and we cannot assume they are different based solely on the provided information.\n",
+    "(0, 0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Are the profit margins for math and English workbooks the same?\nUser: No\n\nExpert: Are the production costs for math and English workbooks different?\nUser: The original prompt does not provide information about production costs for math and English workbooks. Therefore, based purely on the prompt, I cannot determine if the production costs are different.\n\nSo the answer is: No, the production costs are not specified, and we cannot assume they are different based solely on the provided information.\n\nExpert: Does the profit of the printing company depend on selling a fixed batch of both math and English workbooks, rather than individual optimizing for each type of workbook?\nUser: No, the profit depends on individually optimizing the number of math and English workbooks within the given constraints.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.",
+    "(0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Is the objective function a function of the decision variables only (i.e., do not include any external functions, e.g., cost() or revenue() functions)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Is the objective function a function of the decision variables only (i.e., do not include any external functions, e.g., cost() or revenue() functions)?\nUser: Yes\n\nExpert: Are the constraints represented by mathematical inequalities and a set of variables, as opposed to specific numerical values or a list of individual constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Is the objective function a function of the decision variables only (i.e., do not include any external functions, e.g., cost() or revenue() functions)?\nUser: Yes\n\nExpert: Are the constraints represented by mathematical inequalities and a set of variables, as opposed to specific numerical values or a list of individual constraints?\nUser: Yes\n\nExpert: Does the problem description contain any numerical constraints or parameters that do not involve the objective function or the parameters to be optimized?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of math workbooks",
+            "Number of English workbooks",
+            "Minimum quantity constraint for math workbooks",
+            "Maximum quantity constraint for math workbooks",
+            "Minimum quantity constraint for English workbooks",
+            "Maximum quantity constraint for English workbooks",
+            "Profit per math workbook",
+            "Profit per English workbook"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal number of math and English workbooks to produce within given quantity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of math workbooks produced must be at least a minimum determined by company policy.",
+            "The number of English workbooks produced must be at least a minimum determined by company policy.",
+            "The total production of math and English workbooks must not exceed the maximum production capacity of the company.",
+            "The production of math workbooks cannot exceed a certain maximum limit due to resource limitations.",
+            "The production of English workbooks cannot exceed a certain maximum limit due to resource limitations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of math workbooks to produce",
+            "Number of English workbooks to produce",
+            "Minimum quantity constraints",
+            "Maximum quantity constraints",
+            "Cost of producing a math workbook",
+            "Cost of producing an English workbook",
+            "Profit per math workbook",
+            "Profit per English workbook"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by determining the optimal number of math and English workbooks to produce within specified quantity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let x be the number of math workbooks produced, and y be the number of English workbooks produced.",
+            "x >= minimum_quantity_math, where minimum_quantity_math is the minimum number of math workbooks that must be produced.",
+            "y >= minimum_quantity_english, where minimum_quantity_english is the minimum number of English workbooks that must be produced.",
+            "x <= maximum_quantity_math, where maximum_quantity_math is the maximum number of math workbooks that can be produced.",
+            "y <= maximum_quantity_english, where maximum_quantity_english is the maximum number of English workbooks that can be produced.",
+            "The total production capacity cannot be exceeded, i.e., x + y <= total_capacity, where total_capacity is the maximum total number of workbooks that can be produced."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of math workbooks to produce",
+            "Number of English workbooks to produce",
+            "Minimum quantity of math workbooks",
+            "Maximum quantity of math workbooks",
+            "Minimum quantity of English workbooks",
+            "Maximum quantity of English workbooks",
+            "Profit per math workbook",
+            "Profit per English workbook"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profit from producing a combination of math and English workbooks."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let x be the number of math workbooks produced, and y be the number of English workbooks produced.",
+            "The number of math workbooks, x, must be greater than or equal to the minimum quantity required, x_min.",
+            "The number of math workbooks, x, must be less than or equal to the maximum quantity allowed, x_max.",
+            "The number of English workbooks, y, must be greater than or equal to the minimum quantity required, y_min.",
+            "The number of English workbooks, y, must be less than or equal to the maximum quantity allowed, y_max.",
+            "Both x and y must be non-negative integers."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of math workbooks to produce",
+            "Number of English workbooks to produce",
+            "Minimum quantity of math workbooks",
+            "Maximum quantity of math workbooks",
+            "Minimum quantity of English workbooks",
+            "Maximum quantity of English workbooks",
+            "Profit per math workbook",
+            "Profit per English workbook"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profit by deciding the optimal number of math and English workbooks to produce, considering the constraints on minimum and maximum quantities for each type of workbook and differing profit margins per unit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of math workbooks produced must be at least the minimum quantity required by the company.",
+            "The number of math workbooks produced must not exceed the maximum quantity allowed by the company.",
+            "The number of English workbooks produced must be at least the minimum quantity required by the company.",
+            "The number of English workbooks produced must not exceed the maximum quantity allowed by the company."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of math workbooks to produce",
+            "Number of English workbooks to produce"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal number of math and English workbooks to produce in order to maximize profit, given the constraints on minimum and maximum quantities for production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of math workbooks produced should be greater than or equal to the minimum required quantity.",
+            "The number of math workbooks produced should be less than or equal to the maximum allowed quantity.",
+            "The number of English workbooks produced should be greater than or equal to the minimum required quantity.",
+            "The number of English workbooks produced should be less than or equal to the maximum allowed quantity."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of math workbooks",
+            "number of English workbooks",
+            "minimum quantity",
+            "maximum quantity",
+            "profit for math workbook",
+            "profit for English workbook"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize the profit from producing math and English workbooks, given constraints on minimum and maximum quantities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimum quantity of math workbooks to be produced: > 0",
+            "Maximum quantity of math workbooks to be produced: < some upper limit",
+            "Minimum quantity of English workbooks to be produced: > 0",
+            "Maximum quantity of English workbooks to be produced: < some upper limit"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of math workbooks to produce",
+            "Number of English workbooks to produce",
+            "Minimum quantity of math workbooks to produce",
+            "Maximum quantity of math workbooks to produce",
+            "Minimum quantity of English workbooks to produce",
+            "Maximum quantity of English workbooks to produce"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from producing math and English workbooks."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimum quantity for math workbooks: X units",
+            "Maximum quantity for math workbooks: Y units",
+            "Minimum quantity for English workbooks: A units",
+            "Maximum quantity for English workbooks: B units"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimum quantity of math workbooks",
+            "maximum quantity of math workbooks",
+            "minimum quantity of English workbooks",
+            "maximum quantity of English workbooks",
+            "profit per math workbook",
+            "profit per English workbook"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To decide on the number of math and English workbooks to produce, given constraints on minimum and maximum quantities, in order to maximize profit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a minimum quantity constraint for the production of each type of workbook.",
+            "There is a maximum quantity constraint for the production of each type of workbook."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of math workbooks to produce",
+            "Number of English workbooks to produce",
+            "Minimum quantity constraint for each type of workbook",
+            "Maximum quantity constraint for each type of workbook",
+            "Profit per math workbook",
+            "Profit per English workbook"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from the production of math and English workbooks."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimum quantity of math workbooks to produce: X units",
+            "Maximum quantity of math workbooks to produce: Y units",
+            "Minimum quantity of English workbooks to produce: Z units",
+            "Maximum quantity of English workbooks to produce: W units",
+            "Total production capacity limit: C units",
+            "Non-negativity constraint for math workbooks: Math workbooks produced \u2265 0",
+            "Non-negativity constraint for English workbooks: English workbooks produced \u2265 0"
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of math workbooks",
+            "number of English workbooks",
+            "minimum and maximum quantities for math workbooks",
+            "minimum and maximum quantities for English workbooks",
+            "profit margin for math workbooks",
+            "profit margin for English workbooks"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize total profit from producing math and English workbooks, taking into account different profit margins for each type of workbook."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of math workbooks produced must be between the minimum and maximum quantity allowed.",
+            "The number of English workbooks produced must be between the minimum and maximum quantity allowed.",
+            "The total production quantity is limited by the capacity of the printing company.",
+            "The profit from selling the workbooks is different for math and English workbooks, hence influencing the decision on quantity to maximize profit.",
+            "The budget for production may limit the number of workbooks that can be produced."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of math workbooks to produce",
+            "Number of English workbooks to produce",
+            "Minimum quantity constraint for math workbooks",
+            "Maximum quantity constraint for math workbooks",
+            "Minimum quantity constraint for English workbooks",
+            "Maximum quantity constraint for English workbooks",
+            "Profit per math workbook",
+            "Profit per English workbook"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the profit from producing a combination of math and English workbooks, taking into account the unique profit margins for each type of workbook and adhering to the constraints on minimum and maximum quantities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Quantities of math workbooks must be within the specified minimum and maximum limits.",
+            "Quantities of English workbooks must be within the specified minimum and maximum limits."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of math workbooks to produce",
+            "Number of English workbooks to produce",
+            "Minimum quantity constraints for math workbooks",
+            "Maximum quantity constraints for math workbooks",
+            "Minimum quantity constraints for English workbooks",
+            "Maximum quantity constraints for English workbooks",
+            "Profit margin for math workbooks",
+            "Profit margin for English workbooks"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of math and English workbooks to produce in order to maximize profit, taking into account constraints on minimum and maximum quantities for each type of workbook, while considering different profit margins for each."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of math workbooks produced must be within a specified minimum and maximum range.",
+            "The number of English workbooks produced must be within a specified minimum and maximum range."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of math workbooks to produce",
+            "Number of English workbooks to produce"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize profit for the printing company by determining the optimal number of math and English workbooks to produce, taking into account constraints on minimum and maximum quantities for both types of workbooks."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "x >= min_math_workbooks",
+            "x <= max_math_workbooks",
+            "y >= min_english_workbooks",
+            "y <= max_english_workbooks"
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of math workbooks produced",
+            "Number of English workbooks produced",
+            "Profit on selling a math workbook",
+            "Profit on selling an English workbook",
+            "Minimum number of math workbooks required",
+            "Maximum number of math workbooks allowed",
+            "Minimum number of English workbooks required",
+            "Maximum number of English workbooks allowed"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profit from producing math and English workbooks."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of math workbooks produced must be greater than or equal to a specified minimum quantity.",
+            "The number of English workbooks produced must be greater than or equal to a specified minimum quantity.",
+            "The number of math workbooks produced must be less than or equal to a specified maximum quantity.",
+            "The number of English workbooks produced must be less than or equal to a specified maximum quantity."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of math workbooks",
+            "number of English workbooks",
+            "minimum quantity constraint",
+            "maximum quantity constraint",
+            "profit per math workbook",
+            "profit per English workbook"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal number of math and English workbooks to produce."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "x >= min_math",
+            "y >= min_english",
+            "x <= max_math",
+            "y <= max_english",
+            "ax + by <= Z"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of math workbooks to produce",
+            "number of English workbooks to produce"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by deciding the optimal number of math and English workbooks to produce within given quantity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimum number of math workbooks produced",
+            "Maximum number of math workbooks produced",
+            "Minimum number of English workbooks produced",
+            "Maximum number of English workbooks produced"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 4
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 4
+      },
+      "(0, 0)": {
+        "p_score": 4,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 4
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 4,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 4
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      }
+    }
+  }
+}

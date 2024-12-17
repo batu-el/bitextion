@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determine the optimal production schedule for different types of paper using limited machine time while maximizing profit.",
+  "detailed_description": "Forest Paper makes two types of products: graph paper and music paper. Each type of paper requires the use of two machines, a printing machine and a scanning machine. It takes \\param{TimePrintingGraph} minutes on the printing machine and \\param{TimeScanningGraph} minutes on the scanning machine to make a ream of graph paper. On the other hand, it takes \\param{TimePrintingMusic} minutes on the printing machine and \\param{TimeScanningMusic} minutes on the scanning machine to make a ream of music paper. Each machine is available for a maximum of \\param{MaxTimePrinting} minutes (printing machine) and \\param{MaxTimeScanning} minutes (scanning machine) per day. The company sells a package of graph paper at a profit of \\param{ProfitGraph} and a package of music paper at a profit of \\param{ProfitMusic}. The company can sell all the paper it makes. How many reams of each type should the company produce in a day in order to maximize profit? What is that profit?",
+  "target_objective": "Maximize the daily profit from the production of graph paper and music paper",
+  "target_constraints": [
+    "Number of reams of graph paper produced is non-negative",
+    "Number of reams of music paper produced is non-negative",
+    "Total time used on the printing machine for all graph paper is less than or equal to MaxTimePrinting",
+    "Total time used on the scanning machine for all graph paper is less than or equal to MaxTimeScanning"
+  ],
+  "target_parameters": [
+    "Time taken on the printing machine to make a ream of graph paper",
+    "Time taken on the scanning machine to make a ream of graph paper",
+    "Time taken on the printing machine to make a ream of music paper",
+    "Time taken on the scanning machine to make a ream of music paper",
+    "Maximum available time per day for the printing machine",
+    "Maximum available time per day for the scanning machine",
+    "Profit per package of graph paper sold",
+    "Profit per package of music paper sold"
+  ]
+}

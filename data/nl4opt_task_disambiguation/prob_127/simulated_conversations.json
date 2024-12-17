@@ -1,0 +1,46 @@
+{
+  "vague_description": "Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.",
+  "detailed_description": "A woman eats cashews and almonds to get her calorie and protein intake. A serving of almonds contains \\param{CaloriesAlmonds} calories and \\param{ProteinAlmonds} grams of protein. A serving of cashews contains \\param{CaloriesCashews} calories and \\param{ProteinCashews} grams of protein. The woman decides to eat at least twice as many servings of almonds as cashews. Furthermore, a serving of almonds contains \\param{FatAlmonds} grams of fat while a serving of cashews contains \\param{FatCashews} grams of fat. If the woman needs to consume at least \\param{MinCalories} calories and \\param{MinProtein} grams of protein this week, how many servings of each should she eat to minimize her fat intake?",
+  "target_objective": "Minimize the total fat intake from servings of almonds and cashews",
+  "target_constraints": [
+    "Number of servings of almonds is non-negative",
+    "Number of servings of cashews is non-negative",
+    "Number of servings of almonds must be at least twice the number of servings of cashews",
+    "Total calorie intake must be at least MinCalories",
+    "Total protein intake must be at least MinProtein"
+  ],
+  "target_parameters": [
+    "Calories per serving of almonds",
+    "Protein per serving of almonds",
+    "Calories per serving of cashews",
+    "Protein per serving of cashews",
+    "Fat per serving of almonds",
+    "Fat per serving of cashews",
+    "Minimum total calories required",
+    "Minimum total protein required"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.",
+    "(0, 0)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.\nExpert: Is there a specific minimum calorie requirement that each serving of almonds and cashews needs to satisfy?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.\nExpert: Is there a specific minimum calorie requirement that each serving of almonds and cashews needs to satisfy?\nUser: No\n\nExpert: Is there a specific protein requirement that each serving of almonds and cashews needs to satisfy?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.\nExpert: Is there a specific minimum calorie requirement that each serving of almonds and cashews needs to satisfy?\nUser: No\n\nExpert: Is there a specific protein requirement that each serving of almonds and cashews needs to satisfy?\nUser: No\n\nExpert: Are there any constraints on the total number of servings allowed for almonds and cashews?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.",
+    "(0, 0)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.\nExpert: Do the constraints require exactly 500 calories of intake?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.\nExpert: Do the constraints require exactly 500 calories of intake?\nUser: No\n\nExpert: Is the total calorie intake required to be at least 500 calories in the problem description?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.\nExpert: Do the constraints require exactly 500 calories of intake?\nUser: No\n\nExpert: Is the total calorie intake required to be at least 500 calories in the problem description?\nUser: No\n\nExpert: Is the total calorie intake constraint in any problem description exactly 500 calories?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.",
+    "(0, 0)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.\nExpert: Does the problem have a finite number of possible combinations of almonds and cashews?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.\nExpert: Does the problem have a finite number of possible combinations of almonds and cashews?\nUser: No\n\nExpert: Is the number of servings of almonds and cashews restricted by a limited amount available in the problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.\nExpert: Does the problem have a finite number of possible combinations of almonds and cashews?\nUser: No\n\nExpert: Is the number of servings of almonds and cashews restricted by a limited amount available in the problem?\nUser: No\n\nExpert: Is the fat content per serving of almonds and cashews constant and known?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.",
+    "(0, 0)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.\nExpert: Are the parameters (e.g., the nutritional values of almonds and cashews) given as per-serving values or as bulk values (e.g., per oz)?\nUser: Yes, the nutritional values (calories, protein, fat) for almonds and cashews are given as per-serving values.\n",
+    "(0, 0, 0)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.\nExpert: Are the parameters (e.g., the nutritional values of almonds and cashews) given as per-serving values or as bulk values (e.g., per oz)?\nUser: Yes, the nutritional values (calories, protein, fat) for almonds and cashews are given as per-serving values.\n\nExpert: Is the problem description including a list of equality constraints (i.e., constraints that directly relate to the objective function)?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.\nExpert: Are the parameters (e.g., the nutritional values of almonds and cashews) given as per-serving values or as bulk values (e.g., per oz)?\nUser: Yes, the nutritional values (calories, protein, fat) for almonds and cashews are given as per-serving values.\n\nExpert: Is the problem description including a list of equality constraints (i.e., constraints that directly relate to the objective function)?\nUser: No\n\nExpert: Does the problem have any specific numerical values assigned to the parameters or constraints?\nUser: No\n"
+  }
+}

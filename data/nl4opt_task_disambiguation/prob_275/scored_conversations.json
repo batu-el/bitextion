@@ -1,0 +1,509 @@
+{
+  "vague_description": "How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.",
+  "detailed_description": "Both chemical A and chemical B need to be added to a mixer for making bread. One unit of chemical A takes \\param{TimeA} seconds to be effective while one unit of chemical B takes \\param{TimeB} seconds to be effective. Because chemical A can be dangerous, there has to be at most \\param{MaxRatioAtoB} as much chemical A as chemical B in the mixer. If there has to be at least \\param{MinUnitsA} units of chemical A in the mixer and at least \\param{MinTotalUnits} units of total chemicals in the mixer, how many units of each should be added to minimize the total time it takes for the mixed bread to be ready?",
+  "target_objective": "Minimize the total effective time of chemicals A and B in the mixer",
+  "target_constraints": [
+    "Number of units of chemical A is non-negative",
+    "Number of units of chemical B is non-negative",
+    "For every unit of chemical B, there can be at most MaxRatioAtoB units of chemical A",
+    "At least MinUnitsA units of chemical A must be present in the mixer",
+    "The total number of units in the mixer must be at least MinTotalUnits"
+  ],
+  "target_parameters": [
+    "Time for one unit of chemical A to be effective",
+    "Time for one unit of chemical B to be effective",
+    "Maximum allowed ratio of chemical A to chemical B",
+    "Minimum required units of chemical A",
+    "Minimum total required units of chemicals"
+  ],
+  "Expert": {
+    "(0,)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.",
+    "(0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Are there any specific constraints or limits on the quantities of the chemicals that can be used in the production process?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Are there any specific constraints or limits on the quantities of the chemicals that can be used in the production process?\nUser: Yes.\n\nExpert: Is there an objective function provided that quantifies the trade-off between reaction time and safety ratios for the bread production?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Are there any specific constraints or limits on the quantities of the chemicals that can be used in the production process?\nUser: Yes.\n\nExpert: Is there an objective function provided that quantifies the trade-off between reaction time and safety ratios for the bread production?\nUser: No.\n\nExpert: Is there a specific target or requirement for the reaction time that needs to be achieved in the bread production process?\nUser: No.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.",
+    "(0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Does the problem objective explicitly involve maximizing efficiency?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Does the problem objective explicitly involve maximizing efficiency?\nUser: Yes.\n\nExpert: Is the primary objective to minimize the total reaction time?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Does the problem objective explicitly involve maximizing efficiency?\nUser: Yes.\n\nExpert: Is the primary objective to minimize the total reaction time?\nUser: Yes.\n\nExpert: Do any of the candidate problems include a cost-related constraint?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.",
+    "(0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Are the reaction times of the two chemicals additive, meaning that a certain total reaction time is required, or are they multiplicative, meaning that the reaction times interact with each other?\nUser: Yes\n",
+    "(0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Are the reaction times of the two chemicals additive, meaning that a certain total reaction time is required, or are they multiplicative, meaning that the reaction times interact with each other?\nUser: Yes\n\nExpert: Are the safety ratios of the two chemicals also multiplicative, meaning that the total safety ratio is a product of the individual safety ratios, rather than a function of one or both of the chemical quantities? \nUser: No\n",
+    "(0, 0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Are the reaction times of the two chemicals additive, meaning that a certain total reaction time is required, or are they multiplicative, meaning that the reaction times interact with each other?\nUser: Yes\n\nExpert: Are the safety ratios of the two chemicals also multiplicative, meaning that the total safety ratio is a product of the individual safety ratios, rather than a function of one or both of the chemical quantities? \nUser: No\n\nExpert: Is the objective of the optimization problem to minimize the total reaction time of the chemical mixture, while ensuring the safety ratio is above a certain threshold?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.",
+    "(0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Does the problem statement explicitly mention the quantities of at least one chemical or a variable that represents the quantity of a chemical in the problem parameters?\nUser: Yes\n",
+    "(0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Does the problem statement explicitly mention the quantities of at least one chemical or a variable that represents the quantity of a chemical in the problem parameters?\nUser: Yes\n\nExpert: Are there any constraints specified in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Does the problem statement explicitly mention the quantities of at least one chemical or a variable that represents the quantity of a chemical in the problem parameters?\nUser: Yes\n\nExpert: Are there any constraints specified in the problem description?\nUser: Yes\n\nExpert: Are the constraints defined in terms of specific quantities or attributes of the parameters, or are they defined as general rules or ratios?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of chemical A",
+            "Quantity of chemical B",
+            "Reaction time of chemical A",
+            "Reaction time of chemical B",
+            "Safety ratio of chemical A",
+            "Safety ratio of chemical B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal quantities of two chemicals such that the bread production process is both fast and safe, considering the constraints imposed by their different reaction times and safety ratios."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The reaction time of each chemical must be within a specific range to ensure fast bread production.",
+            "The safety ratio for each chemical must remain within a specified safe limit to avoid any hazards.",
+            "The combined use of both chemicals should not exceed the maximum allowable concentrations for safe bread production.",
+            "Each chemical must meet a minimum effectiveness threshold to contribute to the bread production process efficiently."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of Chemical A",
+            "Quantities of Chemical B",
+            "Reaction time for Chemical A",
+            "Reaction time for Chemical B",
+            "Safety ratio for Chemical A",
+            "Safety ratio for Chemical B",
+            "Overall production time",
+            "Safety requirements",
+            "Limits on quantities of Chemical A",
+            "Limits on quantities of Chemical B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal quantities of two chemicals to achieve a balance between fast reaction times and safety in the bread production process, while adhering to predefined constraints on the chemical quantities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maximize bread production speed given that the reaction times of the chemicals affect the overall process time.",
+            "Ensure that the combination of chemicals does not exceed safety ratio limits to maintain safe production conditions.",
+            "Chemical A must be used in a quantity no less than X grams and no more than Y grams due to reaction time constraints.",
+            "Chemical B must be used in a quantity no less than P grams and no more than Q grams for optimal safety ratios.",
+            "The total amount of chemicals used must not exceed the equipment capacity limit which is R grams.",
+            "Chemical A and B must be mixed in a fixed proportion to maintain the integrity of the bread texture."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of Chemical 1",
+            "Quantities of Chemical 2",
+            "Reaction time of Chemical 1",
+            "Reaction time of Chemical 2",
+            "Safety ratio of Chemical 1",
+            "Safety ratio of Chemical 2",
+            "Constraints on Chemical 1 quantity",
+            "Constraints on Chemical 2 quantity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal quantities of two chemicals to achieve fast and safe bread production while considering reaction times and safety ratios, subject to specific constraints or limits on the quantities of the chemicals that can be used."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Non-negativity constraints for the quantities of the chemicals.",
+            "Upper and lower bounds on the quantities of the chemicals based on safety standards.",
+            "The sum of the proportions of chemicals used should not exceed 100%."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of the two chemicals"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal quantities of two chemicals to minimize or balance the reaction time and safety ratios in the bread production process while adhering to specified constraints on the chemical quantities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantities of the chemicals must stay within safety limits for safe bread production.",
+            "Each chemical has a different safety ratio that must be adhered to.",
+            "There is no explicit target for reaction time.",
+            "There is no objective function provided for optimizing reaction time and safety ratios."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "quantity of Chemical A",
+            "quantity of Chemical B",
+            "reaction time of Chemical A",
+            "reaction time of Chemical B",
+            "safety ratio of Chemical A",
+            "safety ratio of Chemical B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal quantities of the two chemicals that minimize reaction time while meeting safety constraints for bread production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Chemical A quantity + Chemical B quantity = Total chemical quantity available",
+            "Reaction time of Chemical A * Quantity of Chemical A + Reaction time of Chemical B * Quantity of Chemical B <= Maximum acceptable reaction time",
+            "Safety ratio of Chemical A * Quantity of Chemical A + Safety ratio of Chemical B * Quantity of Chemical B >= Minimum required safety ratio",
+            "Quantity of Chemical A >= 0",
+            "Quantity of Chemical B >= 0"
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "reaction time of chemical 1",
+            "reaction time of chemical 2",
+            "safety ratio of chemical 1",
+            "safety ratio of chemical 2",
+            "efficiency of bread production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the efficiency of bread production by optimizing the quantities of two chemicals, considering their reaction times and safety ratios."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantities of chemicals must adhere to safety ratio limits.",
+            "Reaction time for the combination of chemicals should be minimized to achieve faster production.",
+            "Each chemical has a permissible range of quantities to ensure safety.",
+            "The total cost of the chemicals should not exceed the budget allotted for bread production.",
+            "Chemicals must react completely within the provided time frame to ensure the bread meets production standards."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "reaction time of chemical 1",
+            "reaction time of chemical 2",
+            "safety ratio of chemical 1",
+            "safety ratio of chemical 2"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total reaction time while achieving a safe bread production process."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total reaction time, which is a weighted sum of the reaction times of each chemical based on their quantities, must be minimized.",
+            "Each chemical must be used within its safety ratio limits to ensure a safe production process.",
+            "The sum of the quantities of the two chemicals must satisfy the requirements for bread production.",
+            "Non-negativity constraints: quantities of each chemical must be greater than or equal to zero."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of chemical A",
+            "Quantity of chemical B",
+            "Reaction time of chemical A",
+            "Reaction time of chemical B",
+            "Safety ratio of chemical A",
+            "Safety ratio of chemical B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total reaction time for bread production while ensuring safe operating conditions for the chemicals involved."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total reaction time must be minimized.",
+            "Safety ratios for both chemicals must be satisfied.",
+            "There should be no consideration for cost-related constraints.",
+            "Quantities of chemicals must be such that efficiency is maximized."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Chemical A quantity",
+            "Chemical B quantity",
+            "Reaction time of Chemical A",
+            "Reaction time of Chemical B",
+            "Safety ratio of Chemical A",
+            "Safety ratio of Chemical B",
+            "Desired bread production speed",
+            "Acceptable safety limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal quantities of two chemicals that maximize the speed of the bread production process while ensuring safety standards are met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Chemical 1 and Chemical 2 quantities must be non-negative.",
+            "The sum of the reaction times of Chemical 1 and Chemical 2 must not exceed a certain threshold to achieve fast production.",
+            "The safety ratios of Chemical 1 and Chemical 2, when combined, need to meet a minimum safety requirement.",
+            "The total quantity of chemicals should not exceed the maximum limit of storage capacity.",
+            "The mixture of Chemical 1 and Chemical 2 must produce a dough that passes quality control standards."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "reaction times of chemical A and B",
+            "safety ratios of chemical A and B",
+            "desired total reaction time",
+            "desired safety level"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal quantities of two chemicals, taking into account their reaction times and safety ratios, in order to minimize the total production time while maintaining safety standards during the bread production process."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let C1 and C2 be the quantities of Chemical 1 and Chemical 2 respectively.",
+            "The reaction time constraint: If reaction times R1 and R2 for C1 and C2 respectively are additive, then R1*C1 + R2*C2 <= T, where T is the maximum allowable reaction time.",
+            "If reaction times are multiplicative, assume they follow R1^a * R2^b <= M, with a and b as coefficients and M as the maximum allowable combined reaction time.",
+            "The safety constraint: Ensure that C1/S1 + C2/S2 <= 1, where S1 and S2 are safety thresholds for each chemical."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of chemical A",
+            "Quantities of chemical B",
+            "Total reaction time constraint (additive)",
+            "Safety ratio functions (not multiplicative)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the quantities of two chemicals that minimize the total reaction time while satisfying safety constraints for safe bread production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total reaction time is determined either by the addition or the interaction (multiplicative) of the reaction times of the two chemicals.",
+            "The safety of the bread production is determined by the safety ratios of the individual chemicals, but their combination does not follow a multiplicative pattern."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of chemical 1 and chemical 2",
+            "Total reaction time (additive)",
+            "Safety ratio (non-multiplicative)",
+            "Objective: Minimize total reaction time",
+            "Constraint: Safety ratio above threshold"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total reaction time of the chemical mixture while ensuring the safety ratio is above a certain threshold."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total reaction time is the sum of the reaction times of the two chemicals, that is, the reaction times are additive.",
+            "The safety ratio of the mixture is a function of the quantities of the two chemicals, not a product of the individual safety ratios.",
+            "The objective is to minimize the total reaction time, subject to a constraint on the safety ratio.",
+            "The safety ratio of the mixture must be above a certain threshold value."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of Chemical A",
+            "Quantity of Chemical B",
+            "Reaction time of Chemical A",
+            "Reaction time of Chemical B",
+            "Safety ratio of Chemical A",
+            "Safety ratio of Chemical B",
+            "Target production time",
+            "Safety threshold"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal quantities of two chemicals that minimize reaction time while maximizing safety ratios in bread production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the reaction times of the two chemicals should be minimized to achieve fast production.",
+            "The safety ratio of each chemical usage must be above a specified threshold to ensure safety in the production process.",
+            "The combination of the two chemicals should result in a final product that meets quality standards for bread."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Q1 (quantity of chemical 1)",
+            "Q2 (quantity of chemical 2)",
+            "R1 (reaction time of chemical 1)",
+            "R2 (reaction time of chemical 2)",
+            "S1 (safety ratio of chemical 1)",
+            "S2 (safety ratio of chemical 2)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal quantities of two chemicals that minimize reaction time while satisfying safety constraints for bread production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the quantities of both chemicals does not exceed the total available mixture quantity.",
+            "The reaction time of the mixture should not exceed the maximum allowable reaction time to achieve fast production.",
+            "The safety ratio of each chemical should be maintained within the allowable safety limits to ensure safe production.",
+            "The quantity of each chemical is non-negative."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Reaction time of first chemical",
+            "Reaction time of second chemical",
+            "Safety ratio of first chemical",
+            "Safety ratio of second chemical",
+            "Quantity of first chemical",
+            "Quantity of second chemical"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal quantities of two chemicals to achieve fast and safe bread production by maximizing or minimizing a specific objective function related to reaction times and safety ratios, subject to the given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantity of at least one of the chemicals is explicitly specified or represented by a variable.",
+            "The reaction time of each chemical affects the overall production speed, implying constraints related to reaction completion within a desired time frame for bread production.",
+            "The safety ratio of each chemical must be maintained within acceptable limits to ensure safe production, implying constraints on the maximum allowable quantities or ratios.",
+            "There may be upper and lower bounds on the quantity of each chemical based on availability or safety guidelines.",
+            "The combination of chemicals must meet the desired quality and characteristics of the final product (e.g., texture, taste)."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of two chemicals",
+            "Reaction times of two chemicals",
+            "Safety ratios",
+            "Constraints related to quantities or attributes",
+            "Objectives related to reaction time and safety"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal quantities of two chemicals in order to achieve fast and safe bread production, balancing reaction times and safety ratios under given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantity of at least one chemical must be specified or represented by a variable.",
+            "The combined reaction times of the chemicals should not exceed a certain threshold to ensure fast production.",
+            "The safety ratios of the chemicals must be within acceptable limits to ensure safe bread production.",
+            "The proportions of the chemicals must maintain a specified ratio to each other."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      }
+    }
+  }
+}

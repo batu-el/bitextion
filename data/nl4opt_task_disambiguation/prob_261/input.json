@@ -1,0 +1,23 @@
+{
+  "vague_description": "The taxi company faces a decision-making dilemma regarding the optimal mix of motorcycles and sedans to purchase in order to maximize earnings while adhering to pollution and transportation constraints.",
+  "detailed_description": "A taxi company will purchase vehicles to rent to their drivers. They are interested in purchasing either motorcycles or sedans. A motorcycle can transport \\param{MotorcycleCapacity} people, produces \\param{MotorcyclePollution} units of pollution, and earns the taxi company \\param{MotorcycleEarnings} per shift. A sedan can transport \\param{SedanCapacity} people, produces \\param{SedanPollution} units of pollution, and earns the company \\param{SedanEarnings} per shift. Because not every customer is comfortable with a motorcycle, at most \\param{MaxMotorcycleProportion} of vehicles can be motorcycles. Additionally, the company has committed to producing less than \\param{MaxPollution} units of pollution. The company needs to transport at least \\param{MinPeopleTransported} people every shift. How many of each type of vehicle should be used to maximize the total earnings for the taxi company per shift?",
+  "target_objective": "Maximize the total earnings for the taxi company per shift",
+  "target_constraints": [
+    "Number of motorcycles is non-negative",
+    "Number of sedans is non-negative",
+    "At most MaxMotorcycleProportion of the total number of vehicles can be motorcycles",
+    "The total pollution produced by all vehicles must be less than MaxPollution units",
+    "The company must be able to transport at least MinPeopleTransported people every shift"
+  ],
+  "target_parameters": [
+    "Number of people a motorcycle can transport per shift",
+    "Pollution units produced by one motorcycle per shift",
+    "Earnings from one motorcycle per shift",
+    "Number of people a sedan can transport per shift",
+    "Pollution units produced by one sedan per shift",
+    "Earnings from one sedan per shift",
+    "Maximum proportion of motorcycles in the vehicle fleet",
+    "Maximum pollution units the company can produce per shift",
+    "Minimum number of people the company needs to transport per shift"
+  ]
+}

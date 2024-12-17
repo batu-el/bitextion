@@ -1,0 +1,21 @@
+{
+  "vague_description": "Optimizing resource allocation in a laboratory setting to maximize electricity output.",
+  "detailed_description": "A scientist is conducting two experiments to produce electricity, experiment alpha and experiment beta. In experiment alpha, \\param{MetalAlpha} units of metal and \\param{AcidAlpha} units of acid are required to produce \\param{ElectricityAlpha} units of electricity. In experiment beta, \\param{MetalBeta} units of metal and \\param{AcidBeta} units of acid are required to produced \\param{ElectricityBeta} units of electricity. The lab has \\param{TotalMetal} units of metal and \\param{TotalAcid} units of acid available. How many of each experiment should the scientist conduct to maximize the total amount of electricity produced?",
+  "target_objective": "Maximize the total amount of electricity produced by conducting alpha and beta experiments",
+  "target_constraints": [
+    "Number of alpha experiments is non-negative",
+    "Number of beta experiments is non-negative",
+    "Metal consumed by alpha and beta experiments is less than or equal to TotalMetal",
+    "Acid consumed by alpha and beta experiments is less than or equal to TotalAcid"
+  ],
+  "target_parameters": [
+    "Metal required for experiment alpha",
+    "Acid required for experiment alpha",
+    "Electricity produced by experiment alpha",
+    "Metal required for experiment beta",
+    "Acid required for experiment beta",
+    "Electricity produced by experiment beta",
+    "Total amount of metal available",
+    "Total amount of acid available"
+  ]
+}

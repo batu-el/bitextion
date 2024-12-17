@@ -1,0 +1,495 @@
+{
+  "vague_description": "A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.",
+  "detailed_description": "Lot-sizing problems are production planning problems where \\param{Periods} are predefined and production of an item during a \\param{Periods} involves a discrete event such as the payment of a cost or the loss of production capacity. These events can occur due to the placement of an order or the set-up, startup, or changeover of a machine. The demand for each of the \\param{Items} across each period is represented by \\param{Demand_{i,j}}, while the total production capacity available in each period is defined by \\param{TotalPeriodCapacity_j}. Each item has a specific capacity \\param{ItemCapacity_{i,j}} which could decrease in each period due to mentioned events. Holding costs for items are indicated by \\param{HoldingCost_i}, while backorder costs and fixed order costs are represented by \\param{BackorderCost_i} and \\param{FixedCost_i}, respectively. The initial stock of each item is provided by \\param{InitialStock_i}.",
+  "target_objective": "Minimize the total cost of production, including holding costs, backorder costs, and fixed order costs, while satisfying the demand for each item across all periods",
+  "target_constraints": [
+    "Number of items produced must meet the demand for each item in each period",
+    "Total production must not exceed the available capacity for each period",
+    "Each item has a specific capacity that might decrease in each period",
+    "Production amounts, initial stock, and holding costs for each item are non-negative",
+    "Backorder costs and fixed order costs for each item are non-negative",
+    "Holding costs are incurred on any unsold stock carried over to subsequent periods",
+    "Backorder costs are incurred if the demand is not met on time",
+    "A fixed cost is incurred every time an order is placed or a machine is set-up or changed over"
+  ],
+  "target_parameters": [
+    "The number of distinct items",
+    "The number of predefined periods",
+    "The demand for each item across each period",
+    "The total production capacity available in each period",
+    "The specific production capacity of each item",
+    "The holding cost for each item",
+    "The backorder cost for each item",
+    "The fixed order cost for each item",
+    "The initial stock for each item"
+  ],
+  "Expert": {
+    "(0,)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.",
+    "(0, 0)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.\nExpert: Are there specific constraints on the availability of resources, such as materials or labor, that limit production capacity?\nUser: No\n",
+    "(0, 0, 0)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.\nExpert: Are there specific constraints on the availability of resources, such as materials or labor, that limit production capacity?\nUser: No\n\nExpert: Is the objective to minimize costs related to production, storage, and potential unmet demand penalties?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.\nExpert: Are there specific constraints on the availability of resources, such as materials or labor, that limit production capacity?\nUser: No\n\nExpert: Is the objective to minimize costs related to production, storage, and potential unmet demand penalties?\nUser: Yes\n\nExpert: Are there multiple production stages involved, each with its own costs and processing times?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.",
+    "(0, 0)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.\nExpert: Does the problem include a constraint on the minimum lot size for production?\nUser: No\n",
+    "(0, 0, 0)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.\nExpert: Does the problem include a constraint on the minimum lot size for production?\nUser: No\n\nExpert: Does the problem include constraints or parameters related to backordering costs or penalties for unmet demand?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.\nExpert: Does the problem include a constraint on the minimum lot size for production?\nUser: No\n\nExpert: Does the problem include constraints or parameters related to backordering costs or penalties for unmet demand?\nUser: Yes\n\nExpert: Does the problem explicitly include a budget constraint for production and inventory operations?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.",
+    "(0, 0)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.\nExpert: Are the production costs for each item affected by the production volume?\nUser: No\n",
+    "(0, 0, 0)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.\nExpert: Are the production costs for each item affected by the production volume?\nUser: No\n\nExpert: Are the production costs for each item affected by the production volume?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.\nExpert: Are the production costs for each item affected by the production volume?\nUser: No\n\nExpert: Are the production costs for each item affected by the production volume?\nUser: No\n\nExpert: Are all items subject to the same production capacity constraints?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.",
+    "(0, 0)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.\nExpert: Does the optimization problem explicitly mention more than two parameters (excluding the objective and constraints)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.\nExpert: Does the optimization problem explicitly mention more than two parameters (excluding the objective and constraints)?\nUser: Yes\n\nExpert: Does the problem description include a 'time period' or 'time-dependent' parameter?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A business needs to determine how to efficiently manage production schedules for items given limited capacity and varying demand while minimizing associated costs.\nExpert: Does the optimization problem explicitly mention more than two parameters (excluding the objective and constraints)?\nUser: Yes\n\nExpert: Does the problem description include a 'time period' or 'time-dependent' parameter?\nUser: Yes\n\nExpert: Is the list of constraints empty?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production schedules",
+            "limited capacity",
+            "varying demand",
+            "minimizing associated costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently manage production schedules by optimizing the allocation of resources, balancing supply and demand under capacity constraints, and minimizing the costs associated with production such as labor, materials, storage, and penalties for unmet demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production capacity cannot exceed the available resource limits.",
+            "The production schedule must meet the varying demand for each time period.",
+            "The costs associated with production, such as raw materials and labor, should be minimized.",
+            "Inventory levels should be kept below a certain threshold to avoid excessive holding costs.",
+            "The production process must adhere to specific time constraints for each product.",
+            "There should be a balance between overtime, regular time, and idle time to optimize labor costs."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedule",
+            "Limited production capacity",
+            "Varying demand",
+            "Minimizing costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently manage production schedules for items within limited capacity and varying demand while minimizing associated production costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity is limited by the available machinery and production lines.",
+            "Demand varies across different products and time periods, influencing production scheduling.",
+            "Minimize associated costs related to production processes, inventory holding, and potentially expedited shipping."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production schedules",
+            "production capacity",
+            "varying demand",
+            "associated costs",
+            "production",
+            "storage",
+            "unmet demand penalties"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to efficiently manage production schedules to minimize costs related to production, storage, and potential unmet demand penalties, given limited capacity and varying demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Varying demand for items, which must be met to avoid penalties.",
+            "Limited production capacity at any given time.",
+            "Costs associated with production processes.",
+            "Costs associated with storage of produced items."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production schedules",
+            "limited capacity",
+            "varying demand",
+            "minimizing costs",
+            "availability of resources",
+            "materials",
+            "labor",
+            "unmet demand penalties"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the costs related to production, storage, and penalties for unmet demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a single production stage.",
+            "There are limited production capacities.",
+            "Demand for items varies over time.",
+            "The objective is to minimize costs related to production, storage, and potential unmet demand penalties."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Capacity",
+            "Demand",
+            "Production Costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the costs associated with efficiently managing production schedules for items, given the constraints of limited capacity and varying demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of items produced cannot exceed the production capacity in any time period.",
+            "The production schedule must meet the varying demand for items at all specified times.",
+            "The costs associated with production, including variable and fixed costs, must be minimized."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "limited capacity",
+            "varying demand",
+            "minimizing costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to efficiently manage production schedules to meet varying demand under limited capacity constraints, while minimizing the associated production costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity is limited.",
+            "The demand for items varies over time.",
+            "Associated costs need to be minimized.",
+            "No constraints on the minimum lot size for production."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "limited production capacity",
+            "varying demand",
+            "minimize costs",
+            "backordering costs or penalties for unmet demand"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to efficiently manage production schedules for items with limited capacity and varying demand while minimizing the associated costs, including backordering costs or penalties for unmet demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production schedule must adhere to the capacity limits, ensuring that production at any given time does not exceed the available capacity.",
+            "Demand for items varies and production schedules must be adjusted to meet these demands whenever possible.",
+            "Penalties or costs are incurred for any unmet demand, implying a need to balance capacity with demand to minimize these costs."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "limited capacity",
+            "varying demand",
+            "minimizing costs",
+            "backordering costs or penalties"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize production and inventory costs while satisfying demand without exceeding plant capacity, considering backordering penalties."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited production capacity.",
+            "Varying demand for items.",
+            "Minimization of associated costs related to production scheduling.",
+            "Constraints related to backordering costs or penalties for unmet demand."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Capacity",
+            "Demand Forecast",
+            "Production Costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total production costs while managing production schedules within capacity limits and meeting varying demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production must not exceed available capacity at any given time.",
+            "The production schedule must meet or exceed all demand requirements for each time period.",
+            "Costs associated with production, such as labor, materials, and energy, must be minimized.",
+            "Inventory levels should be maintained at optimal levels to avoid excess carrying costs.",
+            "Production processes must adhere to any regulatory or safety standards.",
+            "Lead times for procurement of raw materials should be considered in scheduling.",
+            "Resources (e.g., machinery, labor) should be utilized without causing overuse or underutilization."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production capacity",
+            "Demand for each item",
+            "Production cost per item",
+            "Production volume"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total production costs while efficiently managing production schedules given capacity constraints and varying demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production schedule must not exceed the available production capacity.",
+            "The production schedule should meet the varying demand for each item.",
+            "The production costs are fixed per unit and do not change with production volume.",
+            "The schedule should aim to minimize the total associated costs while meeting capacity and demand constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedule for each item",
+            "Capacity limits",
+            "Demand for each item",
+            "Production costs for each item"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently manage production schedules for items considering limited capacity and varying demand, while minimizing the associated costs, without considering production volume as a variable in cost calculation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production of items must not exceed available capacity.",
+            "Demand for each item must be met fully or penalty costs will incur.",
+            "Total cost should consider fixed production costs per item."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production capacity for each item",
+            "Demand for each item",
+            "Production cost for each item"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently manage production schedules for various items by considering limited capacity constraints and varying demand patterns, with the goal of minimizing the total production costs while respecting individual capacity limits for each item."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production capacity for each item is limited and varies among items.",
+            "There is a varying demand for each item that must be met.",
+            "The production costs for each item are fixed and do not depend on production volume.",
+            "The schedule must be optimized to minimize the total production cost while meeting demand and adhering to capacity limits."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production capacity constraints",
+            "demand variability",
+            "cost minimization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the production schedule that ensures efficient use of limited capacity while meeting varying demand, minimizing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production capacity is limited, meaning there is a maximum number of items that can be produced within a given time frame.",
+            "The demand for items varies, which means production must adjust to meet these changing demands.",
+            "The management of production schedules must aim to minimize costs associated with production, such as labor, materials, and overhead.",
+            "The production schedule must adhere to any regulatory or contractual obligations that may limit operational flexibility.",
+            "The available workforce or machine time may impose additional constraints on production capacity.",
+            "Inventory holding costs and storage limitations may restrict the amount of surplus production that can be held.",
+            "The lead time for production and any supply chain constraints must be considered to ensure timely production and delivery of items."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Capacity",
+            "Demand",
+            "Costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the associated costs of production while meeting varying demand and adhering to limited capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited production capacity constraints.",
+            "Varying demand during different time periods which must be satisfied.",
+            "The need to minimize production and associated operational costs.",
+            "Potential constraints on raw material availability.",
+            "Workforce availability and labor-hour constraints.",
+            "Storage capacity for inventory may be limited."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production schedules",
+            "limited capacity",
+            "demand",
+            "associated costs",
+            "time period"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently manage production schedules for items with limited capacity and varying demand while minimizing associated costs over specific time periods."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limits for each time period cannot be exceeded.",
+            "Demand for each item must be met within specified time periods.",
+            "Associated costs must be minimized while adhering to capacity and demand constraints.",
+            "Resources are limited and should be allocated efficiently across different time periods.",
+            "There might be additional business rules such as minimum production lots or maximum overtime hours that restrict production scheduling."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production capacity",
+            "Demand",
+            "Cost",
+            "Time period"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to efficiently manage production schedules for items in order to minimize associated costs, while considering limited capacity, varying demand, and including time-dependent parameters."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited production capacity",
+            "Varying demand over time",
+            "Minimization of costs",
+            "Time-dependent parameters or conditions"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 3
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    }
+  }
+}

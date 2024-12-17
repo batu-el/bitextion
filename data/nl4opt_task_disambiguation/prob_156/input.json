@@ -1,0 +1,15 @@
+{
+  "vague_description": "The challenge is to find the optimal allocation of vehicles to meet a delivery requirement under specific constraints.",
+  "detailed_description": "A shoe company supplies shoes to stores via vans and trucks. A van can transport \\param{VanCapacity} pairs of shoes while a truck can transport \\param{TruckCapacity} pairs of shoes. The company must supply a minimum of \\param{MinPairs} pairs of shoes around the city. Since most stores are small, the number of trucks used cannot exceed the number of vans used.  Find the minimum number of vans that can be used?",
+  "target_objective": "Minimize the number of vans used to meet the shoe supply demands",
+  "target_constraints": [
+    "At least MinPairs pairs of shoes must be supplied",
+    "Number of trucks used is less than or equal to the number of vans used",
+    "Number of vans is non-negative"
+  ],
+  "target_parameters": [
+    "Capacity of a van",
+    "Capacity of a truck",
+    "Minimum total pairs of shoes to be supplied"
+  ]
+}

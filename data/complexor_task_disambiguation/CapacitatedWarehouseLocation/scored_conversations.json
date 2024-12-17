@@ -1,0 +1,481 @@
+{
+  "vague_description": "How to effectively manage logistics to meet customer's needs within given constraints.",
+  "detailed_description": "The capacitated warehouse location problem is the problem of locating \\param{NumberOfLocations} warehouses which have to service \\param{NumberOfCustomers} customers, at minimum cost. Each customer has an associated demand \\param{CustomerDemand}. There are constraints on the total demand that can be met from a warehouse, as specified by \\param{WarehouseCapacity}. Costs are incurred when allocating service to customers from warehouses \\param{ServiceAllocationCost}, and warehouses have a fixed operating cost \\param{WarehouseFixedCost}. Additionally, there is a lower limit \\param{MinimumDemandFromWarehouse} on the amount of demand that a warehouse must meet if it is opened, as well as constraints on the minimum \\param{MinimumOpenWarehouses} and maximum \\param{MaximumOpenWarehouses} number of warehouses that can be operational.",
+  "target_objective": "Minimize the total cost of servicing customers, including service allocation and operating costs of warehouses",
+  "target_constraints": [
+    "Each customer demand must be met",
+    "Each warehouse can meet a maximum demand equal to its WarehouseCapacity",
+    "If a warehouse is open, it must meet at least the MinimumDemandFromWarehouse",
+    "At least MinimumOpenWarehouses warehouses must be operational",
+    "At most MaximumOpenWarehouses warehouses can be operational"
+  ],
+  "target_parameters": [
+    "The total number of potential warehouse locations",
+    "The total number of customers to be serviced",
+    "The demand of each customer",
+    "The cost of allocating service from each warehouse to each customer",
+    "The total capacity for each warehouse",
+    "The lower limit on the demand that must be met from a warehouse if it is to be operational",
+    "The minimum number of warehouses that need to be operational",
+    "The maximum number of warehouses that can be operational",
+    "The fixed operating cost of each warehouse"
+  ],
+  "Expert": {
+    "(0,)": "User: How to effectively manage logistics to meet customer's needs within given constraints.",
+    "(0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are you dealing with constraints related to delivery time windows in your logistics problem?\nUser: No\n",
+    "(0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are you dealing with constraints related to delivery time windows in your logistics problem?\nUser: No\n\nExpert: Are there constraints related to the available budget or cost limits in managing your logistics?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are you dealing with constraints related to delivery time windows in your logistics problem?\nUser: No\n\nExpert: Are there constraints related to the available budget or cost limits in managing your logistics?\nUser: Yes\n\nExpert: Is minimizing the total transportation cost the primary objective of your logistics optimization problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: How to effectively manage logistics to meet customer's needs within given constraints.",
+    "(0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Does the problem description include constraints related to environmental regulations or emissions compliance?\nUser: No\n",
+    "(0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Does the problem description include constraints related to environmental regulations or emissions compliance?\nUser: No\n\nExpert: Does the problem include constraints related to maintaining minimum inventory levels?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Does the problem description include constraints related to environmental regulations or emissions compliance?\nUser: No\n\nExpert: Does the problem include constraints related to maintaining minimum inventory levels?\nUser: No\n\nExpert: Is there a constraint related to budget or cost limits in the problem description?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: How to effectively manage logistics to meet customer's needs within given constraints.",
+    "(0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are there any time-sensitive delivery requirements (e.g. same-day, next-day, etc.) that need to be met?\nUser: No\n",
+    "(0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are there any time-sensitive delivery requirements (e.g. same-day, next-day, etc.) that need to be met?\nUser: No\n\nExpert: Is there a specific geographical area or region where the logistics operations are concentrated?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are there any time-sensitive delivery requirements (e.g. same-day, next-day, etc.) that need to be met?\nUser: No\n\nExpert: Is there a specific geographical area or region where the logistics operations are concentrated?\nUser: Yes\n\nExpert: Is this geographical area relatively small and contained, or does it span across multiple states or countries?\nUser: {\"response\":\"Yes, it spans across multiple states.\"}\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: How to effectively manage logistics to meet customer's needs within given constraints.",
+    "(0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are there any time constraints in the problem?\nUser: No\n",
+    "(0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are there any time constraints in the problem?\nUser: No\n\nExpert: Does the problem have an objective function that explicitly mentions a specific numerical target value or a fixed goal, such as 'Minimize total logistics cost', 'Minimize the total logistics cost subject to several constraints', or 'Minimize delivery cost', but not simply stating to maximize or minimize a specific factor like 'maximize customer satisfaction'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are there any time constraints in the problem?\nUser: No\n\nExpert: Does the problem have an objective function that explicitly mentions a specific numerical target value or a fixed goal, such as 'Minimize total logistics cost', 'Minimize the total logistics cost subject to several constraints', or 'Minimize delivery cost', but not simply stating to maximize or minimize a specific factor like 'maximize customer satisfaction'?\nUser: Yes\n\nExpert: Are there any constraints provided in the problem description?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost of transportation",
+            "Delivery time",
+            "Inventory levels",
+            "Warehouse capacity",
+            "Mode of transportation",
+            "Supply chain reliability",
+            "Energy consumption",
+            "Labor availability",
+            "Fleet management",
+            "Order accuracy",
+            "Regulatory compliance"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize logistics management to satisfy customer demands while adhering to operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited budget for logistics operations",
+            "Specific delivery time windows set by customers",
+            "Fixed number of available vehicles for transport",
+            "Capacity limitations for each vehicle",
+            "Regulatory requirements related to transportation and delivery",
+            "Environmental impact considerations",
+            "Variation in demand and supply conditions",
+            "Geographical limitations or challenges",
+            "Inventory management requirements",
+            "Labor and operational hours constraints"
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "costs",
+            "capacity limits",
+            "resource availability",
+            "operational schedules",
+            "customer demand uncertainty",
+            "route limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To effectively manage logistics to meet customer's needs while taking into account given constraints, excluding delivery time window restrictions."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "available budget or cost limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize logistics costs while efficiently meeting customer demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Available budget or cost limits in managing logistics."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Budget or cost limits",
+            "Minimization of total transportation cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total transportation cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a constraint related to the available budget or cost limits in managing logistics."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Customer demand (e.g., quantity, delivery time windows)",
+            "Available transportation modes (e.g., trucks, ships)",
+            "Transportation costs (e.g., fuel, drivers)",
+            "Inventory levels (e.g., warehouse capacity, stock availability)",
+            "Supply chain constraints (e.g., supplier lead times, production capacity)",
+            "Regulatory and compliance requirements (e.g., delivery restrictions, permits)",
+            "Sustainability considerations (e.g., carbon footprint, energy usage)",
+            "Risk management factors (e.g., disruption risk, contingency plans)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize logistics costs while ensuring timely delivery of products to meet customer's needs, adhering to constraints such as budget, time, and resource availability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited transportation budget",
+            "Predefined delivery schedules",
+            "Maximum storage capacity in warehouses",
+            "Deadlines for order fulfillment",
+            "Specific customer service level agreements",
+            "Geographic delivery zones",
+            "Resource availability (e.g., drivers, vehicles)",
+            "Environmental regulations compliance"
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "logistics management",
+            "customer needs",
+            "constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To effectively manage logistics to meet customer needs while ensuring compliance with given constraints that do not include environmental regulations or emissions."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "customer demand",
+            "cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To manage logistics efficiently to meet customer's needs within constraints of cost and time."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Meet customer's delivery deadlines",
+            "Adhere to transportation budget limits",
+            "Ensure product safety during transit",
+            "Utilize available carrier capacity efficiently",
+            "Comply with contractual obligations regarding delivery terms"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "budget or cost limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize logistics management to meet customer needs while adhering to a budget constraint."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget or cost limits."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Customer demand requirements",
+            "Available transportation modes",
+            "Transportation costs",
+            "Delivery time windows",
+            "Vehicle capacities",
+            "Warehouse storage capacities",
+            "Personnel availability",
+            "Regulatory compliance constraints",
+            "Fuel costs",
+            "Traffic conditions",
+            "Distance between locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize logistics management in order to efficiently meet customer demand while adhering to specified constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Delivery time window: All deliveries must occur within the specified time slots provided by the customers.",
+            "Budget constraint: The total logistics cost including transportation, labor, and handling should not exceed the allocated budget.",
+            "Resource availability: The number of available vehicles and personnel must be considered and cannot be exceeded.",
+            "Capacity limits: Each vehicle has a maximum capacity that must not be surpassed in terms of weight and volume.",
+            "Routing and distance: Optimize delivery routes to minimize distance traveled while meeting the delivery time frames.",
+            "Compliance regulations: Adhere to all legal and regulatory standards associated with shipping logistics.",
+            "Customer service level: Ensure a minimum satisfaction score or customer service rating is maintained."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Logistics management",
+            "Customer's needs",
+            "Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Effectively manage logistics to meet customer needs within given constraints, ensuring efficient allocation of resources without specific time-sensitive delivery requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There are no time-sensitive delivery requirements."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Geographical area or region constraints for logistics operations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize logistics operations within a specific geographical area to efficiently meet customer needs while adhering to given constraints such as cost, resources, and delivery timelines."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Geographical area or region where logistics operations are concentrated."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "logistics management",
+            "customer satisfaction",
+            "multi-state region",
+            "delivery constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize logistics operations across multiple states to efficiently meet customer needs while considering constraints such as cost, resource availability, and regional regulations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The logistics operations are concentrated within a specific geographical area that spans multiple states.",
+            "There are no time-sensitive delivery requirements such as same-day or next-day delivery."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "inventory levels",
+            "transportation capacity",
+            "delivery time windows",
+            "cost constraints",
+            "geographic distribution",
+            "demand forecasting",
+            "supply variability",
+            "regulatory requirements",
+            "resource availability",
+            "technology infrastructure"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To effectively manage logistics to meet customer needs while adhering to specified constraints such as time, cost, and resource availability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited budget for transportation.",
+            "Fixed number of delivery vehicles.",
+            "Maximum delivery time for customer satisfaction.",
+            "Storage capacity constraints at warehouses.",
+            "Fuel consumption limits for vehicles.",
+            "Driver availability and shift constraints.",
+            "Traffic regulations and road restrictions.",
+            "Product weight and volume limitations.",
+            "Time windows for delivery and pickup.",
+            "Environmental regulations on emissions."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Supply chain routes",
+            "Vehicle capacity",
+            "Delivery priority",
+            "Budget for logistics",
+            "Warehousing space",
+            "Labor availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To manage logistics effectively to meet customer's needs within the given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No time constraints on logistics operations."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "logistics management",
+            "customer needs",
+            "objective function",
+            "numerical target"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total logistics cost subject to several constraints"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Meet customer needs within available resources",
+            "Objective function involves minimizing a numerical target related to logistics costs"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "No time constraints",
+            "Objective function mentions a specific numerical target value",
+            "Constraints are provided in the problem description"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total logistics cost subject to several constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Specific numerical target value or fixed goal for the objective function to minimize total logistics cost.",
+            "Constraints related to fulfillment of customer needs in logistics management."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      }
+    }
+  }
+}

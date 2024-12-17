@@ -1,0 +1,19 @@
+{
+  "vague_description": "The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.",
+  "detailed_description": "An office is buying printers for their headquarters, a premium model and a regular model. The premium model can print \\param{PremiumSpeed} pages per minute while the regular model can print \\param{RegularSpeed} pages per minute. In addition, the premium model requires \\param{PremiumInkUse} units of ink per minute while the regular model requires \\param{RegularInkUse} units of ink per minute. The office wants to make sure that at least \\param{MinPages} pages can be printed per minute and that at most \\param{MaxInk} units of ink are used per minute. Since the premium model is more user friendly, the number of regular printers must be less than the number of premium printers. How many of each printer should be bought to minimize the total number of printers in the office?",
+  "target_objective": "Minimize the total number of printers purchased",
+  "target_constraints": [
+    "Number of premium printers is non-negative",
+    "Number of regular printers is non-negative",
+    "Total printing speed is at least MinPages pages per minute",
+    "Total ink usage is at most MaxInk units per minute"
+  ],
+  "target_parameters": [
+    "Speed of printing for the premium model",
+    "Speed of printing for the regular model",
+    "Units of ink used per minute by the premium model",
+    "Units of ink used per minute by the regular model",
+    "Minimum pages to be printed per minute by the office",
+    "Maximum units of ink to be used per minute by the office"
+  ]
+}

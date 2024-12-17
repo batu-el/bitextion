@@ -1,0 +1,451 @@
+{
+  "vague_description": "Optimize the production of multiple products within given machine time constraints to achieve maximum profit.",
+  "detailed_description": "Determine the quantities to be produced such that all the production constraints are satisfied and the profit is maximized. The parameters include the number of different products \\param{NumProducts} and the number of different machines \\param{NumMachines}. Each product k requires \\param{ProduceTime}_{k,m} to produce on machine m. Each machine m has a total available time of \\param{AvailableTime}_m. The profit from producing one unit of product k is \\param{Profit}_k.",
+  "target_objective": "Maximize the total profit from producing different products subject to production time constraints on each machine",
+  "target_constraints": [
+    "Each product k must be produced in non-negative quantities",
+    "For each machine m, the total production time for all products cannot exceed AvailableTime"
+  ],
+  "target_parameters": [
+    "Number of different products",
+    "Number of different machines",
+    "Time to produce one unit of product k on machine m",
+    "Total available time on machine m",
+    "Profit from producing one unit of product k"
+  ],
+  "Expert": {
+    "(0,)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.",
+    "(0, 0)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.\nExpert: Is the production capacity of each machine a constrained resource in this optimization problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.\nExpert: Is the production capacity of each machine a constrained resource in this optimization problem?\nUser: Yes\n\nExpert: Are there specific limits on the number of each product that can be produced due to market demand constraints?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.\nExpert: Is the production capacity of each machine a constrained resource in this optimization problem?\nUser: Yes\n\nExpert: Are there specific limits on the number of each product that can be produced due to market demand constraints?\nUser: No\n\nExpert: Do the products have different profit margins?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.",
+    "(0, 0)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.\nExpert: Is the term 'non-negative integers' mentioned in any constraint?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.\nExpert: Is the term 'non-negative integers' mentioned in any constraint?\nUser: No\n\nExpert: Do any of the problem descriptions include specific constraints related to the inventory or market demand for products?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.\nExpert: Is the term 'non-negative integers' mentioned in any constraint?\nUser: No\n\nExpert: Do any of the problem descriptions include specific constraints related to the inventory or market demand for products?\nUser: No\n\nExpert: Does the problem involve constraints related to raw material usage?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.",
+    "(0, 0)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.\nExpert: Does the profit of each product depend on the quantity produced, or is it a fixed value per unit?\nUser: Yes, the profit is a fixed value per unit for each product.\n",
+    "(0, 0, 0)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.\nExpert: Does the profit of each product depend on the quantity produced, or is it a fixed value per unit?\nUser: Yes, the profit is a fixed value per unit for each product.\n\nExpert: Is there a limit on the quantity of each product that can be produced?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.\nExpert: Does the profit of each product depend on the quantity produced, or is it a fixed value per unit?\nUser: Yes, the profit is a fixed value per unit for each product.\n\nExpert: Is there a limit on the quantity of each product that can be produced?\nUser: No.\n\nExpert: Is the production time required for each product linearly proportional to the quantity produced, or does it increase at a different rate?\nUser: Yes, the production time required is linearly proportional to the quantity produced.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.",
+    "(0, 0)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.\nExpert: Does the problem description contain the word 'maximize' (case-insensitive) in its objective? \nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.\nExpert: Does the problem description contain the word 'maximize' (case-insensitive) in its objective? \nUser: Yes\n\nExpert: Does the problem description contain the word 'profit' in the objective?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize the production of multiple products within given machine time constraints to achieve maximum profit.\nExpert: Does the problem description contain the word 'maximize' (case-insensitive) in its objective? \nUser: Yes\n\nExpert: Does the problem description contain the word 'profit' in the objective?\nUser: Yes\n\nExpert: Does the problem description include any constraints other than 'machine time' or phrases related to it?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "machine_time_constraints",
+            "product_specs",
+            "profit_per_product",
+            "production_costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing the production schedule of multiple products subject to machine time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total machine time available is limited to a specific number of hours per week.",
+            "Each product has a specific production time requirement per unit on the machines.",
+            "The sum of the production times for all products must not exceed the total machine time available."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Machine time constraints",
+            "Production capacity of each machine",
+            "Maximum profit goal",
+            "Product mix to be optimized",
+            "Profit margin or contribution of each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing the production schedule of multiple products within given machine time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production time allocated to each machine cannot be exceeded.",
+            "Each machine has a fixed production capacity that limits the number of products it can produce in a given time period.",
+            "The total machine time across all products must not surpass the available machine hours for each machine."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Product quantities",
+            "Machine time",
+            "Profit maximization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing the production schedule of multiple products within the given machine time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production time for all products combined cannot exceed the machine time capacity of any machine."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Machine time constraints for each machine",
+            "Production capacities of each machine as a constrained resource",
+            "Profit margins for each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profit from the production of multiple products given the machine time constraints and varying profit margins of the products, without other market demand constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each machine has a maximum production capacity that cannot be exceeded.",
+            "There are no market demand constraints limiting the number of products that can be produced.",
+            "Profit margins differ between products, so maximizing the total profit involves prioritizing higher-margin products."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production of multiple products",
+            "Machine time constraints",
+            "Maximum profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing the production schedule of multiple products within given machine time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total machine time available is limited and cannot be exceeded.",
+            "Each product requires a specific amount of machine time, which must be accounted for in the optimization.",
+            "Each product contributes a certain profit, which needs to be maximized while respecting the time constraints.",
+            "The production of each product must be a non-negative number, as you cannot produce a negative quantity."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Machine time constraints for each product",
+            "Cost and profit associated with each product",
+            "Production capacity limits",
+            "Material availability",
+            "Demand or market limits for each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from the production of multiple products while adhering to machine time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production time for all products combined must not exceed the total available machine time.",
+            "Production quantities for all products must be non-negative.",
+            "The production quantities must satisfy demand (if demand is specified, otherwise it can be ignored).",
+            "The objective is to maximize profit, which is typically a linear function of the production quantities."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production levels for multiple products",
+            "Machine time constraints",
+            "Profit maximization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from the production of multiple products within given machine time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine time available for production",
+            "Objective is to maximize profit"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Machine time constraints",
+            "Objective to achieve maximum profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing the production schedule of multiple products within the available machine time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited machine time available.",
+            "Objective is to maximize profit."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Machine Time Constraints",
+            "Production Quantity",
+            "Profit per Product",
+            "Production Time per Product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing the production of multiple products within given machine time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine A can be used for a maximum of 40 hours per week.",
+            "Machine B has a limit of 50 hours of operation per week.",
+            "Each product X requires 2 hours on Machine A and 1 hour on Machine B.",
+            "Each product Y requires 1 hour on Machine A and 3 hours on Machine B.",
+            "The production of product X must not exceed 10 units per week due to demand limitations.",
+            "Product Y must be produced in quantities between 5 and 15 units per week to meet market needs."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fixed profit per unit for each product",
+            "Machine time constraints for production",
+            "Quantity of each product",
+            "Production time required per unit for each product",
+            "Total available machine time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal production quantities of each product given machine time constraints and fixed profit per unit of each product."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine time available per day is limited.",
+            "Each product has a specific machine time requirement.",
+            "Total machine time used per day for all products cannot exceed the available machine time."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Machine time constraints",
+            "Profit per unit for each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profit from producing multiple products by efficiently allocating machine time to each product, given the machine time constraints and fixed profit per unit for each product."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine time available per unit is limited.",
+            "The total machine time used for producing all products cannot exceed the available machine time."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Machine time constraints",
+            "Profit per unit for each product",
+            "Linear production time per product per unit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the profit by determining the optimal production quantities for multiple products, subject to machine time constraints, where each product has a fixed profit per unit and its production time is linearly proportional to the quantity produced."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production time for all products must not exceed the available machine time.",
+            "Each product's production time is linearly proportional to the quantity produced.",
+            "There is no upper limit on the quantity of each product that can be produced."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Decision variables: quantity of each product to produce",
+            "Objective function: maximize total profit from all products",
+            "Constraints: available machine time for production of each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from the production of multiple products within given machine time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total machine time used for the production of all products must not exceed the available machine time.",
+            "Each product requires a specific amount of machine time per unit produced.",
+            "There is a limited availability of raw materials for production of products.",
+            "Each product can only be produced if the demands are met (e.g. minimal viable quantity constraints).",
+            "There may be constraints on labor hours available for production within a given period.",
+            "Certain production sequences might be required due to dependencies between product processes."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize profit",
+            "machine time constraints",
+            "multiple products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing the production of multiple products while adhering to machine time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total machine time used for producing all products must not exceed the available machine time.",
+            "Each product must be processed within its specified minimum and maximum production limits if given."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production amount of each product",
+            "Profit per unit of each product",
+            "Total available machine time",
+            "Machine time required per unit of each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from the production of multiple products within given machine time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine time constraints for production of each product are given.",
+            "Each product has a specific machine time requirement.",
+            "Total available machine time is limited and cannot be exceeded."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize",
+            "profit",
+            "machine time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing the production of multiple products within given machine time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine time constraints for each machine cannot be exceeded."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      }
+    }
+  }
+}

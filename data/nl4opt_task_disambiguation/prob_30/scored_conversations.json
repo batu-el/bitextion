@@ -1,0 +1,505 @@
+{
+  "vague_description": "The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.",
+  "detailed_description": "A suspicious factory has \\var{S} sq. feet of space. It makes bootleg phones and laptops. Phones require \\var{LPhone} hours of labor and cost \\var{CPhone} for each sq. foot of space allocated for phone production (cost of electricity and equipment). Laptops require \\var{LLaptop} hours of labor and cost \\var{CLaptop} for each sq. foot of space allocated for laptop production. Phones produce a net revenue of \\var{RPhone} per sq. foot while laptops produce a net revenue of \\var{RLaptop} per sq. foot. The factory wants to spend at most \\var{BudgetMax} and \\var{LaborMax} hours of labor. What is the optimal factory layout to maximize revenue?",
+  "target_objective": "Maximize the revenue from the production of phones and laptops",
+  "target_constraints": [
+    "Square footage allocated for phone production is non-negative",
+    "Square footage allocated for laptop production is non-negative",
+    "Space used for both phones and laptops does not exceed S",
+    "Labor used for phone production does not exceed BudgetMax",
+    "Labor used for laptop production does not exceed BudgetMax",
+    "Total labor hours for phone and laptop production does not exceed LaborMax",
+    "Total cost for phone production does not exceed BudgetMax",
+    "Total cost for laptop production does not exceed BudgetMax"
+  ],
+  "target_parameters": [
+    "Total factory space in square feet",
+    "Labor hours required to produce one phone",
+    "Labor hours required to produce one laptop",
+    "Cost per square foot of space for phone production",
+    "Cost per square foot of space for laptop production",
+    "Net revenue per square foot from phone production",
+    "Net revenue per square foot from laptop production",
+    "Maximum budget for production",
+    "Maximum labor hours available"
+  ],
+  "Expert": {
+    "(0,)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.",
+    "(0, 0)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.\nExpert: Are the production amounts of the two types of products continuous variables?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.\nExpert: Are the production amounts of the two types of products continuous variables?\nUser: Yes\n\nExpert: Are there any constraints related to production time for each type of product?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.\nExpert: Are the production amounts of the two types of products continuous variables?\nUser: Yes\n\nExpert: Are there any constraints related to production time for each type of product?\nUser: No\n\nExpert: Are there any capacity constraints on the amount of each product type that can be produced?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.",
+    "(0, 0)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.\nExpert: Does the problem description include a minimum production requirement for one or more products?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.\nExpert: Does the problem description include a minimum production requirement for one or more products?\nUser: No\n\nExpert: Is the available budget defined as a specific numerical value in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.\nExpert: Does the problem description include a minimum production requirement for one or more products?\nUser: No\n\nExpert: Is the available budget defined as a specific numerical value in the problem description?\nUser: Yes\n\nExpert: Is the available budget for production explicitly specified in the problem description?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.",
+    "(0, 0)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.\nExpert: Are the revenue and production costs of the products linear functions of the quantities produced?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.\nExpert: Are the revenue and production costs of the products linear functions of the quantities produced?\nUser: Yes.\n\nExpert: Is the budget constraint a fixed total cost for all products, rather than a cost per unit or any other type of constraint?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.\nExpert: Are the revenue and production costs of the products linear functions of the quantities produced?\nUser: Yes.\n\nExpert: Is the budget constraint a fixed total cost for all products, rather than a cost per unit or any other type of constraint?\nUser: Yes.\n\nExpert: Are the labor constraints per product type, or do they apply to the factory as a whole?\nUser: Labor constraints apply to the factory as a whole.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.",
+    "(0, 0)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.\nExpert: Does the problem description mention at least one parameter that is a category or a type of resource (e.g., 'space', 'resources', 'labor', etc.) rather than a specific product or product type?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.\nExpert: Does the problem description mention at least one parameter that is a category or a type of resource (e.g., 'space', 'resources', 'labor', etc.) rather than a specific product or product type?\nUser: Yes\n\nExpert: Are 'labor' and 'budget' constraints mentioned exactly as 'labor' and 'budget' in the description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem is to determine how to allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints.\nExpert: Does the problem description mention at least one parameter that is a category or a type of resource (e.g., 'space', 'resources', 'labor', etc.) rather than a specific product or product type?\nUser: Yes\n\nExpert: Are 'labor' and 'budget' constraints mentioned exactly as 'labor' and 'budget' in the description?\nUser: Yes\n\nExpert: Do the constraints include 'labor' and 'budget'?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource availability",
+            "factory space",
+            "budget",
+            "labor constraints",
+            "revenue per product",
+            "production capacity",
+            "product demand"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize revenue from producing two types of products while adhering to budget and labor constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total budget for production cannot be exceeded.",
+            "Total available labor hours cannot be exceeded.",
+            "Space available in the factory for manufacturing cannot be exceeded.",
+            "Production goals for each product must be met or optimized within given constraints."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "space allocation",
+            "maximize revenue",
+            "two types of products",
+            "budget constraints",
+            "labor constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize revenue from producing two types of products by optimally allocating resources and space within budget and labor constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraint: Total cost of producing the products and any other associated costs must not exceed the available budget.",
+            "Labor constraint: Total labor hours required to produce the products must not exceed the available labor hours in the factory."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Space allocation",
+            "Revenue maximization",
+            "Budget constraints",
+            "Labor constraints",
+            "Continuous production amounts"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize revenue from producing two types of products by optimally allocating resources and space in the factory, subject to budget and labor constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraint",
+            "Labor constraint"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Space allocation",
+            "Budget constraint",
+            "Labor constraint",
+            "Production amounts for two types of products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraint: The cost of producing the products must not exceed the available budget.",
+            "Labor constraint: The labor hours required for production must not exceed the available labor hours."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource capacity",
+            "factory space",
+            "product types",
+            "budget constraint",
+            "labor constraint",
+            "revenue maximization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize revenue from producing two types of products within budget and labor constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of resources allocated must not exceed the budget.",
+            "The labor required for producing both types of products must not exceed the available labor hours.",
+            "The space required for producing both types of products must not exceed the available factory space."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "space in factory",
+            "revenue maximization",
+            "production of two types of products",
+            "budget constraints",
+            "labor constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources and space in a factory to maximize revenue from producing two types of products within budget and labor constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget for resource allocation must not be exceeded.",
+            "Total available labor hours must not be exceeded.",
+            "Space available in the factory must not be exceeded."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximizing revenue",
+            "allocate resources",
+            "allocate space",
+            "produce two types of products",
+            "budget constraint",
+            "labor constraint",
+            "specific numerical budget"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize revenue by optimizing the allocation of resources and space in a factory to produce two types of products, while adhering to budget and labor constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of resources allocated to both products must not exceed the available budget.",
+            "The allocation of labor must not exceed the available labor supply."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation for max revenue",
+            "Space allocation in factory",
+            "Production of two product types",
+            "Budget constraints",
+            "Labor constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine how to allocate resources and space in a factory to maximize revenue from producing two types of products, while adhering to budget and labor constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production cost must not exceed the available budget.",
+            "Total labor hours used must not exceed the labor hours available.",
+            "Space allocation for production should respect the physical space limits of the factory."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Factory space",
+            "Budget constraint",
+            "Labor constraint",
+            "Type 1 product production",
+            "Type 2 product production",
+            "Maximize revenue"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources and space in a factory to maximize revenue from producing two types of products, while adhering to budget and labor constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of resources used must not exceed the budget.",
+            "The total labor hours used must not exceed the available labor hours.",
+            "The space used for production must fit within the available factory space.",
+            "The production process must follow safety and regulatory standards."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Revenue per unit of Product A",
+            "Revenue per unit of Product B",
+            "Production cost per unit of Product A",
+            "Production cost per unit of Product B",
+            "Total budget constraint",
+            "Total labor hours constraint",
+            "Labor hours required per unit of Product A",
+            "Labor hours required per unit of Product B",
+            "Space required per unit of Product A",
+            "Space required per unit of Product B",
+            "Total space available in the factory"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources and space in a factory to maximize revenue from producing two types of products, while adhering to budget and labor constraints, with the assumption that revenue and production costs are linear functions of the quantities produced."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production cost for both products must not exceed the available budget.",
+            "The labor hours used for producing both products must not exceed the available labor hours.",
+            "Space constraints in the factory must be respected when allocating space for each product type.",
+            "Resource capacities, such as machinery or materials, used in producing both products must be respected when allocating these resources.",
+            "Both products must be produced in non-negative quantities."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Budget constraint: Fixed total cost for all products",
+            "Labor constraint: Maximum available labor hours or workforce limit",
+            "Revenue function: Linear with respect to quantity produced for each product",
+            "Production cost function: Linear with respect to quantity produced for each product",
+            "Space constraint: Limited or fixed factory space allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize revenue from producing two types of products by optimally allocating resources and space, considering fixed budget and labor constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The budget for production is a fixed total cost that cannot be exceeded.",
+            "There is a limited amount of labor available, which acts as a constraint.",
+            "The space available for production imposes limitations on how many of each product can be produced.",
+            "Revenue and production costs for each product are linear functions of the quantity produced.",
+            "Resource allocation must adhere to predefined upper limits based on budget, labor, and space."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Budget Constraint",
+            "Labor Constraint",
+            "Objective: Maximize Revenue",
+            "Linear Revenue and Costs",
+            "Resource Allocation",
+            "Space Allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources and space in a factory efficiently in order to maximize revenue from producing two types of products, considering budget and labor constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "linear revenue function for each product based on quantity produced",
+            "linear production cost function for each product based on quantity produced",
+            "fixed total budget constraint for production costs of all products combined",
+            "aggregate labor constraint for the entire factory"
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resources",
+            "Space",
+            "Budget",
+            "Labor"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize revenue from producing two types of products within budget and labor constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production must adhere to a fixed budget constraint.",
+            "There is a limitation on the amount of labor that can be used.",
+            "Space within the factory is limited and must be allocated efficiently between the two products.",
+            "Resources must be allocated between two types of products to ensure maximum revenue.",
+            "Production of one type of product should not entirely impede the production of the other."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "space",
+            "resources",
+            "budget",
+            "labor"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Allocate resources and space in a factory to maximize revenue from producing two types of products, considering budget and labor constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraint: The total cost of producing the two types of products must not exceed the available budget.",
+            "Labor constraint: The amount of labor used in the production of the two types of products must not exceed the available labor hours.",
+            "Space constraint: The space used for producing the two types of products must not exceed the available space in the factory."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "space",
+            "labor",
+            "budget",
+            "revenue",
+            "product type 1",
+            "product type 2"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize revenue from producing two types of products within budget and labor constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The budget for production must not be exceeded.",
+            "There is a limited amount of labor available that cannot be surpassed."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "space",
+            "resources",
+            "labor",
+            "budget"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize revenue from producing two types of products within budget and labor constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "labor is constrained",
+            "budget is constrained"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      }
+    }
+  }
+}

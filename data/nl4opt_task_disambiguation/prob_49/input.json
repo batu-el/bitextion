@@ -1,0 +1,23 @@
+{
+  "vague_description": "A farmer needs to determine the optimal allocation of his resources (land, watering time, and pesticide budget) to maximize profit from growing turnips and pumpkins.",
+  "detailed_description": "A farmer has \\var{TotalAcres} acres of land to grow turnips and pumpkins. Turnips require \\var{WateringTurnips} minutes of watering and $\\var{PesticideTurnips} worth of pesticide per acre. Pumpkins require \\var{WateringPumpkins} minutes of watering and $\\var{PesticidePumpkins} worth of pesticide per acre. The farmer has \\var{TotalWateringTime} minutes available for watering and $\\var{TotalPesticideBudget} available to spend on pesticide. If the revenue per acre of turnips is $\\var{RevenueTurnips} and the revenue per acre of pumpkins is $\\var{RevenuePumpkins}, how many acres of each should he grow to maximize his revenue.",
+  "target_objective": "Maximize the revenue from turnips (RevenueTurnips * acres of turnips) plus revenue from pumpkins (RevenuePumpkins * acres of pumpkins)",
+  "target_constraints": [
+    "Acres of turnips plus acres of pumpkins must be less than or equal to TotalAcres",
+    "Watering time for turnips plus watering time for pumpkins must be less than or equal to TotalWateringTime",
+    "Pesticide cost for turnips plus pesticide cost for pumpkins must be less than or equal to TotalPesticideBudget",
+    "Acres of turnips is non-negative",
+    "Acres of pumpkins is non-negative"
+  ],
+  "target_parameters": [
+    "Total acres of land available for growing turnips and pumpkins",
+    "Time required for watering per acre of turnips",
+    "Pesticide cost per acre of turnips",
+    "Time required for watering per acre of pumpkins",
+    "Pesticide cost per acre of pumpkins",
+    "Total watering time available",
+    "Total pesticide budget available",
+    "Revenue per acre of turnips",
+    "Revenue per acre of pumpkins"
+  ]
+}

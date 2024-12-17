@@ -1,0 +1,19 @@
+{
+  "vague_description": "The clinic must balance time and test type constraints to maximize testing efficiency.",
+  "detailed_description": "A popup clinic is doing virus testing with either spit tests or swabs. A spit test takes \\param{SpitTestTime} minutes to administer while a swab takes \\param{SwabTestTime} minutes to administer. Since the spit test is more accurate, at least \\param{SpitSwabRatio} times as many spit tests should be given as swabs. However, at least \\param{MinSwabs} swabs must be administered. If the popup clinic operates for \\param{TotalTime} minutes, maximize the number of tests that can be administered.",
+  "target_objective": "Maximize the total number of spit tests and swabs administered",
+  "target_constraints": [
+    "Time spent on spit tests and swabs cannot exceed TotalTime minutes",
+    "Number of spit tests must be at least SpitSwabRatio times the number of swabs",
+    "Number of spit tests is non-negative",
+    "Number of swabs is non-negative",
+    "At least MinSwabs swabs must be administered"
+  ],
+  "target_parameters": [
+    "Time to administer a spit test",
+    "Time to administer a swab test",
+    "Minimum ratio of spit tests to swabs",
+    "Minimum number of swabs",
+    "Total operation time of the popup clinic"
+  ]
+}

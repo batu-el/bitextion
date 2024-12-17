@@ -1,0 +1,438 @@
+{
+  "vague_description": "The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.",
+  "detailed_description": "The goal is to minimize the price of an alloy produced from other alloys available on the market. There are \\param{AlloysOnMarket} different alloys that can be bought to blend into the final product. The needed composition of the end alloy requires \\param{RequiredElements} elements. Each alloy on the market has a known composition given by \\param{CompositionDataPercentage_{e,a}}, which indicates the percentage of element e in alloy a. The desired percentage of each element in the final blend is specified by \\param{DesiredBlendPercentage_e}. Furthermore, each alloy a on the market comes with a price \\param{AlloyPrice_a}. The objective of the optimization problem is to determine the quantity of each available alloy that should be used to achieve the desired blend percentages at the minimum total cost, without exceeding the availability of the alloys.",
+  "target_objective": "Minimize the total cost of producing the alloy with the desired blend percentages",
+  "target_constraints": [
+    "Quantity of each alloy used is non-negative",
+    "Final blend must meet required percentages for each of the RequiredElements elements",
+    "Cannot exceed the availability of alloys on the market"
+  ],
+  "target_parameters": [
+    "The number of different alloys available on the market",
+    "The number of elements required in the desired alloy blend",
+    "The composition data indicating the percentage of each required element in each available alloy",
+    "The desired percentage of each required element in the final alloy blend",
+    "The price of each alloy available on the market"
+  ],
+  "Expert": {
+    "(0,)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.",
+    "(0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Are there specific constraints related to the ratios or proportions of the constituent materials in the composition?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Are there specific constraints related to the ratios or proportions of the constituent materials in the composition?\nUser: Yes\n\nExpert: Are there constraints related to the minimum or maximum allowable amounts for any of the constituent materials?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Are there specific constraints related to the ratios or proportions of the constituent materials in the composition?\nUser: Yes\n\nExpert: Are there constraints related to the minimum or maximum allowable amounts for any of the constituent materials?\nUser: Yes\n\nExpert: Are there any penalties or costs associated with over-utilizing a particular constituent material, aside from its unit cost?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.",
+    "(0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Does the problem involve specific regulatory or safety constraints on material use?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Does the problem involve specific regulatory or safety constraints on material use?\nUser: No\n\nExpert: Do the constraints specify minimum or maximum usage limits for any of the materials?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Does the problem involve specific regulatory or safety constraints on material use?\nUser: No\n\nExpert: Do the constraints specify minimum or maximum usage limits for any of the materials?\nUser: No\n\nExpert: Is there a constraint related to achieving a specific target weight or total weight for the composition?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.",
+    "(0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Are there any constraints on the availability or procurement of the constituent materials?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Are there any constraints on the availability or procurement of the constituent materials?\nUser: No\n\nExpert: Are the constituent materials available in any specific forms or concentrations that could affect their cost or usage?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Are there any constraints on the availability or procurement of the constituent materials?\nUser: No\n\nExpert: Are the constituent materials available in any specific forms or concentrations that could affect their cost or usage?\nUser: No\n\nExpert: Is the goal to find the composition that meets the target composition exactly, or is it acceptable to find a composition that meets the target composition within some tolerance or range?\nUser: Yes, the goal is to meet the target composition exactly.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.",
+    "(0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Does the problem description contain the word 'cost' in the 'objective' field or in the 'constraints' field in lowercase or uppercase?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Does the problem description contain the word 'cost' in the 'objective' field or in the 'constraints' field in lowercase or uppercase?\nUser: Yes\n\nExpert: Is the objective clearly stated as 'minimize cost'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Does the problem description contain the word 'cost' in the 'objective' field or in the 'constraints' field in lowercase or uppercase?\nUser: Yes\n\nExpert: Is the objective clearly stated as 'minimize cost'?\nUser: Yes\n\nExpert: Do you have more than one constraint in your problem?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "amount of constituent materials",
+            "composition of the material",
+            "cost of materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of achieving a specific composition by determining the optimal amounts of various constituent materials."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each material has a cost per unit associated with it.",
+            "The composition must meet a specific percentage requirement for each constituent material.",
+            "The total amount of material used must equal a predefined total weight or volume.",
+            "Each constituent material may have upper and lower bounds on the amount that can be used.",
+            "The composition must maintain structural or chemical integrity (e.g., not react adversely).",
+            "The solution must be commercially viable, meaning the total cost must be minimized.",
+            "Local or governmental environmental regulations regarding material usage must be adhered to."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Constituent material amounts",
+            "Cost of materials",
+            "Composition constraints",
+            "Ratio constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to find the optimal amounts of various constituent materials to achieve a specified composition at the lowest cost while adhering to constraints on the ratios or proportions of the constituent materials."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The ratios or proportions of the constituent materials must meet specified requirements."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Ratios or proportions of constituent materials",
+            "Minimum allowable amounts of constituent materials",
+            "Maximum allowable amounts of constituent materials",
+            "Cost of constituent materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of materials while achieving the desired composition within the specified constraints on ratios and individual material amounts."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must achieve a specific composition based on predetermined ratios or proportions of the constituent materials.",
+            "Each constituent material has minimum and maximum allowable amounts that must be respected.",
+            "The total composition must result in the lowest possible cost given the available data and constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Minimize cost",
+            "Constraints: Proportionality ratios of constituent materials",
+            "Constraints: Minimum and maximum allowable amounts for constituent materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal quantities of constituent materials that achieve a desired composition at the lowest total cost, while adhering to specific constraints on ratios and allowable amounts of each material."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The ratios or proportions of the constituent materials must meet specific requirements to achieve the desired composition.",
+            "There are minimum or maximum allowable amounts for the constituent materials that must be adhered to."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "amounts of various constituent materials",
+            "constraints on composition requirements",
+            "cost of materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of achieving a specific material composition by optimizing the amounts of various constituent materials."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The composition of materials must meet specific ratio requirements as predetermined for the final product.",
+            "The total quantity of all constituent materials combined should not exceed a certain limit, ensuring efficiency in resource usage (e.g., total weight or volume constraint).",
+            "Each material has a minimum and maximum limit on the amount that can be used, ensuring feasibility and practicality in production.",
+            "The cost associated with each material should remain within budget constraints, ensuring the overall cost remains at its lowest possible value for the optimal composition."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "amounts of various constituent materials",
+            "composition goal",
+            "cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of constituent materials while achieving a specified composition."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective: minimize cost",
+            "decision variables: amounts of constituent materials",
+            "no specific regulatory or safety constraints",
+            "no minimum or maximum usage limits on materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of materials while achieving a specific composition."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize Cost",
+            "Decision Variables: Amount of each constituent material",
+            "No regulatory/safety constraints",
+            "No specific material usage limits",
+            "No target weight constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost, without any specific usage limits or target weight constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal amounts of materials",
+            "Achieving a particular composition",
+            "Lowest cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of constituent materials while achieving a specified composition."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the constituent materials should achieve the desired composition.",
+            "Each constituent material has a known cost that contributes to the total cost.",
+            "There might be minimum or maximum allowable limits for each constituent material.",
+            "Some constituents may have to be present in fixed ratios relative to each other.",
+            "The solution must not surpass a predefined budget or cost limit.",
+            "Physical or chemical constraints related to the mixture need to be considered, such as density, stability, or reactivity."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "amounts of various constituent materials",
+            "composition requirement",
+            "cost minimization objective"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of constituent materials while achieving a specific composition."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No constraints on the availability of constituent materials."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal amounts of constituent materials",
+            "Particular composition requirement",
+            "Minimization of cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of achieving a specified composition by selecting the optimal amounts of various constituent materials."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal amounts of constituent materials",
+            "Target composition",
+            "Lowest cost objective"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost, with an exact match to the target composition."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The composition of the mixture must meet the target composition exactly.",
+            "There are no constraints on the availability or procurement of the constituent materials.",
+            "There are no specific forms or concentrations of the constituent materials that affect their cost or usage."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "amounts of various constituent materials",
+            "composition constraint",
+            "cost objective"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of achieving a specified material composition."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The final composition must meet specified proportions for each constituent material.",
+            "Each constituent material has a defined cost per unit.",
+            "The total cost must be minimized.",
+            "Availability constraints for constituent materials might limit the maximum amount that can be used.",
+            "Technical or chemical compatibility constraints must be satisfied when mixing materials."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize cost",
+            "Constraints: Composition constraints on materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the cost of a mixture of materials while achieving a specific composition."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The cost of the constituent materials must be minimized.",
+            "The mixture must achieve a particular composition."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize Cost",
+            "Constraints: Particular Composition",
+            "Variables: Amounts of Various Constituent Materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total composition must meet the specific desired specifications or percentages of each constituent material.",
+            "The available amount of each material is limited by supply constraints.",
+            "There may be a minimum or maximum usage limit on certain materials individually or as a combination.",
+            "The total cost must be minimized while achieving the desired composition."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: minimize cost",
+            "Multiple constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of producing a material with a specific composition by determining the optimal amounts of various constituent materials."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of constituent materials used must sum to a specified quantity.",
+            "Each constituent material proportion must remain within a specified range (upper and lower bounds).",
+            "Certain constituent materials may have a maximum allowed proportion relative to the total composition.",
+            "There may be a minimum requirement for specific constituent materials to meet composition specifications."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

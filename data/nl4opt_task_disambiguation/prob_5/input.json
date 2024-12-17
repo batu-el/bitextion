@@ -1,0 +1,19 @@
+{
+  "vague_description": "Finding an optimal investment strategy that balances industry-specific constraints and potential profits is challenging.",
+  "detailed_description": "Mr. Roberts wants to invest in the telecom and healthcare industries. He has \\var{TotalInvestment} to invest. He has decided that the amount invested in telecom be at least \\var{MinTelecomRatio} times as much as the amount invested in healthcare. But the money invested in telecom must be at most \\var{MaxTelecomInvestment}. If investments in telecom earn \\var{ProfitTelecom} and investments in healthcare earn \\var{ProfitHealthcare}, how much should Mr. Roberts invest in each to maximize profit?",
+  "target_objective": "Maximize Mr. Roberts' profit from investing in telecom and healthcare",
+  "target_constraints": [
+    "The investment in telecom must be non-negative",
+    "The investment in healthcare must be non-negative",
+    "The total investment does not exceed TotalInvestment",
+    "The investment in telecom must be at least MinTelecomRatio times the investment in healthcare",
+    "The investment in telecom must not exceed MaxTelecomInvestment"
+  ],
+  "target_parameters": [
+    "Total amount of money Mr. Roberts has for investment",
+    "Maximum amount that can be invested in telecom",
+    "Minimum ratio of investment in telecom compared to healthcare",
+    "Profit rate for the telecom investment",
+    "Profit rate for the healthcare investment"
+  ]
+}

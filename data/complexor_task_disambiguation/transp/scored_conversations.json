@@ -1,0 +1,458 @@
+{
+  "vague_description": "It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.",
+  "detailed_description": "This is a transportation problem where there are multiple origins \\param{NumberOfOrigins} and destinations \\param{NumberOfDestinations}. Each origin has a certain supply \\param{SupplyOfOrigin}, and each destination has a certain demand \\param{DemandOfDestination}. The goal is to minimize the total cost of transportation \\param{TransportationCost}. The cost of transporting from an origin i to a destination j is given by \\param{CostPerUnit_{i,j}}. The problem is subject to the constraints that the total supply from each origin and the total demand at each destination must be met.",
+  "target_objective": "Minimize the total transportation cost",
+  "target_constraints": [
+    "Total supply from each origin must be exactly SupplyOfOrigin",
+    "Total demand at each destination must be exactly DemandOfDestination",
+    "Number of units transported from each origin i to each destination j is non-negative"
+  ],
+  "target_parameters": [
+    "The total number of origins",
+    "The total number of destinations",
+    "The supply available at each origin",
+    "The demand that needs to be satisfied at each destination",
+    "The cost of transporting a unit from each origin to each destination"
+  ],
+  "Expert": {
+    "(0,)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.",
+    "(0, 0)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.\nExpert: Are the delivery points limited by a maximum capacity that cannot be exceeded?\nUser: No\n",
+    "(0, 0, 0)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.\nExpert: Are the delivery points limited by a maximum capacity that cannot be exceeded?\nUser: No\n\nExpert: Is there a time window constraint for the deliveries?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.\nExpert: Are the delivery points limited by a maximum capacity that cannot be exceeded?\nUser: No\n\nExpert: Is there a time window constraint for the deliveries?\nUser: No\n\nExpert: Are there different transportation modes available that affect the total cost?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.",
+    "(0, 0)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.\nExpert: Is the transportation network graph explicitly defined as a parameter in the problem description?\nUser: No\n",
+    "(0, 0, 0)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.\nExpert: Is the transportation network graph explicitly defined as a parameter in the problem description?\nUser: No\n\nExpert: Do any of the candidate problems include a budget constraint for transportation costs?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.\nExpert: Is the transportation network graph explicitly defined as a parameter in the problem description?\nUser: No\n\nExpert: Do any of the candidate problems include a budget constraint for transportation costs?\nUser: No\n\nExpert: Does the objective involve minimizing transportation cost?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.",
+    "(0, 0)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.\nExpert: Are there any constraints on the delivery routes or locations that cannot be visited?\nUser: No\n",
+    "(0, 0, 0)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.\nExpert: Are there any constraints on the delivery routes or locations that cannot be visited?\nUser: No\n\nExpert: Are the delivery routes and travel times deterministic or do they depend on random factors such as traffic or weather?\nUser: Deterministic\n",
+    "(0, 0, 0, 0)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.\nExpert: Are there any constraints on the delivery routes or locations that cannot be visited?\nUser: No\n\nExpert: Are the delivery routes and travel times deterministic or do they depend on random factors such as traffic or weather?\nUser: Deterministic\n\nExpert: Is this a one-time delivery or a recurring delivery problem where the same routes and goods are delivered repeatedly?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.",
+    "(0, 0)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.\nExpert: Is the problem related to a vehicle routing problem where the goal is to determine the optimal route for a fleet of vehicles to visit multiple delivery points while minimizing expenses or costs?\nUser: No\n",
+    "(0, 0, 0)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.\nExpert: Is the problem related to a vehicle routing problem where the goal is to determine the optimal route for a fleet of vehicles to visit multiple delivery points while minimizing expenses or costs?\nUser: No\n\nExpert: Are there multiple delivery points in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.\nExpert: Is the problem related to a vehicle routing problem where the goal is to determine the optimal route for a fleet of vehicles to visit multiple delivery points while minimizing expenses or costs?\nUser: No\n\nExpert: Are there multiple delivery points in the problem description?\nUser: Yes\n\nExpert: Is there at least one non-empty constraint in the problem description?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "cost of transport",
+            "routes available",
+            "number of goods",
+            "type of goods",
+            "delivery deadlines",
+            "fuel costs",
+            "vehicle maintenance costs",
+            "labor costs",
+            "regulatory constraints",
+            "weather conditions",
+            "traffic conditions",
+            "vehicle capacity limits",
+            "distance between points",
+            "loading/unloading time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total expenses associated with delivering goods from various points in a logistics network."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total delivery expenses must be minimized.",
+            "All goods must be delivered from their respective starting points to their designated destinations.",
+            "Each delivery vehicle has a limited carrying capacity.",
+            "There are specified time windows for each delivery that must be adhered to.",
+            "Each point of departure has a limited number of available vehicles."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Delivery points",
+            "Minimization of expenses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total delivery expenses for delivering goods from multiple points."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Minimize expenses",
+            "Constraints: None"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the expenses associated with delivering goods across various points without constraints on delivery capacity or time windows."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize delivery expenses",
+            "Constraints: None on delivery point capacities",
+            "Constraints: No time window restrictions",
+            "Transport Modes: Single mode, consistent cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total delivery expenses for distributing goods from multiple origins to various destinations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No maximum capacity for delivery points.",
+            "No time window constraints for deliveries.",
+            "No different transportation modes affecting costs."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Pickup Points",
+            "Delivery Points",
+            "Cost per unit distance",
+            "Distance Matrix"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize delivery expenses by optimizing the logistics of delivering goods from multiple sourcing points."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each delivery route must start and end at the central warehouse.",
+            "The total cost of transportation should not exceed the budget allocated for logistics.",
+            "Each delivery vehicle has a maximum capacity that should not be exceeded.",
+            "Delivery times should align with customer availability windows.",
+            "Route planning should take into account road conditions and traffic patterns.",
+            "Warehouses have fixed opening and closing times that must be adhered to."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "Minimize transportation expenses for delivering goods from various points."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Transportation network graph is implicitly defined, not explicitly as a parameter.",
+            "The objective is to minimize expenses for delivering goods.",
+            "Goods need to be delivered from various points."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Logistics scenario",
+            "Delivery of goods",
+            "Various points",
+            "Minimizing expenses",
+            "No defined transportation network graph",
+            "No budget constraint for transportation costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize transportation expenses for delivering goods from various points in the logistics network."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize transportation cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the transportation cost for delivering goods from various points in the logistics network."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Transportation network is not explicitly defined.",
+            "No budget constraint for transportation costs."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Location of suppliers",
+            "Location of delivery points",
+            "Demand at each delivery point",
+            "Supply at each supplier",
+            "Transportation costs between every supplier and delivery point",
+            "Capacity constraints of transportation vehicles",
+            "Time windows for delivery",
+            "Handling and storage costs at each node",
+            "Fuel costs",
+            "Driver costs",
+            "Regulations and compliance requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the expenses associated with delivering goods from various points."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total delivery cost must be minimized.",
+            "Each delivery location must be reached without exceeding a specified budget.",
+            "The delivery time should not exceed a certain limit to ensure freshness of goods.",
+            "Vehicles used for delivery have a maximum carrying capacity that cannot be exceeded.",
+            "The route chosen must connect all delivery points from the origin to the destination without missing any location."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize total delivery expenses",
+            "Optimize delivery routes among various points",
+            "No constraints on delivery routes",
+            "All locations can be visited"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total expenses associated with delivering goods from various points."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Logistics scenario involving goods delivery.",
+            "Objective: Minimize delivery expenses.",
+            "No constraints on delivery routes or locations.",
+            "Deterministic delivery routes and travel times."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total expenses incurred in delivering goods from multiple points in a deterministic logistics scenario, without any constraints on delivery routes or locations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All locations can be visited.",
+            "Delivery routes are deterministic.",
+            "Travel times are deterministic."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize expenses for delivering goods",
+            "Various delivery points",
+            "No constraints on delivery routes",
+            "Deterministic travel times"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of delivering goods from various points while ensuring all deliveries are completed."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The delivery must minimize expenses.",
+            "Delivery routes and travel times are deterministic.",
+            "All locations can be visited.",
+            "The delivery scenario is one-time, not recurring."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Delivery Points",
+            "Goods",
+            "Expenses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of delivering goods from various points in the logistics network."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Delivery vehicles have a limited capacity.",
+            "There is a maximum allowable travel distance for each vehicle.",
+            "Certain delivery points have time windows when deliveries must occur.",
+            "Goods must be delivered from specific start points to specific end points.",
+            "Each delivery vehicle starts and ends at a designated depot.",
+            "Delivery costs depend on distance traveled and vehicle type."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "logistics",
+            "delivering goods",
+            "various points",
+            "minimizing expenses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the expenses associated with delivering goods from various points."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimize total delivery cost.",
+            "Each delivery point must be visited by only one delivery agent.",
+            "Goods must be delivered to all specified points.",
+            "Capacity constraints for each delivery method must be respected."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "multiple delivery points",
+            "cost minimization",
+            "logistics scenario",
+            "expenses minimization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize the delivery process from various points to multiple delivery destinations in a logistics scenario while minimizing the overall expenses involved in the delivery."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There are multiple delivery points that must be serviced.",
+            "The objective is to minimize expenses or costs."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Multiple delivery points",
+            "Constraints on the problem"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the delivery of goods from various points while minimizing overall expenses, subject to certain constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There are multiple delivery points.",
+            "The goal is to minimize expenses."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

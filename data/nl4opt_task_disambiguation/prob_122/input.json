@@ -1,0 +1,25 @@
+{
+  "vague_description": "Determine the optimal production strategy for maximizing output, given resource constraints.",
+  "detailed_description": "A science store makes two boxes, a cheap and expensive box. The cheap box contains \\param{MetalCheap} units of metal and \\param{AcidCheap} units of acid which can be mixed to create \\param{FoamCheap} units of foam. The expensive box contains \\param{MetalExpensive} units of metal and \\param{AcidExpensive} units of acid which can be mixed to create \\param{FoamExpensive} units of foam. The cheap box however gives off \\param{HeatCheap} units of heat while the expensive box gives off \\param{HeatExpensive} units of heat. The science store has available \\param{MetalTotal} units of metal and \\param{AcidTotal} units of acid. If at most \\param{HeatMax} units of heat can be given off, how many of each box should the store make to maximize the amount of foam produced?",
+  "target_objective": "Maximize the amount of foam produced from manufacturing cheap and expensive boxes",
+  "target_constraints": [
+    "Number of cheap boxes is non-negative",
+    "Number of expensive boxes is non-negative",
+    "Metal used for cheap boxes plus metal used for expensive boxes is less than or equal to MetalTotal",
+    "Acid used for cheap boxes plus acid used for expensive boxes is less than or equal to AcidTotal",
+    "Heat from cheap boxes plus heat from expensive boxes is less than or equal to HeatMax"
+  ],
+  "target_parameters": [
+    "Units of metal required for a cheap box",
+    "Units of acid required for a cheap box",
+    "Units of foam produced by a cheap box",
+    "Units of metal required for an expensive box",
+    "Units of acid required for an expensive box",
+    "Units of foam produced by an expensive box",
+    "Heat given off by a cheap box",
+    "Heat given off by an expensive box",
+    "Total units of metal available",
+    "Total units of acid available",
+    "Maximum heat units allowed"
+  ]
+}

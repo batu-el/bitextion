@@ -1,0 +1,30 @@
+{
+  "vague_description": "Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.",
+  "detailed_description": "LP or MILP\n\nWhat buying, storing and manufacturing policy should the company pursue in order to maximize profit?\n\n{\n    \"buy_price\": [[\\param{BuyPrice} for i in 1,...,\\param{I}] for m in 1,...,\\param{M}],\n    \"sell_price\": \\param{SellPrice},\n    \"is_vegetable\": [\\param{IsVegetable} for i in 1,...,\\param{I}],\n    \"max_vegetable_refining_per_month\": \\param{MaxVegRefiningPerMonth},\n    \"max_non_vegetable_refining_per_month\": \\param{MaxNonVegRefiningPerMonth},\n    \"storage_size\": \\param{StorageSize},\n    \"storage_cost\": \\param{StorageCost},\n    \"max_hardness\": \\param{MaxHardness},\n    \"min_hardness\": \\param{MinHardness},\n    \"hardness\": [\\param{Hardness} for i in 1,...,\\param{I}],\n    \"init_amount\": \\param{InitialAmount},\n    \"min_usage\": \\param{MinUsage},\n    \"dependencies\": [\\param{Dependencies} for i in 1,...,\\param{I}]\n}",
+  "target_objective": "Maximize the company's profit from its buying, storing, and manufacturing policy",
+  "target_constraints": [
+    "Maximum amount of vegetables that can be refined per month is defined by MaxVegRefiningPerMonth",
+    "Maximum amount of non-vegetables that can be refined per month is defined by MaxNonVegRefiningPerMonth",
+    "The storage has a size limit defined by StorageSize",
+    "The hardness of each item used in manufacturing must be within the range of MinHardness and MaxHardness",
+    "There is a minimum usage constraint for items as given by MinUsage",
+    "There are certain dependencies between the items as defined in Dependencies"
+  ],
+  "target_parameters": [
+    "Number of goods I",
+    "Number of months M",
+    "Buying price of good i in month m",
+    "Selling price",
+    "Indicator whether good i is a vegetable or not",
+    "Maximum refining capacity for vegetables per month",
+    "Maximum refining capacity for non-vegetables per month",
+    "Storage capacity",
+    "Storage cost per unit per month",
+    "Maximum hardness of goods that can be processed",
+    "Minimum hardness of goods that can be processed",
+    "Hardness of good i",
+    "Initial amount of goods available for processing",
+    "Minimum usage of goods",
+    "Dependencies of goods i"
+  ]
+}

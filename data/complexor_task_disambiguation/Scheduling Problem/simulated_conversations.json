@@ -1,0 +1,46 @@
+{
+  "vague_description": "Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.",
+  "detailed_description": "The Employee Assignment Problem is a scheduling problem where the goal is to assign \\param{NumEmployees} employees to \\param{NumShifts} shifts in \\param{NumRestaurants} different restaurants based on their skills and preferences. Each employee has a set of skills out of \\param{NumSkills} possible skills, and each restaurant has a demand for skilled employees during each shift. The objective is to minimize the cost of the schedule, which includes the cost of unfulfilled positions (each weighted by \\param{UnfulfilledPositionWeight}) and the cost of assigning employees to less preferred positions (indicated by their preference levels for each skill).",
+  "target_objective": "Minimize the total cost of the schedule, including the cost for unfulfilled positions and the cost of assigning employees to less preferred positions",
+  "target_constraints": [
+    "Exactly NumEmployees employees must be assigned",
+    "Each employee can only be assigned to one shift at one restaurant at a time",
+    "The total number of employees assigned to each shift in each restaurant must meet the skill demand for that shift",
+    "Employee skill sets must be matched with the skill demands of assigned shifts"
+  ],
+  "target_parameters": [
+    "The number of restaurants",
+    "The number of employees",
+    "The number of shifts",
+    "The total number of skills that employees can have",
+    "The demand for employees with specific skills at each restaurant during each shift",
+    "Binary indicator if an employee has a specific skill",
+    "Employee's preference level for each skill",
+    "Binary indicator if an employee is available for a specific shift",
+    "The weighting factor for unfulfilled positions"
+  ],
+  "Expert": {
+    "(0,)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.",
+    "(0, 0)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.\nExpert: Is the objective of the optimization problem to minimize the total cost of resource allocation?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.\nExpert: Is the objective of the optimization problem to minimize the total cost of resource allocation?\nUser: Yes\n\nExpert: Are there constraints related to the maximum available quantity of resources?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.\nExpert: Is the objective of the optimization problem to minimize the total cost of resource allocation?\nUser: Yes\n\nExpert: Are there constraints related to the maximum available quantity of resources?\nUser: Yes\n\nExpert: Are there specific minimum demand requirements for each entity that must be satisfied in the solution?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.",
+    "(0, 0)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.\nExpert: Does the problem description include a budget constraint on resource allocation costs?\nUser: No\n",
+    "(0, 0, 0)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.\nExpert: Does the problem description include a budget constraint on resource allocation costs?\nUser: No\n\nExpert: Does the problem involve minimizing a total cost or operational cost as the primary objective?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.\nExpert: Does the problem description include a budget constraint on resource allocation costs?\nUser: No\n\nExpert: Does the problem involve minimizing a total cost or operational cost as the primary objective?\nUser: Yes\n\nExpert: Do any of the candidate problems include a constraint related to ensuring a fair distribution of resources among entities?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.",
+    "(0, 0)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.\nExpert: Are the demands of the entities time-dependent, meaning they vary over time?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.\nExpert: Are the demands of the entities time-dependent, meaning they vary over time?\nUser: Yes.\n\nExpert: Are the resources that need to be allocated homogeneous, meaning they can be used interchangeably across all entities?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.\nExpert: Are the demands of the entities time-dependent, meaning they vary over time?\nUser: Yes.\n\nExpert: Are the resources that need to be allocated homogeneous, meaning they can be used interchangeably across all entities?\nUser: No.\n\nExpert: Are there capacity constraints for each entity that limit the amount of resources that can be allocated to it?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.",
+    "(0, 0)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.\nExpert: Does the problem involve more than one entity or department?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.\nExpert: Does the problem involve more than one entity or department?\nUser: Yes\n\nExpert: Does the problem description contain the word 'optimization' in its objective?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Allocating resources efficiently across multiple entities to meet varying demands while maintaining cost-effectiveness.\nExpert: Does the problem involve more than one entity or department?\nUser: Yes\n\nExpert: Does the problem description contain the word 'optimization' in its objective?\nUser: Yes\n\nExpert: Does the problem statement contain any details about a specific time component (e.g. time periods, time-dependent demands or costs)?\nUser: Yes\n"
+  }
+}

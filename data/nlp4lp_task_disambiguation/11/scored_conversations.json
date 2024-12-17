@@ -1,0 +1,502 @@
+{
+  "vague_description": "Assess how to allocate resources efficiently while considering spatial factors and constraints.",
+  "detailed_description": "We want to assign all students to schools, while minimizing the total distance traveled by all students. We have a total number of \\param{S} schools, \\param{G} student groups, and \\param{N} neighborhoods. Each school s has a capacity for student group g represented by \\param{Capacity}. The population of student group g in neighborhood n is given by \\param{Population}. The distance between neighborhood n and school s is denoted as \\param{Distance}. We may ignore the fact that numbers of students must be integers.",
+  "target_objective": "Minimize the total distance traveled by all students in their assignments to schools",
+  "target_constraints": [
+    "Total number of students from each student group g assigned from neighborhood n to schools does not exceed the Population of group g in neighborhood n",
+    "Total number of students from each student group g assigned to school s does not exceed the Capacity of school s for student group g",
+    "Each student is assigned to exactly one school",
+    "All populations, capacities, and distances are non-negative"
+  ],
+  "target_parameters": [
+    "Total number of schools",
+    "Total number of student groups",
+    "Total number of neighborhoods",
+    "Capacity of school s for student group g",
+    "Population of student group g in neighborhood n",
+    "Distance between neighborhood n and school s"
+  ],
+  "Expert": {
+    "(0,)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.",
+    "(0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Does the problem involve optimizing for multiple resources across different geographical locations?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Does the problem involve optimizing for multiple resources across different geographical locations?\nUser: Yes\n\nExpert: Are there specific constraints or limitations that affect resource availability or allocation in each geographical location?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Does the problem involve optimizing for multiple resources across different geographical locations?\nUser: Yes\n\nExpert: Are there specific constraints or limitations that affect resource availability or allocation in each geographical location?\nUser: Yes\n\nExpert: Are there specific performance objectives or targets that need to be achieved through this resource allocation?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.",
+    "(0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Is the objective of the optimization problem to maximize efficiency or utility rather than minimize costs?\nUser: No\n",
+    "(0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Is the objective of the optimization problem to maximize efficiency or utility rather than minimize costs?\nUser: No\n\nExpert: Do all candidate problems include constraints related to environmental or ecological impact considerations?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Is the objective of the optimization problem to maximize efficiency or utility rather than minimize costs?\nUser: No\n\nExpert: Do all candidate problems include constraints related to environmental or ecological impact considerations?\nUser: No\n\nExpert: Does the problem involve spatial connectivity or adjacency information as a constraint or parameter?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.",
+    "(0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Are the spatial factors and constraints of the problem spatially fixed or variable over time?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Are the spatial factors and constraints of the problem spatially fixed or variable over time?\nUser: Yes.\n\nExpert: Are the spatial factors and constraints of the problem dependent on other variables, such as weather, time of day, or season?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Are the spatial factors and constraints of the problem spatially fixed or variable over time?\nUser: Yes.\n\nExpert: Are the spatial factors and constraints of the problem dependent on other variables, such as weather, time of day, or season?\nUser: No.\n\nExpert: Are the spatial factors and constraints of the problem primarily related to physical or geographical boundaries, such as terrain or jurisdictional limits, rather than being abstract or conceptual?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.",
+    "(0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Are spatial constraints explicitly mentioned as a standalone constraint in the problem description?\nUser: No\n",
+    "(0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Are spatial constraints explicitly mentioned as a standalone constraint in the problem description?\nUser: No\n\nExpert: Does the problem description explicitly mention 'spatial constraints' as one of the constraints?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Are spatial constraints explicitly mentioned as a standalone constraint in the problem description?\nUser: No\n\nExpert: Does the problem description explicitly mention 'spatial constraints' as one of the constraints?\nUser: No\n\nExpert: Is the key parameter related to spatial or geographical factors or is it defined in terms of available resources or quantities?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Minimize/Maximize the efficient allocation of resources.",
+            "Decision Variables: Quantities of resources allocated to different locations or areas.",
+            "Constraints: Physical capacity, budget limits, geographical restrictions, and demand in each location.",
+            "Spatial Factors: Distances between locations, accessibility, and transportation costs."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources in a manner that maximizes efficiency, taking into account spatial factors and any relevant constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources must be allocated without exceeding the available budget.",
+            "Allocation must consider geographical boundaries or regions.",
+            "Transport or distribution costs associated with distance must be minimized.",
+            "Spatial distribution must comply with regulatory or legal geographic constraints.",
+            "Resource allocation should ensure accessibility for all targeted regions or populations.",
+            "Environmental impact considerations must be taken into account in each region.",
+            "Resource allocation must fit within the existing infrastructure of each region.",
+            "Demographic needs of each region must influence the resource allocation process.",
+            "Priority should be given to regions with higher demand or need for resources."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Quantity",
+            "Geographical Locations",
+            "Spatial Constraints",
+            "Resource Costs",
+            "Logistical Constraint",
+            "Resource Capacity",
+            "Demand Dynamics",
+            "Time Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize the allocation of multiple resources across different geographical locations, taking into account spatial factors and constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources must be allocated across various geographical locations.",
+            "Different types of resources need to be efficiently distributed.",
+            "Spatial factors must be considered in the optimization process."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "multiple resources",
+            "different geographical locations",
+            "constraints or limitations per location"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to efficiently allocate multiple resources across different geographical locations while considering spatial factors, including constraints or limitations specific to each location."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each geographical location has a limited resource capacity.",
+            "There are budget constraints for resource allocation in each location.",
+            "Certain resources are restricted to specific locations due to regulatory or logistical reasons.",
+            "The demand for resources may vary between different locations, requiring prioritized allocation.",
+            "Transport and allocation of resources between different locations may incur additional costs or restrictions.",
+            "Time constraints on resource availability and allocation must be considered for each location."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Multiple resources to optimize",
+            "Different geographical locations",
+            "Constraints affecting resource availability",
+            "Constraints affecting resource allocation",
+            "Performance objectives or targets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the allocation of multiple resources across different geographical locations to achieve specific performance objectives or targets, while considering spatial factors and adhering to constraints affecting resource availability and allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability constraints for each geographical location.",
+            "Geographical distribution of resources, ensuring allocation is feasible across locations.",
+            "Performance objectives or targets that must be met, influencing how resources are allocated.",
+            "Maximum and minimum resource thresholds that can be allocated to each location.",
+            "Variable costs or efficiencies associated with allocating resources to different locations.",
+            "Potential geographical limitations such as transportation or accessibility issues.",
+            "Resource competition or dependency constraints between different locations."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Spatial distribution of resources",
+            "Resource demand in different locations",
+            "Transportation or logistics costs",
+            "Capacity constraints at each location",
+            "Budgetary constraints",
+            "Resource availability",
+            "Time constraints for allocation",
+            "Priority or importance of different locations",
+            "Geographical or environmental considerations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources efficiently while considering spatial factors and constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources should be allocated to maximize efficiency.",
+            "Spatial factors must be considered in the allocation process.",
+            "Certain resources are limited in quantity and cannot exceed available stock.",
+            "Geographical constraints like distance or terrain may impact resource distribution.",
+            "Allocation must meet specific time constraints for delivery or execution.",
+            "Regulatory or legal constraints might limit where or how resources can be allocated.",
+            "There may be budget constraints that limit the total spending on resources.",
+            "Human resources must be considered where applicable, ensuring tasks are allocated within workforce capacity."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize costs",
+            "Constraints: Spatial factors and other specified constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "to minimize costs while considering spatial factors and constraints in resource allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocations must account for geographical regions and spatial limitations.",
+            "There is no cost minimization in the objective function, indicating that cost constraints may not be relevant.",
+            "Spatial factors imply that there might be constraints related to geographical boundaries or accessibility.",
+            "There may be limits on the amount or type of resources that can be allocated to specific locations based on spatial criteria."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective: minimize costs",
+            "consideration of spatial factors and constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization problem must allocate resources efficiently considering spatial factors.",
+            "The objective of the problem is not to minimize costs, thus implying a focus on some other metric like maximizing output or another form of optimization.",
+            "Constraints related to environmental or ecological impacts do not need to be considered in this problem."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "efficiency",
+            "spatial factors"
+          ]
+        },
+        "pred_objective": {
+          "objective": "minimize costs"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Allocating resources efficiently while considering spatial factors",
+            "No need to maximize efficiency as the objective",
+            "No environmental or ecological impact considerations needed",
+            "No spatial connectivity or adjacency information considered"
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Quantity",
+            "Spatial Location Constraints",
+            "Resource Allocation Efficiency",
+            "Geographical Distribution",
+            "Operational Constraints",
+            "Spatial Resource Capacity",
+            "Location-Specific Needs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources efficiently while considering spatial factors and constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must not exceed the total available resources.",
+            "Time to implement resource allocation should be minimized.",
+            "Allocations must comply with geographic or spatial regulations.",
+            "Resource distribution should not violate environmental or zoning laws.",
+            "Allocations must consider the needs and demands of different regions.",
+            "Cost of transporting resources between areas must be minimized.",
+            "Prioritize areas with higher demand or urgency for resources.",
+            "Ensure fairness and equity in resource distribution among different regions."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Spatial factors",
+            "Fixed constraints",
+            "Variable constraints over time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources efficiently while considering spatial factors and constraints that may be spatially fixed or variable over time."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The spatial factors are fixed over time.",
+            "The spatial constraints remain consistent and do not change with time."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "spatial factors",
+            "fixed constraints",
+            "resource allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources efficiently considering spatial factors and constraints that are fixed and do not depend on other variables such as weather, time of day, or season."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Spatial factors and constraints are fixed over time.",
+            "Constraints do not depend on weather, time of day, or season."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Spatial factors",
+            "Physical/geographical boundaries",
+            "Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources efficiently while considering fixed spatial constraints related to physical or geographical boundaries."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The spatial factors and constraints are spatially fixed over time.",
+            "The spatial factors and constraints are not dependent on other variables like weather, time of day, or season.",
+            "The spatial factors and constraints are primarily related to physical or geographical boundaries, such as terrain or jurisdictional limits."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource quantity constraints",
+            "Geographical location data",
+            "Transportation costs",
+            "Demand at various locations",
+            "Supply capabilities",
+            "Distribution center locations",
+            "Operational costs",
+            "Service level requirements",
+            "Time constraints",
+            "Resource availability",
+            "Environmental impact factors"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Allocate resources efficiently while considering spatial factors and constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources must be allocated in a way that minimizes travel time between locations.",
+            "Resource allocation should not exceed the available resource capacity at each location.",
+            "Each location may have different priority levels that must be considered during allocation.",
+            "There should be a spatial balance in resource allocation to prevent over-concentration in certain areas.",
+            "Certain locations may have restrictions on the types and quantities of resources they can receive.",
+            "Resource allocation decisions must adhere to budgetary limits defined for each region.",
+            "The allocation strategy must account for geographical barriers that may impact accessibility.",
+            "Urgent or emergency situations at specific locations may necessitate deviations from the standard allocation plan.",
+            "Environmental regulations may impose additional constraints on resource deployment in certain regions.",
+            "The allocation should aim to maximize resource utilization efficiency across all locations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "efficiency",
+            "spatial factors",
+            "constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Efficiently allocate resources while considering spatial factors and any existing constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must consider spatial optimization even without explicit spatial constraints.",
+            "Resources must be distributed in a way that maximizes efficiency across different locations.",
+            "Resource usage should adhere to any implicit geographical considerations, such as minimizing travel time or cost between locations."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Spatial factors"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to efficiently allocate resources while taking into account spatial factors without them being explicitly defined as standalone constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Allocate resources within a defined geographical boundary.",
+            "Adhere to a maximum budget for resource allocation.",
+            "Ensure that resource allocation meets a specified demand or requirement at each location.",
+            "Consider logistics and transportation limitations in resource distribution.",
+            "Maintain a balance between resource availability and demand across different locations."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource availability",
+            "Geographical distribution factors"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently allocate resources while accounting for geographical factors and available resource quantities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources must be allocated considering spatial or geographical factors.",
+            "Constraints related to the availability of resources or quantities need to be respected."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "vague_description": "A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.",
+  "detailed_description": "A vine company sells vine in vintage and regular bottles. A vintage bottle can hold \\param{VintageVolume} ml of vine while a regular bottle can hold \\param{RegularVolume} ml of vine. The company has available \\param{TotalVolume} ml of vine. Because vintage bottles are mostly bought by collectors, the number of regular bottles must be at least \\param{MinRegularVintageRatio} times as much as the number of vintage bottles. However, at least \\param{MinVintageBottles} vintage bottles must be made. How many of each should be made to maximize the total number of bottles produced?",
+  "target_objective": "Maximize the total number of bottles produced",
+  "target_constraints": [
+    "Number of vintage bottles is non-negative",
+    "Number of regular bottles is non-negative",
+    "Number of regular bottles must be at least MinRegularVintageRatio times the number of vintage bottles",
+    "At least MinVintageBottles vintage bottles must be made",
+    "VintageVolume times number of vintage bottles plus RegularVolume times number of regular bottles must be less than or equal to TotalVolume"
+  ],
+  "target_parameters": [
+    "Volume of a vintage bottle of vine",
+    "Volume of a regular bottle of vine",
+    "Total volume of vine available",
+    "Minimum ratio of regular bottles to vintage bottles",
+    "Minimum number of vintage bottles to be produced"
+  ],
+  "Expert": {
+    "(0,)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.",
+    "(0, 0)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.\nExpert: Is the objective of the optimization problem to maximize profit or revenue? (yes for maximizing profit, no for maximizing revenue)\nUser: No\n",
+    "(0, 0, 0)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.\nExpert: Is the objective of the optimization problem to maximize profit or revenue? (yes for maximizing profit, no for maximizing revenue)\nUser: No\n\nExpert: Is the objective of the optimization problem to minimize costs?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.\nExpert: Is the objective of the optimization problem to maximize profit or revenue? (yes for maximizing profit, no for maximizing revenue)\nUser: No\n\nExpert: Is the objective of the optimization problem to minimize costs?\nUser: No\n\nExpert: Is the objective of the optimization problem to maximize the production quantity of wine bottles?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.",
+    "(0, 0)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.\nExpert: Does the problem description involve a constraint related to the production capacity in terms of the number of bottles produced, rather than just the volume of wine or grape juice?\nUser: No\n",
+    "(0, 0, 0)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.\nExpert: Does the problem description involve a constraint related to the production capacity in terms of the number of bottles produced, rather than just the volume of wine or grape juice?\nUser: No\n\nExpert: Does the problem include a constraint on the maximum total production cost?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.\nExpert: Does the problem description involve a constraint related to the production capacity in terms of the number of bottles produced, rather than just the volume of wine or grape juice?\nUser: No\n\nExpert: Does the problem include a constraint on the maximum total production cost?\nUser: No\n\nExpert: Is there a constraint on the maximum production volume of wine or grape juice for both vintage and regular bottles combined?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.",
+    "(0, 0)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.\nExpert: Are there any production capacity constraints that limit the total number of bottles that can be produced?\nUser: No\n",
+    "(0, 0, 0)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.\nExpert: Are there any production capacity constraints that limit the total number of bottles that can be produced?\nUser: No\n\nExpert: Is the objective of the wine company to maximize profit?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.\nExpert: Are there any production capacity constraints that limit the total number of bottles that can be produced?\nUser: No\n\nExpert: Is the objective of the wine company to maximize profit?\nUser: No\n\nExpert: Does the production of vintage and regular bottles have any impact on the cost or revenue of the wine company?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.",
+    "(0, 0)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.\nExpert: Is there a specified limit on the total production volume?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.\nExpert: Is there a specified limit on the total production volume?\nUser: Yes\n\nExpert: Does the problem description mention a constraint involving the production ratio of vintage to regular bottles (r) or a similar parameter?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A wine company needs to determine the optimal number of vintage and regular bottles to produce given certain constraints on volume and production ratios.\nExpert: Is there a specified limit on the total production volume?\nUser: Yes\n\nExpert: Does the problem description mention a constraint involving the production ratio of vintage to regular bottles (r) or a similar parameter?\nUser: No\n\nExpert: Does the problem have a specified numerical limit for the total production volume?\nUser: Yes\n"
+  }
+}

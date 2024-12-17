@@ -1,0 +1,17 @@
+{
+  "vague_description": "Determine the optimal allocation strategy under constraints to maximize overall gains.",
+  "detailed_description": "Consider a problem where we have \\param{ElementNum} elements. For each element j, we have a parameter \\param{CoefficientA_j}, a parameter \\param{ProfitCoefficientC_j}, and a parameter \\param{UpperBoundU_j}. We also have a global parameter \\param{GlobalParameterB}. We have a variable \\param{DecisionVariableX_j} for each element j. The goal is to maximize the total profit, which is the sum of \\param{ProfitCoefficientC_j} * \\param{DecisionVariableX_j} for all element j. The constraints are that the sum of (1/\\param{CoefficientA_j}) * \\param{DecisionVariableX_j} for all element j should be less than or equal to \\param{GlobalParameterB}, and \\param{DecisionVariableX_j} should be between 0 and \\param{UpperBoundU_j} for all element j.",
+  "target_objective": "Maximize the total profit, which is the sum of the product of ProfitCoefficientC_j and DecisionVariableX_j for all elements in ElementNum",
+  "target_constraints": [
+    "The sum of the inverses of CoefficientA_j multiplied by DecisionVariableX_j for all elements in ElementNum must be less than or equal to GlobalParameterB",
+    "Each DecisionVariableX_j is greater than or equal to 0",
+    "Each DecisionVariableX_j is less than or equal to its respective UpperBoundU_j"
+  ],
+  "target_parameters": [
+    "The set of elements",
+    "A coefficient parameter for each element in the set",
+    "Profit coefficient for each element in the set",
+    "Upper bound on the decision variable for each element in the set",
+    "A global parameter representing an upper limit on the weighted sum of decision variables"
+  ]
+}

@@ -1,0 +1,445 @@
+{
+  "vague_description": "The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.",
+  "detailed_description": "Determine the shortest route that the traveler can take to visit all \\param{N} towns and return to \\param{StartCity}.",
+  "target_objective": "Minimize the total travel distance for the route",
+  "target_constraints": [
+    "The traveler must visit each town exactly once",
+    "The traveler must return to StartCity after visiting all other towns",
+    "The distance between any two towns is non-negative"
+  ],
+  "target_parameters": [
+    "Number of towns to visit",
+    "Index of the start city",
+    "Distance from city i to city j"
+  ],
+  "Expert": {
+    "(0,)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.",
+    "(0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Does the traveler have a specific order that must be followed when visiting the locations?\nUser: No\n",
+    "(0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Does the traveler have a specific order that must be followed when visiting the locations?\nUser: No\n\nExpert: Are there any constraints on the maximum travel distance or time allowed for the entire route?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Does the traveler have a specific order that must be followed when visiting the locations?\nUser: No\n\nExpert: Are there any constraints on the maximum travel distance or time allowed for the entire route?\nUser: No\n\nExpert: Is the distance between each pair of locations symmetric, meaning the distance from A to B is the same as from B to A?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.",
+    "(0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Do any of the problems include a constraint regarding a maximum allowable travel distance?\nUser: No\n",
+    "(0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Do any of the problems include a constraint regarding a maximum allowable travel distance?\nUser: No\n\nExpert: Is the parameter 'distance matrix' explicitly mentioned in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Do any of the problems include a constraint regarding a maximum allowable travel distance?\nUser: No\n\nExpert: Is the parameter 'distance matrix' explicitly mentioned in the problem description?\nUser: Yes\n\nExpert: Does the problem description explicitly mention visiting a list of all locations to be visited as a parameter?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.",
+    "(0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Is the order in which the traveler visits the intermediate locations fixed or can it be freely chosen?\nUser: Yes, the order can be freely chosen.\n",
+    "(0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Is the order in which the traveler visits the intermediate locations fixed or can it be freely chosen?\nUser: Yes, the order can be freely chosen.\n\nExpert: Can the locations be visited only once, or can a location be revisited?\nUser: No, each location can only be visited once before returning to the starting point.\n",
+    "(0, 0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Is the order in which the traveler visits the intermediate locations fixed or can it be freely chosen?\nUser: Yes, the order can be freely chosen.\n\nExpert: Can the locations be visited only once, or can a location be revisited?\nUser: No, each location can only be visited once before returning to the starting point.\n\nExpert: Are there any restrictions on the time at which the traveler can visit each location, such as visiting a location during a specific time window or having limited hours of operation?\nUser: No, there are no restrictions on the time at which the traveler can visit each location.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.",
+    "(0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Are there any constraints other than visiting locations in a continuous path, returning to the starting point, and possibly other travel restrictions?\nUser: No\n",
+    "(0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Are there any constraints other than visiting locations in a continuous path, returning to the starting point, and possibly other travel restrictions?\nUser: No\n\nExpert: Are there any travel restrictions other than the path being continuous?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Are there any constraints other than visiting locations in a continuous path, returning to the starting point, and possibly other travel restrictions?\nUser: No\n\nExpert: Are there any travel restrictions other than the path being continuous?\nUser: No\n\nExpert: Does the optimization problem include any constraints other than those related to the travel path being continuous and/or returning to the starting point?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Distance between locations",
+            "Order of visiting locations",
+            "Starting and ending location"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total travel distance for visiting multiple locations and returning to the original starting point."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The route must be a loop, starting and ending at the same location.",
+            "All locations must be visited exactly once.",
+            "The total travel distance should be minimized."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective: minimize total travel distance",
+            "constraint: visit each location exactly once",
+            "constraint: return to the original starting point",
+            "variable: order of visiting locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the shortest possible route that visits all specified locations exactly once and returns to the starting point, minimizing the total travel distance."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The traveler must start and end at the same location.",
+            "Each location must be visited exactly once."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Starting Location",
+            "List of Locations to Visit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to find the shortest possible route that visits each location once and returns to the original starting point."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Visit all specified locations.",
+            "Return to the original starting point after visiting all locations."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Set of locations to be visited including the starting point",
+            "Matrix of asymmetric distances between each pair of locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total travel distance for visiting all locations and returning to the starting point. The travel does not follow a specific order, and distances between locations are not symmetric."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The route must start and end at the same location, making it a closed loop.",
+            "There is no specific order required for visiting the locations.",
+            "The distance between locations is asymmetric, meaning the distance from point A to point B may not be the same as from B to A."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of locations to visit",
+            "distances between each pair of locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total travel distance while visiting each location exactly once and returning to the starting point."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The route must begin and end at the same location, i.e., it is a closed loop.",
+            "All designated locations must be visited exactly once.",
+            "The total distance traveled should be minimized.",
+            "Travel between locations is assumed to be possible directly without intermediate stops."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Multiple locations to visit",
+            "Minimize travel distance",
+            "Returning to the original starting point"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the travel distance while visiting multiple locations and returning to the original starting point."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The traveler must visit all specified locations.",
+            "The traveler must return to the original starting point.",
+            "There is no constraint on maximum allowable travel distance."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimize total travel distance",
+            "visit multiple locations",
+            "return to original starting point",
+            "no maximum travel distance constraints",
+            "use distance matrix"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the travel distance while visiting all specified locations and returning to the original starting point."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The traveler must visit each location exactly once.",
+            "The traveler must return to the starting point after visiting all the locations.",
+            "The travel distance is to be minimized according to the distance matrix."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimize travel distance",
+            "distance matrix",
+            "return to the original starting point"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize travel distance while visiting multiple locations and returning to the original starting point."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The route must start and return to the original starting point.",
+            "The route should cover multiple locations.",
+            "The parameter 'distance matrix' is explicitly mentioned in the problem description."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "travel distance",
+            "multiple locations",
+            "return to original starting point"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the travel distance while visiting all specified locations and returning to the starting point."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The route must start and end at the original starting point.",
+            "Each location must be visited exactly once before returning to the starting point.",
+            "The travel distance must be minimized."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "starting location",
+            "multiple locations to visit",
+            "distance between each pair of locations",
+            "return to starting point"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total travel distance of a round trip that visits multiple locations and returns to the starting point."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The traveler must visit each location exactly once before returning to the starting point.",
+            "The traveler must start and end the route at the same location.",
+            "The total travel distance of the route should be minimized."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Locations to visit",
+            "Starting point",
+            "Travel distance between every pair of locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the shortest possible route that visits a set of given locations exactly once and returns to the starting point."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each location must be visited exactly once, except for the starting point which is visited at the beginning and end of the route.",
+            "The order of visiting the locations is not fixed and can be freely chosen.",
+            "The route must return to the original starting point after all locations have been visited."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimize travel distance",
+            "multiple locations",
+            "return to starting point",
+            "order of visiting can be freely chosen",
+            "each location visited only once",
+            "no time restrictions on visits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine a route for the traveler that visits each specified location exactly once before returning to the starting point, while minimizing the total travel distance."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The traveler must start and end at the same location.",
+            "Each location must be visited exactly once, except for the starting/ending location, which is visited twice.",
+            "The traveler can visit the locations in any order."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Initial location",
+            "Set of locations to visit",
+            "Distances between each pair of locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total travel distance while visiting all specified locations and returning to the starting point."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The route must visit each location exactly once.",
+            "The traveler must return to the original starting point after visiting all locations.",
+            "Minimize the total travel distance of the route."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "locations",
+            "starting point"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the shortest possible route that visits each location once and returns to the original starting point."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Visit each location exactly once.",
+            "Return to the original starting point.",
+            "Minimize the total travel distance."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "travel distance",
+            "sequence of visiting locations",
+            "return to original starting point"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the travel distance for visiting multiple locations and returning to the starting point."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The traveler must visit all specified locations exactly once.",
+            "The route must form a continuous path without breaks.",
+            "The traveler must return to the original starting point after visiting all locations."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "travel distance",
+            "multiple locations",
+            "continuous path",
+            "return to original starting point"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total travel distance while visiting multiple locations and returning to the original starting point."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The route must visit all specified locations.",
+            "The route must return to the starting point."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 4
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 4
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 4
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      }
+    }
+  }
+}

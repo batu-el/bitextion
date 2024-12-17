@@ -1,0 +1,51 @@
+{
+  "vague_description": "Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.",
+  "detailed_description": "A teddy bear company produces three different colored bears: black, white, and brown. These bears are made in two different factories. Running factory 1 for 1 hour costs \\var{CostF1} and produces \\var{BlackF1} black teddy bears, \\var{WhiteF1} white teddy bears, and \\var{BrownF1} brown ones. Running factory 2 for 1 hour costs \\var{CostF2} and produces \\var{BlackF2} black teddy bears and \\var{WhiteF2} white teddy bears (but no brown ones). To meet children's demand, at least \\var{MinBlack} black teddy bears, \\var{MinWhite} white teddy bears, and \\var{MinBrown} brown teddy bears must be made daily. Given this information, develop a linear programming problem assuming the teddy bear company wants to minimize the cost of production.",
+  "target_objective": "Minimize the total cost of running both factories",
+  "target_constraints": [
+    "Running time for factory 1 is non-negative",
+    "Running time for factory 2 is non-negative",
+    "At least MinBlack black teddy bears must be produced daily",
+    "At least MinWhite white teddy bears must be produced daily",
+    "At least MinBrown brown teddy bears must be produced daily",
+    "Black teddy bears produced at factory 1 per hour times the running hours of factory 1 plus black teddy bears produced at factory 2 per hour times the running hours of factory 2 must be at least MinBlack",
+    "White teddy bears produced at factory 1 per hour times the running hours of factory 1 plus white teddy bears produced at factory 2 per hour times the running hours of factory 2 must be at least MinWhite",
+    "Brown teddy bears produced at factory 1 per hour times the running hours of factory 1 must be at least MinBrown"
+  ],
+  "target_parameters": [
+    "Cost of running factory 1 for 1 hour",
+    "Number of black teddy bears produced in factory 1 per hour",
+    "Number of white teddy bears produced in factory 1 per hour",
+    "Number of brown teddy bears produced in factory 1 per hour",
+    "Cost of running factory 2 for 1 hour",
+    "Number of black teddy bears produced in factory 2 per hour",
+    "Number of white teddy bears produced in factory 2 per hour",
+    "Daily minimum required number of black teddy bears",
+    "Daily minimum required number of white teddy bears",
+    "Daily minimum required number of brown teddy bears"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.",
+    "(0, 0)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.\nExpert: Are there constraints on the minimum production requirements for each factory?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.\nExpert: Are there constraints on the minimum production requirements for each factory?\nUser: No\n\nExpert: Are there variable operating costs associated with different factories?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.\nExpert: Are there constraints on the minimum production requirements for each factory?\nUser: No\n\nExpert: Are there variable operating costs associated with different factories?\nUser: Yes\n\nExpert: Are there any constraints on the maximum operating hours for each factory?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.",
+    "(0, 0)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.\nExpert: Is there any problem where the minimum production requirement is specified per factory rather than for the entire operation or per product type at all factories combined?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.\nExpert: Is there any problem where the minimum production requirement is specified per factory rather than for the entire operation or per product type at all factories combined?\nUser: No\n\nExpert: Does the problem description include constraints related to environmental regulations or emissions limits?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.\nExpert: Is there any problem where the minimum production requirement is specified per factory rather than for the entire operation or per product type at all factories combined?\nUser: No\n\nExpert: Does the problem description include constraints related to environmental regulations or emissions limits?\nUser: No\n\nExpert: Does the problem include a constraint that requires production to meet or exceed demand for each specific product type individually, rather than aggregated across all products?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.",
+    "(0, 0)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.\nExpert: Are the production costs at each factory directly proportional to the number of operating hours?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.\nExpert: Are the production costs at each factory directly proportional to the number of operating hours?\nUser: Yes\n\nExpert: Are there any minimum operating hours at each factory that must be maintained, regardless of production requirements?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.\nExpert: Are the production costs at each factory directly proportional to the number of operating hours?\nUser: Yes\n\nExpert: Are there any minimum operating hours at each factory that must be maintained, regardless of production requirements?\nUser: No\n\nExpert: Are the factories open 24/7, or are there fixed operating hours at which they can produce? \nUser: {\"response\":\"No\"}\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.",
+    "(0, 0)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.\nExpert: Are operating hours of each factory a constraint in the problem?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.\nExpert: Are operating hours of each factory a constraint in the problem?\nUser: No\n\nExpert: Does the problem description include the phrase 'minimize costs'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal operating hours for each factory to meet minimum production requirements while minimizing costs.\nExpert: Are operating hours of each factory a constraint in the problem?\nUser: No\n\nExpert: Does the problem description include the phrase 'minimize costs'?\nUser: Yes\n\nExpert: Does the problem have at least one parameter?\nUser: Yes\n"
+  }
+}

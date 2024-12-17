@@ -1,0 +1,21 @@
+{
+  "vague_description": "Optimizing the daily intake of two supplements to ensure nutritional requirements are met while minimizing cost.",
+  "detailed_description": "Calcium and Magnesium are found in two health supplements, health supplement A and health supplement B. One serving of health supplement A contains \\param{CaA} grams of Calcium and \\param{MgA} grams of Magnesium. One serving of health supplement B contains \\param{CaB} grams of Calcium and \\param{MgB} grams of Magnesium. The cost per health supplement for health supplement A is \\$\\param{CostA} and the cost per health supplement for health supplement B is \\$\\param{CostB}. A patient must consume these two health supplements every day to get at least \\param{MinCa} grams of Calcium and \\param{MinMg} grams of Magnesium. Determine how much servings of each supplement the patient needs to minimize her daily cost.",
+  "target_objective": "Minimize the total daily cost of health supplements for the patient",
+  "target_constraints": [
+    "Number of servings of health supplement A is non-negative",
+    "Number of servings of health supplement B is non-negative",
+    "Total Calcium from servings of A and B must be at least MinCa grams",
+    "Total Magnesium from servings of A and B must be at least MinMg grams"
+  ],
+  "target_parameters": [
+    "Amount of Calcium in one serving of health supplement A",
+    "Amount of Magnesium in one serving of health supplement A",
+    "Amount of Calcium in one serving of health supplement B",
+    "Amount of Magnesium in one serving of health supplement B",
+    "Cost per serving of health supplement A",
+    "Cost per serving of health supplement B",
+    "Minimum required amount of Calcium per day",
+    "Minimum required amount of Magnesium per day"
+  ]
+}

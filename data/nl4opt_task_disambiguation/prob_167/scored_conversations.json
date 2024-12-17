@@ -1,0 +1,457 @@
+{
+  "vague_description": "The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.",
+  "detailed_description": "A mine sends ore to the surface in small and large wagons. A small wagon holds \\param{SmallWagonCapacity} units of ore while a large wagon holds \\param{LargeWagonCapacity} units of ore. To avoid taking up too much space on the ramps, the number of small wagons must be at least \\param{MinRatioSmallToLarge} times as much as the number of large wagons. In addition, at least \\param{MinLargeWagons} large wagons must be used. If \\param{TotalOre} units of ore need to be taken to the surface, minimize the total number of wagons needed.",
+  "target_objective": "Minimize the total number of wagons needed to transport the ore",
+  "target_constraints": [
+    "Number of small wagons is non-negative",
+    "Number of large wagons is non-negative",
+    "Number of small wagons must be at least MinRatioSmallToLarge times the number of large wagons",
+    "At least MinLargeWagons large wagons must be used",
+    "Total ore transported must be equal to TotalOre"
+  ],
+  "target_parameters": [
+    "Capacity of a small wagon",
+    "Capacity of a large wagon",
+    "Minimum ratio of the number of small wagons to the number of large wagons",
+    "Minimum number of large wagons required",
+    "Total units of ore that need to be taken to the surface"
+  ],
+  "Expert": {
+    "(0,)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.",
+    "(0, 0)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.\nExpert: Are there multiple sources or destinations involved in the ore transportation problem?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.\nExpert: Are there multiple sources or destinations involved in the ore transportation problem?\nUser: No\n\nExpert: Is there a specific limit on the total number of wagons available for transportation?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.\nExpert: Are there multiple sources or destinations involved in the ore transportation problem?\nUser: No\n\nExpert: Is there a specific limit on the total number of wagons available for transportation?\nUser: No\n\nExpert: Are there different types of wagons with specific capacity limits?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.",
+    "(0, 0)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.\nExpert: Does the problem include a constraint on minimizing the total cost associated with using wagons?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.\nExpert: Does the problem include a constraint on minimizing the total cost associated with using wagons?\nUser: No\n\nExpert: Does the problem include a constraint that the total number of wagons used cannot exceed a specific available fleet size for each wagon type?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.\nExpert: Does the problem include a constraint on minimizing the total cost associated with using wagons?\nUser: No\n\nExpert: Does the problem include a constraint that the total number of wagons used cannot exceed a specific available fleet size for each wagon type?\nUser: No\n\nExpert: Do the constraints explicitly include both upper and lower limits on the ratio of different types of wagons used?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.",
+    "(0, 0)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.\nExpert: Are the wagon ratio constraints related to the capacity and weight distribution of the ore within each wagon?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.\nExpert: Are the wagon ratio constraints related to the capacity and weight distribution of the ore within each wagon?\nUser: No\n\nExpert: Are the wagon ratio constraints related to the physical dimensions or loading capacity of the wagons themselves?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.\nExpert: Are the wagon ratio constraints related to the capacity and weight distribution of the ore within each wagon?\nUser: No\n\nExpert: Are the wagon ratio constraints related to the physical dimensions or loading capacity of the wagons themselves?\nUser: No\n\nExpert: Are the wagon ratio constraints related to the maximum capacity or operational limitations of the wagons as a group (e.g., total weight, combined capacity)?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.",
+    "(0, 0)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.\nExpert: Is the specified quantity of ore a fixed parameter in the problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.\nExpert: Is the specified quantity of ore a fixed parameter in the problem?\nUser: Yes\n\nExpert: Is the goal of the problem to minimize wagons without specific consideration for the quantity of ore, or is the goal to transport a specific quantity of ore with minimal wagons?\nUser: The goal is to transport a specific quantity of ore with minimal wagons.\n",
+    "(0, 0, 0, 0)": "User: The challenge is to efficiently transport a specified quantity of ore using minimum wagons without breaching wagon ratio constraints.\nExpert: Is the specified quantity of ore a fixed parameter in the problem?\nUser: Yes\n\nExpert: Is the goal of the problem to minimize wagons without specific consideration for the quantity of ore, or is the goal to transport a specific quantity of ore with minimal wagons?\nUser: The goal is to transport a specific quantity of ore with minimal wagons.\n\nExpert: Does the problem description mention 'specific quantity of ore' (exact wording) as a constraint or parameter?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "quantity of ore to be transported",
+            "maximum number of wagons available",
+            "capacity constraints of each wagon type",
+            "ratio constraints between different types of wagons",
+            "route constraints or distances"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of wagons used for transporting a specified quantity of ore while adhering to specific wagon ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total quantity of ore transported must equal the specified quantity.",
+            "The number of wagons used must be minimized.",
+            "Wagon ratio constraints must not be breached."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Ore Quantity: Specified total amount of ore to be transported.",
+            "Wagon Capacity: The maximum load each wagon can carry.",
+            "Wagon Ratio Constraints: Rules or limits that might dictate the types or proportions of wagons used in the transportation.",
+            "Objective: Minimize the number of wagons used."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently transport a specified quantity of ore using the minimum number of wagons while adhering to wagon ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All ore must be transported using the minimum number of wagons.",
+            "Wagon ratio constraints must not be breached.",
+            "There is only one source and one destination."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "specified quantity of ore",
+            "minimum number of wagons",
+            "wagon ratio constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of wagons needed to transport a specified quantity of ore while adhering to wagon ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantity of ore to be transported is specified and fixed.",
+            "Each wagon has a transportation capacity that must not be exceeded.",
+            "The number of wagons used must be minimized while adhering to the ore transportation capacity.",
+            "Wagon ratio constraints must not be breached during transportation.",
+            "There is only one source and one destination in the transportation route.",
+            "Total number of wagons available is not limited."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimum number of wagons",
+            "Wagon ratio constraints",
+            "Specified quantity of ore",
+            "Different types of wagons with specific capacity limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of wagons used to transport a specified quantity of ore while adhering to the specific capacity limits of different wagon types and maintaining the required wagon ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Transport a specified quantity of ore using minimum wagons.",
+            "Do not breach wagon ratio constraints.",
+            "Use different types of wagons with specific capacity limits."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "specified quantity of ore",
+            "minimum number of wagons",
+            "wagon ratio constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To transport a specified quantity of ore using the minimum number of wagons while adhering to predefined wagon ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total number of wagons should not exceed the specified limit.",
+            "The ratio of different types of wagons used must adhere to predefined guidelines or ratios.",
+            "The quantity of ore transported must meet or exceed the specified target.",
+            "Each wagon type has a maximum capacity that cannot be exceeded.",
+            "There must be a non-negative number of each type of wagon used.",
+            "The selection of wagons should ensure minimum total usage while respecting all ratios and capacity limits."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of ore to be transported",
+            "Minimum number of wagons required to transport the ore",
+            "Wagon ratio constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of wagons used for transporting a specified quantity of ore without violating wagon ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimize the number of wagons used for transporting ore.",
+            "Ensure the specified quantity of ore is transported.",
+            "Abide by wagon ratio constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Specified quantity of ore",
+            "Minimum number of wagons",
+            "Wagon ratio constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To transport a specified quantity of ore using the minimum number of wagons while adhering to wagon ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Transport a specified quantity of ore using minimum wagons.",
+            "Adhere to wagon ratio constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Specified quantity of ore",
+            "Minimum number of wagons",
+            "Wagon ratio constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of wagons used for ore transportation while respecting the specified wagon ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Efficiently transport a specified quantity of ore using minimum wagons.",
+            "Maintain specified wagon ratio constraints."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize the number of wagons used.",
+            "Constraints: Maintain specified wagon ratio constraints for different types of wagons.",
+            "Demand: Transport a specified quantity of ore."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of wagons used for transporting a specified quantity of ore while adhering to predefined wagon ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total quantity of ore transported must meet or exceed the specified requirement.",
+            "The number of wagons used must be minimized.",
+            "The ratio of wagons must adhere to certain predefined constraints."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "specified quantity of ore to transport",
+            "minimum number of wagons",
+            "wagon ratio constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To transport a specified quantity of ore using the minimum number of wagons while adhering to given wagon ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total quantity of ore must be fully transported without exceeding the available wagons.",
+            "The number of wagons used should be minimized for efficiency.",
+            "Wagon ratio constraints must be respected, but they are not related to capacity and weight distribution."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "quantity of ore",
+            "number of wagons",
+            "wagon ratio constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of wagons used for transporting a specified quantity of ore, while adhering to predefined wagon ratio constraints unrelated to capacity, weight distribution, or physical dimensions of the wagons."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total number of wagons must be minimized.",
+            "The specified quantity of ore must be transported without exceeding the number of available wagons.",
+            "Wagon ratio constraints must be adhered to, but they are neither related to capacity nor to weight distribution.",
+            "Wagon ratio constraints are unrelated to physical dimensions or loading capacity."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "quantity of ore to be transported",
+            "number of wagons",
+            "wagon ratio constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of wagons used for transporting a given quantity of ore while adhering to unspecified 'wagon ratio' constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Use of minimum wagons for transporting the specified quantity of ore.",
+            "Wagon ratio constraints, not related to capacity and weight distribution within each wagon.",
+            "Wagon ratio constraints, not related to physical dimensions or loading capacity of individual wagons.",
+            "Wagon ratio constraints, not related to maximum capacity or operational limitations as a group."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "total ore quantity",
+            "wagon capacity",
+            "wagon type ratios",
+            "minimum number of wagons"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently transport a specified quantity of ore using the minimum number of wagons, while adhering to given wagon ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantity of ore to be transported must be fully moved using the available wagons.",
+            "Each wagon has a carrying capacity that must not be exceeded.",
+            "The number of wagons used must be minimized.",
+            "There is a predefined ratio of different types of wagons that must be maintained."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Specified quantity of ore",
+            "Minimum number of wagons",
+            "Wagon ratio constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of wagons used while transporting a fixed quantity of ore, adhering to wagon ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Transport the specified quantity of ore.",
+            "Minimize the number of wagons used.",
+            "Do not breach the wagon ratio constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "specified quantity of ore",
+            "minimum wagons",
+            "wagon ratio constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of wagons used to transport a specified quantity of ore while adhering to wagon ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Transport exactly the specified quantity of ore.",
+            "Minimize the number of wagons used.",
+            "Ensure wagon ratios are not violated."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "specified quantity of ore"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently transport a specified quantity of ore using the minimum number of wagons while adhering to wagon ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantity of ore to be transported is a fixed parameter.",
+            "The ratio of different types of wagons must not be breached.",
+            "The number of wagons used should be minimized."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      }
+    }
+  }
+}

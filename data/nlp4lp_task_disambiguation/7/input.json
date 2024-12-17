@@ -1,0 +1,15 @@
+{
+  "vague_description": "Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.",
+  "detailed_description": "The objective is to minimize the maximum thrust required, which is max_t |a_t| over the duration T, with initial conditions set by X0, V0, and final conditions set by XT and VT.",
+  "target_objective": "Minimize the maximum thrust required across the given duration T",
+  "target_constraints": [
+    "Thrust limits are determined by minimizing the maximum absolute value of acceleration over time T"
+  ],
+  "target_parameters": [
+    "Initial position of the object",
+    "Initial velocity of the object",
+    "Final position of the object",
+    "Final velocity of the object",
+    "Time duration for the journey"
+  ]
+}

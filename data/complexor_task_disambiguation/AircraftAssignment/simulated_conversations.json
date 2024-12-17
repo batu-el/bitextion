@@ -1,0 +1,45 @@
+{
+  "vague_description": "Determine a way to allocate similar resources to meet competing needs under given constraints.",
+  "detailed_description": "The Aircraft Assignment Problem is a mathematical programming model that aims to assign \\param{TotalAircraft} aircraft to \\param{TotalRoutes} routes in order to minimize the total cost while satisfying availability and demand constraints. The availability for each aircraft i is \\param{Availability_i} and it represents the maximum number of routes that the aircraft can be assigned to. The demand for each route j is \\param{Demand_j} and it denotes the number of aircraft required to fulfill the passenger or cargo needs of the route. The capability of each aircraft i for each route j is given by \\param{Capacity_{i,j}} and it defines whether the aircraft can service the route, considering factors such as range, size, and suitability. Finally, \\param{Cost_{i,j}} represents the cost of assigning aircraft i to route j, which includes operational, fuel, and potential opportunity costs.",
+  "target_objective": "Minimize the total cost of assigning aircraft to routes",
+  "target_constraints": [
+    "Each aircraft can be assigned to at most its individual availability",
+    "Each route must have at least the required number of aircraft to meet its demand",
+    "An aircraft can be assigned to a route only if it has the capacity for that route (Capacity_{i,j} must indicate suitability)",
+    "Number of aircraft assigned to a route must be an integer",
+    "Number of aircraft assigned to each route is non-negative",
+    "Total number of aircraft assigned must not exceed TotalAircraft"
+  ],
+  "target_parameters": [
+    "The total number of aircraft available for assignment",
+    "The total number of routes that require aircraft assignment",
+    "The availability of each aircraft, indicating the maximum number of routes it can be assigned to",
+    "The demand for each route, indicating the number of aircraft required",
+    "The capacity matrix defining the suitability and capability of each aircraft for each route",
+    "The cost matrix representing the cost of assigning each aircraft to each route"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.",
+    "(0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Are there specified functions for both the objective (e.g., cost minimization, utility maximization) and the constraints in the problem?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Are there specified functions for both the objective (e.g., cost minimization, utility maximization) and the constraints in the problem?\nUser: Yes.\n\nExpert: Is there a specific set of resources defined that needs to be allocated among these competing needs?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Are there specified functions for both the objective (e.g., cost minimization, utility maximization) and the constraints in the problem?\nUser: Yes.\n\nExpert: Is there a specific set of resources defined that needs to be allocated among these competing needs?\nUser: Yes.\n\nExpert: Are the constraints linear in terms of the variables of the optimization problem?\nUser: Yes.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.",
+    "(0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Does the problem's objective involve maximizing satisfaction or efficiency?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Does the problem's objective involve maximizing satisfaction or efficiency?\nUser: Yes\n\nExpert: Do any of the problems involve allocating resources in whole units (integers) only?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Does the problem's objective involve maximizing satisfaction or efficiency?\nUser: Yes\n\nExpert: Do any of the problems involve allocating resources in whole units (integers) only?\nUser: Yes\n\nExpert: Do any of the candidate problem descriptions include a constraint related to the priority levels affecting the order of resource allocation?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.",
+    "(0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Is the objective of the optimization problem to maximize or minimize a specific quantity or outcome?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Is the objective of the optimization problem to maximize or minimize a specific quantity or outcome?\nUser: Yes.\n\nExpert: Is the quantity or outcome that the objective is focused on being a direct measure of the resources themselves, rather than an outcome that results from how the resources are allocated?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Is the objective of the optimization problem to maximize or minimize a specific quantity or outcome?\nUser: Yes.\n\nExpert: Is the quantity or outcome that the objective is focused on being a direct measure of the resources themselves, rather than an outcome that results from how the resources are allocated?\nUser: No.\n\nExpert: Is the quantity or outcome that the objective is focused on a function of the resources after they have been allocated, and potentially affected by how they are used or the outcome they generate?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.",
+    "(0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Does the problem description explicitly mention 'resource availability' as a parameter?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Does the problem description explicitly mention 'resource availability' as a parameter?\nUser: Yes\n\nExpert: Does the problem description contain the word 'resource allocation'?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Does the problem description explicitly mention 'resource availability' as a parameter?\nUser: Yes\n\nExpert: Does the problem description contain the word 'resource allocation'?\nUser: No\n\nExpert: Does the problem description mention 'resource allocation' or a variation of it as part of the objective?\nUser: No\n"
+  }
+}

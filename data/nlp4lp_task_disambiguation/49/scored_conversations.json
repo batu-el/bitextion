@@ -1,0 +1,485 @@
+{
+  "vague_description": "A company must balance resources and requirements to optimize profitability in its steel production process.",
+  "detailed_description": "How much of each alloy should the company use in each type of steel, and how much of each steel type should be produced to maximize profit? The company has \\param{A} different alloys and \\param{S} different steel types. For each alloy \\param{a} in 1, ..., \\param{A}, there is an available amount of \\param{AvailableAlloy}, a carbon content of \\param{CarbonContent}, a nickel content of \\param{NickelContent}, and an alloy price of \\param{AlloyPrice}. For each steel type \\param{s} in 1, ..., \\param{S}, there is a steel price of \\param{SteelPrice}, a minimum required carbon content of \\param{CarbonMin}, and a maximum allowed nickel content of \\param{NickelMax}.",
+  "target_objective": "Maximize the profit from producing the different steel types, considering the cost of the alloys and the revenue from the steel",
+  "target_constraints": [
+    "For each alloy a, the amount used is non-negative and cannot exceed AvailableAlloy[a]",
+    "The carbon content in each steel type s must be at least CarbonMin[s]",
+    "The nickel content in each steel type s must not exceed NickelMax[s]",
+    "The overall materials used cannot exceed the total available amount for each alloy",
+    "For each steel type s, the amount produced is non-negative"
+  ],
+  "target_parameters": [
+    "Total number of different alloys",
+    "Total number of different steel types",
+    "Available amount of alloy a",
+    "Carbon content of alloy a",
+    "Nickel content of alloy a",
+    "Price of alloy a",
+    "Price of steel type s",
+    "Minimum required carbon content for steel type s",
+    "Maximum allowed nickel content for steel type s"
+  ],
+  "Expert": {
+    "(0,)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.",
+    "(0, 0)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.\nExpert: Are there any specific constraints on the supply or demand of steel products that impact the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.\nExpert: Are there any specific constraints on the supply or demand of steel products that impact the optimization problem?\nUser: Yes\n\nExpert: Is there a constraint specifying a minimum or maximum production capacity for the steel manufacturing process?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.\nExpert: Are there any specific constraints on the supply or demand of steel products that impact the optimization problem?\nUser: Yes\n\nExpert: Is there a constraint specifying a minimum or maximum production capacity for the steel manufacturing process?\nUser: No\n\nExpert: Is the objective of the optimization problem to maximize profitability given the costs and revenues associated with steel production?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.",
+    "(0, 0)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.\nExpert: Do any of the problems specify a constraint on maximum allowable emissions of CO2 or any other specific pollutant by quantity?\nUser: No\n",
+    "(0, 0, 0)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.\nExpert: Do any of the problems specify a constraint on maximum allowable emissions of CO2 or any other specific pollutant by quantity?\nUser: No\n\nExpert: Does the problem have constraints related to both production capacity and energy consumption?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.\nExpert: Do any of the problems specify a constraint on maximum allowable emissions of CO2 or any other specific pollutant by quantity?\nUser: No\n\nExpert: Does the problem have constraints related to both production capacity and energy consumption?\nUser: No\n\nExpert: Does the problem include a constraint related to meeting or exceeding a minimum quality standard for the steel produced?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.",
+    "(0, 0)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.\nExpert: Does the steel production process have a predetermined fixed production capacity that cannot be exceeded?\nUser: No\n",
+    "(0, 0, 0)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.\nExpert: Does the steel production process have a predetermined fixed production capacity that cannot be exceeded?\nUser: No\n\nExpert: Is the production process influenced by any seasonal fluctuations in demand or availability of raw materials?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.\nExpert: Does the steel production process have a predetermined fixed production capacity that cannot be exceeded?\nUser: No\n\nExpert: Is the production process influenced by any seasonal fluctuations in demand or availability of raw materials?\nUser: No\n\nExpert: Are there any direct and indirect costs associated with the steel production process that can be optimized to improve profitability?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.",
+    "(0, 0)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.\nExpert: Does the problem statement explicitly mention 'steel' in the description of the objective, constraints, or parameters?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.\nExpert: Does the problem statement explicitly mention 'steel' in the description of the objective, constraints, or parameters?\nUser: Yes\n\nExpert: Are there any parameters that describe the quantity or availability of resources (e.g., raw materials, production capacity, labor force) in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A company must balance resources and requirements to optimize profitability in its steel production process.\nExpert: Does the problem statement explicitly mention 'steel' in the description of the objective, constraints, or parameters?\nUser: Yes\n\nExpert: Are there any parameters that describe the quantity or availability of resources (e.g., raw materials, production capacity, labor force) in the problem description?\nUser: Yes\n\nExpert: Does the problem description contain 'steel production' in the objective?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "requirements",
+            "profitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize profitability in the company's steel production process by effectively balancing resources and requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Raw material costs must be minimized to reduce overall production expenses.",
+            "Production capacity cannot exceed the limits of existing facilities and workforce capabilities.",
+            "Quality standards for steel products must be adhered to meet customer and regulatory standards.",
+            "Supply chain logistics must ensure timely availability of materials without causing inventory overload.",
+            "Energy consumption should be minimized to reduce environmental impact and costs.",
+            "The production schedule must align with customer demand forecasts to prevent overproduction or stockouts.",
+            "Labor laws and regulations must be complied with, impacting work hours and employee welfare provisions.",
+            "Safety regulations must be followed to ensure a risk-free working environment in the production process.",
+            "Waste generated during production must be minimized to reduce disposal costs and environmental impact."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Supply constraints",
+            "Demand constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the profitability of the company's steel production process by balancing resources and requirements while considering constraints on the supply and demand of steel products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production capacity of the factory cannot exceed 500,000 tonnes per year due to equipment limitations.",
+            "The demand for steel must be met as per predetermined contracts, which requires a minimum of 400,000 tonnes to be produced annually.",
+            "The cost of raw materials should not exceed $50 million annually to maintain budget constraints.",
+            "The production process must comply with environmental regulations limiting emissions to 100,000 tonnes of CO2 per year.",
+            "There is a limit on labor hours available, capped at 2 million hours annually, to optimize staffing costs."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resources available for steel production",
+            "Requirements for steel production",
+            "Supply constraints on steel products",
+            "Demand constraints on steel products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profitability in the steel production process while considering constraints on the supply and demand of steel products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization problem must consider the supply and demand constraints of steel products."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Supply constraints for steel products",
+            "Demand constraints for steel products",
+            "Objective to maximize profitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profitability given the costs and revenues associated with steel production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Specific constraints on the supply of steel products.",
+            "Specific constraints on the demand of steel products."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resources",
+            "Requirements",
+            "Profitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize profitability in the steel production process by balancing resources and requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of raw materials used should not exceed the available supply limits.",
+            "Production must meet a minimum output requirement to satisfy contractual obligations with customers.",
+            "Energy consumption during production cannot surpass the limits set by the energy provider's contract.",
+            "The production process must adhere to regulatory emissions guidelines, limiting pollutants produced.",
+            "Employee work hours should comply with labor laws, which set a maximum number of hours per week.",
+            "Maintenance and operational costs cannot exceed budget constraints while ensuring machinery is functional."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "requirements",
+            "profitability",
+            "steel production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profitability in the steel production process by balancing resources and requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No specific constraint on maximum allowable emissions of CO2 or any other specific pollutant by quantity."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "profitability",
+            "resources",
+            "steel production",
+            "requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profitability in steel production"
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "quality standard for steel"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profitability in the steel production process while ensuring the steel produced meets or exceeds minimum quality standards."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a constraint to meet or exceed a minimum quality standard for the steel produced."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "production requirements",
+            "profitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize profitability by balancing resources and requirements in the steel production process."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The availability of raw materials such as iron ore, coal, and limestone must be considered and cannot exceed supply limits.",
+            "Production capacity constraints, determined by the number of available furnaces, must be factored in.",
+            "Environmental regulations must be adhered to, including limits on emissions and waste production.",
+            "Labor constraints, such as the number of available workers and their working hours, must be managed appropriately.",
+            "Energy usage must be optimized to minimize costs while meeting production requirements.",
+            "Quality standards must be maintained, ensuring that the products meet industry specifications and customer requirements.",
+            "Financial constraints include budget limits for production and operational expenses.",
+            "Logistical constraints related to transportation and storage of raw materials and finished products must be planned efficiently."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Steel production quantity",
+            "Raw material cost",
+            "Labor cost",
+            "Energy cost",
+            "Maintenance cost",
+            "Selling price",
+            "Demand forecast",
+            "Production time",
+            "Production process efficiency",
+            "Profit margin"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the profitability of the steel production process by balancing resources and requirements without constraint on production capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Available raw material supply limits the maximum production output.",
+            "Labor hours must not exceed 40 hours per week per worker.",
+            "Machine maintenance schedules must be considered, which limits machine availability to 85% of total operational time.",
+            "Energy consumption should not exceed set sustainability thresholds.",
+            "Production schedules must meet customer demand timeframes."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profitability",
+            "Production Capacity",
+            "Demand",
+            "Availability of Raw Materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize profitability in the steel production process by effectively balancing resources and operational requirements without being constrained by fixed production capacity or seasonal fluctuations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production capacity is not fixed and can be adjusted.",
+            "There are no seasonal fluctuations affecting demand or raw material availability."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Steel production capacity is variable, not fixed.",
+            "Production process has no seasonal fluctuations in demand or raw material availability.",
+            "Direct and indirect costs are present and can be optimized for better profitability."
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize profitability in the steel production process by balancing resources and requirements while minimizing direct and indirect costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No fixed production capacity for steel production.",
+            "No seasonal fluctuations affecting demand or raw material availability.",
+            "Presence of direct and indirect costs that can be optimized."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources: availability and allocation of raw materials, labor, and machinery",
+            "requirements: production targets, quality standards, and regulatory compliance",
+            "objective function: maximize profitability",
+            "constraints: budget limits, production capacity, supply chain limitations, and environmental regulations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the company's profitability by efficiently allocating resources and fulfilling production requirements in the steel manufacturing process."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability: The company has a limited amount of resources (e.g., raw materials, labor, machinery) that must be efficiently allocated to meet production goals.",
+            "Production requirements: The company must meet certain production thresholds or quotas in terms of quantity and quality of steel produced.",
+            "Cost constraints: The company needs to minimize production costs to maximize profitability, which may involve managing expenses related to labor, materials, and energy.",
+            "Time constraints: The production process must be completed within certain timeframes to meet market demand and delivery schedules.",
+            "Market demand: The company's production must align with market demand, which may fluctuate and require adjustments to production levels.",
+            "Quality standards: The steel produced must meet industry-specific quality standards to ensure customer satisfaction and regulatory compliance.",
+            "Environmental regulations: The company must adhere to environmental regulations and standards, which may impose limits on emissions or waste disposal.",
+            "Safety standards: The production process must comply with safety regulations to protect workers and equipment.",
+            "Technological capacity: The company's production is limited by the current capacity and efficiency of its technology and equipment."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "steel production capacity",
+            "profitability",
+            "resource availability",
+            "production requirements",
+            "cost of production",
+            "market demand for steel",
+            "quality standards",
+            "distribution logistics"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize profitability in the steel production process by balancing resources and requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production process must prioritize the use of steel as the primary material.",
+            "Resources such as labor, energy, and raw materials must be managed efficiently to maintain profitability.",
+            "The quality of the steel produced must meet industry standards to ensure market competitiveness.",
+            "Production capacity must not exceed the available resources or factory constraints.",
+            "Environmental regulations regarding emissions and waste management must be adhered to."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "steel production process",
+            "quantity or availability of resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profitability in the steel production process by efficiently balancing the allocation of resources and meeting production requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The company must meet a certain production capacity to fulfill orders, indicating a constraint on minimum production level.",
+            "There is a limit on raw materials available, implying a constraint on resource usage.",
+            "The labor force is limited to a certain number of hours or personnel, suggesting a labor constraint.",
+            "There are probably constraints related to the cost associated with production and resource usage to ensure profitability."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "requirements",
+            "profitability",
+            "steel production",
+            "quantity",
+            "availability",
+            "raw materials",
+            "production capacity",
+            "labor force"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize profitability of steel production while balancing resources and requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must balance the availability of raw materials needed for steel production.",
+            "The production process should not exceed the defined production capacity.",
+            "Labor force availability must be considered when planning production schedules."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      }
+    }
+  }
+}

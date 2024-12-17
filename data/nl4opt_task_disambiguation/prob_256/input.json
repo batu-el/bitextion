@@ -1,0 +1,17 @@
+{
+  "vague_description": "Determine the minimum combination of trains and trams required to meet a specific transportation demand while adhering to construction constraints.",
+  "detailed_description": "A railway company is planning the infrastructure for the city and is considering two types of transportation, trains and trams. Each train can transport \\param{TrainCapacity} people per hour comfortably and each tram can transport \\param{TramCapacity} people per hour comfortably. Since trains take longer to build, the number of trams must be at least \\param{TramTrainRatio} times the number of trains. If the railway company wants to transport at least \\param{MinPeople} people per hour, minimize the total number of transportation units required.",
+  "target_objective": "Minimize the total number of trains and trams required for transportation",
+  "target_constraints": [
+    "Number of trains is non-negative",
+    "Number of trams is non-negative",
+    "Number of trams must be at least TramTrainRatio times the number of trains",
+    "Total capacity should be at least MinPeople people per hour"
+  ],
+  "target_parameters": [
+    "Number of people per hour a train can transport comfortably",
+    "Number of people per hour a tram can transport comfortably",
+    "Minimum ratio of the number of trams to the number of trains",
+    "Minimum number of people per hour to be transported"
+  ]
+}

@@ -1,0 +1,478 @@
+{
+  "vague_description": "Determine a way to allocate similar resources to meet competing needs under given constraints.",
+  "detailed_description": "The Aircraft Assignment Problem is a mathematical programming model that aims to assign \\param{TotalAircraft} aircraft to \\param{TotalRoutes} routes in order to minimize the total cost while satisfying availability and demand constraints. The availability for each aircraft i is \\param{Availability_i} and it represents the maximum number of routes that the aircraft can be assigned to. The demand for each route j is \\param{Demand_j} and it denotes the number of aircraft required to fulfill the passenger or cargo needs of the route. The capability of each aircraft i for each route j is given by \\param{Capacity_{i,j}} and it defines whether the aircraft can service the route, considering factors such as range, size, and suitability. Finally, \\param{Cost_{i,j}} represents the cost of assigning aircraft i to route j, which includes operational, fuel, and potential opportunity costs.",
+  "target_objective": "Minimize the total cost of assigning aircraft to routes",
+  "target_constraints": [
+    "Each aircraft can be assigned to at most its individual availability",
+    "Each route must have at least the required number of aircraft to meet its demand",
+    "An aircraft can be assigned to a route only if it has the capacity for that route (Capacity_{i,j} must indicate suitability)",
+    "Number of aircraft assigned to a route must be an integer",
+    "Number of aircraft assigned to each route is non-negative",
+    "Total number of aircraft assigned must not exceed TotalAircraft"
+  ],
+  "target_parameters": [
+    "The total number of aircraft available for assignment",
+    "The total number of routes that require aircraft assignment",
+    "The availability of each aircraft, indicating the maximum number of routes it can be assigned to",
+    "The demand for each route, indicating the number of aircraft required",
+    "The capacity matrix defining the suitability and capability of each aircraft for each route",
+    "The cost matrix representing the cost of assigning each aircraft to each route"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.",
+    "(0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Are there specified functions for both the objective (e.g., cost minimization, utility maximization) and the constraints in the problem?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Are there specified functions for both the objective (e.g., cost minimization, utility maximization) and the constraints in the problem?\nUser: Yes.\n\nExpert: Is there a specific set of resources defined that needs to be allocated among these competing needs?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Are there specified functions for both the objective (e.g., cost minimization, utility maximization) and the constraints in the problem?\nUser: Yes.\n\nExpert: Is there a specific set of resources defined that needs to be allocated among these competing needs?\nUser: Yes.\n\nExpert: Are the constraints linear in terms of the variables of the optimization problem?\nUser: Yes.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.",
+    "(0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Does the problem's objective involve maximizing satisfaction or efficiency?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Does the problem's objective involve maximizing satisfaction or efficiency?\nUser: Yes\n\nExpert: Do any of the problems involve allocating resources in whole units (integers) only?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Does the problem's objective involve maximizing satisfaction or efficiency?\nUser: Yes\n\nExpert: Do any of the problems involve allocating resources in whole units (integers) only?\nUser: Yes\n\nExpert: Do any of the candidate problem descriptions include a constraint related to the priority levels affecting the order of resource allocation?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.",
+    "(0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Is the objective of the optimization problem to maximize or minimize a specific quantity or outcome?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Is the objective of the optimization problem to maximize or minimize a specific quantity or outcome?\nUser: Yes.\n\nExpert: Is the quantity or outcome that the objective is focused on being a direct measure of the resources themselves, rather than an outcome that results from how the resources are allocated?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Is the objective of the optimization problem to maximize or minimize a specific quantity or outcome?\nUser: Yes.\n\nExpert: Is the quantity or outcome that the objective is focused on being a direct measure of the resources themselves, rather than an outcome that results from how the resources are allocated?\nUser: No.\n\nExpert: Is the quantity or outcome that the objective is focused on a function of the resources after they have been allocated, and potentially affected by how they are used or the outcome they generate?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.",
+    "(0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Does the problem description explicitly mention 'resource availability' as a parameter?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Does the problem description explicitly mention 'resource availability' as a parameter?\nUser: Yes\n\nExpert: Does the problem description contain the word 'resource allocation'?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine a way to allocate similar resources to meet competing needs under given constraints.\nExpert: Does the problem description explicitly mention 'resource availability' as a parameter?\nUser: Yes\n\nExpert: Does the problem description contain the word 'resource allocation'?\nUser: No\n\nExpert: Does the problem description mention 'resource allocation' or a variation of it as part of the objective?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "competing needs",
+            "constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimally allocate limited resources to fulfill competing needs while adhering to predefined constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource 1 is limited to 100 units.",
+            "Resource 2 can be utilized only between 50 and 150 units.",
+            "The allocation to Need A must be at least 30% of Resource 1's total usage.",
+            "Need B cannot exceed 80 units of Resource 2.",
+            "The sum of resources allocated to Need C and Need D cannot exceed 200 units.",
+            "Need E requires exactly 25 units of Resource 1 and 40 units of Resource 2.",
+            "Total cost of resources should not exceed $10,000."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function",
+            "Constraint functions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Allocate resources efficiently to satisfy competing needs while adhering to specified constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability is limited and cannot exceed a certain amount.",
+            "The sum of resources allocated to all needs must equal the total available resources.",
+            "Each need must receive at least a minimum amount of resources.",
+            "No need can receive more than a maximum set amount of resources.",
+            "The allocation should meet any priority requirements among the needs.",
+            "The solution must adhere to a specified time constraint for implementation."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function",
+            "Constraints",
+            "Set of resources",
+            "Competing needs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Allocate similar resources optimally to meet competing needs while adhering to the specified constraints, aiming to achieve the objective function, which could be either cost minimization or utility maximization."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total resource allocation must equal the available resources.",
+            "Each competing need must receive at least a minimum specified share of the resources.",
+            "No competing need can receive more resources than its maximum allowance.",
+            "The allocation must meet any specific proportional or priority-based requirements (e.g., certain needs may have a higher priority and must be satisfied first or more fully).",
+            "The allocation may need to respect particular rules or regulations that govern the system, such as legal or ethical considerations.",
+            "Any allocation decision cannot result in a negative impact that exceeds a specified threshold."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function",
+            "Constraints",
+            "Set of resources",
+            "Competing needs",
+            "Linear constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Allocate similar resources to meet competing needs while adhering to given linear constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Linear constraints on resource allocation variables.",
+            "Exact quantities of specific resources available for allocation.",
+            "Each need requires a minimum allocation of resources.",
+            "Resources cannot be allocated beyond their availability limits.",
+            "Objectives focused on meeting certain target levels or thresholds under constraints.",
+            "No resource can be allocated less than its requirement for any need."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Competing Needs",
+            "Resource Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimally allocate limited resources in such a way that competing needs are satisfied to the maximum extent possible, given a set of constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability is limited and must be distributed across all needs.",
+            "All competing needs have predefined priority levels.",
+            "Resources cannot be allocated beyond the available limit.",
+            "Each need must receive a minimum resource level to be considered fulfilled.",
+            "Total allocation must not exceed 100% of available resources.",
+            "Allocation should aim to maximize overall satisfaction across all needs."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "needs",
+            "satisfaction",
+            "efficiency",
+            "constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize satisfaction or efficiency in the allocation of resources to meet competing needs under given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The resources available are limited and must be allocated to meet multiple competing needs.",
+            "Each need has a different level of priority or weight that affects allocation decisions.",
+            "All allocations must satisfy a minimum requirement for each need to ensure basic levels of satisfaction or efficiency.",
+            "The sum of the allocations cannot exceed the total available resources.",
+            "The system of allocation must be dynamic to adapt to changing needs and resources over time."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize satisfaction or efficiency",
+            "Constraints: Allocate resources to competing needs",
+            "Resources are allocated in whole units (integers)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize satisfaction or efficiency with integer allocations of resources under given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources must be allocated in whole units (integers).",
+            "Total available resources are finite and predefined.",
+            "All competing needs must be met to the maximum extent possible given the resource constraints.",
+            "The allocation should maximize overall satisfaction or efficiency.",
+            "Specific requirements for each competing need must be considered."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize satisfaction or efficiency",
+            "Resource allocation in whole units (integer)",
+            "No priority levels affecting the order of resource allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize satisfaction or efficiency in resource allocation under given constraints with integer units."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources must be allocated in whole units (integers)."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resources",
+            "Needs",
+            "Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimally allocate resources to satisfy multiple competing demands while adhering to specific constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources are limited in quantity.",
+            "Each need competes for the same type of resource.",
+            "There are specific minimum requirements for each need that must be met.",
+            "No need should be over-allocated resources beyond a defined maximum.",
+            "Resource allocation must respect priority levels assigned to different needs.",
+            "The total allocation of resources must not exceed available resources."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Some quantity or outcome to be maximized or minimized.",
+            "Decision Variables: Allocation of similar resources.",
+            "Constraints: Given requirements and limitations to satisfy competing needs."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Allocate resources efficiently to balance competing needs while adhering to specific constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources must be allocated in such a way that all competing needs are considered.",
+            "Each resource can only be allocated once and cannot be shared or reused among different needs.",
+            "There is a finite amount of resources available, limiting the total quantity that can be allocated.",
+            "The allocation should respect any priority or hierarchy among the needs, if specified.",
+            "Unallocated resources should be minimized or zero, unless over-provisioning is allowed.",
+            "There may be constraints on the proportions of resource allocation to each need.",
+            "The total benefit or utility from resource allocation should be maximized within the given constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function or outcome metric",
+            "Constraints related to resource limits",
+            "Constraints related to fulfilling competing needs",
+            "Other potential constraints specific to the scenario"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to allocate resources in a manner that maximizes or minimizes a specific outcome or quantity that results from the allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources are similar but not identical, requiring differentiation in allocation based on needs.",
+            "There are competing needs that must be prioritized or addressed simultaneously.",
+            "Constraints on the total available quantity of resources, not exceeding a maximum capacity or limit.",
+            "The allocation process must result in an optimal outcome, whether maximizing benefits or minimizing costs.",
+            "Constraints might include fairness or equitability in distribution among different needs."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resources to allocate",
+            "Competing needs",
+            "Objective function: outcome as a result of resources allocation and utilization",
+            "Allocation constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize the effectiveness or utility derived from the allocations of resources, considering the outcomes that result from their utilization under the given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited availability of resources to be allocated.",
+            "Competing needs that require distribution of these resources.",
+            "Resource allocation decisions affect the outcome\u2014a function of resource use.",
+            "The relationship between resource allocation and outcomes is likely complex and potentially non-linear.",
+            "The decision process must consider interactions between allocated resources and their efficient use.",
+            "Allocations must be made with the goal of optimizing a specific objective outcome or performance measure."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resources to be allocated",
+            "Competing needs",
+            "Constraints for allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to allocate resources efficiently to satisfy multiple competing demands while adhering to any specified constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total resource allocation must not exceed the available resource pool.",
+            "Each need must receive a minimum required allocation to be considered adequately met.",
+            "The allocation must prioritize needs based on their urgency or importance.",
+            "Some resources may have specific constraints that limit their use to certain needs.",
+            "The allocation process may involve trade-offs, ensuring the most critical needs are addressed first.",
+            "Resource allocation must comply with any budgetary or legal requirements.",
+            "Resources should be allocated in a way that maximizes overall efficiency or effectiveness."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate available resources efficiently to meet competing demands while considering constraints such as resource availability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability is limited and needs to be allocated to different competing needs."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate available resources effectively to satisfy competing needs while adhering to certain constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The availability of resources is fixed and must be distributed to meet competing needs.",
+            "Resource demands are competing, indicating that they cannot be met simultaneously without a tradeoff."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Allocate resources efficiently to meet competing needs while adhering to given constraints, considering resource availability as a parameter."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability is limited and must be considered.",
+            "Different needs are competing for the same resources."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      }
+    }
+  }
+}

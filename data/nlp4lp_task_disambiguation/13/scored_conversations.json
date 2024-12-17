@@ -1,0 +1,455 @@
+{
+  "vague_description": "How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?",
+  "detailed_description": "The objective is to maximize the number of units of currency \\param{N} that we end up with at the end of the day, through a sequence of currency transactions. We start with a certain amount \\param{Start} for each currency, there is a limit \\param{Limit} to the number of transactions we can perform for each currency, and the exchange rates are given by \\param{Rate}.",
+  "target_objective": "Maximize the final total number of units of currency N",
+  "target_constraints": [
+    "Number of transactions for each currency is non-negative",
+    "Number of transactions for each currency does not exceed the specified Limit"
+  ],
+  "target_parameters": [
+    "Number of different currencies",
+    "Initial amount of currency i",
+    "Limit for the number of transactions for currency i",
+    "Exchange rate from currency i to currency j"
+  ],
+  "Expert": {
+    "(0,)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?",
+    "(0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Is the objective of the optimization problem to maximize a financial portfolio's return given certain risk constraints?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Is the objective of the optimization problem to maximize a financial portfolio's return given certain risk constraints?\nUser: Yes.\n\nExpert: Are the constraints related to limiting the portfolio's exposure to specific asset classes or securities?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Is the objective of the optimization problem to maximize a financial portfolio's return given certain risk constraints?\nUser: Yes.\n\nExpert: Are the constraints related to limiting the portfolio's exposure to specific asset classes or securities?\nUser: No.\n\nExpert: Are the constraints related to restricting the level of risk, such as the portfolio's overall volatility or Value at Risk (VaR)?\nUser: No.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?",
+    "(0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Does the problem include a constraint related to maintaining a specific risk level or risk threshold?\nUser: No\n",
+    "(0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Does the problem include a constraint related to maintaining a specific risk level or risk threshold?\nUser: No\n\nExpert: Does the objective explicitly focus on maximizing profit rather than value or portfolio performance?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Does the problem include a constraint related to maintaining a specific risk level or risk threshold?\nUser: No\n\nExpert: Does the objective explicitly focus on maximizing profit rather than value or portfolio performance?\nUser: Yes\n\nExpert: Does the problem include a constraint on the maximum number of assets or asset classes that can be involved in a transaction or investment?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?",
+    "(0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Are the constraints on transactions based on a fixed budget or a dynamic limit that can change over time?\nUser: No, the constraints are based on a fixed budget or number of transactions, not a dynamic limit that changes over time.\n",
+    "(0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Are the constraints on transactions based on a fixed budget or a dynamic limit that can change over time?\nUser: No, the constraints are based on a fixed budget or number of transactions, not a dynamic limit that changes over time.\n\nExpert: Are the variables being optimized (or the objective) impacted by the transactions themselves, or are the transactions merely a means to an end that ultimately lead to a different objective?\nUser: Yes, the transactions are a means to an end, with the ultimate objective being to maximize the units of currency we have by the end of the day.\n",
+    "(0, 0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Are the constraints on transactions based on a fixed budget or a dynamic limit that can change over time?\nUser: No, the constraints are based on a fixed budget or number of transactions, not a dynamic limit that changes over time.\n\nExpert: Are the variables being optimized (or the objective) impacted by the transactions themselves, or are the transactions merely a means to an end that ultimately lead to a different objective?\nUser: Yes, the transactions are a means to an end, with the ultimate objective being to maximize the units of currency we have by the end of the day.\n\nExpert: Does the value of each transaction have a direct relationship with the units of currency accumulated, or are there other factors at play (e.g., timing, order of transactions) that influence the outcome?\nUser: Yes, the value of each transaction has a direct relationship with the units of currency accumulated, but there may be other factors like timing or order of transactions that influence the outcome.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?",
+    "(0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Is the objective of the problem stated in a maximization form (i.e., 'Maximize' or 'maximize')?\nUser: Yes\n",
+    "(0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Is the objective of the problem stated in a maximization form (i.e., 'Maximize' or 'maximize')?\nUser: Yes\n\nExpert: Is the problem stated with an objective other than 'Maximize'?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Is the objective of the problem stated in a maximization form (i.e., 'Maximize' or 'maximize')?\nUser: Yes\n\nExpert: Is the problem stated with an objective other than 'Maximize'?\nUser: No\n\nExpert: Does the problem description contain the string 'fluctuating' in either the constraints or parameters?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function Value",
+            "Constraints on Transactions",
+            "Fluctuating Conditions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the value of transactions while adhering to constraints and accounting for fluctuating conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Transaction limits (e.g., budgets or maximum number of transactions).",
+            "Variable conditions that fluctuate over time, such as market prices or availability of resources."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize portfolio return",
+            "Risk constraints (e.g., maximum allowable risk/volatility)",
+            "Transaction constraints (e.g., transaction cost, frequency limits)",
+            "Fluctuating market conditions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize a financial portfolio's return given certain risk constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The risk level of the portfolio must not exceed a predefined threshold.",
+            "The portfolio must remain diversified across at least three different asset classes.",
+            "Transactions should not be more than a specified number or value per month.",
+            "The portfolio must meet a minimum liquidity ratio to ensure enough cash is available for daily operations.",
+            "Certain assets cannot exceed a specific percentage of the total portfolio value."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Financial portfolio returns",
+            "Risk constraints",
+            "Transactions",
+            "Fluctuating conditions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximizing a financial portfolio's return given risk constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The portfolio's overall risk must not exceed a specified threshold as defined by the user's risk tolerance.",
+            "There may be constraints on the liquidity of the portfolio, such as minimum or maximum cash holdings.",
+            "The constraints do not involve restricting exposure to specific asset classes or securities."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize financial portfolio's return",
+            "Constraints on transactions",
+            "Fluctuating conditions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize a financial portfolio's return given unspecified constraints not related to asset class exposure or risk level."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Transactions are limited.",
+            "There are fluctuating conditions affecting the optimization."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective function that needs to be maximized",
+            "constraints on transaction limits",
+            "dynamic environmental conditions",
+            "resource availability",
+            "time constraints",
+            "cost restrictions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the value of transactions while adhering to constraints and adapting to fluctuating conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of transactions must not exceed a specified limit.",
+            "The value of transactions should remain within the allowed budget.",
+            "Ensure compliance with regulatory limits on certain types of transactions.",
+            "Transaction timings must align with fluctuating market conditions.",
+            "Maintain risk levels within acceptable ranges.",
+            "Transactions must not exceed the available resources or inventory."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize value",
+            "constraints on transactions",
+            "fluctuating conditions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize the value of transactions within the given constraints and fluctuating conditions."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit",
+            "Constraints on transactions",
+            "Fluctuating conditions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit given constraints on transactions and fluctuating conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Transactions must adhere to existing regulatory guidelines.",
+            "Fluctuating market conditions need to be considered, but they are not a strict constraint.",
+            "There is no specific risk level or risk threshold that needs to be maintained.",
+            "The objective explicitly focuses on maximizing profit."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit.",
+            "Constraint: None specific mentioned related to risk level or asset classes.",
+            "Parameter: Fluctuating conditions affecting transactions."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit given constraints on transactions and fluctuating conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Transactions subject to fluctuating conditions.",
+            "No constraints related to maintaining a specific risk level.",
+            "No constraints on the maximum number of assets or asset classes involved."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Variables representing transactions (each with respective values and constraints)",
+            "Objective function to maximize total value",
+            "Constraints on number of transactions",
+            "Constraints due to external conditions (fluctuations)",
+            "Possible parameters for fluctuating conditions with respective min/max values"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize value under transaction and condition constraints"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of transactions is limited to a specific upper bound per month.",
+            "Each transaction carries a fixed cost and must remain within a monthly budget.",
+            "Certain transactions are only possible under specific market conditions that fluctuate over time.",
+            "There is a minimum value required for each transaction to be considered valid.",
+            "The total transaction value within a given period must not exceed a set maximum threshold to avoid penalties.",
+            "Transactions can only occur during specific hours or days as regulated by market rules.",
+            "There is a need to balance between high-value transactions and the risk of excessive market volatility."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fixed budget",
+            "Max number of transactions",
+            "Fluctuating conditions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total value under a fixed budget or number of allowed transactions while considering fluctuating conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a fixed budget limit for the transactions.",
+            "There is a fixed number of transactions allowed.",
+            "Conditions are fluctuating, affecting possible outcomes but not constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "fixed budget",
+            "number of transactions",
+            "currency maximization objective",
+            "end of day evaluation",
+            "transaction as means to objective"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the units of currency by the end of the day."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of transactions is limited by a fixed budget or a maximum number of transactions.",
+            "Fluctuating conditions imply variable transaction costs or variable rewards from each transaction.",
+            "The transactions aim to maximize the final amount of units of currency at the end of the day."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fixed budget or number of transactions",
+            "Objective: Maximize units of currency by end of the day",
+            "Direct relationship between transaction value and currency accumulated",
+            "Factors influencing outcome: timing, order of transactions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the units of currency accumulated by the end of the day, subject to fixed budget or transaction constraints, while considering timing, order, and other influencing factors."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fixed budget or fixed number of transactions.",
+            "Each transaction directly impacts the accumulation of currency.",
+            "Timing and order of transactions can influence the outcome."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "transactions",
+            "fluctuating conditions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the value of transactions while adhering to given constraints and accounting for fluctuating conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of transactions must not exceed a specified limit.",
+            "Fluctuating conditions such as market volatility must be accounted for."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Maximization",
+            "Constraints on Transactions",
+            "Fluctuating Conditions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize the value of transactions or outcomes given specific constraints and fluctuating conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Transaction limits: There is a maximum allowed number of transactions that can be performed over a certain period.",
+            "Budget constraints: There is a fixed budget that cannot be exceeded when executing transactions.",
+            "Time constraints: Transactions must be completed within a specific time frame.",
+            "Resource constraints: There might be limits on resources such as manpower or technology that can be used when performing transactions.",
+            "Market constraints: Due to fluctuating market conditions, certain transactions might not be possible at all times."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "highest possible value",
+            "constraints on transactions",
+            "fluctuating conditions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to achieve the highest possible value given constraints on transactions and fluctuating conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The problem is expressed as a maximization problem, indicating a desire to achieve the highest possible value.",
+            "The problem includes constraints on transactions, implying there are limitations on how or when transactions can occur.",
+            "There are fluctuating conditions mentioned, which likely indicate variability or uncertainty in the values or state of the problem environment."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize",
+            "fluctuating"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the value of transactions under fluctuating conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Constraints on transactions are specified.",
+            "The conditions under which the transactions occur are fluctuating."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    }
+  }
+}

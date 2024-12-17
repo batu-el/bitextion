@@ -1,0 +1,485 @@
+{
+  "vague_description": "The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.",
+  "detailed_description": "A school is organizing a field trip to a science center and wants to hire small buses (each with a capacity of \\param{SmallBusCapacity} students) and large buses (each with a capacity of \\param{LargeBusCapacity} students). The school needs to provide transportation for at least \\param{MinStudents} students. In addition, since the parking lot is rather small, a maximum of \\param{MaxLargeBusProportion} of the buses can be large buses. How many of each type of bus should be hired to minimize the total number of buses?",
+  "target_objective": "Minimize the total number of buses needed",
+  "target_constraints": [
+    "The number of small buses is non-negative",
+    "The number of large buses is non-negative",
+    "The total number of students transported must be at least MinStudents",
+    "The number of large buses cannot exceed MaxLargeBusProportion times the total number of buses"
+  ],
+  "target_parameters": [
+    "Capacity of a small bus",
+    "Capacity of a large bus",
+    "Minimum number of students to be transported",
+    "Maximum proportion of large buses"
+  ],
+  "Expert": {
+    "(0,)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.",
+    "(0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Are there specific cost or budget considerations for hiring each type of bus that affect the objective of the optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Are there specific cost or budget considerations for hiring each type of bus that affect the objective of the optimization problem?\nUser: No\n\nExpert: Are there any constraints regarding the maximum or minimum number of small and large buses available for hire?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Are there specific cost or budget considerations for hiring each type of bus that affect the objective of the optimization problem?\nUser: No\n\nExpert: Are there any constraints regarding the maximum or minimum number of small and large buses available for hire?\nUser: No\n\nExpert: Are there specific capacity limitations for each small and large bus that need to be met?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.",
+    "(0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Is the seating capacity of each bus type explicitly stated in the problem description?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Is the seating capacity of each bus type explicitly stated in the problem description?\nUser: Yes\n\nExpert: Do the constraints include separate parking limits for small and large buses?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Is the seating capacity of each bus type explicitly stated in the problem description?\nUser: Yes\n\nExpert: Do the constraints include separate parking limits for small and large buses?\nUser: No\n\nExpert: Do the constraints specify the location of the parking limit (school vs destination)?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.",
+    "(0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Are there any fixed costs or budget constraints that the school must adhere to for hiring buses?\nUser: No\n",
+    "(0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Are there any fixed costs or budget constraints that the school must adhere to for hiring buses?\nUser: No\n\nExpert: Are there any specific requirements or preferences regarding the number of students per bus?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Are there any fixed costs or budget constraints that the school must adhere to for hiring buses?\nUser: No\n\nExpert: Are there any specific requirements or preferences regarding the number of students per bus?\nUser: No\n\nExpert: Are there any geographical or time-sensitive constraints, such as a tight schedule or specific bus routes that need to be followed?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.",
+    "(0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Is the objective to minimize the cost of hiring buses?\nUser: No\n",
+    "(0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Is the objective to minimize the cost of hiring buses?\nUser: No\n\nExpert: Is the objective clearly described in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Is the objective to minimize the cost of hiring buses?\nUser: No\n\nExpert: Is the objective clearly described in the problem description?\nUser: Yes\n\nExpert: Is the objective of the optimization problem a singular, complete sentence?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small buses",
+            "Number of large buses",
+            "Capacity requirement of students",
+            "Parking limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of hiring small and large buses while meeting the required student capacity and adhering to parking limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of students accommodated by the buses must meet or exceed the student capacity requirements for the field trip.",
+            "The total number of buses hired, considering both small and large buses, must adhere to parking limitations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Student capacity requirement",
+            "Parking limitations",
+            "Number of small buses",
+            "Number of large buses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total number of buses hired while meeting student capacity requirements and parking limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let S be the number of small buses and L be the number of large buses.",
+            "The total number of students that can be transported by the buses should be at least equal to the number of students needing transportation. Assume each small bus can transport X students and each large bus can transport Y students.",
+            "The number of buses hired must not exceed the available parking slots. Assume there are Z parking slots available.",
+            "S and L must be non-negative integers."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of students to transport",
+            "Capacity of small bus",
+            "Capacity of large bus",
+            "Total parking spaces available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the number of small and large buses to hire to meet student capacity and parking space constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of students accommodated on the field trip must meet or exceed the total student capacity requirement.",
+            "The number of small and large buses combined must not exceed the available parking limitations."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Small bus capacity",
+            "Large bus capacity",
+            "Total students"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of buses hired while meeting the student capacity requirements and parking limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total student capacity must be met by the combined capacity of small and large buses.",
+            "The number of each type of bus must be non-negative.",
+            "Parking limitations must be considered when deciding the number of each type of bus."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small buses",
+            "Number of large buses",
+            "Student capacity of small buses",
+            "Student capacity of large buses",
+            "Total number of students",
+            "Parking spaces available for buses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of small and large buses to hire for a school field trip such that student capacity requirements are met and parking limitations are not exceeded."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let x be the number of small buses and y be the number of large buses.",
+            "Each small bus can carry a maximum of S students.",
+            "Each large bus can carry a maximum of L students.",
+            "The total number of students that need transportation is T.",
+            "The parking lot can accommodate a maximum of P buses.",
+            "x * S + y * L >= T",
+            "x + y <= P",
+            "x >= 0",
+            "y >= 0"
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small buses",
+            "Number of large buses",
+            "Seating capacity of a small bus",
+            "Seating capacity of a large bus",
+            "Total number of students attending",
+            "Total parking spots available",
+            "Parking space required for a small bus",
+            "Parking space required for a large bus"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the number of small and large buses to hire such that all students can be accommodated while adhering to parking limitations and minimizing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Seating capacity per small bus.",
+            "Seating capacity per large bus.",
+            "Total seating capacity required based on number of students.",
+            "Total number of parking spots available.",
+            "Each bus, whether small or large, occupies one parking spot."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Seating capacity of small buses",
+            "Seating capacity of large buses",
+            "Total number of students attending the field trip",
+            "Total parking capacity available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of hiring small and large buses while satisfying student transportation requirements and overall parking limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of buses (small + large) must not exceed available parking limits.",
+            "The combined seating capacity of the hired buses must meet or exceed the student capacity requirement."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small buses to hire",
+            "Number of large buses to hire",
+            "Seating capacity of small bus",
+            "Seating capacity of large bus",
+            "Total student capacity required",
+            "Total parking spaces available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of hiring small and large buses while meeting student capacity requirements and adhering to a single parking limitation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of seats in the hired buses must meet or exceed the student capacity requirement.",
+            "The combined number of small and large buses must not exceed the parking availability limit."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "number_of_small_buses",
+            "number_of_large_buses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of hiring small and large buses while meeting student capacity requirements and adhering to parking limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of students that need to be transported must be accommodated by the buses hired.",
+            "Each small bus can accommodate a certain number of students (e.g., 20 students per small bus).",
+            "Each large bus can accommodate a certain number of students (e.g., 50 students per large bus).",
+            "The total number of buses hired (small plus large) must not exceed the available parking space for buses."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small buses",
+            "Number of large buses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of small and large buses to hire for the field trip in order to accommodate all students while adhering to the parking limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of students that need to be accommodated by the small and large buses combined must meet or exceed the student capacity requirements.",
+            "The combined number of small and large buses must not exceed the available parking limitations."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small buses",
+            "Number of large buses",
+            "Capacity of small buses",
+            "Capacity of large buses",
+            "Total number of students",
+            "Total parking spaces available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of buses hired while satisfying student capacity requirements and parking limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of small and large buses hired must collectively accommodate all students participating in the field trip.",
+            "The total number of buses (small and large) must not exceed the parking space available for buses.",
+            "All small buses have a specific capacity limit for the number of students they can carry.",
+            "All large buses have a specific capacity limit for the number of students they can carry."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of small buses to hire",
+            "number of large buses to hire",
+            "student capacity per small bus",
+            "student capacity per large bus",
+            "total student capacity requirement",
+            "parking space for small bus",
+            "parking space for large bus",
+            "total parking space available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of buses hired while satisfying student capacity and parking space constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of students that can be transported must meet the student capacity requirements.",
+            "The sum of the small and large buses hired must fit within the available parking limitations."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "number_of_small_buses",
+            "number_of_large_buses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of hiring buses while meeting all student capacity and parking space limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let x be the number of small buses and y be the number of large buses.",
+            "Each small bus can carry a maximum of S students.",
+            "Each large bus can carry a maximum of L students.",
+            "There are a total of T students that need transportation.",
+            "There is a limit of P parking spaces available for the buses.",
+            "Each small bus occupies A parking spaces.",
+            "Each large bus occupies B parking spaces.",
+            "(x * S) + (y * L) >= T",
+            "(x * A) + (y * B) <= P",
+            "x >= 0",
+            "y >= 0"
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of small buses",
+            "number of large buses",
+            "student capacity of small bus",
+            "student capacity of large bus",
+            "total number of students",
+            "cost of hiring small bus",
+            "cost of hiring large bus",
+            "maximum number of parking spaces"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To meet the student capacity requirements and parking limitations for a field trip."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let S be the number of small buses and L be the number of large buses.",
+            "Each small bus can carry 20 students.",
+            "Each large bus can carry 50 students.",
+            "The total number of students, N, must be accommodated by the buses hired: 20S + 50L >= N.",
+            "There is limited parking space at the school, allowing only a maximum of P buses to be parked: S + L <= P."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small buses hired",
+            "Number of large buses hired",
+            "Student capacity requirements",
+            "Parking limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the number of small and large buses to hire to meet student capacity requirements and parking limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of small and large buses must together meet or exceed the total capacity required for the field trip.",
+            "The number of small and large buses must not exceed the available parking spaces.",
+            "All buses hired must be capable of safely transporting students within safety regulations."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small buses to hire",
+            "Number of large buses to hire"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize student capacity while adhering to parking limitations for the field trip."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total student capacity provided by the small and large buses must meet or exceed the number of students attending the field trip.",
+            "The number of small and large buses hired must not exceed the available parking spots.",
+            "Only whole numbers of buses can be hired; fractions of buses are not allowed."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      }
+    }
+  }
+}

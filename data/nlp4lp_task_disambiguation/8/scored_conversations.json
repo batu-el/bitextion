@@ -1,0 +1,450 @@
+{
+  "vague_description": "Optimize production schedules to increase profit while adhering to machine capacity limitations.",
+  "detailed_description": "Formulate the problem of determining the quantities of each spare part to be made during the month so as to maximize \\param{Profit}. Each spare part k requires \\param{Time} on machine s, and each machine s has a maximum monthly capacity of \\param{Capacity}.",
+  "target_objective": "Maximize the total profit from the production of spare parts",
+  "target_constraints": [
+    "Every spare part quantity produced is non-negative",
+    "Total time used on each machine for all spare parts cannot exceed the machine's monthly capacity"
+  ],
+  "target_parameters": [
+    "Number of spare parts to be produced",
+    "Number of machines available",
+    "The time taken to make one unit of spare part k on machine s",
+    "Profit from producing one unit of spare part k",
+    "Capacity of machine s for the month"
+  ],
+  "Expert": {
+    "(0,)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.",
+    "(0, 0)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.\nExpert: Is the objective to maximize profit by optimizing the allocation of resources across different machines and production lines? \nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.\nExpert: Is the objective to maximize profit by optimizing the allocation of resources across different machines and production lines? \nUser: Yes\n\nExpert: Are there any specific constraints related to the availability or cost of raw materials?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.\nExpert: Is the objective to maximize profit by optimizing the allocation of resources across different machines and production lines? \nUser: Yes\n\nExpert: Are there any specific constraints related to the availability or cost of raw materials?\nUser: No\n\nExpert: Are there constraints related to production time or deadlines that need to be considered in the optimization problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.",
+    "(0, 0)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.\nExpert: Does the problem include any constraints related to changeover or setup times between different products?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.\nExpert: Does the problem include any constraints related to changeover or setup times between different products?\nUser: No\n\nExpert: Do any of the problem descriptions explicitly include constraints related to minimum production levels to meet demand?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.\nExpert: Does the problem include any constraints related to changeover or setup times between different products?\nUser: No\n\nExpert: Do any of the problem descriptions explicitly include constraints related to minimum production levels to meet demand?\nUser: No\n\nExpert: Does the problem include constraints related to resources other than machine capacity, such as labor or raw materials?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.",
+    "(0, 0)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.\nExpert: Is the production of each product type subject to a fixed capacity constraint, such as limited machine time or quantity of raw materials?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.\nExpert: Is the production of each product type subject to a fixed capacity constraint, such as limited machine time or quantity of raw materials?\nUser: Yes\n\nExpert: Is the objective function (to be maximized) linear, meaning it can be expressed as a sum of the production quantities of each product type multiplied by their respective selling prices?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.\nExpert: Is the production of each product type subject to a fixed capacity constraint, such as limited machine time or quantity of raw materials?\nUser: Yes\n\nExpert: Is the objective function (to be maximized) linear, meaning it can be expressed as a sum of the production quantities of each product type multiplied by their respective selling prices?\nUser: Yes\n\nExpert: Are the production costs of each product type fully known and can be expressed as a function of the quantity produced?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.",
+    "(0, 0)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.\nExpert: Is the provided problem description summarizing the parameters required to solve the problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.\nExpert: Is the provided problem description summarizing the parameters required to solve the problem?\nUser: Yes\n\nExpert: Does the description contain the exact phrase 'machine capacity limitations' (case sensitive)?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize production schedules to increase profit while adhering to machine capacity limitations.\nExpert: Is the provided problem description summarizing the parameters required to solve the problem?\nUser: Yes\n\nExpert: Does the description contain the exact phrase 'machine capacity limitations' (case sensitive)?\nUser: No\n\nExpert: Does the candidate problem description explicitly mention 'machine capacity' as one of the constraints or parameters?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize profit",
+            "Production schedule",
+            "Machine capacity limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Increase profit by optimizing production schedules, ensuring adherence to machine capacity limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production must not exceed the machine capacity limits.",
+            "All scheduled production must be completed within the machine operational hours."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profit",
+            "Machine Capacity Limitations",
+            "Production Schedules",
+            "Allocation of Resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing the allocation of resources across different machines and production lines while adhering to machine capacity limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine capacity should not be exceeded.",
+            "Production schedules must adhere to resource availability.",
+            "Allocation of resources must be efficient across different production lines and machines.",
+            "Production must meet any specified deadlines."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Machine capacity",
+            "Maximize profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by optimizing the allocation of resources across different machines and production lines, while adhering to machine capacity limitations and ignoring raw material constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine capacity limitations must be adhered to in the production schedule.",
+            "The objective is to maximize profit through optimal allocation of resources across different machines and production lines.",
+            "No constraints related to the availability or cost of raw materials."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "profit maximization",
+            "machine capacity limitations",
+            "production time constraints",
+            "production deadlines"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing the allocation of resources and production schedules across different machines and production lines, while adhering to machine capacity limitations and production time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine capacity limitations must be adhered to.",
+            "Production schedules must meet specified deadlines."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedules",
+            "Profit",
+            "Machine capacity limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize profit by optimizing production schedules while ensuring that machine capacity limitations are not exceeded."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine capacity limits must not be exceeded.",
+            "Production schedules must be feasible within the given machine operating times.",
+            "Only a certain number of units can be produced in a given time period based on the machine capacities."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Schedules",
+            "Profit Increase",
+            "Machine Capacity Limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing production schedules, considering machine capacity limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine capacity limitations must not be exceeded during production schedules.",
+            "Production schedules must be optimized to increase profit."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Increase profit",
+            "Adhere to machine capacity limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to increase profit by optimizing production schedules while adhering to machine capacity limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine capacity limitations"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedules",
+            "Profit",
+            "Machine capacity limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Increase profit through optimized production scheduling while adhering to machine capacity limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine capacity limitations."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Schedule",
+            "Profit Objective",
+            "Machine Capacity Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize production schedules such that profit is maximized while ensuring that production does not exceed the operational capacity limits of the machines."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production schedule must not exceed machine capacity limits.",
+            "All produced units must be produced within the scheduled time frame.",
+            "The production output must meet forecasted demands."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of each product type",
+            "Machine capacity limitations",
+            "Profit per unit of each product type",
+            "Availability of raw materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing production schedules, ensuring machine capacity and material constraints are not exceeded."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine operating time per day is limited to a maximum capacity.",
+            "Raw material availability limits the number of products that can be produced.",
+            "The production schedule must not exceed the total machine operational hours available for each shift.",
+            "Each machine has a specific maximum output capacity that must not be exceeded during scheduling."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedules",
+            "Machine capacity limitations",
+            "Profit maximization",
+            "Fixed capacity constraints",
+            "Objective function linearity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize the profit by optimizing production schedules subject to machine capacity constraints, using a linear objective function based on product selling prices."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine time availability for each product type.",
+            "Raw material quantity limits for each product type.",
+            "Production quantities must be non-negative.",
+            "The objective function is linear, involving the sum of production quantities multiplied by selling prices."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Product Types",
+            "Fixed Capacity Constraints",
+            "Machine Time Limitations",
+            "Raw Material Limitations",
+            "Objective Function - Linear",
+            "Production Quantities",
+            "Selling Prices",
+            "Production Costs per Product Type",
+            "Quantity Produced"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing production schedules, considering each product type's fixed capacity constraints, and calculating profit as selling price minus production costs for the produced quantities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each product type production is limited by machine capacity, typically defined by maximum machine time or maximum use of raw materials.",
+            "The production schedule must not exceed the total available machine time for all product types.",
+            "Each product type must adhere to its maximum allowable production quantity based on raw material availability."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production schedules",
+            "profit",
+            "machine capacity limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing production schedules while ensuring machine capacities are not exceeded."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine run time must not exceed the available capacity for each machine.",
+            "The production schedule must comply with daily or weekly operational hours constraints.",
+            "Minimum lot sizes should be maintained to ensure efficiency.",
+            "Maintenance schedules for machines must be included and not conflict with production schedules.",
+            "Resource constraints like labor availability need to be considered in planning.",
+            "Production must meet the minimum quantity demanded by customers.",
+            "There should be no overlap of schedules for a single machine."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedules",
+            "Profit increase",
+            "Machine capacity limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize production schedules in order to increase profit while ensuring that machine capacity limitations are not exceeded."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production must not exceed the machine capacity limitations at any time.",
+            "Production schedules should aim to maximize profit.",
+            "All scheduled production must be completed within the available operational hours.",
+            "Adherence to specific operational or labor constraints might be required, such as shift hours or labor availability."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production schedules",
+            "profit",
+            "machine capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Objective is to optimize production schedules in order to maximize profit while ensuring production remains within the constraints of machine capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine capacities must not be exceeded when scheduling production.",
+            "Production must be scheduled in such a way that it remains within the operational limits of each machine."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "increase profit",
+            "machine capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Increase profit by optimizing production schedules within given machine capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production must not exceed machine capacity limits."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    }
+  }
+}

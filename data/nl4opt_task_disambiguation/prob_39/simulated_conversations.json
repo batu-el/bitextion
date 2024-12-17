@@ -1,0 +1,59 @@
+{
+  "vague_description": "A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.",
+  "detailed_description": "An ice cream store makes chocolate and vanilla ice cream by the gallon. In a week, they must make at least \\var{MinChoc} gallons of chocolate ice cream and at least \\var{MinVanilla} gallons of vanilla ice cream but at most \\var{MaxChoc} gallons of chocolate ice cream and at most \\var{MaxVanilla} gallons of vanilla ice cream. It takes \\var{TimeChoc} hour to produce a gallon of chocolate ice cream and \\var{TimeVanilla} hours to produce a gallon of vanilla ice cream. In a week, \\var{TotalTime} hours are available to make ice cream. In addition, at least \\var{MinWorkers} workers are needed with \\var{WorkersChoc} working on the chocolate ice cream and \\var{WorkersVanilla} on the vanilla ice cream at any time. If the profit per gallon of chocolate ice cream is $\\var{ProfitChoc} and the profit per gallon of vanilla ice cream is $\\var{ProfitVanilla}, how many gallons of each should be made to maximize profit?",
+  "target_objective": "Maximize the store's profit from selling chocolate and vanilla ice cream",
+  "target_constraints": [
+    "Number of gallons of chocolate ice cream is an integer",
+    "Number of gallons of vanilla ice cream is an integer",
+    "Number of gallons of chocolate ice cream is non-negative",
+    "Number of gallons of vanilla ice cream is non-negative",
+    "The store must make at least MinChoc gallons of chocolate ice cream",
+    "The store must make at least MinVanilla gallons of vanilla ice cream",
+    "The store must make at most MaxChoc gallons of chocolate ice cream",
+    "The store must make at most MaxVanilla gallons of vanilla ice cream",
+    "It takes TimeChoc hours to produce a gallon of chocolate ice cream",
+    "It takes TimeVanilla hours to produce a gallon of vanilla ice cream",
+    "Total time available is TotalTime hours per week",
+    "At least MinWorkers workers are needed",
+    "WorkersChoc are working on the chocolate ice cream",
+    "WorkersVanilla are working on the vanilla ice cream"
+  ],
+  "target_parameters": [
+    "Minimum gallons of chocolate ice cream required to be made in a week",
+    "Maximum gallons of chocolate ice cream allowed to be made in a week",
+    "Minimum gallons of vanilla ice cream required to be made in a week",
+    "Maximum gallons of vanilla ice cream allowed to be made in a week",
+    "Time required to produce one gallon of chocolate ice cream",
+    "Time required to produce one gallon of vanilla ice cream",
+    "Total available time to make ice cream in a week",
+    "Profit per gallon of chocolate ice cream",
+    "Profit per gallon of vanilla ice cream",
+    "Minimum number of workers needed",
+    "Number of workers working on chocolate ice cream",
+    "Number of workers working on vanilla ice cream"
+  ],
+  "Expert": {
+    "(0,)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.",
+    "(0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is the objective of the optimization problem to maximize profit?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is the objective of the optimization problem to maximize profit?\nUser: Yes\n\nExpert: Are there constraints related to production capacity or resource availability?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is the objective of the optimization problem to maximize profit?\nUser: Yes\n\nExpert: Are there constraints related to production capacity or resource availability?\nUser: Yes\n\nExpert: Are there constraints related to workforce limits or labor costs?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.",
+    "(0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Does any problem have more than two distinct products to consider in its production planning?\nUser: No\n",
+    "(0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Does any problem have more than two distinct products to consider in its production planning?\nUser: No\n\nExpert: Do all of the candidate problems involve constraints related to raw material availability?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Does any problem have more than two distinct products to consider in its production planning?\nUser: No\n\nExpert: Do all of the candidate problems involve constraints related to raw material availability?\nUser: No\n\nExpert: Does the problem description include a constraint specifically related to budget or production costs?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.",
+    "(0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is the production process primarily composed of continuous tasks, or are there discrete tasks with fixed start and end points?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is the production process primarily composed of continuous tasks, or are there discrete tasks with fixed start and end points?\nUser: Yes\n\nExpert: Is the production process primarily driven by a goal related to minimizing costs, or is it focused on maximizing production volume or some other metric?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is the production process primarily composed of continuous tasks, or are there discrete tasks with fixed start and end points?\nUser: Yes\n\nExpert: Is the production process primarily driven by a goal related to minimizing costs, or is it focused on maximizing production volume or some other metric?\nUser: Yes\n\nExpert: Is the production volume or other metric being maximized subject to a constraint that limits the maximum production volume or capacity?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.",
+    "(0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is 'Raw material supply' mentioned in the description of the problem's constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is 'Raw material supply' mentioned in the description of the problem's constraints?\nUser: No\n\nExpert: Does the problem description contain the word 'Maximize' or 'Optimize' in the 'objective' field? (Case-insensitive comparison)\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is 'Raw material supply' mentioned in the description of the problem's constraints?\nUser: No\n\nExpert: Does the problem description contain the word 'Maximize' or 'Optimize' in the 'objective' field? (Case-insensitive comparison)\nUser: Yes\n\nExpert: Is the objective of the optimization problem strictly to 'maximize' a value (e.g., profit, revenue, productivity, production rate)?\nUser: Yes\n"
+  }
+}

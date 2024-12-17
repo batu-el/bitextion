@@ -1,0 +1,20 @@
+{
+  "vague_description": "Moving heavy machinery tires to remote sites faces logistical challenges due to transport capacity, cost constraints, and limited access points, requiring optimized allocation of resources.",
+  "detailed_description": "An industrial tire company delivers large tires for equipment to remote engineering sites either by cargo planes or ultrawide trucks. Each cargo plane can transport \\param{TiresPlane} tires per trip and costs \\param{CostPlane}. Each ultrawide truck can transport \\param{TiresTruck} tires per trip and costs \\param{CostTruck}. The company needs to transport at least \\param{MinTires} tires and has available \\param{Budget}. Because most remote sites don't have proper airports, the number of plane trips cannot exceed the number of ultrawide truck trips. How many trips of each should be done to minimize the total number of trips?",
+  "target_objective": "Minimize the total number of trips (plane + truck)",
+  "target_constraints": [
+    "Number of plane trips is non-negative",
+    "Number of truck trips is non-negative",
+    "At least MinTires tires must be transported in total",
+    "The total cost must not exceed Budget",
+    "The number of plane trips cannot exceed the number of truck trips"
+  ],
+  "target_parameters": [
+    "Tires transported per trip by cargo plane",
+    "Cost per trip of a cargo plane",
+    "Tires transported per trip by ultrawide truck",
+    "Cost per trip of an ultrawide truck",
+    "Minimum number of tires required to transport",
+    "Available budget for transport"
+  ]
+}

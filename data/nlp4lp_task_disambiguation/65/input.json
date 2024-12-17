@@ -1,0 +1,25 @@
+{
+  "vague_description": "Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.",
+  "detailed_description": "Determine the most cost-effective combination of interventions to halt the intruder's progress within the network. The MILP problem includes parameters: processing times at the central system (\\param{IsolateCentral}, \\param{ScanCentral}), processing times at the distributed system (\\param{IsolateDistributed}, \\param{ScanDistributed}), costs (\\param{CentralCost}, \\param{DistributedCost}), and maximum hours (\\param{CentralMaxHours}, \\param{DistributedMaxHours}) for a number of interventions \\param{N}.",
+  "target_objective": "Minimize the total cost of interventions at the central and distributed systems",
+  "target_constraints": [
+    "Processing time for isolation in the central system multiplied by the number of such interventions is less than or equal to CentralMaxHours",
+    "Processing time for scanning in the central system multiplied by the number of such interventions is less than or equal to CentralMaxHours",
+    "Processing time for isolation in the distributed system multiplied by the number of such interventions is less than or equal to DistributedMaxHours",
+    "Processing time for scanning in the distributed system multiplied by the number of such interventions is less than or equal to DistributedMaxHours",
+    "The total number of interventions for both systems is equal to N",
+    "Number of central system interventions is non-negative and integer-valued",
+    "Number of distributed system interventions is non-negative and integer-valued"
+  ],
+  "target_parameters": [
+    "Number of interventions",
+    "Processing time for isolating at the central system for each intervention",
+    "Processing time for scanning at the central system for each intervention",
+    "Processing time for isolating at the distributed system for each intervention",
+    "Processing time for scanning at the distributed system for each intervention",
+    "Cost for central system intervention",
+    "Cost for distributed system intervention",
+    "Maximum hours of operation for the central system",
+    "Maximum hours of operation for the distributed system"
+  ]
+}

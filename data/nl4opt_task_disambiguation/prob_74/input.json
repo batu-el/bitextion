@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determine the optimal combination of two methods of wood burning to maximize the production of carbon dioxide given limited resources.",
+  "detailed_description": "In order to make carbon dioxide, wood is burned using two processes, with a catalyst and without a catalyst. The process with a catalyst requires \\param{W_catalyst} units of wood and \\param{O_catalyst} units of oxygen to make \\param{CO2_catalyst} units of carbon dioxide. The process without a catalyst requires \\param{W_no_catalyst} units of wood and \\param{O_no_catalyst} units of oxygen to make \\param{CO2_no_catalyst} units of carbon dioxide. There are \\param{Wood_total} units of wood and \\param{Oxygen_total} units of oxygen available. How many of each process should be used to maximize the amount of carbon dioxide produced?",
+  "target_objective": "Maximize the amount of carbon dioxide produced",
+  "target_constraints": [
+    "Number of processes with a catalyst is non-negative",
+    "Number of processes without a catalyst is non-negative",
+    "Available wood is at least W_catalyst times the number of processes with a catalyst plus W_no_catalyst times the number of processes without a catalyst",
+    "Available oxygen is at least O_catalyst times the number of processes with a catalyst plus O_no_catalyst times the number of processes without a catalyst"
+  ],
+  "target_parameters": [
+    "Wood required for the process with a catalyst",
+    "Oxygen required for the process with a catalyst",
+    "Carbon dioxide produced by the process with a catalyst",
+    "Wood required for the process without a catalyst",
+    "Oxygen required for the process without a catalyst",
+    "Carbon dioxide produced by the process without a catalyst",
+    "Total units of wood available",
+    "Total units of oxygen available"
+  ]
+}

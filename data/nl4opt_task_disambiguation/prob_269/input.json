@@ -1,0 +1,21 @@
+{
+  "vague_description": "Optimize the allocation of mail delivery resources within set constraints to maximize efficiency.",
+  "detailed_description": "A village delivers mail to nearby villages either by runners or canoers. Runners can carry \\param{BagsPerRunner} bags of mail each time and takes \\param{TimePerRunner} hours. Canoers can carry \\param{BagsPerCanoer} bags of mail each time and takes \\param{TimePerCanoer} hours. At most \\param{MaxCanoeProportion} of deliveries can be by canoe. Additionally, the village can spare at most \\param{TotalHours} total hours and at least \\param{MinRunners} runners must be used. How many of each way to deliver must be used to maximize the total amount of mail that can be delivered?",
+  "target_objective": "Maximize the total amount of mail delivered",
+  "target_constraints": [
+    "At most MaxCanoeProportion of deliveries can be by canoe",
+    "Total delivery time cannot exceed TotalHours hours",
+    "At least MinRunners runners must be involved in the delivery",
+    "Number of runners used is non-negative",
+    "Number of canoers used is non-negative"
+  ],
+  "target_parameters": [
+    "Number of bags of mail a runner can carry",
+    "Time taken for a runner to deliver mail",
+    "Number of bags of mail a canoer can carry",
+    "Time taken for a canoer to deliver mail",
+    "Maximum proportion of deliveries that can be done by canoe",
+    "Total available hours for delivery",
+    "Minimum number of runners to be used"
+  ]
+}

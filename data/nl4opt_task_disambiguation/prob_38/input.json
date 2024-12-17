@@ -1,0 +1,25 @@
+{
+  "vague_description": "Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.",
+  "detailed_description": "A nutritionist is making a special vitamin mix using two drinks: drink A and drink B. The vitamin mix must contain at least \\var{MinVitA} units of Vitamin A, at least \\var{MinVitD} units of Vitamin D, and at most \\var{MaxVitE} units of Vitamin E. A cup of drink A contains \\var{VitAA} units of Vitamin A, \\var{VitDA} units of Vitamin D, \\var{VitEA} units of Vitamin E, and \\var{VitKA} units of Vitamin K. A cup of drink B contains \\var{VitAB} units of Vitamin A, \\var{VitDB} units of Vitamin D, \\var{VitEB} units of Vitamin E, and \\var{VitKB} units of Vitamin K. How many cups of each drink should be used to make the vitamin mix in order to minimize the amount of Vitamin K?",
+  "target_objective": "Minimize the amount of Vitamin K in the vitamin mix",
+  "target_constraints": [
+    "Number of cups of drink A is non-negative",
+    "Number of cups of drink B is non-negative",
+    "The vitamin mix must contain at least MinVitA units of Vitamin A",
+    "The vitamin mix must contain at least MinVitD units of Vitamin D",
+    "The vitamin mix must contain at most MaxVitE units of Vitamin E"
+  ],
+  "target_parameters": [
+    "Minimum required units of Vitamin A",
+    "Minimum required units of Vitamin D",
+    "Maximum allowed units of Vitamin E",
+    "Units of Vitamin A per cup of drink A",
+    "Units of Vitamin D per cup of drink A",
+    "Units of Vitamin E per cup of drink A",
+    "Units of Vitamin K per cup of drink A",
+    "Units of Vitamin A per cup of drink B",
+    "Units of Vitamin D per cup of drink B",
+    "Units of Vitamin E per cup of drink B",
+    "Units of Vitamin K per cup of drink B"
+  ]
+}

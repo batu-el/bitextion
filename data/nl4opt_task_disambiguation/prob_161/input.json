@@ -1,0 +1,21 @@
+{
+  "vague_description": "The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.",
+  "detailed_description": "A toy store decides to deliver gifts using two shipping companies, a new one and an old one. The new company can deliver \\param{GiftsNew} gifts per trip while the old company can deliver \\param{GiftsOld} gifts per trip. The new company uses \\param{DieselNew} liters of diesel per trip while the old company uses \\param{DieselOld} liters of diesel per trip. The toy store needs to deliver at least \\param{MinGifts} gifts. There can be at most \\param{MaxTripsNew} trips made by the new company. In order to make sure that the old company does not go out of business, at least \\param{MinPercentOld} of all trips must be made by the old company. How many trips should each company make to minimize the total amount of diesel used?",
+  "target_objective": "Minimize the total amount of diesel used for delivering the gifts",
+  "target_constraints": [
+    "Number of trips by the new company is non-negative",
+    "Number of trips by the old company is non-negative",
+    "At least MinGifts gifts must be delivered in total",
+    "At most MaxTripsNew trips can be made by the new company",
+    "At least MinPercentOld percent of all trips must be made by the old company"
+  ],
+  "target_parameters": [
+    "Number of gifts delivered by the new company per trip",
+    "Number of gifts delivered by the old company per trip",
+    "Amount of diesel used by the new company per trip",
+    "Amount of diesel used by the old company per trip",
+    "Minimum total number of gifts that need to be delivered",
+    "Maximum number of trips the new company can make",
+    "Minimum percentage of all trips that must be made by the old company"
+  ]
+}

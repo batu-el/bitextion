@@ -1,0 +1,28 @@
+{
+  "vague_description": "The crepe store needs to balance the demand for two different types of crepes while managing limited resources.",
+  "detailed_description": "A crepe store sells chocolate and peanut butter crepes. A chocolate crepe requires \\param{ChocoCrepeChocolate} units of chocolate spread and \\param{ChocoCrepeMix} units of crepe mix. A peanut butter crepe requires \\param{PBCrepePeanutButter} units of peanut butter spread and \\param{PBCrepeMix} units of crepe mix. Recently, the peanut butter crepe has been more popular and therefore the number of peanut butter crepes made must exceed the number of chocolate crepes made. However, at least \\param{MinChocoRatio} of the crepes made should be chocolate. The store has available \\param{TotalChocolateSpread} units of chocolate spread and \\param{TotalPeanutButterSpread} units of peanut butter spread. How many of each should the store make to minimize the total amount of crepe mix needed?",
+  "target_objective": "Minimize the total amount of crepe mix needed",
+  "target_constraints": [
+    "Number of chocolate crepes is an integer",
+    "Number of peanut butter crepes is an integer",
+    "Number of chocolate crepes is non-negative",
+    "Number of peanut butter crepes is non-negative",
+    "The number of peanut butter crepes exceeds the number of chocolate crepes",
+    "At least MinChocoRatio of the crepes made should be chocolate",
+    "The store has a total of TotalChocolateSpread units of chocolate spread",
+    "The store has a total of TotalPeanutButterSpread units of peanut butter spread",
+    "A chocolate crepe requires ChocoCrepeChocolate units of chocolate spread",
+    "A chocolate crepe requires ChocoCrepeMix units of crepe mix",
+    "A peanut butter crepe requires PBCrepePeanutButter units of peanut butter spread",
+    "A peanut butter crepe requires PBCrepeMix units of crepe mix"
+  ],
+  "target_parameters": [
+    "Units of chocolate spread required to make a chocolate crepe",
+    "Units of crepe mix required to make a chocolate crepe",
+    "Units of peanut butter spread required to make a peanut butter crepe",
+    "Units of crepe mix required to make a peanut butter crepe",
+    "The minimum ratio of chocolate crepes to all crepes made",
+    "Total units of chocolate spread available",
+    "Total units of peanut butter spread available"
+  ]
+}

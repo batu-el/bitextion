@@ -1,0 +1,16 @@
+{
+  "vague_description": "Develop a strategy to efficiently balance production levels, storage, and overtime work to meet demand with minimal expense.",
+  "detailed_description": "Formulate the problem of determining the production schedule that minimizes the cost, where the demand for each product is given by \\param{Demand}, the maximum production amount under regular conditions is \\param{MaxRegularAmount}, cost of regular production per unit is \\param{CostRegular}, cost of production under overtime conditions per unit is \\param{CostOvertime}, and the cost to store one unit of product is \\param{StoreCost}.",
+  "target_objective": "Minimize the total cost of production and storage",
+  "target_constraints": [
+    "Demand for each product must be met",
+    "Maximum production under regular conditions cannot exceed MaxRegularAmount"
+  ],
+  "target_parameters": [
+    "Demand of product n",
+    "Maximum production amount under regular conditions",
+    "Cost of production under regular conditions per unit",
+    "Cost of production under overtime conditions per unit",
+    "Cost to store one unit of product"
+  ]
+}

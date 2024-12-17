@@ -1,0 +1,19 @@
+{
+  "vague_description": "Determine the optimal mix of full-time and part-time staff needed to meet mail delivery hours, while staying under budget.",
+  "detailed_description": "A municipality hires full-time and part-time staff to deliver mail. Part-time staff works \\param{PartTimeHours} hours per week and gets paid \\param{PartTimePayment} dollars whereas a full-time staff works \\param{FullTimeHours} hours every week and gets paid \\param{FullTimePayment} dollars for that week. Since it is the week leading up to a holiday, planning ahead, the municipality needs \\param{TotalLaborHours} hours of mail staff labor. The municipality has a budget of \\param{TotalBudget} dollars for mail delivery for this season. How many of each type of staff should the municipality hire to decrease the total number of staff?",
+  "target_objective": "Minimize the total number of full-time and part-time staff hired",
+  "target_constraints": [
+    "Number of full-time staff is non-negative",
+    "Number of part-time staff is non-negative",
+    "Total hours worked by part-time and full-time staff equals TotalLaborHours",
+    "Total payment to part-time and full-time staff is at most TotalBudget"
+  ],
+  "target_parameters": [
+    "Number of hours worked by a part-time staff member per week",
+    "Payment to a part-time staff member per week",
+    "Number of hours worked by a full-time staff member per week",
+    "Payment to a full-time staff member per week",
+    "Total number of hours of labor needed by the municipality for the week",
+    "Total budget available for mail delivery for the season"
+  ]
+}

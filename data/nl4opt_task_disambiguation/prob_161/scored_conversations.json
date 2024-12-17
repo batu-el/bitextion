@@ -1,0 +1,475 @@
+{
+  "vague_description": "The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.",
+  "detailed_description": "A toy store decides to deliver gifts using two shipping companies, a new one and an old one. The new company can deliver \\param{GiftsNew} gifts per trip while the old company can deliver \\param{GiftsOld} gifts per trip. The new company uses \\param{DieselNew} liters of diesel per trip while the old company uses \\param{DieselOld} liters of diesel per trip. The toy store needs to deliver at least \\param{MinGifts} gifts. There can be at most \\param{MaxTripsNew} trips made by the new company. In order to make sure that the old company does not go out of business, at least \\param{MinPercentOld} of all trips must be made by the old company. How many trips should each company make to minimize the total amount of diesel used?",
+  "target_objective": "Minimize the total amount of diesel used for delivering the gifts",
+  "target_constraints": [
+    "Number of trips by the new company is non-negative",
+    "Number of trips by the old company is non-negative",
+    "At least MinGifts gifts must be delivered in total",
+    "At most MaxTripsNew trips can be made by the new company",
+    "At least MinPercentOld percent of all trips must be made by the old company"
+  ],
+  "target_parameters": [
+    "Number of gifts delivered by the new company per trip",
+    "Number of gifts delivered by the old company per trip",
+    "Amount of diesel used by the new company per trip",
+    "Amount of diesel used by the old company per trip",
+    "Minimum total number of gifts that need to be delivered",
+    "Maximum number of trips the new company can make",
+    "Minimum percentage of all trips that must be made by the old company"
+  ],
+  "Expert": {
+    "(0,)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.",
+    "(0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Are there specific constraints on the number of trips each company must make?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Are there specific constraints on the number of trips each company must make?\nUser: Yes\n\nExpert: Is there a maximum limit on the diesel usage for the delivery trips?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Are there specific constraints on the number of trips each company must make?\nUser: Yes\n\nExpert: Is there a maximum limit on the diesel usage for the delivery trips?\nUser: No\n\nExpert: Are there specific gift delivery requirements that each company must satisfy individually?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.",
+    "(0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Is there a constraint requiring a minimum percentage of trips to be conducted by one specific company?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Is there a constraint requiring a minimum percentage of trips to be conducted by one specific company?\nUser: Yes\n\nExpert: Does the problem involve a constraint on the total diesel usage beyond the objective function of minimizing diesel usage?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Is there a constraint requiring a minimum percentage of trips to be conducted by one specific company?\nUser: Yes\n\nExpert: Does the problem involve a constraint on the total diesel usage beyond the objective function of minimizing diesel usage?\nUser: No\n\nExpert: Do the problem descriptions specify a maximum number of trips that each company can handle per day?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.",
+    "(0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Are there any fixed constraints on the total number of delivery trips that can be allocated to each company?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Are there any fixed constraints on the total number of delivery trips that can be allocated to each company?\nUser: Yes\n\nExpert: Are there any fixed constraints on the total number of delivery trips that can be allocated to each company?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Are there any fixed constraints on the total number of delivery trips that can be allocated to each company?\nUser: Yes\n\nExpert: Are there any fixed constraints on the total number of delivery trips that can be allocated to each company?\nUser: Yes\n\nExpert: Are the fixed constraints on the total number of delivery trips that can be allocated to each company equal for both companies?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.",
+    "(0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Is the objective function to minimize diesel usage explicitly given as a numerical optimization problem or is it formulated in terms of another objective that involves minimizing diesel usage?\nUser: Yes, the objective function is explicitly focused on minimizing diesel usage, given the parameters and constraints provided.\n",
+    "(0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Is the objective function to minimize diesel usage explicitly given as a numerical optimization problem or is it formulated in terms of another objective that involves minimizing diesel usage?\nUser: Yes, the objective function is explicitly focused on minimizing diesel usage, given the parameters and constraints provided.\n\nExpert: Does the problem description explicitly mention a physical distance between delivery points or locations?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The toy store needs to determine the optimal distribution of delivery trips between two companies to minimize diesel usage while meeting gift delivery and trip allocation requirements.\nExpert: Is the objective function to minimize diesel usage explicitly given as a numerical optimization problem or is it formulated in terms of another objective that involves minimizing diesel usage?\nUser: Yes, the objective function is explicitly focused on minimizing diesel usage, given the parameters and constraints provided.\n\nExpert: Does the problem description explicitly mention a physical distance between delivery points or locations?\nUser: No\n\nExpert: Is there at least one constraint listed in the problem?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "A: Amount of diesel used per trip by company A",
+            "B: Amount of diesel used per trip by company B",
+            "C: Number of delivery trips required per day",
+            "D: Maximum number of trips company A can make in a day",
+            "E: Maximum number of trips company B can make in a day",
+            "F: Minimum number of gifts to be delivered each day"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize diesel usage for gift delivery trips by optimally distributing trips between two delivery companies while satisfying delivery and trip allocation constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of trips assigned to company A and company B must sum up to the total number of delivery trips required by the toy store.",
+            "Company A and company B must each be allocated a minimum specific number of trips as per their contractual obligations with the toy store.",
+            "The total diesel usage must not exceed the budgeted diesel allowance allocated for delivery trips.",
+            "Company A has a maximum capacity of diesel they can use, which must not be exceeded in their allocated trips.",
+            "Company B has a maximum capacity of diesel they can use, which must not be exceeded in their allocated trips.",
+            "Each company has a specific efficiency or rate of diesel usage per trip, which should be factored into the total diesel usage calculation.",
+            "All deliveries must be completed within a specified time frame, necessitating adequate trip allocation to both companies to ensure timely delivery."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize diesel usage",
+            "Meet gift delivery requirements",
+            "Follow specific number of trips allocated to each company"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the diesel usage for delivery trips by optimally distributing the deliveries between two companies, while ensuring gift delivery and meeting specific trip allocation requirements for each company."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of delivery trips allocated to Company A must meet a minimum requirement.",
+            "The total number of delivery trips allocated to Company B must meet a minimum requirement.",
+            "The total number of delivery trips between both companies must result in the minimum diesel usage possible.",
+            "Company A and Company B have a maximum number of trips they cannot exceed due to logistical constraints.",
+            "Each company's trips must collectively deliver all gifts needed for the toy store's requirement."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "diesel usage",
+            "gift delivery requirements",
+            "trip allocation requirements",
+            "number of trips each company must make"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total diesel usage by optimally distributing delivery trips between the two companies while satisfying gift delivery requirements and specific constraints on the number of trips each company must make."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Company A must make at least X trips.",
+            "Company B must make at least Y trips."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal distribution of delivery trips between two companies",
+            "Minimize diesel usage",
+            "Meet trip allocation requirements",
+            "Specific constraints on the number of trips each company must make"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize diesel usage while satisfying constraints on the number of delivery trips assigned to each of the two delivery companies"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each company must make a specific number of trips.",
+            "There is no maximum limit on diesel usage for the delivery trips.",
+            "There are no specific gift delivery requirements that each company must satisfy individually."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Diesel usage",
+            "Gift delivery requirements",
+            "Trip allocation requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize diesel usage for delivery trips while satisfying the gift delivery and trip allocation constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total trips distributed between two companies.",
+            "A minimum number of trips allocated to each company.",
+            "All gifts must be delivered within a specific timeframe.",
+            "Daily or weekly fuel usage limits."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "diesel usage",
+            "gift delivery requirements",
+            "trip allocation requirements",
+            "minimum percentage of trips conducted by a specific company"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize diesel usage while ensuring a minimum percentage of delivery trips are allocated to a specific company and all gift delivery requirements are met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Ensure the allocation of delivery trips meets the minimum percentage requirement for one of the delivery companies."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "delivery trips",
+            "two companies",
+            "percentage of trips by a specific company",
+            "minimization of diesel usage",
+            "gift delivery requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the diesel usage for delivery trips while ensuring at least a minimum percentage of trips are conducted by the specified company."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "A minimum percentage of trips must be conducted by the specified company.",
+            "All gift deliveries must be completed.",
+            "Only two companies are available for the distribution of delivery trips."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Gift delivery requirements",
+            "Minimum percentage of trips for a specific company",
+            "Maximum number of trips per company per day"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize diesel usage for delivery trips while satisfying gift delivery requirements, trip allocation requirements, minimum percentage of trips by one company, and maximum trips per company constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "A minimum percentage of trips must be conducted by one specific company.",
+            "There is a maximum number of trips that each company can handle per day."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fuel consumption rates for delivery vehicles from both companies",
+            "Number of deliveries each truck can carry",
+            "Total number of gifts to be delivered",
+            "Maximum number of trips each company can make",
+            "Distance or route data for deliveries for both companies",
+            "Fixed or variable costs associated with deliveries",
+            "Constraints like minimum or maximum trips allocated to each company"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize diesel usage for delivery trips between two companies while satisfying constraints related to gift delivery and trip allocation requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The distribution of delivery trips must minimize diesel usage.",
+            "Gift delivery requirements must be met, meaning that each gift must be delivered regardless of the allocation strategy.",
+            "Each delivery company may have a certain share or percentage of the total delivery trips that must be allocated to them, addressing trip allocation requirements.",
+            "All deliveries must be completed within a certain timeframe, if such a constraint exists.",
+            "There may be a maximum number of trips or capacity each delivery company can undertake.",
+            "Environmental or regulatory constraints related to diesel usage might need to be considered."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimize diesel usage",
+            "meet gift delivery requirements",
+            "meet trip allocation requirements",
+            "fixed constraints on total delivery trips per company"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize diesel usage for gift deliveries while adhering to delivery trip allocations for two companies."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of delivery trips allocated to each company is fixed."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize diesel usage",
+            "satisfy gift delivery requirements",
+            "meet trip allocation requirements",
+            "fixed constraints on the total number of delivery trips allocated to each company"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize diesel usage for delivering gifts using two delivery companies, while satisfying the constraints on the total number of trips allocated to each company."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of delivery trips allocated to each company must not exceed the pre-determined limits set by the toy store."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize diesel usage.",
+            "Constraint: The sum of delivery trips allocated to both companies must meet total delivery requirements.",
+            "Constraint: The total number of delivery trips allocated to Company A is fixed at a specific number.",
+            "Constraint: The total number of delivery trips allocated to Company B is fixed at a different specific number.",
+            "Constraint: The delivery requirements in terms of gifts must be fully met."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize diesel usage for delivery trips while meeting gift delivery and trip allocation requirements between two companies."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of delivery trips allocated to each company must meet or exceed a certain fixed minimum number, but these numbers are different for the two companies.",
+            "The overall allocation should aim to minimize diesel usage while adhering to gift delivery schedules and constraints.",
+            "The total delivery capacity of each company might differ based on their fleet size or other logistical factors.",
+            "Each company may have a maximum number of trips they can undertake, dictated by either capacity or contractual agreements."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Minimize diesel usage.",
+            "Decision variables: Number of delivery trips assigned to Company A and Company B.",
+            "Constraints: Total delivery trips must meet gift delivery requirements.",
+            "Constraints: Trip allocation must comply with company-specific limits or capacities."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the diesel usage by optimally distributing delivery trips between the two companies."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of delivery trips assigned to both companies must meet the store's delivery requirements (possibly a minimum number of trips or deliveries).",
+            "The number of trips allocated to each company should not exceed their respective maximum allowable trips.",
+            "Each company's diesel usage per trip must be factored into the objective to minimize total diesel consumption."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Diesel usage of Company A per trip",
+            "Diesel usage of Company B per trip",
+            "Number of trips by Company A",
+            "Number of trips by Company B",
+            "Total number of gifts to be delivered",
+            "Capacity of Company A per trip",
+            "Capacity of Company B per trip"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize diesel usage in the delivery trips distribution between two companies, subject to meeting gift delivery and trip allocation requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each company's trip capacity cannot be exceeded by the allocated trips.",
+            "All gift deliveries must be completed within the available trips.",
+            "The total trips allocated to both companies must not exceed the sum of their capacities.",
+            "Diesel usage per trip is known and fixed for each company.",
+            "The delivery schedule must satisfy any regional regulatory delivery hour restrictions."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Gift delivery requirements",
+            "Trip allocation requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize diesel usage in the distribution of delivery trips between two companies."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of delivery trips assigned to both companies combined must meet the required number of delivery trips for gift deliveries.",
+            "Each company must make at least one delivery trip, ensuring both companies are utilized.",
+            "The delivery trips must be allocated between the two companies without exceeding their individual maximum capacity for trips.",
+            "All trips must be covered without delay to ensure timely gift deliveries."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Minimize diesel usage",
+            "Constraints: Meet gift delivery requirements",
+            "Constraints: Meet trip allocation requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize diesel usage for the toy store's delivery trips while ensuring that delivery and allocation constraints are satisfied."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of delivery trips allocated to company A and company B must meet the store's gift delivery schedule requirements.",
+            "Each company has a maximum number of trips it can handle based on their capacity.",
+            "The total diesel usage across all trips must be minimized."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      }
+    }
+  }
+}

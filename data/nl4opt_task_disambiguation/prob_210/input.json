@@ -1,0 +1,27 @@
+{
+  "vague_description": "The company needs to determine the optimal quantity of each crude oil type to process, given the limited availability of compounds A and B, to maximize revenue.",
+  "detailed_description": "Maple Oil processes three types of crude oil: light oil, non-sticky oil and heavy oil. Each tank of light oil produces a net revenue of \\param{RevenueLight}, each tank of non-sticky oil produces a net revenue of \\param{RevenueNonSticky}, and each tank of heavy oil produces a net revenue of \\param{RevenueHeavy}. To process a tank of light oil, \\param{CompoundALight} units of compound A and \\param{CompoundBLight} units of compound B are required. To process a tank of non-sticky oil, \\param{CompoundANonSticky} units of compound A and \\param{CompoundBNonSticky} units of compound B are required. To process a tank of heavy oil, \\param{CompoundAHeavy} units of compound A and \\param{CompoundBHeavy} units of compound B are required. Currently the company has \\param{TotalCompoundA} units of compound A and \\param{TotalCompoundB} units of compound B to process. How many full or partial tanks of each oil should the company process so that net revenue is maximized?",
+  "target_objective": "Maximize the total net revenue from processing light oil, non-sticky oil, and heavy oil",
+  "target_constraints": [
+    "Number of light oil tanks processed is non-negative",
+    "Number of non-sticky oil tanks processed is non-negative",
+    "Number of heavy oil tanks processed is non-negative",
+    "Consumption of compound A for light oil does not exceed TotalCompoundA",
+    "Consumption of compound B for light oil does not exceed TotalCompoundB",
+    "Total consumption of compound A for all oils does not exceed TotalCompoundA",
+    "Total consumption of compound B for all oils does not exceed TotalCompoundB"
+  ],
+  "target_parameters": [
+    "Net revenue from processing a tank of light oil",
+    "Net revenue from processing a tank of non-sticky oil",
+    "Net revenue from processing a tank of heavy oil",
+    "Units of compound A required to process a tank of light oil",
+    "Units of compound B required to process a tank of light oil",
+    "Units of compound A required to process a tank of non-sticky oil",
+    "Units of compound B required to process a tank of non-sticky oil",
+    "Units of compound A required to process a tank of heavy oil",
+    "Units of compound B required to process a tank of heavy oil",
+    "Total units of compound A available for processing",
+    "Total units of compound B available for processing"
+  ]
+}

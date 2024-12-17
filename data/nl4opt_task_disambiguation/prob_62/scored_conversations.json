@@ -1,0 +1,471 @@
+{
+  "vague_description": "The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.",
+  "detailed_description": "A cell phone company is building rural and urban factories. A rural factory can make \\var{ProdRural} phones per day and requires \\var{MgrsRural} managers. An urban factory can make \\var{ProdUrban} phones per day and requires \\var{MgrsUrban} managers. The company has available \\var{TotalMgrs} managers and must make at least \\var{MinPhones} phones per day. How many of each factory type should be built to minimize the total number of factories?",
+  "target_objective": "Minimize the total number of factories",
+  "target_constraints": [
+    "The number of rural factories is an integer",
+    "The number of urban factories is an integer",
+    "The number of rural factories is non-negative",
+    "The number of urban factories is non-negative",
+    "Total managers used by rural and urban factories cannot exceed TotalMgrs",
+    "Total phones produced by rural and urban factories must be at least MinPhones per day"
+  ],
+  "target_parameters": [
+    "Phone production per day by a rural factory",
+    "Managers required per rural factory",
+    "Phone production per day by an urban factory",
+    "Managers required per urban factory",
+    "Total available managers",
+    "Minimum required phone production per day"
+  ],
+  "Expert": {
+    "(0,)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.",
+    "(0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Are there specific production capacity limits for each factory location?\nUser: No\n",
+    "(0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Are there specific production capacity limits for each factory location?\nUser: No\n\nExpert: Is there a maximum number of managers that can be allocated to each factory location?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Are there specific production capacity limits for each factory location?\nUser: No\n\nExpert: Is there a maximum number of managers that can be allocated to each factory location?\nUser: No\n\nExpert: Is there a fixed number of phone units that each manager can oversee in production at any factory?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.",
+    "(0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Do any of the candidate problems involve a transportation cost parameter?\nUser: No\n",
+    "(0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Do any of the candidate problems involve a transportation cost parameter?\nUser: No\n\nExpert: Does the problem description specify minimizing the total cost as an objective?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Do any of the candidate problems involve a transportation cost parameter?\nUser: No\n\nExpert: Does the problem description specify minimizing the total cost as an objective?\nUser: No\n\nExpert: Is the constraint related to manager allocation based on the number of factories they can oversee explicitly mentioned in the problem statement?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.",
+    "(0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Is the goal of the optimization problem to minimize the total cost of production and manager allocation?\nUser: No\n",
+    "(0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Is the goal of the optimization problem to minimize the total cost of production and manager allocation?\nUser: No\n\nExpert: Is the goal of the optimization problem to meet the phone production demands at 100% capacity, as opposed to meeting a partial capacity?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Is the goal of the optimization problem to minimize the total cost of production and manager allocation?\nUser: No\n\nExpert: Is the goal of the optimization problem to meet the phone production demands at 100% capacity, as opposed to meeting a partial capacity?\nUser: Yes\n\nExpert: Are there multiple types of phones being produced at the factory, each with different production requirements and demands?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.",
+    "(0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Is the number of factory locations a fixed parameter or an optimization decision variable?\nUser: No, the number of factory locations is not a fixed parameter; it's an optimization decision variable to minimize.\n",
+    "(0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Is the number of factory locations a fixed parameter or an optimization decision variable?\nUser: No, the number of factory locations is not a fixed parameter; it's an optimization decision variable to minimize.\n\nExpert: Does the description contain any constraints other than the number of factory locations?\nUser: Yes, the constraints include the availability of a fixed number of managers and the requirement to produce at least a minimum number of phones per day.\n",
+    "(0, 0, 0, 0)": "User: The company needs to balance factory production and manager allocation to meet phone production demands with minimal locations.\nExpert: Is the number of factory locations a fixed parameter or an optimization decision variable?\nUser: No, the number of factory locations is not a fixed parameter; it's an optimization decision variable to minimize.\n\nExpert: Does the description contain any constraints other than the number of factory locations?\nUser: Yes, the constraints include the availability of a fixed number of managers and the requirement to produce at least a minimum number of phones per day.\n\nExpert: Is the number of managers a fixed parameter in the problem?\nUser: Yes, the number of managers is a fixed parameter in the problem.\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "factory production capacity",
+            "manager allocation",
+            "phone production demand",
+            "number of factory locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of factory locations while meeting phone production demands and efficiently allocating managers."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Meet phone production demands.",
+            "Minimize the number of production locations.",
+            "Ensure adequate manager allocation for each production location.",
+            "Balance factory production capacity with demand."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Factory locations",
+            "Production demands",
+            "Number of managers",
+            "Phone production demands"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of factory locations used while meeting the phone production demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Meet phone production demands.",
+            "Minimize the number of factory locations used.",
+            "No specific production capacity limits for factory locations."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Factory locations",
+            "Phone production demands",
+            "Manager allocation",
+            "Minimal locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of factory locations used while meeting phone production demands through optimal production and manager allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Meet phone production demands.",
+            "Minimize the number of factory locations used."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Balance factory production and manager allocation",
+            "Meet phone production demands",
+            "Minimize locations",
+            "Fixed number of phone units per manager"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of factory locations while meeting the required phone production demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The company needs to meet phone production demands using minimal factory locations.",
+            "The number of phones produced is limited by the number of managers allocated, given a fixed number of phone units each manager can oversee."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "ProductionCapacity",
+            "ManagerAllocation",
+            "ProductionDemands",
+            "LocationConstraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of factory locations used while meeting phone production demands and ensuring appropriate manager allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Meet the phone production demands.",
+            "Minimize the number of factory locations.",
+            "Ensure adequate manager allocation per factory.",
+            "Balance factory production capacity with demand."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "factory production",
+            "manager allocation",
+            "phone production demands",
+            "number of locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To balance factory production and manager allocation to meet phone production demands while minimizing the number of production locations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Factory production must meet the phone production demands.",
+            "The number of locations used should be minimized.",
+            "Manager allocation decisions should align with the phone production demands without specifying transportation costs."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "factory production capacity",
+            "manager allocation",
+            "phone production demands",
+            "number of factory locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To meet phone production demands with minimal locations by optimizing factory production and manager allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of factories is minimized.",
+            "Each factory has a production capacity limit.",
+            "Enough managers must be allocated to oversee the production processes.",
+            "The production output must meet the phone demand."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Factory Production",
+            "Manager Allocation",
+            "Phone Production Demands",
+            "Number of Factories"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To balance factory production and manager allocation to meet phone production demands while using the minimal number of factory locations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each factory must have at least one manager allocated to oversee operations.",
+            "A manager can only oversee a limited number of factories."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Factory production capacity",
+            "Number of managers available",
+            "Phone production demand",
+            "Number of factory locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of factory locations used while meeting phone production demands by optimally balancing production levels and allocating managers."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each factory can produce a certain number of phones within a given time period.",
+            "The number of managers allocated impacts the efficiency or production rate of each factory.",
+            "There is a maximum number of phones that need to be produced within the specified time frame.",
+            "There is a limit on the number of locations (factories) to be utilized.",
+            "Each factory has a certain capacity for how many phones it can produce and how many managers it can effectively employ.",
+            "The production across all locations combined must meet or exceed the demand for phones.",
+            "Managers can only be distributed to existing operational factories."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "factory production rates",
+            "manager allocation to factories",
+            "phone production demands",
+            "number of locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of production locations while meeting phone production demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Company must balance factory production with manager allocation.",
+            "The optimization must meet phone production demands.",
+            "The solution should involve using minimal factory locations."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "factory production capacity",
+            "manager allocation efficiency",
+            "phone production demands",
+            "number of factory locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to meet phone production demands at 100% capacity with minimal locations for factory production and manager allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production demand for phones must be met at 100% capacity.",
+            "The allocation of managers must be sufficient to manage the production effectively.",
+            "The solution must minimize the number of locations utilized for production."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "factory production rates",
+            "manager allocation",
+            "phone production demands",
+            "number of locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To balance factory production and manager allocation to meet 100% of phone production demands with the minimum number of locations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Factory production must meet 100% of the phone production demands.",
+            "There is only one type of phone being produced, simplifying production requirements.",
+            "The allocation of managers must ensure the operational capacity required to meet production demands."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Factory production capacity",
+            "Number of managers available",
+            "Phone production demands",
+            "Location constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of factory locations while satisfying phone production demands by optimally allocating managers and balancing production capacity across the factories."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Factory production level must meet the phone demand.",
+            "Managers must be allocated to each production site.",
+            "The number of locations used should be minimized.",
+            "All production and allocation must comply with labor regulations.",
+            "Each manager can only oversee production at a single location."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Factory production capacity",
+            "Manager allocation",
+            "Phone production demands",
+            "Number of factory locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of factory locations needed while balancing factory production and manager allocation to meet phone production demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total phone production across all factories must meet or exceed the company's production demand.",
+            "Each factory can only produce up to its maximum capacity for phones.",
+            "All managers allocated must have adequate capacity to oversee the production of the factories they are assigned to.",
+            "The number of factory locations should be minimized."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "factory production levels",
+            "manager allocation",
+            "factory locations",
+            "number of managers available",
+            "minimum number of phones to produce per day"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the number of factory locations while ensuring sufficient manager allocation and meeting minimum phone production demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of factory locations must be minimized.",
+            "There is a fixed number of managers available for allocation.",
+            "The production must meet or exceed a specified minimum number of phones per day."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of factory locations",
+            "number of managers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of factory locations while ensuring sufficient manager allocation to meet daily phone production demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of factory locations should be minimized.",
+            "There is a fixed number of managers available for allocation.",
+            "A minimum number of phones must be produced per day."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      }
+    }
+  }
+}

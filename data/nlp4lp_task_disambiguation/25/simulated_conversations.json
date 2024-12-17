@@ -1,0 +1,45 @@
+{
+  "vague_description": "Deciding optimal mining operations for profitability given constraints and demands.",
+  "detailed_description": "To maximize profit, which mines should be operated each year and how much should they produce? The company has \\param{K} mines and can operate at most \\param{MaxWork} in any given year. For each mine k, there is a royalty cost of \\param{Royalty}, a production limit of \\param{Limit}, and the material extracted has a quality of \\param{Quality}. Each client i requires a material with at least \\param{RequiredQuality}. The price per unit of material sold is \\param{Price}, with a discount \\param{Discount} applied to the royalty cost for each unit sold.",
+  "target_objective": "Maximize the company's profit from operating the mines and selling the material produced while adhering to the constraints of mine operations and client quality requirements",
+  "target_constraints": [
+    "Number of operated mines does not exceed MaxWork",
+    "Each mine k produces a non-negative amount of material",
+    "Each mine k has a production limit of Limit",
+    "The quality of material from each mine k is at least as high as RequiredQuality for each client i"
+  ],
+  "target_parameters": [
+    "Number of mines",
+    "Maximum number of mines that can be operated in a year",
+    "Royalty cost for operating mine k",
+    "Production limit for mine k",
+    "Quality of the material from mine k",
+    "Required quality of the material for client i",
+    "Price per unit of material sold",
+    "Discount on the royalty cost per unit of material sold"
+  ],
+  "Expert": {
+    "(0,)": "User: Deciding optimal mining operations for profitability given constraints and demands.",
+    "(0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Are there specific cost constraints related to labor, equipment, or material that need to be considered in the optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Are there specific cost constraints related to labor, equipment, or material that need to be considered in the optimization problem?\nUser: No\n\nExpert: Are there constraints related to environmental regulations or sustainability targets that impact the mining operations?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Are there specific cost constraints related to labor, equipment, or material that need to be considered in the optimization problem?\nUser: No\n\nExpert: Are there constraints related to environmental regulations or sustainability targets that impact the mining operations?\nUser: No\n\nExpert: Are there specific production capacity or resource availability constraints that need to be considered in the optimization problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Deciding optimal mining operations for profitability given constraints and demands.",
+    "(0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Does the problem consider multiple mining sites with varying characteristics or constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Does the problem consider multiple mining sites with varying characteristics or constraints?\nUser: Yes\n\nExpert: Is there a constraint specifically limiting the amount of ore or mineral to be transported from the sites to the market?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Does the problem consider multiple mining sites with varying characteristics or constraints?\nUser: Yes\n\nExpert: Is there a constraint specifically limiting the amount of ore or mineral to be transported from the sites to the market?\nUser: No\n\nExpert: Do any of the problems include transportation costs as a constraint or parameter?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Deciding optimal mining operations for profitability given constraints and demands.",
+    "(0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Are the costs of extracting and processing ore considered in the optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Are the costs of extracting and processing ore considered in the optimization problem?\nUser: No\n\nExpert: Are the demands for the extracted minerals considered in the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Are the costs of extracting and processing ore considered in the optimization problem?\nUser: No\n\nExpert: Are the demands for the extracted minerals considered in the optimization problem?\nUser: Yes\n\nExpert: Is the goal of the optimization problem to maximize profitability, or is there another objective such as maximizing production volume or minimizing environmental impact?\nUser: Yes, the goal is to maximize profitability.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Deciding optimal mining operations for profitability given constraints and demands.",
+    "(0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Does the problem description include any constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Does the problem description include any constraints?\nUser: Yes\n\nExpert: Are there any explicit or implicit constraints mentioned in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Does the problem description include any constraints?\nUser: Yes\n\nExpert: Are there any explicit or implicit constraints mentioned in the problem description?\nUser: Yes\n\nExpert: Are constraints explicitly listed in the problem description?\nUser: Yes\n"
+  }
+}

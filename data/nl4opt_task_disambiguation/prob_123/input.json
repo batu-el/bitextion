@@ -1,0 +1,21 @@
+{
+  "vague_description": "Optimize the production of two types of pills using limited resources while meeting specific production constraints.",
+  "detailed_description": "A pharmacy has \\param{TotalMorphine} mg of morphine to make painkillers and sleeping pills. Each painkiller pill requires \\param{MorphinePainkiller} mg of morphine and \\param{DigestiveMedicinePainkiller} units of digestive medicine. Each sleeping pill requires \\param{MorphineSleepingPill} mg of morphine and \\param{DigestiveMedicineSleepingPill} units of digestive medicine. The pharmacy needs to make at least \\param{MinPainkillers} painkiller pills. Since sleeping pills are more popular, at least \\param{MinProportionSleepingPills} of the pills should be sleeping pills. How many of each should the pharmacy make to minimize the total amount of digestive medicine needed?",
+  "target_objective": "Minimize the total amount of digestive medicine used in pill production",
+  "target_constraints": [
+    "Total morphine used is less than or equal to TotalMorphine mg",
+    "At least MinPainkillers painkiller pills must be produced",
+    "At least MinProportionSleepingPills of the total pills produced should be sleeping pills",
+    "Number of painkiller pills is non-negative",
+    "Number of sleeping pills is non-negative"
+  ],
+  "target_parameters": [
+    "Total amount of morphine available",
+    "Amount of morphine required to make one painkiller pill",
+    "Amount of morphine required to make one sleeping pill",
+    "Units of digestive medicine required to make one painkiller pill",
+    "Units of digestive medicine required to make one sleeping pill",
+    "Minimum number of painkiller pills required",
+    "Minimum proportion of the total pills that must be sleeping pills"
+  ]
+}

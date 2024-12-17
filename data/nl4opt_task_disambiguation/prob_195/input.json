@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.",
+  "detailed_description": "A magic school sends letters to student either by carrier pigeons or owls. A carrier pigeon can carry \\param{CarrierCapacity} letters at a time and requires \\param{TreatsPerCarrier} treats for service. An owl can carry \\param{OwlCapacity} letters at a time and requires \\param{TreatsPerOwl} treats for service. At most \\param{MaxOwlPercentage} of the birds can be owls. In addition, the school only has \\param{TotalTreats} treats available and at least \\param{MinCarrierPigeons} carrier pigeons must be uses. How many of each bird can be used to maximize the total number of letters that can be sent?",
+  "target_objective": "Maximize the total number of letters that can be sent",
+  "target_constraints": [
+    "Number of carrier pigeons used is non-negative",
+    "Number of owls used is non-negative",
+    "At most MaxOwlPercentage percent of the total number of birds used can be owls",
+    "Total treats used cannot exceed TotalTreats",
+    "At least MinCarrierPigeons carrier pigeons must be used"
+  ],
+  "target_parameters": [
+    "Number of letters a carrier pigeon can carry at a time",
+    "Number of letters an owl can carry at a time",
+    "Maximum percentage of birds that can be owls",
+    "Total treats available for the birds",
+    "Treats required for one service by a carrier pigeon",
+    "Treats required for one service by an owl",
+    "Minimum number of carrier pigeons that must be used"
+  ]
+}

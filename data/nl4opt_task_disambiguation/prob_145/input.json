@@ -1,0 +1,23 @@
+{
+  "vague_description": "A company needs to determine the optimal usage of two production processes to meet minimum product demands without exceeding material availability.",
+  "detailed_description": "A drug company is making pain killers and sleeping pills using two processes, process 1 and process 2. Process 1 produces \\param{PainKillersProcess1} units of pain killers and \\param{SleepingPillsProcess1} units of sleeping pills per hour. Process 2 produces \\param{PainKillersProcess2} units of pain killers and \\param{SleepingPillsProcess2} units of sleeping pills per hour. Process 1 requires \\param{MaterialProcess1} units of preliminary material while process 2 requires \\param{MaterialProcess2} units of preliminary material. The drug company has available \\param{TotalMaterial} units of preliminary material and must make at least \\param{MinPainKillers} units of pain killers and \\param{MinSleepingPills} units of sleeping pills. How many of each process should be run to minimize the total time needed?",
+  "target_objective": "Minimize the total time needed to produce the required units of pain killers and sleeping pills",
+  "target_constraints": [
+    "Number of hours process 1 is run is non-negative",
+    "Number of hours process 2 is run is non-negative",
+    "Total material used by both processes is at most TotalMaterial units",
+    "At least MinPainKillers units of pain killers must be produced",
+    "At least MinSleepingPills units of sleeping pills must be produced"
+  ],
+  "target_parameters": [
+    "Units of pain killers produced per hour by process 1",
+    "Units of sleeping pills produced per hour by process 1",
+    "Units of pain killers produced per hour by process 2",
+    "Units of sleeping pills produced per hour by process 2",
+    "Units of preliminary material required for process 1",
+    "Units of preliminary material required for process 2",
+    "Total units of preliminary material available",
+    "Minimum units of pain killers to be produced",
+    "Minimum units of sleeping pills to be produced"
+  ]
+}

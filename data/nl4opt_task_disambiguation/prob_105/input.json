@@ -1,0 +1,19 @@
+{
+  "vague_description": "Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.",
+  "detailed_description": "A cleaning company uses a cleansing chemical and odor-removing chemical to clean a house. Each unit of the cleansing chemical takes \\param{Tc} units to be effective while each unit of the odor-removing chemical takes \\param{To} minutes to be effective. The company must use at least \\param{MinCleansing} units of the cleansing chemical. In total, at least \\param{MaxTotal} units of chemicals can be used per house. Further, because the cleansing chemical is strong, there can be at most \\param{MaxRatio} times the amount of cleansing chemical as odor-removing chemical. How many units of each should be used to minimize the total time it takes for a house to be cleaned?",
+  "target_objective": "Minimize the total time taken to clean a house",
+  "target_constraints": [
+    "The amount of cleansing chemical used is at least MinCleansing units",
+    "The total amount of chemicals used is at most MaxTotal units per house",
+    "The amount of cleansing chemical cannot exceed MaxRatio times the amount of odor-removing chemical",
+    "The amount of cleansing chemical used is non-negative",
+    "The amount of odor-removing chemical used is non-negative"
+  ],
+  "target_parameters": [
+    "Time effectiveness of cleansing chemical per unit",
+    "Time effectiveness of odor-removing chemical per unit",
+    "Minimum units of cleansing chemical required",
+    "Maximum total units of chemicals used per house",
+    "Maximum ratio of cleansing to odor-removing chemical"
+  ]
+}

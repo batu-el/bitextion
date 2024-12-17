@@ -1,0 +1,490 @@
+{
+  "vague_description": "Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.",
+  "detailed_description": "The company\u2019s declared objective is to minimize costs. It has \\param{K} categories of requirements, with each category consisting of \\param{I} different requirements. The strength of each requirement category is denoted by \\param{Strength}, whereas the cost reductions per unit less waste in each category and the additional costs per unit more waste in each category are represented by \\param{LessOneWaste} and \\param{MoreOneWaste}, respectively. The number of recruits in each category is given by \\param{Recruit}, and the cost of redundancy per recruit in each category is \\param{CostRedundancy}. The company can allow \\param{NumOverman} over-managed categories, with each over-managed category incurring a cost of \\param{CostOverman}. Similarly, \\param{NumShortwork} short-work categories are permissible, each one resulting in a cost of \\param{CostShort}. How should they operate in order to minimize these costs?",
+  "target_objective": "Minimize the overall costs of operations under the given conditions",
+  "target_constraints": [
+    "The company can have up to NumOverman over-managed categories, with each incurring a cost of CostOverman",
+    "The company can have up to NumShortwork short-work categories, with each incurring a cost of CostShort",
+    "Over-managed and short-work categories must be within their respective allowable limits"
+  ],
+  "target_parameters": [
+    "Number of requirements categories",
+    "Number of different requirements",
+    "Strength of each requirement category",
+    "Cost reduction per unit less waste in each category",
+    "Additional cost per unit more waste in each category",
+    "Number of recruits in each category",
+    "Cost of redundancy per recruit in each category",
+    "Number of over-managed categories allowed",
+    "Cost of over-managing in each category",
+    "Number of short-work categories allowed",
+    "Cost of short-work in each category"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.",
+    "(0, 0)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.\nExpert: Does the optimization problem involve a specific numerical cost function that needs to be minimized?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.\nExpert: Does the optimization problem involve a specific numerical cost function that needs to be minimized?\nUser: No\n\nExpert: Are there specific constraints related to resource availability in each category?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.\nExpert: Does the optimization problem involve a specific numerical cost function that needs to be minimized?\nUser: No\n\nExpert: Are there specific constraints related to resource availability in each category?\nUser: No\n\nExpert: Is the goal of the optimization problem to achieve a balance or trade-off between conflicting objectives?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.",
+    "(0, 0)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.\nExpert: Does the problem involve constraints related to discrete units or integer allocations of resources?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.\nExpert: Does the problem involve constraints related to discrete units or integer allocations of resources?\nUser: Yes\n\nExpert: Does any problem include an objective that mentions maximizing efficiency in operations or resource usage?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.\nExpert: Does the problem involve constraints related to discrete units or integer allocations of resources?\nUser: Yes\n\nExpert: Does any problem include an objective that mentions maximizing efficiency in operations or resource usage?\nUser: No\n\nExpert: Does the problem description include labor or time constraints related to resource allocation?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.",
+    "(0, 0)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.\nExpert: Are the resources across different categories mutually exclusive, meaning that a resource can only be allocated to one category at a time?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.\nExpert: Are the resources across different categories mutually exclusive, meaning that a resource can only be allocated to one category at a time?\nUser: Yes\n\nExpert: Are the costs associated with allocating resources to different categories linearly proportional to the amount of resources allocated?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.\nExpert: Are the resources across different categories mutually exclusive, meaning that a resource can only be allocated to one category at a time?\nUser: Yes\n\nExpert: Are the costs associated with allocating resources to different categories linearly proportional to the amount of resources allocated?\nUser: Yes\n\nExpert: Is the primary objective to minimize the total cost of resource allocation?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.",
+    "(0, 0)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.\nExpert: Does the objective function directly reference a specific cost or budget metric (e.g. 'cost', 'budget', 'efficiency')?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.\nExpert: Does the objective function directly reference a specific cost or budget metric (e.g. 'cost', 'budget', 'efficiency')?\nUser: Yes.\n\nExpert: Does the problem have a 'hard constraint' that limits the total budget or resource availability?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints.\nExpert: Does the objective function directly reference a specific cost or budget metric (e.g. 'cost', 'budget', 'efficiency')?\nUser: Yes.\n\nExpert: Does the problem have a 'hard constraint' that limits the total budget or resource availability?\nUser: Yes.\n\nExpert: Does the problem description contain a specific numerical value for a constraint other than the objective function?\nUser: Yes.\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource categories",
+            "Constraints for each resource",
+            "Cost parameters",
+            "Objective function for cost efficiency",
+            "Available budget",
+            "Operational limitations",
+            "Dependencies between resources",
+            "Duration for analysis"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate and manage the company's resources across different categories in a way that minimizes costs while satisfying all operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total budget allocated across all categories must not exceed the overall financial budget limit set for the period.",
+            "Each category must receive at least a minimum level of investment to ensure operational viability.",
+            "The allocation should consider legal and regulatory compliance across all relevant jurisdictions.",
+            "Resource allocation in human resources must align with contractual obligations and labor laws.",
+            "Technology and infrastructure investments must align with the strategic goals and not exceed the planned depreciation and amortization thresholds.",
+            "Environmental and sustainability targets set by the company must be met through the allocation strategy.",
+            "Allocation in marketing and sales needs to align with target revenue growth percentages.",
+            "Administrative and overhead costs should not exceed a specific percentage of the total allocation to ensure efficiency.",
+            "Multinational operations require currency and geopolitical risk considerations to be factored into allocations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Achieve cost efficiency in resource allocation and management.",
+            "Constraints: Varying constraints across different resource categories.",
+            "Decision variables: Resource allocation amounts across different categories.",
+            "Parameters: Constraints specific to each resource category, available resources."
+          ]
+        },
+        "pred_objective": {
+          "objective": "to allocate and manage company resources across different categories to achieve cost efficiency while adhering to varying constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources must be allocated across different categories without exceeding the budget limits of each category.",
+            "The allocation strategy must comply with the operational requirements of each department or category.",
+            "There must be a balance between fixed and variable resources allocated, ensuring neither is disproportionately assigned.",
+            "Departments have minimum resource requirements that must be met to ensure basic functionality.",
+            "The strategy should allow for some flexibility to accommodate unforeseen changes or demands in resource needs down the line."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to develop a strategic plan for the company to allocate and manage its resources across various categories to achieve cost efficiency, while implicitly considering organizational or business constraints, rather than specified numerical limits or availability restrictions."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Achieve cost efficiency",
+            "Balance or trade-off between conflicting objectives"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find an optimal strategy for allocating and managing resources across different categories in a way that balances or trades off between conflicting objectives, with a primary focus on achieving cost efficiency."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The problem requires a balance or trade-off between conflicting objectives.",
+            "There are no specific numerical cost functions involved in the problem.",
+            "Resource availability is not a constraint in each category."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource categories",
+            "Cost efficiency",
+            "Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To achieve cost efficiency in resource allocation and management across different categories while adhering to constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total budget for resource allocation must not exceed $1,000,000.",
+            "Each category must receive at least 10% of the total budget to maintain operational efficiency.",
+            "Critical categories are not permitted to have their budgets reduced by more than 5% compared to the previous fiscal year.",
+            "At least 30% of the resources must be allocated to labor costs to ensure adequate staffing.",
+            "Technology upgrades require a minimum of 15% of the total budget to maintain competitive advantage.",
+            "Marketing and R&D combined cannot exceed 25% of the total budget in order to prioritize core operational expenses.",
+            "Compliance and regulatory requirements mandate a minimum allocation of 5% of the total budget to risk management initiatives."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocations must be in discrete units or integers",
+            "Balancing resources across different categories",
+            "Achieving cost efficiency",
+            "Adhering to varying constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to find the optimal strategy for allocating and managing resources across different categories in a way that maximizes cost efficiency while adhering to constraints related to discrete units or integer allocations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocations must be made in discrete integer units.",
+            "Each category has a minimum and maximum allocation based on resource availability.",
+            "Total allocation across all categories cannot exceed the available resources budget.",
+            "There might be dependencies between categories that affect allocation decisions."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource categories",
+            "Resource allocation",
+            "Cost efficiency",
+            "Constraints",
+            "Discrete units",
+            "Integer allocations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Achieve cost efficiency in resource allocation across different categories under varying constraints with discrete or integer resource allocations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocations must be in integer units.",
+            "The objective does not include maximizing efficiency.",
+            "Adhere to predetermined budgets for each category.",
+            "Compliance with legal and regulatory constraints pertinent to each category.",
+            "Limitations on the maximum or minimum quantities of resources that can be allocated to specific categories."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "discrete units",
+            "integer allocations",
+            "cost efficiency",
+            "labor constraints",
+            "time constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs while adhering to resource allocation constraints, including discrete unit allocations and labor or time limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocations must be in discrete units or integers.",
+            "The solution must adhere to labor constraints related to resource allocation.",
+            "The solution must adhere to time constraints related to resource allocation."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource categories (e.g., manpower, machinery, materials)",
+            "Cost efficiency metrics or objectives",
+            "Constraints for each category (e.g., budget limits, resource availability)",
+            "Interdependencies among resource categories (e.g., how changes in one category affect another)",
+            "Time horizon for resource allocation (e.g., quarterly, annually)",
+            "Priority levels for different resource categories (e.g., critical, non-critical)",
+            "Potential risks and uncertainties (e.g., market volatility, supply chain disruptions)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Allocate and manage resources across different categories to achieve cost efficiency while adhering to constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budgetary limits specific to each resource category must not be exceeded.",
+            "Resource allocation must meet minimum operational thresholds to ensure necessary functions are sustained.",
+            "Strategic importance of each category must be considered, prioritizing those contributing directly to core business objectives.",
+            "Compliance with regulatory standards in each category is required.",
+            "Resource utilization must maintain or improve the current level of service quality.",
+            "Interdependencies between categories should be identified and managed to prevent negative impacts on performance.",
+            "Flexibility must be incorporated to adjust allocations in response to changing market conditions or company priorities."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Minimize overall costs -- achieve cost efficiency",
+            "Constraints:",
+            "1. Resource Allocation Constraint -- a resource can only be allocated to one category at a time.",
+            "2. Resource Capacity Constraint -- total resource allocation must not exceed available resources.",
+            "3. Budget Constraint -- spending must not exceed the allocated budget for each category.",
+            "4. Time Constraint -- resource allocation must be done within a specific time frame.",
+            "5. Quality/Performance Constraint -- resource allocation should meet a certain quality or performance threshold."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate and manage the company's resources across different mutually exclusive categories in a manner that achieves cost efficiency while adhering to varying constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources can only be allocated to one category at a time (mutually exclusive allocation).",
+            "The total allocation of resources across all categories must not exceed the total available resources."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "The resources are mutually exclusive across different categories.",
+            "The costs are linearly proportional to the allocation.",
+            "Constraints on resource allocation."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of resources across different mutually exclusive categories to achieve cost efficiency, given linear cost relationships and adherence to various constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources are mutually exclusive across different categories.",
+            "Costs are linearly proportional to resource allocation."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resources are mutually exclusive across categories.",
+            "Costs are linearly proportional to resources allocated.",
+            "Objective is to minimize total cost.",
+            "There are constraints associated with resource allocation."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of resource allocation across different categories while adhering to the constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each resource can only be allocated to one category at a time.",
+            "The total cost is linearly proportional to the amount of resources allocated to each category.",
+            "The objective is to minimize the total cost of resource allocation."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource categories",
+            "Cost efficiency metrics",
+            "Constraints (e.g., budget limits, resource availability)",
+            "Optimization objective (e.g., minimize costs, maximize output)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal strategy for the company to allocate and manage its resources across different categories to achieve cost efficiency while adhering to varying constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total budget allocated across all categories cannot exceed $1,000,000.",
+            "No single category can receive more than 40% of the total budget.",
+            "At least 15% of the total budget must be allocated to research and development.",
+            "All operational departments must receive a minimum of $50,000 each.",
+            "Marketing expenses cannot exceed the sum of costs allocated to both research and development and operations.",
+            "At least 5% of the budget must remain unallocated as a buffer.",
+            "The human resources budget must be at least half of the operations budget.",
+            "Supply chain and logistics expenses must not exceed 25% of the total budget."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "cost efficiency",
+            "resource allocation",
+            "budget",
+            "constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate and manage resources across different categories in a manner that minimizes costs while adhering to certain constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each category has a maximum budget limit.",
+            "Resources allocated must adhere to specific weightage or priority guidelines.",
+            "Spending in each category cannot exceed available budget limits.",
+            "Some resources might have to be allocated to mandatory categories before others."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "cost",
+            "budget",
+            "efficiency",
+            "resource availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total cost of resource allocation while adhering to budget constraints and achieving cost efficiency across different categories."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total budget or resource availability limit.",
+            "Allocation must meet category-specific efficiency targets.",
+            "Resource usage across categories should remain within specified limits."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "cost efficiency",
+            "budget constraints",
+            "resource availability",
+            "specific numeric constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Achieve cost efficiency in resource allocation across categories while adhering to budget constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total budget or resource availability must not be exceeded.",
+            "Specific numerical constraints on resource allocation for different categories.",
+            "Constraints on cost efficiency for the optimal strategy."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      }
+    }
+  }
+}

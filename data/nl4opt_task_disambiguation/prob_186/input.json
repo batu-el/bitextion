@@ -1,0 +1,19 @@
+{
+  "vague_description": "Determine the optimal combination of cows and elephants needed to efficiently transport a specific amount of bricks under certain constraints.",
+  "detailed_description": "A construction company in the tropics uses cows and elephants to carry bricks. A cow can carry \\param{CapacityCow} bricks on its back while an elephant can carry \\param{CapacityElephant} bricks on its back. To avoid having elephants create too much traffic, the number of elephants cannot exceed the number of cows (\\param{MaxElephantsToCows}). In addition, there can be at most \\param{MaxCowElephantRatio} times the number of cows as elephants. If the company needs to transport at least \\param{MinBricks} bricks, find the minimum number of animals, cows and elephants, that can be used.",
+  "target_objective": "Minimize the total number of animals (cows and elephants)",
+  "target_constraints": [
+    "Number of elephants cannot exceed number of cows",
+    "There must be at most MaxCowElephantRatio cows for each elephant",
+    "The total number of bricks carried must meet or exceed MinBricks",
+    "Number of cows is non-negative",
+    "Number of elephants is non-negative"
+  ],
+  "target_parameters": [
+    "Number of bricks a cow can carry",
+    "Number of bricks an elephant can carry",
+    "Minimum number of bricks required to be transported",
+    "Maximum ratio of cows to elephants",
+    "Maximum number of elephants relative to the number of cows"
+  ]
+}

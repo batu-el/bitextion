@@ -1,0 +1,491 @@
+{
+  "vague_description": "Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.",
+  "detailed_description": "A company in the desert can transport goods to rural cities either by camel caravans or desert trucks. A camel caravan can deliver \\param{UnitsCamel} units of goods per trip and takes \\param{TimeCamel} hours. A desert truck can deliver \\param{UnitsTruck} units of goods per trip and takes \\param{TimeTruck} hours. However, due to the cost of fuel, the company prefers to have more camel caravans than desert trucks. If the company needs to deliver \\param{GoodsTotal} units of goods, how many of each method of transportation should the company organize to minimize the total number of hours required?",
+  "target_objective": "Minimize the total number of hours to deliver GoodsTotal units of goods",
+  "target_constraints": [
+    "Number of camel caravans is non-negative",
+    "Number of desert trucks is non-negative",
+    "Total units delivered by camel caravans and desert trucks must be at least GoodsTotal"
+  ],
+  "target_parameters": [
+    "Number of units of goods delivered per trip by camel caravan",
+    "Travel time per trip for camel caravan",
+    "Number of units of goods delivered per trip by desert truck",
+    "Travel time per trip for desert truck",
+    "Total units of goods that need to be delivered"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.",
+    "(0, 0)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.\nExpert: Are there specific capacity constraints for either the camel caravans or desert trucks that limit the amount of goods they can transport?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.\nExpert: Are there specific capacity constraints for either the camel caravans or desert trucks that limit the amount of goods they can transport?\nUser: No\n\nExpert: Are there specific cost constraints or budget limitations that affect the number of camel caravans and desert trucks that can be used?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.\nExpert: Are there specific capacity constraints for either the camel caravans or desert trucks that limit the amount of goods they can transport?\nUser: No\n\nExpert: Are there specific cost constraints or budget limitations that affect the number of camel caravans and desert trucks that can be used?\nUser: No\n\nExpert: Are there specific travel time constraints or deadlines that the camel caravans and desert trucks must adhere to for transporting goods?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.",
+    "(0, 0)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.\nExpert: Does the problem specify a budget constraint on the total transportation cost?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.\nExpert: Does the problem specify a budget constraint on the total transportation cost?\nUser: No\n\nExpert: Does the objective of minimizing travel or transportation time directly involve a capacity or load constraint where the capacity must meet or exceed the demand for goods in terms of \"units\"?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.\nExpert: Does the problem specify a budget constraint on the total transportation cost?\nUser: No\n\nExpert: Does the objective of minimizing travel or transportation time directly involve a capacity or load constraint where the capacity must meet or exceed the demand for goods in terms of \"units\"?\nUser: Yes\n\nExpert: Does the problem description include both cost per unit distance and cost per vehicle as parameters?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.",
+    "(0, 0)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.\nExpert: Are there any physical or logistical constraints (e.g. limited route capacity, time windows, or seasonal weather conditions) that must be considered in the optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.\nExpert: Are there any physical or logistical constraints (e.g. limited route capacity, time windows, or seasonal weather conditions) that must be considered in the optimization problem?\nUser: No\n\nExpert: Are the costs associated with the camel caravans and desert trucks (e.g. fuel, labor, maintenance) considered to be deterministic or stochastic?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.\nExpert: Are there any physical or logistical constraints (e.g. limited route capacity, time windows, or seasonal weather conditions) that must be considered in the optimization problem?\nUser: No\n\nExpert: Are the costs associated with the camel caravans and desert trucks (e.g. fuel, labor, maintenance) considered to be deterministic or stochastic?\nUser: No\n\nExpert: Are the capacities of the camel caravans and desert trucks fixed or variable?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.",
+    "(0, 0)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.\nExpert: Is the objective function clearly stated as 'minimize'?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.\nExpert: Is the objective function clearly stated as 'minimize'?\nUser: Yes\n\nExpert: Does the problem description mention any inequality constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.\nExpert: Is the objective function clearly stated as 'minimize'?\nUser: Yes\n\nExpert: Does the problem description mention any inequality constraints?\nUser: Yes\n\nExpert: Is there at least one specific parameter mentioned in the problem description?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of camel caravans",
+            "Number of desert trucks",
+            "Delivery capacity constraints",
+            "Travel time considerations",
+            "Cost preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the total transportation cost while meeting delivery capacity and time constraints for transporting goods using camel caravans and desert trucks."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The capacity of camel caravans must be sufficient to transport the required quantity of goods.",
+            "Desert trucks must have the necessary capacity to transport any remaining goods that cannot be carried by camel caravans.",
+            "The total travel time for camel caravans should not exceed their maximum endurance limits over the desert terrain.",
+            "The travel time for desert trucks should be optimized to ensure timely delivery within acceptable limits.",
+            "Transport costs for camel caravans and desert trucks should not exceed the budget allocated for logistics.",
+            "The number of camel caravans and desert trucks should be integers."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of camel caravans",
+            "number of desert trucks",
+            "delivery capacity",
+            "travel time",
+            "cost preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the total transportation cost while ensuring that the entire quantity of goods is transported within a specified time frame, using a combination of camel caravans and desert trucks."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total travel time for the camel caravans and desert trucks must be minimized or within a specific maximum allowable time.",
+            "The total transportation cost must not exceed the budget or desired cost efficiency targets.",
+            "Both camel caravans and desert trucks must be utilized in a way that meets or exceeds the required delivery capacity, even without specific maximum limits.",
+            "The number of camel caravans and desert trucks should be whole numbers as you cannot have fractional vehicles."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of camel caravans",
+            "Number of desert trucks",
+            "Delivery capacity",
+            "Travel time",
+            "Cost preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of camel caravans and desert trucks required to transport goods, considering the trade-offs between delivery capacity, travel time, and cost preferences, without specific capacity constraints or budget limitations."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of camel caravans",
+            "Number of desert trucks",
+            "Delivery capacity",
+            "Travel time",
+            "Cost preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total transportation costs associated with using camel caravans and desert trucks to transport goods, while ensuring that delivery capacity requirements are met and optimizing travel times."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of camel caravans",
+            "number of desert trucks",
+            "delivery capacity",
+            "travel time",
+            "cost preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to find the optimal combination and number of camel caravans and desert trucks that minimizes transport costs while meeting delivery capacity and time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total delivery capacity of camel caravans and desert trucks should meet or exceed the demand for transporting goods.",
+            "The combined travel time of camel caravans and desert trucks must align with delivery schedules or deadlines.",
+            "The cost of using camel caravans and desert trucks should be within a predetermined budget or optimized to minimize expenses."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of camel caravans",
+            "number of desert trucks",
+            "delivery capacity",
+            "travel time",
+            "cost preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize travel time and costs while maximizing delivery capacity for transporting goods using camel caravans and desert trucks."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each camel caravan and desert truck has a specified delivery capacity that must be adhered to; the total load to be transported by both modes of transport cannot exceed their combined capacity.",
+            "Travel time for each mode of transport must be considered, and the total journey for the delivery must be completed within a given timeframe.",
+            "The number of camel caravans and desert trucks selected must maintain a balance between the delivery capacity, travel time, and associated costs based on user preferences."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of camel caravans",
+            "Number of desert trucks",
+            "Delivery capacity",
+            "Travel time",
+            "Cost preferences",
+            "Capacity or load constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the number of camel caravans and desert trucks to transport goods to meet demand while minimizing travel or transportation time and considering cost preferences, without exceeding the transportation capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of camel caravans and desert trucks combined must meet or exceed the required delivery capacity in terms of 'units'.",
+            "There is no specified budget constraint on the total transportation cost."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Amount of goods to be transported",
+            "Delivery capacity of camel caravans",
+            "Delivery capacity of desert trucks",
+            "Travel time for camel caravans",
+            "Travel time for desert trucks",
+            "Cost preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the allocation of camel caravans and desert trucks for transporting goods in order to meet or exceed the delivery capacity demand while minimizing transportation time, without a specific budget constraint on total cost or consideration of cost per unit distance and per vehicle."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of camel caravans and desert trucks must have a combined delivery capacity that meets or exceeds the demand for goods in terms of units.",
+            "There is no specific budget constraint on the total transportation cost.",
+            "There is no separate cost per unit distance or cost per vehicle outlined as a parameter."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of camel caravans",
+            "Number of desert trucks",
+            "Delivery capacity",
+            "Travel time",
+            "Cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the allocation of camel caravans and desert trucks for transporting goods by minimizing costs and travel time while meeting delivery capacity requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total delivery capacity of camel caravans and desert trucks must meet or exceed the required goods to be transported.",
+            "The travel time of the camel caravans and desert trucks should be within the acceptable timeframe for the delivery schedule.",
+            "The total cost of using camel caravans and desert trucks should not exceed the budget allocated for transport.",
+            "The number of camel caravans and desert trucks utilized must be an integer value.",
+            "The deployment of camel caravans and desert trucks should comply with any regulatory or logistical constraints, such as maximum allowable units on a route."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of camel caravans",
+            "number of desert trucks",
+            "delivery capacity",
+            "travel time",
+            "cost preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal quantity of camel caravans and desert trucks required to efficiently transport goods, optimizing for factors such as delivery capacity, travel time, and cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The delivery capacity constraint ensures that the total number of goods transported by camel caravans and desert trucks meets or exceeds the required demand.",
+            "The cost constraint requires selecting camel caravans and desert trucks such that the total cost does not exceed the specified budget or cost preference.",
+            "The travel time constraint ensures that the selected combination of camel caravans and desert trucks meets the required delivery time or deadline."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "camel caravans",
+            "desert trucks",
+            "delivery capacity",
+            "travel time",
+            "cost preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the transportation costs while ensuring that goods are delivered within specified delivery capacity and travel time constraints using camel caravans and desert trucks."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Capacity constraints: Each camel caravan and desert truck has a specific delivery capacity that cannot be exceeded.",
+            "Cost constraints: The costs for operating camel caravans and desert trucks must remain within budget or predetermined cost limits.",
+            "Travel time constraints: The time taken by camel caravans and desert trucks to reach their destinations must meet delivery schedule requirements."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of camel caravans",
+            "number of desert trucks",
+            "delivery capacity",
+            "travel time",
+            "cost preferences",
+            "fixed capacity of camel caravans",
+            "fixed capacity of desert trucks"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal number of camel caravans and desert trucks needed to transport goods while minimizing costs and delivering within the available delivery capacity and travel time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The delivery capacity of both camel caravans and desert trucks must be met.",
+            "Both camel caravans and desert trucks can be used, subject to availability and fleet size limitations.",
+            "Costs related to camel caravans and desert trucks (e.g., fuel, labor, maintenance) are deterministic and will be minimized.",
+            "Travel time must be accounted for in the optimization, ensuring timely delivery.",
+            "Fixed capacities for each camel caravan and desert truck exist.",
+            "Management preferences suggest a balance or preference in using camel caravans versus desert trucks based on strategic or operational goals."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of camel caravans",
+            "Number of desert trucks",
+            "Delivery capacity",
+            "Travel time",
+            "Cost preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize the total cost of transporting goods, which involves determining the optimal number of camel caravans and desert trucks required, while satisfying delivery capacity constraints and travel time considerations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total delivery capacity of camel caravans and desert trucks must meet or exceed the required amount of goods to be transported.",
+            "The travel time for both camel caravans and desert trucks should be optimized to ensure timely delivery of goods.",
+            "The combined cost of using camel caravans and desert trucks should not exceed a specified budget or cost preference.",
+            "Camel caravans and desert trucks have different speed and load capacities, which must be accounted for in planning.",
+            "There might be limits to the number or availability of camel caravans and desert trucks that can be used."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of camel caravans",
+            "Number of desert trucks",
+            "Delivery capacity",
+            "Travel time",
+            "Cost preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of transporting goods using camel caravans and desert trucks, while satisfying delivery capacity requirements and travel time preferences."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of camel caravans and desert trucks should be non-negative integers.",
+            "The total cargo delivered by camel caravans and desert trucks should meet or exceed the required delivery capacity.",
+            "The travel time for camel caravans and desert trucks should adhere to a maximum allowable limit to ensure timely deliveries.",
+            "The total cost of using camel caravans and desert trucks should not exceed the specified budget constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "optimal number of camel caravans",
+            "optimal number of desert trucks",
+            "delivery capacity",
+            "travel time",
+            "cost preferences as a factor of travel",
+            "minimize as the objective function",
+            "inequality constraints must be considered"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost and travel time of transporting goods using camel caravans and desert trucks, while considering delivery capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Delivery capacity of camel caravans should not be exceeded.",
+            "Delivery capacity of desert trucks should not be exceeded.",
+            "The total travel time for both camel caravans and desert trucks should be within acceptable limits.",
+            "The cost of using camel caravans and desert trucks should not exceed the budget."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of camel caravans",
+            "number of desert trucks",
+            "delivery capacity",
+            "travel time",
+            "cost preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total transportation cost while meeting delivery capacity and travel time requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each camel caravan can carry a maximum of 500 kg.",
+            "Each desert truck can carry a maximum of 3000 kg.",
+            "The total weight capacity that needs to be transported is at least 20000 kg.",
+            "The travel time for a camel caravan should not exceed 10 days per journey.",
+            "The travel time for a desert truck should not exceed 5 days per journey.",
+            "The total cost for using camel caravans should not exceed $5000.",
+            "The total cost for using desert trucks should not exceed $20000."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 4,
+        "o_score": 1,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 1,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 1,
+        "c_score": 1
+      }
+    }
+  }
+}

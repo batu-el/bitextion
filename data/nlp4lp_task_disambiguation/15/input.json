@@ -1,0 +1,23 @@
+{
+  "vague_description": "Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.",
+  "detailed_description": "We are aiming at maximizing total net income subject to the \\param{Cash} availability and machine capacity limitations. The problem parameters include: the initial \\param{Cash} available, the \\param{Hour}(s) required to produce each of the \\param{P} products, the \\param{Cost} to produce each of the products, the \\param{Price} at which each product can be sold, the \\param{InvestPercentage} of income from each product to be reinvested, the \\param{UpgradeHours} required for upgrading the machinery, the \\param{UpgradeCost} associated with upgrading, and the total available \\param{AvailableHours} for machine operation.",
+  "target_objective": "Maximize total net income considering production, selling price, cost, and reinvestment",
+  "target_constraints": [
+    "Initial cash available does not exceed Cash",
+    "Total production hours for all products do not exceed AvailableHours",
+    "Total cost to produce all products does not exceed Cash",
+    "Cost to upgrade machinery does not exceed Cash",
+    "Production hours for upgrading machinery do not exceed AvailableHours"
+  ],
+  "target_parameters": [
+    "Number of products",
+    "Initial cash available for investment",
+    "Hours required to produce one unit of product i",
+    "Cost to produce one unit of product i",
+    "Selling price for one unit of product i",
+    "Percentage of income to reinvest for product i",
+    "Hours required for upgrading the machinery",
+    "Cost associated with upgrading the machinery",
+    "Total available machine hours"
+  ]
+}

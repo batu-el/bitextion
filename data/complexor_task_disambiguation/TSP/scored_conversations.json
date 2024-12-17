@@ -1,0 +1,451 @@
+{
+  "vague_description": "Determine the optimal distribution of resources to minimize costs while satisfying all requirements.",
+  "detailed_description": "The optimization problem is focused on efficiently allocating goods from a set of origins, denoted by \\param{OriginNum}, to a set of destinations, represented by \\param{DestinationNum}. Each originating point has a certain supply of goods, \\param{Supply_i}, where i is an origin. Correspondingly, each destination point has a specific demand, \\param{Demand_j}, where j is a destination. The cost associated with sending goods from origin i to destination j is represented by \\param{Cost_{i,j}}. The objective is to minimize the total transportation cost while meeting the demands at the destinations without exceeding the supplies at the origins.",
+  "target_objective": "Minimize the total transportation cost from origins to destinations",
+  "target_constraints": [
+    "Each origin i (where i is an index for origins) has a supply limit of Supply_i",
+    "Each destination j (where j is an index for destinations) requires Demand_j amount of goods",
+    "Amount of goods sent from any origin to any destination is non-negative"
+  ],
+  "target_parameters": [
+    "The total number of origins",
+    "The total number of destinations",
+    "The supply of goods available at each origin",
+    "The demand for goods to be satisfied at each destination",
+    "The cost of transporting goods from origin i to destination j"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.",
+    "(0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Is the objective function of the optimization problem solely focused on minimizing total costs?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Is the objective function of the optimization problem solely focused on minimizing total costs?\nUser: Yes\n\nExpert: Are there any constraints related to resource availability in the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Is the objective function of the optimization problem solely focused on minimizing total costs?\nUser: Yes\n\nExpert: Are there any constraints related to resource availability in the optimization problem?\nUser: Yes\n\nExpert: Are there specific requirements or demands that each resource must satisfy?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.",
+    "(0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Are there any problems where the resource constraints require the total distributed resources to exactly match the demand at each location?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Are there any problems where the resource constraints require the total distributed resources to exactly match the demand at each location?\nUser: No\n\nExpert: Does the problem description include a constraint that each location must receive at least a minimum required amount of resources?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Are there any problems where the resource constraints require the total distributed resources to exactly match the demand at each location?\nUser: No\n\nExpert: Does the problem description include a constraint that each location must receive at least a minimum required amount of resources?\nUser: No\n\nExpert: Is there a constraint that specifies a minimum amount of resources each location must receive?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.",
+    "(0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Are the resources to be distributed fixed or can their quantities be adjusted?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Are the resources to be distributed fixed or can their quantities be adjusted?\nUser: No\n\nExpert: Are the quantities of the resources to be distributed integer values?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Are the resources to be distributed fixed or can their quantities be adjusted?\nUser: No\n\nExpert: Are the quantities of the resources to be distributed integer values?\nUser: Yes\n\nExpert: Are there any constraints on the maximum or minimum amount of resources that can be distributed to each unit or location?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.",
+    "(0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Does the problem description contain the word 'all' when specifying the constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Does the problem description contain the word 'all' when specifying the constraints?\nUser: No\n\nExpert: Does the problem have explicit, numerical constraints (e.g. totals, limits, percentages, or specific values)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Does the problem description contain the word 'all' when specifying the constraints?\nUser: No\n\nExpert: Does the problem have explicit, numerical constraints (e.g. totals, limits, percentages, or specific values)?\nUser: Yes\n\nExpert: Does the problem description include specific numerical values for the constraints?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource quantities: The amount of each type of resource available for distribution.",
+            "Costs: The cost associated with using or distributing different resources.",
+            "Requirements: The specific requirements that need to be satisfied by the resources.",
+            "Constraints: Any limitations or rules that must be adhered to, such as maximum or minimum allocations, or other operational restrictions.",
+            "Objective: The goal of minimizing the total costs while satisfying all the specified requirements."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize costs by finding the optimal distribution of resources, ensuring all requirements are met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total resource allocation cannot exceed available resources.",
+            "Each requirement must be fully satisfied, i.e., no partial fulfillment is allowed.",
+            "Cost must be minimized across all allocations.",
+            "Any allocation must be greater than or equal to the minimum required for its corresponding requirement.",
+            "Allocation of resources to a particular requirement cannot exceed its maximum capacity or limit, if specified."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost function: Minimize total costs",
+            "Constraints: All requirements must be satisfied",
+            "Decision variables: Allocation of resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total costs while satisfying all resource requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total resources allocated must meet or exceed all specified requirements.",
+            "No distribution should allocate more resources to a particular area than the total available resources.",
+            "Ensure that any allocation doesn't violate specific policy or regulatory requirements.",
+            "All resource allocations must be non-negative."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource availability constraints",
+            "Objective function: Minimize total costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total costs while satisfying all resource requirements and constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total resource allocation must not exceed available resources.",
+            "All requirements must be met with the allocated resources."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Minimize Total Costs",
+            "Constraints: Resource Availability",
+            "Constraints: Resource Demand Satisfaction"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total costs while satisfying resource availability and requirement constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total allocation of each resource must not exceed its available amount.",
+            "Each resource allocation must satisfy specific requirement or demand targets."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource costs",
+            "Requirements",
+            "Available resources",
+            "Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs while satisfying all requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must minimize the overall costs.",
+            "All requirements or demands must be satisfied with the allocated resources.",
+            "There are likely specific limits to resource availability.",
+            "Costs could be related to procurement, transportation, or storage.",
+            "Quality or efficiency requirements might need to be met in the allocation process.",
+            "Time constraints may apply for resource deployment."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize costs",
+            "No requirement for resource constraints to match demand exactly"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs while satisfying all requirements"
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize costs",
+            "Satisfy all requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize the costs associated with distributing resources while ensuring all unspecified requirements are met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total distributed resources should not exceed available resources."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resources availability",
+            "Costs associated with resource distribution",
+            "Minimum requirements at locations",
+            "Demand at each location",
+            "Total demand",
+            "Capacity at locations",
+            "Budget for resource distribution",
+            "Constraints on resource distribution",
+            "Objective function"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal distribution of resources to minimize costs while satisfying all requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Apply a resource quantity constraint that ensures the allocated resources do not exceed total available resources.",
+            "Ceiling cost limits per location must not be exceeded, ensuring that costs remain within budget.",
+            "There should be a non-negativity constraint on the resources, meaning negative resource allocations are not allowed.",
+            "Constraints to account for the maximum capacity of resources each location accepts if applicable.",
+            "If multiple resource types are involved, allocate them according to specified ratios or limits for multi-use or multifunctional applications."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource distribution",
+            "Cost minimization",
+            "Requirement satisfaction"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs in resource distribution while satisfying all requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total resource allocation must satisfy all project requirements.",
+            "The cost associated with the resource distribution should be minimized.",
+            "No individual resource allocation can exceed available supply limits.",
+            "Resource distributions must meet minimum necessary thresholds for project completion."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Costs",
+            "Resources",
+            "Requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs while distributing fixed resources to meet all requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "resource quantities are fixed",
+            "minimize costs",
+            "satisfy all specified requirements"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource quantities are variable",
+            "Resource quantities must be integers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize distribution costs while meeting all requirements with fixed quantities of resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantities of the resources to be distributed are integer values.",
+            "The total distribution of resources should minimize costs.",
+            "All requirements must be satisfied."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fixed set of resources to be distributed, not adjustable",
+            "Integer values for quantities of resources",
+            "No minimum or maximum constraint on amount of resources per unit/location"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs while satisfying all requirements with an integral distribution of resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources can only be distributed in fixed quantities.",
+            "All distribution quantities are integer values.",
+            "The goal is to minimize costs while satisfying requirements."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource distribution",
+            "Cost minimization",
+            "Requirements satisfaction"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs by optimizing the distribution of resources while satisfying all requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total resource allocation must not exceed the available budget.",
+            "Each resource must be allocated to at least one requirement if it is in demand.",
+            "All high-priority requirements must be fully satisfied.",
+            "The allocation should not exceed the maximum capacity of resources.",
+            "Resource distribution must adhere to any contractual agreements and restrictions mentioned."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource distribution",
+            "cost minimization",
+            "satisfying requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs while satisfying given requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All requirements must be satisfied.",
+            "Cost must be minimized."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize costs",
+            "Constraints: Explicit, numerical constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs by optimally distributing resources while satisfying all numerical constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost should be minimized.",
+            "Resources must be distributed in such a way that specific numerical limits or percentages are met.",
+            "All requirements for resource allocation must be satisfied under given numerical values or limits."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource distribution",
+            "costs",
+            "requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs while satisfying all requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is no mention of 'all' in the conditions which means not every constraint must be satisfied to the maximum allowed level.",
+            "The problem includes numerical constraints, indicating that there are certain limits or numbers that the distribution must adhere to.",
+            "However, the numerical constraints do not have specific values provided, which implies the constraints are more general or proportional, rather than fixed quantities."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    }
+  }
+}

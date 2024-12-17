@@ -1,0 +1,16 @@
+{
+  "vague_description": "Optimize the production of multiple products within given machine time constraints to achieve maximum profit.",
+  "detailed_description": "Determine the quantities to be produced such that all the production constraints are satisfied and the profit is maximized. The parameters include the number of different products \\param{NumProducts} and the number of different machines \\param{NumMachines}. Each product k requires \\param{ProduceTime}_{k,m} to produce on machine m. Each machine m has a total available time of \\param{AvailableTime}_m. The profit from producing one unit of product k is \\param{Profit}_k.",
+  "target_objective": "Maximize the total profit from producing different products subject to production time constraints on each machine",
+  "target_constraints": [
+    "Each product k must be produced in non-negative quantities",
+    "For each machine m, the total production time for all products cannot exceed AvailableTime"
+  ],
+  "target_parameters": [
+    "Number of different products",
+    "Number of different machines",
+    "Time to produce one unit of product k on machine m",
+    "Total available time on machine m",
+    "Profit from producing one unit of product k"
+  ]
+}

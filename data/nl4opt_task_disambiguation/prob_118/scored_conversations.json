@@ -1,0 +1,471 @@
+{
+  "vague_description": "Determine how to allocate limited resources between two products under certain constraints to maximize output.",
+  "detailed_description": "A clinic makes batches of vitamin shots and pills. Each batch of vitamin shots requires \\param{VitaminCShot} units of vitamin C and \\param{VitaminDShot} units of vitamin D. Each batch of vitamin pills requires \\param{VitaminCPill} units of vitamin C and \\param{VitaminDPill} units of vitamin D. Since pills are more popular, the number of batches of vitamin pills must be larger than the number of batches of vitamin shots. Further, the clinic can make at most \\param{MaxShotBatches} batches of vitamin shots. The clinic has available \\param{TotalVitaminC} units of vitamin C and \\param{TotalVitaminD} units of vitamin D. If each batch of vitamin shots can supply \\param{PeoplePerShot} people and each batch of vitamin pills can supply \\param{PeoplePerPill} people, how many batches of each should be made to maximize the number of people that can be supplied?",
+  "target_objective": "Maximize the total number of people that can be supplied with vitamin shots and pills",
+  "target_constraints": [
+    "Number of vitamin shot batches is non-negative",
+    "Number of vitamin pill batches is non-negative",
+    "Number of vitamin pill batches must be larger than the number of vitamin shot batches",
+    "Up to MaxShotBatches of vitamin shots can be made"
+  ],
+  "target_parameters": [
+    "Units of vitamin C required for one batch of vitamin shots",
+    "Units of vitamin D required for one batch of vitamin shots",
+    "Units of vitamin C required for one batch of vitamin pills",
+    "Units of vitamin D required for one batch of vitamin pills",
+    "Maximum number of vitamin shot batches the clinic can make",
+    "Total available units of vitamin C",
+    "Total available units of vitamin D",
+    "Number of people supplied by one batch of vitamin shots",
+    "Number of people supplied by one batch of vitamin pills"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.",
+    "(0, 0)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.\nExpert: Is there a specific objective function that we need to maximize, such as revenue or profit, related to the production of these two products?\nUser: Yes, the objective is to maximize the number of people that can be supplied.\n",
+    "(0, 0, 0)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.\nExpert: Is there a specific objective function that we need to maximize, such as revenue or profit, related to the production of these two products?\nUser: Yes, the objective is to maximize the number of people that can be supplied.\n\nExpert: Are there constraints related to the availability or capacity of resources used to produce these two products?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.\nExpert: Is there a specific objective function that we need to maximize, such as revenue or profit, related to the production of these two products?\nUser: Yes, the objective is to maximize the number of people that can be supplied.\n\nExpert: Are there constraints related to the availability or capacity of resources used to produce these two products?\nUser: Yes.\n\nExpert: Are the two products substitutable or do they have any dependencies or complementarities affecting their production or supply?\nUser: No.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.",
+    "(0, 0)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.\nExpert: Does the objective involve maximizing profit rather than production output?\nUser: No.\n",
+    "(0, 0, 0)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.\nExpert: Does the objective involve maximizing profit rather than production output?\nUser: No.\n\nExpert: Does the problem contain constraints related to minimum production requirements for Product A?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.\nExpert: Does the objective involve maximizing profit rather than production output?\nUser: No.\n\nExpert: Does the problem contain constraints related to minimum production requirements for Product A?\nUser: No.\n\nExpert: Do any of the problem descriptions include a constraint or parameter related to a fixed ratio of resource allocation between Product A and Product B?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.",
+    "(0, 0)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.\nExpert: Is the objective of the problem to maximize revenue or profit?\nUser: No.\n",
+    "(0, 0, 0)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.\nExpert: Is the objective of the problem to maximize revenue or profit?\nUser: No.\n\nExpert: Is the objective of the problem to minimize a cost or resource constraint?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.\nExpert: Is the objective of the problem to maximize revenue or profit?\nUser: No.\n\nExpert: Is the objective of the problem to minimize a cost or resource constraint?\nUser: No.\n\nExpert: Is the objective of the problem to maximize some other output or quantity that does not directly relate to revenue, profit, or cost, such as production volume, quality, or efficiency?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.",
+    "(0, 0)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.\nExpert: Does the problem description contain the phrase 'maximize output' (case-insensitive) exactly once, without any additional words?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.\nExpert: Does the problem description contain the phrase 'maximize output' (case-insensitive) exactly once, without any additional words?\nUser: Yes\n\nExpert: Do you have a list of parameters, regardless of whether it's empty or not?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine how to allocate limited resources between two products under certain constraints to maximize output.\nExpert: Does the problem description contain the phrase 'maximize output' (case-insensitive) exactly once, without any additional words?\nUser: Yes\n\nExpert: Do you have a list of parameters, regardless of whether it's empty or not?\nUser: Yes\n\nExpert: Are there any constraints on the problem?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource availability for each type of resource",
+            "Production capacity limit for each product",
+            "Resource requirement for each unit of product",
+            "Market demand limits for each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output by optimally allocating limited resources between two products while considering given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited total resources available for allocation.",
+            "Proportion of resources must be non-negative for each product.",
+            "The sum of resources allocated to both products must not exceed the total resources available.",
+            "Possibly other constraints related to production capacity, market demand, or cost considerations specific to the problem context."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource limitations",
+            "Two products",
+            "Maximize number of people supplied"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of people that can be supplied with the limited resources for the production of two products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total resource allocation between the two products cannot exceed the available resources.",
+            "The resource usage per unit production of each product must be considered.",
+            "There must be a minimum quantity of each product to meet demand, if specified.",
+            "Any production or operational capacity limits should be respected.",
+            "There may be a precedence or priority in the allocation of resources if one product is more critical."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Maximize the number of people supplied by the products.",
+            "Constraints related to the availability of resources.",
+            "Constraints related to the capacity of resources.",
+            "Two products involved in the decision-making process."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of people that can be supplied."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of available resources must not be exceeded.",
+            "Each unit of the first product requires a specific amount of resources.",
+            "Each unit of the second product requires a specific amount of resources.",
+            "The production capacity for each product may be limited by available machinery or labor.",
+            "Both products require a minimum production quantity to meet demand.",
+            "The quality standards for each product need to be met in every unit produced."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Maximize the number of people supplied.",
+            "Constraints related to resource availability or capacity for producing the two products.",
+            "The two products are not substitutable and do not have dependencies or complementarities affecting production or supply."
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize the number of people that can be supplied with the two products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited availability of resources that must be allocated between two products.",
+            "Capacity constraints on the resources used for producing each product.",
+            "No dependency or complementarity between the two products, implying independent production and supply chains."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources",
+            "Two products",
+            "Constraint conditions",
+            "Objective to maximize output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the output of two products by efficiently allocating limited resources between them under given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total resources available are fixed.",
+            "The allocation for both products together cannot exceed the total resources available.",
+            "Each product requires a minimum allocation of resources to be viable.",
+            "The total output is maximized through optimal allocation."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources",
+            "Two products",
+            "Maximize output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize production output of the two products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource limitation: The total quantity of resources allocated to the two products cannot exceed the available amount of resources.",
+            "Non-negativity: The allocation of resources to each product must be non-negative (i.e., you cannot allocate a negative quantity of resources)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resources",
+            "Product A",
+            "Product B",
+            "Output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate limited resources between two products to maximize output."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources available for allocation",
+            "Objective to maximize production output",
+            "Two products involved: Product A and Product B",
+            "No minimum production requirements for Product A",
+            "No constraint on fixed ratio of resource allocation between Product A and Product B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize production output"
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources",
+            "Two products",
+            "Constraints",
+            "Maximize output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output by optimally allocating limited resources between two products while adhering to given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource 1 availability constraint: The total amount of Resource 1 used for both products cannot exceed the available amount.",
+            "Resource 2 availability constraint: The total amount of Resource 2 used for both products cannot exceed the available amount.",
+            "Non-negativity constraint: The amount of each product produced cannot be negative."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Product 1 output",
+            "Product 2 output",
+            "Total resources available",
+            "Resource allocation to Product 1",
+            "Resource allocation to Product 2",
+            "Constraints on resource distribution"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize output"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total resources available are 100 units.",
+            "Product A requires 2 units of resources to produce one unit.",
+            "Product B requires 3 units of resources to produce one unit.",
+            "At least 10 units of Product A must be produced.",
+            "At least 5 units of Product B must be produced.",
+            "The production capacity for Product A is a maximum of 30 units.",
+            "The production capacity for Product B is a maximum of 20 units."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective: maximize output",
+            "constraints: limited resources related to production",
+            "decision variables: allocation of resources between two products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize output"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability for each product must be respected.",
+            "The sum of allocated resources to both products cannot exceed total available resources.",
+            "Each product must have a non-negative amount of resources allocated to it."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Two products to allocate resources between",
+            "Limited resources",
+            "Constraints on resource allocation",
+            "Objective to maximize production volume, quality, or efficiency"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize output, which could refer to production volume, quality, or efficiency, by optimally allocating limited resources between two products under given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The resources available for allocation between the two products are limited and fixed.",
+            "There exist constraints related to the production capacity for each product.",
+            "There are specific quality or efficiency standards that the output must meet.",
+            "There may be a minimum or maximum amount of each product that needs to be produced.",
+            "The total output is subject to optimization under these conditions to maximize the non-monetary objective."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize total output of two products",
+            "Decision Variables: Amount of resources allocated to Product A and Product B",
+            "Constraints: Limited availability of resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate limited resources between two products in a way that maximizes the overall output, subject to given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total resources allocated to both products cannot exceed the available limited resources.",
+            "Each product has a minimum resource requirement that must be met to be produced.",
+            "There might be a resource ceiling for each product representing the maximum resources it can efficiently utilize.",
+            "The output for each product typically increases with increased resource allocation but subject to diminishing returns.",
+            "The combined output of both products should be maximized given the resource allocation.",
+            "There may be additional constraints such as market demand limitations for each product.",
+            "Resource allocation decisions might need to ensure that both products are produced to some extent to maintain market presence."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "limited resources",
+            "two products",
+            "certain constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate limited resources between two products under certain constraints to maximize output."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited resources both for Product 1 and Product 2",
+            "The objective is to maximize output from these products",
+            "Constraints should involve division of resources such that the output from both products is considered",
+            "Varied consumption of resources by each product needs to be considered",
+            "The overall resource limit should not be exceeded"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "limited resources",
+            "two products",
+            "constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The phrase 'maximize output' occurs exactly once.",
+            "A list of parameters is available."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "limited resources",
+            "two products",
+            "certain constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Allocate limited resources between two products to maximize output under certain constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited resources available for allocation",
+            "Requirement to maximize output of the products",
+            "Resources can only be allocated to two products",
+            "There may be additional constraints regarding budget, manpower, or material limits"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    }
+  }
+}

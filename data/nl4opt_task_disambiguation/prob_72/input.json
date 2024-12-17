@@ -1,0 +1,25 @@
+{
+  "vague_description": "The bank must decide how to allocate resources between different branch sizes to effectively meet customer demand with a limited workforce.",
+  "detailed_description": "A bank can build small and large branches to serve their customers. A small branch can serve \\param{ServeSmall} customers per day and requires \\param{TellersSmall} bank tellers. A large branch can serve \\param{ServeLarge} customers per day and requires \\param{TellersLarge} bank tellers. The bank has available \\param{TellersTotal} bank tellers and needs to be able to serve at least \\param{MinCustomers} customers per day. How many of each branch size should they build to minimize the total number of branches needed?",
+  "target_objective": "The bank wants to minimize the total number of branches needed",
+  "target_constraints": [
+    "Number of small branches is an integer",
+    "Number of large branches is an integer",
+    "Number of small branches is non-negative",
+    "Number of large branches is non-negative",
+    "Small branches serve ServeSmall customers each",
+    "Large branches serve ServeLarge customers each",
+    "The bank requires TellersSmall tellers per small branch",
+    "The bank requires TellersLarge tellers per large branch",
+    "The bank has available TellersTotal tellers in total",
+    "The bank needs to serve at least MinCustomers customers per day"
+  ],
+  "target_parameters": [
+    "Number of customers a small branch can serve per day",
+    "Number of bank tellers required for a small branch",
+    "Number of customers a large branch can serve per day",
+    "Number of bank tellers required for a large branch",
+    "Total number of bank tellers available",
+    "Minimum number of customers to be served per day"
+  ]
+}

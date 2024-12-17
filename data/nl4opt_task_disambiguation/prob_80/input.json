@@ -1,0 +1,19 @@
+{
+  "vague_description": "Determine the optimal distribution of regular and emergency fire fighters given constraints on hours needed and budget.",
+  "detailed_description": "A fire department employs regular and emergency fire fighters. A regular fire fighter works \\param{HoursRegular} hours per shift and earns \\param{EarningsRegular}. An emergency fire fighter works \\param{HoursEmergency} hours per shift and earns \\param{EarningsEmergency}. Due to wildfires in the region, the fire department needs at least \\param{MinHours} hours of fire fighter time. If the fire department has a budget of \\param{Budget}, how many of each should the fire department hire to minimize the total number of fire fighters?",
+  "target_objective": "Minimize the total number of fire fighters hired",
+  "target_constraints": [
+    "Minimum required fire fighter hours is MinHours",
+    "The budget for hiring fire fighters is Budget",
+    "Number of regular fire fighters is non-negative",
+    "Number of emergency fire fighters is non-negative"
+  ],
+  "target_parameters": [
+    "Hours per shift for a regular fire fighter",
+    "Earnings per shift for a regular fire fighter",
+    "Hours per shift for an emergency fire fighter",
+    "Earnings per shift for an emergency fire fighter",
+    "Minimum required fire fighter hours due to wildfires",
+    "Available budget for hiring fire fighters"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "vague_description": "The challenge is to balance the types and numbers of water transport pipes to meet delivery needs while adhering to specific constraints.",
+  "detailed_description": "The government is reworking the pipes to transport water to houses in the area. The water can be transported through wide pipes or narrow pipes. Wide pipes can transport \\param{WidePipeCapacity} units of water per minute and narrow pipes can transport \\param{NarrowPipeCapacity} units of water per minute. Due to logistics, the number of wide pipes can be at most \\param{MaxWideToNarrowRatio} times the number of narrow pipes. If there needs to be at least \\param{MinTotalWater} units of water transported every minute, and at least \\param{MinWidePipes} wide pipes must be used, minimize the total number of pipes required.",
+  "target_objective": "Minimize the total number of wide and narrow pipes required",
+  "target_constraints": [
+    "Number of wide pipes is non-negative",
+    "Number of narrow pipes is non-negative",
+    "Number of wide pipes is at most MaxWideToNarrowRatio times the number of narrow pipes",
+    "At least MinTotalWater units of water must be transported every minute",
+    "At least MinWidePipes wide pipes must be used"
+  ],
+  "target_parameters": [
+    "Capacity of water transported by wide pipes per minute",
+    "Capacity of water transported by narrow pipes per minute",
+    "Maximum number of wide pipes as a fraction of narrow pipes",
+    "Minimum total units of water to be transported every minute",
+    "Minimum number of wide pipes to be used"
+  ]
+}

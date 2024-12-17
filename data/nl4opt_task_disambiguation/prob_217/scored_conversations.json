@@ -1,0 +1,471 @@
+{
+  "vague_description": "The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.",
+  "detailed_description": "Super Shop sells cat paw snacks and gold shark snacks in bulk. It plans to sell them into two snack mix products. The first mix contains \\param{PctCatPawFirst}% cat paw snacks and \\param{PctGoldSharkFirst}% gold shark snacks. The second mix contains \\param{PctCatPawSecond}% cat paw snacks and \\param{PctGoldSharkSecond}% gold shark snacks. The store has on hand \\param{TotalCatPaw} kg of cat paw snacks and \\param{TotalGoldShark} kg of gold shark snacks. If the profit per kg of the first mix is $\\param{ProfitFirstMix} and the profit per kg of the second mix is $\\param{ProfitSecondMix}, how many kg of each should be prepared to maximize profit?",
+  "target_objective": "Maximize the total profit from both snack mixes",
+  "target_constraints": [
+    "Amount of cat paw snacks in the first mix is non-negative",
+    "Amount of gold shark snacks in the first mix is non-negative",
+    "Amount of cat paw snacks in the second mix is non-negative",
+    "Amount of gold shark snacks in the second mix is non-negative",
+    "Total amount of cat paw snacks in both mixes cannot exceed TotalCatPaw kg",
+    "Total amount of gold shark snacks in both mixes cannot exceed TotalGoldShark kg",
+    "The first mix must contain PctCatPawFirst% cat paw snacks and PctGoldSharkFirst% gold shark snacks",
+    "The second mix must contain PctCatPawSecond% cat paw snacks and PctGoldSharkSecond% gold shark snacks"
+  ],
+  "target_parameters": [
+    "Percentage of cat paw snacks in the first snack mix",
+    "Percentage of gold shark snacks in the first snack mix",
+    "Percentage of cat paw snacks in the second snack mix",
+    "Percentage of gold shark snacks in the second snack mix",
+    "Total kg of cat paw snacks available",
+    "Total kg of gold shark snacks available",
+    "Profit per kg of the first snack mix",
+    "Profit per kg of the second snack mix"
+  ],
+  "Expert": {
+    "(0,)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.",
+    "(0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Does the problem include both equality and inequality constraints related to ingredient proportions and inventory limits?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Does the problem include both equality and inequality constraints related to ingredient proportions and inventory limits?\nUser: Yes\n\nExpert: Are the profit coefficients for the two snack products linear in terms of their quantities in the objective function?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Does the problem include both equality and inequality constraints related to ingredient proportions and inventory limits?\nUser: Yes\n\nExpert: Are the profit coefficients for the two snack products linear in terms of their quantities in the objective function?\nUser: Yes\n\nExpert: Are there additional production constraints beyond the ingredient proportions and inventory limits, such as time or labor constraints?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.",
+    "(0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Does any problem description include a constraint on the maximum number of units that can be produced of any product?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Does any problem description include a constraint on the maximum number of units that can be produced of any product?\nUser: No\n\nExpert: Does the problem involve exactly two types of ingredients for the snack products?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Does any problem description include a constraint on the maximum number of units that can be produced of any product?\nUser: No\n\nExpert: Does the problem involve exactly two types of ingredients for the snack products?\nUser: Yes\n\nExpert: Do the problem descriptions include explicit numerical values for profit per unit of the products?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.",
+    "(0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Are the quantities of the two snack products to be determined integers?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Are the quantities of the two snack products to be determined integers?\nUser: Yes.\n\nExpert: Is there a fixed upper limit on the inventory for each of the two snack products?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Are the quantities of the two snack products to be determined integers?\nUser: Yes.\n\nExpert: Is there a fixed upper limit on the inventory for each of the two snack products?\nUser: No.\n\nExpert: Are there any constraints on the ingredient proportions of the two snack products?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.",
+    "(0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Are 'ingredient proportions' listed as a constraint in a case-insensitive manner at least twice in the problem descriptions?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Are 'ingredient proportions' listed as a constraint in a case-insensitive manner at least twice in the problem descriptions?\nUser: Yes\n\nExpert: Are all constraint values exactly the same as the keys in the parameters dictionary?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Are 'ingredient proportions' listed as a constraint in a case-insensitive manner at least twice in the problem descriptions?\nUser: Yes\n\nExpert: Are all constraint values exactly the same as the keys in the parameters dictionary?\nUser: No\n\nExpert: Are the provided problem parameters specific values or general variable names?\nUser: General variable names\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of mixed snack product 1",
+            "Quantity of mixed snack product 2"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal quantities of two mixed snack products within the constraints of ingredient proportions and inventory limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Product A and Product B must each contain a certain percentage of each ingredient.",
+            "The total amount of each ingredient used cannot exceed the available inventory.",
+            "The quantity of Product A and Product B must be non-negative."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of two mixed snack products",
+            "Objective function: Maximize profit",
+            "Equality constraints on ingredient proportions",
+            "Inequality constraints on inventory limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining optimal quantities of two mixed snack products, considering ingredient proportions and inventory limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "x1 + x2 <= inventory_limit_snack_mix_1",
+            "y1 + y2 <= inventory_limit_snack_mix_2",
+            "a11 * x1 + a12 * x2 = b1",
+            "a21 * x1 + a22 * x2 = b2",
+            "a31 * y1 + a32 * y2 = b3",
+            "x1, x2, y1, y2 >= 0"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Ingredient proportion equality constraints",
+            "Inventory limit inequality constraints",
+            "Objective function is a linear combination of the quantities of two snack products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining optimal quantities of two mixed snack products within given ingredient proportions and inventory limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "For each snack product, the ingredient proportions must be met, which implies equality constraints in terms of the quantities of ingredients used.",
+            "The total usage of each ingredient across all products must not exceed the available inventory, leading to inequality constraints.",
+            "The quantities of snack products must be non-negative, imposing inequality constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Maximize linear profit from two snack products",
+            "Decision variables: Quantities of the two mixed snack products",
+            "Equality constraints: Specific ingredient proportions in the products",
+            "Inequality constraints: Inventory limits for available ingredients",
+            "No additional constraints: Absence of time or labor constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from selling two mixed snack products given linear profit coefficients, with constraints on ingredient proportions and limited inventory."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Equality constraints for ingredient proportions for both snack products.",
+            "Inequality constraints for the inventory limits of ingredients.",
+            "Non-negativity constraints for the quantities of both snack products.",
+            "Linear objective function coefficients corresponding to the profit from each snack product."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of snack product 1",
+            "Quantities of snack product 2"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal quantities of two mixed snack products while adhering to ingredient constraints and inventory limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total quantity of ingredients used in both snack products should not exceed the available inventory for each ingredient.",
+            "The mix for each snack product must adhere to the specified ingredient proportions.",
+            "No negative quantities of the snack products or ingredients should be allowed (non-negativity constraint)."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of two mixed snack products",
+            "Profit for each product",
+            "Proportions of ingredients in each product",
+            "Inventory limitations of ingredients"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining optimal quantities of two mixed snack products, considering specific ingredient proportions and limited ingredient inventory."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Specific ingredient proportions for each product must be maintained.",
+            "Inventory levels (availability of ingredients) cannot be exceeded."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize profit from two mixed snack products",
+            "Determine optimal quantities for the snack products",
+            "Specific ingredient proportions required for each product",
+            "Limited total inventory of two types of ingredients"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal quantities of two mixed snack products, considering specific ingredient proportions and limited inventory of ingredients."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the quantities of the two ingredients used in the snacks must not exceed the total inventory available for each ingredient.",
+            "Each snack product must use specific proportions of the two ingredients, as prescribed in the problem description."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Two mixed snack products",
+            "Two types of ingredients",
+            "Profit per unit for each product",
+            "Specific ingredient proportions",
+            "Limited inventory of ingredients"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal quantities of two mixed snack products to produce in order to maximize profit, taking into account the specific ingredient proportions and the limited inventory of ingredients available for production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Only two types of snack products can be produced.",
+            "There are specific ingredient proportions required for each snack product.",
+            "Total inventory of each ingredient is limited."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "quantities of two mixed snack products to produce",
+            "profit function based on quantities of products",
+            "proportion of ingredients in each product",
+            "total inventory of each ingredient available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let x be the quantity of the first snack product to produce.",
+            "Let y be the quantity of the second snack product to produce.",
+            "Ingredient 1 input for product 1 = a1, for product 2 = a2. Total available: A.",
+            "Ingredient 2 input for product 1 = b1, for product 2 = b2. Total available: B.",
+            "Ingredient 3 input for product 1 = c1, for product 2 = c2. Total available: C.",
+            "a1*x + a2*y <= A (Ingredient 1 constraint)",
+            "b1*x + b2*y <= B (Ingredient 2 constraint)",
+            "c1*x + c2*y <= C (Ingredient 3 constraint)",
+            "Non-negativity: x >= 0, y >= 0"
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "1. Objective Function: Maximize Profit",
+            "2. Decision Variables: Quantities of the two mixed snack products",
+            "3. Constraints:",
+            "   a. Ingredient proportion requirements",
+            "   b. Inventory limitations",
+            "4. Decision Variable Type: Integer"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the integer quantities of two mixed snack products to maximize profit while adhering to specific ingredient proportions and limited inventory constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Both snack product quantities must be integers."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of two mixed snack products",
+            "Ingredient proportions",
+            "Limited inventory",
+            "Maximize profit",
+            "Integer quantities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining integer quantities of two snack products while adhering to ingredient proportions and inventory constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The ingredient proportions for each snack product must be adhered to.",
+            "The quantities for each snack product must be integers.",
+            "There is no fixed upper limit on the quantity produced for each snack product."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize profit",
+            "Quantities of two mixed snack products",
+            "Quantities must be integers",
+            "Limited inventory constraints",
+            "Constraints on ingredient proportions",
+            "No fixed upper limit on inventory for snack products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the integer quantities of two mixed snack products to maximize profit while adhering to specific ingredient proportions and limited inventory constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantities of the two snack products must be integers.",
+            "The two mixed snack products must adhere to specific ingredient proportions.",
+            "The total usage of each ingredient should not exceed its available inventory limits."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Ingredient proportions for each snack product",
+            "Available inventory for each ingredient",
+            "Profit per unit of each snack product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profit by determining the optimal quantities of two mixed snack products, while considering ingredient proportions and inventory constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantities of both snack products must be non-negative.",
+            "The combined use of each ingredient in the snack products cannot exceed the available inventory of that ingredient.",
+            "Each mixed snack product must adhere to specific proportions of ingredients."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Mixed snack products",
+            "Optimal quantities",
+            "Maximize profit",
+            "Ingredient proportions",
+            "Limited inventory"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit through optimal production of two mixed snack products while adhering to specified ingredient proportions and considering limited inventory constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "ingredient proportions constraints",
+            "limited inventory constraints"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "ingredient proportions",
+            "limited inventory",
+            "two mixed snack products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by determining the optimal quantities of two mixed snack products, subject to ingredient proportion constraints and limited inventory."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "ingredient proportions",
+            "limited inventory"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "ingredient_proportions",
+            "limited_inventory"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by determining the optimal quantities of two mixed snack products while adhering to ingredient proportions and limited inventory constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantities of the two mixed snack products must satisfy specific ingredient proportions.",
+            "The available inventory of each ingredient limits the quantities of the two mixed snack products."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 4,
+        "o_score": 4,
+        "c_score": 5
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "vague_description": "Optimize meal choices to achieve specific dietary goals within given constraints.",
+  "detailed_description": "A macro-counting fitness guru only eats salmon and eggs. Each bowl of salmon contains \\param{CaloriesSalmon} calories, \\param{ProteinSalmon} grams of protein, and \\param{SodiumSalmon} mg of sodium. Each bowl of eggs contains \\param{CaloriesEggs} calories, \\param{ProteinEggs} grams of protein, and \\param{SodiumEggs} mg of sodium. Since the fitness guru has a limit to how many eggs he would like to eat, at most \\param{MaxEggProportion} of his meals can be eggs. The fitness guru needs to eat at least \\param{MinTotalCalories} calories and \\param{MinTotalProtein} grams of protein. How many of each type of meal should he eat to minimize his sodium intake?",
+  "target_objective": "Minimize total sodium intake",
+  "target_constraints": [
+    "Number of salmon meals is non-negative",
+    "Number of egg meals is non-negative",
+    "At most MaxEggProportion of the meals can be eggs",
+    "Total caloric intake must be at least MinTotalCalories calories",
+    "Total protein intake must be at least MinTotalProtein grams"
+  ],
+  "target_parameters": [
+    "Calories per bowl of salmon",
+    "Protein per bowl of salmon",
+    "Sodium per bowl of salmon",
+    "Calories per bowl of eggs",
+    "Protein per bowl of eggs",
+    "Sodium per bowl of eggs",
+    "Maximum proportion of meals that can be eggs",
+    "Minimum total calories required",
+    "Minimum total protein required"
+  ]
+}

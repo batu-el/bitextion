@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determine the optimal combination of two medications that minimizes side effects while meeting treatment requirements.",
+  "detailed_description": "A patient in the hospital can take two pills, Pill 1 and Pill 2. Per pill, Pill 1 provides \\param{PainPillOne} units of pain medication and \\param{AnxietyPillOne} units of anxiety medication. Per pill, Pill 2 provides \\param{PainPillTwo} units of pain medication and \\param{AnxietyPillTwo} units of anxiety medication. In addition, Pill 1 causes \\param{DischargePillOne} units of discharge while Pill 2 causes \\param{DischargePillTwo} units of discharge. At most \\param{MaxPainMedication} units of pain medication can be provided and at least \\param{MinAnxietyMedication} units of anxiety medication must be provided. How many pills of each should the patient be given to minimize the total amount of discharge?",
+  "target_objective": "Minimize the total amount of discharge resulting from the medication plan",
+  "target_constraints": [
+    "Number of Pill 1 is non-negative",
+    "Number of Pill 2 is non-negative",
+    "Total pain medication provided by Pill 1 and Pill 2 is at most MaxPainMedication",
+    "Total anxiety medication provided by Pill 1 and Pill 2 is at least MinAnxietyMedication"
+  ],
+  "target_parameters": [
+    "Pain medication per Pill 1",
+    "Anxiety medication per Pill 1",
+    "Discharge caused by Pill 1",
+    "Pain medication per Pill 2",
+    "Anxiety medication per Pill 2",
+    "Discharge caused by Pill 2",
+    "Maximum units of pain medication allowed",
+    "Minimum units of anxiety medication required"
+  ]
+}

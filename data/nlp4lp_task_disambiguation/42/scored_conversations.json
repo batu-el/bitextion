@@ -1,0 +1,460 @@
+{
+  "vague_description": "Some parameters are required to determine the optimal staffing schedule.",
+  "detailed_description": "Calculate the minimum number of employees to hire such that the requirements for coverage (as described by \\param{Num}) can be met with each employee working for \\param{WorkingDays} consecutive days followed by at least \\param{RestingDays} consecutive resting days.",
+  "target_objective": "Minimize the number of employees to hire to meet the coverage requirements",
+  "target_constraints": [
+    "Each employee works for WorkingDays consecutive days",
+    "Each employee must have at least RestingDays consecutive days of rest",
+    "Number of employees is a non-negative integer"
+  ],
+  "target_parameters": [
+    "The number of users on the nth day",
+    "Number of consecutive working days before a resting period",
+    "Number of consecutive resting days"
+  ],
+  "Expert": {
+    "(0,)": "User: Some parameters are required to determine the optimal staffing schedule.",
+    "(0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Does the problem involve minimizing the total cost associated with staffing, such as wages and overtime?\"\nUser: No\n",
+    "(0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Does the problem involve minimizing the total cost associated with staffing, such as wages and overtime?\"\nUser: No\n\nExpert: Does the problem involve maximizing coverage or effectiveness of staffing over specific time periods?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Does the problem involve minimizing the total cost associated with staffing, such as wages and overtime?\"\nUser: No\n\nExpert: Does the problem involve maximizing coverage or effectiveness of staffing over specific time periods?\nUser: Yes\n\nExpert: Are there constraints related to the availability or working hours of staff members?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Some parameters are required to determine the optimal staffing schedule.",
+    "(0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Do all candidate problems include a constraint about staff needing mandatory rest or breaks between shifts?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Do all candidate problems include a constraint about staff needing mandatory rest or breaks between shifts?\nUser: Yes\n\nExpert: Does the problem description include a requirement for specific skill levels or roles for staffing each shift?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Do all candidate problems include a constraint about staff needing mandatory rest or breaks between shifts?\nUser: Yes\n\nExpert: Does the problem description include a requirement for specific skill levels or roles for staffing each shift?\nUser: No\n\nExpert: Does any problem include constraints on the maximum number of staff working simultaneously?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Some parameters are required to determine the optimal staffing schedule.",
+    "(0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Do these parameters include time-dependent factors, such as varying demand or shift patterns?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Do these parameters include time-dependent factors, such as varying demand or shift patterns?\nUser: Yes.\n\nExpert: Do these time-dependent factors have a seasonal or periodic component?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Do these parameters include time-dependent factors, such as varying demand or shift patterns?\nUser: Yes.\n\nExpert: Do these time-dependent factors have a seasonal or periodic component?\nUser: Yes.\n\nExpert: Is the seasonality or periodicity of the demand or shift patterns predictable and known in advance?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Some parameters are required to determine the optimal staffing schedule.",
+    "(0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Are there any constraints that directly limit the number of employees?\nUser: No\n",
+    "(0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Are there any constraints that directly limit the number of employees?\nUser: No\n\nExpert: Are there any constraints in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Are there any constraints that directly limit the number of employees?\nUser: No\n\nExpert: Are there any constraints in the problem description?\nUser: Yes\n\nExpert: Is there at least one constraint provided for the problem?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of staff required per shift",
+            "Availability of each staff member",
+            "Maximum working hours per staff member",
+            "Staff preferences for shifts",
+            "Labor cost constraints",
+            "Skill requirements for each shift",
+            "Shift timings",
+            "Projected workload during each shift"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal staffing schedule that efficiently allocates resources while meeting operational demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of available staff is limited and must be considered.",
+            "Each staff member has a maximum number of hours they are allowed to work per week.",
+            "There are specific times when more staff are needed due to higher demand.",
+            "Staff availability may vary, with some unable to work at certain times.",
+            "Labor laws or company policies might impose restrictions on shift lengths or mandatory breaks.",
+            "Budget constraints may limit the total number of hours that can be worked within a particular period.",
+            "Staff skills and qualifications might limit who can be scheduled for certain tasks."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximizing employee satisfaction",
+            "ensuring adequate coverage for shifts",
+            "adhering to labor regulations",
+            "minimizing shift overlaps",
+            "equal distribution of workload among employees"
+          ]
+        },
+        "pred_objective": {
+          "objective": "determine the optimal staffing schedule based on criteria other than minimizing total cost, such as maximizing efficiency, meeting demand, or adhering to work regulations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The criterion for optimization is not the minimization of total cost related to staffing, such as wages and overtime."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "coverage",
+            "effectiveness of staffing over specific time periods"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize staffing coverage or effectiveness over specific time periods."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maximize coverage of staffing",
+            "Maximize effectiveness of staffing in specific time periods"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize coverage",
+            "maximize effectiveness over time periods",
+            "constraints on staff availability",
+            "constraints on working hours"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the coverage or effectiveness of staffing over specific time periods while considering constraints related to the availability or working hours of staff members."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Staffing schedule must maximize coverage or effectiveness during specific periods.",
+            "Staff members' availability must be observed when creating the schedule.",
+            "Working hours constraints apply to staff members, such as maximum or minimum hours."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total number of employees available",
+            "Employee skill levels or roles",
+            "Shift timings and durations",
+            "Employee availability and preferences",
+            "Maximum allowable working hours per employee",
+            "Overtime restrictions and costs",
+            "Demand forecasts or required staffing levels for each shift",
+            "Legal or contractual constraints",
+            "Financial budget for staffing",
+            "Employee turnover rates",
+            "Seasonal variations or special event considerations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal staffing schedule to meet operational requirements efficiently."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of staff available at any given time cannot exceed the total number of staff employed.",
+            "All tasks must be completed within their allocated time windows.",
+            "Each staff member can only work a maximum of 8 hours per day.",
+            "There must be at least 5 staff members on duty during peak hours.",
+            "Each shift must include at least one supervisor.",
+            "Each staff member must have at least 12 hours of rest between shifts.",
+            "All legal and contractual obligations for staff working hours and conditions must be met."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "mandatory rest or breaks between shifts"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal staffing schedule while ensuring all staff receive mandatory rest or breaks between shifts."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Staff must have mandatory rest or breaks between shifts."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Mandatory rest or breaks between shifts",
+            "specific skill levels or roles for staffing each shift"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal staffing schedule while ensuring mandatory rest or breaks between shifts are maintained."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "staff needing mandatory rest or breaks between shifts"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "mandatory rest or breaks between shifts"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine an optimal staffing schedule that ensures compliance with mandatory rest or break requirements between shifts, while minimizing the total staffing cost or maximizing staff efficiency."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Staff require mandatory rest or breaks between shifts."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of staff members available",
+            "Total hours of operation",
+            "Peak hours of demand",
+            "Minimum staffing requirements per hour",
+            "Overtime restrictions",
+            "Employee preferences or availability",
+            "Budget constraints for staffing costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal schedule for staffing that achieves maximum efficiency and minimizes labor costs while meeting demand and adhering to labor regulations and constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The staffing schedule must cover all operational hours without interruption.",
+            "The number of staff on duty at any time must not exceed the maximum allowable staffing level.",
+            "The schedule must adhere to labor laws, such as maximum weekly working hours and mandatory breaks.",
+            "There should be a balance between full-time and part-time staff to optimize costs.",
+            "Staff preferences for shifts should be considered where possible to improve job satisfaction and retention.",
+            "The schedule must accommodate for skill level requirements for certain positions or tasks.",
+            "Overtime should be minimized to control operational costs."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "time-dependent demand",
+            "shift patterns"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal staffing schedule that accounts for time-dependent factors such as varying demand and shift patterns."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The staffing schedule must accommodate varying demand over time.",
+            "The schedule should align with specified shift patterns."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal staffing schedule",
+            "Time-dependent factors",
+            "Varying demand",
+            "Shift patterns",
+            "Seasonal component",
+            "Periodic component"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal staffing schedule that accounts for time-dependent factors, including varying demand and shift patterns, as well as any seasonal or periodic components, with the goal of minimizing operational costs while ensuring adequate coverage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Time-dependent factors vary based on shift patterns.",
+            "Demand for staffing is time-dependent and varies seasonally.",
+            "Staffing schedule must accommodate seasonal or periodic variations in demand."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Time-dependent factors",
+            "Shift patterns",
+            "Seasonality",
+            "Periodicity",
+            "Predictable demand"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Develop a staffing schedule that aligns personnel availability with the predictable periodic and seasonal demand patterns, optimizing for cost-effectiveness and coverage requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Incorporate time-dependent factors such as varying demand and shift patterns into the staffing schedule.",
+            "Account for seasonal or periodic components in demand or shift patterns.",
+            "Ensure that the seasonal or periodic components are predictable and known in advance.",
+            "Adjust staffing schedules accordingly to meet varying demands at different times."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of employees available",
+            "Demand for staff at different times",
+            "Employee shift preferences",
+            "Overtime limits",
+            "Budget for staffing costs",
+            "Legal or contractual requirements for staffing",
+            "Minimum and maximum shift lengths"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal staffing schedule by adjusting various parameters to maximize efficiency, meet demand, and minimize costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Staffing levels must meet the minimum required by regulations at all times.",
+            "The number of staff scheduled should not exceed the budget constraints in terms of labor costs.",
+            "Shifts should be assigned equitably among staff to avoid excessive overtime for any single worker.",
+            "All critical positions must be covered in every shift with qualified personnel.",
+            "Staff must have at least 8 hours of rest between consecutive shifts.",
+            "Employee availability and preference should be considered where possible."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "staffing schedule"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal staffing schedule."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Constraints that limit the number of employees indirectly.",
+            "Constraints in the problem description."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal staffing schedule while considering specific constraints outlined in the problem description."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There are constraints in the problem description.",
+            "There are no direct limitations on the number of employees based on user input."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "there are constraints provided that are not related to the number of employees"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal staffing schedule while adhering to given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is at least one constraint provided in the problem description.",
+            "There are no constraints that directly limit the number of employees."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      }
+    }
+  }
+}

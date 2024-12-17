@@ -1,0 +1,492 @@
+{
+  "vague_description": "Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.",
+  "detailed_description": "Determine the most cost-effective combination of interventions to halt the intruder's progress within the network. The MILP problem includes parameters: processing times at the central system (\\param{IsolateCentral}, \\param{ScanCentral}), processing times at the distributed system (\\param{IsolateDistributed}, \\param{ScanDistributed}), costs (\\param{CentralCost}, \\param{DistributedCost}), and maximum hours (\\param{CentralMaxHours}, \\param{DistributedMaxHours}) for a number of interventions \\param{N}.",
+  "target_objective": "Minimize the total cost of interventions at the central and distributed systems",
+  "target_constraints": [
+    "Processing time for isolation in the central system multiplied by the number of such interventions is less than or equal to CentralMaxHours",
+    "Processing time for scanning in the central system multiplied by the number of such interventions is less than or equal to CentralMaxHours",
+    "Processing time for isolation in the distributed system multiplied by the number of such interventions is less than or equal to DistributedMaxHours",
+    "Processing time for scanning in the distributed system multiplied by the number of such interventions is less than or equal to DistributedMaxHours",
+    "The total number of interventions for both systems is equal to N",
+    "Number of central system interventions is non-negative and integer-valued",
+    "Number of distributed system interventions is non-negative and integer-valued"
+  ],
+  "target_parameters": [
+    "Number of interventions",
+    "Processing time for isolating at the central system for each intervention",
+    "Processing time for scanning at the central system for each intervention",
+    "Processing time for isolating at the distributed system for each intervention",
+    "Processing time for scanning at the distributed system for each intervention",
+    "Cost for central system intervention",
+    "Cost for distributed system intervention",
+    "Maximum hours of operation for the central system",
+    "Maximum hours of operation for the distributed system"
+  ],
+  "Expert": {
+    "(0,)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.",
+    "(0, 0)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.\nExpert: Is there a specific numerical budget constraint for addressing the security breaches that should not be exceeded?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.\nExpert: Is there a specific numerical budget constraint for addressing the security breaches that should not be exceeded?\nUser: No\n\nExpert: Are there specific quantitative time constraints for response actions in addressing the security breaches?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.\nExpert: Is there a specific numerical budget constraint for addressing the security breaches that should not be exceeded?\nUser: No\n\nExpert: Are there specific quantitative time constraints for response actions in addressing the security breaches?\nUser: Yes\n\nExpert: Are there distinct types or categories of interventions (central and distributed) that have different associated costs or resource requirements?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.",
+    "(0, 0)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.\nExpert: Is the main objective function solely focused on minimizing costs without explicitly maximizing effectiveness or minimizing risk?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.\nExpert: Is the main objective function solely focused on minimizing costs without explicitly maximizing effectiveness or minimizing risk?\nUser: Yes\n\nExpert: Does the problem description include a constraint or parameter that specifies a minimum resource allocation percentage or limit for central or distributed system interventions?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.\nExpert: Is the main objective function solely focused on minimizing costs without explicitly maximizing effectiveness or minimizing risk?\nUser: Yes\n\nExpert: Does the problem description include a constraint or parameter that specifies a minimum resource allocation percentage or limit for central or distributed system interventions?\nUser: No\n\nExpert: Do any of the candidate problems include a constraint specifying a minimum effectiveness level or effectiveness score that must be achieved?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.",
+    "(0, 0)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.\nExpert: Is the objective of the optimization problem to minimize the expected number of future security breaches?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.\nExpert: Is the objective of the optimization problem to minimize the expected number of future security breaches?\nUser: No\n\nExpert: Is the budget for addressing security breaches a fixed or a variable amount?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.\nExpert: Is the objective of the optimization problem to minimize the expected number of future security breaches?\nUser: No\n\nExpert: Is the budget for addressing security breaches a fixed or a variable amount?\nUser: Yes\n\nExpert: Is the budget available for addressing security breaches a hard constraint (i.e., cannot be exceeded), or is it a soft constraint (i.e., should be minimized but may be exceeded in extreme cases)?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.",
+    "(0, 0)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.\nExpert: Does the problem description explicitly mention a time constraint (in any form) other than 'within a certain number of hours' or 'limited time'?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.\nExpert: Does the problem description explicitly mention a time constraint (in any form) other than 'within a certain number of hours' or 'limited time'?\nUser: No\n\nExpert: Does the problem description explicitly mention a 'time constraint' or an 'implied time frame'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize resource allocation to effectively address security breaches within budgetary and time constraints, balancing between central and distributed system interventions.\nExpert: Does the problem description explicitly mention a time constraint (in any form) other than 'within a certain number of hours' or 'limited time'?\nUser: No\n\nExpert: Does the problem description explicitly mention a 'time constraint' or an 'implied time frame'?\nUser: Yes\n\nExpert: Is the parameter 'resource allocation' mentioned in the problem description?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation",
+            "Security Breaches",
+            "Budgetary Constraints",
+            "Time Constraints",
+            "Central System Interventions",
+            "Distributed System Interventions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources in a manner that effectively responds to security breaches while adhering to budgetary and time constraints, ensuring an optimal balance between central and distributed system interventions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of resource allocation must not exceed the predefined budget for security measures.",
+            "The interventions must be planned and executed within a specified time frame to address security breaches.",
+            "There should be a distribution balance between centralized system interventions and distributed system interventions.",
+            "The chosen allocation strategy must ensure effective handling of security breaches without compromising other operations.",
+            "Resources must be allocated in a way that maximizes the mitigation of potential damage caused by security breaches."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Security breaches",
+            "Budgetary constraints",
+            "Time constraints",
+            "Central system interventions",
+            "Distributed system interventions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to effectively allocate resources to address security breaches while balancing interventions between central and distributed systems, within time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The resource allocation must remain within unspecified budgetary limits, implying a need for cost-effectiveness.",
+            "Time constraints must be considered to ensure timely interventions.",
+            "Both central and distributed system interventions must be balanced in the strategy."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Balance between central and distributed system interventions",
+            "Time constraints for response actions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the allocation of resources for effectively addressing security breaches by balancing interventions across central and distributed systems, while adhering to specified quantitative time constraints and working within an unspecified budget."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Balance between central and distributed system interventions.",
+            "Meet specific quantitative time constraints for response actions."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "time constraints for response actions",
+            "types of interventions (central and distributed)",
+            "different associated costs or resource requirements for interventions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize resource allocation for addressing security breaches by balancing interventions between central and distributed systems while adhering to time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Time constraints for response actions must be respected.",
+            "Resource allocation must balance between central and distributed system interventions.",
+            "Different types of interventions have distinct associated costs or resource requirements."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "security incidents",
+            "budget constraints",
+            "time constraints",
+            "centralized interventions",
+            "distributed interventions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize resource allocation for addressing security breaches, balancing central and distributed interventions within budget and time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budgetary limitations must be respected, ensuring that the total cost of resource allocation does not exceed the predetermined budget.",
+            "Time constraints must be considered, meaning that the resources allocated must enable a swift response to security breaches within the fastest possible timeframe.",
+            "Resources must be distributed effectively between central interventions, which may involve overarching strategies affecting the entire system, and distributed interventions, which target specific areas or nodes within the system."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Security breaches",
+            "Budgetary constraints",
+            "Time constraints",
+            "Central interventions",
+            "Distributed system interventions",
+            "Minimizing costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of resource allocation while addressing security breaches within budgetary and time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total cost of resource allocation must not exceed the given budgetary limits.",
+            "The allocation should address security breaches effectively within the specified time constraints.",
+            "Balance needs to be maintained between central system interventions and distributed system interventions."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation",
+            "Budgetary Constraints",
+            "Time Constraints",
+            "Central System Interventions",
+            "Distributed System Interventions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs associated with addressing security breaches while adhering to budgetary and time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budgetary limits must not be exceeded.",
+            "Interventions must be completed within the specified time constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Security breaches",
+            "Budget constraints",
+            "Time constraints",
+            "Cost minimization",
+            "Central and distributed system interventions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs associated with addressing security breaches balanced between central and distributed system interventions, within budgetary and time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total cost of interventions must not exceed the budgetary constraints.",
+            "Total time spent on interventions must not exceed the time constraints.",
+            "Resource allocation should be balanced between central and distributed interventions."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Budget constraints",
+            "Time constraints",
+            "Resource allocation",
+            "Central system interventions",
+            "Distributed system interventions",
+            "Security breach response effectiveness"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Effectively allocate resources to address security breaches while balancing expenditure and time, focusing on intervention strategies that are both central and distributed in nature."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total cost of interventions must not exceed the allocated budget.",
+            "Time taken for interventions must not exceed the available time to address security breaches.",
+            "Resources must be allocated between central and distributed systems in a way that balances the effectiveness of interventions.",
+            "Ensure compliance with security regulations and standards.",
+            "Interventions should minimize disruption to ongoing operations.",
+            "Resources, including personnel and technology, must be available for allocation.",
+            "Consideration of risk levels and prioritization of interventions based on potential impact."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Budgetary constraints",
+            "Time constraints",
+            "Balance between central interventions",
+            "Balance between distributed system interventions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize resource allocation to effectively address security breaches while adhering to budgetary and time constraints, balancing interventions between central and distributed systems."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must be within the given budgetary limits.",
+            "Resource allocation must adhere to the time constraints provided.",
+            "Balance should be maintained between central system interventions and distributed system interventions.",
+            "The solution should effectively address security breaches."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation",
+            "Budget Constraints",
+            "Time Constraints",
+            "Central Interventions",
+            "Distributed System Interventions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize resource allocation to maximize the effectiveness of security interventions within fixed budget and time constraints, balancing central and distributed system efforts."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a fixed budget for addressing security breaches.",
+            "There are time constraints for addressing security breaches.",
+            "Resource allocation must balance between central system interventions and distributed system interventions."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Budget constraint",
+            "Time constraints",
+            "Central system interventions",
+            "Distributed system interventions",
+            "Balancing between central and distributed interventions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize resource allocation for addressing security breaches within budgetary and time constraints, ensuring a balance between central and distributed system interventions, without necessarily minimizing the number of future breaches."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The budget for addressing security breaches is a fixed amount and cannot be exceeded (hard constraint).",
+            "Time available for addressing security breaches is limited and cannot be exceeded (hard constraint).",
+            "Resource allocation must balance between interventions in central and distributed systems, ensuring effectiveness.",
+            "The optimization must be conducted within specific budgetary and time limits, incorporating constraints on central and distributed interventions."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "security breaches",
+            "budgetary constraints",
+            "time constraints",
+            "central system interventions",
+            "distributed system interventions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize resource allocation for addressing security breaches, ensuring both budgetary and time constraints are met while balancing efforts between centralized and distributed system interventions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of resource allocation must not exceed the budgetary limits.",
+            "The response time for addressing security breaches should be minimized and within pre-defined time constraints.",
+            "The allocation must balance between interventions in central systems and distributed systems.",
+            "Resource allocation should ensure effective management and mitigation of security threats.",
+            "The allocation strategy should comply with organizational policies and legal regulations.",
+            "Interventions should maintain or enhance system performance and reliability."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "budgetary constraints",
+            "time constraints",
+            "central system interventions",
+            "distributed system interventions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To effectively allocate resources to address security breaches while balancing interventions between central and distributed systems within budgetary constraints and limited time."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Address security breaches within budgetary constraints.",
+            "Balance between central and distributed system interventions."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Budgetary constraints",
+            "Time constraints",
+            "Balance between central and distributed interventions",
+            "Security breaches"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources in a cost-effective manner to address security breaches, while balancing interventions across central and distributed systems and adhering to given budgetary and time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budgetary constraints: The solution must adhere to a specified budget for addressing security breaches.",
+            "Time constraints: The solution must be implemented within a limited or implied time frame.",
+            "Resource allocation constraints: The solution must balance allocation between central and distributed system interventions."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "budgetary constraints",
+            "time constraints",
+            "balancing central and distributed system interventions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources effectively to address security breaches while adhering to budgetary constraints and managing time efficiently, ensuring a balance between central and distributed system interventions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budgetary constraints limit total spending on security breach interventions.",
+            "Time constraints imply actions must be taken quickly but are not explicitly defined beyond 'limited time'.",
+            "Resource allocation must be balanced between central and distributed system interventions."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      }
+    }
+  }
+}

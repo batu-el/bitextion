@@ -1,0 +1,23 @@
+{
+  "vague_description": "The client needs to determine the optimal number of fruit packs to consume in order to meet nutritional requirements while adhering to a specific ratio and minimizing sugar intake.",
+  "detailed_description": "A dietician recommends her client eat blueberries and strawberries to meet her anti-oxidant and mineral requirement. A pack of blueberries contains \\param{BlueberryAntioxidants} units of anti-oxidants and \\param{BlueberryMinerals} units of minerals. A pack of strawberries contains \\param{StrawberryAntioxidants} unit of anti-oxidants and \\param{StrawberryMinerals} units of minerals. The client must get at least \\param{MinAntioxidants} units of anti-oxidants and \\param{MinMinerals} units of minerals. In addition, because blueberries are not in season, the dietician recommends she eats at least 3 times as many packs of strawberries as blueberries. This is expressed as a strawberry to blueberry ratio of \\param{StrawberryBlueberryRatio}. If a pack of blueberries contains \\param{BlueberrySugar} grams of sugar and a pack of strawberries contains \\param{StrawberrySugar} grams of sugar, how many of packs of each should she consume to minimize her sugar intake?",
+  "target_objective": "Minimize the total sugar intake from consuming packs of blueberries and strawberries",
+  "target_constraints": [
+    "Number of blueberry packs is non-negative",
+    "Number of strawberry packs is non-negative",
+    "Total anti-oxidants from blueberries and strawberries must be at least MinAntioxidants",
+    "Total minerals from blueberries and strawberries must be at least MinMinerals",
+    "Number of strawberry packs must be at least 3 times the number of blueberry packs"
+  ],
+  "target_parameters": [
+    "Units of anti-oxidants in a pack of blueberries",
+    "Units of minerals in a pack of blueberries",
+    "Units of anti-oxidants in a pack of strawberries",
+    "Units of minerals in a pack of strawberries",
+    "Minimum required units of anti-oxidants",
+    "Minimum required units of minerals",
+    "Ratio of packs of strawberries to blueberries",
+    "Grams of sugar in a pack of blueberries",
+    "Grams of sugar in a pack of strawberries"
+  ]
+}

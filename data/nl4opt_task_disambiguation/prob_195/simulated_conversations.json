@@ -1,0 +1,45 @@
+{
+  "vague_description": "Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.",
+  "detailed_description": "A magic school sends letters to student either by carrier pigeons or owls. A carrier pigeon can carry \\param{CarrierCapacity} letters at a time and requires \\param{TreatsPerCarrier} treats for service. An owl can carry \\param{OwlCapacity} letters at a time and requires \\param{TreatsPerOwl} treats for service. At most \\param{MaxOwlPercentage} of the birds can be owls. In addition, the school only has \\param{TotalTreats} treats available and at least \\param{MinCarrierPigeons} carrier pigeons must be uses. How many of each bird can be used to maximize the total number of letters that can be sent?",
+  "target_objective": "Maximize the total number of letters that can be sent",
+  "target_constraints": [
+    "Number of carrier pigeons used is non-negative",
+    "Number of owls used is non-negative",
+    "At most MaxOwlPercentage percent of the total number of birds used can be owls",
+    "Total treats used cannot exceed TotalTreats",
+    "At least MinCarrierPigeons carrier pigeons must be used"
+  ],
+  "target_parameters": [
+    "Number of letters a carrier pigeon can carry at a time",
+    "Number of letters an owl can carry at a time",
+    "Maximum percentage of birds that can be owls",
+    "Total treats available for the birds",
+    "Treats required for one service by a carrier pigeon",
+    "Treats required for one service by an owl",
+    "Minimum number of carrier pigeons that must be used"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.",
+    "(0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Do the owls and carrier pigeons have specific capacities for carrying letters?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Do the owls and carrier pigeons have specific capacities for carrying letters?\nUser: Yes\n\nExpert: Are there any limitations on the total number of owls and carrier pigeons available?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Do the owls and carrier pigeons have specific capacities for carrying letters?\nUser: Yes\n\nExpert: Are there any limitations on the total number of owls and carrier pigeons available?\nUser: Yes\n\nExpert: Are there constraints on the cost or resources required to deploy owls and carrier pigeons?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.",
+    "(0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Do any of the candidate problems include food consumption as a constraint?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Do any of the candidate problems include food consumption as a constraint?\nUser: Yes.\n\nExpert: Is the maximum number of letters a carrier pigeon can carry per trip more than 1 letter in the problem description?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Do any of the candidate problems include food consumption as a constraint?\nUser: Yes.\n\nExpert: Is the maximum number of letters a carrier pigeon can carry per trip more than 1 letter in the problem description?\nUser: Yes.\n\nExpert: Does each candidate problem include a constraint on the maximum number of trips per day for owls or carrier pigeons?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.",
+    "(0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Are there any restrictions on the number of letters that can be carried by each owl or carrier pigeon?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Are there any restrictions on the number of letters that can be carried by each owl or carrier pigeon?\nUser: Yes.\n\nExpert: Are these restrictions related to physical capacity or are there other factors involved, such as delivery speed or reliability?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Are there any restrictions on the number of letters that can be carried by each owl or carrier pigeon?\nUser: Yes.\n\nExpert: Are these restrictions related to physical capacity or are there other factors involved, such as delivery speed or reliability?\nUser: Yes.\n\nExpert: Are the restrictions related to a trade-off between the number of letters that can be carried and delivery speed?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.",
+    "(0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Does the problem involve any kind of time constraint or limitation?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Does the problem involve any kind of time constraint or limitation?\nUser: No\n\nExpert: Do the parameters include the exact quantities of owls and carrier pigeons available?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Does the problem involve any kind of time constraint or limitation?\nUser: No\n\nExpert: Do the parameters include the exact quantities of owls and carrier pigeons available?\nUser: No\n\nExpert: Is there a specific (known or unknown) time constraint for delivering the letters?\nUser: No\n"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "vague_description": "The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.",
+  "detailed_description": "A farmer has \\(\\var{TotalAcres}\\) acres of land on which he must process hay using either a windrower or hay harvester. For each acre of land, the windrower can process \\(\\var{HayWindrower}\\) kg of hay while the hay harvester can process \\(\\var{HayHarvester}\\) kg of hay. Per acre, the windrower produces \\(\\var{MethaneWindrower}\\) kg of methane gas and requires \\(\\var{FuelWindrower}\\) kg of fuel. On the other hand, the hay harvester produces \\(\\var{MethaneHarvester}\\) kg of methane gas per acre and requires \\(\\var{FuelHarvester}\\) kg of fuel. There are \\(\\var{TotalFuel}\\) kg of fuel available and the farmer can produce at most \\(\\var{MaxMethane}\\) kg of methane gas. For how many acres should each machine be used to maximize the amount of hay processed?",
+  "target_objective": "Maximize the total amount of hay processed",
+  "target_constraints": [
+    "Number of acres processed by the windrower is a non-negative integer",
+    "Number of acres processed by the hay harvester is a non-negative integer",
+    "Total acres processed by both machines cannot exceed TotalAcres",
+    "Total fuel used by both machines cannot exceed TotalFuel",
+    "Total methane produced by both machines cannot exceed MaxMethane",
+    "MethaneWindrower * acres processed by the windrower + MethaneHarvester * acres processed by the hay harvester <= MaxMethane",
+    "FuelWindrower * acres processed by the windrower + FuelHarvester * acres processed by the hay harvester <= TotalFuel"
+  ],
+  "target_parameters": [
+    "Total acres of available land for hay processing",
+    "Hay processed by the windrower per acre",
+    "Hay processed by the hay harvester per acre",
+    "Methane gas produced by the windrower per acre",
+    "Fuel required by the windrower per acre",
+    "Methane gas produced by the hay harvester per acre",
+    "Fuel required by the hay harvester per acre",
+    "Total available fuel",
+    "Maximum allowable methane gas production"
+  ],
+  "Expert": {
+    "(0,)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.",
+    "(0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Is there a specific budget constraint for the farming resources in this optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Is there a specific budget constraint for the farming resources in this optimization problem?\nUser: No\n\nExpert: Are the fuel and methane emission constraints quantified in terms of maximum allowable levels?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Is there a specific budget constraint for the farming resources in this optimization problem?\nUser: No\n\nExpert: Are the fuel and methane emission constraints quantified in terms of maximum allowable levels?\nUser: Yes\n\nExpert: Are there any time-related constraints, such as deadlines for processing the hay, impacting the optimization problem?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.",
+    "(0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Is the primary objective of the optimization problem to maximize profit or minimize cost?\nUser: No\n",
+    "(0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Is the primary objective of the optimization problem to maximize profit or minimize cost?\nUser: No\n\nExpert: Does the problem include a constraint on the area or land used for hay processing?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Is the primary objective of the optimization problem to maximize profit or minimize cost?\nUser: No\n\nExpert: Does the problem include a constraint on the area or land used for hay processing?\nUser: Yes\n\nExpert: Does the problem include a constraint related to labor hours?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.",
+    "(0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Are the resources you are trying to allocate a finite set of (e.g., labor, machines, land), rather than an infinite or variable resource?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Are the resources you are trying to allocate a finite set of (e.g., labor, machines, land), rather than an infinite or variable resource?\nUser: Yes.\n\nExpert: Is the specific goal of optimizing hay processing related to maximizing the quantity of hay produced or minimizing the costs associated with processing it?\nUser: Yes, the specific goal is to maximize the quantity of hay processed.\n",
+    "(0, 0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Are the resources you are trying to allocate a finite set of (e.g., labor, machines, land), rather than an infinite or variable resource?\nUser: Yes.\n\nExpert: Is the specific goal of optimizing hay processing related to maximizing the quantity of hay produced or minimizing the costs associated with processing it?\nUser: Yes, the specific goal is to maximize the quantity of hay processed.\n\nExpert: Are the fuel and methane emission constraints hard bounds (e.g., cannot exceed a certain amount), or soft bounds (e.g., there is some leeway to adjust within a certain range)?\nUser: Hard bounds.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.",
+    "(0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Are 'production cost' or 'production cost of each machine' explicitly mentioned as a parameter within the problem description?\nUser: No\n",
+    "(0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Are 'production cost' or 'production cost of each machine' explicitly mentioned as a parameter within the problem description?\nUser: No\n\nExpert: Is the objective of the problem to minimize a quantity (cost, time, resources) rather than to maximize a quantity (production, energy)? \nUser: No\n",
+    "(0, 0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Are 'production cost' or 'production cost of each machine' explicitly mentioned as a parameter within the problem description?\nUser: No\n\nExpert: Is the objective of the problem to minimize a quantity (cost, time, resources) rather than to maximize a quantity (production, energy)? \nUser: No\n\nExpert: Is the objective to be maximized?\nUser: Yes\n"
+  }
+}

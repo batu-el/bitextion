@@ -1,0 +1,39 @@
+{
+  "vague_description": "Some parameters are required to determine the optimal staffing schedule.",
+  "detailed_description": "Calculate the minimum number of employees to hire such that the requirements for coverage (as described by \\param{Num}) can be met with each employee working for \\param{WorkingDays} consecutive days followed by at least \\param{RestingDays} consecutive resting days.",
+  "target_objective": "Minimize the number of employees to hire to meet the coverage requirements",
+  "target_constraints": [
+    "Each employee works for WorkingDays consecutive days",
+    "Each employee must have at least RestingDays consecutive days of rest",
+    "Number of employees is a non-negative integer"
+  ],
+  "target_parameters": [
+    "The number of users on the nth day",
+    "Number of consecutive working days before a resting period",
+    "Number of consecutive resting days"
+  ],
+  "Expert": {
+    "(0,)": "User: Some parameters are required to determine the optimal staffing schedule.",
+    "(0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Does the problem involve minimizing the total cost associated with staffing, such as wages and overtime?\"\nUser: No\n",
+    "(0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Does the problem involve minimizing the total cost associated with staffing, such as wages and overtime?\"\nUser: No\n\nExpert: Does the problem involve maximizing coverage or effectiveness of staffing over specific time periods?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Does the problem involve minimizing the total cost associated with staffing, such as wages and overtime?\"\nUser: No\n\nExpert: Does the problem involve maximizing coverage or effectiveness of staffing over specific time periods?\nUser: Yes\n\nExpert: Are there constraints related to the availability or working hours of staff members?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Some parameters are required to determine the optimal staffing schedule.",
+    "(0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Do all candidate problems include a constraint about staff needing mandatory rest or breaks between shifts?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Do all candidate problems include a constraint about staff needing mandatory rest or breaks between shifts?\nUser: Yes\n\nExpert: Does the problem description include a requirement for specific skill levels or roles for staffing each shift?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Do all candidate problems include a constraint about staff needing mandatory rest or breaks between shifts?\nUser: Yes\n\nExpert: Does the problem description include a requirement for specific skill levels or roles for staffing each shift?\nUser: No\n\nExpert: Does any problem include constraints on the maximum number of staff working simultaneously?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Some parameters are required to determine the optimal staffing schedule.",
+    "(0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Do these parameters include time-dependent factors, such as varying demand or shift patterns?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Do these parameters include time-dependent factors, such as varying demand or shift patterns?\nUser: Yes.\n\nExpert: Do these time-dependent factors have a seasonal or periodic component?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Do these parameters include time-dependent factors, such as varying demand or shift patterns?\nUser: Yes.\n\nExpert: Do these time-dependent factors have a seasonal or periodic component?\nUser: Yes.\n\nExpert: Is the seasonality or periodicity of the demand or shift patterns predictable and known in advance?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Some parameters are required to determine the optimal staffing schedule.",
+    "(0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Are there any constraints that directly limit the number of employees?\nUser: No\n",
+    "(0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Are there any constraints that directly limit the number of employees?\nUser: No\n\nExpert: Are there any constraints in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Some parameters are required to determine the optimal staffing schedule.\nExpert: Are there any constraints that directly limit the number of employees?\nUser: No\n\nExpert: Are there any constraints in the problem description?\nUser: Yes\n\nExpert: Is there at least one constraint provided for the problem?\nUser: Yes\n"
+  }
+}

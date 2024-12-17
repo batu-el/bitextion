@@ -1,0 +1,25 @@
+{
+  "vague_description": "Determine the optimal allocation of resources to maximize collection efficiency given constraints on manpower and equipment.",
+  "detailed_description": "A recycling company collects recycling from neighborhoods using small and large bins. A small bin requires \\param{SmallBinWorkers} workers while a large bin requires \\param{LargeBinWorkers} workers. A small bin can hold \\param{SmallBinCapacity} units of recycling material and a large bin can hold \\param{LargeBinCapacity} units of recycling material. The company has available \\param{TotalWorkers} workers. Because most people don't recycle, the number of small bins must be \\param{BinRatio} times the number of large bins. In addition, there must be at least \\param{MinSmallBins} small bins and \\param{MinLargeBins} large bins. How many of each bin type should be used to maximize the total amount of recycling material that can be collected?",
+  "target_objective": "Maximize the total amount of recycling material collected by appropriately choosing the number of small and large bins",
+  "target_constraints": [
+    "Each small bin requires SmallBinWorkers workers",
+    "Each large bin requires LargeBinWorkers workers",
+    "Total number of workers used cannot exceed TotalWorkers",
+    "The number of small bins must be BinRatio times the number of large bins",
+    "At least MinSmallBins small bins should be used",
+    "At least MinLargeBins large bins should be used",
+    "Number of small bins is non-negative",
+    "Number of large bins is non-negative"
+  ],
+  "target_parameters": [
+    "Number of workers required for a small bin",
+    "Number of workers required for a large bin",
+    "Recycling material capacity of a small bin",
+    "Recycling material capacity of a large bin",
+    "Total number of workers available",
+    "Ratio of the number of small bins to large bins",
+    "Minimum number of small bins",
+    "Minimum number of large bins"
+  ]
+}

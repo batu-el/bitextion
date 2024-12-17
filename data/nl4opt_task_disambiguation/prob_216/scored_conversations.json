@@ -1,0 +1,481 @@
+{
+  "vague_description": "The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.",
+  "detailed_description": "A small bakery has \\param{TotalBatter} grams of batter and \\param{TotalMilk} grams of milk to make their crepe cakes, sponge cakes, and birthday cakes. A crepe cake needs \\param{BatterCrepe} grams of batter and \\param{MilkCrepe} grams of milk. A sponge cake requires \\param{BatterSponge} grams of batter and \\param{MilkSponge} grams of milk. A birthday cake requires \\param{BatterBirthday} grams of batter and \\param{MilkBirthday} grams of milk. If the profit per crepe cake is $\\param{ProfitCrepe}, the profit per sponge cake is $\\param{ProfitSponge}, and the profit per birthday cake is $\\param{ProfitBirthday}, how many of each should the bakery make to maximize their profit?",
+  "target_objective": "Maximize the bakery's profit from making crepe cakes, sponge cakes, and birthday cakes",
+  "target_constraints": [
+    "Number of crepe cakes is non-negative",
+    "Number of sponge cakes is non-negative",
+    "Number of birthday cakes is non-negative",
+    "Total grams of batter used cannot exceed TotalBatter",
+    "Total grams of milk used cannot exceed TotalMilk"
+  ],
+  "target_parameters": [
+    "Total amount of batter available",
+    "Total amount of milk available",
+    "Amount of batter required for a crepe cake",
+    "Amount of milk required for a crepe cake",
+    "Amount of batter required for a sponge cake",
+    "Amount of milk required for a sponge cake",
+    "Amount of batter required for a birthday cake",
+    "Amount of milk required for a birthday cake",
+    "Profit per crepe cake",
+    "Profit per sponge cake",
+    "Profit per birthday cake"
+  ],
+  "Expert": {
+    "(0,)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.",
+    "(0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Do you have specific quantities for the available resources of batter and milk?\nUser: No\n",
+    "(0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Do you have specific quantities for the available resources of batter and milk?\nUser: No\n\nExpert: Is there a given profit value associated with each type of cake?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Do you have specific quantities for the available resources of batter and milk?\nUser: No\n\nExpert: Is there a given profit value associated with each type of cake?\nUser: No\n\nExpert: Are there any constraints on the total number of cakes that can be produced?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.",
+    "(0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Is the objective function expressed with a specific linear equation involving variables x, y, and z?\nUser: No\n",
+    "(0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Is the objective function expressed with a specific linear equation involving variables x, y, and z?\nUser: No\n\nExpert: Does the problem include integer constraints on the production quantities of cakes?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Is the objective function expressed with a specific linear equation involving variables x, y, and z?\nUser: No\n\nExpert: Does the problem include integer constraints on the production quantities of cakes?\nUser: No\n\nExpert: Is the profit parameter for each type of cake specified separately rather than combined for all cakes in any form?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.",
+    "(0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Do the production quantities of crepe cakes, sponge cakes, and birthday cakes influence the usage of both batter and milk?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Do the production quantities of crepe cakes, sponge cakes, and birthday cakes influence the usage of both batter and milk?\nUser: Yes\n\nExpert: Is the objective of the bakery to maximize profit or is it to minimize the usage of resources such as batter and milk?\nUser: Yes, the objective is to maximize profit.\n",
+    "(0, 0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Do the production quantities of crepe cakes, sponge cakes, and birthday cakes influence the usage of both batter and milk?\nUser: Yes\n\nExpert: Is the objective of the bakery to maximize profit or is it to minimize the usage of resources such as batter and milk?\nUser: Yes, the objective is to maximize profit.\n\nExpert: Is the profit maximization problem subject to a fixed set of resources (batter and milk) without any possibility of purchasing additional resources?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.",
+    "(0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Are there more than two distinct parameters in the problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Are there more than two distinct parameters in the problem?\nUser: Yes\n\nExpert: Does the problem description contain the exact term 'number of' followed by one of the parameter names?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Are there more than two distinct parameters in the problem?\nUser: Yes\n\nExpert: Does the problem description contain the exact term 'number of' followed by one of the parameter names?\nUser: No\n\nExpert: Does the optimization problem have multiple objective functions?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit from selling crepe cakes, sponge cakes, and birthday cakes.",
+            "Decision Variables: Number of crepe cakes, sponge cakes, and birthday cakes to produce.",
+            "Constraints:",
+            "- Limit on the total amount of batter used for producing all types of cakes.",
+            "- Limit on the total amount of milk used for producing all types of cakes."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from producing crepe cakes, sponge cakes, and birthday cakes while not exceeding available resources of batter and milk."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of batter used for all types of cakes must not exceed the available batter resource.",
+            "The total amount of milk used for all types of cakes must not exceed the available milk resource."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "crepe cakes",
+            "sponge cakes",
+            "birthday cakes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal combination of crepe cakes, sponge cakes, and birthday cakes, without exceeding the available resources of batter and milk."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Amount of batter used for crepe cakes, sponge cakes, and birthday cakes should not exceed available batter.",
+            "Amount of milk used for crepe cakes, sponge cakes, and birthday cakes should not exceed available milk."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "crepe cakes",
+            "sponge cakes",
+            "birthday cakes",
+            "profit",
+            "batter",
+            "milk"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profit from the production of crepe cakes, sponge cakes, and birthday cakes, considering constraints on available resources such as batter and milk."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantity of batter used for all cakes should not exceed the available batter.",
+            "The quantity of milk used for all cakes should not exceed the available milk."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "crepe cakes",
+            "sponge cakes",
+            "birthday cakes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the profit from producing crepe cakes, sponge cakes, and birthday cakes while adhering to constraints related to available resources of batter and milk."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Cannot exceed available resources of batter.",
+            "Cannot exceed available resources of milk."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of crepe cakes",
+            "Quantity of sponge cakes",
+            "Quantity of birthday cakes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal combination of crepe cakes, sponge cakes, and birthday cakes, subject to constraints on available batter and milk resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of batter used for crepe cakes, sponge cakes, and birthday cakes cannot exceed the available batter resources.",
+            "The total amount of milk used for crepe cakes, sponge cakes, and birthday cakes cannot exceed the available milk resources."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "crepe cakes",
+            "sponge cakes",
+            "birthday cakes",
+            "batter",
+            "milk"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by determining the optimal combination of crepe cakes, sponge cakes, and birthday cakes produced, subject to constraints on batter and milk availability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The amount of batter used for crepe cakes, sponge cakes, and birthday cakes must not exceed the total available batter.",
+            "The amount of milk used for crepe cakes, sponge cakes, and birthday cakes must not exceed the total available milk.",
+            "The number of crepe cakes, sponge cakes, and birthday cakes produced must be non-negative."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize profit from crepe cakes (x), sponge cakes (y), and birthday cakes (z)",
+            "Do not exceed available batter",
+            "Do not exceed available milk"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the discussed optimization problem is to determine the combination of crepe cakes, sponge cakes, and birthday cakes to produce in order to maximize profit without exceeding the available resources of batter and milk."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of batter used for crepe cakes, sponge cakes, and birthday cakes must not exceed the available batter resources.",
+            "The total amount of milk used for crepe cakes, sponge cakes, and birthday cakes must not exceed the available milk resources."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "crepe cakes",
+            "sponge cakes",
+            "birthday cakes",
+            "batter",
+            "milk",
+            "profit per crepe cake",
+            "profit per sponge cake",
+            "profit per birthday cake"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the quantities of crepe cakes, sponge cakes, and birthday cakes that maximize the bakery's profit without exceeding the available resources of batter and milk."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of batter used by crepe cakes, sponge cakes, and birthday cakes must not exceed the available batter supply.",
+            "The sum of milk used by crepe cakes, sponge cakes, and birthday cakes must not exceed the available milk supply."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "crepe cakes",
+            "sponge cakes",
+            "birthday cakes",
+            "batter",
+            "milk"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the profit from producing crepe cakes, sponge cakes, and birthday cakes without exceeding available resources of batter and milk."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "batter_used_for_crepe_cakes + batter_used_for_sponge_cakes + batter_used_for_birthday_cakes <= total_batter_available",
+            "milk_used_for_crepe_cakes + milk_used_for_sponge_cakes + milk_used_for_birthday_cakes <= total_milk_available",
+            "crepe_cakes_produced >= 0",
+            "sponge_cakes_produced >= 0",
+            "birthday_cakes_produced >= 0"
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "crepe cakes",
+            "sponge cakes",
+            "birthday cakes",
+            "batter",
+            "milk",
+            "profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit from the production of crepe cakes, sponge cakes, and birthday cakes given constraints on the available resources of batter and milk."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total batter used by crepe cakes, sponge cakes, and birthday cakes must not exceed the available amount of batter.",
+            "The total milk used by crepe cakes, sponge cakes, and birthday cakes must not exceed the available amount of milk."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantities of crepe cakes",
+            "production quantities of sponge cakes",
+            "production quantities of birthday cakes",
+            "available resources of batter",
+            "available resources of milk"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce, considering the constraints of available batter and milk."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total usage of batter for crepe cakes, sponge cakes, and birthday cakes should not exceed the available quantity of batter.",
+            "The total usage of milk for crepe cakes, sponge cakes, and birthday cakes should not exceed the available quantity of milk."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Crepe cakes required",
+            "Sponge cakes required",
+            "Birthday cakes required",
+            "Amount of batter available",
+            "Amount of milk available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that the bakery can maximize their profit without exceeding their fixed resources of batter and milk."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total quantity of batter used for producing crepe cakes, sponge cakes, and birthday cakes should not exceed the available batter resources.",
+            "The total quantity of milk used for producing crepe cakes, sponge cakes, and birthday cakes should not exceed the available milk resources.",
+            "The objective function aims to maximize the profit from the sale of crepe cakes, sponge cakes, and birthday cakes."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "crepe cakes",
+            "sponge cakes",
+            "birthday cakes",
+            "batter",
+            "milk"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from the production of crepe cakes, sponge cakes, and birthday cakes while adhering to constraints on batter and milk resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total batter used in producing crepe cakes, sponge cakes, and birthday cakes cannot exceed the bakery's available batter resources.",
+            "The total milk used in producing crepe cakes, sponge cakes, and birthday cakes cannot exceed the bakery's available milk resources.",
+            "The production quantity of each type of cake (crepe, sponge, birthday) must be a non-negative integer."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "crepe cakes",
+            "sponge cakes",
+            "birthday cakes",
+            "batter",
+            "milk"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from the production of crepe cakes, sponge cakes, and birthday cakes given constraints on batter and milk resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of batter used for crepe cakes, sponge cakes, and birthday cakes must not exceed the available batter.",
+            "The total amount of milk used for crepe cakes, sponge cakes, and birthday cakes must not exceed the available milk.",
+            "The quantities of crepe cakes, sponge cakes, and birthday cakes produced must be non-negative integers."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "crepe cakes",
+            "sponge cakes",
+            "birthday cakes",
+            "profit",
+            "batter",
+            "milk"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from producing crepe cakes, sponge cakes, and birthday cakes while not exceeding available resources of batter and milk."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combination of crepe cakes, sponge cakes, and birthday cakes should not exceed the available amount of batter.",
+            "The combination of crepe cakes, sponge cakes, and birthday cakes should not exceed the available amount of milk."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "crepe cakes",
+            "sponge cakes",
+            "birthday cakes",
+            "batter",
+            "milk"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the profit by determining the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce without exceeding the available resources of batter and milk."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let x1, x2, x3 be the number of crepe cakes, sponge cakes, and birthday cakes, respectively.",
+            "Each crepe cake requires a1 units of batter and b1 units of milk.",
+            "Each sponge cake requires a2 units of batter and b2 units of milk.",
+            "Each birthday cake requires a3 units of batter and b3 units of milk.",
+            "Total available batter is B units.",
+            "Total available milk is M units.",
+            "The constraints are: a1*x1 + a2*x2 + a3*x3 <= B (batter constraint)",
+            "b1*x1 + b2*x2 + b3*x3 <= M (milk constraint)",
+            "x1, x2, x3 >= 0 (non-negativity constraint)"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 5
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 5
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 4
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 5
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 4,
+        "o_score": 5,
+        "c_score": 4
+      }
+    }
+  }
+}

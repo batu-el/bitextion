@@ -1,0 +1,20 @@
+{
+  "vague_description": "Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.",
+  "detailed_description": "Capacitated facility location problems deal with locating \\param{NumberOfFacilities} facilities to serve \\param{NumberOfCustomers} customers, at minimum total cost. Considering potential facility locations and customer zones as fixed points in a network, each facility has a fixed \\param{FacilityFixedCost} and a \\param{FacilityCapacity}. Furthermore, there exists a \\param{CustomerDemand} for each customer zone, and a \\param{FacilityToCustomerTransportCost} representing the cost of transport between facilities and customer zones.",
+  "target_objective": "Minimize the total cost of locating facilities and transporting goods to customer zones",
+  "target_constraints": [
+    "Each facility has a maximum capacity of FacilityCapacity",
+    "Total number of facilities to be located is NumberOfFacilities",
+    "Each customer zone is served by at least one facility and its demand must be met",
+    "Total output for each facility cannot exceed its capacity",
+    "The number of facilities and customers is fixed and non-negative"
+  ],
+  "target_parameters": [
+    "The number of potential facilities that can be established",
+    "The number of customer zones to be served",
+    "The fixed cost associated with establishing a facility",
+    "The cost of transporting goods from each facility to each customer zone",
+    "The capacity of each facility, which limits the amount of goods the facility can handle or produce",
+    "The demand of each customer zone that must be met by the facilities"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "vague_description": "Determine how to allocate resources efficiently in a factory setting under multiple constraints.",
+  "detailed_description": "A gem factory has two drills, a high intensity one and a low intensity one. Each day, the high intensity drill can process \\var{CapHigh} gems and requires \\var{WaterHigh} units of water to dissipate heat. Each day, the low intensity drill can process \\var{CapLow} gems and requires \\var{WaterLow} units of water to dissipate heat. Each day the factory must process \\var{TotalGems} gems and they have available \\var{TotalWater} units of water. Since the high intensity drill produces a lot of noise pollution, at most \\var{MaxPercentHigh} of the drills can be high intensity ones. Further, at least \\var{MinLowDrills} should be low intensity drills. How many of each drill should be used to minimize the total number of drills needed?",
+  "target_objective": "Minimize the total number of drills needed",
+  "target_constraints": [
+    "Number of high intensity drills is an integer",
+    "Number of low intensity drills is an integer",
+    "Number of high intensity drills is non-negative",
+    "Number of low intensity drills is non-negative",
+    "The high intensity drill can process at most CapHigh gems per day",
+    "The low intensity drill can process at most CapLow gems per day",
+    "Total number of gems processed by high and low intensity drills must be at least TotalGems",
+    "Total water used by high and low intensity drills must not exceed TotalWater",
+    "At most MaxPercentHigh percent of the drills can be high intensity ones",
+    "At least MinLowDrills must be low intensity drills"
+  ],
+  "target_parameters": [
+    "Processing capacity of the high intensity drill per day",
+    "Water usage of the high intensity drill per day",
+    "Processing capacity of the low intensity drill per day",
+    "Water usage of the low intensity drill per day",
+    "Total number of gems that must be processed each day",
+    "Total amount of water available each day",
+    "Maximum percentage of high intensity drills",
+    "Minimum number of low intensity drills required"
+  ]
+}

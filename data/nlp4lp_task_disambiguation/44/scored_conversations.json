@@ -1,0 +1,449 @@
+{
+  "vague_description": "The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.",
+  "detailed_description": "How to distribute these files on the floppy disks in order to minimize the number of floppy disks used, given that each floppy disk has a \\param{Capacity} and there are N different files with sizes represented by \\param{Size}.",
+  "target_objective": "Minimize the number of floppy disks used in the distribution of files",
+  "target_constraints": [
+    "The sum of file sizes on each floppy disk cannot exceed the Capacity",
+    "Each file must be placed on exactly one floppy disk",
+    "File sizes are non-negative"
+  ],
+  "target_parameters": [
+    "Total capacity of a floppy disk",
+    "Size of each file j"
+  ],
+  "Expert": {
+    "(0,)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.",
+    "(0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are there specific constraints or limitations on the types of storage mediums available for file allocation?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are there specific constraints or limitations on the types of storage mediums available for file allocation?\nUser: No\n\nExpert: Are there any specific priorities or preferences for allocating certain types of files to particular storage mediums?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are there specific constraints or limitations on the types of storage mediums available for file allocation?\nUser: No\n\nExpert: Are there any specific priorities or preferences for allocating certain types of files to particular storage mediums?\nUser: No\n\nExpert: Is there a defined objective function, such as minimizing total storage cost or maximizing storage utilization, for the file allocation problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.",
+    "(0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Is the objective to minimize the number of storage mediums used?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Is the objective to minimize the number of storage mediums used?\nUser: Yes\n\nExpert: Is the capacity constraint phrased as \"cannot exceed its capacity\" in the constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Is the objective to minimize the number of storage mediums used?\nUser: Yes\n\nExpert: Is the capacity constraint phrased as \"cannot exceed its capacity\" in the constraints?\nUser: Yes\n\nExpert: Do any of the candidate problems omit the constraint that files cannot be split across storage mediums?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.",
+    "(0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are the storage mediums identical in terms of their capacity limits?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are the storage mediums identical in terms of their capacity limits?\nUser: Yes.\n\nExpert: Are there any restrictions on how the files can be split or combined when being allocated to the storage mediums?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are the storage mediums identical in terms of their capacity limits?\nUser: Yes.\n\nExpert: Are there any restrictions on how the files can be split or combined when being allocated to the storage mediums?\nUser: No.\n\nExpert: Are the files to be allocated fixed in size, or can they be dynamically generated or modified?\nUser: Yes, the files are fixed in size and cannot be modified.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.",
+    "(0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are there any constraints that require optimal usage, maximum storage, minimum waste, or a similar goal related to the storage capacity or efficiency?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are there any constraints that require optimal usage, maximum storage, minimum waste, or a similar goal related to the storage capacity or efficiency?\nUser: Yes.\n\nExpert: Does the objective mention maximizing or minimizing a quantity related to storage capacity or efficiency?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are there any constraints that require optimal usage, maximum storage, minimum waste, or a similar goal related to the storage capacity or efficiency?\nUser: Yes.\n\nExpert: Does the objective mention maximizing or minimizing a quantity related to storage capacity or efficiency?\nUser: Yes.\n\nExpert: Is the number of files limited or is it a free variable in the problem?\nUser: Yes.\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "File sizes",
+            "Storage medium capacities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently allocate multiple-sized files across limited capacity storage mediums in a way that maximizes storage utilization and minimizes unused space."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total size of files allocated to any specific storage medium must not exceed its capacity.",
+            "Each file must be allocated to exactly one storage medium.",
+            "Different storage mediums can have different capacity limits.",
+            "Partial file storage across multiple mediums is not allowed; each file must be stored in its entirety on a single medium."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "multiple-sized files",
+            "limited capacity storage mediums"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently allocate multiple-sized files across limited capacity storage mediums in such a way as to optimize the utilization of available storage space."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "File Sizes",
+            "Storage Medium Capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to efficiently allocate multiple-sized files across limited capacity storage mediums to maximize storage utilization and possibly minimize wasted space."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "File sizes",
+            "Storage medium capacities",
+            "Objective function"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximizing storage utilization"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Multiple-sized files need to be allocated across storage mediums.",
+            "There is limited capacity on each storage medium.",
+            "No specific types of storage mediums are stipulated for allocation.",
+            "No specific preferences for file allocation to particular storage mediums."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "File Sizes",
+            "Storage Capacities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimally allocate multiple-sized files to a limited number of storage mediums in a way that maximizes space utilization while ensuring that all files are stored without exceeding the capacity of any medium."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total size of files allocated to any storage medium must not exceed its capacity.",
+            "Each file must be allocated entirely to one storage medium, not split across multiple.",
+            "There is a limited number of storage mediums available for allocation.",
+            "Files vary in size, and each file's size must be considered during allocation.",
+            "All files must be allocated to a storage medium; none may be left unallocated."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "multiple-sized files",
+            "limited capacity storage mediums"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the number of storage mediums used for storing multiple-sized files."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total size of files allocated to a storage medium must not exceed its capacity.",
+            "Each file must be stored completely in one storage medium and cannot be split across multiple mediums.",
+            "All files must be allocated to some storage medium.",
+            "The storage mediums available have a fixed and limited capacity."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "multiple-sized files",
+            "limited capacity storage mediums",
+            "minimize the number of storage mediums used",
+            "capacity constraint cannot exceed"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of storage mediums used to store multiple-sized files without exceeding the capacity of each medium."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each storage medium cannot exceed its capacity.",
+            "Minimize the number of storage mediums used."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Storage medium capacities",
+            "File sizes",
+            "Objective to minimize the number of storage mediums used",
+            "Cannot split files across storage mediums",
+            "Storage medium capacity constraint: Cannot exceed capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of storage mediums used while ensuring each medium's capacity is not exceeded and files are not split across mediums."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Files cannot exceed the capacity of storage mediums.",
+            "Files cannot be split across storage mediums."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "FileSize",
+            "StorageCapacity",
+            "NumberOfFiles",
+            "NumberOfStorageMediums"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently allocate multiple-sized files across limited capacity storage mediums, minimizing total storage space used and ensuring all files are stored without exceeding individual medium capacities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total size of files allocated to any storage medium should not exceed its capacity.",
+            "Each file must be completely stored in a single medium; it cannot be split across multiple storage mediums.",
+            "All files should be allocated to one of the available storage mediums.",
+            "Storage mediums have fixed, known capacities.",
+            "Files have fixed, known sizes."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "File sizes",
+            "Total number of files",
+            "Storage medium capacity",
+            "Number of storage mediums"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Efficiently allocate multiple-sized files to identical storage mediums in such a way that maximizes the utilization of available storage capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All storage mediums have the same capacity limit.",
+            "The total size of files allocated on each storage medium must not exceed the medium's capacity.",
+            "All files must be allocated to at least one of the storage mediums.",
+            "Files cannot be split between multiple storage mediums."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Storage mediums are identical in capacity.",
+            "No restrictions on splitting or combining files across storage mediums."
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to efficiently allocate multiple-sized files across identical limited capacity storage mediums, aiming to optimize the distribution of file sizes to minimize the total number of storage mediums used."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All storage mediums have the same capacity limit.",
+            "Files can be split or combined freely without any restrictions when being allocated to the storage mediums."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fixed-size files",
+            "Identical storage medium capacity",
+            "No splitting or combining of files"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to efficiently allocate fixed-sized files across identical storage mediums without any restrictions on splitting or combining, while optimizing for space utilization and minimizing the number of storage mediums used."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All storage mediums have identical capacity limits.",
+            "Files can be allocated in any combination without splitting.",
+            "Each file is of a fixed size and cannot be modified."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "file_sizes: List of sizes for the files needing allocation.",
+            "storage_capacities: List of capacities for each storage medium.",
+            "total_files: Total number of files to be allocated.",
+            "total_storage: Total number of storage mediums available.",
+            "objective_function: Objective to maximize the usage of available storage or minimize unused space.",
+            "constraints: Ensuring no file is split across storage mediums, and no storage medium exceeds its capacity."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate files of varying sizes across storage mediums with limited capacity in the most efficient manner."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total size of files allocated to any storage medium must not exceed its capacity.",
+            "Each file must be fully stored in one or more storage mediums without exceeding their capacities.",
+            "No file can be split across multiple storage mediums."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficient file allocation",
+            "Multiple-sized files",
+            "Limited capacity storage mediums",
+            "Optimal usage",
+            "Maximum storage",
+            "Minimum waste"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently allocate multiple-sized files across limited capacity storage mediums with the goal of optimal usage, maximizing storage capacity and minimizing waste."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each file must be fully stored on one or more storage mediums without being split across different mediums.",
+            "The total size of files allocated to a single storage medium cannot exceed its capacity.",
+            "Preference is given to storage plans that minimize wasted storage space or maximize the usage of available capacity."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "File sizes",
+            "Storage medium capacities",
+            "Objective: Minimize wasted storage space or maximize storage efficiency"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to efficiently allocate multiple-sized files across limited capacity storage mediums to either maximize storage capacity utilization or minimize storage waste."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The storage mediums have limited capacity that cannot be exceeded.",
+            "Files come in multiple sizes and need to be allocated efficiently across available storage.",
+            "There is a need to optimize the use of storage space, potentially focusing on maximizing usage or minimizing waste.",
+            "The allocation must adhere to the distinction in file sizes, ensuring they fit within the given storage constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "multiple-sized files",
+            "limited capacity storage mediums",
+            "maximum storage",
+            "minimum waste",
+            "efficiency related to storage capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimally allocate multiple-sized files across limited capacity storage mediums to maximize storage efficiency or minimize waste."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Files are of multiple sizes.",
+            "Storage mediums have limited capacity.",
+            "Objective is to maximize storage capacity usage.",
+            "Objective is to minimize waste of available storage space.",
+            "The number of files is a limited quantity."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 4,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    }
+  }
+}

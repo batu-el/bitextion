@@ -1,0 +1,25 @@
+{
+  "vague_description": "Finding the optimal number of demonstrations to maximize foam production while staying within ingredient and byproduct constraints.",
+  "detailed_description": "A science show performs two different demonstrations, demonstration 1 and demonstration 2. In demonstration 1, \\param{MintD1} units of mint and \\param{ActiveD1} units of the active ingredient is used to make \\param{FoamD1} units of minty foam. In demonstration 2, \\param{MintD2} units of mint and \\param{ActiveD2} units of the active ingredient is used to make \\param{FoamD2} units of minty foam. In addition, demonstration 1 creates \\param{TarD1} units of black tar while demonstration 2 creates \\param{TarD2} units of black tar. The show has available \\param{TotalMint} units of mint and \\param{TotalActive} units of active ingredients. If at most \\param{MaxTar} units of black tar can be produced, how many of each demonstration should be done to maximize the amount of minty foam produced?",
+  "target_objective": "Maximize the total amount of minty foam produced from both demonstrations",
+  "target_constraints": [
+    "Number of Demonstration 1 is non-negative",
+    "Number of Demonstration 2 is non-negative",
+    "Total used units of mint for Demonstration 1 and Demonstration 2 cannot exceed TotalMint",
+    "Total used units of the active ingredient for Demonstration 1 and Demonstration 2 cannot exceed TotalActive",
+    "Total produced units of black tar from Demonstration 1 and Demonstration 2 cannot exceed MaxTar"
+  ],
+  "target_parameters": [
+    "Units of mint used in demonstration 1",
+    "Units of mint used in demonstration 2",
+    "Units of active ingredient used in demonstration 1",
+    "Units of active ingredient used in demonstration 2",
+    "Units of minty foam produced in demonstration 1",
+    "Units of minty foam produced in demonstration 2",
+    "Units of black tar produced in demonstration 1",
+    "Units of black tar produced in demonstration 2",
+    "Total available units of mint",
+    "Total available units of active ingredient",
+    "Maximum allowable units of black tar to be produced"
+  ]
+}

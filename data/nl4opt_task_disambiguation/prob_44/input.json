@@ -1,0 +1,24 @@
+{
+  "vague_description": "Determine the optimal number of scooters and bikes to produce each month given constraints on team hours and profit margins.",
+  "detailed_description": "A company sells custom scooters and bikes for customers. The profit per scooter is \\var{ProfitScooter} and the profit per bike is \\var{ProfitBike}. Each product requires time with the design team and engineering team. Each scooter needs \\var{DesignScooter} hours with the design team and \\var{EngScooter} hours with the engineering team. Each bike needs \\var{DesignBike} hours with the design team and \\var{EngBike} hours with the engineering team. Per month, there are \\var{TotalDesignHours} hours available on the design team and \\var{TotalEngHours} hours available on the engineering team. How many of each should the company make per month to maximize profit?",
+  "target_objective": "Maximize the company's profit from selling scooters and bikes",
+  "target_constraints": [
+    "Scooters and bikes must be non-negative integers",
+    "Design time for scooters per month is at most DesignScooter times the number of scooters",
+    "Design time for bikes per month is at most DesignBike times the number of bikes",
+    "Engineering time for scooters per month is at most EngScooter times the number of scooters",
+    "Engineering time for bikes per month is at most EngBike times the number of bikes",
+    "Total design time used by scooters and bikes per month cannot exceed TotalDesignHours",
+    "Total engineering time used by scooters and bikes per month cannot exceed TotalEngHours"
+  ],
+  "target_parameters": [
+    "Profit per scooter",
+    "Profit per bike",
+    "Design time required per scooter",
+    "Engineering time required per scooter",
+    "Design time required per bike",
+    "Engineering time required per bike",
+    "Total available design team hours per month",
+    "Total available engineering team hours per month"
+  ]
+}

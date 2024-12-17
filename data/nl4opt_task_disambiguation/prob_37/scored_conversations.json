@@ -1,0 +1,488 @@
+{
+  "vague_description": "An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.",
+  "detailed_description": "A food truck owner can spend at most \\var{MaxBudget} on mangos and guavas. A mango costs the food truck owner \\var{CostMango} and a guava costs him \\var{CostGuava}. Spices are added and each mango is sold for a profit of \\var{ProfitMango} while each guava is sold for a profit of \\var{ProfitGuava}. The owner estimates that at least \\var{MinMangos} mangos but at the most \\var{MaxMangos} are sold each month. He also estimates that the number of guavas sold is at most a third of the mangos sold (expressed as \\var{RatioGuavas} times the number of mangos). How many mangos and guavas should be sold in order to maximize the profit?",
+  "target_objective": "Maximize the profit from selling mangos and guavas",
+  "target_constraints": [
+    "Number of mangos is an integer",
+    "Number of guavas is an integer",
+    "Number of mangos is greater than or equal to MinMangos",
+    "Number of mangos is less than or equal to MaxMangos",
+    "Number of mangos is non-negative",
+    "Number of guavas is non-negative",
+    "The cost of mangos and guavas cannot exceed MaxBudget",
+    "Number of guavas sold is at most RatioGuavas times the number of mangos sold"
+  ],
+  "target_parameters": [
+    "Maximum budget for mangos and guavas",
+    "Cost of one mango",
+    "Cost of one guava",
+    "Profit from selling one mango",
+    "Profit from selling one guava",
+    "Minimum mangos sold per month",
+    "Maximum mangos sold per month",
+    "Maximum guavas sold per month as a ratio of mangos sold"
+  ],
+  "Expert": {
+    "(0,)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.",
+    "(0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Are the profit contributions per unit produced for both products known?\nUser: Yes\n",
+    "(0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Are the profit contributions per unit produced for both products known?\nUser: Yes\n\nExpert: Are there any constraints on the maximum amount of each product that can be produced?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Are the profit contributions per unit produced for both products known?\nUser: Yes\n\nExpert: Are there any constraints on the maximum amount of each product that can be produced?\nUser: Yes\n\nExpert: Is there a constraint on the total resources available for production?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.",
+    "(0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does any problem description include a budget constraint specifically stated as a dollar amount?\nUser: No\n",
+    "(0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does any problem description include a budget constraint specifically stated as a dollar amount?\nUser: No\n\nExpert: Does the problem include a constraint related to a maximum percentage or proportion of total production capacity allocated specifically to one of the products?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does any problem description include a budget constraint specifically stated as a dollar amount?\nUser: No\n\nExpert: Does the problem include a constraint related to a maximum percentage or proportion of total production capacity allocated specifically to one of the products?\nUser: Yes\n\nExpert: Does the problem explicitly mention a minimum production requirement for Product B?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.",
+    "(0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does the decision require the production of a fixed quantity of each product?\nUser: No\n",
+    "(0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does the decision require the production of a fixed quantity of each product?\nUser: No\n\nExpert:  Are there any capacity or resource constraints that limit the production levels of one or both products? \nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does the decision require the production of a fixed quantity of each product?\nUser: No\n\nExpert:  Are there any capacity or resource constraints that limit the production levels of one or both products? \nUser: Yes\n\nExpert: Are these capacity or resource constraints user-imposed (e.g., due to manufacturing capabilities) or external (e.g., market demand or supplier availability)?\nUser: Yes, the constraints are imposed by external factors such as market demand.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.",
+    "(0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does the problem description include an explicit allocation of resources or some of the constraints relate to fixed allocation of resources?\nUser: Yes\n",
+    "(0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does the problem description include an explicit allocation of resources or some of the constraints relate to fixed allocation of resources?\nUser: Yes\n\nExpert: Are there any specific numerical limits or values mentioned for the parameters or constraints within the problem description?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does the problem description include an explicit allocation of resources or some of the constraints relate to fixed allocation of resources?\nUser: Yes\n\nExpert: Are there any specific numerical limits or values mentioned for the parameters or constraints within the problem description?\nUser: No\n\nExpert: Are there constraints that are not related to resource allocation between the two products?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource constraint: The total resources available are limited and must be divided between the two products.",
+            "Profit function: Each product contributes differently to the profit, which must be maximized.",
+            "Production limit: There may be a maximum or minimum production amount for either or both products.",
+            "Market demand: The allocation must consider the maximum market demand for each product.",
+            "Cost per unit: Each product has a cost associated with producing one unit, impacting overall profit."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profit from the production of two products given limited resources and certain constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The resources available to the entrepreneur are limited, implying a budget or resources constraint.",
+            "Each product requires a certain amount of resources to produce, indicating a production constraint.",
+            "The entrepreneur is aiming for maximum profit, which suggests there are profit margin differences between the products.",
+            "There may be a market demand constraint, limiting how much of each product can be produced or sold.",
+            "There might be exclusivity or dependency constraints, where the production of one product affects the production of the other."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profit contribution per unit of Product 1",
+            "Profit contribution per unit of Product 2",
+            "Total available resources",
+            "Resource consumption per unit of Product 1",
+            "Resource consumption per unit of Product 2"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profit derived from the products while adhering to resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of resources allocated to both products cannot exceed the total available resources.",
+            "Production levels for each product must be non-negative.",
+            "The profit for both products is determined by the respective profit contribution per unit produced, so decisions must consider maximizing this contribution under resource constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Available budget",
+            "Maximum production capacity for Product 1",
+            "Maximum production capacity for Product 2",
+            "Profit per unit of Product 1",
+            "Profit per unit of Product 2"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profit by determining the optimal allocation of resources between two products, considering the profit contributions per unit and the production constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a limit on the total resources available, which must be factored into the allocation between the two products.",
+            "The production quantity for each product is restricted by a maximum allowable limit.",
+            "The entrepreneur aims to maximize profit, implying the necessity to consider profit contribution per unit for each product.",
+            "All decision variables, i.e., the quantity of each product to be produced, need to be non-negative.",
+            "There could be additional constraints based on specific resource limitations or market demand conditions not explicitly mentioned by the user."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profit contribution per unit for Product 1",
+            "Profit contribution per unit for Product 2",
+            "Maximum production limit for Product 1",
+            "Maximum production limit for Product 2",
+            "Total resources available for production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profit by determining the optimal allocation of limited resources between two products, while considering constraints on the maximum production capacity for each product and the total available resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The maximum amount of Product 1 that can be produced.",
+            "The maximum amount of Product 2 that can be produced.",
+            "The total resources available for production."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Allocation of resources between Product A and Product B",
+            "Maximum resources available for allocation",
+            "Profit per unit of Product A",
+            "Profit per unit of Product B",
+            "Minimum production requirement for Product A",
+            "Minimum production requirement for Product B",
+            "Maximum production capacity for Product A",
+            "Maximum production capacity for Product B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profit by optimally allocating resources between two products, subject to given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of resources allocated to both products cannot exceed the available resource limit.",
+            "The allocation to each product must be non-negative.",
+            "The proportions of resource allocation to each product might be restricted by minimum or maximum limits if specified by production requirements.",
+            "The total production capacity must not exceed facility limits."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation",
+            "Two Products",
+            "Profit Maximization",
+            "No Budget Constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profit from allocating limited resources between two products while complying with the given restrictions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total budget available for allocation between the two products is not explicitly stated as a dollar amount, but must be implicitly respected.",
+            "The total usage of resources (e.g., time, labor, or materials) allocated to the two products must not exceed the available supply.",
+            "Any minimum or maximum production requirements for either of the two products must be satisfied.",
+            "Market demand or capacity constraints must be respected to ensure that production does not exceed practical sales limits.",
+            "The allocation must result in a non-negative number of products for both product lines.",
+            "Any legal or regulatory restrictions that apply to the production or sale of the two products must be adhered to."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources available for production",
+            "No specific dollar budget constraint",
+            "Maximum percentage of total production capacity for one product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources between two products to maximize profit while adhering to production capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation to one of the products must not exceed a certain percentage of the total production capacity."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize profit from two products",
+            "total production capacity constraint",
+            "maximum percentage of production capacity for one product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by allocating resources between two products while adhering to a production capacity constraint for one of the products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "A constraint related to a maximum percentage or proportion of total production capacity allocated specifically to one of the products."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation for Product A",
+            "Resource allocation for Product B",
+            "Profit from Product A",
+            "Profit from Product B",
+            "Resource limitation for Product A",
+            "Resource limitation for Product B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by allocating limited resources between two products, adhering to given restrictions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total resources used for both products must not exceed the available resources.",
+            "Each product requires a minimum amount of resources which must be met for production.",
+            "The entrepreneur can only produce a certain maximum quantity of each product due to capacity limitations.",
+            "The allocation must satisfy any market demand constraints for each product, ensuring that the quantities produced meet customer demand.",
+            "The production cannot go into negative quantities, i.e., production quantities must be non-negative."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources",
+            "Two products",
+            "No fixed quantity requirement",
+            "Objective: Maximize profit",
+            "Constraints: Certain restrictions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimally allocating limited resources between two products while adhering to constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total resources available are limited.",
+            "The allocation must achieve maximum profit.",
+            "There are restrictions that must be adhered to, although specifics are not provided."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources or budget",
+            "Two different products to allocate resources to",
+            "Objective to maximize profit",
+            "Resource or capacity constraints that limit production levels"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by strategically allocating limited resources between two products while adhering to production capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production levels of the products are limited by capacity or resource constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit by allocating limited resources between Product A and Product B.",
+            "Constraints: Limited resources such as raw materials and labor needed for production.",
+            "Additional Constraints: Market demand restrictions on Product A and Product B.",
+            "Variable: Allocation level of resources to Product A, contributing to its production.",
+            "Variable: Allocation level of resources to Product B, contributing to its production."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by allocating resources between two products while adhering to external constraints like market demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of resources must result in the highest profit.",
+            "There is no requirement to produce a fixed quantity of each product.",
+            "Production levels are limited by external factors, specifically market demand.",
+            "Resources are limited and need to be allocated between two products."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit from the production of two products.",
+            "Variables: Quantity of each product to produce.",
+            "Constraints: Limited resources (e.g., budget, raw materials, labor)."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by allocating limited resources between two products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of resources allocated to both products cannot exceed the total available resources.",
+            "Each product requires a minimum resource allocation to maintain operational feasibility.",
+            "The allocation for each product must be a non-negative value.",
+            "Market demand limits the maximum quantity of each product that can be sold.",
+            "Budgetary constraints may limit the maximum investment in resources for each product."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources allocation",
+            "Two products profit maximization",
+            "Fixed resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimally allocating resources between two products while satisfying given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of resources allocated to both products must not exceed the available resources.",
+            "There are minimum and maximum limits on the amount of resources that can be allocated to each product.",
+            "The total production capacity for each product does not exceed a certain limit.",
+            "Each product requires a minimum level of resources to be viable for production.",
+            "There might be specific ratios or proportions in which resources need to be allocated between the two products.",
+            "The profit from producing both products should meet or exceed a certain threshold."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Two products to allocate resources between",
+            "Objective function: Maximize profit",
+            "Resource availability constraints",
+            "No specific numerical values for constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profit by optimally allocating limited resources between two products, considering certain constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources must be allocated between two products.",
+            "Resource allocation must adhere to certain restrictions.",
+            "There is an emphasis on maximizing profit."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Allocation of resources between two products",
+            "Constraints related to fixed allocation of resources",
+            "Constraints unrelated to resource allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Allocate limited resources between two products to achieve the highest profit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total resource allocation for both products cannot exceed available resources.",
+            "Each product requires a minimum allocation of resources to be produced.",
+            "Resource allocation must satisfy a balance or ratio between the two products.",
+            "Additional constraints not related to resource allocation must be considered.",
+            "Profit must be maximized while considering both fixed and flexible resource allocations."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      }
+    }
+  }
+}

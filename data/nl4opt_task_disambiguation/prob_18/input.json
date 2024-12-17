@@ -1,0 +1,21 @@
+{
+  "vague_description": "A person needs to make a decision about combining two different products to meet certain nutritional requirements while keeping their expenses as low as possible.",
+  "detailed_description": "A farmer wants to mix his animal feeds, Feed A and Feed B, in such a way that the mixture will contain at least \\var{MinProtein} units of protein and \\var{MinFat} units of fat. Feed A costs \\var{CostA} per kilogram and contains \\var{ProteinA} units of protein and \\var{FatA} units of fat. Feed B costs \\var{CostB} per kilogram and contains \\var{ProteinB} units of protein and \\var{FatB} units of fat. Determine the minimum cost of the mixture.",
+  "target_objective": "Minimize the total cost of the mixture",
+  "target_constraints": [
+    "Amount of Feed A is non-negative",
+    "Amount of Feed B is non-negative",
+    "The mixture must contain at least MinProtein units of protein",
+    "The mixture must contain at least MinFat units of fat"
+  ],
+  "target_parameters": [
+    "Cost per kilogram for Feed A",
+    "Cost per kilogram for Feed B",
+    "Protein content per kilogram of Feed A",
+    "Protein content per kilogram of Feed B",
+    "Fat content per kilogram of Feed A",
+    "Fat content per kilogram of Feed B",
+    "Minimum required units of protein in the feed mixture",
+    "Minimum required units of fat in the feed mixture"
+  ]
+}

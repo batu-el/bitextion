@@ -1,0 +1,25 @@
+{
+  "vague_description": "The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.",
+  "detailed_description": "An ice cream store can buy two machines, a counter-top sized one and a fridge sized one, to make ice cream. The counter-top sized one can produce \\var{ProdCountertop} cones worth of ice cream every day while the fridge sized one can produce \\var{ProdFridge} cones worth of ice cream every day. The counter-top sized machine outputs \\var{HeatCountertop} units of heat while the fridge sized one outputs \\var{HeatFridge} units of heat. The ice cream store can output at most \\var{MaxHeat} units of heat per day and must produce at least \\var{MinProd} cones worth of ice cream. How many of each machine should they buy to minimize the total number of machines needed?",
+  "target_objective": "Minimize the total number of machines needed",
+  "target_constraints": [
+    "Number of counter-top machines is an integer",
+    "Number of fridge sized machines is an integer",
+    "Number of counter-top machines is non-negative",
+    "Number of fridge sized machines is non-negative",
+    "Total heat output from all machines must not exceed MaxHeat units per day",
+    "Total daily ice cream production must be at least MinProd cones",
+    "Each counter-top machine produces ProdCountertop cones of ice cream per day",
+    "Each fridge sized machine produces ProdFridge cones of ice cream per day",
+    "Each counter-top machine outputs HeatCountertop units of heat",
+    "Each fridge sized machine outputs HeatFridge units of heat"
+  ],
+  "target_parameters": [
+    "Amount of ice cream produced by the counter-top sized machine per day",
+    "Amount of ice cream produced by the fridge sized machine per day",
+    "Heat output by the counter-top sized machine",
+    "Heat output by the fridge sized machine",
+    "Maximum allowable heat output per day",
+    "Minimum required ice cream production per day"
+  ]
+}

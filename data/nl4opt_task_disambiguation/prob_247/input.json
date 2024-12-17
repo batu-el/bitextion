@@ -1,0 +1,19 @@
+{
+  "vague_description": "A market owner is trying to find the optimal way to sell a limited amount of jam using different packaging options while meeting certain constraints on production costs and quantities.",
+  "detailed_description": "A market owner wants to start a jam business. He can either sell one unit of jam to customers in a set of small packets or jugs. A set of small packets can hold \\param{VolumeSmallPackets} ml of jam while a jug can hold \\param{VolumeJug} ml of jam. Since a set of small packets are more expensive to make, at least \\param{JugPacketRatio} times as many jugs must be used than sets of small packets. On the other hand, at least \\param{MinSmallPackets} sets of small packets should be filled. If the market owner has \\param{TotalJam} ml of jam, how many sets of small packets or jugs should be selected to maximize the total number of units that he can sell to his customers?",
+  "target_objective": "Maximize the total number of units (sets of small packets and jugs) the market owner can sell",
+  "target_constraints": [
+    "Number of sets of small packets is non-negative",
+    "Number of jugs is non-negative",
+    "Total volume of jam in sets of small packets and jugs cannot exceed TotalJam ml",
+    "At least JugPacketRatio times as many jugs as sets of small packets must be used",
+    "At least MinSmallPackets sets of small packets should be filled"
+  ],
+  "target_parameters": [
+    "Volume for a set of small packets",
+    "Volume for a jug",
+    "Ratio of the number of jugs to sets of small packets",
+    "Minimum number of sets of small packets",
+    "Total volume of jam"
+  ]
+}

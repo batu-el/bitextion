@@ -1,0 +1,45 @@
+{
+  "vague_description": "A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.",
+  "detailed_description": "A printing company sells math workbooks and English workbooks. To meet demand, they must make at least \\param{MinMath} math workbooks and at least \\param{MinEnglish} English workbooks. However, they can make at most \\param{MaxMath} math workbooks and at most \\param{MaxEnglish} English workbooks. The company has a contract with a school to send at least \\param{MinTotalWorkbooks} workbooks of either type. If the profit per math workbook is $\\param{ProfitMath} and the profit per English workbook is $\\param{ProfitEnglish}, how many of each should the company make to maximize profit?",
+  "target_objective": "Maximize the company's profit from workbook production",
+  "target_constraints": [
+    "Number of math workbooks is at least MinMath",
+    "Number of math workbooks is at most MaxMath",
+    "Number of English workbooks is at least MinEnglish",
+    "Number of English workbooks is at most MaxEnglish",
+    "Total number of workbooks is at least MinTotalWorkbooks"
+  ],
+  "target_parameters": [
+    "Minimum number of math workbooks to be made",
+    "Minimum number of English workbooks to be made",
+    "Maximum number of math workbooks to be made",
+    "Maximum number of English workbooks to be made",
+    "Minimum total number of workbooks to be sent under the contract",
+    "Profit per math workbook",
+    "Profit per English workbook"
+  ],
+  "Expert": {
+    "(0,)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.",
+    "(0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Are there specific costs and profit values associated with producing each type of workbook?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Are there specific costs and profit values associated with producing each type of workbook?\nUser: Yes\n\nExpert: Do the math and English workbooks have different profit margins per unit?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Are there specific costs and profit values associated with producing each type of workbook?\nUser: Yes\n\nExpert: Do the math and English workbooks have different profit margins per unit?\nUser: Yes\n\nExpert: Are there constraints on the total available resources, such as materials or labor, that affect the production of both math and English workbooks?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.",
+    "(0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Does the problem description include a constraint related to production hours or budget limits?\nUser: No\n",
+    "(0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Does the problem description include a constraint related to production hours or budget limits?\nUser: No\n\nExpert: Is the upper limit for the total production of workbooks (both math and English combined) specified as exactly 8000 units in the constraints?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Does the problem description include a constraint related to production hours or budget limits?\nUser: No\n\nExpert: Is the upper limit for the total production of workbooks (both math and English combined) specified as exactly 8000 units in the constraints?\nUser: No\n\nExpert: Is the profit per math workbook greater than the profit per English workbook?\nUser: The problem description does not explicitly state the profit per workbook, so it cannot be determined from the information provided.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.",
+    "(0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Are the profit margins for math and English workbooks the same?\nUser: No\n",
+    "(0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Are the profit margins for math and English workbooks the same?\nUser: No\n\nExpert: Are the production costs for math and English workbooks different?\nUser: The original prompt does not provide information about production costs for math and English workbooks. Therefore, based purely on the prompt, I cannot determine if the production costs are different.\n\nSo the answer is: No, the production costs are not specified, and we cannot assume they are different based solely on the provided information.\n",
+    "(0, 0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Are the profit margins for math and English workbooks the same?\nUser: No\n\nExpert: Are the production costs for math and English workbooks different?\nUser: The original prompt does not provide information about production costs for math and English workbooks. Therefore, based purely on the prompt, I cannot determine if the production costs are different.\n\nSo the answer is: No, the production costs are not specified, and we cannot assume they are different based solely on the provided information.\n\nExpert: Does the profit of the printing company depend on selling a fixed batch of both math and English workbooks, rather than individual optimizing for each type of workbook?\nUser: No, the profit depends on individually optimizing the number of math and English workbooks within the given constraints.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.",
+    "(0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Is the objective function a function of the decision variables only (i.e., do not include any external functions, e.g., cost() or revenue() functions)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Is the objective function a function of the decision variables only (i.e., do not include any external functions, e.g., cost() or revenue() functions)?\nUser: Yes\n\nExpert: Are the constraints represented by mathematical inequalities and a set of variables, as opposed to specific numerical values or a list of individual constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.\nExpert: Is the objective function a function of the decision variables only (i.e., do not include any external functions, e.g., cost() or revenue() functions)?\nUser: Yes\n\nExpert: Are the constraints represented by mathematical inequalities and a set of variables, as opposed to specific numerical values or a list of individual constraints?\nUser: Yes\n\nExpert: Does the problem description contain any numerical constraints or parameters that do not involve the objective function or the parameters to be optimized?\nUser: No\n"
+  }
+}

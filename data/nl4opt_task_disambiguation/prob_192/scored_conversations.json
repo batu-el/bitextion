@@ -1,0 +1,468 @@
+{
+  "vague_description": "Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.",
+  "detailed_description": "There has been a horrible accident and patients need to be taken to the hospital by either a helicopter or bus. A helicopter can transport \\param{HelicopterCapacity} patients per trip and takes \\param{HelicopterTripTime} hour. On the other hand, a bus can transport \\param{BusCapacity} patients per trip and takes \\param{BusTripTime} hours. At least \\param{MinPatients} patients need to be transported and at least \\param{MinHelicopterTripsPercentage} of the trips should be by helicopter. In addition, there can be at most \\param{MaxBusTrips} bus trips. How should the patients be taken to minimize the total time to transport the patients?",
+  "target_objective": "Minimize the total time to transport all patients to the hospital",
+  "target_constraints": [
+    "Number of patients transported by helicopter is non-negative",
+    "Number of patients transported by bus is non-negative",
+    "At least MinHelicopterTripsPercentage of the total number of trips must be by helicopter",
+    "Number of bus trips is non-negative and at most MaxBusTrips"
+  ],
+  "target_parameters": [
+    "Number of patients a helicopter can transport per trip",
+    "Time taken for one trip by helicopter",
+    "Number of patients a bus can transport per trip",
+    "Time taken for one trip by bus",
+    "Minimum number of patients that need transportation",
+    "Minimum percentage of trips that must be by helicopter",
+    "Maximum number of bus trips allowed"
+  ],
+  "Expert": {
+    "(0,)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.",
+    "(0, 0)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.\nExpert: Are there specific limits on the total number of helicopter or bus trips allowed in the transportation strategy?\nUser: No\n",
+    "(0, 0, 0)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.\nExpert: Are there specific limits on the total number of helicopter or bus trips allowed in the transportation strategy?\nUser: No\n\nExpert: Are there specific cost constraints associated with using helicopters or buses?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.\nExpert: Are there specific limits on the total number of helicopter or bus trips allowed in the transportation strategy?\nUser: No\n\nExpert: Are there specific cost constraints associated with using helicopters or buses?\nUser: No\n\nExpert: Is there a specific time window within which all patient transportation must be completed?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.",
+    "(0, 0)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.\nExpert: Does the problem involve a budget constraint on transportation costs?\nUser: No\n",
+    "(0, 0, 0)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.\nExpert: Does the problem involve a budget constraint on transportation costs?\nUser: No\n\nExpert: Does the problem description involve a constraint on the percentage of patients that must be transported by helicopters?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.\nExpert: Does the problem involve a budget constraint on transportation costs?\nUser: No\n\nExpert: Does the problem description involve a constraint on the percentage of patients that must be transported by helicopters?\nUser: No\n\nExpert: Does the problem specify a constraint regarding the percentage of patients that must reach their destination within a specific time limit?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.",
+    "(0, 0)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.\nExpert: Is the primary constraint of the problem related to minimizing cost?\nUser: No\n",
+    "(0, 0, 0)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.\nExpert: Is the primary constraint of the problem related to minimizing cost?\nUser: No\n\nExpert: Is the primary objective of the problem to minimize the time it takes to transport patients?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.\nExpert: Is the primary constraint of the problem related to minimizing cost?\nUser: No\n\nExpert: Is the primary objective of the problem to minimize the time it takes to transport patients?\nUser: Yes\n\nExpert: Are the travel times and capacities of helicopters and buses given as fixed values, or do they need to be determined through the optimization process?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.",
+    "(0, 0)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.\nExpert: Does the problem involve a time constraint on the availability of helicopters and/or buses that can impact the solution?\nUser: No\n",
+    "(0, 0, 0)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.\nExpert: Does the problem involve a time constraint on the availability of helicopters and/or buses that can impact the solution?\nUser: No\n\nExpert: Are there any constraints related to the time or schedule of the transportation resources (e.g., time windows, shift duration, or crew rest)?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.\nExpert: Does the problem involve a time constraint on the availability of helicopters and/or buses that can impact the solution?\nUser: No\n\nExpert: Are there any constraints related to the time or schedule of the transportation resources (e.g., time windows, shift duration, or crew rest)?\nUser: No\n\nExpert: Is the objective to minimize a cost-related parameter (such as cost or price)? \nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "transportation mode (helicopters, buses)",
+            "time constraint",
+            "capacity constraint",
+            "trip distribution constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the allocation of helicopters and buses to transport patients, ensuring timely arrival while maximizing capacity utilization and ensuring an even distribution of trips among available vehicles."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total travel time for transporting patients should not exceed a specified maximum limit.",
+            "Each helicopter and bus has a maximum capacity that cannot be exceeded.",
+            "The distribution of trips between helicopters and buses should adhere to a specified ratio or balance.",
+            "The transportation strategy must ensure all patients reach their destination within a specified time window.",
+            "Safety regulations limit the maximum operating hours for both helicopters and buses."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "time constraints",
+            "capacity constraints",
+            "distribution of trips"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the transportation strategy of patients using helicopters and buses by minimizing transportation time and maximizing capacity utilization while ensuring the distribution of trips meets predefined constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total time taken for transporting patients must be within the allowable time window set for the operation.",
+            "The capacity of helicopters and buses should not be exceeded during each trip.",
+            "There should be an appropriate distribution of trips between helicopters and buses to ensure all patients are transported within the given time constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "time constraints for trips",
+            "capacity constraints for vehicles",
+            "trip distribution requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize transportation time while ensuring all patients are transported within capacity and trip distribution constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Time constraints must be met when transporting patients using helicopters and buses.",
+            "Capacity constraints must be adhered to for both helicopters and buses, ensuring all transported patients fit within the available space.",
+            "Distribution of trips should balance or optimize the transportation method used (helicopters vs. buses), keeping in mind the specific context of usage, though the total number of trips themselves is not limited by a maximum or minimum."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Time constraints",
+            "Capacity constraints",
+            "Trip distribution constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal strategy for transporting patients using helicopters and buses such that the constraints on time efficiency, vehicle capacity, and equitable distribution of trips across the available vehicles are met, without limitations on the number of trips or cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Helicopters and buses must be used for transporting patients.",
+            "Transportation must meet constraints on time, capacity, and trip distribution."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Patient transportation time for helicopters and buses",
+            "Capacity of helicopters",
+            "Capacity of buses",
+            "Number of helicopter trips allowed",
+            "Number of bus trips allowed"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the transportation time and cost for patients while satisfying helicopter and bus capacity constraints, as well as ensuring a balanced distribution of trips between the two modes."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combined transport time for helicopters and buses should not exceed a specified limit.",
+            "The total number of patients transported must meet or exceed a given capacity requirement.",
+            "The number of trips made by helicopters and buses should follow a specific distribution, possibly based on available resources or safety considerations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Time constraint for transportation",
+            "Capacity constraint for helicopters and buses",
+            "Trip distribution requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total transportation time while ensuring that patient capacity and trip distribution requirements are met using both helicopters and buses."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Time constraint: The transportation method must ensure that all patients are transported within a specified maximum time limit.",
+            "Capacity constraint: Each helicopter and bus has a maximum capacity that cannot be exceeded, so the number of patients assigned to each must respect these limits.",
+            "Trip distribution constraint: The distribution of patients across helicopters and buses should be balanced or adhere to specified requirements (e.g., specific proportions or maximum/minimum numbers per transportation method)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "time",
+            "capacity",
+            "trip distribution"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal transportation strategy for patients using helicopters and buses, ensuring that all requirements related to time, capacity, and distribution of trips are met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Time constraint: There is a specific time limit within which patients need to be transported.",
+            "Capacity constraint: Both helicopters and buses have a maximum capacity that must not be exceeded during transportation.",
+            "Trip distribution requirement: There should be an equitable or planned distribution of trips between helicopters and buses, without specifying a percentage for either mode of transport."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "time constraint",
+            "capacity constraint",
+            "trip distribution constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal strategy for transporting patients using helicopters and buses while satisfying constraints related to capacity, time, and trip distribution."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total transportation time must not exceed a specified limit.",
+            "Capacity constraints must ensure that no helicopter or bus exceeds its maximum capacity.",
+            "The assignment must ensure an even distribution of trips between helicopters and buses."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimize transportation strategy for patients using helicopters and buses",
+            "Constraints on maximum time for transportation per patient",
+            "Constraints on the capacity of each helicopter and bus",
+            "Constraints on the distribution of trips between helicopters and buses",
+            "Objective function to minimize total transportation time or cost",
+            "Operational constraints such as availability of vehicles and crew",
+            "Patient safety and comfort requirements",
+            "Route and scheduling constraints",
+            "Possibly, budgetary or logistical constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation and scheduling of helicopters and buses for transporting patients to minimize total transport time while ensuring all capacity constraints are met and trips are evenly distributed."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total transportation time for patients using helicopters and buses must not exceed a certain maximum allowable time.",
+            "The capacity of each helicopter and bus must be respected, meaning the number of patients transported at a time should not exceed the vehicle's capacity.",
+            "The distribution of trips using helicopters and buses should adhere to a predetermined ratio or distribution requirement, ensuring balanced use of both modes of transport.",
+            "Patients must be transported to their destinations using the fewest number of trips necessary to meet time and capacity constraints."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "time",
+            "capacity",
+            "trip distribution"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the transportation time while efficiently allocating resources to meet capacity constraints and trip distribution requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There must be a specific distribution of trips between helicopters and buses.",
+            "The allocated transportation method (helicopters or buses) should meet time constraints.",
+            "The selected transportation methods must meet the capacity requirements for transporting all patients."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Helicopters and buses for transportation",
+            "Time minimization as the primary objective",
+            "Constraints on capacity",
+            "Constraints on trip distribution"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the time it takes to transport patients using helicopters and buses while meeting specific constraints on capacity and trip distribution."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total transport time for all patients must be minimized.",
+            "The capacity of each helicopter and bus must not be exceeded during transport.",
+            "Each trip must be distributed between helicopters and buses without violating their specific capacity limits.",
+            "The number of patients assigned to helicopters and buses should ensure that all are transported in the minimum possible time."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize time",
+            "Meet capacity constraints",
+            "Ensure proper distribution between helicopters and buses",
+            "Fixed travel times for both helicopters and buses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total transportation time for patients while satisfying constraints on capacity and trip distribution."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The primary objective is to minimize the transportation time for patients.",
+            "Both helicopters and buses are used for transporting patients, each with a fixed travel time and capacity.",
+            "Transportation needs to meet specific requirements on time, capacity, and trip distribution."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "time constraints",
+            "capacity constraints",
+            "trip distribution constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation and scheduling of helicopters and buses for transporting patients such that constraints on time, capacity, and trip distribution are satisfied."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total transportation time must be minimized.",
+            "The number of patients transported by helicopters and buses combined must meet or exceed the total patient demand.",
+            "Each helicopter has a capacity limitation that cannot be exceeded.",
+            "Each bus has a capacity limitation that cannot be exceeded.",
+            "There are a limited number of helicopters and buses available.",
+            "Helicopters and buses are subject to different travel times, and these must be considered in the scheduling.",
+            "There should be a balanced distribution of trips between helicopters and buses to avoid over-reliance on one mode of transportation."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "capacity",
+            "trip distribution"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal transportation strategy that efficiently utilizes helicopters and buses to transport patients, while satisfying specific constraints on capacity and maintaining a balanced distribution of trips between the two modes of transport, without being constrained by the availability time of helicopters or buses."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Helicopters and buses must have enough capacity to transport all patients.",
+            "The transportation must be distributed across available vehicles to ensure efficiency."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "time constraints",
+            "capacity constraints",
+            "trip distribution constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine an optimal strategy for transporting patients using helicopters and buses while meeting constraints related to capacity and distribution of trips, but without any time constraints on the availability or scheduling of these transportation resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total capacity for transporting patients must be met by using both helicopters and buses.",
+            "There must be a certain distribution of trips between helicopters and buses, implying that both modes have to be utilized to some extent.",
+            "Time constraints do not limit the availability of helicopters and buses.",
+            "There are no scheduling constraints regarding the operational hours or shifts for the helicopters and buses."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Capacity of helicopters",
+            "Capacity of buses",
+            "Time constraint for transporting patients",
+            "Trip distribution constraints",
+            "Number of helicopters available",
+            "Number of buses available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal strategy for allocating helicopters and buses to transport patients while satisfying constraints on capacity and trip distribution, without consideration of time constraints or cost minimization."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Capacity constraints for helicopters and buses to ensure they do not exceed maximum passenger capacity.",
+            "Demand constraint to ensure all patients are transported.",
+            "Trip distribution constraint to ensure an appropriate allocation of trips between helicopters and buses based on some criteria, such as distance or accessibility."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 4,
+        "o_score": 0,
+        "c_score": 2
+      }
+    }
+  }
+}

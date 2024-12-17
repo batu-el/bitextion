@@ -1,0 +1,17 @@
+{
+  "vague_description": "Determine the optimal allocation of transportation to meet the minimum requirements while meeting all constraints.",
+  "detailed_description": "A party organizer needs to transport party goers either by limousine or bus. Limousines can carry \\param{LimousineCapacity} people and buses can carry \\param{BusCapacity} people. They need to transport at least \\param{MinimumPeople} people. Because limousines are more attractive, at least \\param{MinimumLimousinePercentage} of the vehicles must be limousines. How many of each type of vehicle should be used to minimize the total number of limousines and buses used?",
+  "target_objective": "Minimize the total number of vehicles used",
+  "target_constraints": [
+    "Number of limousines used is non-negative",
+    "Number of buses used is non-negative",
+    "At least MinimumPeople must be transported",
+    "At least MinimumLimousinePercentage of the vehicles must be limousines"
+  ],
+  "target_parameters": [
+    "Capacity of one limousine",
+    "Capacity of one bus",
+    "Minimum number of people to transport",
+    "Minimum percentage of vehicles that must be limousines"
+  ]
+}

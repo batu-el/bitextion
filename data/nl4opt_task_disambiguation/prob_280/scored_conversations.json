@@ -1,0 +1,494 @@
+{
+  "vague_description": "A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.",
+  "detailed_description": "A daycare center has children they must pick up and can use two types of vehicles: a bus with a capacity of \\param{BusCapacity} children or a personal car with a capacity of \\param{CarCapacity} children. The daycare has to pick up at least \\param{MinChildren} children. Additionally, due to limitations of pollution, there must be more buses than personal cars. But some children require extra attention. Therefore, there must be at least \\param{MinCars} personal cars. How many of each form of transportation should the daycare center schedule for to minimize the total number of vehicles?",
+  "target_objective": "Minimize the total number of buses and personal cars scheduled",
+  "target_constraints": [
+    "Number of buses is non-negative",
+    "Number of personal cars is non-negative",
+    "The total capacity of buses and cars must accommodate at least MinChildren children",
+    "There must be more buses than personal cars",
+    "There must be at least MinCars personal cars"
+  ],
+  "target_parameters": [
+    "Capacity of a bus",
+    "Capacity of a personal car",
+    "Minimum total number of children to pick up",
+    "Minimum number of personal cars due to children needing extra attention"
+  ],
+  "Expert": {
+    "(0,)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.",
+    "(0, 0)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.\nExpert: Are there specific limits on the capacity of buses and personal cars that must be considered in the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.\nExpert: Are there specific limits on the capacity of buses and personal cars that must be considered in the optimization problem?\nUser: Yes\n\nExpert: Do the pollution constraints involve specific emission limits for each type of vehicle?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.\nExpert: Are there specific limits on the capacity of buses and personal cars that must be considered in the optimization problem?\nUser: Yes\n\nExpert: Do the pollution constraints involve specific emission limits for each type of vehicle?\nUser: No\n\nExpert: Are the attention constraints related to the number of children each supervisor can manage?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.",
+    "(0, 0)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.\nExpert: Does the problem description include a constraint on the number of available drivers or supervisors for the vehicles?\nUser: No\n",
+    "(0, 0, 0)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.\nExpert: Does the problem description include a constraint on the number of available drivers or supervisors for the vehicles?\nUser: No\n\nExpert: Does the problem allow using more than 10 buses for transportation?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.\nExpert: Does the problem description include a constraint on the number of available drivers or supervisors for the vehicles?\nUser: No\n\nExpert: Does the problem allow using more than 10 buses for transportation?\nUser: Yes\n\nExpert: Is there a constraint related to the number of buses used being allowed to exceed 10 in your problem description?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.",
+    "(0, 0)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.\nExpert: Are the transport options (buses and cars) subject to any fixed capacity constraints (e.g., maximum number of buses available, maximum number of children each vehicle can carry)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.\nExpert: Are the transport options (buses and cars) subject to any fixed capacity constraints (e.g., maximum number of buses available, maximum number of children each vehicle can carry)?\nUser: Yes\n\nExpert: Are the fixed capacity constraints the same for both transport options (buses and cars)?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.\nExpert: Are the transport options (buses and cars) subject to any fixed capacity constraints (e.g., maximum number of buses available, maximum number of children each vehicle can carry)?\nUser: Yes\n\nExpert: Are the fixed capacity constraints the same for both transport options (buses and cars)?\nUser: No\n\nExpert: Is the capacity of the personal cars fixed and known in advance (e.g., they have a specific number of seats), whereas the capacity of the buses might be more flexible (e.g., they can be adjusted based on the need for extra space)?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.",
+    "(0, 0)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.\nExpert: Is the objective to minimize the total cost (or a similar economic objective) rather than simply to optimize the number of buses and personal cars?\nUser: No\n",
+    "(0, 0, 0)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.\nExpert: Is the objective to minimize the total cost (or a similar economic objective) rather than simply to optimize the number of buses and personal cars?\nUser: No\n\nExpert: Is the objective of the problem a single objective or multiple objectives?\nUser: Single objective\n",
+    "(0, 0, 0, 0)": "User: A daycare has to determine the optimal number of buses and personal cars to use for picking up children, while adhering to capacity, pollution, and attention constraints.\nExpert: Is the objective to minimize the total cost (or a similar economic objective) rather than simply to optimize the number of buses and personal cars?\nUser: No\n\nExpert: Is the objective of the problem a single objective or multiple objectives?\nUser: Single objective\n\nExpert: Does the problem description explicitly mention more than two variables as parameters?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "The number of buses and personal cars to use",
+            "Capacity constraints of buses and personal cars",
+            "Pollution constraints related to the use of buses and cars",
+            "Attention constraints ensuring that each child receives adequate supervision"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of buses and personal cars to minimize costs and emissions while maximizing attention to each child and staying within capacity limits for the daycare transportation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total passenger capacity provided by the buses and personal cars combined must meet or exceed the number of children that need to be picked up.",
+            "The total emissions from the buses and personal cars should not exceed a specified pollution limit to minimize environmental impact.",
+            "The number of children per vehicle (buses/cars) should not exceed a certain number to ensure that adequate attention is given to each child."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Capacity of buses",
+            "Capacity of personal cars",
+            "Pollution constraints",
+            "Attention constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize the total cost of transportation for the daycare while meeting the capacity, pollution, and attention constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each bus can carry up to 50 children.",
+            "Each personal car can carry up to 4 children.",
+            "The total number of children that need transportation is fixed.",
+            "There is a pollution limit that cannot be exceeded based on the number of buses and cars used.",
+            "Each vehicle requires a minimum number of staff per child to ensure adequate attention.",
+            "There are a limited number of buses and cars available.",
+            "Operational costs for buses and personal cars should not exceed a certain budget."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Capacity limits for buses",
+            "Capacity limits for personal cars",
+            "Attention constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total cost associated with using buses and personal cars for picking up children while meeting capacity and attention constraints, without violating pollution constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of buses and personal cars used must be sufficient to pick up all children from the daycare.",
+            "Each bus and car have specific seating capacities which should not be exceeded when picking up children.",
+            "Pollution constraints involve minimizing the total emissions from the combination of buses and personal cars, although specific emission limits are not provided.",
+            "Attention constraints imply that the number of vehicles used should allow for adequate supervision by the daycare staff."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of buses",
+            "Number of personal cars",
+            "Capacity of buses",
+            "Capacity of personal cars"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total transportation cost while determining the optimal number of buses and personal cars for picking up children, subject to capacity constraints for buses and cars, as well as overall pollution and attention considerations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total capacity of buses and personal cars must meet or exceed the demand for transporting children.",
+            "There are no specific emission limits for buses and personal cars, but the overall use of vehicles should consider general pollution control.",
+            "The attention constraints are not related to the number of children each supervisor can manage, indicating a different yet unspecified factor."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of buses",
+            "Number of personal cars"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation between buses and personal cars to minimize costs while meeting capacity, pollution, and attention constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of children picked up by buses and personal cars must equal the total number of children requiring transport.",
+            "Each bus has a maximum capacity, and the children assigned to buses must not exceed this capacity.",
+            "Each personal car has a maximum capacity, and the children assigned to personal cars must not exceed this capacity.",
+            "The total pollution from using buses and personal cars must not exceed a specified limit.",
+            "The number of buses and personal cars used must ensure adequate attention to children, adhering to a maximum ratio of children per adult supervisor."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of buses",
+            "number of personal cars",
+            "capacity constraint",
+            "pollution constraint",
+            "attention constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the number of buses and personal cars used for picking up children at a daycare, subject to capacity constraints for each vehicle, pollution constraints for environmental impact, and attention constraints to ensure each child receives adequate supervision."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total number of children needing transportation",
+            "Capacity limit for buses",
+            "Capacity limit for personal cars",
+            "Pollution limit per vehicle type",
+            "Maximum allowable pollution based on current regulations",
+            "Attention or supervision requirement for children in vehicles",
+            "Vehicle availability for buses",
+            "Vehicle availability for personal cars"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of buses",
+            "number of personal cars",
+            "capacity constraint",
+            "pollution constraint",
+            "attention constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal number of buses and personal cars to use for picking up children from a daycare, in a manner that adheres to capacity, pollution, and attention constraints, while potentially minimizing cost or maximizing efficiency of transportation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of buses can exceed 10.",
+            "The daycare must adhere to capacity constraints, ensuring that the buses and cars can accommodate all the children needing transportation.",
+            "The daycare must adhere to pollution constraints, likely limiting the total emissions from the transportation options.",
+            "The daycare should meet attention constraints, possibly ensuring that there are enough supervisors or drivers to manage and ensure the safety of all children on board, although the number of available drivers or supervisors is not limited."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of buses",
+            "number of personal cars",
+            "capacity constraint",
+            "pollution constraint",
+            "attention constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of transportation while ensuring all children are picked up, adhering to capacity, pollution, and attention constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Capacity Constraint: The number of children that buses and cars can transport should meet the daycare's requirements.",
+            "Pollution Constraint: Ensure that the selection of buses and cars adheres to pollution limitations.",
+            "Attention Constraint: Adequate supervision must be ensured for children being transported."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Buses",
+            "Personal Cars",
+            "Capacity constraints",
+            "Pollution constraints",
+            "Attention constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total cost of transportation while ensuring all children are safely picked up, considering vehicle capacity limits, pollution reduction goals, and providing adequate adult supervision attention."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total capacity of buses and personal cars should be sufficient to accommodate all the children.",
+            "The combined pollution level from both buses and personal cars should not exceed a specified pollution threshold.",
+            "Each bus and personal car must have a sufficient number of attendants to ensure proper supervision and safety of all children."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal number of buses",
+            "Optimal number of personal cars",
+            "Capacity constraints for buses (number of children each bus can carry)",
+            "Capacity constraints for personal cars (number of children each car can carry)",
+            "Pollution constraints",
+            "Attention constraints (possibly related to supervision or ensuring adequate care)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal mix of buses and personal cars that minimize cost while meeting capacity, pollution, and attention constraints for safely picking up all children."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of buses and personal cars used must be equal to or less than the available number of each transport option.",
+            "Each bus has a fixed maximum capacity that cannot be exceeded in terms of the number of children it can carry.",
+            "Each personal car has a fixed maximum capacity that cannot be exceeded in terms of the number of children it can carry.",
+            "The total number of children transported by buses and cars must meet the required demand for picking up children.",
+            "There must be adherence to pollution constraints, likely by limiting the total emissions from the chosen transport options.",
+            "Attention constraints may involve ensuring there are enough supervisors for vehicles or limiting travel times."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of buses available",
+            "Number of cars available",
+            "Maximum number of children per bus",
+            "Maximum number of children per car",
+            "Pollution constraints",
+            "Attention constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of buses and personal cars needed to minimize costs while meeting the capacity, pollution, and attention constraints for daycare transportation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each bus has a maximum capacity of children it can carry.",
+            "Each car has a maximum capacity of children it can carry, which is different from that of the buses.",
+            "There is a limit on the total number of buses available.",
+            "There is a limit on the total number of cars available.",
+            "The total solution must minimize pollution emissions while adhering to transportation needs.",
+            "The number of attendants required per vehicle must be considered, ensuring each vehicle has the necessary staff for child supervision."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "buses_capacity",
+            "cars_capacity",
+            "pollution_constraint",
+            "attention_constraint",
+            "max_buses_available",
+            "max_cars_available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total transportation cost while meeting the needs for child transportation, adhering to vehicle capacity limitations, minimizing pollution, and ensuring sufficient attention to each child."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of personal cars and buses used must not exceed their available maximum.",
+            "Each bus has a fixed capacity in terms of the maximum number of children it can carry.",
+            "Each personal car has a fixed capacity in terms of the maximum number of children it can carry.",
+            "Pollution constraints must be adhered to, which likely involves minimizing the total emissions from all vehicles.",
+            "Attention constraints require ensuring that there are enough adult supervisors for the number of children in each vehicle."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of buses",
+            "number of personal cars"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the cost while ensuring all children are picked up, adhering to vehicle capacity, pollution limits, and providing adequate supervision to all children."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of children picked up by buses and cars must equal the total number of children needing pick up.",
+            "Each bus has a limited capacity of children it can carry.",
+            "Each personal car has a different, smaller capacity limit compared to buses.",
+            "The total emission from buses and cars must remain within the allowed pollution level.",
+            "There must be a minimum number of staff available in each vehicle to give adequate attention to the children."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of buses",
+            "Number of personal cars",
+            "Capacity constraints",
+            "Pollution constraints",
+            "Attention constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize the number of buses and personal cars used for picking up children, focusing on meeting capacity, pollution, and attention constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each bus has a maximum capacity of X children.",
+            "Each personal car has a maximum capacity of Y children.",
+            "The total number of children to be picked up is Z.",
+            "The number of vehicles used must not exceed pollution level constraints, meaning total emissions must be less than or equal to P.",
+            "For each vehicle, at least one adult supervisor must be present to ensure attention to children, meaning the number of supervisors needed should not exceed the number available, S."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of buses",
+            "Number of personal cars"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of buses and personal cars needed to transport children while adhering to capacity, pollution, and attention constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Capacity constraint: The total number of children picked up by both buses and personal cars cannot exceed the combined seating capacity of both types of vehicles.",
+            "Pollution constraint: The solution must minimize the carbon footprint or stay within a certain pollution limit by balancing the use of buses and personal cars.",
+            "Attention constraint: Each personal car is assigned a limited number of children to ensure they receive adequate attention during the ride."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "buses",
+            "personal cars",
+            "capacity",
+            "pollution",
+            "attention"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal number of buses and personal cars to use for picking up children, adhering to given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each bus has a fixed maximum capacity that cannot be exceeded.",
+            "Each personal car has a fixed maximum capacity that cannot be exceeded.",
+            "The total number of buses and cars used should minimize overall pollution.",
+            "Ensure that each child receives adequate attention during the transportation process.",
+            "All children must be transported to the daycare."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 1,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      }
+    }
+  }
+}

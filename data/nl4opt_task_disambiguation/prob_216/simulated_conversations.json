@@ -1,0 +1,49 @@
+{
+  "vague_description": "The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.",
+  "detailed_description": "A small bakery has \\param{TotalBatter} grams of batter and \\param{TotalMilk} grams of milk to make their crepe cakes, sponge cakes, and birthday cakes. A crepe cake needs \\param{BatterCrepe} grams of batter and \\param{MilkCrepe} grams of milk. A sponge cake requires \\param{BatterSponge} grams of batter and \\param{MilkSponge} grams of milk. A birthday cake requires \\param{BatterBirthday} grams of batter and \\param{MilkBirthday} grams of milk. If the profit per crepe cake is $\\param{ProfitCrepe}, the profit per sponge cake is $\\param{ProfitSponge}, and the profit per birthday cake is $\\param{ProfitBirthday}, how many of each should the bakery make to maximize their profit?",
+  "target_objective": "Maximize the bakery's profit from making crepe cakes, sponge cakes, and birthday cakes",
+  "target_constraints": [
+    "Number of crepe cakes is non-negative",
+    "Number of sponge cakes is non-negative",
+    "Number of birthday cakes is non-negative",
+    "Total grams of batter used cannot exceed TotalBatter",
+    "Total grams of milk used cannot exceed TotalMilk"
+  ],
+  "target_parameters": [
+    "Total amount of batter available",
+    "Total amount of milk available",
+    "Amount of batter required for a crepe cake",
+    "Amount of milk required for a crepe cake",
+    "Amount of batter required for a sponge cake",
+    "Amount of milk required for a sponge cake",
+    "Amount of batter required for a birthday cake",
+    "Amount of milk required for a birthday cake",
+    "Profit per crepe cake",
+    "Profit per sponge cake",
+    "Profit per birthday cake"
+  ],
+  "Expert": {
+    "(0,)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.",
+    "(0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Do you have specific quantities for the available resources of batter and milk?\nUser: No\n",
+    "(0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Do you have specific quantities for the available resources of batter and milk?\nUser: No\n\nExpert: Is there a given profit value associated with each type of cake?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Do you have specific quantities for the available resources of batter and milk?\nUser: No\n\nExpert: Is there a given profit value associated with each type of cake?\nUser: No\n\nExpert: Are there any constraints on the total number of cakes that can be produced?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.",
+    "(0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Is the objective function expressed with a specific linear equation involving variables x, y, and z?\nUser: No\n",
+    "(0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Is the objective function expressed with a specific linear equation involving variables x, y, and z?\nUser: No\n\nExpert: Does the problem include integer constraints on the production quantities of cakes?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Is the objective function expressed with a specific linear equation involving variables x, y, and z?\nUser: No\n\nExpert: Does the problem include integer constraints on the production quantities of cakes?\nUser: No\n\nExpert: Is the profit parameter for each type of cake specified separately rather than combined for all cakes in any form?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.",
+    "(0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Do the production quantities of crepe cakes, sponge cakes, and birthday cakes influence the usage of both batter and milk?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Do the production quantities of crepe cakes, sponge cakes, and birthday cakes influence the usage of both batter and milk?\nUser: Yes\n\nExpert: Is the objective of the bakery to maximize profit or is it to minimize the usage of resources such as batter and milk?\nUser: Yes, the objective is to maximize profit.\n",
+    "(0, 0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Do the production quantities of crepe cakes, sponge cakes, and birthday cakes influence the usage of both batter and milk?\nUser: Yes\n\nExpert: Is the objective of the bakery to maximize profit or is it to minimize the usage of resources such as batter and milk?\nUser: Yes, the objective is to maximize profit.\n\nExpert: Is the profit maximization problem subject to a fixed set of resources (batter and milk) without any possibility of purchasing additional resources?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.",
+    "(0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Are there more than two distinct parameters in the problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Are there more than two distinct parameters in the problem?\nUser: Yes\n\nExpert: Does the problem description contain the exact term 'number of' followed by one of the parameter names?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.\nExpert: Are there more than two distinct parameters in the problem?\nUser: Yes\n\nExpert: Does the problem description contain the exact term 'number of' followed by one of the parameter names?\nUser: No\n\nExpert: Does the optimization problem have multiple objective functions?\nUser: No\n"
+  }
+}

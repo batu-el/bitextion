@@ -1,0 +1,41 @@
+{
+  "vague_description": "Determine the optimal allocation strategy under constraints to maximize overall gains.",
+  "detailed_description": "Consider a problem where we have \\param{ElementNum} elements. For each element j, we have a parameter \\param{CoefficientA_j}, a parameter \\param{ProfitCoefficientC_j}, and a parameter \\param{UpperBoundU_j}. We also have a global parameter \\param{GlobalParameterB}. We have a variable \\param{DecisionVariableX_j} for each element j. The goal is to maximize the total profit, which is the sum of \\param{ProfitCoefficientC_j} * \\param{DecisionVariableX_j} for all element j. The constraints are that the sum of (1/\\param{CoefficientA_j}) * \\param{DecisionVariableX_j} for all element j should be less than or equal to \\param{GlobalParameterB}, and \\param{DecisionVariableX_j} should be between 0 and \\param{UpperBoundU_j} for all element j.",
+  "target_objective": "Maximize the total profit, which is the sum of the product of ProfitCoefficientC_j and DecisionVariableX_j for all elements in ElementNum",
+  "target_constraints": [
+    "The sum of the inverses of CoefficientA_j multiplied by DecisionVariableX_j for all elements in ElementNum must be less than or equal to GlobalParameterB",
+    "Each DecisionVariableX_j is greater than or equal to 0",
+    "Each DecisionVariableX_j is less than or equal to its respective UpperBoundU_j"
+  ],
+  "target_parameters": [
+    "The set of elements",
+    "A coefficient parameter for each element in the set",
+    "Profit coefficient for each element in the set",
+    "Upper bound on the decision variable for each element in the set",
+    "A global parameter representing an upper limit on the weighted sum of decision variables"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.",
+    "(0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the optimization problem a linear program, meaning both the objective function and constraints are linear?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the optimization problem a linear program, meaning both the objective function and constraints are linear?\nUser: Yes\n\nExpert: Do you have information on the decision variables, such as their allowable ranges or specific limits on their values?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the optimization problem a linear program, meaning both the objective function and constraints are linear?\nUser: Yes\n\nExpert: Do you have information on the decision variables, such as their allowable ranges or specific limits on their values?\nUser: Yes\n\nExpert: Are the constraints related to limited resources or capacity? \nRemember to answer with \u201cyes\u201d or \u201cno\u201d.\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.",
+    "(0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the objective function focused on profit maximization in a business or investment context?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the objective function focused on profit maximization in a business or investment context?\nUser: Yes\n\nExpert: Does the problem involve a constraint that specifically requires a minimum investment in certain types of assets, such as government bonds or projects?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the objective function focused on profit maximization in a business or investment context?\nUser: Yes\n\nExpert: Does the problem involve a constraint that specifically requires a minimum investment in certain types of assets, such as government bonds or projects?\nUser: No\n\nExpert: Are there any problems where the total investment budget is explicitly given as $1,000,000?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.",
+    "(0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the optimization problem subject to any financial or budgetary constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the optimization problem subject to any financial or budgetary constraints?\nUser: No\n\nExpert: Is the optimization problem subject to any capacity or resource limitations?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the optimization problem subject to any financial or budgetary constraints?\nUser: No\n\nExpert: Is the optimization problem subject to any capacity or resource limitations?\nUser: Yes\n\nExpert: Are these capacity or resource limitations fixed or variable?\nUser: Fixed\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.",
+    "(0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Does the problem description explicitly state the objective function to be maximized or minimized?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Does the problem description explicitly state the objective function to be maximized or minimized?\nUser: Yes\n\nExpert: Is the objective 'maximize overall gains' always present?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Does the problem description explicitly state the objective function to be maximized or minimized?\nUser: Yes\n\nExpert: Is the objective 'maximize overall gains' always present?\nUser: Yes\n\nExpert: Does the optimization problem have at least one non-empty constraint?\nUser: Yes\n"
+  }
+}

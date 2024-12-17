@@ -1,0 +1,49 @@
+{
+  "vague_description": "An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.",
+  "detailed_description": "A food truck owner can spend at most \\var{MaxBudget} on mangos and guavas. A mango costs the food truck owner \\var{CostMango} and a guava costs him \\var{CostGuava}. Spices are added and each mango is sold for a profit of \\var{ProfitMango} while each guava is sold for a profit of \\var{ProfitGuava}. The owner estimates that at least \\var{MinMangos} mangos but at the most \\var{MaxMangos} are sold each month. He also estimates that the number of guavas sold is at most a third of the mangos sold (expressed as \\var{RatioGuavas} times the number of mangos). How many mangos and guavas should be sold in order to maximize the profit?",
+  "target_objective": "Maximize the profit from selling mangos and guavas",
+  "target_constraints": [
+    "Number of mangos is an integer",
+    "Number of guavas is an integer",
+    "Number of mangos is greater than or equal to MinMangos",
+    "Number of mangos is less than or equal to MaxMangos",
+    "Number of mangos is non-negative",
+    "Number of guavas is non-negative",
+    "The cost of mangos and guavas cannot exceed MaxBudget",
+    "Number of guavas sold is at most RatioGuavas times the number of mangos sold"
+  ],
+  "target_parameters": [
+    "Maximum budget for mangos and guavas",
+    "Cost of one mango",
+    "Cost of one guava",
+    "Profit from selling one mango",
+    "Profit from selling one guava",
+    "Minimum mangos sold per month",
+    "Maximum mangos sold per month",
+    "Maximum guavas sold per month as a ratio of mangos sold"
+  ],
+  "Expert": {
+    "(0,)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.",
+    "(0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Are the profit contributions per unit produced for both products known?\nUser: Yes\n",
+    "(0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Are the profit contributions per unit produced for both products known?\nUser: Yes\n\nExpert: Are there any constraints on the maximum amount of each product that can be produced?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Are the profit contributions per unit produced for both products known?\nUser: Yes\n\nExpert: Are there any constraints on the maximum amount of each product that can be produced?\nUser: Yes\n\nExpert: Is there a constraint on the total resources available for production?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.",
+    "(0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does any problem description include a budget constraint specifically stated as a dollar amount?\nUser: No\n",
+    "(0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does any problem description include a budget constraint specifically stated as a dollar amount?\nUser: No\n\nExpert: Does the problem include a constraint related to a maximum percentage or proportion of total production capacity allocated specifically to one of the products?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does any problem description include a budget constraint specifically stated as a dollar amount?\nUser: No\n\nExpert: Does the problem include a constraint related to a maximum percentage or proportion of total production capacity allocated specifically to one of the products?\nUser: Yes\n\nExpert: Does the problem explicitly mention a minimum production requirement for Product B?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.",
+    "(0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does the decision require the production of a fixed quantity of each product?\nUser: No\n",
+    "(0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does the decision require the production of a fixed quantity of each product?\nUser: No\n\nExpert:  Are there any capacity or resource constraints that limit the production levels of one or both products? \nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does the decision require the production of a fixed quantity of each product?\nUser: No\n\nExpert:  Are there any capacity or resource constraints that limit the production levels of one or both products? \nUser: Yes\n\nExpert: Are these capacity or resource constraints user-imposed (e.g., due to manufacturing capabilities) or external (e.g., market demand or supplier availability)?\nUser: Yes, the constraints are imposed by external factors such as market demand.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.",
+    "(0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does the problem description include an explicit allocation of resources or some of the constraints relate to fixed allocation of resources?\nUser: Yes\n",
+    "(0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does the problem description include an explicit allocation of resources or some of the constraints relate to fixed allocation of resources?\nUser: Yes\n\nExpert: Are there any specific numerical limits or values mentioned for the parameters or constraints within the problem description?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: An entrepreneur must decide how to allocate limited resources between two products to achieve the highest profit while adhering to certain restrictions.\nExpert: Does the problem description include an explicit allocation of resources or some of the constraints relate to fixed allocation of resources?\nUser: Yes\n\nExpert: Are there any specific numerical limits or values mentioned for the parameters or constraints within the problem description?\nUser: No\n\nExpert: Are there constraints that are not related to resource allocation between the two products?\nUser: Yes\n"
+  }
+}

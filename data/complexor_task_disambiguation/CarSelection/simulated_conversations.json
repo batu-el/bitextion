@@ -1,0 +1,39 @@
+{
+  "vague_description": "The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.",
+  "detailed_description": "The Car Selection Problem is a mixed integer programming model that aims to assign \\param{ParticipantNum} participants to \\param{CarNum} cars in a way that maximizes the total number of assignments. Each participant is interested in a subset of cars, represented by \\param{InterestMatrix_{p,c}}, where p and c index participants and cars, respectively. The objective is to find the optimal assignment of participants to cars that satisfies certain constraints.",
+  "target_objective": "Maximize the total number of participant-to-car assignments",
+  "target_constraints": [
+    "Each participant is assigned to at most one car",
+    "A participant can only be assigned to a car if they are interested in that car (InterestMatrix_{p,c} = 1)",
+    "The assignment of a participant to a car is a binary decision (either 0 or 1)"
+  ],
+  "target_parameters": [
+    "The total number of participants",
+    "The total number of available cars",
+    "A binary matrix indicating whether a participant is interested in a particular car (1 for interested and 0 for not interested)"
+  ],
+  "Expert": {
+    "(0,)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.",
+    "(0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the objective of the optimization problem to minimize or maximize a specific goal?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the objective of the optimization problem to minimize or maximize a specific goal?\nUser: Yes\n\nExpert: Is the specific goal of the optimization problem related to minimizing costs or maximizing efficiency?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the objective of the optimization problem to minimize or maximize a specific goal?\nUser: Yes\n\nExpert: Is the specific goal of the optimization problem related to minimizing costs or maximizing efficiency?\nUser: No\n\nExpert: Is the specific goal of the optimization problem related to maximizing participant satisfaction or resource utilization?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.",
+    "(0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the primary objective of the problem to maximize the overall satisfaction score of participants?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the primary objective of the problem to maximize the overall satisfaction score of participants?\nUser: No\n\nExpert: Is there a constraint related to a budget limit for the total cost of assigning participants to resources?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the primary objective of the problem to maximize the overall satisfaction score of participants?\nUser: No\n\nExpert: Is there a constraint related to a budget limit for the total cost of assigning participants to resources?\nUser: No\n\nExpert: Does the problem include a constraint that some tasks require a minimum number of participants to be assigned before they can start?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.",
+    "(0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the objective of the optimization problem to minimize costs?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the objective of the optimization problem to minimize costs?\nUser: No\n\nExpert: Is the objective of the optimization problem to maximize efficiency or productivity?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Is the objective of the optimization problem to minimize costs?\nUser: No\n\nExpert: Is the objective of the optimization problem to maximize efficiency or productivity?\nUser: Yes\n\nExpert: Does the optimization problem involve allocating a limited number of resources across multiple tasks or activities?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.",
+    "(0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Does the problem description mention any constraints? If so, is the objective function to either minimize or maximize a value?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Does the problem description mention any constraints? If so, is the objective function to either minimize or maximize a value?\nUser: Yes\n\nExpert: Is the objective of the problem explicitly stated as 'minimize'?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.\nExpert: Does the problem description mention any constraints? If so, is the objective function to either minimize or maximize a value?\nUser: Yes\n\nExpert: Is the objective of the problem explicitly stated as 'minimize'?\nUser: No\n\nExpert: Is the objective of the problem to minimize something?\nUser: No\n"
+  }
+}

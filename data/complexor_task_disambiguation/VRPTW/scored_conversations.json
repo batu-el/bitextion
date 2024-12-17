@@ -1,0 +1,492 @@
+{
+  "vague_description": "Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.",
+  "detailed_description": "The Vehicle Routing Problem with Time Windows (VRPTW) involves the distribution of goods between depots and customers using \\param{VehicleCount} vehicles. Each vehicle has to supply \\param{CustomerCount} customers, and has a limited capacity, \\param{VehicleCapacity_i}, for each vehicle i. Each customer, j, has an associated demand, \\param{CustomerDemand_j}, that must be satisfied within the customer-specific time window, defined by the lower and upper bounds, \\param{CustomerLBTW_j} and \\param{CustomerUBTW_j}, respectively. The \\param{CustomerDistance_{i,j}} parameter represents the distance between customer i to customer j, and \\param{CustomerServiceTime_j} denotes the service time for customer j.",
+  "target_objective": "Optimize the routes for all vehicles such that all customer demands are fulfilled within their specific time windows while minimizing total travel distance and time",
+  "target_constraints": [
+    "The capacity of each vehicle i is limited to VehicleCapacity_i",
+    "Each customer j must be served within the time window from CustomerLBTW_j to CustomerUBTW_j",
+    "The number of vehicles available is limited to VehicleCount"
+  ],
+  "target_parameters": [
+    "The number of customers to be supplied",
+    "The number of vehicles available for distribution",
+    "The demand of each customer",
+    "The lower bound of the time window for each customer",
+    "The upper bound of the time window for each customer",
+    "The distance from each customer to every other customer",
+    "The service time required for each customer",
+    "The capacity of each vehicle"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.",
+    "(0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Is there a limit to the number of vehicles available for delivering the packages?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Is there a limit to the number of vehicles available for delivering the packages?\nUser: Yes\n\nExpert: Are there any specific delivery locations that must be visited within certain time windows?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Is there a limit to the number of vehicles available for delivering the packages?\nUser: Yes\n\nExpert: Are there any specific delivery locations that must be visited within certain time windows?\nUser: Yes\n\nExpert: Are there maximum travel distance or time limits for each vehicle when delivering packages?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.",
+    "(0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Does the problem description include a constraint related to the maximum working hours or shift duration for drivers?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Does the problem description include a constraint related to the maximum working hours or shift duration for drivers?\nUser: No\n\nExpert: Do any of the problems include a constraint related to maximum working hours or shift duration for drivers?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Does the problem description include a constraint related to the maximum working hours or shift duration for drivers?\nUser: No\n\nExpert: Do any of the problems include a constraint related to maximum working hours or shift duration for drivers?\nUser: No\n\nExpert: Do any candidate problems consider the impact of traffic or road conditions on travel times in their parameters or constraints?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.",
+    "(0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Are the delivery locations known in advance, or are they subject to change on the day of delivery?\nUser: {\"response\":\"Yes\"}\n",
+    "(0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Are the delivery locations known in advance, or are they subject to change on the day of delivery?\nUser: {\"response\":\"Yes\"}\n\nExpert: Are there any time windows or specific delivery slots that must be adhered to at each location?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Are the delivery locations known in advance, or are they subject to change on the day of delivery?\nUser: {\"response\":\"Yes\"}\n\nExpert: Are there any time windows or specific delivery slots that must be adhered to at each location?\nUser: Yes\n\nExpert: Are delivery capacities or constraints, such as weight or volume limits, imposed on each vehicle?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.",
+    "(0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Are there any route-specific constraints or parameters mentioned in the problem description?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Are there any route-specific constraints or parameters mentioned in the problem description?\nUser: Yes\n\nExpert: Does the problem description contain time windows for each drop-off location?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Are there any route-specific constraints or parameters mentioned in the problem description?\nUser: Yes\n\nExpert: Does the problem description contain time windows for each drop-off location?\nUser: Yes\n\nExpert: Does the problem have any specific constraints that relate to time or vehicle capacity?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Set of vehicles available",
+            "Set of delivery locations",
+            "Time window for each delivery",
+            "Distance matrix or travel time between locations",
+            "Vehicle capacity (if applicable)",
+            "Starting location for each vehicle",
+            "Ending location for each vehicle (if different from starting location)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine efficient routes for a fleet of delivery vehicles to ensure all required drop-offs are completed within specified time constraints while minimizing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each delivery vehicle can only visit one drop-off location at a time.",
+            "All deliveries must be completed within their specified time windows.",
+            "The total route of each vehicle cannot exceed its maximum allowable distance or time limit.",
+            "There is a limited number of vehicles available for delivery routes.",
+            "Vehicles start and end at a central depot.",
+            "No two vehicles can be scheduled to arrive at the same drop-off location at the same time."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of vehicles available",
+            "Set of delivery locations",
+            "Time windows for each delivery location",
+            "Distance or travel time between locations",
+            "Fleet capacity constraints",
+            "Depot location for the fleet"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Identify the most efficient delivery routes for a limited fleet of vehicles to complete all specified drop-offs within the given time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each delivery must be completed within its specific time window.",
+            "Only a limited number of delivery vehicles are available to complete all deliveries.",
+            "Each vehicle can only be in one location at a time.",
+            "Each route must start and end at the depot.",
+            "The total distance or time traveled by each vehicle should be minimized (efficiency constraint).",
+            "Each delivery drop-off must be served by exactly one vehicle."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of vehicles",
+            "delivery locations",
+            "time constraints for deliveries"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine efficient routes for a limited fleet of delivery vehicles to complete all required drop-offs within specific time constraints and delivery location time windows."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a limited number of vehicles available for deliveries.",
+            "Specific delivery locations have time windows that must be adhered to for drop-offs."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fleet size",
+            "Delivery locations with time windows",
+            "Max travel distance or time per vehicle"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal routes for a limited fleet of delivery vehicles that achieve all required drop-offs within specific time windows while respecting maximum travel distance or time limits for each vehicle."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a limit to the number of vehicles available.",
+            "Specific delivery locations must be visited within certain time windows.",
+            "Maximum travel distance or time limits exist for each vehicle."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of delivery vehicles available",
+            "List of delivery locations with respective time constraints",
+            "Distance or travel time between locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total travel time or distance for a fleet of delivery vehicles while ensuring all deliveries are completed within their specified time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each delivery vehicle can only start its route after a certain time (e.g., 8 AM) and must finish by another time (e.g., 5 PM).",
+            "Each delivery location must be visited exactly once by the fleet of vehicles.",
+            "The vehicle capacity cannot be exceeded at any point during its route.",
+            "All delivery time windows for each location must be respected (e.g., deliveries must happen between 10 AM and 11 AM for certain customers).",
+            "Vehicles must follow traffic regulations and realistic travel times between locations are considered.",
+            "Total travel time or distance for each vehicle should be minimized to reduce operational costs.",
+            "All vehicles must start and end their routes at their designated depots."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficient routes for delivery vehicles",
+            "All required drop-offs",
+            "Specific time constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total travel distance or time for a fleet of delivery vehicles while ensuring all required drop-offs are completed within specific time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All required drop-offs must be completed within specific time constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficient routes",
+            "Fleet of delivery vehicles",
+            "Complete drop-offs",
+            "Time constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total travel distance or time for the fleet of delivery vehicles while ensuring all required drop-offs are completed within specified time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Delivery routes must be planned such that all required drop-offs are completed within the designated time constraints for each delivery.",
+            "Each vehicle in the fleet can only be assigned to one delivery route at a time.",
+            "All vehicles must start and end their routes at the central depot.",
+            "The total number of vehicles should be minimized while ensuring all deliveries are made within the required time frames.",
+            "Each delivery vehicle can carry a limited capacity of goods, so routes must be designed considering the load capacity of each vehicle."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fleet of delivery vehicles",
+            "Required drop-offs",
+            "Specific time constraints for deliveries"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the most efficient routes for a fleet of delivery vehicles ensuring all required drop-offs are completed within specified time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All required drop-offs must be completed within specific time constraints.",
+            "Routes must be efficient for the fleet of delivery vehicles."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Delivery locations",
+            "Number of vehicles",
+            "Time windows for each delivery",
+            "Vehicle capacities",
+            "Distances between locations",
+            "Start and end locations for vehicles"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the most efficient routes for a fleet of delivery vehicles to ensure all deliveries are made within the specified time constraints, minimizing total travel time or costs while meeting delivery deadlines."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each delivery vehicle must complete all assigned drop-offs within specified time windows for each delivery location.",
+            "The total distance traveled by each vehicle should be minimized to reduce fuel consumption and operational costs.",
+            "The number of available vehicles cannot exceed the fleet size limit.",
+            "Each vehicle has a maximum weight capacity that cannot be exceeded by the sum of the load for all deliveries assigned to it.",
+            "All deliveries must be completed within the operating hours of the delivery service.",
+            "Traffic patterns and potential delays must be considered to ensure deliveries are made on time.",
+            "Vehicles cannot visit a location more times than necessary, i.e., multiple drop-offs at the same location should be minimized.",
+            "The route planned for each vehicle should comply with local traffic laws and regulations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "delivery locations",
+            "number of vehicles",
+            "specific time constraints for drop-offs",
+            "vehicle capacity",
+            "depot location"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the most efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints, assuming that all delivery locations are known in advance."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All delivery drop-offs must be completed within specific time constraints.",
+            "The routes should be devised for a fleet of vehicles.",
+            "The delivery locations are known in advance and do not change on the day of delivery."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "delivery vehicle capacity",
+            "delivery locations",
+            "delivery time windows",
+            "current traffic conditions",
+            "fleet size",
+            "distance between delivery points",
+            "vehicle speed",
+            "delivery priorities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the most efficient routes for a fleet of delivery vehicles such that all delivery locations are visited within their specific time windows, minimizing travel time or distance."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All delivery vehicles must complete their routes and drop-offs within specified time windows for each location.",
+            "Delivery locations are fixed and known in advance; no changes are allowed after the route planning.",
+            "Each vehicle must start and end at the depot/central location.",
+            "No location can be visited before or after its designated time window.",
+            "Each delivery vehicle can carry a certain capacity, which cannot be exceeded.",
+            "The total travel time for each vehicle must not exceed the daily operational hours set for the fleet."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Known delivery locations",
+            "Time windows or specific delivery slots at each location",
+            "Vehicle delivery capacities or constraints (weight or volume limits)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total travel time or distance for a fleet of delivery vehicles while adhering to specific delivery time windows and vehicular capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Delivery locations are fixed and known in advance.",
+            "Each delivery location has specific time windows or delivery slots.",
+            "Vehicles have constraints relating to maximum weight or volume capacity."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of delivery vehicles available",
+            "Locations of all required drop-offs",
+            "Time windows for each drop-off",
+            "Distances between all drop-off locations",
+            "Traffic conditions between drop-off locations",
+            "Capacity of each vehicle, if deliveries involve handling items of a limited quantity or volume",
+            "The starting point for each vehicle (e.g., a central depot)",
+            "Fuel consumption and refueling constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the routing of delivery vehicles to minimize total travel time while completing all deliveries within given time windows."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each delivery must be completed within its specified time window.",
+            "The total travel time for each vehicle must not exceed the driver's available working hours.",
+            "Each vehicle can only carry a limited number of packages up to its capacity.",
+            "Each vehicle must return to its starting location after completing its deliveries.",
+            "Traffic and road conditions must be considered to ensure timely deliveries.",
+            "The number of available delivery vehicles is fixed."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "delivery vehicles",
+            "drop-off locations",
+            "time constraints",
+            "route-specific constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to find the most efficient routes for a fleet of delivery vehicles to complete all required drop-offs within given timing constraints while considering any specified route-specific restrictions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All required drop-offs must be completed within specific time constraints.",
+            "The routes must be efficient for a fleet of delivery vehicles.",
+            "Vehicles must adhere to route-specific constraints or parameters, though the specific constraints are not detailed in this conversation."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Time windows for each drop-off location"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total travel time or distance for the fleet of delivery vehicles while ensuring all deliveries are made within their specified time windows."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each drop-off must be completed within a specified time window.",
+            "Routes must be planned to ensure all deliveries are completed on time.",
+            "Vehicles are limited to specific paths or roads according to route-specific constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Time windows for delivery drop-offs",
+            "Vehicle capacity limits",
+            "Constraints on route efficiency",
+            "Specific time constraints for deliveries"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total travel distance or time for a fleet of delivery vehicles while ensuring all deliveries are made within specified time windows and vehicle capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each delivery vehicle must complete its route within the given time windows for each drop-off location.",
+            "The total load of deliveries assigned to each vehicle must not exceed its maximum capacity.",
+            "Routes must be planned such that all required drop-offs are completed.",
+            "All delivery vehicles must start and end at the depot.",
+            "Each delivery spot must be visited exactly once by the entire fleet."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 3
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 4,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      }
+    }
+  }
+}

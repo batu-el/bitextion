@@ -1,0 +1,49 @@
+{
+  "vague_description": "Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.",
+  "detailed_description": "A nutritionist is making a special vitamin mix using two drinks: drink A and drink B. The vitamin mix must contain at least \\var{MinVitA} units of Vitamin A, at least \\var{MinVitD} units of Vitamin D, and at most \\var{MaxVitE} units of Vitamin E. A cup of drink A contains \\var{VitAA} units of Vitamin A, \\var{VitDA} units of Vitamin D, \\var{VitEA} units of Vitamin E, and \\var{VitKA} units of Vitamin K. A cup of drink B contains \\var{VitAB} units of Vitamin A, \\var{VitDB} units of Vitamin D, \\var{VitEB} units of Vitamin E, and \\var{VitKB} units of Vitamin K. How many cups of each drink should be used to make the vitamin mix in order to minimize the amount of Vitamin K?",
+  "target_objective": "Minimize the amount of Vitamin K in the vitamin mix",
+  "target_constraints": [
+    "Number of cups of drink A is non-negative",
+    "Number of cups of drink B is non-negative",
+    "The vitamin mix must contain at least MinVitA units of Vitamin A",
+    "The vitamin mix must contain at least MinVitD units of Vitamin D",
+    "The vitamin mix must contain at most MaxVitE units of Vitamin E"
+  ],
+  "target_parameters": [
+    "Minimum required units of Vitamin A",
+    "Minimum required units of Vitamin D",
+    "Maximum allowed units of Vitamin E",
+    "Units of Vitamin A per cup of drink A",
+    "Units of Vitamin D per cup of drink A",
+    "Units of Vitamin E per cup of drink A",
+    "Units of Vitamin K per cup of drink A",
+    "Units of Vitamin A per cup of drink B",
+    "Units of Vitamin D per cup of drink B",
+    "Units of Vitamin E per cup of drink B",
+    "Units of Vitamin K per cup of drink B"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.",
+    "(0, 0)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.\nExpert: Are there upper or lower bounds on the amounts of either component that can be used in the optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.\nExpert: Are there upper or lower bounds on the amounts of either component that can be used in the optimization problem?\nUser: No\n\nExpert: Is there a specific target or minimum threshold for each of the required nutrients that must be met in the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.\nExpert: Are there upper or lower bounds on the amounts of either component that can be used in the optimization problem?\nUser: No\n\nExpert: Is there a specific target or minimum threshold for each of the required nutrients that must be met in the optimization problem?\nUser: Yes\n\nExpert: Are there costs associated with the components that need to be minimized in addition to the undesirable nutrient?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.",
+    "(0, 0)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.\nExpert: Does each problem description include an explicit constraint on the total weight of the mixture or combination?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.\nExpert: Does each problem description include an explicit constraint on the total weight of the mixture or combination?\nUser: No\n\nExpert: Is the objective function focused on minimizing the content of a specific undesirable nutrient across multiple nutrients or components?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.\nExpert: Does each problem description include an explicit constraint on the total weight of the mixture or combination?\nUser: No\n\nExpert: Is the objective function focused on minimizing the content of a specific undesirable nutrient across multiple nutrients or components?\nUser: Yes\n\nExpert: Is the number of distinct nutrients mentioned in the constraints (excluding the undesirable nutrient) exactly three?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.",
+    "(0, 0)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.\nExpert: Is there a restriction on the maximum amount of one of the components?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.\nExpert: Is there a restriction on the maximum amount of one of the components?\nUser: No\n\nExpert: Is the undesirable nutrient a linear function of the two components?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.\nExpert: Is there a restriction on the maximum amount of one of the components?\nUser: No\n\nExpert: Is the undesirable nutrient a linear function of the two components?\nUser: Yes\n\nExpert: Is the objective of the optimization problem to minimize the amount of the undesirable nutrient?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.",
+    "(0, 0)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.\nExpert: Are the constraints given in a numerical format?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.\nExpert: Are the constraints given in a numerical format?\nUser: No\n\nExpert: Are there any constraints listed in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal quantities of two components to meet specific nutritional requirements while minimizing a particular undesirable nutrient.\nExpert: Are the constraints given in a numerical format?\nUser: No\n\nExpert: Are there any constraints listed in the problem description?\nUser: Yes\n\nExpert: Does the problem description explicitly mention a monetary cost or any other objective function that depends on more than one parameter (e.g., total cost, carbon footprint)?\nUser: No\n"
+  }
+}

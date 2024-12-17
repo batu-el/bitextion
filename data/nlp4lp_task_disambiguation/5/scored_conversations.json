@@ -1,0 +1,466 @@
+{
+  "vague_description": "Optimize the network routing to efficiently allocate data flows under given constraints.",
+  "detailed_description": "Find paths along which all data reach their intended destinations, while minimizing the total cost. The links between nodes are characterized by their capacities (\\param{Capacity}) and associated costs (\\param{Cost}), where each link i connects a start node (\\param{StartNode}_i) to an end node (\\param{EndNode}_i). There is a set number of data flow requirements (\\param{F}), each with a source node (\\param{Source}_j) and destination node (\\param{Destination}_j), and a specific data rate (\\param{DataRate}_j) that must be achieved.",
+  "target_objective": "Minimize the total cost of data transmission across all links",
+  "target_constraints": [
+    "Data flow on a link cannot exceed its capacity",
+    "Each link's data flow must be non-negative",
+    "The sum of data rates on all links from each source node must be at least the required data rate for that source",
+    "The sum of data rates on all links to each destination node must be at least the required data rate for that destination",
+    "Flow conservation must be maintained at intermediate nodes (i.e., the amount of data entering a non-source, non-destination node on incoming links equals the data leaving on outgoing links)"
+  ],
+  "target_parameters": [
+    "The number of links between nodes in the network.",
+    "The starting node for link ij",
+    "The ending node for link ij",
+    "The maximum capacity for link ij",
+    "The cost for transporting data through link ij",
+    "The number of data flow requirements.",
+    "The source node for data flow kl",
+    "The destination node for data flow kl",
+    "The rate of data flow for flow kl"
+  ],
+  "Expert": {
+    "(0,)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.",
+    "(0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Are there capacity constraints on the network links that must be considered in the optimization?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Are there capacity constraints on the network links that must be considered in the optimization?\nUser: Yes\n\nExpert: Is the optimization problem focused on minimizing network latency?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Are there capacity constraints on the network links that must be considered in the optimization?\nUser: Yes\n\nExpert: Is the optimization problem focused on minimizing network latency?\nUser: No\n\nExpert: Is the objective of the optimization problem to minimize the total cost of data transmission?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.",
+    "(0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Does the problem consider energy consumption as a constraint or parameter?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Does the problem consider energy consumption as a constraint or parameter?\nUser: No\n\nExpert: Does the problem include constraints related to the processing capacity of individual network nodes?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Does the problem consider energy consumption as a constraint or parameter?\nUser: No\n\nExpert: Does the problem include constraints related to the processing capacity of individual network nodes?\nUser: No\n\nExpert: Do the constraints require flow conservation at every node (i.e., the total data flow into a node must equal the total data flow out of it)?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.",
+    "(0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Are there any hard capacity constraints (e.g., maximum bandwidth, queue size limitations) that must be satisfied in the network routing optimization problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Are there any hard capacity constraints (e.g., maximum bandwidth, queue size limitations) that must be satisfied in the network routing optimization problem?\nUser: Yes\n\nExpert: Are the hard capacity constraints (e.g., maximum bandwidth, queue size limitations) time-varying or constant?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Are there any hard capacity constraints (e.g., maximum bandwidth, queue size limitations) that must be satisfied in the network routing optimization problem?\nUser: Yes\n\nExpert: Are the hard capacity constraints (e.g., maximum bandwidth, queue size limitations) time-varying or constant?\nUser: No\n\nExpert: Are the hard capacity constraints dependent on the current state or status of the network nodes (e.g., node loads, queue occupancies)?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.",
+    "(0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Does the objective function depend on the individual data flows (as opposed to aggregate metrics like average latency, total latency, or network bandwidth)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Does the objective function depend on the individual data flows (as opposed to aggregate metrics like average latency, total latency, or network bandwidth)?\nUser: Yes\n\nExpert: Are there any constraints in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Does the objective function depend on the individual data flows (as opposed to aggregate metrics like average latency, total latency, or network bandwidth)?\nUser: Yes\n\nExpert: Are there any constraints in the problem description?\nUser: Yes\n\nExpert: Does the problem statement include a parameter related to 'network topology'?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "network topology",
+            "link capacities",
+            "traffic demand matrix",
+            "quality of service requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the network routing such that data flows are allocated efficiently while adhering to the specified constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total data flow through any node should not exceed its capacity.",
+            "The routing must minimize the total delay across the network.",
+            "Data flows must adhere to designated quality of service (QoS) requirements.",
+            "Redundant paths should be available for critical data flows to ensure reliability.",
+            "The overall cost of the network should remain within the specified budget."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Capacity constraints on network links"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently allocate data flows across a network by optimizing the routing paths, ensuring capacity constraints on network links are not violated."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Network link capacities must not be exceeded."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "network routing",
+            "data flows",
+            "capacity constraints on network links"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize the network routing to efficiently allocate data flows while considering capacity constraints on network links."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Network links have capacity constraints.",
+            "The optimization objective is not focused on minimizing network latency."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "capacity constraints on network links",
+            "total cost of data transmission"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of data transmission."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Network link capacity constraints must be respected.",
+            "The optimization should aim to minimize the total cost of data transmission."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "network topology",
+            "data flow demands",
+            "latency limits",
+            "bandwidth constraints",
+            "node capacities",
+            "routing protocol constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize network routing to efficiently allocate data flows while adhering to specified constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total available bandwidth must not be exceeded by the sum of data flow allocations on any network link.",
+            "Each data flow must be assigned to a path without exceeding its maximum allowable delay.",
+            "Data flows cannot be split, meaning each flow must follow a single path from source to destination.",
+            "Certain paths may be restricted for specific data flows due to security policies.",
+            "Each network node must not be overloaded beyond its processing capacity.",
+            "Redundancy requirements must be met to ensure reliability, meaning critical flows must have backup paths available."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "network routing",
+            "data flows"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently allocate data flows in network routing under given constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "network routing",
+            "efficient data flow allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to efficiently allocate data flows in a network through routing optimization, ensuring that data is transmitted effectively under the given constraints excluding energy consumption and individual node processing capacity."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "efficiency of data flow allocation",
+            "flow conservation at every node"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize network routing to efficiently allocate data flows, ensuring flow conservation at every node under the given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Flow conservation at every node, meaning the sum of data flow into a node must equal the sum of data flow out of it."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "network topology as a graph",
+            "set of data flows with source and destination",
+            "bandwidth capacities on network edges",
+            "latency requirements",
+            "priority levels for different data flows",
+            "maximal computational power at nodes",
+            "constraints on data flow paths"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently allocate data flows in the network routing system while adhering to specified constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total network bandwidth is limited to 100 Gbps.",
+            "Each data flow must not exceed a maximum latency of 50 ms.",
+            "Data flows should be prioritized based on predetermined service levels.",
+            "Some network nodes have limited processing capacity, restricting the number of flows they can handle simultaneously.",
+            "Routing must avoid any single point of failure, ensuring redundancy.",
+            "Specific paths have legal or regulatory restrictions that must be observed.",
+            "Cost of data transfer should be minimized while meeting quality standards.",
+            "The network topology changes periodically, requiring adaptable routing strategies."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Network topology",
+            "Maximum bandwidth",
+            "Queue size limitations",
+            "Demand matrix (data flows)",
+            "Objective function (e.g., minimize latency, maximize throughput)",
+            "Routing policy constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to efficiently allocate data flows through a network in a manner that maximizes performance (possibly measured by throughput or latency) while satisfying hard capacity constraints such as maximum bandwidth and queue size limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maximum bandwidth for each link in the network.",
+            "Queue size limitations at each node."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "network routing",
+            "efficiency",
+            "allocate data flows",
+            "hard capacity constraints",
+            "maximum bandwidth",
+            "queue size limitations",
+            "constant constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize network routing in order to efficiently allocate data flows while satisfying constant hard capacity constraints, such as maximum bandwidth and queue size limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maximum bandwidth limitations for each link must be satisfied.",
+            "Queue size limitations at each node must be satisfied.",
+            "Constraints are constant over time (i.e., not time-varying)."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximum bandwidth",
+            "queue size limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to efficiently allocate data flows through the network in a manner that respects constant hard capacity constraints, such as maximum bandwidth and queue size limitations, while optimizing the overall network routing."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Hard capacity constraints are constant.",
+            "Hard capacity constraints are independent of the current state or status of the network nodes."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Network topology",
+            "Current data flow metrics",
+            "Constraints on routing paths",
+            "Bandwidth limitations",
+            "Delay requirements",
+            "Loss thresholds",
+            "Routing algorithms available",
+            "Load balancing requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize data transmission time while satisfying all constraints on network capacity and flow requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Data flow must not exceed the bandwidth capacity of any link in the network.",
+            "Latency must be minimized for time-sensitive data flows.",
+            "Data flows should be evenly distributed to prevent overload on any single network path.",
+            "Certain critical data flows have priority and cannot be delayed.",
+            "Redundancy must be ensured for critical data flows to support failover scenarios.",
+            "Compliance with specific routing protocols or policies as dictated by the network architecture.",
+            "Energy consumption should be minimized while routing data flows."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "individual data flows",
+            "network constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize the routing of individual data flows in the network to efficiently allocate resources while considering factors such as latency, bandwidth, or other individual flow metrics, under given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Individual data flows must be allocated efficiently within the network routing.",
+            "Constraints related to the capacity of network links must be considered.",
+            "Each data flow has specific requirements that must be met within the network routing.",
+            "The allocation of data flows should not exceed available network bandwidth.",
+            "Latency constraints may need to be adhered to for each individual data flow."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Data flows",
+            "Individual data flow metrics",
+            "Objective function dependent on individual data flows",
+            "Constraints on data allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Efficiently allocate individual data flows through a network under specific constraints to achieve optimal performance in terms of latency, network bandwidth, or other specified metrics."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The network routing should not exceed the maximum bandwidth of each available link.",
+            "Each data flow must reach its designated destination within a specified maximum latency.",
+            "Routing decisions should not violate predetermined priority levels of certain data flows.",
+            "Redundancy policies must ensure that critical data flows are duplicated over multiple paths.",
+            "The algorithm must maintain network security principles by adhering to encryption standards on each route."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "individual data flows",
+            "network topology"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize network routing to efficiently allocate individual data flows while considering network topology and meeting given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Constraints on individual data flows must be considered in the optimization.",
+            "The objective function should take into account the network topology.",
+            "Constraints regarding the network topology should be included.",
+            "The optimization should not solely focus on aggregate metrics such as average latency or total bandwidth but on individual flows."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    }
+  }
+}

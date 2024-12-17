@@ -1,0 +1,19 @@
+{
+  "vague_description": "Determine the optimal number of strawberry and sugar cookies to bake given profit margins, demand limitations, and production constraints.",
+  "detailed_description": "Zeta Bakery sells two types of cookies. They sell a strawberry cookie and a sugar cookie. Let's say they make x1 strawberry cookies, at a profit of \\param{StrawberryProfit} each, and x2 sugar cookies, at a profit of \\param{SugarProfit} each (x1 and x2 are unknowns both greater than or equal to 0). The daily demand for these cookies is at most \\param{MaxStrawberryDemand} strawberry cookies and at most \\param{MaxSugarDemand} sugar cookies. The bakery is short staffed and can make a maximum of \\param{MaxProductionCapacity} cookies of either type per day. How much of each cookie should the bakery make in order to maximize profit?",
+  "target_objective": "Maximize the bakery's profit from cookie production",
+  "target_constraints": [
+    "Number of strawberry cookies x1 is non-negative",
+    "Number of sugar cookies x2 is non-negative",
+    "Up to MaxStrawberryDemand strawberry cookies can be sold per day",
+    "Up to MaxSugarDemand sugar cookies can be sold per day",
+    "A maximum of MaxProductionCapacity cookies of either type can be made per day"
+  ],
+  "target_parameters": [
+    "Profit per strawberry cookie",
+    "Profit per sugar cookie",
+    "Maximum demand for strawberry cookies",
+    "Maximum demand for sugar cookies",
+    "Maximum production capacity of the bakery"
+  ]
+}

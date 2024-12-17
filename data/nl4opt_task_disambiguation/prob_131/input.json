@@ -1,0 +1,23 @@
+{
+  "vague_description": "Determine the optimal quantity of bananas and mangoes to feed a gorilla while meeting its dietary requirements and minimizing excess sugar.",
+  "detailed_description": "A zookeeper feeds a gorilla with bananas and mangoes. Each banana contains \\param{BananaCalories} calories, \\param{BananaPotassium} grams of potassium, and \\param{BananaSugar} grams of sugar. Each mango contains \\param{MangoCalories} calories, \\param{MangoPotassium} grams of potassium, and \\param{MangoSugar} grams of sugar. The gorilla must consume at least \\param{MinCalories} calories and \\param{MinPotassium} grams of potassium. Since the gorilla prefers bananas, at most \\param{MaxMangoPercentage} of the fruits he eats can be mangoes. If excess sugar makes the gorilla aggressive, how many of each fruit should he consume to minimize his sugar intake?",
+  "target_objective": "Minimize the gorilla's sugar intake from the bananas and mangoes",
+  "target_constraints": [
+    "Number of bananas is non-negative",
+    "Number of mangoes is non-negative",
+    "Gorilla must consume at least MinCalories calories",
+    "Gorilla must consume at least MinPotassium grams of potassium",
+    "At most MaxMangoPercentage of the fruits can be mangoes"
+  ],
+  "target_parameters": [
+    "Calories in one banana",
+    "Grams of potassium in one banana",
+    "Grams of sugar in one banana",
+    "Calories in one mango",
+    "Grams of potassium in one mango",
+    "Grams of sugar in one mango",
+    "Minimum total calories the gorilla must consume",
+    "Minimum total grams of potassium the gorilla must consume",
+    "Maximum percentage of mangoes in the gorilla's diet"
+  ]
+}

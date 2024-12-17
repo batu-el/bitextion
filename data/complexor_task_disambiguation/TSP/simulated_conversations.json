@@ -1,0 +1,41 @@
+{
+  "vague_description": "Determine the optimal distribution of resources to minimize costs while satisfying all requirements.",
+  "detailed_description": "The optimization problem is focused on efficiently allocating goods from a set of origins, denoted by \\param{OriginNum}, to a set of destinations, represented by \\param{DestinationNum}. Each originating point has a certain supply of goods, \\param{Supply_i}, where i is an origin. Correspondingly, each destination point has a specific demand, \\param{Demand_j}, where j is a destination. The cost associated with sending goods from origin i to destination j is represented by \\param{Cost_{i,j}}. The objective is to minimize the total transportation cost while meeting the demands at the destinations without exceeding the supplies at the origins.",
+  "target_objective": "Minimize the total transportation cost from origins to destinations",
+  "target_constraints": [
+    "Each origin i (where i is an index for origins) has a supply limit of Supply_i",
+    "Each destination j (where j is an index for destinations) requires Demand_j amount of goods",
+    "Amount of goods sent from any origin to any destination is non-negative"
+  ],
+  "target_parameters": [
+    "The total number of origins",
+    "The total number of destinations",
+    "The supply of goods available at each origin",
+    "The demand for goods to be satisfied at each destination",
+    "The cost of transporting goods from origin i to destination j"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.",
+    "(0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Is the objective function of the optimization problem solely focused on minimizing total costs?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Is the objective function of the optimization problem solely focused on minimizing total costs?\nUser: Yes\n\nExpert: Are there any constraints related to resource availability in the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Is the objective function of the optimization problem solely focused on minimizing total costs?\nUser: Yes\n\nExpert: Are there any constraints related to resource availability in the optimization problem?\nUser: Yes\n\nExpert: Are there specific requirements or demands that each resource must satisfy?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.",
+    "(0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Are there any problems where the resource constraints require the total distributed resources to exactly match the demand at each location?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Are there any problems where the resource constraints require the total distributed resources to exactly match the demand at each location?\nUser: No\n\nExpert: Does the problem description include a constraint that each location must receive at least a minimum required amount of resources?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Are there any problems where the resource constraints require the total distributed resources to exactly match the demand at each location?\nUser: No\n\nExpert: Does the problem description include a constraint that each location must receive at least a minimum required amount of resources?\nUser: No\n\nExpert: Is there a constraint that specifies a minimum amount of resources each location must receive?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.",
+    "(0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Are the resources to be distributed fixed or can their quantities be adjusted?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Are the resources to be distributed fixed or can their quantities be adjusted?\nUser: No\n\nExpert: Are the quantities of the resources to be distributed integer values?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Are the resources to be distributed fixed or can their quantities be adjusted?\nUser: No\n\nExpert: Are the quantities of the resources to be distributed integer values?\nUser: Yes\n\nExpert: Are there any constraints on the maximum or minimum amount of resources that can be distributed to each unit or location?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.",
+    "(0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Does the problem description contain the word 'all' when specifying the constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Does the problem description contain the word 'all' when specifying the constraints?\nUser: No\n\nExpert: Does the problem have explicit, numerical constraints (e.g. totals, limits, percentages, or specific values)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal distribution of resources to minimize costs while satisfying all requirements.\nExpert: Does the problem description contain the word 'all' when specifying the constraints?\nUser: No\n\nExpert: Does the problem have explicit, numerical constraints (e.g. totals, limits, percentages, or specific values)?\nUser: Yes\n\nExpert: Does the problem description include specific numerical values for the constraints?\nUser: No\n"
+  }
+}

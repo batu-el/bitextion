@@ -1,0 +1,23 @@
+{
+  "vague_description": "Determine the optimal transportation method and number of trips needed to efficiently rescue and clean all affected ducks from an ocean oil spill.",
+  "detailed_description": "There has been an oil spill in the ocean and ducks need to be taken to shore to be cleaned either by boat or by canoe. A boat can take \\param{DucksPerBoat} ducks per trip while a canoe can take \\param{DucksPerCanoe} ducks per trip. Since the boats are motor powered, they take \\param{TimePerBoat} minutes per trip while the canoes take \\param{TimePerCanoe} minutes per trip. In order to avoid further environmental damage, there can be at most \\param{MaxBoatTrips} boat trips and at least \\param{MinCanoeTripsPercentage} of the trips should be by canoe. If at least \\param{MinDucks} ducks need to be taken to shore, how many of each transportation method should be used to minimize the total amount of time needed to transport the ducks?",
+  "target_objective": "Minimize the total time needed to transport all ducks to shore",
+  "target_constraints": [
+    "Number of boats used is non-negative",
+    "Number of canoes used is non-negative",
+    "Ducks transported per boat is limited to DucksPerBoat",
+    "Ducks transported per canoe is limited to DucksPerCanoe",
+    "A maximum of MaxBoatTrips boat trips are allowed",
+    "At least MinCanoeTripsPercentage of the total trips must be by canoe",
+    "At least MinDucks ducks must be transported to shore"
+  ],
+  "target_parameters": [
+    "Number of ducks per boat trip",
+    "Number of ducks per canoe trip",
+    "Duration of a boat trip",
+    "Duration of a canoe trip",
+    "Maximum number of boat trips",
+    "Minimum percentage of trips that should be by canoe",
+    "Minimum number of ducks to be taken to shore"
+  ]
+}

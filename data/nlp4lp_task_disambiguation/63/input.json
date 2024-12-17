@@ -1,0 +1,16 @@
+{
+  "vague_description": "Identifying an optimal group of resources to fulfill specific criteria at minimal expense.",
+  "detailed_description": "Select the combination of translators that ensures all required languages can be translated into, at the minimum possible cost. There are \\param{N} translators, each with an associated cost of \\param{Cost}. Each translator i is capable of translating a set of languages \\param{Languages}. The objective is to meet the translation needs for \\param{M} required languages, listed in \\param{RequiredLanguages}.",
+  "target_objective": "Minimize the total cost of translators while ensuring coverage for all M required languages",
+  "target_constraints": [
+    "Each of the M required languages must be translated into",
+    "Only translators from the set of N translators can be selected"
+  ],
+  "target_parameters": [
+    "Number of translators",
+    "Cost of translator i",
+    "Set of languages that translator i can translate",
+    "Number of required languages",
+    "List of required languages"
+  ]
+}

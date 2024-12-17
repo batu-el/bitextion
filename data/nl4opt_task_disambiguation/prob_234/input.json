@@ -1,0 +1,20 @@
+{
+  "vague_description": "Determine the optimal scheduling of ultrasound technicians and graduate researchers that balances budget constraints and required labor hours to meet service demands.",
+  "detailed_description": "A hospital hires ultrasound technicians and graduate researchers to image patients. An ultrasound technician works \\param{TechnicianHoursPerShift} hours per shift while a graduate researcher works \\param{ResearcherHoursPerShift} hours per shift. Ultrasound technicians are paid \\param{TechnicianPaymentPerShift} per shift while graduate researchers are paid \\param{ResearcherPaymentPerShift} per shift. However, due to regulations, there must be \\param{RequiredTechnicianToResearcherRatio} times as many ultrasound technician shifts than graduate researcher shifts. Currently, the hospital needs \\param{TotalUltrasoundHoursNeeded} hours of ultrasound services to meet needs. If the hospital has a budget of \\param{TotalBudget}, how many of each worker certified to use the ultrasound should be scheduled to reduce the total number of workers?",
+  "target_objective": "Minimize the total number of workers while meeting service and budgetary requirements",
+  "target_constraints": [
+    "Number of ultrasound technician shifts is non-negative",
+    "Number of graduate researcher shifts is non-negative",
+    "The ratio of ultrasound technician shifts to graduate researcher shifts is RequiredTechnicianToResearcherRatio",
+    "The total expenditure for all shifts must not exceed TotalBudget"
+  ],
+  "target_parameters": [
+    "Number of hours per shift for an ultrasound technician",
+    "Number of hours per shift for a graduate researcher",
+    "Payment per shift for an ultrasound technician",
+    "Payment per shift for a graduate researcher",
+    "Required ratio of ultrasound technician shifts to graduate researcher shifts",
+    "Total hours of ultrasound service needed",
+    "Total budget for hiring workers"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "vague_description": "Determine the optimal production strategy for a glass factory to maximize profit given machine time constraints and varying production requirements for different glass pane types.",
+  "detailed_description": "A glass factory makes two types of glass panes: a regular glass pane and a tempered glass pane. Both require time on a heating and cooling machine. Both machines are available for a maximum of \\var{MaxTime} minutes per day. It takes \\var{TimeRegHeat} minutes in the heating machine and \\var{TimeRegCool} minutes in the cooling machine to make one regular glass pane. It takes \\var{TimeTempHeat} minutes in the heating machine and \\var{TimeTempCool} minutes in the cooling machine to make one tempered glass pane. The profit per pane of regular glass is \\var{ProfitReg} and the profit per pane of tempered glass is \\var{ProfitTemp}. How many panes of each glass type should the factory make to maximize profit? What is the maximum profit?",
+  "target_objective": "Maximize the total profit from making regular and tempered glass panes",
+  "target_constraints": [
+    "Number of regular glass panes is an integer",
+    "Number of tempered glass panes is an integer",
+    "Number of regular glass panes is non-negative",
+    "Number of tempered glass panes is non-negative",
+    "Total time used in heating machine by regular glass panes cannot exceed MaxTime minutes per day",
+    "Total time used in cooling machine by regular glass panes cannot exceed MaxTime minutes per day",
+    "Total time used in heating machine by tempered glass panes cannot exceed MaxTime minutes per day",
+    "Total time used in cooling machine by tempered glass panes cannot exceed MaxTime minutes per day",
+    "TimeRegHeat minutes are required to heat one regular glass pane",
+    "TimeRegCool minutes are required to cool one regular glass pane",
+    "TimeTempHeat minutes are required to heat one tempered glass pane",
+    "TimeTempCool minutes are required to cool one tempered glass pane"
+  ],
+  "target_parameters": [
+    "Maximum daily usage time of the heating and cooling machines",
+    "Time to make one regular glass pane in the heating machine",
+    "Time to cool one regular glass pane in the cooling machine",
+    "Time to make one tempered glass pane in the heating machine",
+    "Time to cool one tempered glass pane in the cooling machine",
+    "Profit per regular glass pane",
+    "Profit per tempered glass pane"
+  ]
+}

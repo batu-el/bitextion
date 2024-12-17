@@ -1,0 +1,17 @@
+{
+  "vague_description": "Determine the optimal combination of transportation vessels to adhere to regulations while efficiently moving the necessary amount of fish to shore.",
+  "detailed_description": "A large fishing boat sends fish back to shore either by small canoes or smaller diesel boats. A canoe can carry back \\param{CanoeCapacity} fish while a small diesel boat can carry back \\param{DieselBoatCapacity} fish. In order to follow environmental rules, the number of small canoes used has to be at least \\param{CanoesPerDieselBoat} times as many as the number of diesel boats used. If at least \\param{MinimumFishToTransport} fish need to be transported to shore, minimize the total number of canoes and diesel boats needed.",
+  "target_objective": "Minimize the total number of canoes and diesel boats needed for transportation",
+  "target_constraints": [
+    "Number of canoes is non-negative",
+    "Number of diesel boats is non-negative",
+    "The number of canoes must be at least CanoesPerDieselBoat times the number of diesel boats",
+    "At least MinimumFishToTransport fish must be transported"
+  ],
+  "target_parameters": [
+    "Capacity of a canoe to carry fish",
+    "Capacity of a diesel boat to carry fish",
+    "Minimum number of canoes for each diesel boat",
+    "Minimum number of fish to transport to shore"
+  ]
+}

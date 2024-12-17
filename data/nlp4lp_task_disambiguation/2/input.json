@@ -1,0 +1,36 @@
+{
+  "vague_description": "The challenge involves determining the optimal production strategy for a technology company considering various product configurations and resource constraints.",
+  "detailed_description": "How many of which system should DEC produce and using what memories and disks to maximize the profit for the next quarter? The parameters involved are the number of systems \\param{N}, whether a system is a workstation or not for each system \\param{IsWorkstation}, the price for each system \\param{Price}, the number of disk drives for each system \\param{DiskDrives}, the number of 256K memory boards for each system \\param{MemoryBoards}, the maximum number of CPUs available \\param{MaxCpu}, the minimum and maximum total disk drives in the system \\param{MinDisk} and \\param{MaxDisk} respectively, the minimum and maximum total memory boards \\param{MinMemory} and \\param{MaxMemory} respectively, the demand for each system \\param{Demand}, the demand for general purpose systems \\param{DemandGP} and for workstations \\param{DemandWS}, the number of preordered systems \\param{Preorder}, the number of alternative memory configurations possible \\param{AltMemory}, and the compatibility of alternative memory with each system \\param{AltCompatible}.",
+  "target_objective": "Maximize the profit, which is calculated as the sum of the product of the number of each system produced and its corresponding Price",
+  "target_constraints": [
+    "The number of systems produced is non-negative and integer",
+    "Only workstations or general-purpose systems can be produced for each system according to IsWorkstation",
+    "The production must not exceed the MaxCpu available CPUs",
+    "The total number of disk drives across all systems must be at least MinDisk and at most MaxDisk",
+    "The total number of 256K memory boards across all systems must be at least MinMemory and at most MaxMemory",
+    "The production of each system must not exceed its corresponding Demand",
+    "The total production of general purpose systems must not exceed DemandGP",
+    "The total production of workstations must not exceed DemandWS",
+    "Preorder systems must be fulfilled as specified by Preorder",
+    "Each system must be configured with compatible alternative memory configurations based on AltCompatible",
+    "The number of system configurations using alternative memory must not exceed AltMemory"
+  ],
+  "target_parameters": [
+    "Number of systems",
+    "Whether system i is a workstation",
+    "Price of system i",
+    "Number of disk drives in system i",
+    "Number of 256K memory boards in system i",
+    "Maximum number of CPUs available",
+    "Minimum total disk drives",
+    "Maximum total disk drives",
+    "Minimum total memory boards",
+    "Maximum total memory boards",
+    "Demand of system i",
+    "Demand for General Purpose systems",
+    "Demand for Workstations",
+    "Number of preordered system i",
+    "Number of alternative memory configurations possible",
+    "Whether the alternative memory is compatible with system i"
+  ]
+}

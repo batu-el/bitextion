@@ -1,0 +1,41 @@
+{
+  "vague_description": "Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.",
+  "detailed_description": "Minimize the total transportation cost. This cost is calculated based on the number of depots \\param{I}, the number of ports \\param{J}, the cost \\param{Price} per unit distance for transporting goods, and the distance \\param{Distance} between depot i and port j.",
+  "target_objective": "Minimize the total transportation cost from depots to ports",
+  "target_constraints": [
+    "The number of depots I is non-negative",
+    "The number of ports J is non-negative",
+    "Cost per unit distance Price is non-negative",
+    "Distance between each depot i and port j is non-negative"
+  ],
+  "target_parameters": [
+    "Number of depots",
+    "Number of ports",
+    "Cost per unit distance for transporting goods",
+    "Distance between depot i and port j"
+  ],
+  "Expert": {
+    "(0,)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.",
+    "(0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Is the goal to minimize both transportation costs and time, or is the focus solely on reducing monetary expenses?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Is the goal to minimize both transportation costs and time, or is the focus solely on reducing monetary expenses?\nUser: No\n\nExpert: Are there specific constraints on the capacity of depots and means of transportation?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Is the goal to minimize both transportation costs and time, or is the focus solely on reducing monetary expenses?\nUser: No\n\nExpert: Are there specific constraints on the capacity of depots and means of transportation?\nUser: No\n\nExpert: Are there fixed routes that must be used, or is route optimization part of the problem?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.",
+    "(0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Does the problem include the constraint that the total supply from all depots must meet or exceed the total demand across all ports?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Does the problem include the constraint that the total supply from all depots must meet or exceed the total demand across all ports?\nUser: Yes\n\nExpert: Does the problem include constraints or parameters related to the availability or capacity of transportation routes or modes?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Does the problem include the constraint that the total supply from all depots must meet or exceed the total demand across all ports?\nUser: Yes\n\nExpert: Does the problem include constraints or parameters related to the availability or capacity of transportation routes or modes?\nUser: No\n\nExpert: Do any of the problem descriptions mention specific routes between depots and ports in the parameters?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.",
+    "(0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Are there multiple types of goods being transported with different priorities or requirements?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Are there multiple types of goods being transported with different priorities or requirements?\nUser: No\n\nExpert: Are there multiple depots involved in moving goods to the ports?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Are there multiple types of goods being transported with different priorities or requirements?\nUser: No\n\nExpert: Are there multiple depots involved in moving goods to the ports?\nUser: Yes\n\nExpert: Are the capacities of the depots or the ports a constraint in the optimization problem?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.",
+    "(0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Is the objective of the optimization problem to minimize expenses or costs?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Is the objective of the optimization problem to minimize expenses or costs?\nUser: Yes\n\nExpert: Does the problem description mention a 'fleet of vehicles'? \nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Is the objective of the optimization problem to minimize expenses or costs?\nUser: Yes\n\nExpert: Does the problem description mention a 'fleet of vehicles'? \nUser: No\n\nExpert: Does the problem description include constraints related to the movement or transfer of goods?\nUser: No\n"
+  }
+}

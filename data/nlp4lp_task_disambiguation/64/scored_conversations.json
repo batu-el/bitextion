@@ -1,0 +1,441 @@
+{
+  "vague_description": "The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.",
+  "detailed_description": "Determine the assignment of consultants to projects that minimizes the total cost, given the fixed \\param{FixedCosts} for each project, \\param{AdditionalCosts} for assigning consultant i to project j, and the \\param{MaxProjectsPerConsultant} that can be handled by a single consultant.",
+  "target_objective": "Minimize the total cost of assigning consultants to projects",
+  "target_constraints": [
+    "Each consultant can handle up to MaxProjectsPerConsultant projects",
+    "Each project must be assigned at least one consultant",
+    "Consultants must be assigned to projects in a way that their total number of projects does not exceed MaxProjectsPerConsultant"
+  ],
+  "target_parameters": [
+    "Fixed cost for project j",
+    "Additional cost for assigning consultant i to project j",
+    "Maximum number of projects that can be assigned to a consultant"
+  ],
+  "Expert": {
+    "(0,)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.",
+    "(0, 0)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.\nExpert: Are the resources limited in quantity?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.\nExpert: Are the resources limited in quantity?\nUser: Yes\n\nExpert: Are the cost constraints related to a budget limit?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.\nExpert: Are the resources limited in quantity?\nUser: Yes\n\nExpert: Are the cost constraints related to a budget limit?\nUser: No\n\nExpert: Are the cost constraints related to specific cost rates for each resource?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.",
+    "(0, 0)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.\nExpert: Does each candidate problem include a specific numerical budget constraint amount for the total cost?\nUser: No\n",
+    "(0, 0, 0)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.\nExpert: Does each candidate problem include a specific numerical budget constraint amount for the total cost?\nUser: No\n\nExpert: Do the problem descriptions include constraints that consider priority levels for projects or resources?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.\nExpert: Does each candidate problem include a specific numerical budget constraint amount for the total cost?\nUser: No\n\nExpert: Do the problem descriptions include constraints that consider priority levels for projects or resources?\nUser: No\n\nExpert: Does the problem involve multiple objectives, such as both minimizing cost and maximizing efficiency?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.",
+    "(0, 0)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.\nExpert: Are the cost and capacity constraints linear?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.\nExpert: Are the cost and capacity constraints linear?\nUser: Yes\n\nExpert: Are the cost and capacity constraints independent of each other (i.e., do they relate to different resources or variables)?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.\nExpert: Are the cost and capacity constraints linear?\nUser: Yes\n\nExpert: Are the cost and capacity constraints independent of each other (i.e., do they relate to different resources or variables)?\nUser: No\n\nExpert: Do the cost and capacity constraints directly relate to the same resource or variable?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.",
+    "(0, 0)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.\nExpert: Is the objective a single sentence or a more complex description?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.\nExpert: Is the objective a single sentence or a more complex description?\nUser: Yes\n\nExpert: Does the problem involve a fixed set of projects/resources that cannot be added or removed?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The issue involves finding an optimal way to allocate resources while adhering to specific cost and capacity constraints.\nExpert: Is the objective a single sentence or a more complex description?\nUser: Yes\n\nExpert: Does the problem involve a fixed set of projects/resources that cannot be added or removed?\nUser: Yes\n\nExpert: Is the objective of the problem to maximize something?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "cost constraints",
+            "capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources in such a way that costs are minimized and capacity constraints are not violated."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total cost should not exceed the budget limit.",
+            "Resource allocation must not surpass available capacity limits."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "cost constraints",
+            "capacity constraints",
+            "limited quantity of resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find an optimal allocation of limited resources while adhering to specific cost and capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total cost must not exceed the budget limit.",
+            "Resource allocation must not exceed the available quantity of each resource.",
+            "Total allocation must meet or exceed the minimum required capacity."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Quantity",
+            "Capacity Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the best allocation of limited resources to maximize or achieve certain performance metrics while meeting specific constraints, such as capacity, without considering any budget limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources are limited in quantity.",
+            "There are capacity constraints.",
+            "Cost constraints are not related to a budget limit."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited quantity of resources",
+            "Capacity constraints",
+            "Specific cost rates for each resource"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to find an optimal resource allocation strategy that maximizes or minimizes a certain goal (e.g., profit, efficiency, etc.) while adhering to cost rate constraints for each resource and capacity constraints, given the limitation in the quantity of resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources are limited in quantity.",
+            "Each resource has a specific cost rate that influences its allocation.",
+            "The allocation must adhere to capacity constraints for resources."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "cost constraints",
+            "capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal allocation of resources such that the total cost is minimized while adhering to specific cost and capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total cost should not exceed the budget limit.",
+            "The allocation should not surpass the available capacity of any resource."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "General resource allocation without a specific numerical budget constraint",
+            "Capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to allocate resources optimally while respecting cost and capacity constraints, without specifying a numerical budget for the total cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must not exceed available resources.",
+            "Each resource may have a capacity limit which must not be exceeded."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "total cost (numerical)",
+            "capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to allocate resources in an optimal manner while adhering to given cost and capacity constraints, without specific numerical budget constraints or priority levels considered."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must adhere to specific cost constraints, but the total budget is not predefined.",
+            "Capacity constraints must be adhered to during resource allocation.",
+            "No priority levels for projects or resources are considered."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "cost constraints",
+            "capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources optimally while adhering to cost and capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Specific cost constraints must be adhered to, without a numerical budget constraint.",
+            "Capacity constraints limit how resources can be allocated."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "cost constraints",
+            "capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources optimally while meeting cost and capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must not exceed the total available budget.",
+            "Individual resource costs must be accounted for without exceeding specific cost limits.",
+            "Total resources allocated must adhere to maximum capacity constraints."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocations",
+            "Cost constraints",
+            "Capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the discussed optimization problem is to find the optimal resource allocation that minimizes costs while satisfying given linear cost and capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Cost constraints are linear",
+            "Capacity constraints are linear"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Resource allocation",
+            "Constraints: Linear cost constraints",
+            "Constraints: Linear capacity constraints",
+            "Constraints: Cost and capacity constraints are interdependent"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimally allocate resources while satisfying interdependent linear cost and capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The constraints are linear in nature.",
+            "The cost constraints influence and are intertwined with the capacity constraints, indicating a relationship between these two sets of constraints concerning the same resources or variables."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation",
+            "Cost Constraints",
+            "Capacity Constraints",
+            "Linear Constraints",
+            "Interdependent Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimally allocate resources in such a way that the associated costs and capacity remain within given linear constraints which directly relate to the same resource or variable."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The cost constraints are linear.",
+            "The capacity constraints are linear.",
+            "The cost and capacity constraints are not independent; they relate to the same resource or variable."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Minimize or maximize a certain objective, such as cost, profit, or resource utilization efficiency.",
+            "Decision Variables: Define which resources to allocate, how much to allocate, and where to allocate them.",
+            "Constraints:",
+            "- Cost constraints: Limitations on budget or expenditure.",
+            "- Capacity constraints: Maximum or minimum limits for resource usage.",
+            "- Other possible constraints: Time limitations, labor availability, or specific project requirements."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs while satisfying resource demand within capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total cost of allocated resources should not exceed the budget.",
+            "Allocated resources should not exceed available capacity limits."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "cost",
+            "capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to find the optimal allocation of resources that minimizes costs while satisfying capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "resource allocation must adhere to specified cost limits",
+            "capacity constraints must be respected in the allocation process"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Allocate resources optimally.",
+            "Constraints: Cost constraints, Capacity constraints.",
+            "Fixed set of projects/resources."
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to find an optimal allocation of fixed resources under given cost and capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources are fixed and cannot be changed.",
+            "Adhere to specific cost constraints for resource allocation.",
+            "Adhere to specific capacity constraints for resource allocation."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "cost constraints",
+            "capacity constraints",
+            "fixed set of projects/resources",
+            "minimization objective"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize costs while allocating resources in accordance with predetermined cost and capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation must adhere to specific cost constraints.",
+            "The allocation must adhere to specific capacity constraints.",
+            "The objective is not to maximize an outcome.",
+            "The set of resources is fixed and cannot be changed, added, or removed."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      }
+    }
+  }
+}

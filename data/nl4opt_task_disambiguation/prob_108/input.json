@@ -1,0 +1,24 @@
+{
+  "vague_description": "Determine the optimal production ratio of skin cream batches to maximize patient treatment within ingredient constraints.",
+  "detailed_description": "A pharmaceutical company makes skin cream in batches, a regular batch and premium batch, to sell to hospitals. The regular batch requires \\param{MedicinalIngredientsRegular} units of medicinal ingredients and \\param{RehydrationProductRegular} units of rehydration product. A premium batch requires \\param{MedicinalIngredientsPremium} units of medicinal ingredients and \\param{RehydrationProductPremium} units of rehydration product. The company has available \\param{TotalMedicinalIngredients} units of medicinal ingredients and \\param{TotalRehydrationProduct} units of rehydration product. Since the premium batch sells better, the number of regular batches must be less than the number of premium batches. In addition, the company must make at least \\param{MinRegularBatches} regular batches. If a regular batch can treat \\param{PeopleTreatedRegular} people and a premium batch can treat \\param{PeopleTreatedPremium} people, how many of each batch should be made to maximize the number of people that can be treated?",
+  "target_objective": "Maximize the number of people treated by producing optimal numbers of regular and premium batches",
+  "target_constraints": [
+    "Number of regular batches is non-negative",
+    "Number of premium batches is non-negative",
+    "Used medicinal ingredients for regular batches is at most TotalMedicinalIngredients",
+    "Used rehydration product for regular batches is at most TotalRehydrationProduct",
+    "Number of regular batches must be less than the number of premium batches",
+    "Number of regular batches must be at least MinRegularBatches"
+  ],
+  "target_parameters": [
+    "Units of medicinal ingredients required for a regular batch",
+    "Units of rehydration product required for a regular batch",
+    "Units of medicinal ingredients required for a premium batch",
+    "Units of rehydration product required for a premium batch",
+    "Total units of medicinal ingredients available",
+    "Total units of rehydration product available",
+    "Minimum number of regular batches to be produced",
+    "Number of people treated by a regular batch",
+    "Number of people treated by a premium batch"
+  ]
+}

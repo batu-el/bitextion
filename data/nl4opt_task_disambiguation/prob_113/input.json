@@ -1,0 +1,19 @@
+{
+  "vague_description": "The lab needs to formulate vaccines using limited resources while meeting minimum production requirements and optimizing for resource conservation.",
+  "detailed_description": "A lab has \\param{TotalMRna} mg of mRNA anti-viral available to make children's and adult vaccines. Each children's vaccine contains \\param{MRnaPerChildVaccine} mg of mRNA and \\param{FeverSuppressantPerChildVaccine} mg of fever suppressant. Each adult vaccine contains \\param{MRnaPerAdultVaccine} mg of mRNA and \\param{FeverSuppressantPerAdultVaccine} mg of fever suppressant. Since adult vaccines are more essential, at least \\param{MinAdultVaccineProp} of vaccines should be adult vaccines. However, at least \\param{MinChildVaccines} children's vaccines should be made. How many of each vaccine should be made to minimize the amount of fever suppressant used?",
+  "target_objective": "Minimize the total amount of fever suppressant used in both children's and adult vaccines",
+  "target_constraints": [
+    "Total mRNA used in children's and adult vaccines cannot exceed TotalMRna mg",
+    "At least MinAdultVaccineProp of the vaccines must be adult vaccines",
+    "At least MinChildVaccines children's vaccines must be made"
+  ],
+  "target_parameters": [
+    "Total amount of mRNA anti-viral available",
+    "Amount of mRNA per children's vaccine",
+    "Amount of mRNA per adult vaccine",
+    "Amount of fever suppressant per children's vaccine",
+    "Amount of fever suppressant per adult vaccine",
+    "Minimum proportion of vaccines as adult vaccines",
+    "Minimum number of children's vaccines"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "vague_description": "Jordan needs to optimize his dietary costs while meeting specific nutritional requirements using two types of foods.",
+  "detailed_description": "Jordan is a chef. He wants to design a diet consisting of Kebabs and Rice. Assume that each serving of Rice costs \\var{CostRice} and contains \\var{CalRice} calories and \\var{ProtRice} grams of protein. Assume that each serving of Kebab costs \\var{CostKebab} and contains \\var{CalKebab} calories and \\var{ProtKebab} grams of protein. He's interested in spending as little money as possible but he wants to ensure that his meals have at least \\var{MinCal} calories and at least \\var{MinProt} grams of protein per day. Formulate a linear programming problem that will help minimize the cost of the diet.",
+  "target_objective": "Minimize the total cost of Rice and Kebabs",
+  "target_constraints": [
+    "Number of servings of Rice is non-negative",
+    "Number of servings of Kebab is non-negative",
+    "Total calories must be at least MinCal",
+    "Total protein must be at least MinProt"
+  ],
+  "target_parameters": [
+    "Cost of one serving of Rice",
+    "Calories contained in one serving of Rice",
+    "Protein contained in one serving of Rice",
+    "Cost of one serving of Kebab",
+    "Calories contained in one serving of Kebab",
+    "Protein contained in one serving of Kebab",
+    "Minimum required calories per day",
+    "Minimum required protein per day"
+  ]
+}

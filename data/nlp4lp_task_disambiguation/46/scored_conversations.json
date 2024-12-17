@@ -1,0 +1,489 @@
+{
+  "vague_description": "The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.",
+  "detailed_description": "How many of each product should the sports produce in order to maximize its profit for the month, given the \\param{N} different raw materials available, where each material i has an available amount of \\param{Available}, and each product j has a requirement of \\param{Requirements} units of material i, a selling price of \\param{Prices}, a production cost of \\param{Costs}, and a market demand of \\param{Demands}?",
+  "target_objective": "Maximize the profit for the month by determining the number of each product to produce",
+  "target_constraints": [
+    "All products must be produced using available raw materials without exceeding their amounts",
+    "Each product's production must meet its raw material requirement per unit",
+    "Each product's production should not exceed its market demand",
+    "Number of units produced of each product must be non-negative"
+  ],
+  "target_parameters": [
+    "Number of different raw materials",
+    "Number of different products",
+    "Amount of raw material i available",
+    "Amount of raw material i required to produce one unit of product j",
+    "Price at which product j can be sold",
+    "Cost of producing one unit of product j",
+    "Demand for product j"
+  ],
+  "Expert": {
+    "(0,)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.",
+    "(0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Are there constraints on the availability of raw materials for producing the sports products?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Are there constraints on the availability of raw materials for producing the sports products?\nUser: Yes\n\nExpert: Are there multiple types of sports products involved in this optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Are there constraints on the availability of raw materials for producing the sports products?\nUser: Yes\n\nExpert: Are there multiple types of sports products involved in this optimization problem?\nUser: Yes\n\nExpert: Does the problem include constraints related to production capacities or machine availability?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.",
+    "(0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Do any of the problems include a constraint specifically related to storage capacity limits?\nUser: No\n",
+    "(0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Do any of the problems include a constraint specifically related to storage capacity limits?\nUser: No\n\nExpert: Does the problem include a constraint related to meeting or exceeding a minimum market demand for each product?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Do any of the problems include a constraint specifically related to storage capacity limits?\nUser: No\n\nExpert: Does the problem include a constraint related to meeting or exceeding a minimum market demand for each product?\nUser: Yes\n\nExpert: Is there a constraint related to a production cost budget in the problem description?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.",
+    "(0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Are the production quantities of different sports products related to each other through a physical constraint, such as shared resources or facilities?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Are the production quantities of different sports products related to each other through a physical constraint, such as shared resources or facilities?\nUser: Yes\n\nExpert: Are the physical constraints shared across all sports products, or are there distinct groups of products that share the same set of resources or facilities?\nUser: Yes, the physical constraints are shared across all sports products.\n",
+    "(0, 0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Are the production quantities of different sports products related to each other through a physical constraint, such as shared resources or facilities?\nUser: Yes\n\nExpert: Are the physical constraints shared across all sports products, or are there distinct groups of products that share the same set of resources or facilities?\nUser: Yes, the physical constraints are shared across all sports products.\n\nExpert: Are these shared physical constraints represented by a fixed and deterministic allocation of resources, or are there variable and uncertain allocations that need to be considered in the optimization model?\nUser: Fixed and deterministic allocations.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.",
+    "(0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Is 'resource availability' mentioned in the problem description as a parameter?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Is 'resource availability' mentioned in the problem description as a parameter?\nUser: Yes\n\nExpert: Is the production quantity a parameter that directly influences the objective?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Is 'resource availability' mentioned in the problem description as a parameter?\nUser: Yes\n\nExpert: Is the production quantity a parameter that directly influences the objective?\nUser: Yes\n\nExpert: Does the parameter 'resource availability' appear in the problem description?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of various sports products",
+            "Profits",
+            "Resource limitations",
+            "Costs",
+            "Market demands"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by determining the optimal production quantities of various sports products considering resource limitations, costs, and market demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource limitations: The availability of raw materials, labor, and machinery which sets a cap on the maximum number of products that can be produced.",
+            "Cost constraints: The budget for production costs including raw materials, labor, overhead, and other associated expenses.",
+            "Market demand constraints: The forecasted demand for each sports product needs to be met without overproducing (which could lead to unsold inventory)."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantities of sports products",
+            "profit maximization",
+            "resource limitations",
+            "costs",
+            "market demands",
+            "availability of raw materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal production quantities of various sports products to maximize profits, considering resource limitations, costs, and market demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Availability of raw materials: There are limitations on the quantity of raw materials available for producing sports products."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize profits",
+            "optimal production quantities of various sports products",
+            "constraints on availability of raw materials",
+            "costs associated with production",
+            "market demands"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production quantities of various sports products in order to maximize profits, while considering constraints such as resource limitations, production costs, and market demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The availability of raw materials limits the production quantities.",
+            "Multiple types of sports products must be considered, each potentially having different constraints.",
+            "The production plan must ensure maximum profit."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal production quantities",
+            "Maximization of profits",
+            "Resource limitations",
+            "Production costs",
+            "Market demands",
+            "Availability of raw materials",
+            "Multiple types of sports products",
+            "Production capacities",
+            "Machine availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal production quantities of various sports products to maximize overall profits, considering constraints such as resource limitations, production capacities, and market demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Availability of raw materials for producing sports products.",
+            "Multiple types of sports products involved.",
+            "Production capacities or machine availability limitations."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities for different sports products",
+            "Resource limitations (e.g., raw materials, labor, machinery)",
+            "Costs (e.g., production costs, labor costs)",
+            "Market demands for each product",
+            "Profit margins or selling prices for each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal production quantities of various sports products to maximize profits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each product requires a specific amount of certain resources (such as materials, labor time, or machine hours), and the total usage cannot exceed the available resources.",
+            "The production of each product incurs specific costs that need to be considered in the profit calculation.",
+            "Market demand dictates a possible upper limit on the quantity of each product that can be sold, and production should not exceed these demand limits.",
+            "The company aims to maximize profits, defined as total revenue minus total costs.",
+            "All production quantities must be non-negative numbers."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantities",
+            "resource limits",
+            "costs",
+            "market demands"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profits by determining optimal production quantities of various sports products while considering resource limitations, costs, and market demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource limitations",
+            "Costs",
+            "Market demands"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of various sports products",
+            "Resource limitations",
+            "Production costs",
+            "Market demands",
+            "Minimum market demand for each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal production quantities of various sports products to maximize profits, considering factors such as resource limitations, production costs, and market demands while ensuring that minimum market demand for each product is met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource limitations such as availability of materials or labor.",
+            "Cost constraints including production and operational costs.",
+            "Meeting or exceeding a minimum market demand for each product."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of various sports products",
+            "Resource limitations",
+            "Market demands",
+            "Maximize profits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal production quantities of various sports products to maximize profits, while considering resource limitations and meeting minimum market demands for each product."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimum market demand for each product must be met or exceeded",
+            "Resource limitations restrict production quantities"
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of sports products",
+            "Profit maximization",
+            "Resource limitations",
+            "Costs",
+            "Market demands"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the discussed optimization problem is to maximize profits by determining the optimal production quantities of various sports products, considering resource limitations, costs, and market demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production quantity of each sports product must be non-negative.",
+            "The total resource consumption for all sports products must not exceed the available resource limits (e.g., materials, labor, machine hours).",
+            "The production quantities must align with the market demand for each sports product, meaning they should not exceed the maximum market demand.",
+            "The production cost for each sports product must be accounted for, and the total cost should not exceed a specified budget, if there is one.",
+            "Additional constraints may include production capacity limits for each product due to manufacturing capabilities or logistical constraints."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of various sports products",
+            "Resource limitations",
+            "Costs",
+            "Market demands",
+            "Shared resources or facilities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by determining the optimal production quantities of various sports products, considering resource limitations, costs, and market demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total usage of a shared resource by all sports products cannot exceed its availability.",
+            "Production quantities must adhere to market demand limitations to avoid overproduction or unmet demand.",
+            "The cost of production for each sports product must be taken into account to ensure that production remains profitable.",
+            "The production of different sports products is constrained by the capacity of shared facilities."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of various sports products",
+            "Resource limitations",
+            "Costs",
+            "Market demands",
+            "Shared physical constraints across all products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal production quantities of various sports products to maximize profits while considering shared resource constraints, costs, and market demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production quantities of all sports products must not exceed the available resource limits (e.g., raw materials, labor, manufacturing capacity).",
+            "There are costs associated with each product that must be accounted for in calculating profits.",
+            "Market demand limits the maximum quantity that can realistically be produced and sold for each product.",
+            "All products share the same physical production facilities, which imposes a combined production capacity constraint.",
+            "The production plan must adhere to budgetary constraints for the costs of manufacturing each sport product."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Quantities",
+            "Sports Products",
+            "Profits",
+            "Resource Limitations",
+            "Costs",
+            "Market Demands",
+            "Shared Resources",
+            "Fixed and Deterministic Allocations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profits by determining the optimal production quantities of various sports products, considering the fixed and deterministic shared resource constraints, costs, and market demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each sports product shares the same set of resources or facilities.",
+            "All sports products are subject to common resource limitations.",
+            "There is a fixed and deterministic allocation of resources among the sports products."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of various sports products",
+            "Maximize profits",
+            "Resource limitations",
+            "Costs",
+            "Market demands"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by determining optimal production quantities of sports products while considering resource limitations, costs, and market demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production must not exceed factory capacity.",
+            "Raw material usage must not exceed available supply.",
+            "The production of each product must meet the minimum market demand.",
+            "Production costs must be covered by the budget allocated for the period.",
+            "The mix of products produced must align with projected sales forecasts.",
+            "Labor hours must not exceed the available workforce capacity."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantities of various sports products",
+            "resource availability",
+            "costs",
+            "market demands"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profits by determining the optimal production quantities of various sports products, taking into account resource limitations, costs, and market demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability constraints: The production quantities must not exceed the available resources such as raw materials, labor hours, and machine time.",
+            "Cost constraints: The total cost of production should not exceed the budget allocated for production.",
+            "Market demand constraints: The production quantities must not exceed the market demand for each sports product."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource availability",
+            "production quantity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profits by determining optimal production quantities of various sports products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production quantities must adhere to resource availability limits.",
+            "Resource availability sets a maximum limit on production inputs.",
+            "Costs associated with production must not exceed budgetary limits.",
+            "Market demands define upper bounds on how much can be produced and sold."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "optimal production quantities",
+            "resource availability",
+            "costs",
+            "market demands"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production quantities of various sports products to maximize profits while considering resource limitations, costs, and market demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production quantities of sports products should not exceed market demand.",
+            "The total resource usage for producing all sports products must not exceed available resources.",
+            "The cost of production for any product type should be less than or equal to the budget allocated for that product."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 4
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      }
+    }
+  }
+}

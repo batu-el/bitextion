@@ -1,0 +1,459 @@
+{
+  "vague_description": "Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.",
+  "detailed_description": "Capacitated facility location problems deal with locating \\param{NumberOfFacilities} facilities to serve \\param{NumberOfCustomers} customers, at minimum total cost. Considering potential facility locations and customer zones as fixed points in a network, each facility has a fixed \\param{FacilityFixedCost} and a \\param{FacilityCapacity}. Furthermore, there exists a \\param{CustomerDemand} for each customer zone, and a \\param{FacilityToCustomerTransportCost} representing the cost of transport between facilities and customer zones.",
+  "target_objective": "Minimize the total cost of locating facilities and transporting goods to customer zones",
+  "target_constraints": [
+    "Each facility has a maximum capacity of FacilityCapacity",
+    "Total number of facilities to be located is NumberOfFacilities",
+    "Each customer zone is served by at least one facility and its demand must be met",
+    "Total output for each facility cannot exceed its capacity",
+    "The number of facilities and customers is fixed and non-negative"
+  ],
+  "target_parameters": [
+    "The number of potential facilities that can be established",
+    "The number of customer zones to be served",
+    "The fixed cost associated with establishing a facility",
+    "The cost of transporting goods from each facility to each customer zone",
+    "The capacity of each facility, which limits the amount of goods the facility can handle or produce",
+    "The demand of each customer zone that must be met by the facilities"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.",
+    "(0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Does the optimization problem involve minimizing cost while satisfying resource demand constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Does the optimization problem involve minimizing cost while satisfying resource demand constraints?\nUser: Yes\n\nExpert: Are there specific constraints on the maximum capacity of resources that can be allocated to each requirement?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Does the optimization problem involve minimizing cost while satisfying resource demand constraints?\nUser: Yes\n\nExpert: Are there specific constraints on the maximum capacity of resources that can be allocated to each requirement?\nUser: Yes\n\nExpert: Are there multiple types of resources involved, each with its own cost and capacity constraints?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.",
+    "(0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Do the constraints include a budget limit or cost constraint that must not be exceeded?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Do the constraints include a budget limit or cost constraint that must not be exceeded?\nUser: No\n\nExpert: Does the problem focus on minimizing time-related objectives while considering task dependencies?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Do the constraints include a budget limit or cost constraint that must not be exceeded?\nUser: No\n\nExpert: Does the problem focus on minimizing time-related objectives while considering task dependencies?\nUser: No\n\nExpert: Does the objective involve minimizing some aspect of resource usage?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.",
+    "(0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Is the objective to minimize costs?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Is the objective to minimize costs?\nUser: Yes\n\nExpert: Is the allocation of resources subject to any hard constraints, such as fixed capacity limits, that cannot be exceeded?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Is the objective to minimize costs?\nUser: Yes\n\nExpert: Is the allocation of resources subject to any hard constraints, such as fixed capacity limits, that cannot be exceeded?\nUser: Yes\n\nExpert: Is the problem dynamic, meaning the requirements and capacity limits change over time, or is it a static problem where these aspects remain constant?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.",
+    "(0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Is the objective of the optimization problem exactly 'Optimal Resource Allocation' (ignoring case)?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Is the objective of the optimization problem exactly 'Optimal Resource Allocation' (ignoring case)?\nUser: No\n\nExpert: Is the objective explicitly mentioned as 'Optimal Load Distribution' or similar?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Is the objective of the optimization problem exactly 'Optimal Resource Allocation' (ignoring case)?\nUser: No\n\nExpert: Is the objective explicitly mentioned as 'Optimal Load Distribution' or similar?\nUser: No\n\nExpert: Does the optimization problem description explicitly mention the word 'minimize' or a similar term in the objective section?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "requirements",
+            "capacity",
+            "logistical considerations",
+            "cost implications"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of resources to meet diverse requirements with limited capacity while considering logistical considerations and minimizing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource capacity limits must not be exceeded.",
+            "Diverse requirements must be met according to predefined priorities.",
+            "Costs should be minimized while allocating resources.",
+            "Logistical factors must be considered in the allocation process."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "cost minimization",
+            "demand constraints",
+            "capacity limitations",
+            "logistical considerations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize cost while satisfying resource demand constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of resources allocated should not exceed the total available capacity.",
+            "All resource demand requirements must be met within the given allocation.",
+            "Cost of allocation should be minimized while satisfying demand constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Demand Constraints",
+            "Cost Minimization Objective",
+            "Maximum Capacity Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize cost while satisfying resource demand constraints, subject to limited capacity constraints on resource allocation for each requirement."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization problem involves minimizing costs associated with resource allocation.",
+            "Resource demand constraints must be satisfied, meaning each requirement must receive a certain minimum amount of resources.",
+            "There are specific constraints on the maximum capacity of resources that can be allocated to each requirement, implying upper limits on resource allocation."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize cost",
+            "Satisfy resource demand constraints",
+            "Maximum capacity constraint for resource allocation",
+            "Single type of resource"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize cost while satisfying resource demand constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimize cost while satisfying resource demand constraints.",
+            "There are specific constraints on the maximum capacity of resources that can be allocated to each requirement."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation",
+            "Capacity Constraints",
+            "Diverse Requirements",
+            "Logistical Considerations",
+            "Cost Implications"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimally allocate available resources to meet diverse requirements while considering logistical constraints and cost implications, given a limited capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited resource capacity must be adhered to.",
+            "Requirements are diverse, implying multiple objectives or needs that must be satisfied.",
+            "Logistical considerations must be addressed, such as transportation or distribution constraints.",
+            "Cost implications suggest a need to minimize or control costs during resource allocation."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Capacity",
+            "Diverse Requirement Fulfillment"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimally allocate resources to meet diverse requirements, ensuring logistical considerations are met within limited capacity constraints, without exceeding any cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "logistical considerations",
+            "capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize resource utilization efficiency to meet diverse requirements without exceeding capacity restrictions, while considering logistical constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the usage of resources while meeting diverse requirements within limited capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited capacity of resources"
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "requirements",
+            "capacity",
+            "logistics",
+            "cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of resources to meet diverse requirements while considering limited capacity, logistical considerations, and cost implications."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total resource allocation cannot exceed the available capacity.",
+            "Resource distribution must meet all specified requirements.",
+            "Logistical restrictions must be adhered to within the resource allocation process.",
+            "Costs must be minimized within the framework of resource allocation.",
+            "Allocation decisions should be made within the constraints of time and existing infrastructure limits."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "diverse requirements",
+            "limited capacity",
+            "logistical considerations",
+            "cost implications"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs while allocating resources to meet diverse requirements under limited capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total allocation of resources cannot exceed the available capacity.",
+            "Resources must meet diverse requirements."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "costs",
+            "capacity limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs while allocating resources to meet diverse requirements subject to capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Do not exceed fixed capacity limits for resources."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocations",
+            "Diverse requirements",
+            "Limited capacity",
+            "Logistical considerations",
+            "Cost implications",
+            "Capacity limits",
+            "Costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize costs while allocating resources to meet requirements, ensuring capacity constraints are adhered to."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fixed capacity limits that cannot be exceeded.",
+            "Dynamic changes in requirements and capacity limits over time."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "capacity limitations",
+            "logistical considerations",
+            "cost implications",
+            "diverse requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of limited resources to meet diverse requirements while considering logistical constraints and minimizing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited resource capacity",
+            "Requirement diversity",
+            "Logistical considerations",
+            "Cost implications"
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "resource capacity",
+            "logistical considerations",
+            "cost implications"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determining the optimal allocation of resources to meet diverse requirements with limited capacity while considering logistical and cost implications"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource capacity is limited.",
+            "Resources must be allocated to meet diverse requirements.",
+            "Logistical considerations must be accounted for.",
+            "Cost implications need to be taken into account."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Capacity constraints",
+            "Logistical considerations",
+            "Cost implications"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Meeting diverse requirements with limited capacity while considering logistics and cost implications"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocations should not exceed available capacity.",
+            "Resource allocations must meet diverse requirements.",
+            "Logistical considerations must be taken into account in resource allocation.",
+            "Cost implications should be factored into the allocation decisions."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective mentions 'minimize' or similar",
+            "Optimization of resource allocation",
+            "Logistical considerations",
+            "Cost implications",
+            "Limited capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "minimize costs while meeting diverse requirements with limited capacity"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited capacity for resources.",
+            "Need to meet diverse requirements.",
+            "The allocation must adhere to logistical considerations.",
+            "Consideration of cost implications.",
+            "Objective involves minimization."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      }
+    }
+  }
+}

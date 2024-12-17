@@ -1,0 +1,17 @@
+{
+  "vague_description": "Determining vehicle allocation for optimal voter transportation.",
+  "detailed_description": "A volunteer organization transports voters to the polls on Election Day either by vans or cars. They have vans which can carry \\param{VanCapacity} people and cars which can carry \\param{CarCapacity} people. They need to transport at least \\param{MinimumVoters} voters to the polls. In addition, at most \\param{MaxVansRatio} of the vehicles can be vans. How many of each vehicle should be used to minimize the total number of cars used?",
+  "target_objective": "Minimize the total number of cars used",
+  "target_constraints": [
+    "Number of vans is non-negative",
+    "Number of cars is non-negative",
+    "At least MinimumVoters voters must be transported to the polls",
+    "At most MaxVansRatio of the total number of vehicles can be vans"
+  ],
+  "target_parameters": [
+    "Number of people a van can carry",
+    "Number of people a car can carry",
+    "Minimum number of voters to transport to the polls",
+    "Maximum proportion of the number of vans to the total number of vehicles"
+  ]
+}

@@ -1,0 +1,461 @@
+{
+  "vague_description": "Determine the optimal allocation strategy under constraints to maximize overall gains.",
+  "detailed_description": "Consider a problem where we have \\param{ElementNum} elements. For each element j, we have a parameter \\param{CoefficientA_j}, a parameter \\param{ProfitCoefficientC_j}, and a parameter \\param{UpperBoundU_j}. We also have a global parameter \\param{GlobalParameterB}. We have a variable \\param{DecisionVariableX_j} for each element j. The goal is to maximize the total profit, which is the sum of \\param{ProfitCoefficientC_j} * \\param{DecisionVariableX_j} for all element j. The constraints are that the sum of (1/\\param{CoefficientA_j}) * \\param{DecisionVariableX_j} for all element j should be less than or equal to \\param{GlobalParameterB}, and \\param{DecisionVariableX_j} should be between 0 and \\param{UpperBoundU_j} for all element j.",
+  "target_objective": "Maximize the total profit, which is the sum of the product of ProfitCoefficientC_j and DecisionVariableX_j for all elements in ElementNum",
+  "target_constraints": [
+    "The sum of the inverses of CoefficientA_j multiplied by DecisionVariableX_j for all elements in ElementNum must be less than or equal to GlobalParameterB",
+    "Each DecisionVariableX_j is greater than or equal to 0",
+    "Each DecisionVariableX_j is less than or equal to its respective UpperBoundU_j"
+  ],
+  "target_parameters": [
+    "The set of elements",
+    "A coefficient parameter for each element in the set",
+    "Profit coefficient for each element in the set",
+    "Upper bound on the decision variable for each element in the set",
+    "A global parameter representing an upper limit on the weighted sum of decision variables"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.",
+    "(0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the optimization problem a linear program, meaning both the objective function and constraints are linear?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the optimization problem a linear program, meaning both the objective function and constraints are linear?\nUser: Yes\n\nExpert: Do you have information on the decision variables, such as their allowable ranges or specific limits on their values?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the optimization problem a linear program, meaning both the objective function and constraints are linear?\nUser: Yes\n\nExpert: Do you have information on the decision variables, such as their allowable ranges or specific limits on their values?\nUser: Yes\n\nExpert: Are the constraints related to limited resources or capacity? \nRemember to answer with \u201cyes\u201d or \u201cno\u201d.\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.",
+    "(0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the objective function focused on profit maximization in a business or investment context?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the objective function focused on profit maximization in a business or investment context?\nUser: Yes\n\nExpert: Does the problem involve a constraint that specifically requires a minimum investment in certain types of assets, such as government bonds or projects?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the objective function focused on profit maximization in a business or investment context?\nUser: Yes\n\nExpert: Does the problem involve a constraint that specifically requires a minimum investment in certain types of assets, such as government bonds or projects?\nUser: No\n\nExpert: Are there any problems where the total investment budget is explicitly given as $1,000,000?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.",
+    "(0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the optimization problem subject to any financial or budgetary constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the optimization problem subject to any financial or budgetary constraints?\nUser: No\n\nExpert: Is the optimization problem subject to any capacity or resource limitations?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Is the optimization problem subject to any financial or budgetary constraints?\nUser: No\n\nExpert: Is the optimization problem subject to any capacity or resource limitations?\nUser: Yes\n\nExpert: Are these capacity or resource limitations fixed or variable?\nUser: Fixed\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.",
+    "(0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Does the problem description explicitly state the objective function to be maximized or minimized?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Does the problem description explicitly state the objective function to be maximized or minimized?\nUser: Yes\n\nExpert: Is the objective 'maximize overall gains' always present?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation strategy under constraints to maximize overall gains.\nExpert: Does the problem description explicitly state the objective function to be maximized or minimized?\nUser: Yes\n\nExpert: Is the objective 'maximize overall gains' always present?\nUser: Yes\n\nExpert: Does the optimization problem have at least one non-empty constraint?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Maximize overall gains",
+            "Decision variables: Allocation strategy variables (e.g., x1, x2, ..., xn) representing the quantity or proportion of each asset or option in the portfolio",
+            "Constraints: Budget limit, risk tolerance levels, regulatory requirements, market conditions, or other specific limitations",
+            "Parameters: Expected returns, asset volatilities, correlation between asset returns, initial budget, risk-free rate, leverage limits",
+            "Non-negativity: Decision variables must be non-negative, as negative allocation is typically not feasible in most scenarios",
+            "Integer constraints: If applicable, some variables might need to be integers, for instance, when the decision involves a discrete number of resources or items"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize overall gains through optimal allocation strategy under given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of allocations must equal the total available resources (e.g., budget, time, etc.).",
+            "Each individual allocation must be greater than or equal to a specified minimum threshold (e.g., for feasibility or regulatory requirements).",
+            "Each individual allocation must not exceed a specified maximum threshold (e.g., capacity constraints).",
+            "Allocations must ensure that critical needs or mandatory objectives are met first before discretionary allocations.",
+            "There may be dependencies or synergies between allocations that should be considered (e.g., allocating more to one task may increase the effectiveness of another).",
+            "The risk associated with the allocation should not exceed an acceptable limit (risk management constraint).",
+            "Allocations should not result in negative social or environmental impacts beyond permissible levels (sustainability constraint).",
+            "Resource allocation should be done in a way that complies with ethical guidelines or organizational policies."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize overall gains",
+            "Problem type: Linear program",
+            "Constraints: Constraints are linear"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize overall gains while satisfying linear constraints through determining an optimal allocation strategy."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All decision variables must be non-negative."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Linear Objective Function",
+            "Linear Constraints",
+            "Decision Variables with Ranges or Limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize overall gains by optimally allocating resources subject to given linear constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective function is linear.",
+            "All constraints are linear.",
+            "There are specific allowable ranges for decision variables.",
+            "There are specific limits on the values of decision variables."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective type: Linear",
+            "Constraints: Linear",
+            "Constraints related to limited resources or capacity",
+            "Information on decision variables' allowable ranges or limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize overall gains by determining the optimal allocation strategy under the constraints of limited resources or capacity in a linear programming problem."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The problem is a linear program, meaning both the objective function and constraints are linear.",
+            "The constraints are related to limited resources or capacity."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Maximize overall gains",
+            "Decision variables: Allocation amounts for different resources",
+            "Constraints: Budget limitations, Resource availability, Risk tolerance, Allocation limits for each resource"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize overall gains"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total budget cannot exceed $100,000.",
+            "Each allocation must be at least $1,000.",
+            "Allocations must be in whole numbers.",
+            "The risk factor of individual allocations cannot exceed a specified threshold.",
+            "The sum of all allocations for category A must be at least $20,000.",
+            "The return on investment must be at least 5% for each allocation."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective function: profit maximization",
+            "decision variables: allocation of resources/strategies",
+            "constraints: resource limitations, market conditions",
+            "parameters: expected returns, risk levels, investment options",
+            "decision environment: business or investment context"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit in a business or investment context."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraints: The total allocation must not exceed the available budget.",
+            "Risk tolerance: The risk associated with the allocation must not surpass the predetermined risk threshold.",
+            "Diversity requirements: A certain level of diversification must be maintained across different sectors or asset types.",
+            "Legal or regulatory restrictions: Compliance with applicable laws and regulations must be ensured.",
+            "Minimum allocation: Ensure a minimum investment in specific critical areas or opportunities.",
+            "Resource availability: Allocation must consider the availability of resources (human, technological, etc.).",
+            "Market conditions: Consideration of current market trends and conditions must be factored into the allocation strategy."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Maximize gains (profit maximization).",
+            "Constraints: No specific minimum investment requirement in certain types of assets like government bonds or projects."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize overall gains through optimal allocation of resources without mandatory minimum investments in specific assets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No minimum investment in specific asset types such as government bonds or projects."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Profit maximization in a business or investment context",
+            "Constraints: No minimum investment requirement for specific asset types",
+            "Total investment budget: Not explicitly defined"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit in a business or investment context without specific asset type constraints and without a defined total investment budget."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective is to maximize overall gains.",
+            "There is no specific minimum investment required for certain types of assets."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Decision Variables: Allocation amounts or proportions for different assets or activities.",
+            "Objective Function: A function representing the overall gains, which needs to be maximized.",
+            "Constraints: Budget or resource limitations that restrict the total allocation.",
+            "Other Constraints: Any additional requirements or thresholds for individual allocations (e.g., minimum or maximum investment in specific areas).",
+            "Parameters: Known values necessary for the optimization, such as expected returns, costs, or risk factors associated with different allocations.",
+            "Time Horizon: Period over which the gains are to be optimized, if relevant."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the best way to distribute resources or assets in order to achieve the highest possible overall gains, while adhering to certain limitations or constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total sum of allocations must not exceed the available budget.",
+            "Each allocation must be a non-negative value.",
+            "The total weight or investment into any single area must not exceed predetermined limits or thresholds.",
+            "Allocations should meet minimum mandatory investment levels in certain key areas.",
+            "The risk level of the portfolio must not exceed a specified maximum allowable risk parameter.",
+            "Allocation should aim to maximize the expected return, but within a specified risk tolerance.",
+            "The maximum number of allocations cannot exceed a certain number of distinct investment entities.",
+            "There may be legal or regulatory constraints impacting certain types of investments or allocation levels."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "maximize overall gains"
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize overall gains",
+            "subject to capacity or resource limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize overall gains under resource limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Capacity or resource limitations must be considered in the allocation strategy."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize overall gains",
+            "fixed capacity or resource limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize overall gains in the presence of fixed capacity or resource limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource capacity is limited and these limitations are fixed."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Decision variables: Allocation amounts for different assets in the portfolio.",
+            "Objective function: Maximize overall gains, defined as the gain from the portfolio, which could be a function of expected returns on assets.",
+            "Constraints: Budget constraint (total allocation equals available capital), risk constraint (e.g., maximum acceptable portfolio variance), individual asset constraints (e.g., max/min limits on each asset), other possible constraints (liquidity, legal, etc.)."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize overall gains by determining the optimal allocation strategy under given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total resources available for allocation should not exceed the budget limit.",
+            "No allocation can have negative values.",
+            "Certain projects may have fixed minimum or maximum resource requirements.",
+            "The sum of allocations must equal the total available resources.",
+            "Allocations must adhere to organizational or regulatory policies.",
+            "Risk levels associated with allocations must not exceed defined thresholds."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: overall gains",
+            "Constraints: resource availability",
+            "Constraints: risk limits",
+            "Constraints: budget restrictions",
+            "Decision variables: allocation amounts",
+            "Constraints: project completion time limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize overall gains"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation must adhere to budget limits.",
+            "The strategy should account for risk management by not exceeding a specified maximum risk.",
+            "Resource availability is limited, and allocations must not surpass these limits.",
+            "All legal and regulatory requirements must be followed.",
+            "There must be a minimum allocation requirement to certain essential activities or projects.",
+            "The time frame for achieving the objective is constrained.",
+            "The maximum capacity for investment or resources should not be exceeded.",
+            "Any allocation strategy must maintain a balance, not overly favoring one area or department.",
+            "There could be dependencies between different components of the allocation that should be respected.",
+            "The solution must ensure a certain level of return or benefit threshold."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Maximize overall gains",
+            "Constraints: Optimal allocation strategy constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize overall gains"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation strategy must maximize overall gains.",
+            "The problem has pre-defined and unchangeable constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective function: maximize overall gains",
+            "at least one non-empty constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize overall gains under given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization problem explicitly states an objective function to be maximized.",
+            "The objective is to 'maximize overall gains.'",
+            "There is at least one non-empty constraint applicable to the optimization problem."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

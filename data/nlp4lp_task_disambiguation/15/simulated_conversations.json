@@ -1,0 +1,47 @@
+{
+  "vague_description": "Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.",
+  "detailed_description": "We are aiming at maximizing total net income subject to the \\param{Cash} availability and machine capacity limitations. The problem parameters include: the initial \\param{Cash} available, the \\param{Hour}(s) required to produce each of the \\param{P} products, the \\param{Cost} to produce each of the products, the \\param{Price} at which each product can be sold, the \\param{InvestPercentage} of income from each product to be reinvested, the \\param{UpgradeHours} required for upgrading the machinery, the \\param{UpgradeCost} associated with upgrading, and the total available \\param{AvailableHours} for machine operation.",
+  "target_objective": "Maximize total net income considering production, selling price, cost, and reinvestment",
+  "target_constraints": [
+    "Initial cash available does not exceed Cash",
+    "Total production hours for all products do not exceed AvailableHours",
+    "Total cost to produce all products does not exceed Cash",
+    "Cost to upgrade machinery does not exceed Cash",
+    "Production hours for upgrading machinery do not exceed AvailableHours"
+  ],
+  "target_parameters": [
+    "Number of products",
+    "Initial cash available for investment",
+    "Hours required to produce one unit of product i",
+    "Cost to produce one unit of product i",
+    "Selling price for one unit of product i",
+    "Percentage of income to reinvest for product i",
+    "Hours required for upgrading the machinery",
+    "Cost associated with upgrading the machinery",
+    "Total available machine hours"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.",
+    "(0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the objective of your optimization problem to maximize profit?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the objective of your optimization problem to maximize profit?\nUser: Yes\n\nExpert: Are the financial constraints related to a budget or cost limits?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the objective of your optimization problem to maximize profit?\nUser: Yes\n\nExpert: Are the financial constraints related to a budget or cost limits?\nUser: Yes\n\nExpert: Do the production capabilities include limits on production capacity or availability of raw materials?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.",
+    "(0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Does the problem include specific numerical values for constraints or parameters in its description?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Does the problem include specific numerical values for constraints or parameters in its description?\nUser: No\n\nExpert: Do the constraints include satisfying minimum demand or production requirements for each product or production line?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Does the problem include specific numerical values for constraints or parameters in its description?\nUser: No\n\nExpert: Do the constraints include satisfying minimum demand or production requirements for each product or production line?\nUser: No\n\nExpert: Does the problem involve an explicit constraint on non-negativity of resource allocation?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.",
+    "(0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the objective of the optimization problem to minimize costs, maximize profits, or meet a specific production target?\nUser: Maximize profits.\n",
+    "(0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the objective of the optimization problem to minimize costs, maximize profits, or meet a specific production target?\nUser: Maximize profits.\n\nExpert: Are there any precedence relationships between different production activities, such as requiring one activity to be completed before another can start?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the objective of the optimization problem to minimize costs, maximize profits, or meet a specific production target?\nUser: Maximize profits.\n\nExpert: Are there any precedence relationships between different production activities, such as requiring one activity to be completed before another can start?\nUser: No.\n\nExpert: Are the production capabilities represented by fixed, deterministic capacities or by stochastic, uncertain capacities? \nUser: Fixed, deterministic capacities.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.",
+    "(0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the primary objective a profit-related objective?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the primary objective a profit-related objective?\nUser: Yes\n\nExpert: Does the problem description contain both 'Financial Budget' and 'Production Capacity' as constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal strategy for resource allocation given constraints on finances and production capabilities.\nExpert: Is the primary objective a profit-related objective?\nUser: Yes\n\nExpert: Does the problem description contain both 'Financial Budget' and 'Production Capacity' as constraints?\nUser: Yes\n\nExpert: Does the problem description explicitly mention the relationship between the parameters (e.g., Revenue, Cost, Production Capacity) and the objective (Maximize Profit)?\nUser: Yes\n"
+  }
+}

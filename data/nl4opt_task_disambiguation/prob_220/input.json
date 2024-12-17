@@ -1,0 +1,20 @@
+{
+  "vague_description": "A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.",
+  "detailed_description": "A music company produces two types of digital keyboards, one is full-weighted and another is semi-weighted. Both keyboards are sold for \\param{FullWeightedPrice} and \\param{SemiWeightedPrice} respectively. There are about \\param{TotalChips} oscillator chips available every day from which the full-weighted version requires \\param{ChipsFullWeighted} chips while the semi-weighted version requires \\param{ChipsSemiWeighted} chips. The company has a total of \\param{TotalTime} working hours a day. Both of these keyboards require a production time of \\param{ProductionTimePerKeyboard} hours. What should be the manufacturing quantity for each of the keyboards to maximize the total revenue?",
+  "target_objective": "Maximize the total revenue from manufacturing full-weighted and semi-weighted keyboards",
+  "target_constraints": [
+    "Number of full-weighted keyboards is non-negative",
+    "Number of semi-weighted keyboards is non-negative",
+    "Total number of chips used cannot exceed TotalChips",
+    "Total production time cannot exceed TotalTime hours per day"
+  ],
+  "target_parameters": [
+    "Sale price of the full-weighted keyboard",
+    "Sale price of the semi-weighted keyboard",
+    "Total number of oscillator chips available per day",
+    "Number of oscillator chips required to produce one full-weighted keyboard",
+    "Number of oscillator chips required to produce one semi-weighted keyboard",
+    "Total available production time per day in hours",
+    "Production time required to produce one keyboard (regardless of type) in hours"
+  ]
+}

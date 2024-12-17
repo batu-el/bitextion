@@ -1,0 +1,39 @@
+{
+  "vague_description": "Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.",
+  "detailed_description": "The objective is to minimize the maximum thrust required, which is max_t |a_t| over the duration T, with initial conditions set by X0, V0, and final conditions set by XT and VT.",
+  "target_objective": "Minimize the maximum thrust required across the given duration T",
+  "target_constraints": [
+    "Thrust limits are determined by minimizing the maximum absolute value of acceleration over time T"
+  ],
+  "target_parameters": [
+    "Initial position of the object",
+    "Initial velocity of the object",
+    "Final position of the object",
+    "Final velocity of the object",
+    "Time duration for the journey"
+  ],
+  "Expert": {
+    "(0,)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.",
+    "(0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there a specific mathematical criterion or model defined for the force used in the spacecraft trajectory optimization?\nUser: No\n",
+    "(0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there a specific mathematical criterion or model defined for the force used in the spacecraft trajectory optimization?\nUser: No\n\nExpert: Are there any constraints on the spacecraft trajectory, such as thrust limits, path boundaries, or timing restrictions?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there a specific mathematical criterion or model defined for the force used in the spacecraft trajectory optimization?\nUser: No\n\nExpert: Are there any constraints on the spacecraft trajectory, such as thrust limits, path boundaries, or timing restrictions?\nUser: No\n\nExpert: Is there an objective function provided that needs to be minimized or maximized for this spacecraft trajectory optimization problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.",
+    "(0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there a constraint related to maintaining communication orientation or ensuring effective communication during the trajectory?\nUser: No\n",
+    "(0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there a constraint related to maintaining communication orientation or ensuring effective communication during the trajectory?\nUser: No\n\nExpert: Does the problem include a constraint related to avoiding collisions with celestial bodies or obstacles?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there a constraint related to maintaining communication orientation or ensuring effective communication during the trajectory?\nUser: No\n\nExpert: Does the problem include a constraint related to avoiding collisions with celestial bodies or obstacles?\nUser: No\n\nExpert: Is there a constraint involving maintaining the spacecraft within specific positional or spatial boundaries during the trajectory?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.",
+    "(0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Are there any constraints on the maximum or minimum velocity of the spacecraft at any point during the trajectory?\nUser: No\n",
+    "(0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Are there any constraints on the maximum or minimum velocity of the spacecraft at any point during the trajectory?\nUser: No\n\nExpert: Are there any constraints on the maximum or minimum acceleration of the spacecraft at any point during the trajectory?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Are there any constraints on the maximum or minimum velocity of the spacecraft at any point during the trajectory?\nUser: No\n\nExpert: Are there any constraints on the maximum or minimum acceleration of the spacecraft at any point during the trajectory?\nUser: No\n\nExpert: Is the objective to reduce the peak force usage while still achieving the shortest possible time to reach the final state?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.",
+    "(0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there any information given about specific or additional constraints beyond the initial, final states, and time constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there any information given about specific or additional constraints beyond the initial, final states, and time constraints?\nUser: No\n\nExpert: Does the problem description include a specific initial state or final state in its constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there any information given about specific or additional constraints beyond the initial, final states, and time constraints?\nUser: No\n\nExpert: Does the problem description include a specific initial state or final state in its constraints?\nUser: Yes\n\nExpert: Does the description mention a specific 'optimal control strategy' or 'control strategy' in its parameters or objective?\nUser: No\n"
+  }
+}

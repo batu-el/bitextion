@@ -1,0 +1,20 @@
+{
+  "vague_description": "Optimizing transportation logistics for perishable goods under budget and fleet constraints.",
+  "detailed_description": "A meat shop ships their burger patties using refrigerated trucks and vans. Each truck can take \\param{TruckCapacity} patties at a cost of \\param{TruckCost} per trip. Each van can take \\param{VanCapacity} patties at a cost of \\param{VanCost} per trip. Because the trucks have difficulty moving around in the city, the number of trucks must not exceed the number of vans. The meat shop has to ship at least \\param{MinPatties} patties and they have a budget of \\param{Budget}. How should they plan their shipment to minimize the total number of trips?",
+  "target_objective": "Minimize the total number of trips for shipping the patties",
+  "target_constraints": [
+    "Number of trucks used is non-negative",
+    "Number of vans used is non-negative",
+    "The number of trucks must not exceed the number of vans",
+    "At least MinPatties patties need to be shipped",
+    "The total cost must not exceed Budget"
+  ],
+  "target_parameters": [
+    "Maximum capacity of a truck",
+    "Cost per truck trip",
+    "Maximum capacity of a van",
+    "Cost per van trip",
+    "Minimum number of patties to ship",
+    "Budget for shipments"
+  ]
+}

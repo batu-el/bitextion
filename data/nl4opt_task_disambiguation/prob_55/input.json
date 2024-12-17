@@ -1,0 +1,25 @@
+{
+  "vague_description": "The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.",
+  "detailed_description": "A farmer has \\(\\var{TotalAcres}\\) acres of land on which he must process hay using either a windrower or hay harvester. For each acre of land, the windrower can process \\(\\var{HayWindrower}\\) kg of hay while the hay harvester can process \\(\\var{HayHarvester}\\) kg of hay. Per acre, the windrower produces \\(\\var{MethaneWindrower}\\) kg of methane gas and requires \\(\\var{FuelWindrower}\\) kg of fuel. On the other hand, the hay harvester produces \\(\\var{MethaneHarvester}\\) kg of methane gas per acre and requires \\(\\var{FuelHarvester}\\) kg of fuel. There are \\(\\var{TotalFuel}\\) kg of fuel available and the farmer can produce at most \\(\\var{MaxMethane}\\) kg of methane gas. For how many acres should each machine be used to maximize the amount of hay processed?",
+  "target_objective": "Maximize the total amount of hay processed",
+  "target_constraints": [
+    "Number of acres processed by the windrower is a non-negative integer",
+    "Number of acres processed by the hay harvester is a non-negative integer",
+    "Total acres processed by both machines cannot exceed TotalAcres",
+    "Total fuel used by both machines cannot exceed TotalFuel",
+    "Total methane produced by both machines cannot exceed MaxMethane",
+    "MethaneWindrower * acres processed by the windrower + MethaneHarvester * acres processed by the hay harvester <= MaxMethane",
+    "FuelWindrower * acres processed by the windrower + FuelHarvester * acres processed by the hay harvester <= TotalFuel"
+  ],
+  "target_parameters": [
+    "Total acres of available land for hay processing",
+    "Hay processed by the windrower per acre",
+    "Hay processed by the hay harvester per acre",
+    "Methane gas produced by the windrower per acre",
+    "Fuel required by the windrower per acre",
+    "Methane gas produced by the hay harvester per acre",
+    "Fuel required by the hay harvester per acre",
+    "Total available fuel",
+    "Maximum allowable methane gas production"
+  ]
+}

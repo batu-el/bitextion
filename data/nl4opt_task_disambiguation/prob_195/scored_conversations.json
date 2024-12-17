@@ -1,0 +1,489 @@
+{
+  "vague_description": "Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.",
+  "detailed_description": "A magic school sends letters to student either by carrier pigeons or owls. A carrier pigeon can carry \\param{CarrierCapacity} letters at a time and requires \\param{TreatsPerCarrier} treats for service. An owl can carry \\param{OwlCapacity} letters at a time and requires \\param{TreatsPerOwl} treats for service. At most \\param{MaxOwlPercentage} of the birds can be owls. In addition, the school only has \\param{TotalTreats} treats available and at least \\param{MinCarrierPigeons} carrier pigeons must be uses. How many of each bird can be used to maximize the total number of letters that can be sent?",
+  "target_objective": "Maximize the total number of letters that can be sent",
+  "target_constraints": [
+    "Number of carrier pigeons used is non-negative",
+    "Number of owls used is non-negative",
+    "At most MaxOwlPercentage percent of the total number of birds used can be owls",
+    "Total treats used cannot exceed TotalTreats",
+    "At least MinCarrierPigeons carrier pigeons must be used"
+  ],
+  "target_parameters": [
+    "Number of letters a carrier pigeon can carry at a time",
+    "Number of letters an owl can carry at a time",
+    "Maximum percentage of birds that can be owls",
+    "Total treats available for the birds",
+    "Treats required for one service by a carrier pigeon",
+    "Treats required for one service by an owl",
+    "Minimum number of carrier pigeons that must be used"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.",
+    "(0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Do the owls and carrier pigeons have specific capacities for carrying letters?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Do the owls and carrier pigeons have specific capacities for carrying letters?\nUser: Yes\n\nExpert: Are there any limitations on the total number of owls and carrier pigeons available?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Do the owls and carrier pigeons have specific capacities for carrying letters?\nUser: Yes\n\nExpert: Are there any limitations on the total number of owls and carrier pigeons available?\nUser: Yes\n\nExpert: Are there constraints on the cost or resources required to deploy owls and carrier pigeons?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.",
+    "(0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Do any of the candidate problems include food consumption as a constraint?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Do any of the candidate problems include food consumption as a constraint?\nUser: Yes.\n\nExpert: Is the maximum number of letters a carrier pigeon can carry per trip more than 1 letter in the problem description?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Do any of the candidate problems include food consumption as a constraint?\nUser: Yes.\n\nExpert: Is the maximum number of letters a carrier pigeon can carry per trip more than 1 letter in the problem description?\nUser: Yes.\n\nExpert: Does each candidate problem include a constraint on the maximum number of trips per day for owls or carrier pigeons?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.",
+    "(0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Are there any restrictions on the number of letters that can be carried by each owl or carrier pigeon?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Are there any restrictions on the number of letters that can be carried by each owl or carrier pigeon?\nUser: Yes.\n\nExpert: Are these restrictions related to physical capacity or are there other factors involved, such as delivery speed or reliability?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Are there any restrictions on the number of letters that can be carried by each owl or carrier pigeon?\nUser: Yes.\n\nExpert: Are these restrictions related to physical capacity or are there other factors involved, such as delivery speed or reliability?\nUser: Yes.\n\nExpert: Are the restrictions related to a trade-off between the number of letters that can be carried and delivery speed?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.",
+    "(0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Does the problem involve any kind of time constraint or limitation?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Does the problem involve any kind of time constraint or limitation?\nUser: No\n\nExpert: Do the parameters include the exact quantities of owls and carrier pigeons available?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of owls and carrier pigeons to send a maximum number of letters given specific constraints.\nExpert: Does the problem involve any kind of time constraint or limitation?\nUser: No\n\nExpert: Do the parameters include the exact quantities of owls and carrier pigeons available?\nUser: No\n\nExpert: Is there a specific (known or unknown) time constraint for delivering the letters?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of letters each owl can carry",
+            "Number of letters each carrier pigeon can carry",
+            "Total number of letters to be delivered",
+            "Maximum number of owls available",
+            "Maximum number of carrier pigeons available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of letters delivered using a combination of owls and carrier pigeons."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of owls and carrier pigeons cannot exceed a certain number, representing available aviators.",
+            "Each bird has a maximum carrying capacity of letters, differing between owls and pigeons.",
+            "There is a minimum number of letters that must be sent.",
+            "Owls and pigeons may have different flying ranges which could affect the feasibility of delivery for certain distances.",
+            "The cost of using owls may differ from using pigeons, possibly impacting the budget constraints for the operation.",
+            "Regulations or guidelines may limit the hours of flight or routes taken by the birds."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "The capacity of an owl to carry letters",
+            "The capacity of a carrier pigeon to carry letters",
+            "The total number of letters to be delivered",
+            "The total number of owls available",
+            "The total number of carrier pigeons available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of letters delivered by determining the optimal number of owls and carrier pigeons, considering their respective carrying capacities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each owl can carry up to 5 letters.",
+            "Each carrier pigeon can carry up to 2 letters.",
+            "The total number of letters to be delivered is 100.",
+            "The number of owls available is limited to 10.",
+            "The number of carrier pigeons available is limited to 15."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of letters each owl can carry",
+            "Number of letters each carrier pigeon can carry",
+            "Total number of owls available",
+            "Total number of carrier pigeons available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total number of letters delivered by optimally allocating available owls and carrier pigeons while considering their carrying capacities and any limitations on their numbers."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each owl can carry a specific maximum number of letters.",
+            "Each carrier pigeon can carry a specific maximum number of letters.",
+            "There is a maximum number of owls available.",
+            "There is a maximum number of carrier pigeons available."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximum capacity of letters each owl can carry",
+            "Maximum capacity of letters each carrier pigeon can carry",
+            "Total number of owls available",
+            "Total number of carrier pigeons available",
+            "Cost or resources required to deploy each owl",
+            "Cost or resources required to deploy each carrier pigeon"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of letters sent using a combination of owls and carrier pigeons while considering their carrying capacities and constraints on their availability and deployment costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each owl and carrier pigeon has a specific capacity for carrying letters.",
+            "There is a limitation on the total number of owls and carrier pigeons available.",
+            "There are constraints on the cost or resources required to deploy owls and carrier pigeons."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of letters an owl can carry (L_o)",
+            "Number of letters a carrier pigeon can carry (L_p)",
+            "Maximum number of owls available (N_o)",
+            "Maximum number of carrier pigeons available (N_p)",
+            "Total number of letters to be sent (T)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total number of letters delivered by a combination of owls and carrier pigeons."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each owl can carry 2 letters per trip.",
+            "Each carrier pigeon can carry 1 letter per trip.",
+            "There are at most 10 owls available.",
+            "There are at most 15 carrier pigeons available.",
+            "Each animal makes only one trip.",
+            "The total number of trips by owls and pigeons combined cannot exceed 20.",
+            "The total number of letters to be delivered must be exactly 25."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of letters each owl can carry",
+            "Number of letters each carrier pigeon can carry",
+            "Food consumption per owl",
+            "Food consumption per carrier pigeon",
+            "Total food availability",
+            "Maximum number of letters to be delivered"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of letters sent by determining the optimal number of owls and carrier pigeons while adhering to constraints, including food consumption."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Food consumption is a constraint."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "total number of letters to be delivered",
+            "maximum letters a carrier pigeon can carry per trip",
+            "maximum letters an owl can carry per trip",
+            "food consumption rate of owls",
+            "food consumption rate of carrier pigeons",
+            "maximum food available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the number of letters delivered by determining the optimal number of owls and carrier pigeons, considering food consumption and carrying capacity as constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each carrier pigeon can carry up to a certain maximum number of letters per trip.",
+            "Food consumption is a constraint that must be considered for both owls and carrier pigeons."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of letters each carrier pigeon can carry per trip",
+            "Food consumption for owls",
+            "Food consumption for carrier pigeons",
+            "Maximum number of letters to be delivered"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of letters delivered by determining the optimal number of owls and carrier pigeons to deploy, considering food consumption constraints and the capacity of carrier pigeons to carry multiple letters per trip."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of letters carried by each owl and carrier pigeon must be maximized.",
+            "There is a constraint on food consumption for either owls or carrier pigeons.",
+            "Each carrier pigeon can carry more than 1 letter per trip.",
+            "There is no constraint on the maximum number of trips per day for owls or carrier pigeons."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of owls",
+            "Number of carrier pigeons",
+            "Maximum number of letters"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total number of letters delivered by selecting the optimal number of owls and carrier pigeons, subject to constraints on resources, capacities, or other logistical limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each owl can carry up to 5 letters.",
+            "Each carrier pigeon can carry up to 2 letters.",
+            "There is a total weight limit of 100 kg that the pigeons and owls combined can carry.",
+            "Each owl weighs 2 kg and each pigeon weighs 0.5 kg.",
+            "There is a budget limit of $500.",
+            "Each owl costs $20 to send and each pigeon costs $5 to send."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of letters carried by each owl",
+            "Number of letters carried by each carrier pigeon",
+            "Total number of letters to be delivered",
+            "Maximum number of owls available",
+            "Maximum number of carrier pigeons available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total number of letters delivered by determining the optimal numbers of owls and carrier pigeons, while adhering to constraints on the carrying capacity of each, and possibly other constraints such as the total number of available birds or letters."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each owl can carry a specific maximum number of letters.",
+            "Each carrier pigeon can carry a specific maximum number of letters."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of letters carried by each owl",
+            "Number of letters carried by each carrier pigeon",
+            "Maximum total number of letters that need delivery",
+            "Delivery speed of owls",
+            "Delivery reliability of owls",
+            "Delivery speed of carrier pigeons",
+            "Delivery reliability of carrier pigeons"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the combination of owls and carrier pigeons that maximizes the number of letters delivered, considering constraints on capacity, delivery speed, and reliability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each owl has a maximum capacity for the number of letters it can carry, which must not be exceeded.",
+            "Each carrier pigeon has a maximum capacity for the number of letters it can carry, which must not be exceeded.",
+            "Consideration must be given to factors like delivery speed or reliability in deciding the allocation of letters between owls and carrier pigeons."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Capacity of owls for carrying letters",
+            "Capacity of carrier pigeons for carrying letters",
+            "Delivery speed of owls",
+            "Delivery speed of carrier pigeons",
+            "Reliability of owls",
+            "Reliability of carrier pigeons"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of letters delivered by determining the optimal number of owls and carrier pigeons, considering their respective restrictions on letter capacity, delivery speed, and reliability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of letters carried is limited by the physical capacity of owls and carrier pigeons.",
+            "There is a trade-off between carrying capacity and delivery speed for both owls and carrier pigeons.",
+            "The maximum number of letters is subject to constraints on both delivery methods: owls and carrier pigeons.",
+            "Reliability might be a factor affecting the delivery capabilities of owls and carrier pigeons."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of owls",
+            "Number of carrier pigeons"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of letters delivered by determining the optimal number of owls and carrier pigeons within the given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combined total weight of owls and carrier pigeons cannot exceed a certain weight limit.",
+            "Each owl can carry a specific maximum number of letters.",
+            "Each carrier pigeon can carry a specific maximum number of letters.",
+            "There is a limited number of owls available.",
+            "There is a limited number of carrier pigeons available.",
+            "The total number of letters to be delivered must be met.",
+            "The time to deliver letters must not exceed a certain timeframe, possibly implying different speeds for owls and pigeons."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of owls",
+            "number of carrier pigeons"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of letters sent given constraints on the number of owls and carrier pigeons."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of owls and carrier pigeons used must be non-negative integers.",
+            "No time constraints are imposed in this problem."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize number of letters sent",
+            "No time constraint",
+            "Unlimited owls available",
+            "Unlimited carrier pigeons available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the total number of letters delivered by determining the optimal combination of owls and carrier pigeons."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The problem involves finding the optimal number of owls and carrier pigeons.",
+            "The objective is to maximize the number of letters sent.",
+            "There are no explicit time constraints.",
+            "There are no provided limitations on the availability of owls and carrier pigeons."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of owls",
+            "Number of carrier pigeons",
+            "Maximum letters that can be sent without any time constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of letters delivered by determining the optimal number of owls and carrier pigeons to use."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of owls and carrier pigeons to send must not exceed the total number available.",
+            "The solution must maximize the total number of letters delivered.",
+            "Each owl and carrier pigeon has a specific letter-carrying capacity that must be accounted for."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      }
+    }
+  }
+}

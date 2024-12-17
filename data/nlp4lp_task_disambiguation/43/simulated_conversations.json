@@ -1,0 +1,47 @@
+{
+  "vague_description": "How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?",
+  "detailed_description": "How should the manufacture manage the steel to maximize profit? The manufacture has to decide on the optimal quantity of \\param{SteelQuantity} tons of steel to produce, taking into account the required \\param{ManganesePercent} percent manganese and ensuring the silicon content is between \\param{SiliconMinPercent} percent and \\param{SiliconMaxPercent} percent. The available stocks contain \\param{SiliconContent} percent Silicon and \\param{ManganeseContent} percent Manganese. The price of manganese is set at \\param{ManganesePrice} per ton, and the material cost for each stock is \\param{MaterialCost}. The company sells the steel at a price of \\param{SellingPrice} per ton but also incurs a melting cost of \\param{MeltingPrice} per ton.",
+  "target_objective": "Maximize the company's profit from the steel produced",
+  "target_constraints": [
+    "Total quantity of steel produced is SteelQuantity tons",
+    "Steel must contain ManganesePercent percent manganese",
+    "Silicon content in steel must be at least SiliconMinPercent percent",
+    "Silicon content in steel must be at most SiliconMaxPercent percent"
+  ],
+  "target_parameters": [
+    "Amount of steel to produce in tons",
+    "Percentage of manganese in the steel required",
+    "Minimum percentage of silicon in the steel required",
+    "Maximum percentage of silicon in the steel allowed",
+    "Silicon content in the k-th stock",
+    "Manganese content in the k-th stock",
+    "Price of manganese per ton",
+    "Cost of the k-th stock material per ton",
+    "Selling price of steel per ton",
+    "Price to melt one ton of steel"
+  ],
+  "Expert": {
+    "(0,)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?",
+    "(0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem involve specific upper or lower bounds on the amounts of materials used in the composition of the product?\nUser: Yes\n",
+    "(0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem involve specific upper or lower bounds on the amounts of materials used in the composition of the product?\nUser: Yes\n\nExpert: Are there variable costs associated with the amounts of materials used beyond the fixed costs of manufacturing?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem involve specific upper or lower bounds on the amounts of materials used in the composition of the product?\nUser: Yes\n\nExpert: Are there variable costs associated with the amounts of materials used beyond the fixed costs of manufacturing?\nUser: Yes\n\nExpert: Are there multiple products being manufactured that affect the composition requirements and costs?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?",
+    "(0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem description include a constraint related to environmental regulations?\nUser: No\n",
+    "(0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem description include a constraint related to environmental regulations?\nUser: No\n\nExpert: Do any of the candidate problem descriptions explicitly state a specific numerical budget value?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem description include a constraint related to environmental regulations?\nUser: No\n\nExpert: Do any of the candidate problem descriptions explicitly state a specific numerical budget value?\nUser: No\n\nExpert: Does the problem include a constraint on meeting market demand or customer orders for the product?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?",
+    "(0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Is the manufacturing process subject to any physical or engineering constraints (e.g., limited production capacity, material availability, regulatory requirements)?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Is the manufacturing process subject to any physical or engineering constraints (e.g., limited production capacity, material availability, regulatory requirements)?\nUser: Yes.\n\nExpert: Are these constraints linear (can be represented by a straight line or a set of straight lines) rather than nonlinear (curved or more complex shapes)?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Is the manufacturing process subject to any physical or engineering constraints (e.g., limited production capacity, material availability, regulatory requirements)?\nUser: Yes.\n\nExpert: Are these constraints linear (can be represented by a straight line or a set of straight lines) rather than nonlinear (curved or more complex shapes)?\nUser: Yes.\n\nExpert: Do you have a clear and quantitative objective function to maximize the profit?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?",
+    "(0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem description include any constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem description include any constraints?\nUser: Yes\n\nExpert: Does the description contain the exact phrase 'maximize profit' (ignoring case)?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem description include any constraints?\nUser: Yes\n\nExpert: Does the description contain the exact phrase 'maximize profit' (ignoring case)?\nUser: No\n\nExpert: Is any constraint mentioned in the problem description?\nUser: Yes\n"
+  }
+}

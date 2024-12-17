@@ -1,0 +1,473 @@
+{
+  "vague_description": "Determining the optimal allocation of resources to enhance business outcomes.",
+  "detailed_description": "What maintaining, selling, storing, and manufacturing policy should the company pursue in order to maximize profit? The company has \\param{M} machines, each with a specific downtime \\param{Downtime}. There are \\param{K} products, each with an associated profit \\param{Profit} and a production time on each machine given by \\param{Time}. Products must adhere to limits given by \\param{Limit}. The price for storing products is \\param{StorePrice}, and they must keep a quantity of \\param{KeepQuantity} in the store. The company has \\param{WorkHours} work hours available for all machines combined.",
+  "target_objective": "Maximize the company's profit from its manufacturing and sales operations while considering maintenance, storage and work hour constraints",
+  "target_constraints": [
+    "Products must adhere to a production limit of Limit",
+    "A minimum quantity of KeepQuantity must be kept in storage",
+    "There are WorkHours work hours available for all machines combined",
+    "The numbers of products manufactured, maintained, sold, and stored are non-negative"
+  ],
+  "target_parameters": [
+    "Number of machines",
+    "Profit for each product",
+    "Time required to produce each product on each machine",
+    "Downtime for each machine",
+    "Limit for each product on constraints",
+    "Price for storing products",
+    "Quantity of products to keep in store",
+    "Number of work hours available"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal allocation of resources to enhance business outcomes.",
+    "(0, 0)": "User: Determining the optimal allocation of resources to enhance business outcomes.\nExpert: Is the objective function related to maximizing profit or minimizing cost?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal allocation of resources to enhance business outcomes.\nExpert: Is the objective function related to maximizing profit or minimizing cost?\nUser: Yes\n\nExpert: Does the optimization problem involve constraints related to budget, time, or resource availability?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal allocation of resources to enhance business outcomes.\nExpert: Is the objective function related to maximizing profit or minimizing cost?\nUser: Yes\n\nExpert: Does the optimization problem involve constraints related to budget, time, or resource availability?\nUser: Yes\n\nExpert: Are there multiple types of resources being allocated, each with different properties or costs?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal allocation of resources to enhance business outcomes.",
+    "(0, 0)": "User: Determining the optimal allocation of resources to enhance business outcomes.\nExpert: Is the total budget for resource allocation exactly $1,000,000 in this problem?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal allocation of resources to enhance business outcomes.\nExpert: Is the total budget for resource allocation exactly $1,000,000 in this problem?\nUser: No\n\nExpert: Is the total resource allocation budget equal to $1,500,000?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal allocation of resources to enhance business outcomes.\nExpert: Is the total budget for resource allocation exactly $1,000,000 in this problem?\nUser: No\n\nExpert: Is the total resource allocation budget equal to $1,500,000?\nUser: No\n\nExpert: Does the total budget for resource allocation in the problem description exceed $1,500,000?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal allocation of resources to enhance business outcomes.",
+    "(0, 0)": "User: Determining the optimal allocation of resources to enhance business outcomes.\nExpert: Are the business outcomes you're trying to enhance measurable and quantifiable?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal allocation of resources to enhance business outcomes.\nExpert: Are the business outcomes you're trying to enhance measurable and quantifiable?\nUser: Yes\n\nExpert: Are the business outcomes you're trying to enhance subject to any hard constraints such as budget, time, or resource limitations?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal allocation of resources to enhance business outcomes.\nExpert: Are the business outcomes you're trying to enhance measurable and quantifiable?\nUser: Yes\n\nExpert: Are the business outcomes you're trying to enhance subject to any hard constraints such as budget, time, or resource limitations?\nUser: Yes\n\nExpert: Is the goal to optimize a single business outcome, or are there multiple outcomes that need to be balanced against each other?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal allocation of resources to enhance business outcomes.",
+    "(0, 0)": "User: Determining the optimal allocation of resources to enhance business outcomes.\nExpert: Is the parameter list explicitly mentioned in the problem description? Or, \nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal allocation of resources to enhance business outcomes.\nExpert: Is the parameter list explicitly mentioned in the problem description? Or, \nUser: No\n\nExpert: Is the objective of the problem to 'maximize business outcomes'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal allocation of resources to enhance business outcomes.\nExpert: Is the parameter list explicitly mentioned in the problem description? Or, \nUser: No\n\nExpert: Is the objective of the problem to 'maximize business outcomes'?\nUser: Yes\n\nExpert: Does the problem description contain a non-empty list of constraints?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Budget",
+            "Resource Types",
+            "Business Objectives",
+            "Resource Constraints",
+            "Outcome Metrics",
+            "Time Horizon"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources in a way that maximizes business outcomes."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total budget must not exceed $500,000.",
+            "The project duration cannot exceed 12 months.",
+            "Staff allocation should not exceed 40 hours per person per week.",
+            "Inventory levels need to be maintained at a minimum threshold of 100 units.",
+            "Marketing expenses must not surpass 20% of the total budget.",
+            "At least three team members must be allocated to each project.",
+            "Operational costs need to be reduced by 10% compared to the previous year."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "business outcomes",
+            "profit",
+            "cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximizing profit or minimizing cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The resource allocation must adhere to the predefined budget limits.",
+            "The allocation must satisfy the demand for all required business processes without exceeding available resources.",
+            "There should be a balance between different resources to avoid over or under-utilization.",
+            "Any regulatory or compliance constraints related to resource allocation must be considered.",
+            "The allocation must be adjusted based on the variability or uncertainty in business needs."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Maximize profit or minimize cost",
+            "Constraints: Budget constraints",
+            "Constraints: Time constraints",
+            "Constraints: Resource availability constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the profit or minimize the cost of resource allocation while adhering to constraints such as budget, time, or resource availability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraints: The total cost of allocated resources should not exceed the available budget.",
+            "Time constraints: The allocation should be completed within a specified time frame or deadline.",
+            "Resource availability constraints: The allocation must consider the availability of resources, meaning it cannot allocate more resources than are available at any given time."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit or minimize cost",
+            "Constraints: Budget",
+            "Constraints: Time",
+            "Constraints: Resource availability",
+            "Multiple types of resources with different properties or costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimizing the allocation of multiple types of resources to maximize profit while adhering to constraints related to budget, time, and resource availability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraints limiting the total expenditure on resources.",
+            "Time constraints, specifying a maximum or minimum duration for the resource allocation.",
+            "Resource availability constraints, indicating the maximum available quantity of each type of resource.",
+            "Differential cost constraints for different types of resources, dictating varying cost structures.",
+            "Business outcome constraints ensuring the allocated resources achieve specific desired outcomes."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "business outcomes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize business outcomes through optimal allocation of resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total resources allocated cannot exceed the available resource budget.",
+            "Each allocated resource should contribute positively to the business outcomes.",
+            "Resource allocation must comply with organizational policy constraints.",
+            "There must be a minimum allocation to key departments to sustain basic operations.",
+            "External and internal resource dependencies must be considered to avoid overallocation to dependent tasks.",
+            "Resource allocation should adapt to changing business priorities and forecasts."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "total budget"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of resources to enhance business outcomes without a fixed total budget constraint."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total budget for resource allocation is not exactly $1,000,000."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total budget for resource allocation is neither $1,000,000 nor $1,500,000."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of resources to enhance business outcomes, without a predetermined specified total budget for the allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total resource allocation budget is neither $1,000,000 nor $1,500,000."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total budget for resource allocation is > $1,000,000",
+            "Total budget for resource allocation is <= $1,500,000"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal allocation of finite resources across different business areas to enhance overall business outcomes, within a specific total budget that is less than or equal to $1,500,000."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total budget for resource allocation <= $1,500,000"
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource availability limits",
+            "Budget constraints",
+            "Target business outcomes",
+            "Resource allocation options",
+            "Relation between resource allocation and business outcomes",
+            "Constraints on allocation ratios",
+            "Timeframe for achieving outcomes",
+            "Uncertainty in resource availability",
+            "Cost of resources",
+            "Revenue or ROI targets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to find the best way to allocate resources within a business to improve overall business outcomes."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability limits the amount of resources that can be allocated.",
+            "The allocation must not exceed the budget constraints.",
+            "There are production capacity limits that must be adhered to.",
+            "Outcomes must meet a minimum target threshold.",
+            "There are specific time constraints for the completion of the allocation process."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation",
+            "Enhanced Business Outcomes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of resources in order to enhance measurable and quantifiable business outcomes."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The business outcomes must be enhanced and are measurable and quantifiable.",
+            "The allocation of resources must directly lead to enhancement in the business outcomes.",
+            "There must be a clear relation between the resources allocated and the impact on business outcomes.",
+            "The resources in question are limited and must be used efficiently."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "optimal allocation of resources",
+            "enhance business outcomes",
+            "measurable and quantifiable outcomes",
+            "hard constraints (budget, time, resource limitations)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of resources to maximize measurable and quantifiable business outcomes while adhering to hard constraints such as budget, time, or resource limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All business outcomes must be measurable and quantifiable.",
+            "Resource allocation must adhere to a specified budget constraint.",
+            "Resource allocation must be within predefined time limitations.",
+            "There should be limitations on certain types of resources based on availability or other external constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Business outcomes",
+            "Hard constraints",
+            "Budget",
+            "Time",
+            "Multiple outcomes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of resources to maximize or enhance measurable business outcomes, subject to hard constraints such as budget, time, or resource limitations, while potentially balancing multiple outcomes."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Enhance measurable and quantifiable business outcomes.",
+            "Subject to budget limitations.",
+            "Subject to time limitations.",
+            "Subject to resource limitations.",
+            "Optimize multiple business outcomes that need to be balanced against each other."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "business outcomes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of resources that enhances business outcomes."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability: The total resources allocated cannot exceed the available resources.",
+            "Budget limit: The total cost of resource allocation should not exceed the budget.",
+            "Time constraints: The allocation of resources should be done within a specific time frame.",
+            "Outcome improvement target: The allocation should aim to meet or exceed specific business outcome targets.",
+            "Risk management: The allocation strategy should consider potential risks and include mitigation plans.",
+            "Capacity constraints: The allocation should not exceed operational or capacity limits.",
+            "Legal and regulatory compliance: The allocation should adhere to relevant legal and regulatory requirements."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "business outcomes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Enhance business outcomes by optimally allocating resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must fall within the available budget.",
+            "All allocated resources must be utilized without exceeding the total capacity.",
+            "The allocation must satisfy the minimum requirement for each department to ensure operational efficiency.",
+            "Resource allocation should maximize the projected business outcomes or key performance metrics.",
+            "The solution should adhere to any regulatory or organizational policies related to resource allocation."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "business outcomes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize business outcomes"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Parameters for resource allocation are not explicitly mentioned.",
+            "The objective function is to maximize business outcomes."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "business outcomes",
+            "constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize business outcomes"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources must be allocated within budget limits.",
+            "The allocation must meet at least X% efficiency.",
+            "Specific resource allocations cannot exceed predefined percentages for certain departments.",
+            "Compliance with regulatory requirements must be ensured in resource allocation."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    }
+  }
+}

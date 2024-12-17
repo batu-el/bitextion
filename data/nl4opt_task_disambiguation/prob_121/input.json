@@ -1,0 +1,23 @@
+{
+  "vague_description": "A traveling salesman has dietary restrictions and preferences, and seeks a meal plan with minimal sodium intake while meeting calorie and protein requirements.",
+  "detailed_description": "A travelling salesman only eats ramen and fries. Each pack of ramen contains \\param{CaloriesRamen} calories, \\param{ProteinRamen} grams of protein, and \\param{SodiumRamen} mg of sodium. Each pack of fries contains \\param{CaloriesFries} calories, \\param{ProteinFries} grams of protein, and \\param{SodiumFries} mg of sodium. Since fries are easier to eat while driving, at most \\param{MaxRamenFraction} of his meals can be ramen. The salesman wants to ensure he eats at least \\param{MinCalories} calories and \\param{MinProtein} grams of protein. How many of each should he eat to minimize his sodium intake?",
+  "target_objective": "Minimize the total sodium intake from the consumption of ramen and fries",
+  "target_constraints": [
+    "Number of ramen packs is non-negative",
+    "Number of fries packs is non-negative",
+    "At most MaxRamenFraction of the total meals can be ramen",
+    "The salesman must eat at least MinCalories calories",
+    "The salesman must consume at least MinProtein grams of protein"
+  ],
+  "target_parameters": [
+    "Calories contained in each pack of ramen",
+    "Protein contained in each pack of ramen",
+    "Sodium contained in each pack of ramen",
+    "Calories contained in each pack of fries",
+    "Protein contained in each pack of fries",
+    "Sodium contained in each pack of fries",
+    "Maximum fraction of meals that can be ramen",
+    "Minimum total caloric intake",
+    "Minimum total protein intake"
+  ]
+}

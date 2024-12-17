@@ -1,0 +1,23 @@
+{
+  "vague_description": "Determine the optimal allocation of resources to maximize output.",
+  "detailed_description": "There are two processes, process A and process B, to plate a coin with gold. Process A requires \\var{GoldA} units of gold, \\var{WireA} wires, and can plate \\var{CoinsA} coins. Process B requires \\var{GoldB} units of gold, \\var{WireB} wires, and can plate \\var{CoinsB} coins. There are \\var{TotalGold} units of gold and \\var{TotalWires} wires available. How many processes of each type should be run to maximize the total number of coins that can be plated?",
+  "target_objective": "Maximize the total number of coins plated by running an optimal number of operations for each process",
+  "target_constraints": [
+    "Number of Process A operations is an integer",
+    "Number of Process B operations is an integer",
+    "Number of Process A operations is non-negative",
+    "Number of Process B operations is non-negative",
+    "Total units of gold used by Process A and B cannot exceed TotalGold",
+    "Total wires used by Process A and B cannot exceed TotalWires"
+  ],
+  "target_parameters": [
+    "Gold requirement for process A",
+    "Wire requirement for process A",
+    "Number of coins plated by process A",
+    "Gold requirement for process B",
+    "Wire requirement for process B",
+    "Number of coins plated by process B",
+    "Total units of gold available",
+    "Total number of wires available"
+  ]
+}

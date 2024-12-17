@@ -1,0 +1,461 @@
+{
+  "vague_description": "Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.",
+  "detailed_description": "A summer camp does science experiments in two pre filled beakers, beaker 1 and beaker 2. Beaker 1 uses \\param{FlourBeaker1} units of flour and \\param{LiquidBeaker1} units of special liquid to make \\param{SlimeBeaker1} units of slime. Beaker 2 uses \\param{FlourBeaker2} units of flour and \\param{LiquidBeaker2} units of special liquid to make \\param{SlimeBeaker2} units of slime. However, beaker 1 creates \\param{WasteBeaker1} units of waste while beaker 2 creates \\param{WasteBeaker2} units of waste. The summer camp has \\param{TotalFlour} units of flour and \\param{TotalLiquid} units of special liquid available. If at most \\param{MaxWaste} units of waste can be produced, how many of each beaker should be used to maximize the amount of slime produced?",
+  "target_objective": "Maximize the total units of slime produced",
+  "target_constraints": [
+    "Number of Beaker 1 used is non-negative",
+    "Number of Beaker 2 used is non-negative",
+    "Total flour used by Beaker 1 and Beaker 2 is less than or equal to TotalFlour",
+    "Total liquid used by Beaker 1 and Beaker 2 is less than or equal to TotalLiquid",
+    "Total waste produced by Beaker 1 and Beaker 2 is less than or equal to MaxWaste"
+  ],
+  "target_parameters": [
+    "Units of flour used by beaker 1",
+    "Units of special liquid used by beaker 1",
+    "Units of slime produced by beaker 1",
+    "Units of waste produced by beaker 1",
+    "Units of flour used by beaker 2",
+    "Units of special liquid used by beaker 2",
+    "Units of slime produced by beaker 2",
+    "Units of waste produced by beaker 2",
+    "Total available units of flour",
+    "Total available units of special liquid",
+    "Maximum units of waste allowed"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.",
+    "(0, 0)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.\nExpert: Is the supply of slime ingredients a limiting factor in the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.\nExpert: Is the supply of slime ingredients a limiting factor in the optimization problem?\nUser: Yes\n\nExpert: Are there any constraints related to waste disposal associated with slime production?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.\nExpert: Is the supply of slime ingredients a limiting factor in the optimization problem?\nUser: Yes\n\nExpert: Are there any constraints related to waste disposal associated with slime production?\nUser: Yes\n\nExpert: Are there labor or time constraints involved in producing the slime?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.",
+    "(0, 0)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.\nExpert: Does the problem description involve a constraint directly related to the budget for slime production costs?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.\nExpert: Does the problem description involve a constraint directly related to the budget for slime production costs?\nUser: No\n\nExpert: Does the problem include a constraint on the weight of the slime as part of the objective or constraints?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.\nExpert: Does the problem description involve a constraint directly related to the budget for slime production costs?\nUser: No\n\nExpert: Does the problem include a constraint on the weight of the slime as part of the objective or constraints?\nUser: No\n\nExpert: Does the objective involve maximizing the volume of slime produced?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.",
+    "(0, 0)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.\nExpert: Are there any limitations or costs associated with the number of beakers that can be used?\nUser: No.\n",
+    "(0, 0, 0)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.\nExpert: Are there any limitations or costs associated with the number of beakers that can be used?\nUser: No.\n\nExpert: Is the production of slime directly affected by the number of beakers used?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.\nExpert: Are there any limitations or costs associated with the number of beakers that can be used?\nUser: No.\n\nExpert: Is the production of slime directly affected by the number of beakers used?\nUser: Yes.\n\nExpert: Is the slime production rate per beaker constant, or does it vary based on factors such as beaker size, mixture composition, or environmental conditions?\nUser: No.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.",
+    "(0, 0)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.\nExpert: Does the problem description explicitly mention more than one type of resource (other than just 'raw materials' or 'labor') as a constraint?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.\nExpert: Does the problem description explicitly mention more than one type of resource (other than just 'raw materials' or 'labor') as a constraint?\nUser: No\n\nExpert: Does the problem description contain all the constraints in title case?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of beakers to use for maximizing slime production while staying within resource and waste constraints.\nExpert: Does the problem description explicitly mention more than one type of resource (other than just 'raw materials' or 'labor') as a constraint?\nUser: No\n\nExpert: Does the problem description contain all the constraints in title case?\nUser: Yes\n\nExpert: Does the problem include a constraint related to 'Storage Capacity' or 'Labor'?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of beakers",
+            "Resource constraints",
+            "Waste constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize slime production by determining the optimal number of beakers while adhering to resource and waste constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total volume of the beakers must not exceed the available lab space.",
+            "The number of beakers used must be an integer.",
+            "The resource availability for slime ingredients (e.g., glue, borax, water) must not be exceeded.",
+            "Waste generated during slime production must remain within the acceptable disposal limits.",
+            "Beakers must be appropriately sized for the volume of slime being produced per batch.",
+            "Each beaker can only be used once before cleaning and preparation for the next batch.",
+            "Production time for each batch must not exceed the total production time available."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "slime ingredients",
+            "number of beakers",
+            "waste constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize slime production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of beakers used for slime production must not exceed the available slime ingredients supply.",
+            "The production process must adhere to the waste management regulations and limits."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Slime ingredient supply",
+            "Waste disposal constraints",
+            "Number of beakers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize the production of slime by determining the optimal number of beakers used, considering constraints on the supply of slime ingredients and waste disposal."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Supply of slime ingredients are a limiting factor.",
+            "Waste disposal regulations must be adhered to in the slime production process."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of beakers",
+            "Supply of slime ingredients",
+            "Waste disposal constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize slime production by determining the optimal number of beakers to use, given constraints on ingredients supply and waste disposal."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited supply of slime ingredients available.",
+            "Constraints related to waste disposal associated with slime production."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of beakers",
+            "Slime production limit",
+            "Resource constraints",
+            "Waste constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize slime production by optimizing the number of beakers used, ensuring that all resource and waste constraints are met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability for slime ingredients must not be exceeded.",
+            "Waste production from slime manufacturing must stay below acceptable limits.",
+            "The number of beakers used should not exceed the available inventory.",
+            "The total amount of resources allocated to each beaker should comply with resource limitations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of beakers",
+            "Resource constraints",
+            "Waste constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize slime production by determining the optimal number of beakers to use while adhering to resource and waste constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints: The amount of resources such as raw materials, chemicals, and other ingredients available to produce slime is limited.",
+            "Waste constraints: The production of slime must be managed to produce waste within permissible limits or waste disposal capabilities.",
+            "Maximize slime production: The primary goal is to maximize the amount of slime produced, potentially measured in volume or weight.",
+            "Use of beakers: The number of beakers available or suitable for use in the slime production process can act as a constraint."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of beakers",
+            "Resource constraints",
+            "Waste constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize slime production by determining the optimal number of beakers to use, within given resource and waste management constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of beakers must be within a minimum and maximum range necessary for productive use.",
+            "The production process must adhere to specific resource usage limitations, such as the volume of ingredients available.",
+            "Waste produced from slime production cannot exceed a certain threshold to comply with disposal or environmental guidelines.",
+            "The setup for slime production must conform to spatial constraints, possibly in a laboratory or commercial space."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of beakers",
+            "resource constraints",
+            "waste constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the volume of slime produced while adhering to resource and waste constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of beakers cannot exceed the available inventory of beakers.",
+            "The amount of raw materials for slime production cannot exceed the available resources.",
+            "The waste produced from slime production must stay within allowed limits."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of beakers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize slime production by determining the optimal number of beakers to use, subject to resource and waste constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of beakers must be an integer and greater than 0.",
+            "The total cost of beakers, ingredients, and any other resources must not exceed the available budget.",
+            "The production process must not produce more waste than the allowed waste disposal capacity.",
+            "Each beaker can only hold a limited volume of slime, and the total volume produced must match the demand or storage capacity.",
+            "All safety and regulatory guidelines for slime production must be followed."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of beakers",
+            "Resource constraints",
+            "Waste constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal number of beakers to use in order to maximize slime production while adhering to the given resource and waste constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Cannot exceed available resources for slime production.",
+            "Must comply with waste management rules or limits."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of beakers",
+            "Slime production rate per beaker",
+            "Total available resources",
+            "Waste generation per beaker"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production of slime by choosing an optimal number of beakers, while adhering to resource and waste limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints must be met.",
+            "Waste generated must not exceed permissible levels.",
+            "The number of beakers directly affects slime production."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize slime production",
+            "number of beakers",
+            "resource constraints",
+            "waste constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize slime production by determining the optimal number of beakers to use, considering limitations on available resources and waste generated."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total volume of slime produced is proportional to the number of beakers used.",
+            "Total resource usage for slime production must not exceed available resources.",
+            "Total waste generated from slime production must not exceed waste handling capacity."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize slime production",
+            "Number of beakers",
+            "Resource constraints",
+            "Waste constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize slime production using an optimal number of beakers while adhering to resource and waste constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total volume of slime produced should be maximized.",
+            "Number of beakers used should be as low as possible while maximizing slime production.",
+            "Ensure the resources for slime production are sufficient for the number of beakers used.",
+            "Waste generated from slime production must remain within acceptable limits."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of beakers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize slime production subject to resource and waste constraints by determining the optimal number of beakers to use."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of beakers must be a positive integer.",
+            "The number of beakers used must not exceed the total available number of beakers.",
+            "Raw materials and labor are limited; using too many beakers could surpass the available supply of these resources.",
+            "Each beaker contributes a specific amount to the total slime production.",
+            "The waste generated by the production process must not exceed a certain allowable limit."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "NumOfBeakers",
+            "RawMaterialsAvailability",
+            "LaborAvailability",
+            "WasteDisposalCapacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize slime production while adhering to resource availability and waste disposal limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Raw Material Availability",
+            "Labor Hours",
+            "Waste Disposal Capacity"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Beakers",
+            "Raw Materials",
+            "Waste"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal number of beakers to use in order to maximize slime production, while adhering to limitations on resource usage and waste generation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource Constraints",
+            "Waste Constraints"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      }
+    }
+  }
+}

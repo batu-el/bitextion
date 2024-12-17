@@ -1,0 +1,530 @@
+{
+  "vague_description": "Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.",
+  "detailed_description": "A company in the middle east delivers their packages to customers on camels and horses. A camel can carry \\param{CamelCapacity} packages while a horse can carry \\param{HorseCapacity} packages. A camel requires \\param{CamelFood} units of food while a horse requires \\param{HorseFood} units of food. The company needs to deliver at least \\param{MinPackages} packages and they have \\param{TotalFood} units of food available. Since horses are not as suited for the hot climate, the number of horses cannot exceed the number of camels. How many of each animal should be used to minimize the total number of animals?",
+  "target_objective": "Minimize the total number of camels and horses used for package delivery",
+  "target_constraints": [
+    "Number of camels is non-negative",
+    "Number of horses is non-negative",
+    "At least MinPackages packages need to be delivered",
+    "Food consumed by all camels and horses cannot exceed TotalFood units",
+    "Number of horses cannot exceed number of camels"
+  ],
+  "target_parameters": [
+    "Number of packages a camel can carry",
+    "Number of packages a horse can carry",
+    "Units of food required by a camel",
+    "Units of food required by a horse",
+    "Minimum number of packages to be delivered",
+    "Total units of food available"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.",
+    "(0, 0)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.\nExpert: Are there specific numerical constraints on the package capacity or weight that each camel and horse can carry?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.\nExpert: Are there specific numerical constraints on the package capacity or weight that each camel and horse can carry?\nUser: Yes.\n\nExpert: Are there any specific limits on the number of camels or horses available for the delivery task?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.\nExpert: Are there specific numerical constraints on the package capacity or weight that each camel and horse can carry?\nUser: Yes.\n\nExpert: Are there any specific limits on the number of camels or horses available for the delivery task?\nUser: Yes.\n\nExpert: Are there specific food consumption rates or requirements for camels and horses that affect their allocation?\nUser: Yes.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.",
+    "(0, 0)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.\nExpert: Is the objective function focusing on cost minimization rather than cost-efficiency trade-off?\nUser: No.\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.\nExpert: Is the objective function focusing on cost minimization rather than cost-efficiency trade-off?\nUser: No.\n\nExpert: Does the optimization problem include a daily delivery target constraint for each region?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.\nExpert: Is the objective function focusing on cost minimization rather than cost-efficiency trade-off?\nUser: No.\n\nExpert: Does the optimization problem include a daily delivery target constraint for each region?\nUser: No.\n\nExpert: Are there any constraints related to maximum distance that can be traveled by camels or horses?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.",
+    "(0, 0)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.\nExpert: Is the objective of the optimization problem to minimize the total cost of package delivery?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.\nExpert: Is the objective of the optimization problem to minimize the total cost of package delivery?\nUser: No\n\nExpert: Is the objective of the optimization problem to maximize the total number of packages delivered?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.\nExpert: Is the objective of the optimization problem to minimize the total cost of package delivery?\nUser: No\n\nExpert: Is the objective of the optimization problem to maximize the total number of packages delivered?\nUser: No\n\nExpert: Is the objective of the optimization problem to minimize the total time taken for delivery?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.",
+    "(0, 0)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.\nExpert: Does the problem involve a fixed total weight of packages to be carried?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.\nExpert: Does the problem involve a fixed total weight of packages to be carried?\nUser: Yes.\n\nExpert: Is the total weight of packages to be carried fixed?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of camels and horses for package delivery, given constraints on package capacity, food consumption, and climate suitability.\nExpert: Does the problem involve a fixed total weight of packages to be carried?\nUser: Yes.\n\nExpert: Is the total weight of packages to be carried fixed?\nUser: Yes.\n\nExpert: Does the optimization problem have at least one constraint?\nUser: Yes.\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of camels and horses available",
+            "Package capacity of camels",
+            "Package capacity of horses",
+            "Food consumption rate of camels",
+            "Food consumption rate of horses",
+            "Climate suitability for camels",
+            "Climate suitability for horses",
+            "Total number of packages to deliver",
+            "Total available food resources",
+            "Climate conditions of the delivery route"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal number of camels and horses to allocate for package delivery that maximizes delivery efficiency while considering constraints on package capacity, food consumption, and climate suitability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Camels can only carry a certain maximum weight of packages.",
+            "Horses can only carry a certain maximum weight of packages.",
+            "Camels require a specific amount of food, which cannot exceed a given supply.",
+            "Horses require a specific amount of food, which cannot exceed a given supply.",
+            "Camels are more suitable for certain climates, and their route choices must reflect this.",
+            "Horses are more suitable for certain climates, and their route choices must reflect this."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Camel package capacity",
+            "Horse package capacity",
+            "Camel food consumption",
+            "Horse food consumption",
+            "Camel climate suitability",
+            "Horse climate suitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of camels and horses for package delivery, considering the constraints on their package carrying capacity, food consumption, and climate suitability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each camel has a specific package capacity or weight limit it can carry.",
+            "Each horse has a specific package capacity or weight limit it can carry.",
+            "There are constraints related to food consumption for both camels and horses.",
+            "There are constraints related to climate suitability for both camels and horses."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "package capacity limit per camel",
+            "package capacity limit per horse",
+            "number of camels available",
+            "number of horses available",
+            "food consumption rate of camels",
+            "food consumption rate of horses",
+            "climate suitability for camels",
+            "climate suitability for horses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal allocation of camels and horses for package delivery considering constraints on their carrying capacity, food consumption, climate suitability, and the number available, in order to maximize the efficiency of the delivery task."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each camel has a specific maximum package capacity or weight it can carry.",
+            "Each horse has a specific maximum package capacity or weight it can carry.",
+            "There is a limit on the number of camels available for allocation.",
+            "There is a limit on the number of horses available for allocation."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Camels' package capacity",
+            "Horses' package capacity",
+            "Camels' food consumption rates",
+            "Horses' food consumption rates",
+            "Climate suitability for camels",
+            "Climate suitability for horses",
+            "Number of camels available",
+            "Number of horses available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the efficiency of package delivery by optimally allocating camels and horses, considering constraints on package capacity, weight limitations, available number of animals, and food consumption rates, while also taking into account their suitability for different climate conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each camel and horse has a specific package capacity or weight limit.",
+            "There is a limited number of camels and horses available for delivery.",
+            "Camels and horses have specific food consumption rates or requirements.",
+            "Climate suitability affects the allocation of camels and horses."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Package capacity per animal",
+            "Food consumption rate per animal",
+            "Climate suitability for each animal type",
+            "Total number of camels and horses available",
+            "Total package delivery demand",
+            "Maximum allowable food resources",
+            "Environmental conditions per delivery route"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal allocation of camels and horses for delivering packages, while considering constraints related to package capacity, food consumption, and climate suitability for each animal."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each camel can carry a maximum of 500 kg of packages.",
+            "Each horse can carry a maximum of 300 kg of packages.",
+            "Camels require 10 liters of water daily.",
+            "Horses require 50 liters of water daily.",
+            "Camels are more suited to desert climates, while horses are suited to temperate climates.",
+            "The total number of animals used cannot exceed 100.",
+            "The total weight of packages must be delivered within 3 days.",
+            "The climate of the delivery route affects the suitability of using camels or horses (must specify route climate).",
+            "The total food consumption by the animals cannot exceed 1,000 kg per day."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "camel_package_capacity",
+            "horse_package_capacity",
+            "camel_food_consumption_rate",
+            "horse_food_consumption_rate",
+            "camel_climate_suitability_score",
+            "horse_climate_suitability_score",
+            "total_package_delivery_requirement",
+            "total_food_resources_available",
+            "maximum_climate_threshold",
+            "camel_cost",
+            "horse_cost",
+            "available_camels",
+            "available_horses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal allocation of camels and horses for package delivery considering constraints on package capacity, food consumption, and climate suitability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each camel can carry 200 kg worth of packages, and each horse can carry 100 kg worth of packages.",
+            "A camel requires 10 kg of food per day, while a horse needs 5 kg of food per day.",
+            "Camels are only suitable for arid and semi-arid climates, while horses can operate in temperate and cold climates.",
+            "There is a limited budget for the total food supply that all animals can consume daily.",
+            "The delivery area includes regions with both arid and temperate climates, hence both animals might be necessary.",
+            "The total number of animals (camels and horses combined) cannot exceed the available handlers."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "package capacity of camels",
+            "package capacity of horses",
+            "food consumption of camels",
+            "food consumption of horses",
+            "climate suitability of camels",
+            "climate suitability of horses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the allocation of camels and horses to maximize efficiency in package delivery while considering constraints like package capacity, food consumption, and climate suitability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combined package capacity of camels and horses must meet or exceed the total packages to be delivered.",
+            "The food consumption of camels and horses must not exceed the available food resources.",
+            "The allocation must factor in the climate suitability for camels and horses individually, ensuring they are only deployed in regions where they are effectively suited."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Package capacity of camels and horses",
+            "Food consumption of camels and horses",
+            "Climate suitability for camels and horses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimally allocate camels and horses for package delivery, balancing constraints on package capacity, food consumption, and climate suitability without focusing on cost minimization or daily delivery targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Constraints on package capacity for camels and horses.",
+            "Constraints on food consumption for both camels and horses.",
+            "Constraints on climate suitability for both camels and horses."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize delivery efficiency.",
+            "Constraints:",
+            "1. Package Capacity - Ensure total load capacity of selected camels and horses meets or exceeds the delivery requirement.",
+            "2. Food Consumption - Ensure total food consumption of selected camels and horses does not exceed the available supply.",
+            "3. Climate Suitability - Ensure selected camels and horses are suitable for the climate in which the delivery occurs.",
+            "4. Animal Limitations - Possible limits on the number of animals available for use."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal allocation of camels and horses for package delivery that maximizes delivery efficiency while adhering to constraints on package capacity, minimizing food consumption, and ensuring climate suitability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total package weight capacity of assigned camels and horses must meet or exceed the required package delivery load.",
+            "The daily food consumption for all assigned animals (camels and horses) should not exceed the available food supply.",
+            "All animals (camels and horses) must be suitable for the current climate conditions of the delivery route."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Package capacity for camels",
+            "Package capacity for horses",
+            "Food consumption rate for camels",
+            "Food consumption rate for horses",
+            "Climate suitability for camels",
+            "Climate suitability for horses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of packages delivered efficiently while meeting capacity, food consumption, and climate constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total package capacity of camels and horses combined must meet the delivery requirements.",
+            "The food consumption of camels and horses must not exceed available resources.",
+            "Both camels and horses must be suited to the climatic conditions of the delivery route."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "camels",
+            "horses",
+            "package capacity",
+            "food consumption",
+            "climate suitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To ensure the most efficient use of resources given the constraints of package capacity, food consumption, and climate suitability for camels and horses."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total weight of the packages must not exceed the carrying capacity of the allocated camels and horses.",
+            "The total food consumption must remain within the available budget or resources for feeding the allocated camels and horses.",
+            "The climate conditions of the delivery route must be suitable for the allocated camels and horses.",
+            "Each animal's load limit must not be exceeded to ensure their health and operational efficiency.",
+            "There may be a fixed number of camels and horses available for allocation."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "camels",
+            "horses",
+            "package capacity",
+            "food consumption",
+            "climate suitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize the overall efficiency of resource utilization, considering package capacity, food consumption, and climate suitability for camels and horses."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each camel can carry up to 200 pounds of packages.",
+            "Each horse can carry up to 150 pounds of packages.",
+            "Camels consume 10 pounds of food per day.",
+            "Horses consume 20 pounds of food per day.",
+            "Camels are more suitable for hot and arid climates, with a climate suitability score of 8 out of 10.",
+            "Horses are more suitable for temperate climates, with a climate suitability score of 7 out of 10.",
+            "The total number of animals (camels + horses) cannot exceed 100.",
+            "The total food available per day for all animals is 1500 pounds.",
+            "The total package weight to be delivered is 10,000 pounds."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Package capacity constraints: The total weight and volume of packages that camels and horses can carry.",
+            "Food consumption constraints: The amount of food that camels and horses require for the duration of the delivery.",
+            "Climate suitability constraints: The weather conditions that are suitable for camels and horses during the delivery."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the best distribution of camels and horses for delivering packages while considering limitations on package-carrying capacity, food requirements, and environmental adaptability for both animals."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total carrying capacity of camels and horses combined should meet or exceed the total package volume that needs to be delivered.",
+            "The total food consumption of camels and horses should not exceed the available food supply for the journey.",
+            "Only animals suitable for the given climate conditions should be used, which might restrict camels or horses from certain routes or areas."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fixed total weight of packages to carry",
+            "Package capacity of camels",
+            "Package capacity of horses",
+            "Food consumption of camels",
+            "Food consumption of horses",
+            "Climate suitability for camels",
+            "Climate suitability for horses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal allocation between camels and horses for delivering a fixed total weight of packages, minimizing resource consumption while accounting for package capacity, food consumption, and climate conditions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total weight of packages to be carried is fixed.",
+            "There are limitations on the package capacity that each camel and horse can carry.",
+            "There are restrictions on the amount of food each camel and horse consumes.",
+            "The climate suitability dictates where camels and horses can operate effectively."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "package capacity",
+            "food consumption",
+            "climate suitability",
+            "total weight of packages"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the allocation of camels and horses that minimizes food consumption while meeting the constraints of package capacity and climate suitability for the fixed total weight of packages."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total weight of packages to be carried is fixed.",
+            "Each camel and horse has a specific package carrying capacity.",
+            "Camels and horses have different food consumption rates that act as constraints.",
+            "Climate suitability affects whether camels or horses can be used in certain regions."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total weight of packages to be carried",
+            "Package capacity of camels",
+            "Package capacity of horses",
+            "Food consumption of camels",
+            "Food consumption of horses",
+            "Climate suitability of camels",
+            "Climate suitability of horses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal allocation of camels and horses for package delivery that maximizes delivery efficiency or minimizes costs while adhering to constraints on package capacity, food consumption, and climate suitability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The package weight to be delivered is fixed.",
+            "There are specific package capacity limits for camels and horses.",
+            "There are constraints related to the amount of food consumption for camels and horses.",
+            "There are constraints related to climate conditions affecting the suitability of using camels or horses."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      }
+    }
+  }
+}

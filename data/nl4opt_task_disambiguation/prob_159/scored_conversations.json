@@ -1,0 +1,475 @@
+{
+  "vague_description": "Optimizing transportation logistics for perishable goods under budget and fleet constraints.",
+  "detailed_description": "A meat shop ships their burger patties using refrigerated trucks and vans. Each truck can take \\param{TruckCapacity} patties at a cost of \\param{TruckCost} per trip. Each van can take \\param{VanCapacity} patties at a cost of \\param{VanCost} per trip. Because the trucks have difficulty moving around in the city, the number of trucks must not exceed the number of vans. The meat shop has to ship at least \\param{MinPatties} patties and they have a budget of \\param{Budget}. How should they plan their shipment to minimize the total number of trips?",
+  "target_objective": "Minimize the total number of trips for shipping the patties",
+  "target_constraints": [
+    "Number of trucks used is non-negative",
+    "Number of vans used is non-negative",
+    "The number of trucks must not exceed the number of vans",
+    "At least MinPatties patties need to be shipped",
+    "The total cost must not exceed Budget"
+  ],
+  "target_parameters": [
+    "Maximum capacity of a truck",
+    "Cost per truck trip",
+    "Maximum capacity of a van",
+    "Cost per van trip",
+    "Minimum number of patties to ship",
+    "Budget for shipments"
+  ],
+  "Expert": {
+    "(0,)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.",
+    "(0, 0)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.\nExpert: Are there specific delivery time windows that must be met for the perishable goods?\nUser: No.\n",
+    "(0, 0, 0)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.\nExpert: Are there specific delivery time windows that must be met for the perishable goods?\nUser: No.\n\nExpert: Do the perishable goods have different storage requirements during transportation that could affect routing or scheduling?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.\nExpert: Are there specific delivery time windows that must be met for the perishable goods?\nUser: No.\n\nExpert: Do the perishable goods have different storage requirements during transportation that could affect routing or scheduling?\nUser: No.\n\nExpert: Is there a single central distribution center from which all perishable goods are dispatched?\nUser: Yes.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.",
+    "(0, 0)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.\nExpert: Does the problem description include constraints related to specific delivery time windows for certain regions or destinations?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.\nExpert: Does the problem description include constraints related to specific delivery time windows for certain regions or destinations?\nUser: No\n\nExpert: Do any of the problem descriptions specify optimization of routes to minimize travel time?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.\nExpert: Does the problem description include constraints related to specific delivery time windows for certain regions or destinations?\nUser: No\n\nExpert: Do any of the problem descriptions specify optimization of routes to minimize travel time?\nUser: No\n\nExpert: Is the use of temperature-controlled vehicles explicitly required in the problem?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.",
+    "(0, 0)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.\nExpert: Does the problem involve routing a fixed number of vehicles with known capacities and schedules?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.\nExpert: Does the problem involve routing a fixed number of vehicles with known capacities and schedules?\nUser: No\n\nExpert: Is the objective of the optimization problem to minimize transportation costs?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.\nExpert: Does the problem involve routing a fixed number of vehicles with known capacities and schedules?\nUser: No\n\nExpert: Is the objective of the optimization problem to minimize transportation costs?\nUser: No\n\nExpert: Is the problem concerned with minimizing the time or temperature sensitivity of the perishable goods during transport?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.",
+    "(0, 0)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.\nExpert: Does the problem have any constraints other than a budget constraint? \nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.\nExpert: Does the problem have any constraints other than a budget constraint? \nUser: Yes\n\nExpert: Are there specific constraints or objectives related to perishable goods in this problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimizing transportation logistics for perishable goods under budget and fleet constraints.\nExpert: Does the problem have any constraints other than a budget constraint? \nUser: Yes\n\nExpert: Are there specific constraints or objectives related to perishable goods in this problem?\nUser: No\n\nExpert: Is the number of perishable goods a parameter in the problem?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Transport costs",
+            "Budget limits",
+            "Fleet size",
+            "Perishability time limits",
+            "Delivery schedules",
+            "Supply and demand locations",
+            "Vehicle capacity",
+            "Traffic conditions",
+            "Fuel cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the time and cost associated with transporting perishable goods while adhering to budget constraints and the limitations of the available transportation fleet."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Perishable goods must be delivered within their usable lifespan to ensure quality.",
+            "The total cost of transportation must stay within the allocated budget.",
+            "The fleet size is fixed, meaning that only a specific number of vehicles are available for transportation."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimize transportation routes for perishable goods",
+            "Stay within a specified budget",
+            "Comply with fleet size and vehicle capacity constraints",
+            "No specific delivery time windows to meet"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize transportation costs while efficiently managing fleet capacity and adhering to budget constraints for delivering perishable goods."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fleet size limit: The available fleet must be used effectively without exceeding its size capacity.",
+            "Budget limit: Transportation costs must not exceed the given budget for logistics.",
+            "No delivery time windows: There are no specific delivery time windows, thus allowing flexibility in scheduling deliveries."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimize transportation logistics for perishable goods.",
+            "Constraints include budget limits and fleet capacity.",
+            "No specific delivery time windows are required.",
+            "The perishable goods do not have separate storage requirements affecting routing or scheduling."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize transportation costs while ensuring timely delivery of perishable goods without exceeding fleet capacity or budget."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Must stay within budget constraints.",
+            "Limited by the available fleet capacity and number of vehicles."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimize transportation logistics",
+            "Perishable goods",
+            "Budget constraints",
+            "Fleet constraints",
+            "Single central distribution center"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total transportation cost for delivering perishable goods from a single central distribution center to various destinations while adhering to budget and fleet constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of transportation must not exceed the specified budget.",
+            "The number of vehicles used cannot exceed the available fleet size.",
+            "All transportation activities must originate from a single central distribution center."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Transportation routes",
+            "Perishable goods handling",
+            "Budget constraints",
+            "Fleet size and capacity",
+            "Delivery time windows",
+            "Fuel costs",
+            "Storage and refrigeration requirements",
+            "Environmental regulations",
+            "Driver scheduling"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the total transportation cost while ensuring timely delivery of perishable goods within budget and fleet constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total transportation cost must not exceed budget limits.",
+            "Fleet size is limited by the number of available vehicles.",
+            "Delivery times must ensure goods remain within their perishable limits."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "transportation logistics",
+            "perishable goods",
+            "budget constraints",
+            "fleet constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of transportation logistics for perishable goods while adhering to budget and fleet constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The transportation logistics must be optimized for the delivery of perishable goods.",
+            "The operation must adhere to a budget constraint, ensuring that all transportation costs do not exceed the available budget.",
+            "The logistics plan must operate within the existing fleet constraints, which implies limitations based on the number, type, and capacity of vehicles available.",
+            "The optimization does not require accommodating specific delivery time windows for regions or destinations."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "budget constraints",
+            "fleet constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to efficiently manage transportation logistics for perishable goods while adhering to budget and fleet constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The transportation logistics optimization must account for perishable goods, ensuring that delivery occurs within a time that preserves the goods' quality.",
+            "The optimization must stay within a specified budget, preventing any solutions that exceed the financial constraints.",
+            "There are fleet constraints, likely referring to the number of vehicles available or the capacity each vehicle has for transporting goods."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "transportation logistics for perishable goods",
+            "budget constraints",
+            "fleet constraints",
+            "temperature-controlled vehicles"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize transportation logistics for perishable goods by efficiently utilizing a limited fleet of temperature-controlled vehicles, while staying within a specified budget."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraints for logistics operations.",
+            "Fleet size and vehicle availability constraints.",
+            "Requirement for temperature-controlled vehicles."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Transportation network",
+            "Budget constraint",
+            "Fleet capacity",
+            "Shelf life of goods",
+            "Delivery time windows"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize transportation costs for perishable goods while ensuring timely delivery within budget and fleet constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The transportation cost should not exceed the given budget.",
+            "The fleet size is fixed and cannot be expanded.",
+            "Perishable goods must be delivered within a specified time frame to ensure quality."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Type: Transportation logistics",
+            "Objective: Optimize transportation logistics for perishable goods",
+            "Constraints: Under budget constraints, Fleet constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The optimization problem is to optimize transportation logistics for perishable goods while adhering to budget and fleet constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Perishable goods must be transported within a limited time window to prevent spoilage.",
+            "The total transportation cost must not exceed a specified budget.",
+            "The transportation network may have a dynamic number of available vehicles with varying capacities and schedules at different times.",
+            "Vehicle capacity constraints must be adhered to ensure efficient utilization without exceeding maximum load.",
+            "Delivery schedules must be coordinated to align with opening or receiving hours of destination points.",
+            "Environmental or regulatory compliance constraints may exist, such as emissions limits or route restrictions."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "perishable goods",
+            "budget constraints",
+            "fleet constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize the freshness or quality of the perishable goods upon delivery."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Transportation logistics must prioritize maintaining the quality of perishable goods.",
+            "All activities need to be conducted within a specified budget limit.",
+            "The available fleet imposes limitations on the potential transportation options."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Transportation logistics for perishable goods",
+            "Budget constraints",
+            "Fleet constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To ensure optimal delivery timelines for perishable goods while managing budget and fleet constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The transportation logistics must be optimized under a budget constraint, meaning the total cost of the logistics solution must not exceed a certain predefined budget.",
+            "The logistics must also adhere to fleet constraints such as the types, availability, and possibly the number of vehicles that can be used for transportation."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "transportation cost",
+            "delivery time",
+            "perishability rate",
+            "budget",
+            "fleet size",
+            "fuel consumption",
+            "driver availability",
+            "route distance"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total transportation costs while ensuring timely delivery of perishable goods, adhering to budgetary and fleet size limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Perishable goods must be delivered within a specific time frame to ensure freshness.",
+            "Transportation costs must not exceed a predetermined budget.",
+            "The fleet of vehicles available for transportation is limited in number and capacity.",
+            "Routes must be optimized to minimize time and cost while adhering to delivery schedules.",
+            "Storage and handling requirements of perishable goods must be maintained during transit."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "transportation logistics",
+            "perishable goods",
+            "budget constraints",
+            "fleet constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the cost of transporting perishable goods while adhering to budget and fleet constraints to ensure goods are delivered efficiently and timely."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraint: The total transportation cost must not exceed a specified budget.",
+            "Fleet constraint: The transportation must be conducted using a limited number of vehicles in the fleet.",
+            "Perishability constraint: Goods must be delivered within a certain time to prevent spoilage."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "budget constraint",
+            "fleet constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize transportation logistics for perishable goods within given budget and fleet constraints, ensuring minimal wastage and efficient distribution."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraint",
+            "Fleet capacity constraint"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "budget constraint",
+            "fleet constraint",
+            "number of perishable goods"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize transportation logistics for perishable goods while adhering to budgetary and fleet constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraint",
+            "Fleet size constraint",
+            "The number of perishable goods is a parameter"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      }
+    }
+  }
+}

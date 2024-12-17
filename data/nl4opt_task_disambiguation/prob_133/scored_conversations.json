@@ -1,0 +1,464 @@
+{
+  "vague_description": "The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.",
+  "detailed_description": "A pharmaceutical company has \\param{TotalPainkillerUnits} units of painkiller medicine and makes daytime and nighttime painkiller pills. A daytime pill has \\param{DaytimePainkillerUnits} units of painkiller medicine and \\param{DaytimeSleepUnits} units of sleep medicine. A nighttime pill has \\param{NighttimePainkillerUnits} units of painkiller medicine and \\param{NighttimeSleepUnits} units of sleep medicine. Since some people don\u2019t want the sleeping effect, at least \\param{MinimumDaytimePercentage} of the pills must be daytime pills. However, at least \\param{MinimumNighttimePills} nighttime pills must be made. How many of each pill should be made to minimize the total amount of sleep medicine required?",
+  "target_objective": "Minimize the total amount of sleep medicine used in the pills",
+  "target_constraints": [
+    "Total units of painkiller medicine used cannot exceed TotalPainkillerUnits",
+    "At least MinimumDaytimePercentage % of the total number of pills must be daytime pills",
+    "At least MinimumNighttimePills nighttime pills must be made",
+    "Number of daytime pills is non-negative",
+    "Number of nighttime pills is non-negative"
+  ],
+  "target_parameters": [
+    "Total units of painkiller medicine available",
+    "Units of painkiller medicine per daytime pill",
+    "Units of sleep medicine per daytime pill",
+    "Units of painkiller medicine per nighttime pill",
+    "Units of sleep medicine per nighttime pill",
+    "Minimum percentage of pills that must be daytime pills",
+    "Minimum number of nighttime pills required"
+  ],
+  "Expert": {
+    "(0,)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.",
+    "(0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Is there a specific numerical production constraint or limitation on either type of pharmaceutical pill?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Is there a specific numerical production constraint or limitation on either type of pharmaceutical pill?\nUser: Yes.\n\nExpert: Are the production constraints related to the total number of pills that can be produced within a given time frame?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Is there a specific numerical production constraint or limitation on either type of pharmaceutical pill?\nUser: Yes.\n\nExpert: Are the production constraints related to the total number of pills that can be produced within a given time frame?\nUser: Yes.\n\nExpert: Are there specific cost factors associated with the production of each type of pill that impact the objective function of the optimization problem?\nUser: No.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.",
+    "(0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Does the problem involve a constraint on the minimum production requirement for Pill B or its equivalent to meet demand or market share needs?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Does the problem involve a constraint on the minimum production requirement for Pill B or its equivalent to meet demand or market share needs?\nUser: Yes\n\nExpert: Is the primary objective of the problem to maximize profit rather than production output?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Does the problem involve a constraint on the minimum production requirement for Pill B or its equivalent to meet demand or market share needs?\nUser: Yes\n\nExpert: Is the primary objective of the problem to maximize profit rather than production output?\nUser: No\n\nExpert: Does any problem description include a monetary production budget as a constraint?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.",
+    "(0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Are there any physical or material constraints on the production of these pills (e.g. limited raw materials, equipment capacity)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Are there any physical or material constraints on the production of these pills (e.g. limited raw materials, equipment capacity)?\nUser: Yes\n\nExpert: Are these physical or material constraints related to the availability of a single critical resource that is shared between the two types of pills? \nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Are there any physical or material constraints on the production of these pills (e.g. limited raw materials, equipment capacity)?\nUser: Yes\n\nExpert: Are these physical or material constraints related to the availability of a single critical resource that is shared between the two types of pills? \nUser: Yes\n\nExpert: Is this shared critical resource used in the exact same proportion by both types of pills?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.",
+    "(0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Is the objective function specified as a maximization problem (e.g., 'Maximize' or 'maximize')?\nUser: No\n",
+    "(0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Is the objective function specified as a maximization problem (e.g., 'Maximize' or 'maximize')?\nUser: No\n\nExpert: Is the objective function explicitly stated as a minimization of a numerical value or is it a general term like 'minimize' or 'minimize production costs'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.\nExpert: Is the objective function specified as a maximization problem (e.g., 'Maximize' or 'maximize')?\nUser: No\n\nExpert: Is the objective function explicitly stated as a minimization of a numerical value or is it a general term like 'minimize' or 'minimize production costs'?\nUser: Yes\n\nExpert: Does the problem description explicitly mention 'costs' or 'cost' as one of the parameters?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production rate of pill type A",
+            "Production rate of pill type B",
+            "Maximum production capacity",
+            "Minimum production requirement for pill type A",
+            "Minimum production requirement for pill type B",
+            "Raw material availability",
+            "Manufacturing time",
+            "Production cost for pill type A",
+            "Production cost for pill type B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production efficiency of the two types of pharmaceutical pills while adhering to manufacturing and resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production capacity for both types of pills cannot exceed the manufacturing plant's maximum output limit.",
+            "Both types of pills require specific raw materials that are limited in supply, so the production of each type must not exceed the available raw materials.",
+            "Each pill type has a minimum production requirement to meet market demand, ensuring that production levels do not fall below this threshold.",
+            "The production process for each pill type must not exceed the allocated budget for manufacturing costs.",
+            "There might be regulatory constraints imposing limits on how many pills can be produced due to safety or legal requirements."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Type of pharmaceutical pill",
+            "Production constraint for each type of pill"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total output of two types of pharmaceutical pills while adhering to the production constraints of each pill type."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production capacity for both types of pharmaceutical pills combined is limited to 10,000 units per month.",
+            "The production of Pill A cannot exceed 6,000 units per month.",
+            "The production of Pill B must be at least 2,000 units per month.",
+            "Due to regulatory considerations, the production ratio of Pill A to Pill B should not exceed 3:1."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production constraint for type A pharmaceutical pill",
+            "Production constraint for type B pharmaceutical pill",
+            "Time frame for total pill production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize manufacturing outputs by balancing production constraints between two types of pharmaceutical pills within the specified time frame."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of Type A and Type B pills produced must not exceed the maximum production capacity set by the company within a given time frame.",
+            "The production of each type of pill must meet minimum required levels to ensure adequate supply.",
+            "The production process must adhere to quality assurance and safety standards, which might limit the speed or scale of production.",
+            "Resource availability, including raw materials and labor, impose additional constraints on production levels for each type of pill."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production constraints for Type A pills",
+            "Production constraints for Type B pills",
+            "Time frame constraint for total production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total manufacturing outputs of two types of pharmaceutical pills within specified production constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of pharmaceutical pills produced within a given time frame must meet a specific production limitation."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize manufacturing outputs",
+            "Decision Variables: Quantity of Type A pills, Quantity of Type B pills",
+            "Constraints: Production capacity for Type A pills, Production capacity for Type B pills, Total production capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the manufacturing outputs while balancing production constraints between two types of pharmaceutical pills."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production capacity for both types must not exceed the manufacturing plant's maximum capacity.",
+            "Each type of pharmaceutical pill has its own minimum production requirement to meet market demand.",
+            "There is a limit on the number of ingredients available for manufacturing both types of pills.",
+            "The production process for each type of pill has a different cost, and the total cost must not exceed the budget allocated for production."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimum production requirement for Pill B or its equivalent to meet demand or market share needs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production levels of two types of pharmaceutical pills, taking into account production constraints and ensuring that the minimum production requirements for Pill B are met to satisfy demand or market share needs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimum production requirement for Pill B to meet demand or market share needs."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Balance production constraints between two types of pharmaceutical pills",
+            "Minimum production requirement for Pill B",
+            "Objective is to optimize manufacturing outputs (not maximizing profit)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize production output given the constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The company must produce a minimum quantity of Pill B to meet demand or market share needs.",
+            "The problem involves balancing production constraints between two types of pharmaceutical pills."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production constraints for two types of pharmaceutical pills",
+            "Minimum production requirement for Pill B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to optimize manufacturing outputs by balancing production constraints between two types of pharmaceutical pills."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimum production requirement for Pill B to meet demand or market share needs."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production constraint for pill type A",
+            "Production constraint for pill type B",
+            "Manufacturing output for pill type A",
+            "Manufacturing output for pill type B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the manufacturing outputs by balancing production constraints between two types of pharmaceutical pills."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production capacity for both types of pills combined cannot exceed the production limit of the manufacturing plant.",
+            "Each type of pill requires a certain amount of resources (e.g., raw materials, labor, machinery) which must not exceed available resources.",
+            "There might be minimum production requirements for each type of pill to meet market demand or existing contracts."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production constraints",
+            "manufacturing outputs",
+            "physical constraints",
+            "material constraints",
+            "limited raw materials",
+            "equipment capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the manufacturing outputs of two types of pharmaceutical pills while balancing production constraints related to limited raw materials and equipment capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a limited supply of raw materials for the production of pharmaceutical pills.",
+            "There are equipment capacity limitations affecting the production output."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited supply of a critical raw material shared between two types of pills",
+            "Equipment capacity constraints affecting production",
+            "Maximum production volume for each type of pill due to resource limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the production output of the two types of pharmaceutical pills while adhering to the shared critical resource constraints and any other manufacturing limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited availability of a critical resource shared between the two types of pharmaceutical pills."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of pill type A",
+            "Production quantities of pill type B",
+            "Availability of shared critical resource",
+            "Proportion of shared critical resource used by pill type A",
+            "Proportion of shared critical resource used by pill type B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize manufacturing outputs of the two types of pharmaceutical pills while adhering to production constraints and optimizing the allocation of a limited shared critical resource."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production of two types of pharmaceutical pills.",
+            "Limited availability of a critical shared resource used in production.",
+            "The critical resource is used in varying proportions by each type of pill."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Type A Pills Production Capacity",
+            "Type B Pills Production Capacity",
+            "Total Raw Material Availability",
+            "Production Time Constraints",
+            "Production Cost Constraints",
+            "Quality Assurance Levels",
+            "Market Demand for Type A Pills",
+            "Market Demand for Type B Pills",
+            "Storage Capacity for Finished Pills",
+            "Labor Availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize manufacturing outputs by balancing production constraints between two types of pharmaceutical pills."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production capacity for pill type A must not exceed 10,000 units per week.",
+            "The production capacity for pill type B must not exceed 8,000 units per week.",
+            "The combined production of pill type A and B must not exceed 15,000 units per week.",
+            "Machine utilization for manufacturing pill type A should not exceed 70% of its capacity.",
+            "Machine utilization for manufacturing pill type B should not exceed 60% of its capacity.",
+            "The cost to produce pill type A should not exceed $0.50 per unit.",
+            "The cost to produce pill type B should not exceed $0.75 per unit.",
+            "The production process for pill type A requires at least 30 minor components available, while pill type B requires 50 minor components.",
+            "The deviation from the planned production schedule should not exceed 5%."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Minimize",
+            "Two types of pharmaceutical pills",
+            "Production constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize production costs while meeting demand for both types of pharmaceutical pills."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limits for each type of pill",
+            "Ingredient or resource availability constraints",
+            "Demand constraints for each type of pill",
+            "Budgetary or cost-related constraints"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "pharmaceutical pills production constraints",
+            "minimization of manufacturing outputs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize production costs of manufacturing pharmaceutical pills."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limit for pill type A.",
+            "Production capacity limit for pill type B.",
+            "Minimum production requirement for pill type A to meet market demand.",
+            "Minimum production requirement for pill type B to meet market demand."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production constraints",
+            "Types of pharmaceutical pills"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize an unspecified numerical value related to manufacturing outputs"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacities must be balanced between two types of pharmaceutical pills.",
+            "The objective is to minimize an unspecified objective within the scope of manufacturing outputs."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,423 @@
+{
+  "vague_description": "The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.",
+  "detailed_description": "Determine the amount of buying and selling in each period to maximize the profit over the months, given the constraints of maximum storage \\param{Capacity}, holding costs \\param{HoldingCost}, selling prices \\param{Price}, and buying costs \\param{Cost}.",
+  "target_objective": "Maximize the total profit over the months from buying and selling goods",
+  "target_constraints": [
+    "The amount of goods held in storage must be non-negative",
+    "The amount of goods sold in each period must be non-negative",
+    "The amount of goods bought in each period must be non-negative",
+    "The amount of goods stored must not exceed the maximum storage capacity, Capacity"
+  ],
+  "target_parameters": [
+    "Maximum storage capacity",
+    "Cost of holding one unit of product",
+    "Selling price in each period",
+    "Cost of buying in each period"
+  ],
+  "Expert": {
+    "(0,)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.",
+    "(0, 0)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.\nExpert: Are there specific risk constraints or limits on the maximum allowable loss or drawdown in the trading strategies?\nUser: No\n",
+    "(0, 0, 0)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.\nExpert: Are there specific risk constraints or limits on the maximum allowable loss or drawdown in the trading strategies?\nUser: No\n\nExpert: Does the problem involve constraints related to the investment budget or capital allocation for trading?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.\nExpert: Are there specific risk constraints or limits on the maximum allowable loss or drawdown in the trading strategies?\nUser: No\n\nExpert: Does the problem involve constraints related to the investment budget or capital allocation for trading?\nUser: No\n\nExpert: Are there specific trading constraints, such as limits on the number of trades or transaction costs factored into the optimization?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.",
+    "(0, 0)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.\nExpert: Does the problem include a constraint specifically related to a maximum number of trades per day?\nUser: No\n",
+    "(0, 0, 0)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.\nExpert: Does the problem include a constraint specifically related to a maximum number of trades per day?\nUser: No\n\nExpert: Does the problem include a constraint related to maintaining a minimum reserve balance or complying with a reserve balance requirement?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.\nExpert: Does the problem include a constraint specifically related to a maximum number of trades per day?\nUser: No\n\nExpert: Does the problem include a constraint related to maintaining a minimum reserve balance or complying with a reserve balance requirement?\nUser: No\n\nExpert: Do any of the problem descriptions include a constraint specifically limiting the trading volume based on the total portfolio value?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.",
+    "(0, 0)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.\nExpert: Is the trading timeframe fixed (e.g., daily, weekly) or can it vary?\nUser: Yes, the trading timeframe is fixed monthly.\n",
+    "(0, 0, 0)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.\nExpert: Is the trading timeframe fixed (e.g., daily, weekly) or can it vary?\nUser: Yes, the trading timeframe is fixed monthly.\n\nExpert: Is the trading allowed to take place on every possible day within the month, or are there specific dates that are excluded from trading?\nUser: No, there are no specific dates excluded; trading can occur throughout the month.\n",
+    "(0, 0, 0, 0)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.\nExpert: Is the trading timeframe fixed (e.g., daily, weekly) or can it vary?\nUser: Yes, the trading timeframe is fixed monthly.\n\nExpert: Is the trading allowed to take place on every possible day within the month, or are there specific dates that are excluded from trading?\nUser: No, there are no specific dates excluded; trading can occur throughout the month.\n\nExpert: Are there any constraints related to the size or quantity of trades that can be executed?\nUser: Yes, the size of trades is limited by the maximum storage capacity.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.",
+    "(0, 0)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.\nExpert: Does the problem description include 'Financial Gain' or 'Gain' as part of the objective?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.\nExpert: Does the problem description include 'Financial Gain' or 'Gain' as part of the objective?\nUser: Yes\n\nExpert: Are there any constraints present in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.\nExpert: Does the problem description include 'Financial Gain' or 'Gain' as part of the objective?\nUser: Yes\n\nExpert: Are there any constraints present in the problem description?\nUser: Yes\n\nExpert: Are there any constraints mentioned in the problem description?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Trading strategies",
+            "Limitations",
+            "Maximize financial gain"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To achieve maximum financial gain through optimal trading strategies, given certain limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Financial risk should not exceed a certain threshold to prevent significant losses.",
+            "There is a limitation on the number of trades that can be performed within a given time period.",
+            "Investment must be diversified across multiple asset classes to mitigate risk.",
+            "There is a cap on the maximum capital allocation for any single investment.",
+            "Compliance with relevant regulatory requirements for trading activities.",
+            "Transaction costs should be minimized to ensure profitability."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize financial gain"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To calculate optimal trading strategies to achieve maximum financial gain without any risk constraints or limitations on maximum allowable loss or drawdown."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No specific risk constraints.",
+            "No limits on maximum allowable loss.",
+            "No drawdown constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "maximize financial gain through optimal trading strategies without risk constraints, loss limits, or investment budget restrictions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No specific limits on maximum allowable loss or drawdown.",
+            "No constraints related to investment budget or capital allocation for trading."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "To calculate optimal trading strategies to achieve maximum financial gain without any specific risk, budget, or trading constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "trading strategies",
+            "financial gain"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To calculate optimal trading strategies to achieve maximum financial gain within given limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The trading strategy must adhere to market regulations.",
+            "Investment is limited to up to 80% of the total portfolio value.",
+            "Trades are restricted to a maximum frequency of 5 trades per day.",
+            "The strategy must maintain a minimum liquidity reserve of 10% of the portfolio.",
+            "All trades must be executed within the trading hours of the selected market."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Calculate optimal trading strategies",
+            "Within given limitations",
+            "Achieve maximum financial gain"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to achieve maximum financial gain through calculating optimal trading strategies within given limitations."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "Maximize financial gain through optimal trading strategies within given limitations."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "To calculate optimal trading strategies to achieve maximum financial gain without specific constraints on trades per day, reserve balance, or trading volume relative to portfolio value."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal trading strategies",
+            "Financial gain maximization",
+            "Trading limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To calculate optimal trading strategies within given limitations to achieve maximum financial gain."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limitations on the amount of capital that can be invested in trading strategies.",
+            "Restrictions on the risk level that can be undertaken by each trading strategy.",
+            "Time constraints on when trades can be executed (e.g., market hours).",
+            "Constraints on the types of financial instruments that can be traded.",
+            "Regulatory constraints that may affect trading strategies, such as compliance with financial regulations.",
+            "Transaction cost limitations including fees, slippage, and commissions.",
+            "Constraints on the frequency or volume of trades that can be executed due to liquidity or market impact.",
+            "Limits on holding periods for certain trades or positions."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Trading timeframe fixed monthly"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Calculate optimal trading strategies within given limitations to achieve maximum financial gain on a monthly basis."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The trading strategy must operate within a fixed monthly timeframe."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "A fixed monthly trading timeframe",
+            "No specific dates excluded within the month for trading"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To calculate optimal trading strategies within a fixed monthly timeframe, allowing trading on any day of the month, to achieve maximum financial gain under specified limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The trading strategy must be optimized for a fixed monthly timeframe.",
+            "Trading is allowed to occur on every day within the month without any specific dates excluded.",
+            "The goal is to achieve maximum financial gain under these conditions."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fixed monthly trading timeframe",
+            "Trading allowed every day within the month",
+            "Trade size limited by maximum storage capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Calculate optimal trading strategies for maximum financial gain within monthly timeframe and storage capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The trading strategy must operate within a fixed monthly timeframe.",
+            "Trading can occur on every day within the month; no specific dates are excluded from trading.",
+            "The size of trades is limited by the maximum storage capacity."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Trading Budget",
+            "Risk Tolerance",
+            "Time Horizon",
+            "Asset Universe",
+            "Transaction Costs",
+            "Leverage Constraints",
+            "Liquidity Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize financial gain through optimal trading strategies within given limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraint: The total investment in trading strategies must not exceed the allocated capital.",
+            "Risk tolerance: The strategies must adhere to a predefined risk threshold, limiting potential losses to a specified percentage of the capital.",
+            "Time constraint: The optimization process must be completed within a specified time period to ensure timely execution of trades.",
+            "Diversity requirement: The trading portfolio must include a mix of asset types to ensure diversification and reduce risk.",
+            "Market regulations: All trading strategies must comply with regulations specific to the markets being traded in.",
+            "Transaction cost constraint: The total transaction costs (including fees and taxes) incurred should not exceed a specified percentage of the capital."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Financial Gain",
+            "Trading Strategies",
+            "Limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to achieve maximum financial gain through optimal trading strategies within given limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The trading strategy must remain within the given limitations while achieving maximum financial gain."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Financial Gain",
+            "Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to develop trading strategies that maximize financial gain while adhering to the given limitations or constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The trading strategy must comply with regulatory requirements.",
+            "The strategy should minimize risk exposure.",
+            "Transaction costs must be considered and should not exceed a certain percentage.",
+            "The maximum investment limit per trade is defined.",
+            "The strategy should maintain a minimum liquidity level.",
+            "The system must incorporate a fail-safe mechanism to prevent losses beyond a specified limit."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Financial Gain",
+            "Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Calculate optimal trading strategies within given limitations to achieve maximum financial gain."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The maximum amount to invest per trade is $10,000",
+            "Total number of trades per day should not exceed 10",
+            "Minimum market liquidity threshold must be maintained for any trade to execute",
+            "Risk management parameters require a stop-loss to be defined per trade",
+            "Trading can only occur on weekdays",
+            "Cannot invest in derivatives"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

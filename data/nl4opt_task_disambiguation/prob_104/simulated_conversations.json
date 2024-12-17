@@ -1,0 +1,45 @@
+{
+  "vague_description": "A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.",
+  "detailed_description": "A scientist in the arctic needs to get enough vitamin D and vitamin C in his diet by drinking orange and apple juice. Each box of orange juice contains \\param{VitaminDOrange} units of vitamin D and \\param{VitaminCOrange} units of vitamin C. Each box of apple juice contains \\param{VitaminDApple} units of vitamin D and \\param{VitaminCApple} units of vitamin C. Since the scientist prefers apple juice, he must drink at least \\param{MinRatioAppleToOrange} times as many apple juice boxes as orange juice boxes. However, he must also drink at least \\param{MinOrange} orange juice boxes. To avoid a vitamin C overdose, the scientist can consume at most \\param{MaxVitaminC} units of vitamin C. How many of each juice box should he drink to maximize his total vitamin D intake?",
+  "target_objective": "Maximize the scientist's total vitamin D intake",
+  "target_constraints": [
+    "Number of orange juice boxes is non-negative",
+    "Number of apple juice boxes is non-negative",
+    "Number of apple juice boxes must be at least MinRatioAppleToOrange times the number of orange juice boxes",
+    "Must drink at least MinOrange orange juice boxes",
+    "Total vitamin C from orange and apple juice must not exceed MaxVitaminC"
+  ],
+  "target_parameters": [
+    "Units of vitamin D in one box of orange juice",
+    "Units of vitamin C in one box of orange juice",
+    "Units of vitamin D in one box of apple juice",
+    "Units of vitamin C in one box of apple juice",
+    "Minimum ratio of boxes of apple juice to orange juice",
+    "Minimum number of orange juice boxes the scientist must drink",
+    "Maximum units of vitamin C the scientist can consume"
+  ],
+  "Expert": {
+    "(0,)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.",
+    "(0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Does the constraint restrict the total vitamin C consumed to be below a specific threshold?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Does the constraint restrict the total vitamin C consumed to be below a specific threshold?\nUser: Yes\n\nExpert: Is there a constraint that specifies a minimum percentage of apple juice in the total juice consumption?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Does the constraint restrict the total vitamin C consumed to be below a specific threshold?\nUser: Yes\n\nExpert: Is there a constraint that specifies a minimum percentage of apple juice in the total juice consumption?\nUser: No\n\nExpert: Is the objective function solely based on maximizing vitamin D intake, without incorporating preferences?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.",
+    "(0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Is there a constraint requiring a minimum proportion of apple juice in the total juice volume?\nUser: Yes, there is a requirement that the scientist must drink at least a certain ratio of apple juice to orange juice boxes.\n",
+    "(0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Is there a constraint requiring a minimum proportion of apple juice in the total juice volume?\nUser: Yes, there is a requirement that the scientist must drink at least a certain ratio of apple juice to orange juice boxes.\n\nExpert: Do any of the problems have a constraint on the total volume of juice consumed per day?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Is there a constraint requiring a minimum proportion of apple juice in the total juice volume?\nUser: Yes, there is a requirement that the scientist must drink at least a certain ratio of apple juice to orange juice boxes.\n\nExpert: Do any of the problems have a constraint on the total volume of juice consumed per day?\nUser: No\n\nExpert: Is the constraint related to the volume or number of juice boxes that the volume or number of apple juice must be at least twice that of orange juice?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.",
+    "(0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Is the objective to maximize the overall vitamin D intake, or is there a secondary objective to minimize the number of juice types consumed?\nUser: No.\n",
+    "(0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Is the objective to maximize the overall vitamin D intake, or is there a secondary objective to minimize the number of juice types consumed?\nUser: No.\n\nExpert: Is there a specific lower bound on the vitamin D content per serving of juice that must be met?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Is the objective to maximize the overall vitamin D intake, or is there a secondary objective to minimize the number of juice types consumed?\nUser: No.\n\nExpert: Is there a specific lower bound on the vitamin D content per serving of juice that must be met?\nUser: No.\n\nExpert: Is there a known upper limit on the vitamin C content per serving of juice due to the constraint?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.",
+    "(0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Do the candidate problems explicitly state the objective as 'Maximize vitamin D intake' for some problem descriptions?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Do the candidate problems explicitly state the objective as 'Maximize vitamin D intake' for some problem descriptions?\nUser: Yes\n\nExpert: Does the description include a constraint related to vitamin C intake in a numerical form (e.g., mg, IU)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Do the candidate problems explicitly state the objective as 'Maximize vitamin D intake' for some problem descriptions?\nUser: Yes\n\nExpert: Does the description include a constraint related to vitamin C intake in a numerical form (e.g., mg, IU)?\nUser: Yes\n\nExpert: Does the word 'Maximize' appear only once in the 'objective' description of the problem?\nUser: Yes\n"
+  }
+}

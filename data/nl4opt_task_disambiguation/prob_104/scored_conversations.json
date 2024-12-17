@@ -1,0 +1,450 @@
+{
+  "vague_description": "A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.",
+  "detailed_description": "A scientist in the arctic needs to get enough vitamin D and vitamin C in his diet by drinking orange and apple juice. Each box of orange juice contains \\param{VitaminDOrange} units of vitamin D and \\param{VitaminCOrange} units of vitamin C. Each box of apple juice contains \\param{VitaminDApple} units of vitamin D and \\param{VitaminCApple} units of vitamin C. Since the scientist prefers apple juice, he must drink at least \\param{MinRatioAppleToOrange} times as many apple juice boxes as orange juice boxes. However, he must also drink at least \\param{MinOrange} orange juice boxes. To avoid a vitamin C overdose, the scientist can consume at most \\param{MaxVitaminC} units of vitamin C. How many of each juice box should he drink to maximize his total vitamin D intake?",
+  "target_objective": "Maximize the scientist's total vitamin D intake",
+  "target_constraints": [
+    "Number of orange juice boxes is non-negative",
+    "Number of apple juice boxes is non-negative",
+    "Number of apple juice boxes must be at least MinRatioAppleToOrange times the number of orange juice boxes",
+    "Must drink at least MinOrange orange juice boxes",
+    "Total vitamin C from orange and apple juice must not exceed MaxVitaminC"
+  ],
+  "target_parameters": [
+    "Units of vitamin D in one box of orange juice",
+    "Units of vitamin C in one box of orange juice",
+    "Units of vitamin D in one box of apple juice",
+    "Units of vitamin C in one box of apple juice",
+    "Minimum ratio of boxes of apple juice to orange juice",
+    "Minimum number of orange juice boxes the scientist must drink",
+    "Maximum units of vitamin C the scientist can consume"
+  ],
+  "Expert": {
+    "(0,)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.",
+    "(0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Does the constraint restrict the total vitamin C consumed to be below a specific threshold?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Does the constraint restrict the total vitamin C consumed to be below a specific threshold?\nUser: Yes\n\nExpert: Is there a constraint that specifies a minimum percentage of apple juice in the total juice consumption?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Does the constraint restrict the total vitamin C consumed to be below a specific threshold?\nUser: Yes\n\nExpert: Is there a constraint that specifies a minimum percentage of apple juice in the total juice consumption?\nUser: No\n\nExpert: Is the objective function solely based on maximizing vitamin D intake, without incorporating preferences?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.",
+    "(0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Is there a constraint requiring a minimum proportion of apple juice in the total juice volume?\nUser: Yes, there is a requirement that the scientist must drink at least a certain ratio of apple juice to orange juice boxes.\n",
+    "(0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Is there a constraint requiring a minimum proportion of apple juice in the total juice volume?\nUser: Yes, there is a requirement that the scientist must drink at least a certain ratio of apple juice to orange juice boxes.\n\nExpert: Do any of the problems have a constraint on the total volume of juice consumed per day?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Is there a constraint requiring a minimum proportion of apple juice in the total juice volume?\nUser: Yes, there is a requirement that the scientist must drink at least a certain ratio of apple juice to orange juice boxes.\n\nExpert: Do any of the problems have a constraint on the total volume of juice consumed per day?\nUser: No\n\nExpert: Is the constraint related to the volume or number of juice boxes that the volume or number of apple juice must be at least twice that of orange juice?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.",
+    "(0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Is the objective to maximize the overall vitamin D intake, or is there a secondary objective to minimize the number of juice types consumed?\nUser: No.\n",
+    "(0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Is the objective to maximize the overall vitamin D intake, or is there a secondary objective to minimize the number of juice types consumed?\nUser: No.\n\nExpert: Is there a specific lower bound on the vitamin D content per serving of juice that must be met?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Is the objective to maximize the overall vitamin D intake, or is there a secondary objective to minimize the number of juice types consumed?\nUser: No.\n\nExpert: Is there a specific lower bound on the vitamin D content per serving of juice that must be met?\nUser: No.\n\nExpert: Is there a known upper limit on the vitamin C content per serving of juice due to the constraint?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.",
+    "(0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Do the candidate problems explicitly state the objective as 'Maximize vitamin D intake' for some problem descriptions?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Do the candidate problems explicitly state the objective as 'Maximize vitamin D intake' for some problem descriptions?\nUser: Yes\n\nExpert: Does the description include a constraint related to vitamin C intake in a numerical form (e.g., mg, IU)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.\nExpert: Do the candidate problems explicitly state the objective as 'Maximize vitamin D intake' for some problem descriptions?\nUser: Yes\n\nExpert: Does the description include a constraint related to vitamin C intake in a numerical form (e.g., mg, IU)?\nUser: Yes\n\nExpert: Does the word 'Maximize' appear only once in the 'objective' description of the problem?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize vitamin D intake from juices.",
+            "Decision Variables: Amount of each type of juice to consume.",
+            "Constraints:",
+            "1. Certain percentage or volume should be apple juice to meet preference.",
+            "2. Do not exceed the maximum allowable vitamin C consumption."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize vitamin D intake from juices while ensuring that juice selection aligns with a preference for apple juice and does not exceed the constrained limit for vitamin C consumption."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total vitamin C intake from juices must not exceed a predetermined maximum threshold.",
+            "The selection of juices should prioritize apple juice to align with the preference."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize vitamin D intake",
+            "Preference for apple juice",
+            "Constraint on vitamin C consumption below a specific threshold"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize vitamin D intake from juices with a preference for apple juice, subject to a constraint on vitamin C consumption."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Vitamin C consumption must be below a specified threshold.",
+            "Preference for a higher proportion of apple juice in the diet."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize vitamin D intake from juices",
+            "Preference for apple juice",
+            "Constraint: Total vitamin C consumption below a specific threshold"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize vitamin D intake from juices with a preference for apple juice, subject to a constraint on vitamin C consumption."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total vitamin C consumption must be below a specific threshold."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize Vitamin D intake",
+            "Manage preference for apple juice",
+            "Vitamin C consumption below a specific threshold"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize vitamin D intake from juices while managing a preference for apple juice and constraining vitamin C consumption below a specified threshold."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total vitamin C consumption must be below a specific threshold.",
+            "The optimization must factor in a preference for apple juice, affecting the balance between different juices."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Vitamin D intake from juices",
+            "Preference for apple juice",
+            "Constraint on vitamin C consumption"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To formulate an optimization strategy to maximize vitamin D intake from juice consumption while ensuring that apple juice accounts for a preferred share of total juice intake, and vitamin C consumption remains within specified limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The intake of vitamin C from the selection of juices should not exceed a specified limit.",
+            "The proportion of apple juice in the selection should meet a certain preference or minimum requirement."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize vitamin D intake from juices",
+            "Preference for apple juice over other juices",
+            "Constraint on maximum vitamin C consumption",
+            "Minimum ratio of apple juice to orange juice"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize the intake of vitamin D from juices."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maximize vitamin D intake from juices.",
+            "Maintain a preference for apple juice over other juices.",
+            "Do not exceed the specified constraint on vitamin C consumption.",
+            "Consume at least a minimum specified ratio of apple juice to orange juice boxes."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize vitamin D intake",
+            "Preference for apple juice",
+            "Constraint on vitamin C consumption",
+            "Minimum ratio of apple juice to orange juice boxes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize vitamin D intake from juice consumption while adhering to a minimum ratio of apple juice to orange juice, and ensuring that total vitamin C intake does not exceed a specified limit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Vitamin D intake must be maximized.",
+            "Total vitamin C consumption must not exceed a certain limit.",
+            "The proportion of apple juice to orange juice must meet a minimum specified ratio."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize vitamin D intake",
+            "Preference for apple juice over orange juice",
+            "Constraint on vitamin C consumption",
+            "Minimum ratio of apple juice to orange juice",
+            "At least twice the volume or number of apple juice boxes compared to orange juice"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize vitamin D intake from juices while ensuring that the volume or number of apple juice is at least twice that of orange juice, and manage vitamin C consumption to stay within predefined limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The scientist must consume at least a certain ratio of apple juice to orange juice boxes, specifically, the volume or number of apple juice boxes must be at least twice that of orange juice.",
+            "There is a constraint on vitamin C consumption, which must be managed to not exceed a certain level."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize Vitamin D intake",
+            "Preference for apple juice",
+            "Constraint on Vitamin C consumption"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize vitamin D intake from juice consumption while minimizing vitamin C intake, with a preference for apple juice."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The scientist wants to consume more apple juice compared to other juices.",
+            "The total vitamin C intake from all juices must not exceed a certain limit."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize vitamin D intake from juices",
+            "Preference for more apple juice if possible",
+            "Constraint on vitamin C consumption"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize vitamin D intake from juices subject to a constraint on total vitamin C consumption and considering a preference for apple juice."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maintain apple juice as the preferred juice type.",
+            "Limit the total amount of vitamin C consumed."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize vitamin D intake from juices",
+            "Preference for apple juice",
+            "Constraint on vitamin C consumption"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize vitamin D intake from juices while managing a preference for apple juice and staying within a constraint on vitamin C consumption."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total consumption of vitamin D from juices should be maximized.",
+            "There is a preference for apple juice over other types of juice.",
+            "There is a constraint on the total vitamin C consumption; it should not exceed a certain limit.",
+            "There is no minimum requirement for vitamin D per serving of juice."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective to maximize vitamin D intake",
+            "Preference for apple juice",
+            "Constraint on vitamin C consumption",
+            "Upper limit on vitamin C per serving"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize vitamin D intake from juices while adhering to an upper limit on vitamin C consumption and considering a preference for apple juice."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Preference for apple juice over other juice types.",
+            "Upper limit on vitamin C content per serving of juice."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "vitamin D intake from juices",
+            "preference for apple juice",
+            "constraint on vitamin C consumption"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize vitamin D intake from juices with a preference for apple juice and limitation on vitamin C consumption."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "x_apple is the amount of apple juice consumed.",
+            "x_orange is the amount of orange juice consumed.",
+            "Vitamin D intake = d_apple * x_apple + d_orange * x_orange where d_apple and d_orange are the vitamin D content per unit of apple and orange juice respectively.",
+            "Vitamin C intake = c_apple * x_apple + c_orange * x_orange where c_apple and c_orange are the vitamin C content per unit of apple and orange juice respectively.",
+            "c_apple * x_apple + c_orange * x_orange <= C_max where C_max is the maximum allowed vitamin C consumption.",
+            "Preference for apple juice implies a potential primary objective or an additional constraint favoring higher x_apple values.",
+            "x_apple >= 0 and x_orange >= 0, representing non-negative consumption amounts of juices."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize vitamin D intake from juices",
+            "Preference for apple juice",
+            "Constraint on vitamin C consumption"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize vitamin D intake from juices."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Preference for apple juice should be prioritized.",
+            "Total vitamin C consumption must remain below a certain threshold."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize vitamin D intake",
+            "Preference for apple juice",
+            "Constraint on vitamin C consumption"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize vitamin D intake from juices while adhering to preferences and vitamin C constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimize vitamin C intake.",
+            "Maximize vitamin D intake.",
+            "Preference constraint favoring apple juice over other juices (qualitative)."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Vitamin D levels in each juice",
+            "Preference level for apple juice",
+            "Maximum allowed vitamin C intake"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize vitamin D intake from juices."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a specified upper limit on the amount of vitamin C intake, expressed in numerical terms (e.g., mg, IU).",
+            "There is a preference constraint that biases the solution towards selecting apple juice, although not necessarily mandating apple juice over other options."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 3
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determine the optimal number of trips for each type of cruise ship to meet customer demand while minimizing pollution.",
+  "detailed_description": "A cruise company can either have two types of trips, a large cruise ship or a small cruise ship. A large cruise ship trip can carry \\param{LargeShipCapacity} customers and produces \\param{LargeShipPollution} units of pollution. A small cruise ship trip can carry \\param{SmallShipCapacity} customers and produces \\param{SmallShipPollution} units of pollution. There can be at most \\param{MaxLargeShipTrips} large cruise ship trips and at least \\param{MinSmallShipTripPercent} of the total trips must be made by small cruise ships. If the cruise company aims to transport at least \\param{MinCustomers} customers, how many of each size of cruise ships should the company use to minimize the total amount of pollution produced?",
+  "target_objective": "Minimize the total amount of pollution produced by the cruise ships",
+  "target_constraints": [
+    "Number of large cruise ship trips is non-negative",
+    "Number of small cruise ship trips is non-negative",
+    "Number of large cruise ship trips is at most MaxLargeShipTrips",
+    "At least MinSmallShipTripPercent of total trips must be small cruise ship trips",
+    "Total customers transported must be at least MinCustomers"
+  ],
+  "target_parameters": [
+    "Number of customers a large cruise ship can carry",
+    "Pollution units produced by a large cruise ship trip",
+    "Number of customers a small cruise ship can carry",
+    "Pollution units produced by a small cruise ship trip",
+    "Maximum number of large cruise ship trips",
+    "Minimum percentage of total trips that must be by small cruise ships",
+    "Minimum number of customers the company aims to transport"
+  ]
+}

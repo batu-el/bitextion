@@ -1,0 +1,38 @@
+{
+  "vague_description": "Determine the optimal distribution of resources to achieve efficiency in operations.",
+  "detailed_description": "How many officers should the town assign to each shift in order to minimize the total cost, given that there are S shifts, defined by the number of officers needed for each shift \\param{OfficersNeeded}, and the respective costs of assigning an officer to each shift \\param{ShiftCosts}?",
+  "target_objective": "Minimize the total cost of assigning officers to each of the S shifts",
+  "target_constraints": [
+    "Number of officers assigned to each shift is non-negative",
+    "Number of officers assigned meets the OfficersNeeded for each shift"
+  ],
+  "target_parameters": [
+    "Number of shifts for which officers are needed",
+    "Number of officers needed for shift s",
+    "Cost of assigning an officer to shift s"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.",
+    "(0, 0)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.\nExpert: Is the optimization problem constrained by a fixed total amount of resources?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.\nExpert: Is the optimization problem constrained by a fixed total amount of resources?\nUser: Yes\n\nExpert: Is there a specific resource allocation goal or metric of efficiency that needs to be maximized or minimized in this optimization problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.\nExpert: Is the optimization problem constrained by a fixed total amount of resources?\nUser: Yes\n\nExpert: Is there a specific resource allocation goal or metric of efficiency that needs to be maximized or minimized in this optimization problem?\nUser: No\n\nExpert: Are there multiple types of resources that need to be considered in the distribution?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.",
+    "(0, 0)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.\nExpert: Does the problem objective involve minimizing operational cost as a key component?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.\nExpert: Does the problem objective involve minimizing operational cost as a key component?\nUser: Yes.\n\nExpert: Is regulatory compliance a constraint across all candidate problems?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.\nExpert: Does the problem objective involve minimizing operational cost as a key component?\nUser: Yes.\n\nExpert: Is regulatory compliance a constraint across all candidate problems?\nUser: Yes.\n\nExpert: Does the problem include a constraint that prioritizes resource allocation to specific projects or operations?\nUser: Yes.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.",
+    "(0, 0)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.\nExpert: Are resources being allocated across multiple tasks or projects?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.\nExpert: Are resources being allocated across multiple tasks or projects?\nUser: Yes.\n\nExpert: Are there any hard limits (such as budget constraints or equipment availability) that restrict the allocation of resources?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.\nExpert: Are resources being allocated across multiple tasks or projects?\nUser: Yes.\n\nExpert: Are there any hard limits (such as budget constraints or equipment availability) that restrict the allocation of resources?\nUser: Yes.\n\nExpert: Are the hard limits (such as budget constraints or equipment availability) constant or do they change over time?\nUser: Yes, they can change over time based on project phases or other variables.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.",
+    "(0, 0)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.\nExpert: Does the problem involve optimizing for efficiency or performance in a resource-constrained environment?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.\nExpert: Does the problem involve optimizing for efficiency or performance in a resource-constrained environment?\nUser: Yes\n\nExpert: Is the objective of the problem to maximize efficiency or productivity?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal distribution of resources to achieve efficiency in operations.\nExpert: Does the problem involve optimizing for efficiency or performance in a resource-constrained environment?\nUser: Yes\n\nExpert: Is the objective of the problem to maximize efficiency or productivity?\nUser: Yes\n\nExpert: Is the objective described in a purely quantitative (numerical) or purely qualitative (text-based) manner, without any mix of both in a single objective description?\nUser: Yes\n"
+  }
+}

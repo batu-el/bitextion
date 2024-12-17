@@ -1,0 +1,25 @@
+{
+  "vague_description": "Determining the optimal production numbers for desk-lamps and night-lamps is challenging due to constraints on production capabilities and demand requirements, while aiming to maximize profits.",
+  "detailed_description": "A lighting company makes desk-lamps and night-lamps. There is an expected demand of at least \\var{MinDesk} desk-lamps and \\var{MinNight} night-lamps each day. However, due to the size of their factory, they can make at most \\var{MaxDesk} desk-lamps and \\var{MaxNight} night-lamps per day. To satisfy a contract, a minimum of \\var{MinTotal} lamps must be made each day. If the profit per desk-lamp sold is \\var{ProfitDesk} and the profit per night-lamp sold is \\var{ProfitNight}, how many lamps of each type should be made to maximize profit?",
+  "target_objective": "Maximize the total daily profit from desk-lamps and night-lamps",
+  "target_constraints": [
+    "Number of desk-lamps is an integer",
+    "Number of night-lamps is an integer",
+    "Number of desk-lamps is non-negative",
+    "Number of night-lamps is non-negative",
+    "There is a minimum daily production of MinDesk desk-lamps",
+    "There is a minimum daily production of MinNight night-lamps",
+    "There is a maximum daily production of MaxDesk desk-lamps",
+    "There is a maximum daily production of MaxNight night-lamps",
+    "A minimum of MinTotal lamps (desk-lamps and night-lamps combined) must be made each day"
+  ],
+  "target_parameters": [
+    "Minimum demand of desk-lamps per day",
+    "Minimum demand of night-lamps per day",
+    "Maximum production of desk-lamps per day",
+    "Maximum production of night-lamps per day",
+    "Minimum total production of lamps per day to satisfy contract",
+    "Profit per desk-lamp",
+    "Profit per night-lamp"
+  ]
+}

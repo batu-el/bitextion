@@ -1,0 +1,47 @@
+{
+  "vague_description": "How to effectively manage logistics to meet customer's needs within given constraints.",
+  "detailed_description": "The capacitated warehouse location problem is the problem of locating \\param{NumberOfLocations} warehouses which have to service \\param{NumberOfCustomers} customers, at minimum cost. Each customer has an associated demand \\param{CustomerDemand}. There are constraints on the total demand that can be met from a warehouse, as specified by \\param{WarehouseCapacity}. Costs are incurred when allocating service to customers from warehouses \\param{ServiceAllocationCost}, and warehouses have a fixed operating cost \\param{WarehouseFixedCost}. Additionally, there is a lower limit \\param{MinimumDemandFromWarehouse} on the amount of demand that a warehouse must meet if it is opened, as well as constraints on the minimum \\param{MinimumOpenWarehouses} and maximum \\param{MaximumOpenWarehouses} number of warehouses that can be operational.",
+  "target_objective": "Minimize the total cost of servicing customers, including service allocation and operating costs of warehouses",
+  "target_constraints": [
+    "Each customer demand must be met",
+    "Each warehouse can meet a maximum demand equal to its WarehouseCapacity",
+    "If a warehouse is open, it must meet at least the MinimumDemandFromWarehouse",
+    "At least MinimumOpenWarehouses warehouses must be operational",
+    "At most MaximumOpenWarehouses warehouses can be operational"
+  ],
+  "target_parameters": [
+    "The total number of potential warehouse locations",
+    "The total number of customers to be serviced",
+    "The demand of each customer",
+    "The cost of allocating service from each warehouse to each customer",
+    "The total capacity for each warehouse",
+    "The lower limit on the demand that must be met from a warehouse if it is to be operational",
+    "The minimum number of warehouses that need to be operational",
+    "The maximum number of warehouses that can be operational",
+    "The fixed operating cost of each warehouse"
+  ],
+  "Expert": {
+    "(0,)": "User: How to effectively manage logistics to meet customer's needs within given constraints.",
+    "(0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are you dealing with constraints related to delivery time windows in your logistics problem?\nUser: No\n",
+    "(0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are you dealing with constraints related to delivery time windows in your logistics problem?\nUser: No\n\nExpert: Are there constraints related to the available budget or cost limits in managing your logistics?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are you dealing with constraints related to delivery time windows in your logistics problem?\nUser: No\n\nExpert: Are there constraints related to the available budget or cost limits in managing your logistics?\nUser: Yes\n\nExpert: Is minimizing the total transportation cost the primary objective of your logistics optimization problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: How to effectively manage logistics to meet customer's needs within given constraints.",
+    "(0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Does the problem description include constraints related to environmental regulations or emissions compliance?\nUser: No\n",
+    "(0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Does the problem description include constraints related to environmental regulations or emissions compliance?\nUser: No\n\nExpert: Does the problem include constraints related to maintaining minimum inventory levels?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Does the problem description include constraints related to environmental regulations or emissions compliance?\nUser: No\n\nExpert: Does the problem include constraints related to maintaining minimum inventory levels?\nUser: No\n\nExpert: Is there a constraint related to budget or cost limits in the problem description?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: How to effectively manage logistics to meet customer's needs within given constraints.",
+    "(0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are there any time-sensitive delivery requirements (e.g. same-day, next-day, etc.) that need to be met?\nUser: No\n",
+    "(0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are there any time-sensitive delivery requirements (e.g. same-day, next-day, etc.) that need to be met?\nUser: No\n\nExpert: Is there a specific geographical area or region where the logistics operations are concentrated?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are there any time-sensitive delivery requirements (e.g. same-day, next-day, etc.) that need to be met?\nUser: No\n\nExpert: Is there a specific geographical area or region where the logistics operations are concentrated?\nUser: Yes\n\nExpert: Is this geographical area relatively small and contained, or does it span across multiple states or countries?\nUser: {\"response\":\"Yes, it spans across multiple states.\"}\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: How to effectively manage logistics to meet customer's needs within given constraints.",
+    "(0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are there any time constraints in the problem?\nUser: No\n",
+    "(0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are there any time constraints in the problem?\nUser: No\n\nExpert: Does the problem have an objective function that explicitly mentions a specific numerical target value or a fixed goal, such as 'Minimize total logistics cost', 'Minimize the total logistics cost subject to several constraints', or 'Minimize delivery cost', but not simply stating to maximize or minimize a specific factor like 'maximize customer satisfaction'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How to effectively manage logistics to meet customer's needs within given constraints.\nExpert: Are there any time constraints in the problem?\nUser: No\n\nExpert: Does the problem have an objective function that explicitly mentions a specific numerical target value or a fixed goal, such as 'Minimize total logistics cost', 'Minimize the total logistics cost subject to several constraints', or 'Minimize delivery cost', but not simply stating to maximize or minimize a specific factor like 'maximize customer satisfaction'?\nUser: Yes\n\nExpert: Are there any constraints provided in the problem description?\nUser: Yes\n"
+  }
+}

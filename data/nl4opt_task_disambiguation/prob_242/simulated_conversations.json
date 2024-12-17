@@ -1,0 +1,47 @@
+{
+  "vague_description": "Optimize meal choices to achieve specific dietary goals within given constraints.",
+  "detailed_description": "A macro-counting fitness guru only eats salmon and eggs. Each bowl of salmon contains \\param{CaloriesSalmon} calories, \\param{ProteinSalmon} grams of protein, and \\param{SodiumSalmon} mg of sodium. Each bowl of eggs contains \\param{CaloriesEggs} calories, \\param{ProteinEggs} grams of protein, and \\param{SodiumEggs} mg of sodium. Since the fitness guru has a limit to how many eggs he would like to eat, at most \\param{MaxEggProportion} of his meals can be eggs. The fitness guru needs to eat at least \\param{MinTotalCalories} calories and \\param{MinTotalProtein} grams of protein. How many of each type of meal should he eat to minimize his sodium intake?",
+  "target_objective": "Minimize total sodium intake",
+  "target_constraints": [
+    "Number of salmon meals is non-negative",
+    "Number of egg meals is non-negative",
+    "At most MaxEggProportion of the meals can be eggs",
+    "Total caloric intake must be at least MinTotalCalories calories",
+    "Total protein intake must be at least MinTotalProtein grams"
+  ],
+  "target_parameters": [
+    "Calories per bowl of salmon",
+    "Protein per bowl of salmon",
+    "Sodium per bowl of salmon",
+    "Calories per bowl of eggs",
+    "Protein per bowl of eggs",
+    "Sodium per bowl of eggs",
+    "Maximum proportion of meals that can be eggs",
+    "Minimum total calories required",
+    "Minimum total protein required"
+  ],
+  "Expert": {
+    "(0,)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.",
+    "(0, 0)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.\nExpert: Are there specific nutritional requirements, such as daily calorie intake or macronutrient ratios, that the meal plan must satisfy?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.\nExpert: Are there specific nutritional requirements, such as daily calorie intake or macronutrient ratios, that the meal plan must satisfy?\nUser: Yes\n\nExpert: Are there budgetary constraints that limit the cost of the meals?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.\nExpert: Are there specific nutritional requirements, such as daily calorie intake or macronutrient ratios, that the meal plan must satisfy?\nUser: Yes\n\nExpert: Are there budgetary constraints that limit the cost of the meals?\nUser: No\n\nExpert: Are there any restrictions on the types of food due to allergies or dietary preferences (e.g., vegetarian, vegan, gluten-free)?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.",
+    "(0, 0)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.\nExpert: Is the daily cost of meals a constraint in the problem?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.\nExpert: Is the daily cost of meals a constraint in the problem?\nUser: No\n\nExpert: Does the problem objective involve maximizing the nutritional value of meals?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.\nExpert: Is the daily cost of meals a constraint in the problem?\nUser: No\n\nExpert: Does the problem objective involve maximizing the nutritional value of meals?\nUser: No\n\nExpert: Does the problem involve minimizing the deviation from specified dietary or macronutrient targets as the objective?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.",
+    "(0, 0)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.\nExpert: Are the dietary goals related to health outcomes, such as reducing cholesterol or blood sugar levels?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.\nExpert: Are the dietary goals related to health outcomes, such as reducing cholesterol or blood sugar levels?\nUser: No\n\nExpert: Are the dietary goals centered around aesthetics or performance, such as weight management or improving physical performance for a special event?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.\nExpert: Are the dietary goals related to health outcomes, such as reducing cholesterol or blood sugar levels?\nUser: No\n\nExpert: Are the dietary goals centered around aesthetics or performance, such as weight management or improving physical performance for a special event?\nUser: Yes\n\nExpert: Is the optimization problem focused on achieving a specific goal related to an upcoming event, such as a competition or a special occasion?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.",
+    "(0, 0)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.\nExpert: Is the number of individuals or the size of the group being considered fixed and known in advance?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.\nExpert: Is the number of individuals or the size of the group being considered fixed and known in advance?\nUser: Yes\n\nExpert: Is the size of the group fixed and known in advance?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize meal choices to achieve specific dietary goals within given constraints.\nExpert: Is the number of individuals or the size of the group being considered fixed and known in advance?\nUser: Yes\n\nExpert: Is the size of the group fixed and known in advance?\nUser: Yes\n\nExpert: Is the size of the group either explicitly stated or implied as a known quantity in the problem description?\nUser: No\n"
+  }
+}

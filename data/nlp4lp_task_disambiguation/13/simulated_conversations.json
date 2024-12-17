@@ -1,0 +1,39 @@
+{
+  "vague_description": "How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?",
+  "detailed_description": "The objective is to maximize the number of units of currency \\param{N} that we end up with at the end of the day, through a sequence of currency transactions. We start with a certain amount \\param{Start} for each currency, there is a limit \\param{Limit} to the number of transactions we can perform for each currency, and the exchange rates are given by \\param{Rate}.",
+  "target_objective": "Maximize the final total number of units of currency N",
+  "target_constraints": [
+    "Number of transactions for each currency is non-negative",
+    "Number of transactions for each currency does not exceed the specified Limit"
+  ],
+  "target_parameters": [
+    "Number of different currencies",
+    "Initial amount of currency i",
+    "Limit for the number of transactions for currency i",
+    "Exchange rate from currency i to currency j"
+  ],
+  "Expert": {
+    "(0,)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?",
+    "(0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Is the objective of the optimization problem to maximize a financial portfolio's return given certain risk constraints?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Is the objective of the optimization problem to maximize a financial portfolio's return given certain risk constraints?\nUser: Yes.\n\nExpert: Are the constraints related to limiting the portfolio's exposure to specific asset classes or securities?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Is the objective of the optimization problem to maximize a financial portfolio's return given certain risk constraints?\nUser: Yes.\n\nExpert: Are the constraints related to limiting the portfolio's exposure to specific asset classes or securities?\nUser: No.\n\nExpert: Are the constraints related to restricting the level of risk, such as the portfolio's overall volatility or Value at Risk (VaR)?\nUser: No.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?",
+    "(0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Does the problem include a constraint related to maintaining a specific risk level or risk threshold?\nUser: No\n",
+    "(0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Does the problem include a constraint related to maintaining a specific risk level or risk threshold?\nUser: No\n\nExpert: Does the objective explicitly focus on maximizing profit rather than value or portfolio performance?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Does the problem include a constraint related to maintaining a specific risk level or risk threshold?\nUser: No\n\nExpert: Does the objective explicitly focus on maximizing profit rather than value or portfolio performance?\nUser: Yes\n\nExpert: Does the problem include a constraint on the maximum number of assets or asset classes that can be involved in a transaction or investment?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?",
+    "(0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Are the constraints on transactions based on a fixed budget or a dynamic limit that can change over time?\nUser: No, the constraints are based on a fixed budget or number of transactions, not a dynamic limit that changes over time.\n",
+    "(0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Are the constraints on transactions based on a fixed budget or a dynamic limit that can change over time?\nUser: No, the constraints are based on a fixed budget or number of transactions, not a dynamic limit that changes over time.\n\nExpert: Are the variables being optimized (or the objective) impacted by the transactions themselves, or are the transactions merely a means to an end that ultimately lead to a different objective?\nUser: Yes, the transactions are a means to an end, with the ultimate objective being to maximize the units of currency we have by the end of the day.\n",
+    "(0, 0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Are the constraints on transactions based on a fixed budget or a dynamic limit that can change over time?\nUser: No, the constraints are based on a fixed budget or number of transactions, not a dynamic limit that changes over time.\n\nExpert: Are the variables being optimized (or the objective) impacted by the transactions themselves, or are the transactions merely a means to an end that ultimately lead to a different objective?\nUser: Yes, the transactions are a means to an end, with the ultimate objective being to maximize the units of currency we have by the end of the day.\n\nExpert: Does the value of each transaction have a direct relationship with the units of currency accumulated, or are there other factors at play (e.g., timing, order of transactions) that influence the outcome?\nUser: Yes, the value of each transaction has a direct relationship with the units of currency accumulated, but there may be other factors like timing or order of transactions that influence the outcome.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?",
+    "(0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Is the objective of the problem stated in a maximization form (i.e., 'Maximize' or 'maximize')?\nUser: Yes\n",
+    "(0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Is the objective of the problem stated in a maximization form (i.e., 'Maximize' or 'maximize')?\nUser: Yes\n\nExpert: Is the problem stated with an objective other than 'Maximize'?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?\nExpert: Is the objective of the problem stated in a maximization form (i.e., 'Maximize' or 'maximize')?\nUser: Yes\n\nExpert: Is the problem stated with an objective other than 'Maximize'?\nUser: No\n\nExpert: Does the problem description contain the string 'fluctuating' in either the constraints or parameters?\nUser: Yes\n"
+  }
+}

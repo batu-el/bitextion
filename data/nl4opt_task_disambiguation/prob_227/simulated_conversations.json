@@ -1,0 +1,43 @@
+{
+  "vague_description": "Determining the optimal mix of materials to efficiently manage resources for a gardening project.",
+  "detailed_description": "Both subsoil and topsoil need to be added to a garden bed. One bag of subsoil requires \\param{SubsoilWater} units of water to hydrate while one bag of topsoil requires \\param{TopsoilWater} units of water to hydrate every day. The truck used to transport the dirt has limited capacity and therefore, the farmer has available \\param{TotalBags} bags of topsoil and subsoil combined. In addition, at least \\param{MinTopsoil} bags of topsoil must be used. Since the topsoil is more expensive, at most \\param{MaxTopsoilProportion} of all bags of soil can be topsoil. How many bags of each should be bought to minimize the total amount of water required to hydrate the garden bed?",
+  "target_objective": "Minimize the total amount of water required to hydrate both subsoil and topsoil",
+  "target_constraints": [
+    "Number of subsoil bags is non-negative",
+    "Number of topsoil bags is non-negative",
+    "Combined bags of subsoil and topsoil cannot exceed TotalBags",
+    "At least MinTopsoil bags of topsoil must be used",
+    "Topsoil bags cannot exceed MaxTopsoilProportion times the total bags of soil"
+  ],
+  "target_parameters": [
+    "Units of water required to hydrate one bag of subsoil",
+    "Units of water required to hydrate one bag of topsoil",
+    "Total number of bags of subsoil and topsoil combined available",
+    "Minimum number of bags of topsoil required",
+    "Maximum proportion of topsoil bags"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.",
+    "(0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Are there specific constraints related to the budget or cost of the materials?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Are there specific constraints related to the budget or cost of the materials?\nUser: No\n\nExpert: Are there constraints related to the availability or quantity of the materials?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Are there specific constraints related to the budget or cost of the materials?\nUser: No\n\nExpert: Are there constraints related to the availability or quantity of the materials?\nUser: Yes\n\nExpert: Is there a specific objective you are trying to achieve, such as minimizing waste or maximizing plant growth?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.",
+    "(0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Is there a constraint related to the pH level of the materials used?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Is there a constraint related to the pH level of the materials used?\nUser: No\n\nExpert: Does the problem statement involve constraints related to the percentage composition of organic material in the mixture?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Is there a constraint related to the pH level of the materials used?\nUser: No\n\nExpert: Does the problem statement involve constraints related to the percentage composition of organic material in the mixture?\nUser: No\n\nExpert: Does the optimization problem involve constraints on both the weight and volume of the materials used in the mixture?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.",
+    "(0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Are the materials to be optimized for multiple gardening projects with different requirements (e.g., different types of plants or soil conditions), or is this for a single project?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Are the materials to be optimized for multiple gardening projects with different requirements (e.g., different types of plants or soil conditions), or is this for a single project?\nUser: No\n\nExpert: Is the goal of the optimization to minimize cost, or is there another objective such as maximizing yield or minimizing environmental impact?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Are the materials to be optimized for multiple gardening projects with different requirements (e.g., different types of plants or soil conditions), or is this for a single project?\nUser: No\n\nExpert: Is the goal of the optimization to minimize cost, or is there another objective such as maximizing yield or minimizing environmental impact?\nUser: No\n\nExpert: Is the quantity of the materials to be optimized fixed, or can their quantities be increased or decreased without any constraints?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.",
+    "(0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Does the problem description mention a fixed 'total budget' or a similar constraint that directly limits the amount that can be spent?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Does the problem description mention a fixed 'total budget' or a similar constraint that directly limits the amount that can be spent?\nUser: No\n\nExpert: Does the problem statement explicitly mention an objective other than optimizing a mix of materials for a specific project, such as resource management, budgeting, or efficiency?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Does the problem description mention a fixed 'total budget' or a similar constraint that directly limits the amount that can be spent?\nUser: No\n\nExpert: Does the problem statement explicitly mention an objective other than optimizing a mix of materials for a specific project, such as resource management, budgeting, or efficiency?\nUser: Yes\n\nExpert: Are there any constraints specified for the problem?\nUser: Yes\n"
+  }
+}

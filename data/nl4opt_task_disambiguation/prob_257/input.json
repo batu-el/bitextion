@@ -1,0 +1,23 @@
+{
+  "vague_description": "Determine the optimal allocation of limited resources between two process types to maximize productivity in a chemical conversion.",
+  "detailed_description": "Platinum in combination with palladium has been used as a catalyst in cars and it changes carbon monoxide, which is toxic, into carbon dioxide. An automotive company is comparing two different catalysts, a palladium-heavy catalyst and a platinum-heavy catalyst. The process with a palladium-heavy catalyst requires \\param{PlatinumPalladiumHeavy} units of platinum and \\param{PalladiumPalladiumHeavy} units of palladium and can perform the conversion to carbon dioxide at a rate of \\param{ConversionRatePalladiumHeavy} units per second. A platinum-heavy catalyst requires \\param{PlatinumPlatinumHeavy} units of platinum and \\param{PalladiumPlatinumHeavy} units of palladium and converts to carbon dioxide at a rate of \\param{ConversionRatePlatinumHeavy} units per second. There are \\param{TotalPlatinum} units of platinum and \\param{TotalPalladium} units of palladium available. How many of each catalyst should be used to maximize the amount converted into carbon dioxide?",
+  "target_objective": "Maximize the total amount of carbon monoxide converted into carbon dioxide",
+  "target_constraints": [
+    "Platinum used for palladium-heavy catalysts is non-negative",
+    "Palladium used for palladium-heavy catalysts is non-negative",
+    "Platinum used for platinum-heavy catalysts is non-negative",
+    "Palladium used for platinum-heavy catalysts is non-negative",
+    "Total platinum used cannot exceed TotalPlatinum units",
+    "Total palladium used cannot exceed TotalPalladium units"
+  ],
+  "target_parameters": [
+    "Units of platinum required for palladium-heavy catalyst",
+    "Units of palladium required for palladium-heavy catalyst",
+    "Conversion rate of carbon dioxide for palladium-heavy catalyst in units per second",
+    "Units of platinum required for platinum-heavy catalyst",
+    "Units of palladium required for platinum-heavy catalyst",
+    "Conversion rate of carbon dioxide for platinum-heavy catalyst in units per second",
+    "Total available units of platinum",
+    "Total available units of palladium"
+  ]
+}

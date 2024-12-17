@@ -1,0 +1,487 @@
+{
+  "vague_description": "The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.",
+  "detailed_description": "An dog hospital has \\param{TotalMedication} units of tooth medication to make both small and large bones. A small bone requires \\param{SmallMedication} units of tooth medication and \\param{SmallMeat} units of meat. A large bone requires \\param{LargeMedication} units of tooth medication and \\param{LargeMeat} units of meat. Since most dogs prefer the small bones, at least \\param{MinSmallBonePercentage} of the bones made must be small. In addition, the hospital must make at least \\param{MinLargeBones} large bones. How many of each bone should be made to minimize the amount of meat needed?",
+  "target_objective": "Minimize the amount of meat needed to produce the small and large bones",
+  "target_constraints": [
+    "The total units of tooth medication used cannot exceed TotalMedication",
+    "At least MinSmallBonePercentage of all bones made must be small",
+    "At least MinLargeBones large bones must be made",
+    "Number of small bones is non-negative",
+    "Number of large bones is non-negative"
+  ],
+  "target_parameters": [
+    "Total units of tooth medication available",
+    "Units of tooth medication required for a small bone",
+    "Units of meat required for a small bone",
+    "Units of tooth medication required for a large bone",
+    "Units of meat required for a large bone",
+    "Minimum percentage of total bones made that must be small",
+    "Minimum number of large bones to be made"
+  ],
+  "Expert": {
+    "(0,)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.",
+    "(0, 0)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.\nExpert: Are there specific constraints related to the production ratios or the total number of small and large bones that can be produced?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.\nExpert: Are there specific constraints related to the production ratios or the total number of small and large bones that can be produced?\nUser: Yes.\n\nExpert: Are there constraints on the amount of meat available for producing the bones?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.\nExpert: Are there specific constraints related to the production ratios or the total number of small and large bones that can be produced?\nUser: Yes.\n\nExpert: Are there constraints on the amount of meat available for producing the bones?\nUser: No.\n\nExpert: Is the objective function solely focused on minimizing the total amount of meat used in production?\nUser: Yes.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.",
+    "(0, 0)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.\nExpert: Is there a constraint related to production time or labor hours in the problem?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.\nExpert: Is there a constraint related to production time or labor hours in the problem?\nUser: No\n\nExpert: Is the total meat available for production 1000 units or kg in at least half of the candidate problems?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.\nExpert: Is there a constraint related to production time or labor hours in the problem?\nUser: No\n\nExpert: Is the total meat available for production 1000 units or kg in at least half of the candidate problems?\nUser: No\n\nExpert: Does any problem have a constraint where the production ratio of small bones to large bones must be between specific values?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.",
+    "(0, 0)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.\nExpert: Are the quantities of small and large bones that need to be produced fixed and known in advance?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.\nExpert: Are the quantities of small and large bones that need to be produced fixed and known in advance?\nUser: No\n\nExpert: Are the quantities of small and large bones that need to be produced subject to demand or supply fluctuations that can occur simultaneously?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.\nExpert: Are the quantities of small and large bones that need to be produced fixed and known in advance?\nUser: No\n\nExpert: Are the quantities of small and large bones that need to be produced subject to demand or supply fluctuations that can occur simultaneously?\nUser: Yes\n\nExpert: Can the quantities of small and large bones that need to be produced fluctuate independently, or are they somehow related to each other? \nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.",
+    "(0, 0)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.\nExpert: Does the problem description mention a specific numerical objective value or does it ask to optimize a function?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.\nExpert: Does the problem description mention a specific numerical objective value or does it ask to optimize a function?\nUser: No\n\nExpert: Is there at least one constraint in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.\nExpert: Does the problem description mention a specific numerical objective value or does it ask to optimize a function?\nUser: No\n\nExpert: Is there at least one constraint in the problem description?\nUser: Yes\n\nExpert: Does the problem description include any constraints that are related to producing or managing by-products beyond meat usage? \nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "small bones",
+            "large bones",
+            "dog hospital",
+            "specific constraints",
+            "minimize meat usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the amount of meat used while meeting the demand for small and large bones at a dog hospital."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production of small and large bones should meet demand.",
+            "Meat usage should be minimized.",
+            "Allocation should not exceed available resources.",
+            "Each type of bone requires a specific amount of resources."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production ratio constraint",
+            "Total production constraint for small bones",
+            "Total production constraint for large bones",
+            "Objective to minimize meat usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize meat usage in the production of small and large bones at a dog hospital while meeting specific production constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production must meet predetermined ratios for small and large bones.",
+            "There is a maximum limit on the total number of small bones that can be produced.",
+            "There is a maximum limit on the total number of large bones that can be produced.",
+            "The goal is to minimize the use of meat in producing the bones."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize total meat usage",
+            "Decision Variables: Number of small bones produced, Number of large bones produced",
+            "Constraints: Specific production ratios between small and large bones",
+            "Constraints: Maximum total production capacity for small and large bones"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the amount of meat used in the production of small and large bones while meeting the production constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production process must adhere to specific production ratios between small and large bones.",
+            "There is a maximum limit on the total number of small and large bones that can be produced each day.",
+            "The goal is to minimize meat usage in the production process."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production ratio of small to large bones",
+            "Total number of small bones produced",
+            "Total number of large bones produced",
+            "Minimization of total meat used"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total amount of meat used in the production of small and large bones."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production must meet specific ratios of small to large bones as given by the user.",
+            "The total number of small and large bones produced must comply with the upper or lower limits specified by the user."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation",
+            "Production of Small Bones",
+            "Production of Large Bones",
+            "Objective: Minimize Meat Usage",
+            "Constraints: Specific Usage Limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize meat usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total quantity of small bones produced must meet a minimum demand requirement.",
+            "The total quantity of large bones produced must meet a minimum demand requirement.",
+            "There is a limited supply of meat available for bone production.",
+            "The production process must not exceed the capacity or resources available at the dog hospital.",
+            "The allocation of resources for producing small and large bones must be efficient to minimize waste."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation for small bones",
+            "Resource allocation for large bones",
+            "Meat usage",
+            "Constraints specific to production",
+            "Minimize meat usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize meat usage while producing small and large bones, adhering to specific constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Optimize resource allocation for producing small and large bones.",
+            "Minimize the usage of meat.",
+            "Allocate resources within the capacity constraints of the dog hospital resources such as equipment or infrastructure.",
+            "Ensure that the total production meets the demand for small and large bones."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource constraints: limited amount of meat",
+            "Decision variables: quantity of small bones produced, quantity of large bones produced",
+            "Objective function: minimize meat usage",
+            "Constraints: specific production constraints that must be met"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize meat usage while meeting production constraints for small and large bones at a dog hospital."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization must meet production requirements for both small and large bones.",
+            "Minimize meat usage in the production process.",
+            "No constraints on production time or labor hours."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "optimize resource allocation",
+            "produce small and large bones",
+            "meet specific constraints",
+            "minimize meat usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the meat usage while meeting production constraints for small and large bones at a dog hospital."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimize the usage of meat used in production.",
+            "Meet the demand for both small and large bones at the dog hospital."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize meat usage",
+            "Resources: Available total meat",
+            "Constraints: Meet production needs for small bones",
+            "Constraints: Meet production needs for large bones",
+            "Variables: Amount of meat allocated for small bones",
+            "Variables: Amount of meat allocated for large bones"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize meat usage in producing small and large bones while meeting the hospital's constraints on resource allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of small bones and large bones produced must meet the demand.",
+            "The amount of meat used must be minimized.",
+            "Production should not exceed available labor resources.",
+            "There should be a certain minimum number of small bones produced.",
+            "The size differences between small and large bones dictate different production times and resource needs."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of small bones: variable",
+            "Quantity of large bones: variable",
+            "Meat usage: objective function to minimize",
+            "Resource availability: constraint",
+            "Resources required per small and large bone: constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the amount of meat used while determining the optimal quantities of small and large bones to produce, given resource constraints at the dog hospital."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation should be optimized to minimize meat usage for bone production.",
+            "There are specific constraints in the resource allocation for producing bones.",
+            "The challenge involves the production of both small and large bones.",
+            "The quantities of small and large bones are not fixed or predetermined."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimize resource allocation for producing two types of bones: small and large.",
+            "Meet demand fluctuations for both small and large bones.",
+            "Minimize meat usage.",
+            "Account for supply fluctuations in resources."
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize meat usage while dynamically allocating resources to produce small and large bones at a dog hospital, taking into account fluctuating demand or supply constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantities of small and large bones are not fixed and can fluctuate based on demand and supply.",
+            "Resource allocation must ensure the production of both small and large bones.",
+            "Resource allocation must minimize the usage of meat in producing the bones."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Small and large bones",
+            "Dog hospital",
+            "Constraints",
+            "Meat usage",
+            "Demand fluctuations",
+            "Supply fluctuations",
+            "Independent fluctuations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize meat usage while adjusting the production of small and large bones in response to fluctuating demand, ensuring resource constraints are met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantities of small and large bones produced are subject to simultaneous demand or supply fluctuations.",
+            "The quantities of small and large bones can fluctuate independently but are related."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation between small and large bones",
+            "Minimum meat usage",
+            "Constraints specific to small and large bones",
+            "Production requirements for a dog hospital"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize meat usage while meeting production constraints for small and large bones at a dog hospital."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of small and large bones produced must meet the hospital's demand.",
+            "The allocation of meats to each type of bone production must not exceed the available meat supply.",
+            "The production of bones must comply with the nutritional requirements specified by the hospital.",
+            "Any labor or equipment limitations must be considered when planning the production schedule.",
+            "The allocation must ensure that production costs are minimized while still meeting quality standards."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Production of small and large bones",
+            "Meat usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize meat usage while allocating resources to produce small and large bones at a dog hospital, ensuring specific constraints are met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production schedule must ensure that a specific quantity of small and large bones are produced to meet demand.",
+            "Resource allocation must be optimized without exceeding the available meat supply, minimizing meat usage.",
+            "The production process must adhere to operational capacity limits with respect to time, equipment, and workforce.",
+            "Costs associated with production, including labor and material costs, must remain within a set budget.",
+            "The production must comply with quality standards specified for dog bones.",
+            "Production processes should minimize waste and prioritize sustainable practices."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "small bones",
+            "large bones",
+            "dog hospital",
+            "specific constraints",
+            "minimizing meat usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize meat usage while ensuring production targets for small and large bones are met at the dog hospital."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must be optimized.",
+            "Production of both small and large bones is required.",
+            "Specific constraints must be met.",
+            "Minimizing meat usage is a goal to achieve."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimize resource allocation",
+            "Produce small and large bones",
+            "Meet specific constraints",
+            "Minimize meat usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize meat usage while optimizing resource allocation for producing small and large bones at a dog hospital."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must accommodate the production of both small and large bones.",
+            "The total meat usage must be minimized."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

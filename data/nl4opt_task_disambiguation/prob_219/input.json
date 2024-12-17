@@ -1,0 +1,21 @@
+{
+  "vague_description": "A printing company needs to decide on the number of math and English workbooks to produce given constraints on minimum and maximum quantities, while aiming to maximize profit.",
+  "detailed_description": "A printing company sells math workbooks and English workbooks. To meet demand, they must make at least \\param{MinMath} math workbooks and at least \\param{MinEnglish} English workbooks. However, they can make at most \\param{MaxMath} math workbooks and at most \\param{MaxEnglish} English workbooks. The company has a contract with a school to send at least \\param{MinTotalWorkbooks} workbooks of either type. If the profit per math workbook is $\\param{ProfitMath} and the profit per English workbook is $\\param{ProfitEnglish}, how many of each should the company make to maximize profit?",
+  "target_objective": "Maximize the company's profit from workbook production",
+  "target_constraints": [
+    "Number of math workbooks is at least MinMath",
+    "Number of math workbooks is at most MaxMath",
+    "Number of English workbooks is at least MinEnglish",
+    "Number of English workbooks is at most MaxEnglish",
+    "Total number of workbooks is at least MinTotalWorkbooks"
+  ],
+  "target_parameters": [
+    "Minimum number of math workbooks to be made",
+    "Minimum number of English workbooks to be made",
+    "Maximum number of math workbooks to be made",
+    "Maximum number of English workbooks to be made",
+    "Minimum total number of workbooks to be sent under the contract",
+    "Profit per math workbook",
+    "Profit per English workbook"
+  ]
+}

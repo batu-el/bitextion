@@ -1,0 +1,39 @@
+{
+  "vague_description": "The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.",
+  "detailed_description": "Determine the shortest route that the traveler can take to visit all \\param{N} towns and return to \\param{StartCity}.",
+  "target_objective": "Minimize the total travel distance for the route",
+  "target_constraints": [
+    "The traveler must visit each town exactly once",
+    "The traveler must return to StartCity after visiting all other towns",
+    "The distance between any two towns is non-negative"
+  ],
+  "target_parameters": [
+    "Number of towns to visit",
+    "Index of the start city",
+    "Distance from city i to city j"
+  ],
+  "Expert": {
+    "(0,)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.",
+    "(0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Does the traveler have a specific order that must be followed when visiting the locations?\nUser: No\n",
+    "(0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Does the traveler have a specific order that must be followed when visiting the locations?\nUser: No\n\nExpert: Are there any constraints on the maximum travel distance or time allowed for the entire route?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Does the traveler have a specific order that must be followed when visiting the locations?\nUser: No\n\nExpert: Are there any constraints on the maximum travel distance or time allowed for the entire route?\nUser: No\n\nExpert: Is the distance between each pair of locations symmetric, meaning the distance from A to B is the same as from B to A?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.",
+    "(0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Do any of the problems include a constraint regarding a maximum allowable travel distance?\nUser: No\n",
+    "(0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Do any of the problems include a constraint regarding a maximum allowable travel distance?\nUser: No\n\nExpert: Is the parameter 'distance matrix' explicitly mentioned in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Do any of the problems include a constraint regarding a maximum allowable travel distance?\nUser: No\n\nExpert: Is the parameter 'distance matrix' explicitly mentioned in the problem description?\nUser: Yes\n\nExpert: Does the problem description explicitly mention visiting a list of all locations to be visited as a parameter?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.",
+    "(0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Is the order in which the traveler visits the intermediate locations fixed or can it be freely chosen?\nUser: Yes, the order can be freely chosen.\n",
+    "(0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Is the order in which the traveler visits the intermediate locations fixed or can it be freely chosen?\nUser: Yes, the order can be freely chosen.\n\nExpert: Can the locations be visited only once, or can a location be revisited?\nUser: No, each location can only be visited once before returning to the starting point.\n",
+    "(0, 0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Is the order in which the traveler visits the intermediate locations fixed or can it be freely chosen?\nUser: Yes, the order can be freely chosen.\n\nExpert: Can the locations be visited only once, or can a location be revisited?\nUser: No, each location can only be visited once before returning to the starting point.\n\nExpert: Are there any restrictions on the time at which the traveler can visit each location, such as visiting a location during a specific time window or having limited hours of operation?\nUser: No, there are no restrictions on the time at which the traveler can visit each location.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.",
+    "(0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Are there any constraints other than visiting locations in a continuous path, returning to the starting point, and possibly other travel restrictions?\nUser: No\n",
+    "(0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Are there any constraints other than visiting locations in a continuous path, returning to the starting point, and possibly other travel restrictions?\nUser: No\n\nExpert: Are there any travel restrictions other than the path being continuous?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.\nExpert: Are there any constraints other than visiting locations in a continuous path, returning to the starting point, and possibly other travel restrictions?\nUser: No\n\nExpert: Are there any travel restrictions other than the path being continuous?\nUser: No\n\nExpert: Does the optimization problem include any constraints other than those related to the travel path being continuous and/or returning to the starting point?\nUser: No\n"
+  }
+}

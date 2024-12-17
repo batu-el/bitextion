@@ -1,0 +1,21 @@
+{
+  "vague_description": "You need to optimize the combination of two different types of pills to meet daily nutritional requirements while minimizing costs.",
+  "detailed_description": "My grandma is required to take two medicines Z1 and D3 everyday. She needs to take at least \\var{MinZ1} grams of Z1 and \\var{MinD3} grams of D3 everyday. These medicines are available in two pills named Zodiac and Sunny. One pill of Zodiac contains \\var{Z1perZodiac} grams of Z1 while one pill of Sunny contains \\var{Z1perSunny} grams of Z1. On the other hand, one pill of Zodiac contains \\var{D3perZodiac} grams of D3 and one pill of Sunny contains \\var{D3perSunny} grams of D3. The cost per pill of Zodiac is $\\var{CostZodiac} and the cost per pill of Sunny is $\\var{CostSunny}. Formulate a LP such that the medicine requirement can be fulfilled at the lowest cost.",
+  "target_objective": "Minimize the total cost of the pills while fulfilling the medicine requirements",
+  "target_constraints": [
+    "Grandma needs to take at least MinZ1 grams of Z1 everyday",
+    "Grandma needs to take at least MinD3 grams of D3 everyday",
+    "Number of Zodiac pills is non-negative",
+    "Number of Sunny pills is non-negative"
+  ],
+  "target_parameters": [
+    "Minimum required grams of medicine Z1 per day",
+    "Minimum required grams of medicine D3 per day",
+    "Grams of Z1 in one pill of Zodiac",
+    "Grams of Z1 in one pill of Sunny",
+    "Grams of D3 in one pill of Zodiac",
+    "Grams of D3 in one pill of Sunny",
+    "Cost per pill of Zodiac",
+    "Cost per pill of Sunny"
+  ]
+}

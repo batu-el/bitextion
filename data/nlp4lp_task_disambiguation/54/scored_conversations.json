@@ -1,0 +1,499 @@
+{
+  "vague_description": "Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.",
+  "detailed_description": "How many clicks from each ad type should Custom Tees purchase to maximize the number of unique clicks within the \\param{Budget}? Consider the following parameters: the total number of advertisement types (\\param{A}), costs of purchasing a click from each advertisement type (\\param{Costs}), the maximum number of clicks that can be purchased from each advertisement type (\\param{MaxClicks}), the number of young audience clicks from each advertisement type (\\param{YoungClicks}), the number of old audience clicks from each advertisement type (\\param{OldClicks}), and the number of unique clicks from each advertisement type (\\param{UniqueClicks}). Additionally, consider the goals for the number of clicks from the young (\\param{GoalYoung}) and old (\\param{GoalOld}) audience, as well as the goals for the number of unique clicks from the young (\\param{GoalUniqueYoung}) and old (\\param{GoalUniqueOld}) audience.",
+  "target_objective": "Maximize the number of unique clicks from all advertisement types within the given Budget",
+  "target_constraints": [
+    "Total cost of clicks from all advertisement types must not exceed Budget",
+    "Number of clicks from each advertisement type must not exceed its corresponding MaxClicks",
+    "Number of young audience clicks from all advertisement types must reach at least GoalYoung",
+    "Number of old audience clicks from all advertisement types must reach at least GoalOld",
+    "Number of unique young audience clicks from all advertisement types must reach at least GoalUniqueYoung",
+    "Number of unique old audience clicks from all advertisement types must reach at least GoalUniqueOld",
+    "Number of clicks from each advertisement type is non-negative"
+  ],
+  "target_parameters": [
+    "Number of advertisement types",
+    "Total budget for purchasing clicks",
+    "Cost of purchasing a click from advertisement type a",
+    "Number of maximum clicks that can be purchased from advertisement type a",
+    "Number of young audience clicks from advertisement type a",
+    "Number of old audience clicks from advertisement type a",
+    "Number of unique clicks from advertisement type a",
+    "Goal for number of clicks from young audience",
+    "Goal for number of clicks from old audience",
+    "Goal for number of unique clicks from young audience",
+    "Goal for number of unique clicks from old audience"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.",
+    "(0, 0)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.\nExpert: Does the problem specify particular audience engagement goals for each platform, or are these goals general across all platforms?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.\nExpert: Does the problem specify particular audience engagement goals for each platform, or are these goals general across all platforms?\nUser: Yes\n\nExpert: Are there any constraints on the minimum or maximum budget allocation for each platform?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.\nExpert: Does the problem specify particular audience engagement goals for each platform, or are these goals general across all platforms?\nUser: Yes\n\nExpert: Are there any constraints on the minimum or maximum budget allocation for each platform?\nUser: Yes\n\nExpert: Is the objective of the optimization problem to maximize total audience engagement given the budget constraints?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.",
+    "(0, 0)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.\nExpert: Is the cost per engagement the same across all platforms in any of the candidate problems?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.\nExpert: Is the cost per engagement the same across all platforms in any of the candidate problems?\nUser: No\n\nExpert: Does the problem include a diminishing returns model as part of the constraints or parameters?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.\nExpert: Is the cost per engagement the same across all platforms in any of the candidate problems?\nUser: No\n\nExpert: Does the problem include a diminishing returns model as part of the constraints or parameters?\nUser: No\n\nExpert: Do any of the candidate problems include a constraint that limits the percentage of the total budget that can be allocated to a single platform?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.",
+    "(0, 0)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.\nExpert: Is the audience engagement goal measured by a single metric, such as total reach or average engagement rate, or by multiple metrics that need to be balanced?\nUser: Multiple metrics that include total unique clicks and specific audience segment engagement.\n",
+    "(0, 0, 0)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.\nExpert: Is the audience engagement goal measured by a single metric, such as total reach or average engagement rate, or by multiple metrics that need to be balanced?\nUser: Multiple metrics that include total unique clicks and specific audience segment engagement.\n\nExpert: Is there a minimum threshold or target value for each of these metrics, or are they to be maximized without any specific targets?\nUser: Yes, there are specific targets for each metric: total unique clicks, young audience engagement, and old audience engagement.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.\nExpert: Is the audience engagement goal measured by a single metric, such as total reach or average engagement rate, or by multiple metrics that need to be balanced?\nUser: Multiple metrics that include total unique clicks and specific audience segment engagement.\n\nExpert: Is there a minimum threshold or target value for each of these metrics, or are they to be maximized without any specific targets?\nUser: Yes, there are specific targets for each metric: total unique clicks, young audience engagement, and old audience engagement.\n\nExpert: Are these targets absolute values, or are they relative to the current or historical performance of the advertising campaigns? \nUser: Yes, the targets are absolute values.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.",
+    "(0, 0)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.\nExpert: Is there a clear listing of parameters in the problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.\nExpert: Is there a clear listing of parameters in the problem?\nUser: Yes\n\nExpert: Is the constraint 'limited advertising budget' qualified with a specific monetary value or range (e.g. $X)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategy for allocating a limited advertising budget across multiple platforms to achieve specific audience engagement goals.\nExpert: Is there a clear listing of parameters in the problem?\nUser: Yes\n\nExpert: Is the constraint 'limited advertising budget' qualified with a specific monetary value or range (e.g. $X)?\nUser: Yes\n\nExpert: Is the allocated advertising budget explicitly stated in the problem description? \nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Available advertising budget",
+            "List of advertising platforms",
+            "Cost per engagement for each platform",
+            "Maximum audience reach per platform",
+            "Target audience engagement goals",
+            "Platform-specific audience engagement rates",
+            "Budget allocation constraints or limits per platform"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize audience engagement across multiple advertising platforms given a limited budget."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total advertising expenditure must not exceed the allocated budget.",
+            "Engagement goals must be quantified for each platform (e.g., expected number of clicks, interactions, or new followers).",
+            "The allocation must respect any minimum spend requirements imposed by the advertising platforms.",
+            "Different platforms may have varying costs per engagement, influencing the allocation.",
+            "Engagement must align with specific target audience demographics on each platform.",
+            "There may be diminishing returns on engagement for increased spend on a single platform, suggesting a need for balanced allocation.",
+            "Some platforms may offer bulk discounts or tiered pricing that could affect allocation decisions."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited advertising budget",
+            "Multiple platforms",
+            "Specific audience engagement goals for each platform"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate a limited advertising budget across multiple platforms in such a way that specific audience engagement goals on each platform are achieved."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The advertising budget is limited.",
+            "Specific audience engagement goals must be met for each platform.",
+            "The budget must be allocated across multiple platforms, not just one."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited advertising budget",
+            "Specific audience engagement goals for each platform",
+            "Minimum budget allocation for each platform",
+            "Maximum budget allocation for each platform"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Allocate a limited advertising budget across multiple platforms in a way that achieves specific audience engagement goals while adhering to constraints on minimum and maximum budget allocation for each platform."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total advertising budget is limited and must be fully allocated across the platforms.",
+            "Each platform has a specific audience engagement goal that needs to be achieved.",
+            "There are minimum and maximum budget allocation limits for each platform."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited advertising budget",
+            "Specific audience engagement goals for each platform",
+            "Constraints on minimum or maximum budget allocation for each platform",
+            "Objective is to maximize total audience engagement"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize total audience engagement across multiple platforms given a limited advertising budget and specific audience engagement goals for each platform, while adhering to constraints on budget allocation for each platform."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The strategy must allocate a limited advertising budget across multiple platforms.",
+            "Specific audience engagement goals must be achieved for each platform.",
+            "There are minimum and maximum budget allocations specified for each platform.",
+            "The total allocation must not exceed the available advertising budget."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Advertising budget: The total amount of money available to be spent across various advertising platforms.",
+            "Platforms: The different advertising platforms available for allocation (e.g., Google Ads, Facebook, Instagram, Twitter).",
+            "Audience engagement goals: Specific targets that need to be achieved in terms of audience engagement metrics (e.g., clicks, interactions, conversions).",
+            "Cost per engagement: The cost associated with achieving one unit of audience engagement on each platform."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize audience engagement across multiple platforms subject to a limited advertising budget."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total advertising budget cannot be exceeded.",
+            "Engagement goals must be achieved for each platform.",
+            "Minimum engagement threshold must be maintained across all platforms.",
+            "Advertising spend must be non-negative for each platform.",
+            "Platform-specific engagement rates should be considered known and constant."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Advertising budget, which is limited.",
+            "Multiple platforms, each with a different cost per engagement.",
+            "Audience engagement goals, which need to be achieved.",
+            "The need to allocate the budget across these platforms optimally."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate a limited advertising budget across multiple platforms in a way that maximizes audience engagement, taking into account variable costs per engagement on each platform."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total advertising spend cannot exceed the available budget.",
+            "The cost per engagement varies across different platforms.",
+            "Engagement levels need to meet specific target goals set by the user.",
+            "The allocation should consider the diminishing returns of increasing spend within the same platform.",
+            "The solution must adhere to any platform-specific spending minimums or maximums."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Advertising Budget",
+            "Audience Engagement Goals",
+            "Cost per Engagement for Each Platform"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total advertising cost while achieving specified engagement targets across different platforms."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total spending across all platforms must not exceed the limited advertising budget.",
+            "The cost per engagement varies across different platforms.",
+            "Audience engagement goals must be met across all platforms."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited advertising budget",
+            "Multiple platforms",
+            "Different cost per engagement for each platform",
+            "Specific audience engagement goals"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize audience engagement within the constraints of a limited advertising budget across multiple platforms."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total budget must be fully allocated across the multiple platforms.",
+            "The cost per engagement is different across all platforms.",
+            "Audience engagement goals must be met across the platforms within the budget limit."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Advertising budget",
+            "Multiple platforms",
+            "Audience engagement goals"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Allocate a limited advertising budget across multiple platforms to maximize audience engagement while meeting specific engagement goals."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraint: The total amount spent on advertising across all platforms cannot exceed the specified advertising budget.",
+            "Platform constraint: Each chosen platform may have a minimum or maximum that can be allocated, based on platform-specific rules or advertiser agreements.",
+            "Engagement goal constraint: The total engagement achieved (measured in likes, shares, clicks, etc.) from the advertising across all platforms should meet or exceed the specified audience engagement goals.",
+            "Reach constraint: The allocation should consider the minimum reach requirement for each platform, ensuring that a diverse audience engagement is covered.",
+            "Return on Investment (ROI) constraint: Preferably, maintain a positive ROI for each platform, balancing between high-cost and high-return strategies.",
+            "Temporal constraint: The advertising spend may need to be distributed over a set timeline to align with campaign timings or periods of increased audience activity.",
+            "Demographic constraint: The spend should ideally align with the demographic targets for each platform, ensuring that the advertising is shown to the intended audience segments."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited advertising budget",
+            "Total unique clicks",
+            "Specific audience segment engagement"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate a limited advertising budget across multiple platforms in a way that maximizes total unique clicks and optimizes engagement with specific audience segments."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total advertising budget is limited and must be distributed across different platforms.",
+            "Each platform has an associated cost per engagement, which affects how much of the budget can be allocated to it.",
+            "The allocation strategy must aim to maximize total unique clicks across all platforms.",
+            "Specific audience segment engagement must be achieved, potentially requiring targeted allocations to specific platforms that cater to these segments.",
+            "No single platform should receive the entire budget unless it can feasibly maximize both total unique clicks and audience segment engagement.",
+            "Engagement levels must be achievable within the parameters of the available budget and platform characteristics (e.g., audience demographics, typical engagement rates)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Advertising budget",
+            "Total unique clicks target",
+            "Young audience engagement target",
+            "Old audience engagement target"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate a limited advertising budget across multiple platforms in order to achieve specific targets for total unique clicks, young audience engagement, and old audience engagement."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget for advertising is limited.",
+            "Metrics to be considered include total unique clicks, young audience engagement, and old audience engagement.",
+            "There are specific target values for total unique clicks, young audience engagement, and old audience engagement that must be met or exceeded."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total unique clicks",
+            "Young audience engagement",
+            "Old audience engagement",
+            "Specific target values for each metric",
+            "Limited advertising budget",
+            "Allocation across multiple platforms"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate a limited advertising budget across multiple platforms in order to achieve specific absolute target values in multiple audience engagement metrics, including total unique clicks, young audience engagement, and old audience engagement."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The advertising budget must be allocated across multiple platforms under the condition of limited total funds.",
+            "Achieve a target for total unique clicks as part of the audience engagement goals.",
+            "Achieve a specified target for young audience engagement.",
+            "Achieve a specified target for old audience engagement."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Advertising budget",
+            "List of multiple platforms",
+            "Specific audience engagement goals"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize audience engagement across multiple platforms within a limited advertising budget."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total spending on all platforms must not exceed the limited advertising budget.",
+            "Each platform has a minimum and maximum spending limit.",
+            "The engagement on each platform is determined by specific conversion rates that can vary per platform.",
+            "Audience engagement goals include metrics such as reach, impressions, clicks, and conversions that need to be met or exceeded.",
+            "There is an interaction effect where the spending on one platform may influence the engagement outcomes on another platform.",
+            "Allocation should consider diminishing returns where increasing spending on a single platform may result in lower incremental engagement.",
+            "The overall strategy must comply with any legal or regulatory requirements around advertising."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Advertising budget (total amount available)",
+            "Audience engagement goals (specific metrics to be achieved)",
+            "Available advertising platforms",
+            "Costs associated with advertising on each platform",
+            "Expected audience reach on each platform",
+            "Target audience profile for each platform",
+            "Time frame for achieving the engagement goals"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize audience engagement by optimally distributing a limited advertising budget across various platforms."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total advertising budget is limited and fixed.",
+            "Each advertising platform has a different cost per engagement metric.",
+            "There is a maximum budget allocation limit per platform due to contractual commitments or platform spending limits.",
+            "There are minimum engagement goals that need to be achieved on each platform.",
+            "The sum of the allocations across all platforms cannot exceed the total budget.",
+            "There might be diminishing returns on investment for each additional unit of currency spent on a platform beyond a certain point."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited advertising budget of $X",
+            "Multiple advertising platforms",
+            "Specific audience engagement goals"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize audience engagement across multiple advertising platforms within the constraints of a specified limited budget."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total spending on advertising across all platforms must not exceed the specified total budget.",
+            "Expenditure on each platform could be further limited by individual platform constraints.",
+            "Each platform may have its own minimum spending requirement to initiate campaigns.",
+            "The strategy must achieve a specific minimum level of audience engagement across all platforms combined.",
+            "Audience engagement goals may need to be defined precisely for each platform.",
+            "There might be constraints based on the allowed maximum or minimum proportion of budget allocated per platform."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited advertising budget with a specific monetary value or range",
+            "Multiple advertising platforms available for allocation",
+            "Specific audience engagement goals"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate a limited advertising budget across multiple platforms in a way that maximizes audience engagement while staying within the specified budget."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total advertising spend across all platforms must not exceed the specified budget.",
+            "Each platform may have a minimum or maximum budget allocation requirement.",
+            "The engagement goals must be met for each platform or collectively across platforms."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    }
+  }
+}

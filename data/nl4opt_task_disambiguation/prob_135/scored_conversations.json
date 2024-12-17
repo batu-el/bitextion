@@ -1,0 +1,458 @@
+{
+  "vague_description": "We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.",
+  "detailed_description": "Both sulfate and ginger need to be added to a shampoo. One unit of sulfate takes \\param{SulfateTime} minutes to be effective while one unit of ginger takes \\param{GingerTime} minutes to be effective. The shampoo must contain at least \\param{MinSulfate} units of sulfates and a total of \\param{TotalUnits} units of both ingredients. Since too much sulfate can damage the hair, there can be at most \\param{MaxSulfateGingerRatio} times the amount of sulfate as ginger in the shampoo. How many units of each should be added to the shampoo to minimize the total amount of time it takes for the mixture to be effective? (Note: one must be added before the other)",
+  "target_objective": "Minimize the total time for the shampoo mixture to be effective",
+  "target_constraints": [
+    "Units of sulfate must be at least MinSulfate",
+    "Total units of sulfate and ginger must equal TotalUnits",
+    "Sulfate-to-ginger ratio must be at most MaxSulfateGingerRatio",
+    "Units of sulfate are non-negative",
+    "Units of ginger are non-negative"
+  ],
+  "target_parameters": [
+    "Time for one unit of sulfate to be effective",
+    "Time for one unit of ginger to be effective",
+    "Minimum required units of sulfate",
+    "Total required units of ingredients",
+    "Maximum ratio of sulfate to ginger"
+  ],
+  "Expert": {
+    "(0,)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.",
+    "(0, 0)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.\nExpert: Are there specific numerical constraints on the quantities of the two ingredients that define the safety limits?\nUser: Yes\n",
+    "(0, 0, 0)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.\nExpert: Are there specific numerical constraints on the quantities of the two ingredients that define the safety limits?\nUser: Yes\n\nExpert: Is there a mathematical function or formula that needs to be optimized to maximize product efficacy?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.\nExpert: Are there specific numerical constraints on the quantities of the two ingredients that define the safety limits?\nUser: Yes\n\nExpert: Is there a mathematical function or formula that needs to be optimized to maximize product efficacy?\nUser: Yes\n\nExpert: Is the function to be optimized linear with respect to the quantities of the two ingredients?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.",
+    "(0, 0)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.\nExpert: Does the problem include a constraint on the total proportion of Ingredients A and B being exactly 100%?\nUser: No\n",
+    "(0, 0, 0)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.\nExpert: Does the problem include a constraint on the total proportion of Ingredients A and B being exactly 100%?\nUser: No\n\nExpert: Does the problem explicitly include a cost constraint related to the ingredients?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.\nExpert: Does the problem include a constraint on the total proportion of Ingredients A and B being exactly 100%?\nUser: No\n\nExpert: Does the problem explicitly include a cost constraint related to the ingredients?\nUser: No\n\nExpert: Does the problem description include safety constraints based on a safety index or toxicity function?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.",
+    "(0, 0)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.\nExpert: Are there any constraints on the cost of the two ingredients?\nUser: No\n",
+    "(0, 0, 0)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.\nExpert: Are there any constraints on the cost of the two ingredients?\nUser: No\n\nExpert: Are the proportions of the two ingredients being optimized to achieve a specific performance metric?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.\nExpert: Are there any constraints on the cost of the two ingredients?\nUser: No\n\nExpert: Are the proportions of the two ingredients being optimized to achieve a specific performance metric?\nUser: Yes\n\nExpert: Is the performance metric that these proportions are being optimized for a quantitative, numerical value?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.",
+    "(0, 0)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.\nExpert: Does the problem involve optimizing proportions of two or more ingredients in a product?\nUser: Yes\n",
+    "(0, 0, 0)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.\nExpert: Does the problem involve optimizing proportions of two or more ingredients in a product?\nUser: Yes\n\nExpert: Are the proportions of the ingredients fixed or can they be adjusted within certain limits?\nUser: The proportions can be adjusted within certain limits.\n",
+    "(0, 0, 0, 0)": "User: We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.\nExpert: Does the problem involve optimizing proportions of two or more ingredients in a product?\nUser: Yes\n\nExpert: Are the proportions of the ingredients fixed or can they be adjusted within certain limits?\nUser: The proportions can be adjusted within certain limits.\n\nExpert: Is the term 'proportion' or its variants mentioned in the 'parameters' field?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Proportion of ingredient 1 (x1)",
+            "Proportion of ingredient 2 (x2)",
+            "Efficacy level threshold (efficacy)",
+            "Safety limit for ingredient 1 (safety_1)",
+            "Safety limit for ingredient 2 (safety_2)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal proportions of two ingredients in a product that maintain efficacy and stay within safety limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of proportions of the two ingredients should equal 100%.",
+            "The efficacy level of the product must remain above a specified minimum threshold.",
+            "The proportion of each ingredient must stay within its individual safety limit.",
+            "The overall mixture should not exceed a maximum allowable total volume."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Proportion of ingredient 1",
+            "Proportion of ingredient 2",
+            "Safety limits for ingredient 1",
+            "Safety limits for ingredient 2",
+            "Efficacy level"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal proportions of two ingredients in a product such that the overall efficacy is maximized while adhering to pre-defined safety limits for each ingredient."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantities of both ingredients must individually not exceed their respective safety limits set by regulatory guidelines.",
+            "The total proportion of the ingredients must maintain the required efficacy level of the product.",
+            "The combined quantity of the ingredients should not exceed the maximum allowable volume or weight capacity of the product."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Proportion of first ingredient",
+            "Proportion of second ingredient",
+            "Upper safety limit for proportion of first ingredient",
+            "Upper safety limit for proportion of second ingredient",
+            "Efficacy function to optimize"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the appropriate proportions of two ingredients in a product that maximize product efficacy while staying within defined safety limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the proportions of the two ingredients must equal 1.",
+            "The proportion of the first ingredient must be greater than or equal to a specified minimum threshold for safety.",
+            "The proportion of the second ingredient must be less than or equal to a specified maximum threshold for safety.",
+            "The efficacy of the product is represented by a mathematical function of the proportions of the two ingredients, which needs to be maximized."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "- Proportion constraints for Ingredient 1 (lower and upper safety limits)",
+            "- Proportion constraints for Ingredient 2 (lower and upper safety limits)",
+            "- Linear equation representing product efficacy as a function of the proportions of the two ingredients"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the mix of two ingredients that maximizes product efficacy while satisfying given safety constraints on ingredient levels."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The mixture must contain specific proportions of two ingredients.",
+            "The quantities of these ingredients must adhere to safety limits.",
+            "The quantities must collectively optimize a linear efficacy function."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Proportion of ingredient 1",
+            "Proportion of ingredient 2"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal proportions of two ingredients in a product to maximize efficacy while staying within specified safety limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combination of ingredients must maintain the efficacy of the product.",
+            "The proportions of each ingredient must adhere to safety limits.",
+            "The sum of the proportions of the two ingredients should be 100% or within a specific total quantity.",
+            "Individual ingredient quantities should not exceed their maximum allowed limits.",
+            "The final product must meet regulatory compliance standards for safety and efficacy."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Proportion of Ingredient A",
+            "Proportion of Ingredient B",
+            "Efficacy Level",
+            "Safety Limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal proportions of Ingredients A and B in a product that maximize efficacy while adhering to safety limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combination of Ingredients A and B must maintain product efficacy.",
+            "Ingredients A and B must adhere to safety limits when combined.",
+            "There is no constraint requiring that the total proportion of Ingredients A and B be exactly 100%."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficacy limit",
+            "Safety limits for Ingredient A",
+            "Safety limits for Ingredient B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal proportions of two ingredients in a product to maximize efficacy while ensuring safety limits are not exceeded."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combined proportion of Ingredient A and Ingredient B does not need to be exactly 100%.",
+            "The formulation must maintain efficacy, which implies a certain minimum proportion of one or both ingredients.",
+            "The formulation must stay within safety limits, implying a maximum allowed proportion for one or both ingredients."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Proportion of Ingredient A",
+            "Proportion of Ingredient B",
+            "Efficacy Function",
+            "Safety Index or Toxicity Function"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize product efficacy by determining the appropriate proportions of two ingredients while ensuring safety through a safety index or toxicity function."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Safety constraint based on a safety index or toxicity function."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Ingredient A proportion",
+            "Ingredient B proportion"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal proportions of two ingredients in a product formulation that maximize efficacy while ensuring safety constraints are not violated."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the proportions of the two ingredients in the product must equal 100%.",
+            "The efficacy of the product must meet a predetermined minimum threshold.",
+            "The safety limits for each ingredient must not be exceeded in the product formulation."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Proportions of two ingredients",
+            "Efficacy requirements",
+            "Safety limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal proportions of two ingredients in a product to maximize efficacy while staying within safety limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combined proportions of the two ingredients must maintain the product's efficacy.",
+            "The proportions must stay within established safety limits for each ingredient."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Proportion of ingredient 1",
+            "Proportion of ingredient 2",
+            "Efficacy threshold",
+            "Safety limit for ingredient 1",
+            "Safety limit for ingredient 2"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the proportions of two ingredients in a product to maximize performance efficacy while maintaining safety limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The proportions of the two ingredients must maintain the product's efficacy.",
+            "The proportions must stay within established safety limits."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Proportions of the two ingredients",
+            "Efficacy",
+            "Safety limits",
+            "Performance metric"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the proportions of two ingredients in a product to achieve a specific quantitative performance metric while maintaining efficacy and staying within safety limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The proportions of the two ingredients must maintain the efficacy of the product.",
+            "The proportions of the two ingredients must stay within safety limits.",
+            "The proportions are being optimized to achieve a specific quantitative performance metric."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "proportion of ingredient 1",
+            "proportion of ingredient 2",
+            "efficacy constraint",
+            "safety limit for ingredient 1",
+            "safety limit for ingredient 2"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal proportions of two ingredients in a product to maximize efficacy while adhering to safety constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the proportions of the two ingredients must be equal to 1.",
+            "Each ingredient proportion must be non-negative.",
+            "The efficacy constraint must be satisfied, which could be represented by a minimum required level of active compounds in the final product.",
+            "Safety limits must be adhered to, meaning the concentration of each ingredient should not exceed a certain maximum threshold."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Proportions of two ingredients in a product",
+            "Efficacy requirements",
+            "Safety limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal proportions of two ingredients in a product that maintain efficacy and stay within safety limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maintain the efficacy of the product by achieving a desired proportion between the two ingredients that maximizes effectiveness.",
+            "Ensure the safety limits are not breached for any individual ingredient, adhering to regulatory or health guidelines.",
+            "Balance the proportions so that the final composition of the ingredients aligns with both manufacturer and consumer safety standards."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Proportions of two ingredients"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the proportions of two ingredients in a product to maintain product efficacy while adhering to safety limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The proportions of both ingredients must sum to 1 (or 100%).",
+            "Each ingredient ratio must stay within its minimum and maximum safety limits.",
+            "The mix of ingredients must achieve a required level of efficacy."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "ingredients proportions",
+            "efficacy",
+            "safety limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To identify the optimal proportions of two ingredients in a product to ensure maximum efficacy while adhering to specified safety limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Proportion of Ingredient A + Proportion of Ingredient B = 1",
+            "Minimum safety limit for Ingredient A <= Proportion of Ingredient A <= Maximum safety limit for Ingredient A",
+            "Minimum safety limit for Ingredient B <= Proportion of Ingredient B <= Maximum safety limit for Ingredient B",
+            "Efficacy requirements must be met for the combination of Ingredient A and Ingredient B"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      }
+    }
+  }
+}

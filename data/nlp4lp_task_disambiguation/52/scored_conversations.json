@@ -1,0 +1,506 @@
+{
+  "vague_description": "The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.",
+  "detailed_description": "How many batches of each part should the manufacturer produce each month to maximize profit? The manufacturer has \\param{M} machines and \\param{P} parts to be produced. Each machine m has an associated cost of \\param{MachineCosts}, time requirement \\param{TimeRequired}, and availability \\param{Availability} per month. Each part p has a selling price \\param{Prices} and a production minimum requirement \\param{MinBatches}.",
+  "target_objective": "Maximize the manufacturer's profit from producing parts, which is calculated from the selling prices of parts minus the costs of using machines",
+  "target_constraints": [
+    "Number of batches for each part p is non-negative",
+    "Each machine m can be used for up to Availability[m] hours per month",
+    "Each part p must be produced in at least MinBatches[p] batches",
+    "The total time used on each machine m by all parts p does not exceed TimeRequired[m][p] multiplied by the number of batches for part p, summed across all parts"
+  ],
+  "target_parameters": [
+    "Number of machines",
+    "Number of parts to be produced",
+    "Time required to produce a batch of part p on machine m",
+    "Cost associated with running machine m",
+    "Availability of machine m per month",
+    "Selling price of a batch of part p",
+    "Minimum number of batches of part p that should be produced"
+  ],
+  "Expert": {
+    "(0,)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.",
+    "(0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Does the optimization problem include constraints on the maximum production capacity for the machines involved?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Does the optimization problem include constraints on the maximum production capacity for the machines involved?\nUser: Yes\n\nExpert: Are there different types of products being manufactured that have distinct production requirements and profit margins?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Does the optimization problem include constraints on the maximum production capacity for the machines involved?\nUser: Yes\n\nExpert: Are there different types of products being manufactured that have distinct production requirements and profit margins?\nUser: Yes\n\nExpert: Are there constraints related to the availability or cost of raw materials needed for production?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.",
+    "(0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Do the candidate problems include constraints related to inventory levels or storage capacity limits?\nUser: No\n",
+    "(0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Do the candidate problems include constraints related to inventory levels or storage capacity limits?\nUser: No\n\nExpert: Is there a constraint related to the non-negativity or integer requirement of production quantities?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Do the candidate problems include constraints related to inventory levels or storage capacity limits?\nUser: No\n\nExpert: Is there a constraint related to the non-negativity or integer requirement of production quantities?\nUser: Yes\n\nExpert: Do all candidate problems include constraints specifically related to machine operating costs?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.",
+    "(0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Is time a limiting factor in the production process that affects the objective of maximizing profits?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Is time a limiting factor in the production process that affects the objective of maximizing profits?\nUser: Yes\n\nExpert: Is the production process subject to any time-dependent constraints such as a limited number of production shifts or a maximum working hour limit?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Is time a limiting factor in the production process that affects the objective of maximizing profits?\nUser: Yes\n\nExpert: Is the production process subject to any time-dependent constraints such as a limited number of production shifts or a maximum working hour limit?\nUser: Yes\n\nExpert: Is the time-dependent constraint you mentioned a hard limit (i.e., cannot exceed it) or a soft limit (i.e., there are penalties for exceeding it)?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.",
+    "(0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Does the problem description contain a parameter related to the production quantity or levels?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Does the problem description contain a parameter related to the production quantity or levels?\nUser: Yes\n\nExpert: Does the objective function contain the word 'maximize'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The manufacturer needs to determine the optimal monthly production plan for maximizing profits while accounting for machine costs, time, and minimum production requirements.\nExpert: Does the problem description contain a parameter related to the production quantity or levels?\nUser: Yes\n\nExpert: Does the objective function contain the word 'maximize'?\nUser: Yes\n\nExpert: Does the problem description contain the word 'maximize' (case-insensitive) in its 'objective' field?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Monthly production units",
+            "Machine costs",
+            "Available hours",
+            "Minimum production requirements",
+            "Profit per unit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by determining the optimal monthly production plan, considering machine costs, time constraints, and minimum production requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Monthly production must meet or exceed the minimum production requirements set by the manufacturer.",
+            "The total machine operation cost must not exceed the allocated budget for production costs each month.",
+            "The production plan must take into account the available machine time, ensuring output does not exceed operational capacity."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "monthly production plan",
+            "profits",
+            "machine costs",
+            "time",
+            "minimum production requirements",
+            "maximum production capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize monthly profits by optimizing the production plan, subject to constraints on machine costs, production time, minimum production requirements, and maximum production capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maximum production capacity for the machines",
+            "Machine costs per month",
+            "Minimum monthly production requirements",
+            "Available production time"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize profits",
+            "machine costs",
+            "time",
+            "minimum production requirements",
+            "maximum production capacity",
+            "different types of products",
+            "distinct production requirements",
+            "profit margins"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profits by determining the optimal monthly production plan, considering machine costs, time, minimum and maximum production requirements for different product types with distinct production requirements and profit margins."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total monthly production cannot exceed the maximum production capacity of the machines involved.",
+            "The production plan must meet specific minimum production requirements for each type of product.",
+            "Each type of product has distinct production requirements that need to be accounted for in the production plan.",
+            "Different profit margins must be considered for different types of products, influencing the objective function but possibly implied as part of the constraint formulation."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Monthly production plan",
+            "Maximizing profits",
+            "Machine costs",
+            "Production time",
+            "Minimum production requirements",
+            "Maximum production capacity",
+            "Multiple product types",
+            "Distinct production requirements",
+            "Distinct profit margins"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by determining the optimal monthly production plan, considering machine costs, production time, minimum production requirements, maximum machine production capacity, and varying profit margins for different product types."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maximum production capacity for each machine.",
+            "Minimum production requirements for each product.",
+            "Distinct production time and cost for each type of product.",
+            "Different profit margins for each type of product."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Monthly production quantity",
+            "Production machine costs",
+            "Time required for production",
+            "Minimum production requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximizing profits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total monthly production should not exceed the maximum machine capacity.",
+            "The production plan should meet the minimum production requirements for all products.",
+            "The total production time should not exceed the available machine hours per month.",
+            "The cost of production, including machine costs and other expenses, should not surpass the budget constraints."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "monthly production",
+            "profit maximization",
+            "machine costs",
+            "time",
+            "minimum production requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profits by determining the optimal monthly production plan, considering machine costs, time, and minimum production requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine costs must be considered in the monthly production plan.",
+            "The available production time is a constraint; production cannot exceed the hours available.",
+            "There are minimum production requirements that must be met each month.",
+            "Inventory levels and storage capacity limits do not apply as constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Monthly production quantities",
+            "Machine costs",
+            "Production time",
+            "Minimum production requirements",
+            "Non-negativity constraint",
+            "Integer constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by determining the optimal monthly production plan, accounting for machine costs, time, minimum production requirements, and ensuring that production quantities are non-negative and possibly integer-valued."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Non-negativity constraint on production quantities.",
+            "Integer requirement on production quantities."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize profits",
+            "Account for machine costs",
+            "Account for production time",
+            "Meet minimum production requirements",
+            "Non-negativity or integer production constraints",
+            "Constraints related to machine operating costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profits by determining the optimal monthly production plan while considering machine operating costs, time, and minimum production requirements, with constraints on non-negativity or integer production quantities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maximize profits",
+            "Account for machine costs",
+            "Account for production time",
+            "Account for minimum production requirements",
+            "Ensure non-negativity of production quantities",
+            "Machine operating costs must be considered"
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "monthly production quantity",
+            "machine costs",
+            "available machine time",
+            "minimum production requirements",
+            "profits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by determining the optimal monthly production plan considering machine costs, time constraints, and minimum production requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Monthly production must not exceed machine capacity.",
+            "Production must meet minimum monthly requirement.",
+            "Total production time must not exceed available working hours.",
+            "Costs associated with production should not exceed a specified budget."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "monthly production plan",
+            "machine costs",
+            "production time",
+            "minimum production requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profits by determining the optimal monthly production plan, considering machine costs, time constraints, and minimum production requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production time per unit type is limited due to machine availability and operation hours.",
+            "Each machine has a maximum operation time per month.",
+            "There is a minimum production requirement for each product type that must be met monthly.",
+            "Total production must consider the cost of operating each machine to ensure profitability.",
+            "Production plan must not exceed available machine hours while meeting minimum requirements."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Monthly production quantity",
+            "Machine costs",
+            "Production time",
+            "Minimum production requirements",
+            "Profit maximization",
+            "Time-dependent constraints (e.g., production shifts, working hour limits)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal monthly production plan that maximizes profits while considering machine costs, time constraints such as limited shifts or working hours, and minimum production requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production plan must not exceed the available number of production shifts.",
+            "The total production must meet or exceed the minimum required output level.",
+            "The plan should account for machine costs.",
+            "The plan must adhere to any maximum working hour limitations."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "monthly production plan",
+            "profits",
+            "machine costs",
+            "time",
+            "minimum production requirements",
+            "time as a limiting factor",
+            "time-dependent constraints",
+            "maximum working hour limit",
+            "hard limit on working hours"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal monthly production plan for maximizing profits, while considering machine costs, time constraints including production shifts or working hour limits, and minimum production requirements. This involves optimizing production efficiency within hard time constraints to ensure an optimal balance of production output that results in maximum profitability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production must fit within a limited number of production shifts or maximum working hours per month.",
+            "Machine costs need to be accounted for in the production plan.",
+            "There are minimum production requirements that must be met each month.",
+            "The time-dependent constraint on production hours is a hard limit and cannot be exceeded."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "monthly production quantity",
+            "production costs",
+            "machine costs",
+            "production time",
+            "minimum production requirements",
+            "selling price",
+            "profit margin"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by optimizing monthly production while considering machine costs, time constraints, and minimum production requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The monthly production costs must include machine maintenance and operation costs.",
+            "The production plan must not exceed the available machine operation time per month.",
+            "There is a minimum production requirement that must be met each month.",
+            "The profit calculation should include revenue from sales minus production costs including machine costs."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "monthly production quantity",
+            "machine costs",
+            "time",
+            "minimum production requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by determining the optimal monthly production plan while considering machine costs, time constraints, and minimum production requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production quantity must meet minimum production requirements.",
+            "The machine costs must be accounted for within the total production costs.",
+            "The time available for production is limited, likely implying a constraint on machine hours or labor hours."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "monthly production plan",
+            "machine costs",
+            "time",
+            "minimum production requirements",
+            "production quantity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal monthly production plan that maximizes profits for the manufacturer."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production plan must account for machine costs.",
+            "The plan must consider the time constraints of production.",
+            "There are minimum production requirements that need to be met."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "monthly production quantity",
+            "machine costs",
+            "machine time",
+            "minimum production requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by optimizing the monthly production plan considering machine costs, time, and minimum production requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production must meet minimum monthly production requirements.",
+            "Adhere to available machine time limits.",
+            "Account for machine maintenance costs in production costs."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      }
+    }
+  }
+}

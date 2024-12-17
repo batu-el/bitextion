@@ -1,0 +1,486 @@
+{
+  "vague_description": "A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.",
+  "detailed_description": "A bee farmer transports his honey in small and large bottles. A small bottle can take \\param{SmallBottleCapacity} units of honey while a large bottle can take \\param{LargeBottleCapacity} units of honey. The farmer has available at most \\param{MaxSmallBottles} small bottles and at most \\param{MaxLargeBottles} large bottles. In addition, since small bottles are easier to sell, at least \\param{MinRatioSmallToLarge} times as many small bottles must be used than large bottles. Finally, he can transport at most \\param{MaxBottlesTransported} bottles total, and at least \\param{MinLargeBottles} must be large bottles. How many of each bottle should he use to maximize the total amount of honey he can transport?",
+  "target_objective": "Maximize the total amount of honey that can be transported",
+  "target_constraints": [
+    "Number of small bottles used is non-negative and integer",
+    "Number of large bottles used is non-negative and integer",
+    "Small bottles used are at most MaxSmallBottles",
+    "Large bottles used are at most MaxLargeBottles",
+    "At least MinRatioSmallToLarge times as many small bottles must be used as large bottles",
+    "At most MaxBottlesTransported bottles can be transported in total",
+    "At least MinLargeBottles must be large bottles"
+  ],
+  "target_parameters": [
+    "Capacity of a small bottle",
+    "Capacity of a large bottle",
+    "Maximum number of small bottles available",
+    "Maximum number of large bottles available",
+    "Maximum number of bottles that can be transported",
+    "Minimum ratio of the number of small bottles to large bottles",
+    "Minimum number of large bottles to be used"
+  ],
+  "Expert": {
+    "(0,)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.",
+    "(0, 0)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.\nExpert: Is there a specific objective function the farmer wants to optimize, such as minimizing cost or maximizing profit?\nUser: No.\n",
+    "(0, 0, 0)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.\nExpert: Is there a specific objective function the farmer wants to optimize, such as minimizing cost or maximizing profit?\nUser: No.\n\nExpert: Is there a constraint related to the volume or weight capacity of the bottles for transporting honey?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.\nExpert: Is there a specific objective function the farmer wants to optimize, such as minimizing cost or maximizing profit?\nUser: No.\n\nExpert: Is there a constraint related to the volume or weight capacity of the bottles for transporting honey?\nUser: Yes.\n\nExpert: Is there a constraint on the types or sizes of bottles that can be used for filling the honey?\nUser: Yes.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.",
+    "(0, 0)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.\nExpert: Does the problem involve a constraint specifically related to transportation capacity based on weight?\nUser: No\n",
+    "(0, 0, 0)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.\nExpert: Does the problem involve a constraint specifically related to transportation capacity based on weight?\nUser: No\n\nExpert: Does the problem include a labor time constraint explicitly defining the maximum number of hours available for bottling? \nUser: No\n",
+    "(0, 0, 0, 0)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.\nExpert: Does the problem involve a constraint specifically related to transportation capacity based on weight?\nUser: No\n\nExpert: Does the problem include a labor time constraint explicitly defining the maximum number of hours available for bottling? \nUser: No\n\nExpert: Does the optimization problem involve adhering to a specific ratio among different bottle sizes?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.",
+    "(0, 0)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.\nExpert: Are there multiple types of bottles with different capacities that the farmer can fill with honey?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.\nExpert: Are there multiple types of bottles with different capacities that the farmer can fill with honey?\nUser: Yes\n\nExpert: Are there any constraints on the maximum capacity of each bottle type?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.\nExpert: Are there multiple types of bottles with different capacities that the farmer can fill with honey?\nUser: Yes\n\nExpert: Are there any constraints on the maximum capacity of each bottle type?\nUser: Yes\n\nExpert: Are the capacities of each bottle type fixed or can they vary depending on the specific bottle?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.",
+    "(0, 0)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.\nExpert: Is the objective of the problem to optimize multiple related objectives?\nUser: No\n",
+    "(0, 0, 0)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.\nExpert: Is the objective of the problem to optimize multiple related objectives?\nUser: No\n\nExpert: Does the problem have any constraints that are not quantitative?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A farmer must determine how to fill and transport bottles of honey given certain constraints on sizes, quantities, and ratios.\nExpert: Is the objective of the problem to optimize multiple related objectives?\nUser: No\n\nExpert: Does the problem have any constraints that are not quantitative?\nUser: No\n\nExpert: Does the problem have a fixed time frame within which the objective must be maximized?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Bottle sizes (ml)",
+            "Number of bottles available for each size",
+            "Ratio of honey types to be mixed",
+            "Capacity of transport vehicle (in bottles or volume)",
+            "Total honey available (liters)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total volume of honey transported while adhering to constraints on bottle sizes, quantities of available bottles, and specified ratios of different honey types."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The bottles can only be filled with honey.",
+            "There is a limit to the number of bottles available for filling.",
+            "Different sizes of bottles may be available, each with a fixed capacity.",
+            "There must be a specific ratio of types of honey used, such as light and dark honey, in the filled bottles.",
+            "The total amount of honey available for filling is limited.",
+            "Transportation of filled bottles must adhere to capacity or weight constraints of the transport vehicle."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "sizes",
+            "quantities",
+            "ratios"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal way to fill and transport bottles of honey given constraints on sizes, quantities, and ratios without a specific objective function like minimizing cost or maximizing profit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The bottles must be filled with honey.",
+            "There are constraints on the sizes of the bottles.",
+            "There are constraints on the quantities of honey in the bottles.",
+            "There are constraints on the ratios of different sizes or quantities of bottles."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "size constraints of bottles",
+            "quantity of bottles available",
+            "ratios of honey fill levels",
+            "volume capacity of transportation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of honey into bottles for transportation while meeting size, quantity, and ratio constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total volume of honey in the bottles cannot exceed a certain weight capacity for transport.",
+            "The bottles have size constraints; they must all be filled according to specific size options available."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Volume capacity of bottles",
+            "Weight capacity of bottles",
+            "Types of bottles",
+            "Sizes of bottles"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal quantities and sizes of bottles to fill and transport honey given constraints on bottle sizes, quantities, and volume or weight capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total volume or weight of honey that can be transported is limited by the capacity of the bottles.",
+            "Only specific types or sizes of bottles can be used for filling the honey."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Size of bottles available for honey filling",
+            "Total quantity of honey available",
+            "Minimum and maximum number of bottles that need to be filled",
+            "Ratios of different bottle sizes that should be maintained",
+            "Capacity of each bottle size",
+            "Constraints on the type of transportation available",
+            "Maximum load each type of transportation can carry",
+            "Cost associated with using different transportation methods"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the number of bottles filled and transported given constraints on bottle sizes, available honey, and feasible bottle ratio distributions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of bottles filled must not exceed the farmer's total supply of bottles.",
+            "Each honey bottle must be filled to its designated capacity without any excess.",
+            "There is a limited amount of honey available, which imposes a constraint on the total volume of honey distributed across all bottles.",
+            "The distribution of honey must maintain a certain ratio or proportion across different bottle sizes.",
+            "The weight of filled bottles must be within transportation limits to ensure safety and compliance with transport regulations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "bottle sizes",
+            "bottle quantities",
+            "ratios of honey in different bottles"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimally fill and transport bottles of honey while adhering to the constraints on sizes, quantities, and ratios."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Constraints on sizes of bottles.",
+            "Constraints on quantities of bottles that need to be filled.",
+            "Constraints on the ratio of different size bottles."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "bottle sizes",
+            "number of bottles to fill",
+            "ratios of different types of honey in each bottle"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the filling and transportation of bottles of honey while adhering to specified constraints on sizes, quantities, and ratios without considering transportation weight capacity or labor time limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each bottle size must have a specified quantity filled.",
+            "The ratio between different honey varieties in the bottles must be maintained as per given instructions."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Sizes of bottles",
+            "Quantities of bottles",
+            "Ratios among different bottle sizes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal way to fill and transport bottles of honey while adhering to a predetermined ratio among different bottle sizes."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a constraint to adhere to a specific ratio among different bottle sizes when filling and transporting bottles of honey."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Bottle sizes available",
+            "Total quantity of honey",
+            "Ratios of different bottle sizes",
+            "Transport capacity constraints",
+            "Cost of bottling and transport",
+            "Time for bottling and transport",
+            "Demand for different bottle sizes",
+            "Storage capacity for bottled honey"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize the filling and transport of honey bottles to meet specified constraints on bottle sizes, quantities, and ratios, in order to maximize efficiency or profit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total volume of honey in all bottles must not exceed the farmer's available supply.",
+            "There is a fixed ratio of large to small bottles that must be maintained.",
+            "The number of bottles must be within the limits of available packaging resources.",
+            "Each bottle size has a maximum capacity that cannot be exceeded.",
+            "Transport capacity may limit the total number of bottles that can be shipped at once."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Types of bottles with different capacities",
+            "Sizes of bottles",
+            "Quantities of bottles",
+            "Ratios for filling bottles with honey"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the total quantity of honey transported while adhering to constraints on bottle sizes, quantities, and specific ratios."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each type of bottle has a specific capacity that must be adhered to when filling with honey.",
+            "There is a maximum quantity of honey available that limits how many bottles can be filled.",
+            "The proportions or ratios of different bottle types filled must meet specific requirements, possibly related to market demand or contractual obligations.",
+            "Total volume of honey used in filling the bottles cannot exceed the available honey stock."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Different types of bottles",
+            "Maximum capacity per bottle type",
+            "Constraints on quantities of honey",
+            "Ratios of honey distribution"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the quantity of honey transported in different bottle types while adhering to constraints on bottle capacities and specific ratios of bottle types filled."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There are multiple types of bottles with different capacities.",
+            "Each bottle type has a maximum capacity constraint."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Multiple types of bottles with different capacities",
+            "Constraints on the maximum capacity for each bottle type",
+            "Fixed capacities for each bottle type"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize the filling and transportation of honey bottles, maximizing the quantity transported while adhering to constraints on bottle sizes, quantities, and required ratios."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There are multiple types of bottles with different fixed capacities.",
+            "Each type of bottle has a maximum capacity.",
+            "The quantity of honey filled in a bottle cannot exceed its specific maximum capacity."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of bottles",
+            "Sizes of bottles",
+            "Quantities of each size",
+            "Ratios of different bottle types",
+            "Capacity constraints",
+            "Transport constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the efficiency of filling and transporting bottles of honey while adhering to constraints on bottle sizes, quantities, and honey ratios."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The bottles must be filled with specific sizes (e.g., 250ml, 500ml, 1L).",
+            "The total quantity of honey available is limited.",
+            "There is a restriction on the number of each bottle size that can be used.",
+            "The farmer needs to maintain a specific ratio between different bottle sizes being filled.",
+            "The transportation capacity limits the total number of bottles that can be transported in one go."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "bottle sizes",
+            "quantities of bottles",
+            "ratios of honey types"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal way for a farmer to fill and transport bottles of honey while considering constraints on bottle sizes, quantities, and ratios."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The farmer has a limited amount of honey that must be allocated between different bottle sizes.",
+            "Each bottle size has a specific maximum capacity that cannot be exceeded.",
+            "There may be a required ratio or proportion between different bottle sizes that needs to be maintained when filling the bottles.",
+            "The total number of bottles may be limited to a certain quantity due to packaging or transport constraints.",
+            "There may be specific demand constraints or minimum quantity requirements for certain bottle sizes.",
+            "Transport or logistical constraints may limit the total weight or volume that can be shipped."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Size of honey bottles",
+            "Quantity of honey bottles",
+            "Ratios of honey mixtures",
+            "Capacity of transport vehicle",
+            "Production cost per bottle",
+            "Market price per bottle",
+            "Total honey available",
+            "Minimum production quota",
+            "Maximum allowable loss/spoilage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize the filling and transportation process of honey bottles given constraints on sizes, quantities, and ratios."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The farmer has specific bottle sizes available.",
+            "There are constraints on the quantities of honey to be filled in each bottle size.",
+            "There are predefined ratios or proportions that must be adhered to when filling the bottles.",
+            "There might be a maximum capacity of honey that can be transported at one time."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "sizes of honey bottles",
+            "quantities of honey bottles",
+            "ratios of size to quantity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the total profit or minimize the total cost of filling and transporting the bottles of honey, considering the given constraints on sizes, quantities, and ratios."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total volume of honey to be filled.",
+            "The sizes of the bottles available.",
+            "The ratios of different types of honey (if blends are being considered).",
+            "The maximum number of bottles the farmer has for each size."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      }
+    }
+  }
+}

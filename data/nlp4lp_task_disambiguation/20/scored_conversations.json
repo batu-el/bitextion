@@ -1,0 +1,526 @@
+{
+  "vague_description": "Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.",
+  "detailed_description": "LP or MILP\n\nWhat buying, storing and manufacturing policy should the company pursue in order to maximize profit?\n\n{\n    \"buy_price\": [[\\param{BuyPrice} for i in 1,...,\\param{I}] for m in 1,...,\\param{M}],\n    \"sell_price\": \\param{SellPrice},\n    \"is_vegetable\": [\\param{IsVegetable} for i in 1,...,\\param{I}],\n    \"max_vegetable_refining_per_month\": \\param{MaxVegRefiningPerMonth},\n    \"max_non_vegetable_refining_per_month\": \\param{MaxNonVegRefiningPerMonth},\n    \"storage_size\": \\param{StorageSize},\n    \"storage_cost\": \\param{StorageCost},\n    \"max_hardness\": \\param{MaxHardness},\n    \"min_hardness\": \\param{MinHardness},\n    \"hardness\": [\\param{Hardness} for i in 1,...,\\param{I}],\n    \"init_amount\": \\param{InitialAmount},\n    \"min_usage\": \\param{MinUsage},\n    \"dependencies\": [\\param{Dependencies} for i in 1,...,\\param{I}]\n}",
+  "target_objective": "Maximize the company's profit from its buying, storing, and manufacturing policy",
+  "target_constraints": [
+    "Maximum amount of vegetables that can be refined per month is defined by MaxVegRefiningPerMonth",
+    "Maximum amount of non-vegetables that can be refined per month is defined by MaxNonVegRefiningPerMonth",
+    "The storage has a size limit defined by StorageSize",
+    "The hardness of each item used in manufacturing must be within the range of MinHardness and MaxHardness",
+    "There is a minimum usage constraint for items as given by MinUsage",
+    "There are certain dependencies between the items as defined in Dependencies"
+  ],
+  "target_parameters": [
+    "Number of goods I",
+    "Number of months M",
+    "Buying price of good i in month m",
+    "Selling price",
+    "Indicator whether good i is a vegetable or not",
+    "Maximum refining capacity for vegetables per month",
+    "Maximum refining capacity for non-vegetables per month",
+    "Storage capacity",
+    "Storage cost per unit per month",
+    "Maximum hardness of goods that can be processed",
+    "Minimum hardness of goods that can be processed",
+    "Hardness of good i",
+    "Initial amount of goods available for processing",
+    "Minimum usage of goods",
+    "Dependencies of goods i"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.",
+    "(0, 0)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.\nExpert: Does the optimization problem include specific numerical constraints on purchasing costs, storage capacities, or production limitations?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.\nExpert: Does the optimization problem include specific numerical constraints on purchasing costs, storage capacities, or production limitations?\nUser: Yes\n\nExpert: Are there multiple products or resources involved in this optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.\nExpert: Does the optimization problem include specific numerical constraints on purchasing costs, storage capacities, or production limitations?\nUser: Yes\n\nExpert: Are there multiple products or resources involved in this optimization problem?\nUser: Yes\n\nExpert: Is the objective function linear in terms of purchasing, storage, and production quantities?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.",
+    "(0, 0)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.\nExpert: Does the problem involve any constraints related to environmental regulations or carbon emissions?\nUser: No.\n",
+    "(0, 0, 0)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.\nExpert: Does the problem involve any constraints related to environmental regulations or carbon emissions?\nUser: No.\n\nExpert: Does the problem description include a constraint specifically related to the diversity or number of suppliers?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.\nExpert: Does the problem involve any constraints related to environmental regulations or carbon emissions?\nUser: No.\n\nExpert: Does the problem description include a constraint specifically related to the diversity or number of suppliers?\nUser: No.\n\nExpert: Does the problem involve constraints on the shelf life or expiration of products?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.",
+    "(0, 0)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.\nExpert: Is this an existing business with historical data available, or is it a new business venture without prior data?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.\nExpert: Is this an existing business with historical data available, or is it a new business venture without prior data?\nUser: Yes.\n\nExpert: Is the historical data available in the form of a database or spreadsheet, or does it need to be extracted from other sources such as accounting records or industry reports?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.\nExpert: Is this an existing business with historical data available, or is it a new business venture without prior data?\nUser: Yes.\n\nExpert: Is the historical data available in the form of a database or spreadsheet, or does it need to be extracted from other sources such as accounting records or industry reports?\nUser: No.\n\nExpert: Are there any quantitative performance metrics, such as profit margins, sales volumes, or production costs, that are available for the business?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.",
+    "(0, 0)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.\nExpert: Are there any constraints in the problem description?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.\nExpert: Are there any constraints in the problem description?\nUser: Yes\n\nExpert: Is there a fixed cost associated with purchasing the initial stock?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability.\nExpert: Are there any constraints in the problem description?\nUser: Yes\n\nExpert: Is there a fixed cost associated with purchasing the initial stock?\nUser: No\n\nExpert: Are there any listed constraints that are not directly related to the limitations or costs associated with purchasing, storage, or production?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "purchasing cost",
+            "storage cost",
+            "storage capacity",
+            "production cost",
+            "production capacity",
+            "demand",
+            "selling price",
+            "profitability",
+            "time period"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profitability by determining the optimal combination of purchasing, storage, and production strategies."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total units produced cannot exceed the production capacity.",
+            "The total units stored cannot exceed the storage capacity.",
+            "The total cost of purchasing, storing, and producing goods cannot exceed the budget allocated for these activities.",
+            "The production of goods must meet or exceed the minimum demand requirement.",
+            "The combination of strategies must comply with any regulatory or contractual obligations related to production and storage."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "purchasing costs",
+            "storage capacities",
+            "production limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profitability by optimizing purchasing, storage, and production strategies subject to numerical constraints on costs, capacities, and limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Purchasing costs should not exceed a specified budget or cost limit per unit.",
+            "Storage capacities are limited to a maximum volume or number of units that can be stored at any given time.",
+            "Production limitations include constraints on the number of units that can be produced within a specific timeframe or using available resources."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Purchasing costs",
+            "Storage capacities",
+            "Production limitations",
+            "Multiple products or resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profitability through optimal purchasing, storage, and production strategies, considering numerical constraints and involving multiple products or resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There are specific numerical constraints on purchasing costs.",
+            "There are specific storage capacities that must not be exceeded.",
+            "There are production limitations that must be adhered to.",
+            "Multiple products or resources are involved in the optimization problem."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Purchasing Costs",
+            "Storage Capacities",
+            "Production Limitations",
+            "Multiple Products or Resources",
+            "Linear Objective Function"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal combination of purchasing, storage, and production strategies that maximizes profitability, subject to numerical constraints on purchasing costs, storage capacities, and production limitations for multiple products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There are specific numerical constraints on purchasing costs per unit for each product, which must be considered in the optimization model.",
+            "Storage capacities for each product or resource are limited, meaning a maximum quantity that can be stored at any one time.",
+            "There are production limitations in terms of maximum and possibly minimum production quantities for each product, which must be adhered to.",
+            "The optimization involves multiple products, implying each product has its specific constraints regarding cost, storage, and production.",
+            "The objective function is linear, suggesting that the relationship between the decision variables and the objective is a straight line when plotted."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Purchasing cost",
+            "Storage cost",
+            "Production cost",
+            "Sales revenue",
+            "Demand forecast",
+            "Production capacity",
+            "Storage capacity",
+            "Lead time",
+            "Market price",
+            "Product expiration date"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To achieve the highest possible profitability through an optimal combination of purchasing, storage, and production strategies."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maximize profitability.",
+            "Consider purchasing costs and related constraints (e.g., budget limits, supplier constraints).",
+            "Consider storage costs and capacity constraints.",
+            "Account for production costs and constraints (e.g., production capacity, inventory levels).",
+            "Meet customer demand requirements and deadlines.",
+            "Adhere to regulatory and quality standards during production and purchasing."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "purchasing strategy",
+            "storage strategy",
+            "production strategy"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profitability through the optimal combination of purchasing, storage, and production strategies without any constraints from environmental regulations or carbon emissions."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profitability",
+            "Purchasing",
+            "Storage",
+            "Production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To achieve the highest possible profitability through the optimal combination of purchasing, storage, and production strategies."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "purchasing strategies",
+            "storage strategies",
+            "production strategies",
+            "profitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profitability by optimizing purchasing, storage, and production strategies."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Purchasing cost per unit",
+            "Storage cost per unit per month",
+            "Production cost per unit",
+            "Selling price per unit",
+            "Monthly demand forecast",
+            "Initial inventory level",
+            "Production capacity per month",
+            "Maximum storage capacity",
+            "Purchase lead time",
+            "Storage lead time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by identifying the best mix of purchasing, storage, and production strategies."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Storage capacity limit of 500 units.",
+            "Maximum budget for purchasing is $50,000.",
+            "Production must not exceed 200 units per day due to labor constraints.",
+            "Minimum inventory level must be maintained at 100 units at all times.",
+            "Lead time for purchasing is 3 days, and storage cost is $2 per unit per day.",
+            "Production cost is $10 per unit, and purchasing cost is $15 per unit.",
+            "Profit per unit sold is $25.",
+            "Not more than 50 units can be purchased in a single transaction due to supplier restrictions."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Purchasing Costs",
+            "Storage Costs",
+            "Production Costs",
+            "Sales Revenue",
+            "Demand Forecast",
+            "Capacity Constraints",
+            "Lead Times",
+            "Inventory Levels",
+            "Supplier Reliability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal combination of purchasing, storage, and production strategies that maximizes profitability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production must meet or exceed demand at all times.",
+            "Storage capacity for raw materials and finished goods is limited to 10,000 units.",
+            "Maximum production capacity is 5,000 units per month.",
+            "Purchasing quantities must be multiples of 100 units due to supplier constraints.",
+            "Lead time for purchasing raw materials is two weeks.",
+            "The budget for purchasing raw materials and storage costs is capped at $50,000 monthly.",
+            "Finished products cannot be stored for more than three months due to perishability.",
+            "Monthly operational costs (excluding raw material purchases) should not exceed $20,000.",
+            "Sales contracts require at least 2,000 units to be delivered monthly.",
+            "Storage costs are $0.50 per unit per month.",
+            "Staffing levels cannot exceed 50 employees, based on space limitations."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Purchasing strategies",
+            "Storage strategies",
+            "Production strategies",
+            "Profitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profitability by optimizing purchasing, storage, and production strategies."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution requires using purchasing, storage, and production strategies.",
+            "The goal is to achieve the highest possible profitability.",
+            "Historical data is not readily available for analysis.",
+            "The existing business context implies that some historical performance insights exist, but might need extraction or aggregation from complex sources like accounting records."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Purchasing strategies",
+            "Storage strategies",
+            "Production strategies",
+            "Profitability",
+            "Profit margins",
+            "Sales volumes",
+            "Production costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To achieve the highest possible profitability by determining the optimal combination of purchasing, storage, and production strategies using available quantitative performance metrics."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited historical data, presumably some qualitative information but no existing quantitative records beyond performance metrics.",
+            "Existing quantitative performance metrics such as profit margins, sales volumes, and production costs should be used.",
+            "The goal is to maximize profitability through optimizing combinations of purchasing, storage, and production strategies."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "purchasing strategies",
+            "storage strategies",
+            "production strategies",
+            "profitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profitability by optimizing purchasing, storage, and production strategies."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The purchasing strategy must account for the lead time of materials and negotiate bulk discounts if possible.",
+            "Storage constraints include warehouse capacity limits and maintaining inventory levels to prevent stockouts.",
+            "Production strategies must balance labor availability, machine capacity, and maintenance schedules.",
+            "Cost constraints include budget limits for purchasing raw materials and operational expenses.",
+            "Any solution must adhere to local regulatory requirements concerning production and storage.",
+            "The solution must ensure a minimum product quality level to maintain customer satisfaction.",
+            "Environmental and sustainability standards regarding waste production and energy consumption must be considered."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "purchasing costs",
+            "storage costs",
+            "production costs",
+            "storage capacity",
+            "production capacity",
+            "demand forecasts",
+            "supply lead time",
+            "product pricing",
+            "budget constraints",
+            "resource availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize overall profitability by optimizing purchasing, storage, and production strategies within given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget limit for purchasing raw materials.",
+            "Maximum storage capacity available for inventory.",
+            "Minimum production quantity to meet customer demand.",
+            "Lead times for procurement must be considered.",
+            "Production capacity limitations due to machinery or labor.",
+            "Quality control measures requiring certain standards to be met in production.",
+            "Environmental regulations limiting waste production.",
+            "Supplier reliability and minimum order requirements.",
+            "Logistics and transportation constraints impacting delivery times.",
+            "Seasonal fluctuation in raw material prices."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Purchasing strategies",
+            "Storage options",
+            "Production strategies",
+            "Constraints",
+            "Profitability goals"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to identify the most profitable combination of strategies for purchasing, storing, and producing goods while adhering to any given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is no fixed cost associated with purchasing the initial stock."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "storage capacity limit",
+            "production capacity limit",
+            "demand satisfaction requirement",
+            "operational cost constraints",
+            "quality control constraints",
+            "supply chain lead time constraints",
+            "environmental compliance constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal combination of purchasing, storage, and production strategies to achieve the highest possible profitability, considering specified constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No fixed cost associated with purchasing the initial stock.",
+            "Constraints not directly related to purchasing, storage, or production limitations or costs."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      }
+    }
+  }
+}

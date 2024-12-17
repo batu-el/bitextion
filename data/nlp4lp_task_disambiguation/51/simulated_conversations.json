@@ -1,0 +1,50 @@
+{
+  "vague_description": "The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.",
+  "detailed_description": "How much regular and overtime labor should be utilized each week to assemble the baskets to maximize the profit over the season? The costs for regular and overtime labor are \\param{RegularCost} and \\param{OvertimeCost}, respectively. Each basket requires \\param{AssemblyTime} to assemble, and the material cost per basket is \\param{MaterialCost}. Baskets are sold at \\param{SellingPrice}, with a holding cost of \\param{HoldingCost} and a salvage value of \\param{SalvageValue} at the end of the season. For each week w, the demand for baskets is \\param{Demand}, with available regular and overtime labor given by \\param{RegularLabor} and \\param{OvertimeLabor} respectively.",
+  "target_objective": "Maximize profit from assembly and sale of baskets over the season",
+  "target_constraints": [
+    "Regular labor used in any week is at most RegularLabor",
+    "Overtime labor used in any week is at most OvertimeLabor",
+    "Total assembly time in a week is limited by the sum of regular and overtime labor available",
+    "Total number of baskets assembled must match weekly demand",
+    "Number of baskets assembled must be non-negative",
+    "Regular labor used must be non-negative",
+    "Overtime labor used must be non-negative"
+  ],
+  "target_parameters": [
+    "Cost of regular labor per unit of time",
+    "Cost of overtime labor per unit of time",
+    "Time required to assemble a single basket",
+    "Cost of materials per basket",
+    "Selling price per basket",
+    "Holding cost per basket per unit of time",
+    "Salvage value per unsold basket at the end of the season",
+    "Demand for baskets in week w",
+    "Number of regular labor units available in week w",
+    "Number of overtime labor units available in week w"
+  ],
+  "Expert": {
+    "(0,)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.",
+    "(0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Are there explicit numerical constraints on the available resources in the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Are there explicit numerical constraints on the available resources in the optimization problem?\nUser: Yes\n\nExpert: Is the optimization problem aiming to minimize costs while achieving a specific level of output?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Are there explicit numerical constraints on the available resources in the optimization problem?\nUser: Yes\n\nExpert: Is the optimization problem aiming to minimize costs while achieving a specific level of output?\nUser: No\n\nExpert: Is the optimization problem maximizing output given a certain cost constraint?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.",
+    "(0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Is the objective function solely focused on minimizing cost without explicitly aiming to maximize output or production?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Is the objective function solely focused on minimizing cost without explicitly aiming to maximize output or production?\nUser: No\n\nExpert: Does the problem include a specific efficiency target value or metric that must be achieved?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Is the objective function solely focused on minimizing cost without explicitly aiming to maximize output or production?\nUser: No\n\nExpert: Does the problem include a specific efficiency target value or metric that must be achieved?\nUser: No\n\nExpert: Does the problem description include a constraint related to maintaining quality standards or quality index for the output?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.",
+    "(0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Is there a limited budget constraint that restricts the total amount of resources that can be allocated?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Is there a limited budget constraint that restricts the total amount of resources that can be allocated?\nUser: No\n\nExpert: Is the problem a maximization problem, where the goal is to maximize output (or a related metric), or is it a minimization problem, where the goal is to minimize cost (or a related metric)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Is there a limited budget constraint that restricts the total amount of resources that can be allocated?\nUser: No\n\nExpert: Is the problem a maximization problem, where the goal is to maximize output (or a related metric), or is it a minimization problem, where the goal is to minimize cost (or a related metric)?\nUser: Yes\n\nExpert: Is the problem a maximization problem?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.",
+    "(0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Does the problem description explicitly mention a trade-off between two or more conflicting objectives?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Does the problem description explicitly mention a trade-off between two or more conflicting objectives?\nUser: No\n\nExpert: Does your problem include any constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Does the problem description explicitly mention a trade-off between two or more conflicting objectives?\nUser: No\n\nExpert: Does your problem include any constraints?\nUser: Yes\n\nExpert: Is the objective of the problem to minimize something (cost, resources, etc.)?\nUser: No\n"
+  }
+}

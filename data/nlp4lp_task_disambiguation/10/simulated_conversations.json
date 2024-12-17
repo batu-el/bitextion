@@ -1,0 +1,38 @@
+{
+  "vague_description": "Determining the optimal values for certain variables to minimize error in a given system based on established equations.",
+  "detailed_description": "Find the lamp powers \\param{power_j} that minimize the absolute error between the illuminations \\param{ill_i} and the desired illuminations \\param{DesiredIlluminations}. The relationship between the lamp powers and the illuminations is given by coefficients \\param{Coefficients}.",
+  "target_objective": "Minimize the absolute error between the actual illumination levels and the desired illumination levels",
+  "target_constraints": [
+    "Lamp powers are non-negative"
+  ],
+  "target_parameters": [
+    "Number of different illuminations",
+    "Number of lamp powers",
+    "Coefficients relating lamp powers to illumination",
+    "Desired level of illuminations"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.",
+    "(0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Are the established equations that define the system linear?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Are the established equations that define the system linear?\nUser: Yes\n\nExpert: Are there any constraints on the variables in your optimization problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Are the established equations that define the system linear?\nUser: Yes\n\nExpert: Are there any constraints on the variables in your optimization problem?\nUser: No\n\nExpert: Are you using a specific method or algorithm for optimization, like least squares or gradient descent?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.",
+    "(0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Is there at least one parameter that is a function of observed data or is derived from experimental models?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Is there at least one parameter that is a function of observed data or is derived from experimental models?\nUser: No\n\nExpert: Do all candidate problems involve non-negativity constraints on their decision variables?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Is there at least one parameter that is a function of observed data or is derived from experimental models?\nUser: No\n\nExpert: Do all candidate problems involve non-negativity constraints on their decision variables?\nUser: Yes\n\nExpert: Do any of the problems have constraints that require the sum of decision variables to equal a fixed constant?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.",
+    "(0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Are the established equations linear with respect to the variables you are trying to optimize?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Are the established equations linear with respect to the variables you are trying to optimize?\nUser: Yes\n\nExpert: Are the established equations fixed, meaning their coefficients are known constants, or do they involve any parameters that are also variables in the optimization problem?\nUser: {\"response\":\"Yes, the coefficients are known constants.\"}\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Are the established equations linear with respect to the variables you are trying to optimize?\nUser: Yes\n\nExpert: Are the established equations fixed, meaning their coefficients are known constants, or do they involve any parameters that are also variables in the optimization problem?\nUser: {\"response\":\"Yes, the coefficients are known constants.\"}\n\nExpert: Is the objective of the optimization problem to minimize the overall error, as opposed to minimizing a specific component of the error?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.",
+    "(0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Does the objective function contain the word 'minimize'?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Does the objective function contain the word 'minimize'?\nUser: Yes\n\nExpert: Does the problem description include any specific constraints?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Does the objective function contain the word 'minimize'?\nUser: Yes\n\nExpert: Does the problem description include any specific constraints?\nUser: No\n\nExpert: Are there any constraints specified in addition to the objective described as minimizing error in a given system?\nUser: No\n"
+  }
+}

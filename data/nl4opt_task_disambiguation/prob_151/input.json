@@ -1,0 +1,21 @@
+{
+  "vague_description": "The problem involves finding an optimal travel strategy to minimize fuel consumption while adhering to constraints on shippings and air trips.",
+  "detailed_description": "An international goods exporter uses ships and planes to transport goods. A ship can take \\param{ShipCapacity} containers worth of goods and uses \\param{ShipFuel} liters of fuel per trip. A plane can take \\param{PlaneCapacity} containers worth of goods and uses \\param{PlaneFuel} liters of fuel per trip. The company needs to transport at least \\param{MinContainers} containers worth of goods. In addition, there can be at most \\param{MaxPlaneTrips} plane trips made and a minimum of \\param{MinShipTripPercentage} of the trips made must be by ship. How many of each trip should be made to minimize the total amount of fuel consumed?",
+  "target_objective": "Minimize the total amount of fuel used for transporting the containers",
+  "target_constraints": [
+    "Number of ship trips is non-negative",
+    "Number of plane trips is non-negative",
+    "At least MinContainers containers must be transported",
+    "At most MaxPlaneTrips plane trips can be made",
+    "At least MinShipTripPercentage% of all trips must be by ship"
+  ],
+  "target_parameters": [
+    "Containers a ship can take",
+    "Fuel used by a ship per trip",
+    "Containers a plane can take",
+    "Fuel used by a plane per trip",
+    "Minimum total containers that need to be transported",
+    "Maximum number of plane trips",
+    "Minimum percentage of trips that must be made by ship"
+  ]
+}

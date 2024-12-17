@@ -1,0 +1,25 @@
+{
+  "vague_description": "A chemistry teacher needs to determine the optimal number of two unique experiments to perform given resource constraints and production limits.",
+  "detailed_description": "A chemistry teacher teaches her students two experiments, experiment 1 and experiment 2. In experiment 1, \\param{Red1} units of the red liquid and \\param{Blue1} units of the blue liquid mix to create \\param{Green1} units of green gas. In experiment 2, \\param{Red2} units of the red liquid and \\param{Blue2} units of the blue liquid mix to create \\param{Green2} units of green gas. In addition, experiment 1 produces \\param{Smelly1} units of smelly gas while experiment 2 produces \\param{Smelly2} units of smelly gas. The lab has available \\param{TotalRed} units of red liquid and \\param{TotalBlue} units of blue liquid. If at most \\param{MaxSmelly} units of smelly gas can be produced, how many experiments of each should be done to maximize the total amount of green gas produced?",
+  "target_objective": "Maximize the total amount of green gas produced from both experiments",
+  "target_constraints": [
+    "Number of experiment 1 is non-negative",
+    "Number of experiment 2 is non-negative",
+    "Total units of red liquid used in both experiments cannot exceed TotalRed",
+    "Total units of blue liquid used in both experiments cannot exceed TotalBlue",
+    "Total units of smelly gas produced from both experiments cannot exceed MaxSmelly"
+  ],
+  "target_parameters": [
+    "Units of the red liquid mixed in experiment 1",
+    "Units of the blue liquid mixed in experiment 1",
+    "Units of green gas produced in experiment 1",
+    "Units of smelly gas produced in experiment 1",
+    "Units of the red liquid mixed in experiment 2",
+    "Units of the blue liquid mixed in experiment 2",
+    "Units of green gas produced in experiment 2",
+    "Units of smelly gas produced in experiment 2",
+    "Total units of red liquid available",
+    "Total units of blue liquid available",
+    "Maximum units of smelly gas allowed"
+  ]
+}

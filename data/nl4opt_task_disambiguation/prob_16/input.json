@@ -1,0 +1,32 @@
+{
+  "vague_description": "A company must decide how to allocate its advertising budget across three media platforms to optimize viewer reach, constrained by costs and platform-specific limitations.",
+  "detailed_description": "A company is deciding where to promote their product. Some options include z-tube, soorchle engine, and wassa advertisements. The cost for each option and the number of viewers they each attract is given. On z-tube, each ad costs \\$\\var{CostZtube} and attracts \\var{ViewersZtube} viewers. On soorchle, each ad costs \\$\\var{CostSoorchle} and attracts \\var{ViewersSoorchle} viewers. On wassa, each ad costs \\$\\var{CostWassa} and attracts \\var{ViewersWassa} viewers. Soorchle limits the number of advertisements from a single company to \\var{MaxAdsSoorchle}. Moreover, in order to balance the advertising among the three types of media, at most \\var{MaxPropWassa} of the total number of advertisements should occur on wassa. And at least \\var{MinPropZtube} should occur on z-tube. The weekly advertising budget is \\$\\var{Budget}. How many advertisements should be run in each of the three types of media to maximize the total audience?",
+  "target_objective": "Maximize the total number of viewers from ads across all platforms",
+  "target_constraints": [
+    "Number of z-tube ads is an integer",
+    "Number of soorchle ads is an integer",
+    "Number of wassa ads is an integer",
+    "Number of z-tube ads is non-negative",
+    "Number of soorchle ads is non-negative",
+    "Number of wassa ads is non-negative",
+    "Total spending on z-tube ads does not exceed Budget",
+    "Total spending on soorchle ads does not exceed Budget",
+    "Total spending on wassa ads does not exceed Budget",
+    "The sum of spending on z-tube, soorchle, and wassa ads does not exceed Budget",
+    "Number of soorchle ads is at most MaxAdsSoorchle",
+    "Number of wassa ads is at most MaxPropWassa times the total number of ads",
+    "Number of z-tube ads is at least MinPropZtube times the total number of ads"
+  ],
+  "target_parameters": [
+    "Cost of an advertisement on z-tube",
+    "Number of viewers attracted by an advertisement on z-tube",
+    "Cost of an advertisement on soorchle",
+    "Number of viewers attracted by an advertisement on soorchle",
+    "Cost of an advertisement on wassa",
+    "Number of viewers attracted by an advertisement on wassa",
+    "Maximum number of advertisements allowed on soorchle",
+    "Maximum proportion of the total number of advertisements that should occur on wassa",
+    "Minimum proportion of the total number of advertisements that should occur on z-tube",
+    "Weekly advertising budget"
+  ]
+}

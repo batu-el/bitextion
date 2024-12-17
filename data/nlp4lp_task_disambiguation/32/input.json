@@ -1,0 +1,14 @@
+{
+  "vague_description": "Finding the most accurate straight line that minimizes the greatest difference between predicted and observed values.",
+  "detailed_description": "Fit the \u2018best\u2019 straight line y = bx + a where the objective is to minimize the maximum deviation of all the \\param{K} observed values of \\param{Y} from the value predicted by the linear relationship. The observed values of y are given by \\param{Y} and the observed values of x are given by \\param{X}.",
+  "target_objective": "Minimize the maximum deviation of all K observed values from the predicted y values",
+  "target_constraints": [
+    "The deviation is the absolute difference between predicted y values and observed y values",
+    "Deviation should be minimized for all K observed values"
+  ],
+  "target_parameters": [
+    "Number of observed data points",
+    "Observed values of y",
+    "Observed values of x"
+  ]
+}

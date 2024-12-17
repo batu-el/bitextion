@@ -1,0 +1,42 @@
+{
+  "vague_description": "The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.",
+  "detailed_description": "The Aircraft Landing Problem (ALP) is the problem of deciding a landing time on an appropriate runway for each aircraft in a given set of \\param{TotalAircrafts} aircraft such that each aircraft lands within a predetermined time window defined by an \\param{EarliestLandingTime} and a \\param{LatestLandingTime}; and separation criteria between the landing of an aircraft i, and the landing of all successive aircraft j, are respected, determined by \\param{SeparationTimeMatrix}. Each aircraft has a \\param{TargetLandingTime}, and penalties are incurred for landing after (\\param{PenaltyTimeAfterTarget}) or before (\\param{PenaltyTimeBeforeTarget}) this target time.",
+  "target_objective": "Minimize the sum of penalties incurred for each aircraft landing before or after its TargetLandingTime",
+  "target_constraints": [
+    "Each aircraft must land within its predetermined time window",
+    "Sufficient separation time must be maintained between consecutive aircraft landings as specified in the SeparationTimeMatrix"
+  ],
+  "target_parameters": [
+    "The total number of aircraft in the set",
+    "The earliest landing time for each aircraft",
+    "The latest landing time for each aircraft",
+    "The target landing time for each aircraft",
+    "The penalty incurred for each aircraft landing after the target time",
+    "The penalty incurred for each aircraft landing before the target time",
+    "The required separation time between the landing of aircraft i and aircraft j"
+  ],
+  "Expert": {
+    "(0,)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.",
+    "(0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Are there specific time windows within which each aircraft must land?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Are there specific time windows within which each aircraft must land?\nUser: Yes\n\nExpert: Are there penalties associated with landing aircraft outside their designated time windows?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Are there specific time windows within which each aircraft must land?\nUser: Yes\n\nExpert: Are there penalties associated with landing aircraft outside their designated time windows?\nUser: No\n\nExpert: Is there a maximum number of aircraft that can land within the same time slot?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.",
+    "(0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Does the problem include constraints related to runway availability or specific runway restrictions?\nUser: No\n",
+    "(0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Does the problem include constraints related to runway availability or specific runway restrictions?\nUser: No\n\nExpert: Do the constraints include a maximum capacity or limit on the number of aircraft that can be on the ground or land per time period?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Does the problem include constraints related to runway availability or specific runway restrictions?\nUser: No\n\nExpert: Do the constraints include a maximum capacity or limit on the number of aircraft that can be on the ground or land per time period?\nUser: No\n\nExpert: Does the problem description include operational hours of the airport as a constraint?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.",
+    "(0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Is the objective of the optimization problem to minimize a total delay time of all aircraft?\nUser: No\n",
+    "(0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Is the objective of the optimization problem to minimize a total delay time of all aircraft?\nUser: No\n\nExpert: Is there a fixed limit on the maximum number of aircraft that can land within a certain time period?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Is the objective of the optimization problem to minimize a total delay time of all aircraft?\nUser: No\n\nExpert: Is there a fixed limit on the maximum number of aircraft that can land within a certain time period?\nUser: No\n\nExpert: Does the optimization problem involve multiple aircraft with different characteristics (e.g., weight, size, fuel levels, or priorities)?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.",
+    "(0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Does the objective function involve minimizing penalties or costs associated with scheduling aircraft landings? (Yes/No)\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Does the objective function involve minimizing penalties or costs associated with scheduling aircraft landings? (Yes/No)\nUser: Yes\n\nExpert: Does the description of the objective contain any keywords related to a specific problem domain or application, such as 'penalties', 'costs', or 'aircraft landings'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Does the objective function involve minimizing penalties or costs associated with scheduling aircraft landings? (Yes/No)\nUser: Yes\n\nExpert: Does the description of the objective contain any keywords related to a specific problem domain or application, such as 'penalties', 'costs', or 'aircraft landings'?\nUser: Yes\n\nExpert: Is the 'objective' of the problem explicitly stated as 'minimize'?\nUser: Yes\n"
+  }
+}

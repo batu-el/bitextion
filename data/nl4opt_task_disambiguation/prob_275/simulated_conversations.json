@@ -1,0 +1,43 @@
+{
+  "vague_description": "How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.",
+  "detailed_description": "Both chemical A and chemical B need to be added to a mixer for making bread. One unit of chemical A takes \\param{TimeA} seconds to be effective while one unit of chemical B takes \\param{TimeB} seconds to be effective. Because chemical A can be dangerous, there has to be at most \\param{MaxRatioAtoB} as much chemical A as chemical B in the mixer. If there has to be at least \\param{MinUnitsA} units of chemical A in the mixer and at least \\param{MinTotalUnits} units of total chemicals in the mixer, how many units of each should be added to minimize the total time it takes for the mixed bread to be ready?",
+  "target_objective": "Minimize the total effective time of chemicals A and B in the mixer",
+  "target_constraints": [
+    "Number of units of chemical A is non-negative",
+    "Number of units of chemical B is non-negative",
+    "For every unit of chemical B, there can be at most MaxRatioAtoB units of chemical A",
+    "At least MinUnitsA units of chemical A must be present in the mixer",
+    "The total number of units in the mixer must be at least MinTotalUnits"
+  ],
+  "target_parameters": [
+    "Time for one unit of chemical A to be effective",
+    "Time for one unit of chemical B to be effective",
+    "Maximum allowed ratio of chemical A to chemical B",
+    "Minimum required units of chemical A",
+    "Minimum total required units of chemicals"
+  ],
+  "Expert": {
+    "(0,)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.",
+    "(0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Are there any specific constraints or limits on the quantities of the chemicals that can be used in the production process?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Are there any specific constraints or limits on the quantities of the chemicals that can be used in the production process?\nUser: Yes.\n\nExpert: Is there an objective function provided that quantifies the trade-off between reaction time and safety ratios for the bread production?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Are there any specific constraints or limits on the quantities of the chemicals that can be used in the production process?\nUser: Yes.\n\nExpert: Is there an objective function provided that quantifies the trade-off between reaction time and safety ratios for the bread production?\nUser: No.\n\nExpert: Is there a specific target or requirement for the reaction time that needs to be achieved in the bread production process?\nUser: No.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.",
+    "(0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Does the problem objective explicitly involve maximizing efficiency?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Does the problem objective explicitly involve maximizing efficiency?\nUser: Yes.\n\nExpert: Is the primary objective to minimize the total reaction time?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Does the problem objective explicitly involve maximizing efficiency?\nUser: Yes.\n\nExpert: Is the primary objective to minimize the total reaction time?\nUser: Yes.\n\nExpert: Do any of the candidate problems include a cost-related constraint?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.",
+    "(0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Are the reaction times of the two chemicals additive, meaning that a certain total reaction time is required, or are they multiplicative, meaning that the reaction times interact with each other?\nUser: Yes\n",
+    "(0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Are the reaction times of the two chemicals additive, meaning that a certain total reaction time is required, or are they multiplicative, meaning that the reaction times interact with each other?\nUser: Yes\n\nExpert: Are the safety ratios of the two chemicals also multiplicative, meaning that the total safety ratio is a product of the individual safety ratios, rather than a function of one or both of the chemical quantities? \nUser: No\n",
+    "(0, 0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Are the reaction times of the two chemicals additive, meaning that a certain total reaction time is required, or are they multiplicative, meaning that the reaction times interact with each other?\nUser: Yes\n\nExpert: Are the safety ratios of the two chemicals also multiplicative, meaning that the total safety ratio is a product of the individual safety ratios, rather than a function of one or both of the chemical quantities? \nUser: No\n\nExpert: Is the objective of the optimization problem to minimize the total reaction time of the chemical mixture, while ensuring the safety ratio is above a certain threshold?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.",
+    "(0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Does the problem statement explicitly mention the quantities of at least one chemical or a variable that represents the quantity of a chemical in the problem parameters?\nUser: Yes\n",
+    "(0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Does the problem statement explicitly mention the quantities of at least one chemical or a variable that represents the quantity of a chemical in the problem parameters?\nUser: Yes\n\nExpert: Are there any constraints specified in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How to determine the optimal quantities of two chemicals with different reaction times and safety ratios to achieve fast and safe bread production.\nExpert: Does the problem statement explicitly mention the quantities of at least one chemical or a variable that represents the quantity of a chemical in the problem parameters?\nUser: Yes\n\nExpert: Are there any constraints specified in the problem description?\nUser: Yes\n\nExpert: Are the constraints defined in terms of specific quantities or attributes of the parameters, or are they defined as general rules or ratios?\nUser: Yes\n"
+  }
+}

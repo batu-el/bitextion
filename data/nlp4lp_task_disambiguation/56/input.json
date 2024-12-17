@@ -1,0 +1,17 @@
+{
+  "vague_description": "Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.",
+  "detailed_description": "PROBLEM TYPE: LP\n\nINPUT FORMAT:\n\n{\n    \"routes\": [\n       {\n        \"start\": i,\n        \"end\": j,\n        \"C\": \\param{Cost}_{i,j},\n       }\n    ],\n    \"demand\": [\n        {\n            \"destination\": l,\n            \"D\": \\param{Demand}_{l}\n        }\n    ],\n    \"supply\": [\n        {\n            \"terminal\": k,\n            \"S\": \\param{Supply}_{k}\n        }\n    ]\n}\n\nOBJECTIVE: What quantity of soybeans should they transport from source to destination to minimize transportation costs?",
+  "target_objective": "Minimize the total transportation costs of delivering soybeans from terminals to destinations",
+  "target_constraints": [
+    "Transported quantity from terminal to destination is non-negative",
+    "Transported quantity from each terminal cannot exceed its supply",
+    "Transported quantity to each destination must meet its demand"
+  ],
+  "target_parameters": [
+    "Number of terminals",
+    "Number of destinations",
+    "Cost of transportation for route from terminal i to destination j",
+    "Demand at each destination",
+    "Supply at each terminal"
+  ]
+}

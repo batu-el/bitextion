@@ -1,0 +1,450 @@
+{
+  "vague_description": "How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?",
+  "detailed_description": "PROBLEM TYPE\nLP\n\nINPUT FORMAT \n\n{\n    \"A\": [[a_i_j for j in 1, ..., N] for i in 1, ..., M],\n    \"b\": [b_i for i in 1, ..., M]\n}\n\nOBJECTIVE\nWe are interested in finding a ball with the largest possible radius, which is entirely contained within the set \\param{P} (The center of such a ball is called the Chebychev center of \\param{P}).",
+  "target_objective": "Maximize the radius r of the ball centered at the Chebychev center that lies entirely within P",
+  "target_constraints": [
+    "The radii of balls are non-negative",
+    "The ball must be completely within the set P, which is defined by the constraints Ax \u2264 b"
+  ],
+  "target_parameters": [
+    "The number of inequalities defining the set P",
+    "The ambient space dimension of the set P",
+    "The coefficients of the linear inequalities defining the set P",
+    "The right-hand side of the inequalities defining the set P"
+  ],
+  "Expert": {
+    "(0,)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?",
+    "(0, 0)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?\nExpert: Is the specified region defined as a convex shape in Euclidean space?\nUser: Yes, the specified region is defined as a convex polyhedron, which is the feasible region of the given linear inequalities \"Ax \u2264 b\" in Euclidean space.\n",
+    "(0, 0, 0)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?\nExpert: Is the specified region defined as a convex shape in Euclidean space?\nUser: Yes, the specified region is defined as a convex polyhedron, which is the feasible region of the given linear inequalities \"Ax \u2264 b\" in Euclidean space.\n\nExpert: Does the problem involve maximizing the radius of the inscribed ball while maintaining the center within a specified point or region?\nUser: Yes, the problem involves finding the Chebyshev center of a convex polyhedron, which is the center of the largest ball that can be inscribed in the region defined by the linear inequalities \"Ax \u2264 b\". Generally, we solve for the Chebyshev center using a linear programming method which involves an additional slack variable representing the ball's radius.\n",
+    "(0, 0, 0, 0)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?\nExpert: Is the specified region defined as a convex shape in Euclidean space?\nUser: Yes, the specified region is defined as a convex polyhedron, which is the feasible region of the given linear inequalities \"Ax \u2264 b\" in Euclidean space.\n\nExpert: Does the problem involve maximizing the radius of the inscribed ball while maintaining the center within a specified point or region?\nUser: Yes, the problem involves finding the Chebyshev center of a convex polyhedron, which is the center of the largest ball that can be inscribed in the region defined by the linear inequalities \"Ax \u2264 b\". Generally, we solve for the Chebyshev center using a linear programming method which involves an additional slack variable representing the ball's radius.\n\nExpert: Are there any additional constraints or objectives beyond the Chebyshev center formulation that we need to consider for this optimization problem?\nUser: No, there are no additional constraints or objectives specified beyond finding the Chebyshev center using the formulation with linear inequalities and maximizing the radius as the objective.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?",
+    "(0, 0)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?\nExpert: Is the center of the ball fixed at a specified point in the region for each candidate problem?\nUser: No.\n",
+    "(0, 0, 0)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?\nExpert: Is the center of the ball fixed at a specified point in the region for each candidate problem?\nUser: No.\n\nExpert: Is the dimension of the space where the region and the ball exist explicitly specified in the problem description?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?\nExpert: Is the center of the ball fixed at a specified point in the region for each candidate problem?\nUser: No.\n\nExpert: Is the dimension of the space where the region and the ball exist explicitly specified in the problem description?\nUser: No.\n\nExpert: Is the dimension of the space explicitly mentioned in the problem description?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?",
+    "(0, 0)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?\nExpert: Is the specified region a convex shape?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?\nExpert: Is the specified region a convex shape?\nUser: Yes.\n\nExpert: Is the region bounded by a fixed set of axes (i.e., a rectangle or a box)?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?\nExpert: Is the specified region a convex shape?\nUser: Yes.\n\nExpert: Is the region bounded by a fixed set of axes (i.e., a rectangle or a box)?\nUser: Yes.\n\nExpert: Does the region have a fixed orientation in space?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?",
+    "(0, 0)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?\nExpert: Does the problem description explicitly mention the term 'ball'? \nUser: Yes\n",
+    "(0, 0, 0)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?\nExpert: Does the problem description explicitly mention the term 'ball'? \nUser: Yes\n\nExpert: Is the objective of the optimization problem to either maximize the radius of a ball that remains within a specified region or is it related to finding the maximum possible radius under the given constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?\nExpert: Does the problem description explicitly mention the term 'ball'? \nUser: Yes\n\nExpert: Is the objective of the optimization problem to either maximize the radius of a ball that remains within a specified region or is it related to finding the maximum possible radius under the given constraints?\nUser: Yes\n\nExpert: Is the objective explicitly stated in terms of the ball's radius or volume?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "center of the ball",
+            "region within which the ball must be contained"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the maximum radius of a ball that can fit entirely within a given region while being centered at a specific point within the region."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The center of the ball must be located within the specified region.",
+            "The entire volume of the ball must lie within the boundaries of the region, meaning no part of the ball can extend outside of it.",
+            "The radius of the ball must be the maximum possible while satisfying the above conditions."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Matrix A defining the linear inequalities of the convex polyhedron",
+            "Vector b providing the right-hand side values of the inequalities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the largest radius of a ball centered within a given convex polyhedron defined by the linear inequalities \"Ax \u2264 b\", such that the entire ball remains inside the polyhedron."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Ax \u2264 b, where A is a matrix and b is a vector defining the convex polyhedron.",
+            "The center of the ball, denoted as x, must be within the convex polyhedron (i.e., satisfy Ax \u2264 b).",
+            "The radius, r, of the ball must be non-negative.",
+            "Any point on the surface of the ball, defined as ||x - c|| = r, must satisfy Ax \u2264 b, where c is the center of the ball and ||.|| denotes the Euclidean norm."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Matrix A representing the coefficients of linear inequalities",
+            "Vector b representing the upper bounds of linear inequalities",
+            "Slack variable representing the radius of the inscribed ball",
+            "Objective function maximizing the radius of the ball",
+            "Constraints representing the inequalities of the linear program"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the Chebyshev center of a convex polyhedron, which is the center of the largest inscribed ball within the region defined by a set of linear inequalities 'Ax \u2264 b' in Euclidean space."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The center (x_c) of the ball must satisfy the convex polyhedron constraints: Ax_c \u2264 b - r*|A|, where r is the radius, and |A| is the vector of row norms of matrix A.",
+            "r \u2265 0, ensuring that the radius is non-negative."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "A",
+            "b"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the Chebyshev center of a convex polyhedron defined by linear inequalities 'Ax \u2264 b', which corresponds to maximizing the radius of the largest inscribed ball within the given region."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Ax \u2264 b",
+            "x is the center of the ball within the region",
+            "r is the maximum radius of the ball such that the ball remains inside the region"
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "region"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the radius of a ball centered within a specified region, ensuring that the ball remains entirely inside the region."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The center of the ball is fixed within the specified region.",
+            "The entire ball, defined by its radius, must be contained within the boundaries of the specified region.",
+            "The radius of the ball must be greater than or equal to 0.",
+            "There must be no point on the surface of the ball that lies outside the specified region."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "1. Region constraints: The mathematical constraints defining the boundaries of the specified region.",
+            "2. Position of the ball center: The location of the center of the ball within the specified region is a variable that needs to be optimized.",
+            "3. Radius of the ball: This is the parameter to be maximized.",
+            "4. Non-overlapping condition: The ball must not extend beyond the boundaries of the specified region, which introduces constraints on the radius in relation to the ball center relative to the region's boundaries."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the radius of a ball such that the ball, which can be centered at any point within a specified region, is entirely contained within that region."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let R be the specified region within which the ball must remain.",
+            "The ball must remain entirely within region R, meaning for any point x on the surface of the ball, x must also belong to R.",
+            "Let c be the center point of the ball. c must also be within region R.",
+            "We need to maximize the radius r of the ball such that for any point x on the surface of the ball, x = c + v * r, where v is a unit vector, and x must be within R.",
+            "The radius r must be non-negative, i.e., r >= 0.",
+            "The problem does not specify a fixed center, so the center c of the ball is a variable that can be optimized within region R to maximize r."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Region definition",
+            "Ball center (variable)",
+            "Ball radius (variable)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the largest possible radius of a ball that can be entirely contained within a specified region, where the center of the ball is not fixed and can be anywhere within the region."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The ball must be entirely contained within the specified region, meaning all points on the surface of the ball must lie inside the boundary of the region.",
+            "The location of the center of the ball is not fixed and can vary anywhere within the region, providing flexibility in determining the maximum possible radius.",
+            "The dimension of the spatial region is unspecified, implying that the problem must be solved without a predetermined dimensional constraint."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "1. Shape and bounds of the region.",
+            "2. Method to determine if a point is inside the region."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the maximum radius of a ball that can be centered within a specified region such that the ball is entirely contained within the region."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The entire ball must remain inside the specified region.",
+            "The center of the ball is not fixed, thus can vary within the region.",
+            "The problem does not specify the dimension of the space for the region."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Region",
+            "Ball center"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the radius of a ball centered within a specified region while ensuring the entire ball remains inside the region."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The center of the ball must be within the specified region.",
+            "The radius of the ball must be such that no part of the ball extends outside the boundaries of the specified region.",
+            "The specified region is fixed and defined prior to optimization.",
+            "The ball is perfectly spherical and centered within the region."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Convex region",
+            "Center of the ball"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the maximum radius of a ball centered within a convex region such that the entire ball is contained within the region."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The center of the ball is fixed.",
+            "The region is convex.",
+            "The ball must remain entirely within the region."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Region shape: Convex",
+            "Region bounds: Fixed set of axes (e.g., a rectangle or a box)",
+            "Ball: Sphere with maximum radius",
+            "Ball center: Inside the specified region"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the maximum radius of a ball centered within a specified convex region, such that the entire ball remains inside the region, given that the region is bounded by a fixed set of axes (like a rectangle or box)."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The ball must be fully contained within the specified region.",
+            "The specified region is a convex shape.",
+            "The specified region is bounded by a fixed set of axes (a rectangle or box).",
+            "The ball is centered within the specified region."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Region dimensions: The length, width, and height (if in 3D) that define the size of the rectangular 'box.'",
+            "Center of the ball: The coordinates of the center point of the ball within the region.",
+            "Orientation: Confirmed as fixed, meaning the region does not rotate or deform.",
+            "Convex shape: The region is specified as convex, simplifying the ball's interactions with the region's boundaries.",
+            "Maximum radius: The objective is to determine the largest possible radius of the ball that allows it to remain fully within the region."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the maximum radius of a ball centered within a specified convex region defined by fixed axes, such that the ball remains entirely enclosed within the boundaries of the convex shape."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The ball must be centered within the region.",
+            "The entire ball must remain inside the region.",
+            "The region is a convex shape.",
+            "The region is bounded by a fixed set of axes (a rectangle or a box).",
+            "The region has a fixed orientation in space."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "The boundary of the specified region",
+            "The center point of the ball",
+            "The definition or mathematical description of the region"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the radius of a ball centered in a specified region while ensuring the ball remains completely inside the region."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The ball must be fully contained within the specified region.",
+            "The center of the ball is fixed and given.",
+            "The radius of the ball must be maximized."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "The shape and boundaries of the specified region",
+            "The center of the ball within the specified region",
+            "Constraints that define what it means for the ball to remain entirely inside the region"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the radius of a ball centered within a specified region, ensuring the entire ball remains inside the region."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The ball must be centered within the specified region.",
+            "The entire ball must remain inside the specified boundary of the region.",
+            "The radius should be maximized while satisfying the above two conditions."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Region boundaries or equations defining the region",
+            "Center of the ball",
+            "Constraints related to the region",
+            "Objective function to maximize the radius of the ball"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize the radius of a ball such that the entire ball is contained within a specified region."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The center of the ball is fixed within the specified region.",
+            "The entire ball must remain inside the specified region, meaning no part of the ball can extend outside the boundary of the region.",
+            "The radius of the ball must be non-negative.",
+            "The specified region is predefined and its boundary is known.",
+            "The distance from the center of the ball to the boundary of the region must be at least equal to the radius of the ball."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "radius",
+            "region"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the radius of a ball centered within a specified region, ensuring the entire ball remains inside the region."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The center of the ball is fixed within the specified region.",
+            "The entire ball must remain inside the specified region."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 4
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      }
+    }
+  }
+}

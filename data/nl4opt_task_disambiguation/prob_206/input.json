@@ -1,0 +1,23 @@
+{
+  "vague_description": "The toy store needs to determine the optimal number of plush toys and dolls to purchase and sell without exceeding a specified amount of inventory spending, while also adhering to sales constraints, in order to maximize profits.",
+  "detailed_description": "A toy store sells plush toys and dolls. Each plush toy costs the store \\param{CostPlush} and each doll costs the store \\param{CostDoll}. The store owner can spend at most \\param{MaxInventory} on inventory. Each plush toy is then sold for a profit of \\param{ProfitPlush} while each doll is sold for a profit of \\param{ProfitDoll}. The owner estimates that at least \\param{MinPlushSold} plush toys but at most \\param{MaxPlushSold} plush toys are sold each month. He also estimates that the number of dolls sold is at most \\param{MaxDollsToPlushRatio} times the amount of plush toys sold. How many of each should be bought and sold to maximize profit?",
+  "target_objective": "Maximize the profit from selling plush toys and dolls",
+  "target_constraints": [
+    "Total cost of plush toys and dolls is at most MaxInventory",
+    "The number of plush toys sold is at least MinPlushSold",
+    "The number of plush toys sold is at most MaxPlushSold",
+    "The number of dolls sold is at most MaxDollsToPlushRatio times the number of plush toys sold",
+    "Number of plush toys bought is non-negative",
+    "Number of dolls bought is non-negative"
+  ],
+  "target_parameters": [
+    "Cost of each plush toy for the store",
+    "Cost of each doll for the store",
+    "Maximum amount the store owner can spend on inventory",
+    "Profit made from selling each plush toy",
+    "Profit made from selling each doll",
+    "Minimum estimated number of plush toys sold each month",
+    "Maximum estimated number of plush toys sold each month",
+    "Maximum ratio of the number of dolls sold to plush toys sold"
+  ]
+}

@@ -1,0 +1,492 @@
+{
+  "vague_description": "Optimize the logistics and inventory management for container unloading to minimize associated costs.",
+  "detailed_description": "Determine a strategy to minimize costs from unloading (\\param{UnloadCosts}), storage (\\param{HoldingCost}), and crane rentals (\\param{CraneCost}) over the period. The demands over the time periods are given by \\param{Demands}, with a corresponding unloading capacity per period specified by \\param{UnloadCapacity}. The system starts with an initial inventory of containers given by \\param{InitContainer}, and the maximum container inventory is limited to \\param{MaxContainer}. The logistics also involve \\param{NumCranes} number of cranes with \\param{CraneCapacity} each to aid in the unloading process.",
+  "target_objective": "Minimize the total costs of UnloadCosts, HoldingCost, and CraneCost",
+  "target_constraints": [
+    "Demands must be met for each time period",
+    "Unloading capacity per period cannot exceed the specified UnloadCapacity",
+    "Maximum container inventory must not exceed MaxContainer"
+  ],
+  "target_parameters": [
+    "The number of time periods",
+    "Demand at time t",
+    "Unloading cost at time t",
+    "Unloading capacity at time t",
+    "Cost for holding containers",
+    "Maximum number of containers that can be held",
+    "Initial number of containers at the start",
+    "Number of cranes available for unloading",
+    "Capacity of each crane",
+    "Cost for renting each crane"
+  ],
+  "Expert": {
+    "(0,)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.",
+    "(0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Can you specify whether the objective is to minimize costs related to time, labor, or storage in the logistics and inventory management process?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Can you specify whether the objective is to minimize costs related to time, labor, or storage in the logistics and inventory management process?\nUser: No\n\nExpert: Are there any constraints related to the capacity of storage facilities in the logistics and inventory management process?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Can you specify whether the objective is to minimize costs related to time, labor, or storage in the logistics and inventory management process?\nUser: No\n\nExpert: Are there any constraints related to the capacity of storage facilities in the logistics and inventory management process?\nUser: Yes\n\nExpert: Are there specific time windows during which container unloading must be completed?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.",
+    "(0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Does the problem include explicit safety regulations as constraints that directly influence the unloading process?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Does the problem include explicit safety regulations as constraints that directly influence the unloading process?\nUser: No\n\nExpert: Do the constraints include any specific mention of environmental regulations or compliance requirements?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Does the problem include explicit safety regulations as constraints that directly influence the unloading process?\nUser: No\n\nExpert: Do the constraints include any specific mention of environmental regulations or compliance requirements?\nUser: No\n\nExpert: Is there a constraint related to prioritization or sequencing of container unloading based on specific criteria, such as urgency or arrival order?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.",
+    "(0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Is the container unloading process subject to time windows or scheduling constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Is the container unloading process subject to time windows or scheduling constraints?\nUser: No\n\nExpert: Is the unloading process done at a single fixed location, or are there multiple possible unloading locations? \nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Is the container unloading process subject to time windows or scheduling constraints?\nUser: No\n\nExpert: Is the unloading process done at a single fixed location, or are there multiple possible unloading locations? \nUser: No\n\nExpert: Are the containers of different types or capacities, or are they all homogeneous?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.",
+    "(0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Does the problem description contain a specified fixed number of containers, employees, equipment, or other limited resources as a constraint or parameter?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Does the problem description contain a specified fixed number of containers, employees, equipment, or other limited resources as a constraint or parameter?\nUser: Yes\n\nExpert: Does the problem description mention a fixed number of containers (or a constraint that limits the number of containers)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize the logistics and inventory management for container unloading to minimize associated costs.\nExpert: Does the problem description contain a specified fixed number of containers, employees, equipment, or other limited resources as a constraint or parameter?\nUser: Yes\n\nExpert: Does the problem description mention a fixed number of containers (or a constraint that limits the number of containers)?\nUser: Yes\n\nExpert: Is the number of resources (employees, equipment, etc.) fixed for the optimization problem?  [[Yes or No]] \nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Container arrival schedule",
+            "Labor costs for unloading",
+            "Storage capacity at the unloading facility",
+            "Transportation costs from the port to storage",
+            "Time windows for unloading and transportation",
+            "Inventory holding costs at the storage facility",
+            "Demand forecast for goods in containers"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize the costs associated with the logistics and inventory management when unloading containers."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of containers being handled per day must meet a minimum threshold, dictated by demand.",
+            "The unloading process must comply with safety regulations and labor laws, limiting the number of hours workers can operate per shift.",
+            "Storage capacity for unloaded goods is limited, requiring efficient scheduling and turnover of goods in the warehouse.",
+            "Equipment availability may be limited, necessitating strategic allocation of resources to avoid delays.",
+            "Cost of labor, fuel, and equipment maintenance must be minimized while ensuring tasks are completed on schedule.",
+            "Delivery schedules from the port to the warehouse must be maintained to avoid additional demurrage fees.",
+            "Inventory levels need to be optimized to prevent stockouts or overstock, balancing order quantities and timing with unloading schedules.",
+            "Unloading times are constrained by port operating hours, necessitating efficient time-slot allocations for docking.",
+            "Seasonal fluctuations in shipping volumes must be anticipated and incorporated into planning and resource allocation."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "Minimize the total costs associated with the logistics and inventory management of container unloading."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The logistics and inventory management process must support seamless container unloading.",
+            "Inventory levels must be kept within the storage capacity limits of the warehouse.",
+            "Priority goods should be identified and unloaded first if indicated.",
+            "Labor shifts and hours must comply with the local labor regulations.",
+            "Containers must be unloaded within a predetermined time frame defined by the supplier or contracting partner.",
+            "Minimize the number of handling steps during the unloading process to reduce potential goods damage.",
+            "Maintain safety standards to prevent accidents during the unloading operations.",
+            "Ensure traceability of goods for inventory records through a reliable tracking system."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize costs in logistics and inventory management",
+            "Optimize container unloading",
+            "Constraints related to the capacity of storage facilities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total costs associated with container unloading, considering constraints related to the capacity of storage facilities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Storage facilities have a fixed capacity which limits the amount of inventory that can be stored at any given time."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "logistics",
+            "inventory management",
+            "container unloading",
+            "cost minimization",
+            "storage capacity",
+            "no specific time windows"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the logistical and inventory-related costs associated with container unloading, considering the capacity constraints of the storage facilities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Constraints related to the capacity of storage facilities"
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Container unloading times",
+            "Labor costs",
+            "Storage costs",
+            "Inventory holding costs",
+            "Transportation costs",
+            "Container scheduling",
+            "Inventory demand",
+            "Dock availability",
+            "Unloading equipment efficiency",
+            "Warehouse space utilization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the costs associated with logistics and inventory management during the process of container unloading."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The maximum capacity of containers and storage facilities must not be exceeded to avoid overflow issues.",
+            "Safety regulations regarding the weight limits and hazardous materials must be adhered to during unloading and storage.",
+            "There must be a scheduling system in place to ensure that manpower and equipment are efficiently utilized for unloading operations.",
+            "Downtime should be minimized by coordinating unloading and inventory stocking schedules effectively.",
+            "The inventory tracking system must be updated in real-time to reflect current stock levels.",
+            "The unloading process should be planned to avoid peak traffic times at the unloading bay, reducing time and fuel costs.",
+            "Unloading operations must comply with environmental regulations and minimize emissions or waste during handling."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "logistics",
+            "inventory management",
+            "container unloading",
+            "minimization of costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the costs associated with logistics and inventory management during the container unloading process."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No explicit safety regulations affecting unloading process.",
+            "Minimize costs associated with logistics of container unloading.",
+            "Minimize costs associated with inventory management."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Logistics costs",
+            "Inventory management costs",
+            "Container unloading process",
+            "Supply chain constraints",
+            "Time efficiency constraints",
+            "Resource allocation constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the costs associated with logistics and inventory management during the container unloading process."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "logistics costs",
+            "inventory management costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total costs associated with the logistics and inventory management of container unloading."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Logistics costs",
+            "Inventory management costs",
+            "Container unloading schedule",
+            "Labor costs",
+            "Storage costs",
+            "Transportation costs",
+            "Dwell time of containers",
+            "Handling equipment utilization",
+            "Dock availability",
+            "Warehouse capacity",
+            "Turnaround time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the costs associated with logistics and inventory management during container unloading."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of containers to be unloaded must not exceed the capacity of the unloading resources available per day.",
+            "The unloading process should adhere to labor laws and regulations, including working hours and safety standards.",
+            "Inventory holding costs should be minimized by ensuring timely unloading and storage of goods.",
+            "The process should account for and minimize potential demurrage charges due to delays in unloading.",
+            "Unloading operations must respect the storage space limits available in the warehouse.",
+            "Loading dock schedules must be managed to prevent bottlenecks and ensure smooth operations.",
+            "Transportation scheduling from the port to the warehouse must optimize routes to minimize fuel costs and delivery times.",
+            "The solution must consider seasonal variations in shipment volumes and adjust resources accordingly."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize unloading costs",
+            "Container unloading process",
+            "Logistics optimization",
+            "Inventory management",
+            "No scheduling constraints",
+            "No time windows"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the costs associated with logistics and inventory management for container unloading."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No time windows or scheduling constraints for container unloading."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "logistics and inventory management",
+            "container unloading",
+            "minimize costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the costs associated with logistics and inventory management during the unloading of containers at a single, fixed location without any time windows or scheduling constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The unloading process does not have time windows or scheduling constraints.",
+            "There is no single fixed location for the unloading process, motivating consideration of multiple unloading locations."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Container types",
+            "Cost minimization",
+            "Logistics",
+            "Inventory management"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize the logistics and inventory management for container unloading to minimize associated costs, considering homogeneous containers and without specific time windows, scheduling constraints, or multiple unloading locations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There are no time windows or scheduling constraints for container unloading.",
+            "The unloading process does not occur at multiple locations; it occurs at a single fixed location.",
+            "The containers are heterogeneous, meaning they have different types or capacities."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Handling time per container",
+            "Number of workers",
+            "Wage per hour of workers",
+            "Container storage cost per period",
+            "Turnaround time",
+            "Transportation costs",
+            "Capacity of unloading equipment",
+            "Operational hours",
+            "Cost of delays",
+            "Contractual penalties for late deliveries",
+            "Material handling equipment costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the costs associated with logistics and inventory management during container unloading."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The container must be unloaded within a specified time frame to avoid demurrage charges.",
+            "The unloading process must comply with safety regulations and labor laws.",
+            "There is a limited budget for hiring labor and using equipment during the unloading process.",
+            "Warehouse space is limited, so inventory levels must be optimized to avoid storage overflow.",
+            "Handling and moving equipment have limited availability and capacity, impacting scheduling and unloading speed.",
+            "Products sensitive to environmental conditions must be prioritized to avoid spoilage or damage.",
+            "Coordination with transportation schedules is required to ensure timely outbound logistics."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fixed number of containers",
+            "Fixed number of employees",
+            "Fixed amount of equipment",
+            "Limited resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the costs associated with logistics and inventory management during container unloading while considering fixed constraints such as the number of containers, employees, and equipment."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a fixed number of containers that need to be unloaded.",
+            "There is a fixed number of employees available for unloading the containers.",
+            "There is a fixed number of equipment available for use in the unloading process."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "fixed number of containers",
+            "fixed number of employees",
+            "fixed number of equipment"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the costs associated with logistics and inventory management for unloading a fixed number of containers, considering constraints related to limited resources such as employees and equipment."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fixed number of containers that need to be unloaded.",
+            "Limited number of employees available for unloading.",
+            "Limited equipment available for use during unloading."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fixed number of containers",
+            "Fixed number of employees",
+            "Fixed amount of equipment"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the costs associated with unloading a fixed number of containers, taking into account the constraints related to a fixed number of employees and equipment."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fixed number of containers.",
+            "Fixed number of resources such as employees and equipment."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

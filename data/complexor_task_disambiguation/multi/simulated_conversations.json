@@ -1,0 +1,44 @@
+{
+  "vague_description": "The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.",
+  "detailed_description": "This is a multi-commodity transportation problem. Given a set of origins \\param{OriginNum}, a set of destinations \\param{DestinationNum}, and a set of products \\param{ProductNum}. Each origin i has a certain supply of each product p, \\param{Supply}_{i,p}, and each destination j has a certain demand for each product p, \\param{Demand}_{j,p}. The cost of shipping one unit of product p from origin i to destination j is \\param{Cost}_{i, j, p}. The problem aims to minimize the total cost of shipping all products from the origins to the destinations. It is constrained that the total amount of each product p shipped from each origin i equals its supply, the total amount of each product p shipped to each destination j equals its demand, and the total amount of all products shipped from each origin i to each destination j does not exceed a certain limit \\param{Limit}_{i,j}. The decision variable is the number of units of each product p to be shipped from each origin i to each destination j.",
+  "target_objective": "Minimize the total cost of shipping all products from the origins to the destinations",
+  "target_constraints": [
+    "For each origin i and product p, the total amount shipped equals the supply of that product at that origin: Supply_{i,p}",
+    "For each destination j and product p, the total amount received equals the demand for that product at that destination: Demand_{j,p}",
+    "For each origin i and destination j, the total amount of all products shipped does not exceed Limit_{i,j}",
+    "All shipping quantities are non-negative"
+  ],
+  "target_parameters": [
+    "The number of origins",
+    "The number of destinations",
+    "The number of products",
+    "The supply of each product at each origin",
+    "The demand of each product at each destination",
+    "The limit on the total amount of all products shipped from each origin to each destination",
+    "The cost of shipping one unit of each product from each origin to each destination"
+  ],
+  "Expert": {
+    "(0,)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.",
+    "(0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Is the optimization problem constrained by specific limits on the quantity of resources available at each starting location?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Is the optimization problem constrained by specific limits on the quantity of resources available at each starting location?\nUser: Yes\n\nExpert: Are there specific demand requirements at each destination location that must be met?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Is the optimization problem constrained by specific limits on the quantity of resources available at each starting location?\nUser: Yes\n\nExpert: Are there specific demand requirements at each destination location that must be met?\nUser: Yes\n\nExpert: Is the objective function to be minimized a linear combination of transport costs?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.",
+    "(0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Does the problem include constraints on transportation capacity for the routes or links between nodes?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Does the problem include constraints on transportation capacity for the routes or links between nodes?\nUser: Yes\n\nExpert: Do all candidate problems require integer allocations of resources?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Does the problem include constraints on transportation capacity for the routes or links between nodes?\nUser: Yes\n\nExpert: Do all candidate problems require integer allocations of resources?\nUser: No\n\nExpert: Do any of the problems include flow conservation constraints at non-supply, non-demand nodes?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.",
+    "(0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Is the problem constrained to a static network, where the locations and demands are fixed, or can it change over time?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Is the problem constrained to a static network, where the locations and demands are fixed, or can it change over time?\nUser: Yes\n\nExpert: Is the network a physical, geographical network, such as a road or logistics network, or is it an abstract or conceptual network?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Is the problem constrained to a static network, where the locations and demands are fixed, or can it change over time?\nUser: Yes\n\nExpert: Is the network a physical, geographical network, such as a road or logistics network, or is it an abstract or conceptual network?\nUser: No\n\nExpert: Are the resources of different types (e.g., different goods, services, or personnel)?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.",
+    "(0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Does the problem description explicitly mention all parameters in the singular or plural form?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Does the problem description explicitly mention all parameters in the singular or plural form?\nUser: Yes\n\nExpert: Does the problem description explicitly mention the word 'locations'?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Does the problem description explicitly mention all parameters in the singular or plural form?\nUser: Yes\n\nExpert: Does the problem description explicitly mention the word 'locations'?\nUser: No\n\nExpert: Are 'resources' and 'demands' explicitly listed as parameters in the problem description?\nUser: No\n"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "vague_description": "The challenge involves optimizing resource allocation to produce small and large bones at a dog hospital while meeting specific constraints and minimizing meat usage.",
+  "detailed_description": "An dog hospital has \\param{TotalMedication} units of tooth medication to make both small and large bones. A small bone requires \\param{SmallMedication} units of tooth medication and \\param{SmallMeat} units of meat. A large bone requires \\param{LargeMedication} units of tooth medication and \\param{LargeMeat} units of meat. Since most dogs prefer the small bones, at least \\param{MinSmallBonePercentage} of the bones made must be small. In addition, the hospital must make at least \\param{MinLargeBones} large bones. How many of each bone should be made to minimize the amount of meat needed?",
+  "target_objective": "Minimize the amount of meat needed to produce the small and large bones",
+  "target_constraints": [
+    "The total units of tooth medication used cannot exceed TotalMedication",
+    "At least MinSmallBonePercentage of all bones made must be small",
+    "At least MinLargeBones large bones must be made",
+    "Number of small bones is non-negative",
+    "Number of large bones is non-negative"
+  ],
+  "target_parameters": [
+    "Total units of tooth medication available",
+    "Units of tooth medication required for a small bone",
+    "Units of meat required for a small bone",
+    "Units of tooth medication required for a large bone",
+    "Units of meat required for a large bone",
+    "Minimum percentage of total bones made that must be small",
+    "Minimum number of large bones to be made"
+  ]
+}

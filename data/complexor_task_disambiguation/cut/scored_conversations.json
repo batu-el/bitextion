@@ -1,0 +1,470 @@
+{
+  "vague_description": "The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.",
+  "detailed_description": "This is a cutting stock problem. Given a roll of width \\param{RollWidth} and a set of \\param{NumWidths} widths \\param{Widths} to be cut. Each width i has a certain number of orders \\param{Orders_i}. There are \\param{NumPatterns} patterns and each pattern j has a certain number of rolls of each width i \\param{NumRollsWidthPattern_{i,j}}. The problem aims to minimize the total number of raw rolls cut. It is constrained that for each width i, the total number of rolls cut meets the total orders. The decision to be made concerns how to decide the number of rolls cut using each pattern j.",
+  "target_objective": "Minimize the total number of raw rolls cut to meet the orders",
+  "target_constraints": [
+    "Number of rolls cut for each width is non-negative",
+    "Total number of rolls cut for each width i must meet or exceed Orders_i",
+    "Number of rolls cut using each pattern j must be non-negative"
+  ],
+  "target_parameters": [
+    "The number of widths to be cut",
+    "The total number of patterns",
+    "The set of widths to be cut from the roll",
+    "The width of the raw roll",
+    "The number of orders for each width",
+    "The number of rolls of each width i in each pattern j"
+  ],
+  "Expert": {
+    "(0,)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.",
+    "(0, 0)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.\nExpert: Is there a constraint on the total number of rolls that can be used in the optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.\nExpert: Is there a constraint on the total number of rolls that can be used in the optimization problem?\nUser: No\n\nExpert: Are there specific minimum or maximum width requirements for each pattern that must be considered?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.\nExpert: Is there a constraint on the total number of rolls that can be used in the optimization problem?\nUser: No\n\nExpert: Are there specific minimum or maximum width requirements for each pattern that must be considered?\nUser: No\n\nExpert: Are there any cost implications associated with different patterns or combinations that affect the objective of minimizing waste and roll usage?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.",
+    "(0, 0)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.\nExpert: Is there a constraint across all candidate problems that each order must be fulfilled exactly without exceeding the demand?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.\nExpert: Is there a constraint across all candidate problems that each order must be fulfilled exactly without exceeding the demand?\nUser: Yes\n\nExpert: Do any of the problems specify a constraint or parameter related to 'predefined or available cutting patterns'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.\nExpert: Is there a constraint across all candidate problems that each order must be fulfilled exactly without exceeding the demand?\nUser: Yes\n\nExpert: Do any of the problems specify a constraint or parameter related to 'predefined or available cutting patterns'?\nUser: Yes\n\nExpert: Does the problem description include a constraint on the stock availability of rolls?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.",
+    "(0, 0)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.\nExpert: Are there any constraints on the minimum number of rolls that can be used per order?\nUser: No\n",
+    "(0, 0, 0)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.\nExpert: Are there any constraints on the minimum number of rolls that can be used per order?\nUser: No\n\nExpert: Are there any constraints on the available roll widths for cutting?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.\nExpert: Are there any constraints on the minimum number of rolls that can be used per order?\nUser: No\n\nExpert: Are there any constraints on the available roll widths for cutting?\nUser: No\n\nExpert: Are the available roll widths constant or can they vary?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.",
+    "(0, 0)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.\nExpert: Is the objective to fulfill specific orders that have varying widths?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.\nExpert: Is the objective to fulfill specific orders that have varying widths?\nUser: Yes\n\nExpert: Is the roll usage completely determined by its width, regardless of the cutting patterns and orders?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The objective is to determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage.\nExpert: Is the objective to fulfill specific orders that have varying widths?\nUser: Yes\n\nExpert: Is the roll usage completely determined by its width, regardless of the cutting patterns and orders?\nUser: No\n\nExpert: Is the roll's width known and fixed?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "roll width",
+            "order widths",
+            "order quantities",
+            "patterns",
+            "waste",
+            "roll usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize waste and roll usage while meeting specific orders for various widths by determining the optimal combination of cutting patterns from a roll."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The patterns must cover all specified widths from the orders.",
+            "Each pattern can only be used if it fits within the remaining length of the roll.",
+            "The total patterns used must fulfill the total demand for each width specified in the orders.",
+            "Roll usage must be minimized, indicating a preference for fewer total rolls used.",
+            "Waste (unused material from the roll) after cutting should be minimized.",
+            "Only specific patterns can be used, and these are predefined and cannot be altered."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Minimize waste and roll usage",
+            "Decision variables: Combination of pattern cuts for the roll",
+            "Constraints: Meet specific orders for various widths",
+            "No constraint: Total number of rolls that can be used"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal combination of cutting patterns to fulfill orders for different widths, minimizing material waste and the number of rolls used in production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Meet specific orders for various widths of material.",
+            "Minimize waste from cutting patterns.",
+            "Minimize roll usage."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize waste and roll usage",
+            "Decisions: Combination of patterns to cut from a roll",
+            "Constraints: Must meet specific orders for various widths",
+            "No constraint on the total number of rolls",
+            "No specific minimum or maximum width requirements per pattern"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal combination of patterns to cut from a roll that fulfills specific orders for various widths in a manner that minimizes material waste and the number of rolls used."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Roll width",
+            "Pattern widths",
+            "Order quantities for various widths"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal combination of patterns to cut from a roll in order to meet specific orders for various widths while minimizing waste and roll usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is no constraint on the total number of rolls that can be used.",
+            "There are no specific minimum or maximum width requirements for each pattern.",
+            "There are no cost implications associated with different patterns or combinations."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Roll Width",
+            "Patterns",
+            "Order Widths",
+            "Order Quantities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize waste and roll usage when cutting rolls to meet specific width orders."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The widths of the patterns cut from the roll must match the specified widths of the orders.",
+            "The total amount of each width cut must meet or exceed the ordered amounts.",
+            "The width of the roll must be accounted for, ensuring the sum of pattern widths cut from a single roll does not exceed its maximum width.",
+            "Patterns must be arranged to minimize waste, which is the excess material left after cutting the desired widths.",
+            "The number of rolls used should be minimized in the solution."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize waste and roll usage.",
+            "Constraints: Each order must be fulfilled exactly without exceeding demand.",
+            "Decision variables: Combination of cutting patterns from the roll."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal combination of cutting patterns from a roll to meet specific orders for various widths while minimizing waste and roll usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All orders for specific widths must be fulfilled exactly without exceeding the demand.",
+            "Minimize waste and roll usage during the cutting process."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective",
+            "constraints",
+            "predefined or available cutting patterns",
+            "demand fulfillment without excess"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal combination of predefined cutting patterns to meet specific order demands for various widths exactly, while minimizing waste and roll usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each order for different widths must be fulfilled exactly without exceeding the demand.",
+            "Predefined or available cutting patterns must be used."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize waste and roll usage",
+            "Constraints: Fulfill each order exactly without exceeding demand",
+            "Predefined cutting patterns available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize waste and roll usage by determining the optimal combination of cutting patterns to fulfill specific orders for various widths, while ensuring each order is fulfilled exactly without exceeding demand and considering predefined cutting patterns."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each order must be fulfilled exactly without exceeding the demand.",
+            "There are predefined or available cutting patterns that must be used."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Roll Width",
+            "Patterns",
+            "Widths",
+            "Order Quantities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal combination of cutting patterns from a roll to fulfill specific orders with varying widths, with the goal of minimizing material waste and the number of rolls used."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the widths of cut patterns must not exceed the width of the roll.",
+            "Each order of a specific width must be fulfilled exactly as specified.",
+            "The total waste from the roll, which is the difference between the roll width and the sum of the widths of cut patterns, must be minimized.",
+            "The total number of rolls used must be minimized."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize waste and roll usage",
+            "No constraints on the minimum number of rolls per order",
+            "Determine the optimal combination of patterns for each roll",
+            "Meet specific orders for various widths"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal combination of patterns to cut from a roll to fulfill specific orders for various widths, aiming to minimize both the material waste and the usage of rolls."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total width of patterns cut from a single roll must not exceed the width of the roll.",
+            "The combination of patterns cut must satisfy the specific order requirements for each width.",
+            "The solution should minimize waste, defined as the unused portion of the roll after cutting patterns.",
+            "All patterns must be cut in full; partial patterns are not allowed."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "patterns to cut from a roll",
+            "specific orders for various widths",
+            "minimizing waste",
+            "minimizing roll usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal combination of patterns to cut from a roll in order to fulfill specific orders for different widths, with the goal of minimizing waste and reducing the number of rolls used."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Objective is to meet specific orders for various widths",
+            "Minimize waste and roll usage",
+            "No minimum number of rolls per order constraint",
+            "No constraints on available roll widths for cutting"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize waste and roll usage while meeting specific orders for various widths.",
+            "Available roll widths can vary.",
+            "No constraints on the minimum number of rolls used per order."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal set of cutting patterns that meet order requirements for different widths, while minimizing both material waste and the total number of rolls utilized."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective is to meet specific orders for various widths.",
+            "Minimize waste generated from cutting rolls.",
+            "Minimize the total number of rolls used."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Patterns for cutting from a roll",
+            "Roll width",
+            "Order specifications for different widths",
+            "Objective function: Minimize waste",
+            "Objective function: Minimize roll usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal combination of patterns to cut from a roll to meet specific orders for various widths while minimizing waste and roll usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total width of patterns cut from a roll must not exceed the roll's width.",
+            "Each specific order's width requirement must be fulfilled exactly.",
+            "The number of rolls used should be minimized.",
+            "Waste from each roll used should be minimized."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "roll width",
+            "patterns",
+            "order widths",
+            "demand for each width",
+            "waste minimization",
+            "roll usage minimization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal combination of cutting patterns from a roll to satisfy specific orders of varying widths while minimizing material waste and roll usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the widths of the patterns cut from each roll must be less than or equal to the width of the roll.",
+            "The combination of patterns chosen must satisfy all specific order requirements for various widths.",
+            "The number of rolls used should be minimized.",
+            "Waste from the cut rolls should be minimized."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "roll width",
+            "patterns to cut from a roll",
+            "orders with specific widths",
+            "minimizing waste",
+            "minimizing roll usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the cutting patterns from a roll to fulfill specific width orders while minimizing material waste and the number of rolls used."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total width of the patterns cut must not exceed the width of the roll.",
+            "Each specific order for a given width must be fulfilled exactly, no more, no less.",
+            "The selection of patterns to cut must minimize the overall waste of the roll.",
+            "The solution must optimize the use of rolls, potentially minimizing the number of rolls used."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "orders with specific widths and quantities",
+            "fixed roll width",
+            "minimizing waste",
+            "minimizing roll usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal combination of cutting patterns from a roll with a fixed width to fulfill specific orders for various widths, minimizing both waste and roll usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The available roll has a fixed width.",
+            "Orders have specific widths that must be fulfilled.",
+            "Patterns must be chosen to minimize waste.",
+            "The roll usage is influenced by both cutting patterns and order specifications."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      }
+    }
+  }
+}

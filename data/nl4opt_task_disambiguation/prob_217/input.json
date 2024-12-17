@@ -1,0 +1,25 @@
+{
+  "vague_description": "The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.",
+  "detailed_description": "Super Shop sells cat paw snacks and gold shark snacks in bulk. It plans to sell them into two snack mix products. The first mix contains \\param{PctCatPawFirst}% cat paw snacks and \\param{PctGoldSharkFirst}% gold shark snacks. The second mix contains \\param{PctCatPawSecond}% cat paw snacks and \\param{PctGoldSharkSecond}% gold shark snacks. The store has on hand \\param{TotalCatPaw} kg of cat paw snacks and \\param{TotalGoldShark} kg of gold shark snacks. If the profit per kg of the first mix is $\\param{ProfitFirstMix} and the profit per kg of the second mix is $\\param{ProfitSecondMix}, how many kg of each should be prepared to maximize profit?",
+  "target_objective": "Maximize the total profit from both snack mixes",
+  "target_constraints": [
+    "Amount of cat paw snacks in the first mix is non-negative",
+    "Amount of gold shark snacks in the first mix is non-negative",
+    "Amount of cat paw snacks in the second mix is non-negative",
+    "Amount of gold shark snacks in the second mix is non-negative",
+    "Total amount of cat paw snacks in both mixes cannot exceed TotalCatPaw kg",
+    "Total amount of gold shark snacks in both mixes cannot exceed TotalGoldShark kg",
+    "The first mix must contain PctCatPawFirst% cat paw snacks and PctGoldSharkFirst% gold shark snacks",
+    "The second mix must contain PctCatPawSecond% cat paw snacks and PctGoldSharkSecond% gold shark snacks"
+  ],
+  "target_parameters": [
+    "Percentage of cat paw snacks in the first snack mix",
+    "Percentage of gold shark snacks in the first snack mix",
+    "Percentage of cat paw snacks in the second snack mix",
+    "Percentage of gold shark snacks in the second snack mix",
+    "Total kg of cat paw snacks available",
+    "Total kg of gold shark snacks available",
+    "Profit per kg of the first snack mix",
+    "Profit per kg of the second snack mix"
+  ]
+}

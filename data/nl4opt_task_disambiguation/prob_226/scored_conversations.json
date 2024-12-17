@@ -1,0 +1,448 @@
+{
+  "vague_description": "The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.",
+  "detailed_description": "A concert organizer has to transport equipment using carts or trolleys. Carts can transport \\param{CartRate} kg/min of equipment and requires \\param{CartWorkers} workers. Trolleys can transport \\param{TrolleyRate} kg/min of equipment and requires \\param{TrolleyWorkers} workers. There must be at least \\param{MinTrolleys} trolleys to be used. Additionally, only a maximum of \\param{MaxTrolleyPercentage} of the transportation can be using trolleys. The organizer has to deliver at a rate of \\param{DeliveryRate} kg/min of equipment. How many of each transportation method should be used to minimize the total number of workers?",
+  "target_objective": "Minimize the total number of workers required for transportation",
+  "target_constraints": [
+    "Number of carts is non-negative",
+    "Number of trolleys is non-negative",
+    "At least MinTrolleys trolleys must be used",
+    "No more than MaxTrolleyPercentage of the transportation can be performed by trolleys",
+    "The total transportation rate must meet or exceed DeliveryRate kg/min"
+  ],
+  "target_parameters": [
+    "Rate of equipment transportation by a cart",
+    "Number of workers required by a cart",
+    "Rate of equipment transportation by a trolley",
+    "Number of workers required by a trolley",
+    "Minimum number of trolleys to be used",
+    "Maximum percentage of the transportation that can be using trolleys",
+    "Required rate of equipment delivery"
+  ],
+  "Expert": {
+    "(0,)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.",
+    "(0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Are there specific weight or volume limitations for the equipment that influence the choice between using carts and trolleys?\nUser: No.\n",
+    "(0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Are there specific weight or volume limitations for the equipment that influence the choice between using carts and trolleys?\nUser: No.\n\nExpert: Are there any specific cost constraints or budget limitations associated with using carts and trolleys?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Are there specific weight or volume limitations for the equipment that influence the choice between using carts and trolleys?\nUser: No.\n\nExpert: Are there any specific cost constraints or budget limitations associated with using carts and trolleys?\nUser: No.\n\nExpert: Are there any time constraints or deadlines that impact the use of carts and trolleys for equipment delivery?\nUser: No.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.",
+    "(0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Does the problem include constraints related to specific distance limits for carts or trolleys?\nUser: No\n",
+    "(0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Does the problem include constraints related to specific distance limits for carts or trolleys?\nUser: No\n\nExpert: Do any of the problems include a constraint on the total weight or volume capacity that combines carts and trolleys?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Does the problem include constraints related to specific distance limits for carts or trolleys?\nUser: No\n\nExpert: Do any of the problems include a constraint on the total weight or volume capacity that combines carts and trolleys?\nUser: No\n\nExpert: Does the problem involve a constraint directly related to worker availability or a limit on the number of workers that can be deployed?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.",
+    "(0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Is the workforce requirement directly related to the number of carts and trolleys used?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Is the workforce requirement directly related to the number of carts and trolleys used?\nUser: Yes\n\nExpert: Is the workforce requirement directly related to the number of carts and trolleys used?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Is the workforce requirement directly related to the number of carts and trolleys used?\nUser: Yes\n\nExpert: Is the workforce requirement directly related to the number of carts and trolleys used?\nUser: Yes\n\nExpert: Is the workforce requirement directly related to the number of carts and trolleys used?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.",
+    "(0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Does the problem description include a specific or fixed total number of carts and trolleys available for use?\nUser: No\n",
+    "(0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Does the problem description include a specific or fixed total number of carts and trolleys available for use?\nUser: No\n\nExpert: Is the total number of carts and trolleys available for use finite?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Does the problem description include a specific or fixed total number of carts and trolleys available for use?\nUser: No\n\nExpert: Is the total number of carts and trolleys available for use finite?\nUser: No\n\nExpert: Are the quantities of carts and trolleys available for use fixed or specified in the problem description?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of carts used",
+            "Number of trolleys used",
+            "Workforce requirements",
+            "Efficiency of equipment delivery"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To balance the use of carts and trolleys for efficient equipment delivery while minimizing workforce requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total weight capacity of carts and trolleys must meet or exceed the equipment weight requirement.",
+            "Carts and trolleys must be operated by available workforce within their capacity limits.",
+            "Carts and trolleys have a maximum load limit that cannot be exceeded.",
+            "The total number of carts and trolleys used cannot exceed available resources.",
+            "The use of carts and trolleys must optimize delivery routes to minimize time.",
+            "Workforce allocation must adhere to operational hours and safety regulations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of available carts",
+            "Number of available trolleys",
+            "Capacity of a cart in terms of equipment units",
+            "Capacity of a trolley in terms of equipment units",
+            "Total equipment units to be delivered",
+            "Objective function: Minimize workforce requirements",
+            "Constraints: Equipment must be delivered efficiently"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the workforce required to efficiently deliver equipment by balancing the use of carts and trolleys."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of carts and trolleys should be sufficient to deliver all equipment without exceeding available workforce capacity.",
+            "The choice between carts and trolleys should aim to minimize the workforce requirements."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "use of carts",
+            "use of trolleys",
+            "minimizing workforce requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize workforce requirements while efficiently delivering equipment using a combination of carts and trolleys."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The choice between using carts and trolleys must minimize workforce requirements."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Use of carts and trolleys",
+            "Workforce requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently deliver equipment by balancing the use of carts and trolleys while minimizing workforce requirements."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of carts available",
+            "Number of trolleys available",
+            "Equipment distribution load",
+            "Distance to delivery locations",
+            "Workforce available",
+            "Time constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To balance the use of carts and trolleys for efficient equipment delivery, aiming to minimize workforce requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of carts used should not exceed the availability of carts.",
+            "The number of trolleys used should not exceed the availability of trolleys.",
+            "Both the carts and trolleys have a maximum weight capacity that should not be exceeded.",
+            "The manpower required for operating the total number of carts and trolleys should not surpass the available workforce.",
+            "The routes and schedules for deliveries must be adhered to for timely delivery of equipment.",
+            "The delivery system should optimize the route to minimize travel time and fuel consumption.",
+            "The equipment must be allocated to either carts or trolleys based on size and weight constraints."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "carts",
+            "trolleys",
+            "workforce requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize workforce requirements while efficiently delivering equipment using carts and trolleys."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize workforce requirements",
+            "Balance use of carts and trolleys",
+            "Efficiently deliver equipment"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the workforce required to efficiently deliver equipment using a combination of carts and trolleys."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "use of carts",
+            "use of trolleys",
+            "equipment delivery efficiency",
+            "minimizing workforce requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize workforce requirements while efficiently delivering equipment using a combination of carts and trolleys."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of carts",
+            "number of trolleys",
+            "number of delivery staff"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize workforce requirements while efficiently delivering equipment by balancing the use of carts and trolleys."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of carts and trolleys used should not exceed the available resources.",
+            "The allocation of carts and trolleys should ensure that all deliveries are completed on time.",
+            "Carts and trolleys should be balanced in such a way that workforce requirements are minimized.",
+            "Each delivery should be assigned either a cart or a trolley based on its capacity and suitability."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of carts",
+            "Number of trolleys",
+            "Workforce requirement"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the workforce required for equipment delivery by efficiently allocating carts and trolleys."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The workforce requirement is directly proportional to the number of carts and trolleys used.",
+            "The optimizer must balance the use between carts and trolleys to achieve efficient delivery of equipment.",
+            "Minimizing workforce requirements is a key objective in the optimization problem."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of carts",
+            "Number of trolleys",
+            "Workforce requirement"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize workforce requirements by optimizing the balance between the use of carts and trolleys for efficient equipment delivery."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Workforce = a * Carts + b * Trolleys, where a and b are positive constants."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of carts",
+            "number of trolleys",
+            "workforce requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize workforce requirements while efficiently delivering equipment using carts and trolleys."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimize workforce requirements.",
+            "Balance the use of carts and trolleys to meet delivery efficiency.",
+            "Workforce requirement is directly related to the number of carts and trolleys."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of carts in use",
+            "Number of trolleys in use",
+            "Total equipment to be delivered",
+            "Workforce requirements",
+            "Efficiency of delivery"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize workforce requirements while efficiently delivering equipment using a balanced combination of carts and trolleys."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total quantity of carts and trolleys must meet or exceed the equipment delivery requirements.",
+            "The number of workers assigned to operate carts and trolleys should be minimized while ensuring all equipment is delivered on time.",
+            "Carts and trolleys have different capacities and operational constraints that must be considered when assigning deliveries.",
+            "There must be a balance in the distribution of carts and trolleys to prevent under or over-utilization.",
+            "The total cost associated with using carts and trolleys should be minimized, possibly considering factors like fuel, maintenance, and labor costs."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Carts and trolleys available are not fixed (unlimited).",
+            "Balance between carts and trolleys for delivery.",
+            "Minimize workforce requirements."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize workforce requirements for delivering equipment by optimally balancing the use of carts and trolleys."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of carts used must be a non-negative integer.",
+            "The number of trolleys used must also be a non-negative integer."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficient delivery of equipment",
+            "Minimization of workforce requirements",
+            "Usage of carts and trolleys"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the balance between the use of carts and trolleys for equipment delivery to minimize workforce requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The workforce required for operating carts and trolleys should be minimized.",
+            "Each delivery must be completed using either a cart or a trolley.",
+            "There is no fixed limit on the number of carts and trolleys available for use, implying they are considered infinite for planning purposes."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize workforce requirements",
+            "Efficiently deliver equipment",
+            "Use carts",
+            "Use trolleys"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the use of carts and trolleys for efficient equipment delivery while minimizing workforce requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of carts and trolleys must efficiently deliver equipment.",
+            "The total number of carts and trolleys available is not constrained or specified, implying potentially unlimited availability.",
+            "The use of carts and trolleys must minimize workforce requirements."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      }
+    }
+  }
+}

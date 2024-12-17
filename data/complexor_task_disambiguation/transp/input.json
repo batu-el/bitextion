@@ -1,0 +1,17 @@
+{
+  "vague_description": "It's a logistics scenario involving optimization of delivering goods from various points while minimizing expenses.",
+  "detailed_description": "This is a transportation problem where there are multiple origins \\param{NumberOfOrigins} and destinations \\param{NumberOfDestinations}. Each origin has a certain supply \\param{SupplyOfOrigin}, and each destination has a certain demand \\param{DemandOfDestination}. The goal is to minimize the total cost of transportation \\param{TransportationCost}. The cost of transporting from an origin i to a destination j is given by \\param{CostPerUnit_{i,j}}. The problem is subject to the constraints that the total supply from each origin and the total demand at each destination must be met.",
+  "target_objective": "Minimize the total transportation cost",
+  "target_constraints": [
+    "Total supply from each origin must be exactly SupplyOfOrigin",
+    "Total demand at each destination must be exactly DemandOfDestination",
+    "Number of units transported from each origin i to each destination j is non-negative"
+  ],
+  "target_parameters": [
+    "The total number of origins",
+    "The total number of destinations",
+    "The supply available at each origin",
+    "The demand that needs to be satisfied at each destination",
+    "The cost of transporting a unit from each origin to each destination"
+  ]
+}

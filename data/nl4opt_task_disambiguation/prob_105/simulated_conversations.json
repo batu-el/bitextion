@@ -1,0 +1,43 @@
+{
+  "vague_description": "Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.",
+  "detailed_description": "A cleaning company uses a cleansing chemical and odor-removing chemical to clean a house. Each unit of the cleansing chemical takes \\param{Tc} units to be effective while each unit of the odor-removing chemical takes \\param{To} minutes to be effective. The company must use at least \\param{MinCleansing} units of the cleansing chemical. In total, at least \\param{MaxTotal} units of chemicals can be used per house. Further, because the cleansing chemical is strong, there can be at most \\param{MaxRatio} times the amount of cleansing chemical as odor-removing chemical. How many units of each should be used to minimize the total time it takes for a house to be cleaned?",
+  "target_objective": "Minimize the total time taken to clean a house",
+  "target_constraints": [
+    "The amount of cleansing chemical used is at least MinCleansing units",
+    "The total amount of chemicals used is at most MaxTotal units per house",
+    "The amount of cleansing chemical cannot exceed MaxRatio times the amount of odor-removing chemical",
+    "The amount of cleansing chemical used is non-negative",
+    "The amount of odor-removing chemical used is non-negative"
+  ],
+  "target_parameters": [
+    "Time effectiveness of cleansing chemical per unit",
+    "Time effectiveness of odor-removing chemical per unit",
+    "Minimum units of cleansing chemical required",
+    "Maximum total units of chemicals used per house",
+    "Maximum ratio of cleansing to odor-removing chemical"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.",
+    "(0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Is the objective to minimize the total cleaning time while meeting the chemical composition constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Is the objective to minimize the total cleaning time while meeting the chemical composition constraints?\nUser: Yes\n\nExpert: Are there specific constraints on the quantities or proportions of the cleansing and odor-removing chemicals that must be met?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Is the objective to minimize the total cleaning time while meeting the chemical composition constraints?\nUser: Yes\n\nExpert: Are there specific constraints on the quantities or proportions of the cleansing and odor-removing chemicals that must be met?\nUser: Yes\n\nExpert: Are there any constraints related to the cost or budget for acquiring these chemicals?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.",
+    "(0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Does the problem include a constraint related to the toxicity or safety index of the chemical mix?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Does the problem include a constraint related to the toxicity or safety index of the chemical mix?\nUser: No\n\nExpert: Does the problem description involve constraints specifically related to the stability or preparation time of the chemical mix?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Does the problem include a constraint related to the toxicity or safety index of the chemical mix?\nUser: No\n\nExpert: Does the problem description involve constraints specifically related to the stability or preparation time of the chemical mix?\nUser: No\n\nExpert: Does the problem involve minimizing the time required to clean a specified area?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.",
+    "(0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Is the objective to minimize the total cost of the chemicals used?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Is the objective to minimize the total cost of the chemicals used?\nUser: No\n\nExpert: Is the cleaning time a linear function of the amount of chemicals used?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Is the objective to minimize the total cost of the chemicals used?\nUser: No\n\nExpert: Is the cleaning time a linear function of the amount of chemicals used?\nUser: Yes\n\nExpert: Are there any limitations or constraints on the availability of the chemicals?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.",
+    "(0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Does the problem description mention a constraint involving a relationship between the parameters (e.g., ratio, proportion, or inequality involving multiple variables)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Does the problem description mention a constraint involving a relationship between the parameters (e.g., ratio, proportion, or inequality involving multiple variables)?\nUser: Yes\n\nExpert: Is there a specific numerical limit on the total volume of chemicals used?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of cleansing and odor-removing chemicals to satisfy constraints while minimizing cleaning time.\nExpert: Does the problem description mention a constraint involving a relationship between the parameters (e.g., ratio, proportion, or inequality involving multiple variables)?\nUser: Yes\n\nExpert: Is there a specific numerical limit on the total volume of chemicals used?\nUser: Yes\n\nExpert: Is the problem description able to express a numerical limit or range for at least one of the constraints?\nUser: Yes\n"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "vague_description": "Determine the optimal mix of two types of dog food to minimize cost while satisfying nutritional requirements.",
+  "detailed_description": "Lucy has a dog and she wants his food to be mixed. In order to keep the dog healthy but also keep the food tasty, the mix needs to have a minimum of \\param{CalciumMin} units of calcium, \\param{VitaminMixMin} units of vitamin mix, and \\param{ProteinMin} units of protein. A regular brand costs \\param{CostRegular} per bag and contains \\param{CalciumRegular} units of calcium, \\param{VitaminMixRegular} units of vitamin mix, and \\param{ProteinRegular} units of protein. A premium brand costs \\param{CostPremium} per bag and contains \\param{CalciumPremium} units of calcium, \\param{VitaminMixPremium} units of vitamin mix, and \\param{ProteinPremium} units of protein. How many bags of each brand should Lucy mix in order to minimize cost while also meeting the taste and health requirements.",
+  "target_objective": "Minimize the total cost of mixing the dog food while meeting the required nutritional values",
+  "target_constraints": [
+    "The mix must have at least CalciumMin units of calcium",
+    "The mix must have at least VitaminMixMin units of vitamin mix",
+    "The mix must have at least ProteinMin units of protein",
+    "The number of regular brand bags is non-negative",
+    "The number of premium brand bags is non-negative"
+  ],
+  "target_parameters": [
+    "Minimum units of calcium required",
+    "Minimum units of vitamin mix required",
+    "Minimum units of protein required",
+    "Cost of a bag of regular brand food",
+    "Cost of a bag of premium brand food",
+    "Calcium units in a bag of regular brand food",
+    "Vitamin mix units in a bag of regular brand food",
+    "Protein units in a bag of regular brand food",
+    "Calcium units in a bag of premium brand food",
+    "Vitamin mix units in a bag of premium brand food",
+    "Protein units in a bag of premium brand food"
+  ]
+}

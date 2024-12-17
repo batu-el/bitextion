@@ -1,0 +1,20 @@
+{
+  "vague_description": "Decide the best strategy to transport patients using helicopters and buses while meeting specific constraints on time, capacity, and trip distribution.",
+  "detailed_description": "There has been a horrible accident and patients need to be taken to the hospital by either a helicopter or bus. A helicopter can transport \\param{HelicopterCapacity} patients per trip and takes \\param{HelicopterTripTime} hour. On the other hand, a bus can transport \\param{BusCapacity} patients per trip and takes \\param{BusTripTime} hours. At least \\param{MinPatients} patients need to be transported and at least \\param{MinHelicopterTripsPercentage} of the trips should be by helicopter. In addition, there can be at most \\param{MaxBusTrips} bus trips. How should the patients be taken to minimize the total time to transport the patients?",
+  "target_objective": "Minimize the total time to transport all patients to the hospital",
+  "target_constraints": [
+    "Number of patients transported by helicopter is non-negative",
+    "Number of patients transported by bus is non-negative",
+    "At least MinHelicopterTripsPercentage of the total number of trips must be by helicopter",
+    "Number of bus trips is non-negative and at most MaxBusTrips"
+  ],
+  "target_parameters": [
+    "Number of patients a helicopter can transport per trip",
+    "Time taken for one trip by helicopter",
+    "Number of patients a bus can transport per trip",
+    "Time taken for one trip by bus",
+    "Minimum number of patients that need transportation",
+    "Minimum percentage of trips that must be by helicopter",
+    "Maximum number of bus trips allowed"
+  ]
+}

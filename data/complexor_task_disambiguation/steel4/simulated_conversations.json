@@ -1,0 +1,44 @@
+{
+  "vague_description": "Determining optimal production allocation to maximize profits within operational constraints.",
+  "detailed_description": "Consider a production problem. Given a set of products \\param{NumProducts} and a set of stages \\param{NumStages}. Each product p has a certain production rate \\param{ProductionRate_{p,s}} in each stage s and a certain profit \\param{ProfitPerTon_p} per ton. Each stage s has a certain number of hours \\param{StageAvailability_s} available per week. There are also lower and upper limits on the tons of each product sold in a week, \\param{MinCommitment_p} and \\param{MaxMarketLimit_p} respectively. The problem aims to maximize the total profit from all products. It is constrained that the total number of hours used by all products in each stage s may not exceed the hours available. How to decide the number of tons to be produced for each product p?",
+  "target_objective": "Maximize the total profit from all the products produced",
+  "target_constraints": [
+    "Number of tons of each product p is non-negative",
+    "Total hours used in each stage s by all products cannot exceed StageAvailability_s",
+    "Each product p has a minimum production commitment of MinCommitment_p tons per week",
+    "Each product p has a maximum market limit of MaxMarketLimit_p tons per week"
+  ],
+  "target_parameters": [
+    "The number of different products",
+    "The number of different stages",
+    "The production rate of product p in stage s",
+    "The profit per ton for each product",
+    "The minimum number of tons of product p that can be sold in a week",
+    "The maximum market limit on the tons of product p sold in a week",
+    "The number of hours available per week for each stage"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining optimal production allocation to maximize profits within operational constraints.",
+    "(0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Are there any constraints on the availability of resources, such as raw materials or labor, that affect production?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Are there any constraints on the availability of resources, such as raw materials or labor, that affect production?\nUser: No\n\nExpert: Are there any limits on the production capacity of individual units or facilities that could restrict the total production?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Are there any constraints on the availability of resources, such as raw materials or labor, that affect production?\nUser: No\n\nExpert: Are there any limits on the production capacity of individual units or facilities that could restrict the total production?\nUser: No\n\nExpert: Is there a specific demand requirement for each product that must be met?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining optimal production allocation to maximize profits within operational constraints.",
+    "(0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Is the production capacity constraint specified in units of time (e.g., hours, days) rather than just units of products?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Is the production capacity constraint specified in units of time (e.g., hours, days) rather than just units of products?\nUser: Yes.\n\nExpert: Do half of the candidate problems include a constraint that specifies minimum production or order requirements for each product?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Is the production capacity constraint specified in units of time (e.g., hours, days) rather than just units of products?\nUser: Yes.\n\nExpert: Do half of the candidate problems include a constraint that specifies minimum production or order requirements for each product?\nUser: Yes.\n\nExpert: Does the problem include a constraint related to inventory holding or storage capacity?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining optimal production allocation to maximize profits within operational constraints.",
+    "(0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Are these operational constraints primarily related to resource availability (such as labor, equipment, or raw materials)?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Are these operational constraints primarily related to resource availability (such as labor, equipment, or raw materials)?\nUser: Yes.\n\nExpert: Are there any seasonal or time-varying changes in resource availability or demand that need to be considered in the production allocation?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Are these operational constraints primarily related to resource availability (such as labor, equipment, or raw materials)?\nUser: Yes.\n\nExpert: Are there any seasonal or time-varying changes in resource availability or demand that need to be considered in the production allocation?\nUser: No.\n\nExpert: Are the production costs (such as labor, equipment, or raw material costs) considered fixed costs in your analysis or do they vary with the quantity produced?\nUser: No.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining optimal production allocation to maximize profits within operational constraints.",
+    "(0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Does the problem description contain the word 'production' in both the constraints and parameters sections?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Does the problem description contain the word 'production' in both the constraints and parameters sections?\nUser: Yes\n\nExpert: Is the objective function in the problem completely specified by a single word (e.g., 'maximize', 'minimize', 'maximize profit')?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Does the problem description contain the word 'production' in both the constraints and parameters sections?\nUser: Yes\n\nExpert: Is the objective function in the problem completely specified by a single word (e.g., 'maximize', 'minimize', 'maximize profit')?\nUser: No\n\nExpert: Is the objective of the problem explicitly stated as 'maximize' or 'maximize profit'? \nUser: Yes\n"
+  }
+}

@@ -1,0 +1,456 @@
+{
+  "vague_description": "Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.",
+  "detailed_description": "Determine the optimal path the delivery person should take to ensure the package is delivered in the least amount of time. The path is constrained by the number of east-west streets, \\param{N}, and the number of north-south streets, \\param{W}. Each east-west street segment \\param{WestTime} and each north-south street segment \\param{NorthTime} takes a certain amount of time to cross.",
+  "target_objective": "Minimize the total amount of time to deliver the package",
+  "target_constraints": [
+    "The number of east-west street segments used cannot exceed N",
+    "The number of north-south street segments used cannot exceed W",
+    "East-west street segments are non-negative",
+    "North-south street segments are non-negative"
+  ],
+  "target_parameters": [
+    "Number of east-west streets",
+    "Number of north-south streets",
+    "Time to cross street segment going west, for given street n and segment w",
+    "Time to cross street segment going north, for given street n and segment w"
+  ],
+  "Expert": {
+    "(0,)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.",
+    "(0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Are there specific time windows during which certain streets become unavailable or restricted for deliveries?\nUser: No\n",
+    "(0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Are there specific time windows during which certain streets become unavailable or restricted for deliveries?\nUser: No\n\nExpert: Are the travel times through the grid network constant throughout the day?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Are there specific time windows during which certain streets become unavailable or restricted for deliveries?\nUser: No\n\nExpert: Are the travel times through the grid network constant throughout the day?\nUser: Yes\n\nExpert: Is the objective to minimize the total travel time for a single delivery vehicle?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.",
+    "(0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the problem description include a constraint related to mandatory stops or visits?\nUser: No\n",
+    "(0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the problem description include a constraint related to mandatory stops or visits?\nUser: No\n\nExpert: Does the problem allow for backtracking or multiple visits to nodes during the journey?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the problem description include a constraint related to mandatory stops or visits?\nUser: No\n\nExpert: Does the problem allow for backtracking or multiple visits to nodes during the journey?\nUser: No\n\nExpert: Is the grid network restricted to only horizontal and vertical movements between nodes?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.",
+    "(0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the time taken to traverse each edge in the grid (street) depend only on the edge itself, or also on the path taken so far?\nUser: Yes, the time taken to traverse each edge (street) depends only on the edge itself, not on the path taken so far, assuming street conditions are consistent and there are no external factors affecting travel time dynamically.\n",
+    "(0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the time taken to traverse each edge in the grid (street) depend only on the edge itself, or also on the path taken so far?\nUser: Yes, the time taken to traverse each edge (street) depends only on the edge itself, not on the path taken so far, assuming street conditions are consistent and there are no external factors affecting travel time dynamically.\n\nExpert: Does the grid represent a finite, fixed-size network, or can it be of any size including theoretically large or infinite dimensions?\nUser: Yes, the grid represents a finite, fixed-size network defined by the parameters \\param{N} (east-west streets) and \\param{W} (north-south streets).\n",
+    "(0, 0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the time taken to traverse each edge in the grid (street) depend only on the edge itself, or also on the path taken so far?\nUser: Yes, the time taken to traverse each edge (street) depends only on the edge itself, not on the path taken so far, assuming street conditions are consistent and there are no external factors affecting travel time dynamically.\n\nExpert: Does the grid represent a finite, fixed-size network, or can it be of any size including theoretically large or infinite dimensions?\nUser: Yes, the grid represents a finite, fixed-size network defined by the parameters \\param{N} (east-west streets) and \\param{W} (north-south streets).\n\nExpert: Is there an upper bound on the value of the objective function (i.e., is there a theoretical minimum time for completing the delivery route) due to the discrete nature of the grid?\nUser: No, there is no predefined theoretical minimum time for completing the delivery route due to the discrete nature of the grid. The time is dependent on the specific time values assigned to each street segment, not just the grid's size.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.",
+    "(0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the given problem description specify a fixed starting and ending node?\nUser: No\n",
+    "(0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the given problem description specify a fixed starting and ending node?\nUser: No\n\nExpert: Can the starting node be specified as a problem parameter?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.\nExpert: Does the given problem description specify a fixed starting and ending node?\nUser: No\n\nExpert: Can the starting node be specified as a problem parameter?\nUser: Yes\n\nExpert: Is the network where the solution is found represented as a grid network in the problem description?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Delivery route"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total travel time for a delivery route across a grid network by selecting the optimal path through streets with varying travel times."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Travel times on the grid network must be non-negative.",
+            "The delivery route must start from a specified origin point and end at a specified destination point.",
+            "Travel between any two connected grid points is only possible if a direct street exists between them.",
+            "The route must adhere to any traffic rules or restrictions present in the grid network.",
+            "The delivery must be completed without revisiting any point on the grid, unless explicitly allowed in the problem context."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Grid network layout",
+            "Street travel times"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Calculate the quickest delivery route by finding the minimal time path across a grid network with varying street travel times."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The grid network is composed of streets with varying travel times.",
+            "There are no specific time windows during which certain streets become unavailable or restricted.",
+            "Each street segment has a predefined travel time that does not change over the period of interest."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Grid network of streets",
+            "Constant travel times for each street",
+            "Objective: Minimize total travel time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the time required to complete a delivery route given a grid network with constant street travel times."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The delivery route must be calculated on a grid network where all streets have travel times that remain constant throughout the day.",
+            "No streets in the grid network become unavailable or restricted for deliveries at any time."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Constant travel times across the grid network",
+            "Minimize total travel time for a single delivery vehicle"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total travel time for a single delivery vehicle across a grid network with constant travel times."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All streets are available for travel without any time restrictions.",
+            "Travel times on all streets in the grid are constant and do not vary throughout the day.",
+            "Only one delivery vehicle is used for the route.",
+            "The objective is to minimize the total travel time across the grid network."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "street travel times",
+            "grid network structure",
+            "starting point and destination",
+            "traffic conditions",
+            "speed limits",
+            "delivery time window"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to find the quickest delivery route by calculating the path that minimizes travel time across a grid network with varying street travel times."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The delivery route must start from the designated starting point.",
+            "The route must visit each required delivery location at least once.",
+            "Travel times vary across different street segments, meaning the route must adapt to these variations to minimize total travel time.",
+            "The route must end at the designated endpoint, which may or may not be the same as the starting point.",
+            "The solution must adhere to any traffic regulations or restrictions on certain streets (e.g., one-way streets).",
+            "All paths considered must be feasible, meaning they are open and accessible for delivery vehicles."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Grid network of streets",
+            "Varying street travel times"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the minimal time path across a grid network of varying street travel times, ensuring the quickest delivery route."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Only the street travel times vary, and they directly influence the path selection.",
+            "There are no mandatory stops or visits required in the optimal path.",
+            "The grid network represents the area in which the delivery route is being calculated."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimal time path",
+            "grid network of varying street travel times",
+            "no mandatory stops or visits",
+            "no backtracking or multiple visits to nodes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the shortest time path between two points in a grid network, considering varying travel times on different streets, without backtracking or visiting nodes more than once."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No mandatory stops or visits are required in the delivery route.",
+            "Backtracking or multiple visits to nodes are not allowed; each node can be visited at most once."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimal time path",
+            "grid network",
+            "varying street travel times",
+            "no mandatory stops",
+            "no backtracking",
+            "no multiple visits to nodes",
+            "restricted to horizontal and vertical movements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the quickest delivery route by calculating the minimal time path across a grid network with varying street travel times, with restrictions to only horizontal and vertical movements between nodes and without backtracking or multiple visits to nodes."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No mandatory stops or visits.",
+            "No backtracking or multiple visits to nodes are allowed.",
+            "Movements are restricted to only horizontal and vertical connections in the grid."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Grid network configuration",
+            "Street travel times",
+            "Start point",
+            "End point"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the shortest time path for a delivery route across a grid network where street travel times vary."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Travel times on each street segment must be considered.",
+            "Paths must be feasible according to the grid network layout (i.e., starting and ending at specified locations, following available routes).",
+            "Routes must respect traffic regulations, such as one-way streets or restricted entry zones.",
+            "Environmental factors such as weather or road closings can affect travel times and must be factored in if known.",
+            "Vehicle capacity or type may impact travel speed or available routes."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Grid Size",
+            "Street Travel Times"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total travel time by finding the shortest time path across the grid network given fixed travel times for each street segment."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The travel time to traverse a street depends solely on the street itself.",
+            "Street travel times are consistent and unaffected by the path taken or any dynamic factors."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimal time path",
+            "grid network",
+            "varying street travel times",
+            "N (east-west streets)",
+            "W (north-south streets)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total travel time by determining the quickest delivery route across the grid network, where travel times are specified for each street."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The delivery route must navigate through a finite, fixed-size grid network with parameters N (east-west streets) and W (north-south streets).",
+            "The travel time for each street (edge) is predetermined and does not depend on the path taken prior to reaching that street.",
+            "The objective is to find the quickest delivery route by minimizing the total traversal time across the network.",
+            "The street travel times vary, so each edge has its own unique travel time which must be considered when calculating the optimal path."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "N",
+            "W"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the minimal delivery time path across a finite, fixed-size grid network where each edge has a defined travel time, independent of the path taken so far."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The time to traverse each street segment is constant and does not depend on the path taken.",
+            "The grid is a finite, fixed-size network defined by parameters N (east-west streets) and W (north-south streets).",
+            "There is no predefined minimum time for completing the delivery route across the grid."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "grid network",
+            "varying street travel times"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the quickest delivery route by identifying the minimal time path across a grid network with varying street travel times."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Grid network is composed of nodes representing intersections and edges representing streets.",
+            "Each edge has a travel time associated with it that may vary.",
+            "The objective is to find the path from a start node to an end node that minimizes total travel time.",
+            "Travel time cannot be negative.",
+            "Path must be continuous and connected, moving from one node along an edge to the neighboring node.",
+            "There can be multiple paths, but only the one with the minimal travel time is optimal."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Grid network of streets",
+            "Varying street travel times (weighted edges)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total travel time across a grid network from an unspecified starting node to an unspecified ending node."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must calculate the minimal travel time across a grid network.",
+            "Street travel times vary across different segments of the grid.",
+            "Delivery route calculation does not have specified fixed starting and ending nodes."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Grid network with varying street travel times",
+            "Starting node (can be specified)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the travel time for a delivery route by finding the minimal time path across a grid network with varying street travel times, given a specified starting node."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The problem operates on a grid network with varying street travel times on different paths.",
+            "The starting node can be specified as a problem parameter by the user.",
+            "There is no fixed ending node, indicating potential flexibility in target locations or a requirement for a holistic analysis of the network."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "starting node",
+            "grid network",
+            "individual street travel times"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To calculate the minimal time path for delivery across a grid network with varying street travel times, with the starting node as a parameter."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Starting node is a problem parameter.",
+            "Grid network structure must be maintained.",
+            "Travel time across each street segment varies.",
+            "Must calculate minimal time paths."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    }
+  }
+}

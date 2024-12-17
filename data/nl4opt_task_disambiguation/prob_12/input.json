@@ -1,0 +1,23 @@
+{
+  "vague_description": "Determine the optimal number of sandwich types to produce given ingredient constraints and profitability figures.",
+  "detailed_description": "A breakfast joint makes two different sandwiches: a regular and a special. Both need eggs and bacon. Each regular sandwich requires \\var{EggsReg} eggs and \\var{BaconReg} slices of bacon. Each special sandwich requires \\var{EggsSpec} eggs and \\var{BaconSpec} slices of bacon. The joint has a total of \\var{TotalEggs} eggs and \\var{TotalBacon} slices of bacon. It makes a profit of \\var{ProfitReg} per regular sandwich and a profit of \\var{ProfitSpec} per special sandwich. How many of each sandwich should be made to maximize profit?",
+  "target_objective": "Maximize the joint's profit from selling regular and special sandwiches",
+  "target_constraints": [
+    "Number of regular sandwiches is an integer",
+    "Number of special sandwiches is an integer",
+    "Number of regular sandwiches is non-negative",
+    "Number of special sandwiches is non-negative",
+    "Eggs used for regular sandwiches and special sandwiches cannot exceed TotalEggs",
+    "Bacon used for regular sandwiches and special sandwiches cannot exceed TotalBacon"
+  ],
+  "target_parameters": [
+    "Number of eggs required for a regular sandwich",
+    "Number of eggs required for a special sandwich",
+    "Number of slices of bacon required for a regular sandwich",
+    "Number of slices of bacon required for a special sandwich",
+    "Total number of eggs available",
+    "Total number of slices of bacon available",
+    "Profit from selling a regular sandwich",
+    "Profit from selling a special sandwich"
+  ]
+}

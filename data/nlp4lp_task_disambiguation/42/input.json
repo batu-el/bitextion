@@ -1,0 +1,15 @@
+{
+  "vague_description": "Some parameters are required to determine the optimal staffing schedule.",
+  "detailed_description": "Calculate the minimum number of employees to hire such that the requirements for coverage (as described by \\param{Num}) can be met with each employee working for \\param{WorkingDays} consecutive days followed by at least \\param{RestingDays} consecutive resting days.",
+  "target_objective": "Minimize the number of employees to hire to meet the coverage requirements",
+  "target_constraints": [
+    "Each employee works for WorkingDays consecutive days",
+    "Each employee must have at least RestingDays consecutive days of rest",
+    "Number of employees is a non-negative integer"
+  ],
+  "target_parameters": [
+    "The number of users on the nth day",
+    "Number of consecutive working days before a resting period",
+    "Number of consecutive resting days"
+  ]
+}

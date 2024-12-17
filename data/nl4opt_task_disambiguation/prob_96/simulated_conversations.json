@@ -1,0 +1,51 @@
+{
+  "vague_description": "A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.",
+  "detailed_description": "A small chocolate shop makes milk chocolate and dark chocolate bars. Milk chocolate bars require \\param{CocoaMilk} units of cocoa and \\param{MilkMilk} units of milk. Dark chocolate bars require \\param{CocoaDark} units of cocoa and \\param{MilkDark} units of milk. The shop has \\param{TotalCocoa} units of cocoa and \\param{TotalMilk} units of milk available. In addition, since milk chocolate sells better, at least \\param{MilkDarkRatio} times as many milk chocolate bars need to be made as dark chocolate bars. If making a milk chocolate bar takes \\param{TimeMilk} minutes and making a dark chocolate bar takes \\param{TimeDark} minutes, how many of each should they make to minimize total production time?",
+  "target_objective": "Minimize the total production time of chocolate bars",
+  "target_constraints": [
+    "Number of milk chocolate bars is non-negative",
+    "Number of dark chocolate bars is non-negative",
+    "Total used cocoa is at most TotalCocoa units",
+    "Total used milk is at most TotalMilk units",
+    "At least MilkDarkRatio times as many milk chocolate bars as dark chocolate bars",
+    "Cocoa used for milk chocolate bars is at most CocoaMilk times the number of milk chocolate bars",
+    "Milk used for milk chocolate bars is at most MilkMilk times the number of milk chocolate bars",
+    "Cocoa used for dark chocolate bars is at most CocoaDark times the number of dark chocolate bars",
+    "Milk used for dark chocolate bars is at most MilkDark times the number of dark chocolate bars"
+  ],
+  "target_parameters": [
+    "Units of cocoa required for one milk chocolate bar",
+    "Units of milk required for one milk chocolate bar",
+    "Units of cocoa required for one dark chocolate bar",
+    "Units of milk required for one dark chocolate bar",
+    "Total units of cocoa available",
+    "Total units of milk available",
+    "Proportion of the number of milk chocolate bars to dark chocolate bars",
+    "Production time for one milk chocolate bar",
+    "Production time for one dark chocolate bar"
+  ],
+  "Expert": {
+    "(0,)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.",
+    "(0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Are there specific constraints on the total amount of cocoa and milk resources available for producing the chocolate bars?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Are there specific constraints on the total amount of cocoa and milk resources available for producing the chocolate bars?\nUser: Yes\n\nExpert: Are there production time constraints that apply individually to milk and dark chocolate bars?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Are there specific constraints on the total amount of cocoa and milk resources available for producing the chocolate bars?\nUser: Yes\n\nExpert: Are there production time constraints that apply individually to milk and dark chocolate bars?\nUser: Yes\n\nExpert: Are there required minimum production quantities for either milk or dark chocolate bars due to sales ratio agreements?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.",
+    "(0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Is the ratio constraint between the number of milk and dark chocolate bars required to be a specific fixed ratio in the problem formulation?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Is the ratio constraint between the number of milk and dark chocolate bars required to be a specific fixed ratio in the problem formulation?\nUser: Yes\n\nExpert: Is the predetermined production ratio of milk to dark chocolate bars the same across all candidate problems?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Is the ratio constraint between the number of milk and dark chocolate bars required to be a specific fixed ratio in the problem formulation?\nUser: Yes\n\nExpert: Is the predetermined production ratio of milk to dark chocolate bars the same across all candidate problems?\nUser: No\n\nExpert: Is the profit per milk chocolate bar greater than or equal to $5?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.",
+    "(0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Are the production costs of milk and dark chocolate bars equal?\nUser: No\n",
+    "(0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Are the production costs of milk and dark chocolate bars equal?\nUser: No\n\nExpert: Are the production costs of milk and dark chocolate bars equally influenced by the limited cocoa resource?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Are the production costs of milk and dark chocolate bars equal?\nUser: No\n\nExpert: Are the production costs of milk and dark chocolate bars equally influenced by the limited cocoa resource?\nUser: No\n\nExpert: Is there a minimum requirement for the total number of chocolate bars to be produced?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.",
+    "(0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Does the problem involve optimizing a function that includes at least one objective other than revenue or profit?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Does the problem involve optimizing a function that includes at least one objective other than revenue or profit?\nUser: Yes\n\nExpert: Does the problem have a fixed set of production quantities as a parameter?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A chocolate shop needs to determine the optimal number of milk and dark chocolate bars to produce given limited cocoa and milk resources, while adhering to production time constraints and sales ratios.\nExpert: Does the problem involve optimizing a function that includes at least one objective other than revenue or profit?\nUser: Yes\n\nExpert: Does the problem have a fixed set of production quantities as a parameter?\nUser: No\n\nExpert: Are there at least two specified resources that the problem seeks to use in some way (such as the number of milk and dark chocolate bars to produce, the limited cocoa resources, or the milk resources)?\nUser: Yes\n"
+  }
+}

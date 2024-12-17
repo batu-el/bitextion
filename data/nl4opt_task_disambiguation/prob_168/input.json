@@ -1,0 +1,17 @@
+{
+  "vague_description": "The challenge is to ensure efficient and eco-friendly transportation for a large group using limited-capacity vehicles within specified constraints.",
+  "detailed_description": "A theme park transports its visitors around the park either by scooter or rickshaw. A scooter can carry \\param{ScooterCapacity} people while a rickshaw can carry \\param{RickshawCapacity} people. To avoid excessive pollution, at most \\param{MaxRickshawProportion} of the vehicles used can be rickshaws. If the park needs to transport at least \\param{MinVisitors} visitors, minimize the total number of scooters used.",
+  "target_objective": "Minimize the total number of scooters used",
+  "target_constraints": [
+    "Number of scooters is non-negative",
+    "Number of rickshaws is non-negative",
+    "At most MaxRickshawProportion of the vehicles used can be rickshaws",
+    "At least MinVisitors visitors need to be transported"
+  ],
+  "target_parameters": [
+    "Carrying capacity of a scooter",
+    "Carrying capacity of a rickshaw",
+    "Maximum proportion of vehicles that can be rickshaws",
+    "Minimum number of visitors to be transported"
+  ]
+}

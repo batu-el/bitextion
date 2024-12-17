@@ -1,0 +1,29 @@
+{
+  "vague_description": "How can an oil and gas company maximize oil production given constraints on land area, available drill bits, and pollution limits?",
+  "detailed_description": "An oil and gas company operates on \\param{TotalLand} acres of land where they use oil wells of small and large size. Per acre of land, a small oil well can produce \\param{OilSmall} barrels of oil. Per acre of land, a large oil well can produce \\param{OilLarge} barrels of oil. However, a small oil well produces \\param{PollSmall} units of pollution and requires \\param{DrillBitSmall} drill bits per acre and a large oil well produces \\param{PollLarge} units of pollution and requires \\param{DrillBitLarge} drill bits per acre. The company has available \\param{TotalDrillBits} drill bits and due to strict environmental laws can produce at most \\param{MaxPollution} units of pollution. For how many acres should each oil well be used to maximize the total production of oil?",
+  "target_objective": "The company wants to maximize the total production of oil",
+  "target_constraints": [
+    "Small oil wells used is non-negative",
+    "Large oil wells used is non-negative",
+    "Total acres used by small and large oil wells cannot exceed TotalLand",
+    "Small oil well production is OilSmall barrels of oil per acre",
+    "Large oil well production is OilLarge barrels of oil per acre",
+    "Small oil well pollution is PollSmall units per acre",
+    "Large oil well pollution is PollLarge units per acre",
+    "Total pollution from small and large oil wells cannot exceed MaxPollution units",
+    "Small oil wells require DrillBitSmall drill bits per acre",
+    "Large oil wells require DrillBitLarge drill bits per acre",
+    "Total drill bits used by small and large oil wells cannot exceed TotalDrillBits"
+  ],
+  "target_parameters": [
+    "Total land area operated by the oil and gas company",
+    "Barrels of oil produced per acre by a small oil well",
+    "Barrels of oil produced per acre by a large oil well",
+    "Pollution units produced by a small oil well per acre",
+    "Drill bits required by a small oil well per acre",
+    "Pollution units produced by a large oil well per acre",
+    "Drill bits required by a large oil well per acre",
+    "Total available drill bits",
+    "Maximum allowed pollution units"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "vague_description": "A business must strategically allocate limited resources to maximize returns on product sales.",
+  "detailed_description": "A electronics store sells premium desktops with more power as well as regular desktops for everyday use. Each premium desktop costs the store \\var{CostPremium} to make and yields a profit of \\var{ProfitPremium}. Each regular desktop costs the store \\var{CostRegular} to make and yields a profit of \\var{ProfitRegular}. The store sells at most \\var{MaxDesktops} desktops each month and wants to spend at most \\var{MaxBudget} on making the desktops. How many of each should be made and sold to maximize profit?",
+  "target_objective": "Maximize the store's profit from selling desktops",
+  "target_constraints": [
+    "Number of premium desktops is an integer",
+    "Number of regular desktops is an integer",
+    "Number of premium desktops is non-negative",
+    "Number of regular desktops is non-negative",
+    "The store can sell at most MaxDesktops desktops each month",
+    "Total cost for producing premium and regular desktops can not exceed MaxBudget"
+  ],
+  "target_parameters": [
+    "Cost to make one premium desktop",
+    "Profit from selling one premium desktop",
+    "Cost to make one regular desktop",
+    "Profit from selling one regular desktop",
+    "Maximum number of desktops sold per month",
+    "Maximum budget for making desktops per month"
+  ]
+}

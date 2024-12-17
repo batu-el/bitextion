@@ -1,0 +1,518 @@
+{
+  "vague_description": "A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.",
+  "detailed_description": "An ice cream store makes chocolate and vanilla ice cream by the gallon. In a week, they must make at least \\var{MinChoc} gallons of chocolate ice cream and at least \\var{MinVanilla} gallons of vanilla ice cream but at most \\var{MaxChoc} gallons of chocolate ice cream and at most \\var{MaxVanilla} gallons of vanilla ice cream. It takes \\var{TimeChoc} hour to produce a gallon of chocolate ice cream and \\var{TimeVanilla} hours to produce a gallon of vanilla ice cream. In a week, \\var{TotalTime} hours are available to make ice cream. In addition, at least \\var{MinWorkers} workers are needed with \\var{WorkersChoc} working on the chocolate ice cream and \\var{WorkersVanilla} on the vanilla ice cream at any time. If the profit per gallon of chocolate ice cream is $\\var{ProfitChoc} and the profit per gallon of vanilla ice cream is $\\var{ProfitVanilla}, how many gallons of each should be made to maximize profit?",
+  "target_objective": "Maximize the store's profit from selling chocolate and vanilla ice cream",
+  "target_constraints": [
+    "Number of gallons of chocolate ice cream is an integer",
+    "Number of gallons of vanilla ice cream is an integer",
+    "Number of gallons of chocolate ice cream is non-negative",
+    "Number of gallons of vanilla ice cream is non-negative",
+    "The store must make at least MinChoc gallons of chocolate ice cream",
+    "The store must make at least MinVanilla gallons of vanilla ice cream",
+    "The store must make at most MaxChoc gallons of chocolate ice cream",
+    "The store must make at most MaxVanilla gallons of vanilla ice cream",
+    "It takes TimeChoc hours to produce a gallon of chocolate ice cream",
+    "It takes TimeVanilla hours to produce a gallon of vanilla ice cream",
+    "Total time available is TotalTime hours per week",
+    "At least MinWorkers workers are needed",
+    "WorkersChoc are working on the chocolate ice cream",
+    "WorkersVanilla are working on the vanilla ice cream"
+  ],
+  "target_parameters": [
+    "Minimum gallons of chocolate ice cream required to be made in a week",
+    "Maximum gallons of chocolate ice cream allowed to be made in a week",
+    "Minimum gallons of vanilla ice cream required to be made in a week",
+    "Maximum gallons of vanilla ice cream allowed to be made in a week",
+    "Time required to produce one gallon of chocolate ice cream",
+    "Time required to produce one gallon of vanilla ice cream",
+    "Total available time to make ice cream in a week",
+    "Profit per gallon of chocolate ice cream",
+    "Profit per gallon of vanilla ice cream",
+    "Minimum number of workers needed",
+    "Number of workers working on chocolate ice cream",
+    "Number of workers working on vanilla ice cream"
+  ],
+  "Expert": {
+    "(0,)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.",
+    "(0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is the objective of the optimization problem to maximize profit?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is the objective of the optimization problem to maximize profit?\nUser: Yes\n\nExpert: Are there constraints related to production capacity or resource availability?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is the objective of the optimization problem to maximize profit?\nUser: Yes\n\nExpert: Are there constraints related to production capacity or resource availability?\nUser: Yes\n\nExpert: Are there constraints related to workforce limits or labor costs?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.",
+    "(0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Does any problem have more than two distinct products to consider in its production planning?\nUser: No\n",
+    "(0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Does any problem have more than two distinct products to consider in its production planning?\nUser: No\n\nExpert: Do all of the candidate problems involve constraints related to raw material availability?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Does any problem have more than two distinct products to consider in its production planning?\nUser: No\n\nExpert: Do all of the candidate problems involve constraints related to raw material availability?\nUser: No\n\nExpert: Does the problem description include a constraint specifically related to budget or production costs?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.",
+    "(0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is the production process primarily composed of continuous tasks, or are there discrete tasks with fixed start and end points?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is the production process primarily composed of continuous tasks, or are there discrete tasks with fixed start and end points?\nUser: Yes\n\nExpert: Is the production process primarily driven by a goal related to minimizing costs, or is it focused on maximizing production volume or some other metric?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is the production process primarily composed of continuous tasks, or are there discrete tasks with fixed start and end points?\nUser: Yes\n\nExpert: Is the production process primarily driven by a goal related to minimizing costs, or is it focused on maximizing production volume or some other metric?\nUser: Yes\n\nExpert: Is the production volume or other metric being maximized subject to a constraint that limits the maximum production volume or capacity?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.",
+    "(0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is 'Raw material supply' mentioned in the description of the problem's constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is 'Raw material supply' mentioned in the description of the problem's constraints?\nUser: No\n\nExpert: Does the problem description contain the word 'Maximize' or 'Optimize' in the 'objective' field? (Case-insensitive comparison)\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A business is attempting to optimize its production and workforce allocation under specific constraints and resource limits.\nExpert: Is 'Raw material supply' mentioned in the description of the problem's constraints?\nUser: No\n\nExpert: Does the problem description contain the word 'Maximize' or 'Optimize' in the 'objective' field? (Case-insensitive comparison)\nUser: Yes\n\nExpert: Is the objective of the optimization problem strictly to 'maximize' a value (e.g., profit, revenue, productivity, production rate)?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource limits",
+            "Workforce allocation",
+            "Production optimization",
+            "Specific constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize production efficiency and workforce utilization while adhering to resource constraints and limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production cost must not exceed the budget limit.",
+            "The workforce must be allocated in a manner that meets production targets.",
+            "Resource usage must not surpass availability limits.",
+            "The production time should adhere to a given schedule.",
+            "Workforce allocation must comply with labor laws and regulations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Maximize Profit",
+            "Decision Variables: Production Levels, Workforce Allocation",
+            "Constraints: Resource Limits (e.g., materials, budget), Workforce Capacity, Production Capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total labor hours do not exceed the available workforce hours.",
+            "Production capacity for each product does not exceed the available resources and materials.",
+            "The financial budget for production and workforce allocation cannot be exceeded.",
+            "Compliance with regulatory requirements regarding workforce and production processes must be met.",
+            "Quality standards for products must be maintained, which may impose limitations on production methods or workforce training requirements.",
+            "Market demand constraints may dictate minimum production levels or prioritize certain products over others."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit",
+            "Constraints: Production capacity limits",
+            "Constraints: Resource availability limits",
+            "Workforce allocation constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profit"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective of the optimization problem is to maximize profit.",
+            "There are constraints related to production capacity.",
+            "There are constraints related to resource availability."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize profit",
+            "Constraints related to production capacity",
+            "Constraints related to resource availability",
+            "Constraints related to workforce limits",
+            "Constraints related to labor costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profit"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity should not be exceeded.",
+            "Resource availability limits must be adhered to.",
+            "Workforce allocation must not exceed labor limits.",
+            "Labor costs should be considered within the budget constraints."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource limits on raw materials and workforce availability.",
+            "Specific production targets or goals.",
+            "Costs associated with different levels of production or workforce allocations.",
+            "Constraints related to time, such as deadlines or production cycles.",
+            "Quality or performance metrics that must be maintained.",
+            "Logistical or operational constraints, such as space or equipment availability.",
+            "Demand forecasts for products.",
+            "Potential risks or uncertainties in supply chain or production processes.",
+            "Regulatory or compliance requirements.",
+            "Sustainability or environmental impact considerations."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize production costs while maximizing output and ensuring efficient workforce allocation within the given resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production output must not exceed the factory's capacity limits.",
+            "Workforce hours are limited to a specific maximum number per week, which cannot be exceeded.",
+            "Each product type has a minimum and maximum production requirement that must be met.",
+            "Raw materials are available in limited quantities and can't exceed certain levels.",
+            "Budget constraints limit the amount that can be spent on labor and materials.",
+            "There are specific skill requirements for workforce allocation that must be adhered to.",
+            "The production process must comply with environmental regulations, which may restrict certain activities or outputs."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "A business is attempting to optimize its production and workforce allocation.",
+            "The optimization involves specific constraints and resource limits.",
+            "The problem considers two distinct products."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the allocation of resources and workforce between two products to maximize profit or minimize costs while adhering to production constraints and resource limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production is limited to two distinct products.",
+            "Workforce allocation must be balanced between the production of the two products.",
+            "The business must adhere to resource limits such as material availability, labor hours, and budgetary constraints.",
+            "Each product has a minimum and maximum production capacity that must be respected.",
+            "There should be no overtime beyond the specified labor hours.",
+            "Quality standards for both products must be maintained in the production process.",
+            "There might be precedence or dependencies between the production tasks or allocation decisions.",
+            "Environmental or regulatory standards could impose additional constraints on production methods or quantities."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of products: 2",
+            "Workforce allocation constraints",
+            "Resource limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize production and workforce allocation for a business with at most two distinct products, considering specific constraints and resource limits, but not necessarily involving constraints related to raw material availability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The problem involves optimizing production and workforce allocation.",
+            "The problem does not involve more than two distinct products.",
+            "Not all candidate problems involve constraints related to raw material availability."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Two distinct products in production",
+            "Workforce allocation constraints",
+            "No raw material availability constraints",
+            "No budget or production costs constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize production efficiency and output by optimally allocating workforce and resources for the two products, considering constraints other than raw material availability or budget."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No more than two distinct products can be considered in production planning.",
+            "Constraints are not related to raw material availability.",
+            "There is no constraint specifically related to budget or production costs."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production capacity",
+            "workforce availability",
+            "resource constraints",
+            "demand requirements",
+            "cost limitations",
+            "production time",
+            "storage capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize production efficiency and workforce productivity while adhering to the given constraints and resource limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limit of 500 units per week.",
+            "Workforce availability of 40 workers.",
+            "Budget constraint not exceeding $10,000 per week.",
+            "Raw material availability constraint of 1000 units per week.",
+            "Legal regulation limiting overtime to 10 hours per worker per week.",
+            "Minimum production requirement of 300 units per week to fulfill existing contracts.",
+            "Technology constraint that requires at least 30% of production to be automated."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production levels",
+            "workforce allocation",
+            "resource limits",
+            "task durations (continuous or discrete)",
+            "cost of production",
+            "available workforce",
+            "demand forecasts",
+            "operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize production efficiency while ensuring optimal allocation of workforce and resources, given the constraints of continuous and discrete tasks in the production process."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production process includes both continuous tasks and discrete tasks with fixed start and end points.",
+            "Workforce must be allocated efficiently to manage both types of tasks.",
+            "Production capacity is limited by the availability of resources and workforce.",
+            "The optimization must consider the resource limits and the constraints on workforce allocation."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Volume",
+            "Costs",
+            "Workforce Allocation",
+            "Resource Limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the production and workforce allocation by either minimizing costs or maximizing production volume."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production tasks can be either continuous or discrete with fixed start and end points.",
+            "The objective could be minimizing costs or maximizing production volume, but the specific priority is not specified.",
+            "The company must operate within certain resource limits, though the exact types of resources are not detailed."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production and workforce allocation",
+            "Continuous and discrete tasks",
+            "Minimizing costs",
+            "Maximizing production volume",
+            "Resource limits",
+            "Maximum production volume constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize production volume subject to constraints on workforce allocation and resource limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production process must accommodate continuous tasks and discrete tasks with fixed start and end points.",
+            "The optimization goal is related to minimizing costs and/or maximizing production volume or some other business metric.",
+            "The production volume being maximized is subject to a constraint that limits the maximum production volume or capacity."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production capacity",
+            "workforce availability",
+            "budget constraints",
+            "production costs",
+            "labor costs",
+            "demand forecasts",
+            "resource limits",
+            "operational constraints",
+            "time constraints",
+            "inventory levels"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize production efficiency and resource utilization while minimizing costs within given constraints and resource limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity is limited to a maximum of 1000 units per week.",
+            "The workforce is capped at 50 employees per shift.",
+            "Raw materials are restricted to 500 units per day.",
+            "Budget constraints limit spending on workforce wages to $20,000 per week.",
+            "Each product requires 2 units of material and 1 hour of labor.",
+            "The production line can operate for only 16 hours a day."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production capacity",
+            "Workforce availability",
+            "Budget constraints",
+            "Time constraints",
+            "Demand fulfillment"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize production efficiency and workforce utilization while adhering to the given constraints and resource limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limit: The amount of goods that can be produced is limited by the machinery or other production facilities available.",
+            "Workforce availability: The number of workers available for production may be limited by hiring capacity, labor laws, or employee contracts.",
+            "Budgetary constraints: Financial limits on how much can be spent on production and labor costs.",
+            "Time restrictions: Deadlines for production that must be met, which could affect decision-making regarding shifts or overtime."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production",
+            "workforce allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize production output and optimize workforce allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No constraint on raw material supply is mentioned.",
+            "The objective is either maximization or optimization."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize",
+            "Production",
+            "Workforce Allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize a value such as profit, revenue, productivity, or production rate."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective is to maximize a value such as profit, revenue, productivity, or production rate.",
+            "There are resource limits related to production and workforce allocation."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

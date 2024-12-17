@@ -1,0 +1,17 @@
+{
+  "vague_description": "Decide on the best mix of two types of transportation to efficiently move a group of people within certain constraints.",
+  "detailed_description": "A golf course is hosting an event and can transport guests using either golf carts or pull carts. A golf cart can take \\param{GolfCartCapacity} guests while a pull cart can take \\param{PullCartCapacity} guest. Since golf carts take up a lot of space, at most \\param{MaxGolfCartProportion} of carts can be golf carts. If the golf course needs to transport at least \\param{MinGuests} guests, how many of each cart should be used to minimize the total number of carts needed?",
+  "target_objective": "Minimize the total number of carts needed to transport guests",
+  "target_constraints": [
+    "Number of golf carts is non-negative",
+    "Number of pull carts is non-negative",
+    "At most MaxGolfCartProportion of the total number of carts can be golf carts",
+    "At least MinGuests guests need to be transported"
+  ],
+  "target_parameters": [
+    "Number of guests that a golf cart can take",
+    "Number of guests that a pull cart can take",
+    "Maximum proportion of carts that can be golf carts",
+    "Minimum number of guests the golf course needs to transport"
+  ]
+}

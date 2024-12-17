@@ -1,0 +1,25 @@
+{
+  "vague_description": "Determining the optimal production strategy for car oils with limited resources to maximize profits.",
+  "detailed_description": "A car manufacturer makes two types of car oils: Oil Max and Oil Max Pro. A container of Oil Max contains \\param{AinMax} grams of substance A, \\param{BinMax} grams of substance B and \\param{CinMax} grams of substance C. A container of Oil Max Pro contains \\param{AinMaxPro} grams of substance A, \\param{BinMaxPro} grams of substance B and \\param{CinMaxPro} grams of substance C. The car manufacturer has \\param{TotalA} grams of substance A, \\param{TotalB} grams of substance B, \\param{TotalC} grams of substance C. In addition, the profit per container of Oil Max is $\\param{ProfitMax} and the profit per container of Oil Max Pro is $\\param{ProfitMaxPro}. How many containers of each type of oil should the car manufacturer make to maximize profit?",
+  "target_objective": "Maximize the total profit from the production of Oil Max and Oil Max Pro containers",
+  "target_constraints": [
+    "Number of Oil Max containers is non-negative",
+    "Number of Oil Max Pro containers is non-negative",
+    "Total grams of substance A used in all containers is at most TotalA",
+    "Total grams of substance B used in all containers is at most TotalB",
+    "Total grams of substance C used in all containers is at most TotalC"
+  ],
+  "target_parameters": [
+    "Amount of substance A in a container of Oil Max",
+    "Amount of substance B in a container of Oil Max",
+    "Amount of substance C in a container of Oil Max",
+    "Amount of substance A in a container of Oil Max Pro",
+    "Amount of substance B in a container of Oil Max Pro",
+    "Amount of substance C in a container of Oil Max Pro",
+    "Total available amount of substance A",
+    "Total available amount of substance B",
+    "Total available amount of substance C",
+    "Profit per container of Oil Max",
+    "Profit per container of Oil Max Pro"
+  ]
+}

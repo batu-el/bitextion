@@ -1,0 +1,23 @@
+{
+  "vague_description": "The artisan has limited time to shape and bake each type of jar, and needs to determine the optimal quantity of each jar type to produce in order to maximize profits within these constraints.",
+  "detailed_description": "An artisan makes two types of terracotta jars: a thin jar and a stubby jar. Each thin jar requires \\var{ThinShapingTime} minutes of shaping time and \\var{ThinBakingTime} minutes of baking time. Each stubby jar requires \\var{StubbyShapingTime} minutes of shaping time and \\var{StubbyBakingTime} minutes of baking time. Per week, there are \\var{TotalShapingTime} minutes available for shaping and \\var{TotalBakingTime} minutes available for baking. The profit per thin jar is \\var{ProfitThin} and the profit per stubby jar is \\var{ProfitStubby}. How many jars of each type should the artisan make to maximize profit?",
+  "target_objective": "Maximize the artisan's weekly profit from the jars",
+  "target_constraints": [
+    "Number of thin jars is an integer",
+    "Number of stubby jars is an integer",
+    "Number of thin jars is non-negative",
+    "Number of stubby jars is non-negative",
+    "Total shaping time for thin and stubby jars cannot exceed TotalShapingTime minutes per week",
+    "Total baking time for thin and stubby jars cannot exceed TotalBakingTime minutes per week"
+  ],
+  "target_parameters": [
+    "Minutes required to shape one thin jar",
+    "Minutes required to bake one thin jar",
+    "Minutes required to shape one stubby jar",
+    "Minutes required to bake one stubby jar",
+    "Total available shaping minutes per week",
+    "Total available baking minutes per week",
+    "Profit per thin jar",
+    "Profit per stubby jar"
+  ]
+}

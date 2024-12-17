@@ -1,0 +1,22 @@
+{
+  "vague_description": "How can a restaurant allocate its limited ingredients to produce the most popular dishes while meeting proportion and resource constraints?",
+  "detailed_description": "An Indian restaurant makes goat and chicken curry. Each bowl of goat curry requires \\param{GoatMeatPerGoatCurry} units of goat meat and \\param{CurryBasePerGoatCurry} units of the curry base. Each bowl of chicken curry requires \\param{ChickenMeatPerChickenCurry} units of chicken meat and \\param{CurryBasePerChickenCurry} units of the curry base. The restaurant has available \\param{TotalGoatMeat} units of goat meat and \\param{TotalChickenMeat} units of chicken meat. At least \\param{MinChickenCurryProportion} of the bowls made must be chicken curry. Since goat curry is more popular, the number of goat curry bowls must be larger than the number of chicken curry bowls. How many of each type of curry bowl should be made to minimize the total amount of curry base used?",
+  "target_objective": "Minimize the total amount of curry base used in making goat and chicken curry bowls",
+  "target_constraints": [
+    "Number of goat curry bowls is non-negative",
+    "Number of chicken curry bowls is non-negative",
+    "Available goat meat is limited to TotalGoatMeat units",
+    "Available chicken meat is limited to TotalChickenMeat units",
+    "At least MinChickenCurryProportion of the bowls made must be chicken curry",
+    "Number of goat curry bowls must be greater than the number of chicken curry bowls"
+  ],
+  "target_parameters": [
+    "Units of goat meat required for one bowl of goat curry",
+    "Units of curry base required for one bowl of goat curry",
+    "Units of chicken meat required for one bowl of chicken curry",
+    "Units of curry base required for one bowl of chicken curry",
+    "Total available units of goat meat",
+    "Total available units of chicken meat",
+    "Minimum proportion of bowls that must be chicken curry"
+  ]
+}

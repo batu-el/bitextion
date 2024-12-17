@@ -1,0 +1,20 @@
+{
+  "vague_description": "Finding the optimal combination of manual and automatic meat slicers that balances performance, maintenance, and personnel requirements within a butcher shop's constraints.",
+  "detailed_description": "A butcher shop is buying meat slicers for their shop, a manual and automatic slicer. The manual slicer can cut \\param{SlicesPerMinuteManual} slices per minute while the automatic slicer can cut \\param{SlicesPerMinuteAutomatic} slices per minute. In addition, to make sure all the parts operate smoothly, the manual slicer requires \\param{GreasePerMinuteManual} units of grease per minute while the automatic slicer requires \\param{GreasePerMinuteAutomatic} units of grease per minute. Since the automatic slicer does not need someone to operate it, the number of manual slicers must be less than the number of automatic slicers. In addition, the butcher shop needs to be able to cut at least \\param{MinTotalSlices} slices per minute but can use at most \\param{MaxTotalGrease} units of grease per minute. How many of each slicer should the butcher shop buy to minimize the total number of slicers in the shop?",
+  "target_objective": "Minimize the total number of slicers in the shop",
+  "target_constraints": [
+    "Number of manual slicers is non-negative",
+    "Number of automatic slicers is non-negative",
+    "Number of manual slicers must be less than the number of automatic slicers",
+    "Total slicing capacity must be at least MinTotalSlices slices per minute",
+    "Total grease usage must be at most MaxTotalGrease units per minute"
+  ],
+  "target_parameters": [
+    "Number of slices per minute a manual slicer can cut",
+    "Number of slices per minute an automatic slicer can cut",
+    "Units of grease required per minute by a manual slicer",
+    "Units of grease required per minute by an automatic slicer",
+    "Minimum total number of slices required per minute",
+    "Maximum total units of grease that can be used per minute"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "vague_description": "A researcher needs to distribute annotation tasks between two companies with different expertise, costs, and deadlines, ensuring a certain proportion is handled by a specialized company while minimizing overall expenses.",
+  "detailed_description": "A researcher is outsourcing annotations and has two options: a specialized third-party or a common third-party annotation company. The specialized company can annotate at a rate of \\param{SpecializedRate} images per hour whereas the common company can annotate at a rate of \\param{CommonRate} images per hour. However, the specialized company charges \\param{SpecializedCharge} per hour and the common company charges \\param{CommonCharge} per hour. The researcher has deadlines to meet and must complete a dataset of at least \\param{MinimumImages} images. They also have some special images that only the specialized company can annotate. Therefore, at least a \\param{MinimumSpecializedProportion} of work must be allocated to the specialized company. How should the researcher distribute the annotations to the two companies to minimize the cost of annotating the whole dataset?",
+  "target_objective": "Minimize the total cost of annotating the dataset",
+  "target_constraints": [
+    "Number of images annotated by the specialized company is non-negative",
+    "Number of images annotated by the common company is non-negative",
+    "Total number of images annotated must be at least MinimumImages",
+    "At least MinimumSpecializedProportion of the work must be allocated to the specialized company"
+  ],
+  "target_parameters": [
+    "Annotation rate of the specialized company",
+    "Annotation rate of the common company",
+    "Hourly charge of the specialized company",
+    "Hourly charge of the common company",
+    "Minimum number of images to be annotated",
+    "Minimum proportion of work to be allocated to the specialized company"
+  ]
+}

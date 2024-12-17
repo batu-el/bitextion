@@ -1,0 +1,14 @@
+{
+  "vague_description": "Determine the optimal distribution of resources to achieve efficiency in operations.",
+  "detailed_description": "How many officers should the town assign to each shift in order to minimize the total cost, given that there are S shifts, defined by the number of officers needed for each shift \\param{OfficersNeeded}, and the respective costs of assigning an officer to each shift \\param{ShiftCosts}?",
+  "target_objective": "Minimize the total cost of assigning officers to each of the S shifts",
+  "target_constraints": [
+    "Number of officers assigned to each shift is non-negative",
+    "Number of officers assigned meets the OfficersNeeded for each shift"
+  ],
+  "target_parameters": [
+    "Number of shifts for which officers are needed",
+    "Number of officers needed for shift s",
+    "Cost of assigning an officer to shift s"
+  ]
+}

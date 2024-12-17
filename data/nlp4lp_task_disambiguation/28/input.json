@@ -1,0 +1,24 @@
+{
+  "vague_description": "Determine the optimal allocation of constrained resources to achieve production goals.",
+  "detailed_description": "Maximize total production in the last two years using the given constraints on production inputs from two resource types (\\param{InputOne} and \\param{InputTwo}), manpower allocations (\\param{ManpowerOne} and \\param{ManpowerTwo}), stock levels (\\param{Stock}), capacities (\\param{Capacity}), and the upper limit of manpower (\\param{ManpowerLimit}).",
+  "target_objective": "Maximize total production in the last two years",
+  "target_constraints": [
+    "The consumption of InputOne per year is non-negative and within its availability",
+    "The consumption of InputTwo per year is non-negative and within its availability",
+    "Manpower allocation for ManpowerOne is non-negative and within its limit",
+    "Manpower allocation for ManpowerTwo is non-negative and within its limit",
+    "Stock levels must be maintained as per Stock non-negativity and limits",
+    "Production capacities must be respected according to Capacity",
+    "The total manpower used must not exceed the upper limit, ManpowerLimit",
+    "All variables of production, resources, and manpower must be non-negative"
+  ],
+  "target_parameters": [
+    "The production inputs from resource type one to product k in year j",
+    "The manpower allocated to resource type one for product k",
+    "The production inputs from resource type two to product k in year j",
+    "The manpower allocated to resource type two for product k",
+    "Stock levels of product k at the start of the planning horizon",
+    "Production capacity for product k",
+    "The upper limit of manpower"
+  ]
+}

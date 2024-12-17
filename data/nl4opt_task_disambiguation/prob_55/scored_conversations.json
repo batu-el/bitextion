@@ -1,0 +1,455 @@
+{
+  "vague_description": "The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.",
+  "detailed_description": "A farmer has \\(\\var{TotalAcres}\\) acres of land on which he must process hay using either a windrower or hay harvester. For each acre of land, the windrower can process \\(\\var{HayWindrower}\\) kg of hay while the hay harvester can process \\(\\var{HayHarvester}\\) kg of hay. Per acre, the windrower produces \\(\\var{MethaneWindrower}\\) kg of methane gas and requires \\(\\var{FuelWindrower}\\) kg of fuel. On the other hand, the hay harvester produces \\(\\var{MethaneHarvester}\\) kg of methane gas per acre and requires \\(\\var{FuelHarvester}\\) kg of fuel. There are \\(\\var{TotalFuel}\\) kg of fuel available and the farmer can produce at most \\(\\var{MaxMethane}\\) kg of methane gas. For how many acres should each machine be used to maximize the amount of hay processed?",
+  "target_objective": "Maximize the total amount of hay processed",
+  "target_constraints": [
+    "Number of acres processed by the windrower is a non-negative integer",
+    "Number of acres processed by the hay harvester is a non-negative integer",
+    "Total acres processed by both machines cannot exceed TotalAcres",
+    "Total fuel used by both machines cannot exceed TotalFuel",
+    "Total methane produced by both machines cannot exceed MaxMethane",
+    "MethaneWindrower * acres processed by the windrower + MethaneHarvester * acres processed by the hay harvester <= MaxMethane",
+    "FuelWindrower * acres processed by the windrower + FuelHarvester * acres processed by the hay harvester <= TotalFuel"
+  ],
+  "target_parameters": [
+    "Total acres of available land for hay processing",
+    "Hay processed by the windrower per acre",
+    "Hay processed by the hay harvester per acre",
+    "Methane gas produced by the windrower per acre",
+    "Fuel required by the windrower per acre",
+    "Methane gas produced by the hay harvester per acre",
+    "Fuel required by the hay harvester per acre",
+    "Total available fuel",
+    "Maximum allowable methane gas production"
+  ],
+  "Expert": {
+    "(0,)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.",
+    "(0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Is there a specific budget constraint for the farming resources in this optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Is there a specific budget constraint for the farming resources in this optimization problem?\nUser: No\n\nExpert: Are the fuel and methane emission constraints quantified in terms of maximum allowable levels?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Is there a specific budget constraint for the farming resources in this optimization problem?\nUser: No\n\nExpert: Are the fuel and methane emission constraints quantified in terms of maximum allowable levels?\nUser: Yes\n\nExpert: Are there any time-related constraints, such as deadlines for processing the hay, impacting the optimization problem?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.",
+    "(0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Is the primary objective of the optimization problem to maximize profit or minimize cost?\nUser: No\n",
+    "(0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Is the primary objective of the optimization problem to maximize profit or minimize cost?\nUser: No\n\nExpert: Does the problem include a constraint on the area or land used for hay processing?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Is the primary objective of the optimization problem to maximize profit or minimize cost?\nUser: No\n\nExpert: Does the problem include a constraint on the area or land used for hay processing?\nUser: Yes\n\nExpert: Does the problem include a constraint related to labor hours?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.",
+    "(0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Are the resources you are trying to allocate a finite set of (e.g., labor, machines, land), rather than an infinite or variable resource?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Are the resources you are trying to allocate a finite set of (e.g., labor, machines, land), rather than an infinite or variable resource?\nUser: Yes.\n\nExpert: Is the specific goal of optimizing hay processing related to maximizing the quantity of hay produced or minimizing the costs associated with processing it?\nUser: Yes, the specific goal is to maximize the quantity of hay processed.\n",
+    "(0, 0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Are the resources you are trying to allocate a finite set of (e.g., labor, machines, land), rather than an infinite or variable resource?\nUser: Yes.\n\nExpert: Is the specific goal of optimizing hay processing related to maximizing the quantity of hay produced or minimizing the costs associated with processing it?\nUser: Yes, the specific goal is to maximize the quantity of hay processed.\n\nExpert: Are the fuel and methane emission constraints hard bounds (e.g., cannot exceed a certain amount), or soft bounds (e.g., there is some leeway to adjust within a certain range)?\nUser: Hard bounds.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.",
+    "(0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Are 'production cost' or 'production cost of each machine' explicitly mentioned as a parameter within the problem description?\nUser: No\n",
+    "(0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Are 'production cost' or 'production cost of each machine' explicitly mentioned as a parameter within the problem description?\nUser: No\n\nExpert: Is the objective of the problem to minimize a quantity (cost, time, resources) rather than to maximize a quantity (production, energy)? \nUser: No\n",
+    "(0, 0, 0, 0)": "User: The goal is to determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints.\nExpert: Are 'production cost' or 'production cost of each machine' explicitly mentioned as a parameter within the problem description?\nUser: No\n\nExpert: Is the objective of the problem to minimize a quantity (cost, time, resources) rather than to maximize a quantity (production, energy)? \nUser: No\n\nExpert: Is the objective to be maximized?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "farming resources",
+            "hay processing",
+            "fuel constraints",
+            "methane emission constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must ensure the total fuel used does not exceed the available fuel supply.",
+            "Methane emissions from farming activities must not surpass the permissible emission threshold.",
+            "The allocation must consider the capacity limitations of available farming equipment and resources.",
+            "There are operational hours constraints for resource usage limiting the time period within which resources can be utilized.",
+            "Ensure the quality of hay meets set standards, restricting some resource usage combinations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Farming resources allocation amounts",
+            "Fuel usage for processing hay",
+            "Methane emissions during hay processing"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fuel usage must not exceed a certain threshold.",
+            "Methane emissions should remain within permissible limits."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal allocation of farming resources",
+            "Fuel constraints",
+            "Methane emission constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of farming resources in order to maximize hay processing while adhering to constraints on fuel usage and methane emissions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fuel usage must not exceed maximum allowable levels.",
+            "Methane emissions must not exceed maximum allowable levels."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Farming resources",
+            "Fuel emission constraints (maximum allowable levels)",
+            "Methane emission constraints (maximum allowable levels)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of farming resources to process hay while adhering to specified fuel and methane emission constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maximum allowable fuel usage per unit time must not exceed specified limits.",
+            "Maximum allowable methane emissions per unit time must not exceed specified limits."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Allocation of farming resources",
+            "Hay processing",
+            "Fuel constraint",
+            "Methane emission constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fuel consumption must not exceed a specified limit.",
+            "Methane emissions must be below a certain threshold."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "optimal allocation of farming resources",
+            "fuel constraint",
+            "methane emission constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to optimize the allocation of farming resources to process hay within the limits of fuel and methane emissions, without explicitly focusing on maximizing profit or minimizing cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fuel consumption should not exceed the available fuel resource.",
+            "Methane emissions should stay within the permissible limit set by environmental regulations."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "farming resources for hay processing",
+            "fuel constraints",
+            "methane emission constraints",
+            "land area constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to optimize the allocation of farming resources for hay processing, with constraints on fuel usage, methane emissions, and land area, but it is not focused on maximizing profit or minimizing cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of farming resources must adhere to fuel limitations.",
+            "The allocation of farming resources must adhere to methane emission constraints.",
+            "The area or land used for hay processing is limited."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fuel constraints",
+            "Methane emission constraints",
+            "Area or land used for hay processing"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of farming resources to efficiently process hay while staying within fuel, methane emission, and land use constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "fuel constraint",
+            "methane emission constraint",
+            "limited land area"
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "farming resources",
+            "hay processing",
+            "fuel constraints",
+            "methane emission constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of farming resources to process hay while adhering to fuel and methane emission constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of farming resources must not exceed available resources.",
+            "Fuel usage from the allocation must remain within the allowable limits.",
+            "Methane emissions resulting from the resource allocation must not exceed regulatory or pre-defined thresholds."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Farming resources (e.g., labor, machines, land)",
+            "Fuel constraints",
+            "Methane emission constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of finite farming resources to process hay, ensuring compliance with fuel and methane emission constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of resources must not exceed the finite availability of labor, machines, and land.",
+            "Fuel usage must remain within established limits.",
+            "Methane emissions must not surpass regulatory or internal thresholds."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "finite set of farming resources",
+            "labor",
+            "machines",
+            "land",
+            "fuel constraints",
+            "methane emission constraints",
+            "maximize quantity of hay processed"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the quantity of hay processed while adhering to fuel and methane emission constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited fuel available for processing hay.",
+            "Methane emissions from hay processing must not exceed a specified threshold.",
+            "Finite resources including labor, machines, and land for hay processing."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "farming resources (labor, machines, land)",
+            "fuel limits",
+            "methane emissions limits",
+            "quantity of hay processed"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the quantity of hay processed while adhering to hard constraints on fuel usage and methane emissions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total fuel consumption must not exceed a specified limit.",
+            "Methane emissions must not exceed a specified limit.",
+            "The maximum quantity of hay processed is the primary objective."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Farming resources availability",
+            "Fuel consumption limit",
+            "Methane emission limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of farming resources for hay processing while minimizing fuel usage and methane emissions, subject to the constraints imposed by these resource limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fuel consumption must not exceed the available fuel resources allocated for the hay processing activities.",
+            "Methane emissions must remain within the permissible limits set by environmental regulations for the farm."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "hay processing capacity",
+            "fuel usage constraint",
+            "methane emission constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of farming resources for hay processing under specific constraints on fuel usage and methane emissions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of farming resources must adhere to fuel usage limits.",
+            "The allocation must not exceed methane emission constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "fuel constraints",
+            "methane emission constraints",
+            "optimal allocation of farming resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the allocation of farming resources for hay processing while adhering to constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total fuel consumption across all machines must not exceed the fuel limit.",
+            "Methane emissions from processing hay must stay within the imposed methane emission limits."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "optimal allocation of farming resources",
+            "fuel constraints",
+            "methane emission constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize production"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fuel consumption does not exceed specified limits.",
+            "Methane emissions do not exceed regulatory thresholds."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "vague_description": "Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.",
+  "detailed_description": "The company\u2019s declared objective is to minimize redundancy. Requirement are given as \\param{K} different resources each having \\param{I} specific requirements, where \\param{Strength} is the strength of each type of resource, \\param{LessOneWaste} is the value when wastage of resources is less than optimal, \\param{MoreOneWaste} is the value when wastage of resources is more than optimal. \\param{Recruit} is the number of recruited resources of each type, \\param{CostRedundancy} is the cost of redundancy for each type of resource, \\param{NumOverman} signifies the number of overmanned positions, \\param{CostOverman} is the cost of overmanning for each type of resource, and \\param{NumShortwork} represents the number of shortworked positions with \\param{CostShort} as the cost of short working for each type of resource. How should they operate in order to do this?",
+  "target_objective": "Minimize the total cost of redundancy, overmanning, and short working for the company",
+  "target_constraints": [
+    "Recruit, NumOverman, and NumShortwork must be non-negative for each type of resource",
+    "Amount of each resource used must be at least equal to I - LessOneWaste if there is less wastage",
+    "Amount of each resource used must not exceed I + MoreOneWaste if there is more wastage"
+  ],
+  "target_parameters": [
+    "Total number of different types of resources",
+    "Number of different requirements for each type of resource",
+    "Strength of each type of resource",
+    "Value when wastage of resources is less than optimal",
+    "Value when wastage of resources is more than optimal",
+    "Number of recruited resources of each type",
+    "Cost of redundancy for each type of resource",
+    "Number of overmanned positions",
+    "Cost of overmanning for each type of resource",
+    "Number of shortworked positions",
+    "Cost of short working for each type of resource"
+  ]
+}

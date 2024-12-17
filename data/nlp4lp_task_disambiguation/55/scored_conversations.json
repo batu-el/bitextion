@@ -1,0 +1,460 @@
+{
+  "vague_description": "Decide the optimal allocation of resources to minimize expenses while meeting required targets.",
+  "detailed_description": "How much electricity should each power plant send to each city to minimize the total transmission cost, given there are \\param{P} power plants with a supply capacity of \\param{Supply}, \\param{C} cities with a demand of \\param{Demand}, and the transmission costs between power plants and cities are \\param{TransmissionCosts}?",
+  "target_objective": "Minimize the total transmission cost from power plants to cities",
+  "target_constraints": [
+    "Each power plant has a limited supply capacity of Supply",
+    "Each city has a specific electricity demand of Demand",
+    "The total electricity supplied to each city must meet its demand",
+    "A power plant cannot send more electricity than its supply capacity",
+    "Electricity sent from any power plant to any city is non-negative"
+  ],
+  "target_parameters": [
+    "Number of power plants",
+    "Number of cities",
+    "Electricity supply capacity of power plant p",
+    "Electricity demand of city c",
+    "Transmission cost from power plant p to city c"
+  ],
+  "Expert": {
+    "(0,)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.",
+    "(0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Are there specific constraints on the maximum or minimum amount of resources that can be allocated to each target?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Are there specific constraints on the maximum or minimum amount of resources that can be allocated to each target?\nUser: Yes\n\nExpert: Are the expenses directly proportional to the resource allocation?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Are there specific constraints on the maximum or minimum amount of resources that can be allocated to each target?\nUser: Yes\n\nExpert: Are the expenses directly proportional to the resource allocation?\nUser: Yes\n\nExpert: Are there multiple types of resources involved in the allocation?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.",
+    "(0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Do the constraints include non-negativity requirements for the resources allocated in all candidate problems?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Do the constraints include non-negativity requirements for the resources allocated in all candidate problems?\nUser: Yes\n\nExpert: Does the problem description include constraints specifically related to minimum resource allocations for certain projects or categories?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Do the constraints include non-negativity requirements for the resources allocated in all candidate problems?\nUser: Yes\n\nExpert: Does the problem description include constraints specifically related to minimum resource allocations for certain projects or categories?\nUser: No\n\nExpert: Does the problem description include a constraint that explicitly limits the total resource allocation to not exceed the available budget?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.",
+    "(0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Are the resources to be allocated limited in quantity?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Are the resources to be allocated limited in quantity?\nUser: Yes.\n\nExpert: Are the targets to be met related to a specific product or service?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Are the resources to be allocated limited in quantity?\nUser: Yes.\n\nExpert: Are the targets to be met related to a specific product or service?\nUser: Yes.\n\nExpert: Can the product or service levels be adjusted, or are they fixed?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.",
+    "(0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Is the number of constraints given a fixed, small number (less than or equal to 3)?\nUser: No\n",
+    "(0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Is the number of constraints given a fixed, small number (less than or equal to 3)?\nUser: No\n\nExpert: Does the objective of the problem involve minimizing a singular value (e.g., 'minimize expenses'), rather than minimizing a function or expression (e.g., 'minimize total expenses')?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Is the number of constraints given a fixed, small number (less than or equal to 3)?\nUser: No\n\nExpert: Does the objective of the problem involve minimizing a singular value (e.g., 'minimize expenses'), rather than minimizing a function or expression (e.g., 'minimize total expenses')?\nUser: No\n\nExpert: Is the objective function of the problem described as 'minimize' or 'minimize total expenses'?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource availability",
+            "Expense budget",
+            "Targets",
+            "Cost per resource",
+            "Resource allocation constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize expenses while meeting required targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total expenses must be minimized.",
+            "All required targets must be met within the resource allocation.",
+            "Resources can only be allocated within the available budget.",
+            "Each target has specific resource requirements that must be satisfied.",
+            "Resources have upper and lower bounds for allocation based on availability."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize expenses while meeting required targets, considering resource allocation constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Must meet minimum required resource allocation for each target.",
+            "Must not exceed maximum allowable resource allocation for each target."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation Limits",
+            "Proportional Expenses",
+            "Target Requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize expenses by optimally allocating resources while meeting specific target requirements, ensuring that allocation stays within given maximum and minimum constraints, with expenses being directly proportional to the resources allocated."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources must meet required targets.",
+            "There are specific constraints on the maximum amount of resources that can be allocated to each target.",
+            "There are specific constraints on the minimum amount of resources that can be allocated to each target.",
+            "Expenses are directly proportional to resource allocation."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Single type of resource available for allocation.",
+            "Specific constraints on the maximum and minimum amount each target can receive from the resource.",
+            "Expenses are directly proportional to the resource allocation.",
+            "Objective is to minimize expenses while meeting required targets."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize expenses by optimally allocating a single type of resource to meet specified targets while adhering to constraints on resource allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of resources to each target must meet specific minimum required targets.",
+            "There is a maximum limit to the amount of resources that can be allocated to each target.",
+            "Expenses are directly proportional to the resources allocated."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource quantities",
+            "Expense costs",
+            "Targets",
+            "Resource allocation rules"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize expenses while meeting required targets through optimal allocation of resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of resources must not exceed the total available budget.",
+            "The allocation of resources must meet all required targets.",
+            "Resources allocated to each target must be non-negative.",
+            "The sum of resources allocated to all targets must be equal to the total resources available.",
+            "Each target may have a unique minimum resource requirement that must be met."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize expenses",
+            "Meet required targets",
+            "Non-negativity constraint for resource allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize expenses while meeting required targets and ensuring non-negativity of resources allocated."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must be non-negative."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "non-negativity of resource allocations",
+            "resource target requirements",
+            "expense minimization objective"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize expenses by optimally allocating resources while ensuring all required targets are met, with the constraint that resources must be non-negative."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocations must be non-negative.",
+            "Resource allocations should meet required targets."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize expenses while meeting required targets",
+            "Non-negativity requirements for the resources allocated",
+            "No minimum resource allocations for certain projects or categories",
+            "Total resource allocation should not exceed the available budget"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize expenses while meeting required targets, subject to non-negativity constraints and a budget constraint."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All resource allocations must be non-negative.",
+            "The total resource allocation must not exceed the available budget."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource1",
+            "resource2",
+            "resource3",
+            "target1",
+            "target2",
+            "target3",
+            "expense_function",
+            "constraint1",
+            "constraint2",
+            "constraint3"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize expenses while meeting required targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total expenses cannot exceed the budget allocated for resources.",
+            "All required targets must be met within the resource allocation.",
+            "Resource allocation must comply with any regulatory and policy guidelines.",
+            "The distribution of resources must ensure operational efficiency.",
+            "Allocated resources must not exceed available resources.",
+            "Resource allocation should take into account anticipated future demands."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of resources",
+            "Expense",
+            "Targets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize expenses while meeting required targets under limited resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total quantity of allocated resources cannot exceed the available resource limit."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited quantity of resources",
+            "Targets related to a specific product or service"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize expenses by optimally allocating limited resources while achieving specific product or service targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources allocated must not exceed their available limited quantities.",
+            "All required targets related to a specific product or service must be met by the allocation of resources."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources",
+            "Specific product or service targets",
+            "Adjustable product or service levels"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize expenses by optimally allocating limited resources while meeting specified targets for a particular product or service."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource quantities are limited.",
+            "And the product or service levels must meet specific required targets."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "ResourceAllocationMatrix",
+            "ExpenseCostsVector",
+            "TargetConstraints",
+            "ResourceLimits",
+            "ObjectiveFunction"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize expenses while meeting required targets through optimal allocation of resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation must meet all required targets specified by the organization.",
+            "The total expenses incurred after allocation should be minimized.",
+            "Resources cannot be allocated more than their available quantity.",
+            "The quality of output should not fall below the required standard even after resource allocation.",
+            "Time constraints for resource usage and target achievement must be adhered to."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "allocation of resources",
+            "expenses",
+            "required targets",
+            "constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize expenses while meeting required targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of constraints is more than three.",
+            "The optimal allocation of resources should minimize expenses.",
+            "Required targets must be met through the resource allocation."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "expenses",
+            "required targets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the discussed optimization problem is to determine the optimal allocation of resources in order to minimize total expenses while meeting certain required targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must achieve the required targets.",
+            "There are more than three constraints in the problem.",
+            "The objective of minimizing involves a function or an expression, such as minimizing total expenses."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "expenses",
+            "resources",
+            "targets",
+            "objective:function/minimize_total_expenses"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total expenses while meeting required targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of resources must meet or exceed required targets.",
+            "The sum of all expenses must be minimized.",
+            "Resource allocation cannot exceed available resources."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      }
+    }
+  }
+}

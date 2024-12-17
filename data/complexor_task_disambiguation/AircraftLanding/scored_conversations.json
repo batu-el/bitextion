@@ -1,0 +1,442 @@
+{
+  "vague_description": "The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.",
+  "detailed_description": "The Aircraft Landing Problem (ALP) is the problem of deciding a landing time on an appropriate runway for each aircraft in a given set of \\param{TotalAircrafts} aircraft such that each aircraft lands within a predetermined time window defined by an \\param{EarliestLandingTime} and a \\param{LatestLandingTime}; and separation criteria between the landing of an aircraft i, and the landing of all successive aircraft j, are respected, determined by \\param{SeparationTimeMatrix}. Each aircraft has a \\param{TargetLandingTime}, and penalties are incurred for landing after (\\param{PenaltyTimeAfterTarget}) or before (\\param{PenaltyTimeBeforeTarget}) this target time.",
+  "target_objective": "Minimize the sum of penalties incurred for each aircraft landing before or after its TargetLandingTime",
+  "target_constraints": [
+    "Each aircraft must land within its predetermined time window",
+    "Sufficient separation time must be maintained between consecutive aircraft landings as specified in the SeparationTimeMatrix"
+  ],
+  "target_parameters": [
+    "The total number of aircraft in the set",
+    "The earliest landing time for each aircraft",
+    "The latest landing time for each aircraft",
+    "The target landing time for each aircraft",
+    "The penalty incurred for each aircraft landing after the target time",
+    "The penalty incurred for each aircraft landing before the target time",
+    "The required separation time between the landing of aircraft i and aircraft j"
+  ],
+  "Expert": {
+    "(0,)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.",
+    "(0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Are there specific time windows within which each aircraft must land?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Are there specific time windows within which each aircraft must land?\nUser: Yes\n\nExpert: Are there penalties associated with landing aircraft outside their designated time windows?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Are there specific time windows within which each aircraft must land?\nUser: Yes\n\nExpert: Are there penalties associated with landing aircraft outside their designated time windows?\nUser: No\n\nExpert: Is there a maximum number of aircraft that can land within the same time slot?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.",
+    "(0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Does the problem include constraints related to runway availability or specific runway restrictions?\nUser: No\n",
+    "(0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Does the problem include constraints related to runway availability or specific runway restrictions?\nUser: No\n\nExpert: Do the constraints include a maximum capacity or limit on the number of aircraft that can be on the ground or land per time period?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Does the problem include constraints related to runway availability or specific runway restrictions?\nUser: No\n\nExpert: Do the constraints include a maximum capacity or limit on the number of aircraft that can be on the ground or land per time period?\nUser: No\n\nExpert: Does the problem description include operational hours of the airport as a constraint?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.",
+    "(0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Is the objective of the optimization problem to minimize a total delay time of all aircraft?\nUser: No\n",
+    "(0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Is the objective of the optimization problem to minimize a total delay time of all aircraft?\nUser: No\n\nExpert: Is there a fixed limit on the maximum number of aircraft that can land within a certain time period?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Is the objective of the optimization problem to minimize a total delay time of all aircraft?\nUser: No\n\nExpert: Is there a fixed limit on the maximum number of aircraft that can land within a certain time period?\nUser: No\n\nExpert: Does the optimization problem involve multiple aircraft with different characteristics (e.g., weight, size, fuel levels, or priorities)?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.",
+    "(0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Does the objective function involve minimizing penalties or costs associated with scheduling aircraft landings? (Yes/No)\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Does the objective function involve minimizing penalties or costs associated with scheduling aircraft landings? (Yes/No)\nUser: Yes\n\nExpert: Does the description of the objective contain any keywords related to a specific problem domain or application, such as 'penalties', 'costs', or 'aircraft landings'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The task involves scheduling aircraft landings within given constraints and minimizing associated penalties.\nExpert: Does the objective function involve minimizing penalties or costs associated with scheduling aircraft landings? (Yes/No)\nUser: Yes\n\nExpert: Does the description of the objective contain any keywords related to a specific problem domain or application, such as 'penalties', 'costs', or 'aircraft landings'?\nUser: Yes\n\nExpert: Is the 'objective' of the problem explicitly stated as 'minimize'?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "landing_times",
+            "runway_availabilities",
+            "penalty_coefficients",
+            "minimum_separation_times",
+            "aircraft_priorities",
+            "weather_constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total penalties associated with scheduling aircraft landings within given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each aircraft must land within its designated time window.",
+            "The minimum separation between consecutive landings must be maintained to ensure safety.",
+            "Runway availability must be taken into account, as not all runways may be available at all times.",
+            "Priority assignments for different aircraft based on size, type, or other factors must be respected.",
+            "Mandatory maintenance or inspection requirements for certain aircraft that might affect their landing times must be integrated into the schedule."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Aircraft",
+            "Landing Time Windows",
+            "Penalties"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the penalties associated with deviations from the specified landing time windows for each aircraft."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each aircraft must land within its specified time window."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Scheduled landing times for each aircraft",
+            "Time windows for each aircraft",
+            "Penalties for deviations from schedule"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To schedule aircraft landings within given time windows while minimizing associated penalties."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each aircraft must land within its designated time window.",
+            "Landing outside the designated time windows incurs no penalties."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Aircraft",
+            "Time Windows"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the overall delays in landing times for all aircraft."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each aircraft must land within its designated time window."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "aircraft arrival times",
+            "runway availability",
+            "separation time between landings",
+            "priority rules for different types of aircraft",
+            "penalty costs associated with deviations from scheduled landings"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the penalties associated with scheduling aircraft landings while meeting all given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each aircraft must have a designated landing time.",
+            "Landing times must be within allowed time windows for each aircraft.",
+            "Aircraft separation requirements (minimum time between consecutive landings) must be adhered to.",
+            "Each aircraft has a preferred landing time, with penalties associated to deviation from it.",
+            "Runway capacity limitations must not be exceeded."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Scheduled landing times for aircraft"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the penalties associated with scheduling aircraft landings within the given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Scheduling aircraft landings without considering runway availability.",
+            "Minimize penalties associated with aircraft landings."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Aircraft sequencing",
+            "Minimizing penalties",
+            "No specific runway restrictions",
+            "No maximum ground capacity constraints",
+            "No per time period landing limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to schedule aircraft landings while minimizing the associated penalties."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "To schedule aircraft landings in a way that minimizes associated penalties, without considering constraints related to runway availability, specific runway restrictions, airport operational hours, or ground capacity limits."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Schedule aircraft landing times",
+            "Minimize penalties for landing violations",
+            "Ensure all aircraft land within their prescribed time windows",
+            "Avoid conflicts between aircraft on the same runway",
+            "Optimize fuel efficiency during landing scheduling"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the penalties associated with scheduling aircraft landings."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each aircraft must land within its assigned time window.",
+            "The separation time between consecutive landings must be maintained to ensure safety.",
+            "The total number of aircraft landed within any given period must not exceed the airport's capacity.",
+            "The penalty associated with deviations from preferred landing times must be accounted for and minimized."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective: minimize associated penalties",
+            "constraints: scheduling aircraft landings"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the associated penalties related to scheduling aircraft landings."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All aircraft must land within their designated landing time windows.",
+            "The landing sequence must be organized to satisfy minimum separation times between consecutive landings.",
+            "Runways have limited capacities that cannot be exceeded at any time.",
+            "Aircraft priority must be considered when scheduling landings."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Scheduling aircraft landings",
+            "Minimizing associated penalties"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize associated penalties related to scheduling aircraft landings."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Scheduling aircraft landings.",
+            "Minimizing associated penalties."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Scheduling aircraft landings",
+            "Given constraints",
+            "Minimizing associated penalties"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the associated penalties for aircraft landing scheduling within given constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "landings",
+            "penalties"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the penalties associated with scheduling aircraft landings while adhering to specified constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each aircraft must land within its specified time window.",
+            "Runway occupancy time must not overlap for different aircraft.",
+            "Safety separation times must be maintained between consecutive landings.",
+            "Aircraft landing priorities or preferences must be respected."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function involving penalties",
+            "Scheduling constraints",
+            "Minimizing penalties"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize penalties associated with scheduling aircraft landings while respecting the given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each aircraft must be scheduled to land within its specific time window.",
+            "Only one aircraft can land at a time due to runway capacity restrictions.",
+            "The schedule must minimize penalties associated with deviations from preferred landing times.",
+            "Aircraft arrive according to a pre-determined sequence and scheduling must respect this order.",
+            "Closely spaced landings must account for mandatory separation times to ensure safety.",
+            "Penalties may vary based on the extent of deviation from preferred landing times."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "scheduling aircraft landings",
+            "minimizing penalties"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize penalties or costs associated with scheduling aircraft landings."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each aircraft must land within its assigned time window.",
+            "No two aircraft can land simultaneously on the same runway.",
+            "The separation time must be maintained between the landings of consecutive aircraft.",
+            "The penalty function considers deviations from the preferred landing times.",
+            "Each aircraft must have a designated runway for landing.",
+            "The landing schedule must not exceed the airport's operational hours."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "schedule",
+            "aircraft landings",
+            "minimizing penalties",
+            "constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize penalties associated with scheduling aircraft landings."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Aircraft must land within assigned time slots.",
+            "Total penalties for deviation must be minimized.",
+            "Each aircraft has specific time windows during which it can land.",
+            "Runway capacity constraints must be observed.",
+            "Safety protocols for aircraft separations must be adhered to.",
+            "Landing schedules should align with airline priorities."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      }
+    }
+  }
+}

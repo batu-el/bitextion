@@ -1,0 +1,47 @@
+{
+  "vague_description": "Optimize the network routing to efficiently allocate data flows under given constraints.",
+  "detailed_description": "Find paths along which all data reach their intended destinations, while minimizing the total cost. The links between nodes are characterized by their capacities (\\param{Capacity}) and associated costs (\\param{Cost}), where each link i connects a start node (\\param{StartNode}_i) to an end node (\\param{EndNode}_i). There is a set number of data flow requirements (\\param{F}), each with a source node (\\param{Source}_j) and destination node (\\param{Destination}_j), and a specific data rate (\\param{DataRate}_j) that must be achieved.",
+  "target_objective": "Minimize the total cost of data transmission across all links",
+  "target_constraints": [
+    "Data flow on a link cannot exceed its capacity",
+    "Each link's data flow must be non-negative",
+    "The sum of data rates on all links from each source node must be at least the required data rate for that source",
+    "The sum of data rates on all links to each destination node must be at least the required data rate for that destination",
+    "Flow conservation must be maintained at intermediate nodes (i.e., the amount of data entering a non-source, non-destination node on incoming links equals the data leaving on outgoing links)"
+  ],
+  "target_parameters": [
+    "The number of links between nodes in the network.",
+    "The starting node for link ij",
+    "The ending node for link ij",
+    "The maximum capacity for link ij",
+    "The cost for transporting data through link ij",
+    "The number of data flow requirements.",
+    "The source node for data flow kl",
+    "The destination node for data flow kl",
+    "The rate of data flow for flow kl"
+  ],
+  "Expert": {
+    "(0,)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.",
+    "(0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Are there capacity constraints on the network links that must be considered in the optimization?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Are there capacity constraints on the network links that must be considered in the optimization?\nUser: Yes\n\nExpert: Is the optimization problem focused on minimizing network latency?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Are there capacity constraints on the network links that must be considered in the optimization?\nUser: Yes\n\nExpert: Is the optimization problem focused on minimizing network latency?\nUser: No\n\nExpert: Is the objective of the optimization problem to minimize the total cost of data transmission?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.",
+    "(0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Does the problem consider energy consumption as a constraint or parameter?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Does the problem consider energy consumption as a constraint or parameter?\nUser: No\n\nExpert: Does the problem include constraints related to the processing capacity of individual network nodes?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Does the problem consider energy consumption as a constraint or parameter?\nUser: No\n\nExpert: Does the problem include constraints related to the processing capacity of individual network nodes?\nUser: No\n\nExpert: Do the constraints require flow conservation at every node (i.e., the total data flow into a node must equal the total data flow out of it)?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.",
+    "(0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Are there any hard capacity constraints (e.g., maximum bandwidth, queue size limitations) that must be satisfied in the network routing optimization problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Are there any hard capacity constraints (e.g., maximum bandwidth, queue size limitations) that must be satisfied in the network routing optimization problem?\nUser: Yes\n\nExpert: Are the hard capacity constraints (e.g., maximum bandwidth, queue size limitations) time-varying or constant?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Are there any hard capacity constraints (e.g., maximum bandwidth, queue size limitations) that must be satisfied in the network routing optimization problem?\nUser: Yes\n\nExpert: Are the hard capacity constraints (e.g., maximum bandwidth, queue size limitations) time-varying or constant?\nUser: No\n\nExpert: Are the hard capacity constraints dependent on the current state or status of the network nodes (e.g., node loads, queue occupancies)?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.",
+    "(0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Does the objective function depend on the individual data flows (as opposed to aggregate metrics like average latency, total latency, or network bandwidth)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Does the objective function depend on the individual data flows (as opposed to aggregate metrics like average latency, total latency, or network bandwidth)?\nUser: Yes\n\nExpert: Are there any constraints in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize the network routing to efficiently allocate data flows under given constraints.\nExpert: Does the objective function depend on the individual data flows (as opposed to aggregate metrics like average latency, total latency, or network bandwidth)?\nUser: Yes\n\nExpert: Are there any constraints in the problem description?\nUser: Yes\n\nExpert: Does the problem statement include a parameter related to 'network topology'?\nUser: Yes\n"
+  }
+}

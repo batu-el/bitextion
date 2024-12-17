@@ -1,0 +1,19 @@
+{
+  "vague_description": "A decision on how to allocate a budget between two investment options to maximize profit given certain constraints.",
+  "detailed_description": "Mrs. Watson wants to invest in the real-estate market and has a total budget of at most \\var{TotalBudget}. She has two choices which include condos and detached houses. Each dollar invested in condos yields a \\var{ProfitCondo} profit and each dollar invested in detached houses yields a \\var{ProfitHouse} profit. A minimum of \\var{MinPercentCondo} of all money invested must be in condos, and at least \\var{MinInvestHouse} must be in detached houses. Formulate an LP that can be used to maximize total profit earned from Mrs. Watson's investment.",
+  "target_objective": "Maximize the total profit earned from investments in condos and detached houses",
+  "target_constraints": [
+    "The total investment in both condos and detached houses must be at most TotalBudget",
+    "The investment in condos must be at least MinPercentCondo of the total investment",
+    "The investment in detached houses must be at least MinInvestHouse",
+    "The investment in condos must be non-negative",
+    "The investment in detached houses must be non-negative"
+  ],
+  "target_parameters": [
+    "Total budget for investments",
+    "Profit yield per dollar invested in condos",
+    "Profit yield per dollar invested in detached houses",
+    "Minimum percentage of total investment that must be in condos",
+    "Minimum investment in detached houses"
+  ]
+}

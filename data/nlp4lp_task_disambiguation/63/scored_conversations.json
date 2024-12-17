@@ -1,0 +1,427 @@
+{
+  "vague_description": "Identifying an optimal group of resources to fulfill specific criteria at minimal expense.",
+  "detailed_description": "Select the combination of translators that ensures all required languages can be translated into, at the minimum possible cost. There are \\param{N} translators, each with an associated cost of \\param{Cost}. Each translator i is capable of translating a set of languages \\param{Languages}. The objective is to meet the translation needs for \\param{M} required languages, listed in \\param{RequiredLanguages}.",
+  "target_objective": "Minimize the total cost of translators while ensuring coverage for all M required languages",
+  "target_constraints": [
+    "Each of the M required languages must be translated into",
+    "Only translators from the set of N translators can be selected"
+  ],
+  "target_parameters": [
+    "Number of translators",
+    "Cost of translator i",
+    "Set of languages that translator i can translate",
+    "Number of required languages",
+    "List of required languages"
+  ],
+  "Expert": {
+    "(0,)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.",
+    "(0, 0)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.\nExpert: Is the objective to minimize the total cost while satisfying a set of predefined constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.\nExpert: Is the objective to minimize the total cost while satisfying a set of predefined constraints?\nUser: Yes\n\nExpert: Are the constraints related to the capacity or availability of the resources?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.\nExpert: Is the objective to minimize the total cost while satisfying a set of predefined constraints?\nUser: Yes\n\nExpert: Are the constraints related to the capacity or availability of the resources?\nUser: No\n\nExpert: Are the constraints related to specific performance or quality criteria that the resources must meet?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.",
+    "(0, 0)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.\nExpert: Does the problem involve ensuring that each criterion is fully satisfied by the selected resources?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.\nExpert: Does the problem involve ensuring that each criterion is fully satisfied by the selected resources?\nUser: Yes\n\nExpert: Does the problem include a constraint related to resource dependencies or interdependencies?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.\nExpert: Does the problem involve ensuring that each criterion is fully satisfied by the selected resources?\nUser: Yes\n\nExpert: Does the problem include a constraint related to resource dependencies or interdependencies?\nUser: No\n\nExpert: Do any of the problem descriptions include a constraint regarding resource interdependencies?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.",
+    "(0, 0)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.\nExpert: Is the total cost of fulfilling the criteria the only constraint you are trying to minimize?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.\nExpert: Is the total cost of fulfilling the criteria the only constraint you are trying to minimize?\nUser: Yes\n\nExpert: Is the cost associated with each resource a fixed, non-negotiable value?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.\nExpert: Is the total cost of fulfilling the criteria the only constraint you are trying to minimize?\nUser: Yes\n\nExpert: Is the cost associated with each resource a fixed, non-negotiable value?\nUser: Yes\n\nExpert: Are there multiple criteria that need to be fulfilled, rather than a single overarching requirement?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.",
+    "(0, 0)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.\nExpert: Does the problem description mention a 'budget constraint' or a 'limited budget'? \nUser: No\n",
+    "(0, 0, 0)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.\nExpert: Does the problem description mention a 'budget constraint' or a 'limited budget'? \nUser: No\n\nExpert: Is the objective of the optimization problem to minimize a specific value (such as cost, expense, or total cost)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Identifying an optimal group of resources to fulfill specific criteria at minimal expense.\nExpert: Does the problem description mention a 'budget constraint' or a 'limited budget'? \nUser: No\n\nExpert: Is the objective of the optimization problem to minimize a specific value (such as cost, expense, or total cost)?\nUser: Yes\n\nExpert: Are there any specific constraints mentioned in the problem description?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "set of available resources",
+            "specific criteria to be fulfilled",
+            "cost associated with each resource",
+            "constraints on resource selection"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of selecting a group of resources that meet specified criteria."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The resources must fulfill the specific criteria outlined by the user.",
+            "The total cost of the selected resources must be minimized.",
+            "Each resource may have a specific cost associated with it.",
+            "The combination of resources selected should work within any other specified limitations, such as time, availability, or capacity constraints."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost",
+            "Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the total cost while satisfying a set of predefined constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of the selected resources must be minimized.",
+            "The selected resources must fulfill specific criteria (not detailed in the conversation)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize the total cost",
+            "Constraints: Specific criteria that need to be fulfilled by the group of resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of the resource allocation while fulfilling specific criteria that are not related to capacity or availability constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize total cost",
+            "Constraints: Resources must meet specific performance criteria"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of resources while ensuring that they meet specific performance or quality criteria."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources must satisfy specific performance criteria.",
+            "Resources must meet quality criteria."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Minimize Cost",
+            "Decision Variables: Set of Resources",
+            "Constraints: Fulfillment of Specific Criteria"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the combination of resources that best meets specified criteria while minimizing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The group of resources must fulfill all specified criteria.",
+            "The total expense of the resources must be minimized."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Minimize total expense",
+            "Decision Variables: Selection of resources",
+            "Constraints: Each criterion must be fully satisfied by the chosen resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To identify an optimal group of resources that fully satisfies specific criteria at the minimal possible expense."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The selected resources must fulfill all specified criteria.",
+            "The selection should be made with minimal expense."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize total expense of selected resources",
+            "Each criterion must be fully satisfied by selected resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to select a group of resources that satisfy specific criteria at the lowest possible cost, without considering resource dependencies or interdependencies."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each criterion must be fully satisfied by the selected resources.",
+            "Selected resources should be chosen to minimize expense.",
+            "No resource dependencies or interdependencies to consider."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "group of resources",
+            "specific criteria",
+            "minimal expense",
+            "full satisfaction of each criterion"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to select a group of resources that fully satisfy specific criteria while minimizing the overall cost of the selected resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each criterion must be fully satisfied by the selected resources.",
+            "The total cost of selected resources should be minimized."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Group of resources",
+            "Specific criteria",
+            "Expense (to be minimized)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the expense of selecting a group of resources that meet specific criteria."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The group should meet predefined specific criteria.",
+            "The total expense of the group should be minimized.",
+            "Resources included must be available for selection.",
+            "Each resource can only be selected once."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "specific criteria",
+            "total cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost while selecting an optimal group of resources that fulfill specific criteria."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimize total cost"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Identify resources",
+            "Optimize cost",
+            "Fixed resource costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total cost of selecting a group of resources that fulfill specific criteria, where each resource has a fixed, non-negotiable cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost should be minimized.",
+            "The cost associated with each resource is fixed and non-negotiable."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Fixed cost for each resource",
+            "Multiple criteria to be met",
+            "Minimize total cost of resources used"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of selecting a group of resources that fulfill multiple specific criteria, considering that each resource has a fixed cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total cost of fulfilling the criteria must be minimized",
+            "Cost associated with each resource is fixed and non-negotiable",
+            "There are multiple criteria that need to be fulfilled"
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "group of resources",
+            "specific criteria",
+            "minimal expense"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of selecting a group of resources that meet specific criteria."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimal expense is a key constraint, requiring the selection of resources that incur the least cost.",
+            "The selected resources must fulfill specific criteria which likely involve meeting certain performance, capacity, or capability requirements."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource group selection",
+            "Specific criteria fulfillment",
+            "Cost minimization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the expense associated with fulfilling specific criteria using an optimal group of resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The group of resources must fulfill specific criteria.",
+            "The solution should minimize expenses."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost",
+            "Specific criteria to be fulfilled by the resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of fulfilling specific criteria by selecting an optimal group of resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective is to minimize a specific value, likely related to cost or expense.",
+            "There is no explicit budget constraint or limitation on total spending."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "cost",
+            "specific criteria",
+            "constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the expense of assembling a group of resources subject to specific criteria constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective is to minimize cost or total expense.",
+            "There may be specific criteria that need to be fulfilled which could include resource capabilities or requirements."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

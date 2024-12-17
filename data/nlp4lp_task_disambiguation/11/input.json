@@ -1,0 +1,19 @@
+{
+  "vague_description": "Assess how to allocate resources efficiently while considering spatial factors and constraints.",
+  "detailed_description": "We want to assign all students to schools, while minimizing the total distance traveled by all students. We have a total number of \\param{S} schools, \\param{G} student groups, and \\param{N} neighborhoods. Each school s has a capacity for student group g represented by \\param{Capacity}. The population of student group g in neighborhood n is given by \\param{Population}. The distance between neighborhood n and school s is denoted as \\param{Distance}. We may ignore the fact that numbers of students must be integers.",
+  "target_objective": "Minimize the total distance traveled by all students in their assignments to schools",
+  "target_constraints": [
+    "Total number of students from each student group g assigned from neighborhood n to schools does not exceed the Population of group g in neighborhood n",
+    "Total number of students from each student group g assigned to school s does not exceed the Capacity of school s for student group g",
+    "Each student is assigned to exactly one school",
+    "All populations, capacities, and distances are non-negative"
+  ],
+  "target_parameters": [
+    "Total number of schools",
+    "Total number of student groups",
+    "Total number of neighborhoods",
+    "Capacity of school s for student group g",
+    "Population of student group g in neighborhood n",
+    "Distance between neighborhood n and school s"
+  ]
+}

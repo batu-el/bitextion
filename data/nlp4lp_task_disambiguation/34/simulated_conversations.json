@@ -1,0 +1,45 @@
+{
+  "vague_description": "Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.",
+  "detailed_description": "Which generators should be working in which periods of the day to minimize the total cost given the demand (\\param{Demand}) for each period, the number of each generator (\\param{NumGenerator}), the minimum (\\param{MinLevel}) and maximum (\\param{MaxLevel}) levels of each generator, the running costs (\\param{RunCost}), the extra costs (\\param{ExtraCost}), and the start-up costs (\\param{StartCost}) for each generator?",
+  "target_objective": "Minimize the total cost of running generators, which includes running costs, extra costs for exceeding certain thresholds, and start-up costs",
+  "target_constraints": [
+    "Generator output must meet or exceed the demand for each period",
+    "Each generator can operate only within its minimum and maximum levels",
+    "The total number of generators used cannot exceed the available number of each generator"
+  ],
+  "target_parameters": [
+    "Total number of periods",
+    "Total number of generators",
+    "Demand during period t",
+    "Number of generator k",
+    "Minimum level of generator k",
+    "Maximum level of generator k",
+    "Running cost of generator k",
+    "Extra cost of generator k",
+    "Start-up cost of generator k"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.",
+    "(0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Does the problem involve time-dependent demand variations, such as those seen in day-night cycles?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Does the problem involve time-dependent demand variations, such as those seen in day-night cycles?\nUser: Yes\n\nExpert: Are there constraints related to fuel type or availability affecting which generators can operate at certain times?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Does the problem involve time-dependent demand variations, such as those seen in day-night cycles?\nUser: Yes\n\nExpert: Are there constraints related to fuel type or availability affecting which generators can operate at certain times?\nUser: No\n\nExpert: Are there generator startup and shutdown costs involved in the optimization problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.",
+    "(0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Do any of the problem descriptions explicitly mention 'transmission losses'? (Yes or No)\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Do any of the problem descriptions explicitly mention 'transmission losses'? (Yes or No)\nUser: No\n\nExpert: Does the problem description include a constraint specifically about emission limits or environmental regulations?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Do any of the problem descriptions explicitly mention 'transmission losses'? (Yes or No)\nUser: No\n\nExpert: Does the problem description include a constraint specifically about emission limits or environmental regulations?\nUser: No\n\nExpert: Does the problem description include a constraint related to spinning reserve requirements?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.",
+    "(0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Is the problem time-dependent, meaning the optimal schedule may vary from one hour to another?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Is the problem time-dependent, meaning the optimal schedule may vary from one hour to another?\nUser: Yes\n\nExpert: Is the time-dependent nature of the problem due to varying demand or varying costs (or both)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Is the problem time-dependent, meaning the optimal schedule may vary from one hour to another?\nUser: Yes\n\nExpert: Is the time-dependent nature of the problem due to varying demand or varying costs (or both)?\nUser: Yes\n\nExpert: Is the demand (i.e., the amount of electricity to be supplied) known with complete certainty for each hour, or does it have some uncertainty associated with it?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.",
+    "(0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Are generator costs included among the parameters in the problem description?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Are generator costs included among the parameters in the problem description?\nUser: Yes\n\nExpert: Is the objective described as exactly 'minimize costs' or does it contain the exact word 'cost'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal schedule for generators to balance demand, minimize costs, and adhere to operational constraints.\nExpert: Are generator costs included among the parameters in the problem description?\nUser: Yes\n\nExpert: Is the objective described as exactly 'minimize costs' or does it contain the exact word 'cost'?\nUser: Yes\n\nExpert: Does the description contain the word 'demand'?\nUser: Yes\n"
+  }
+}

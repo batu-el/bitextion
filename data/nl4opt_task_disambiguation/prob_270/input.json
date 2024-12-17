@@ -1,0 +1,19 @@
+{
+  "vague_description": "A woman is trying to balance her dietary intake of smoothies and protein bars while adhering to certain nutritional constraints and preferences.",
+  "detailed_description": "A woman on a diet needs to eat two types of meal preps, a smoothie and a protein bar. Each smoothie contains \\param{ProteinSmoothie} units of protein and \\param{CaloriesSmoothie} calories. Each protein bar contains \\param{ProteinBar} units of protein and \\param{CaloriesBar} calories. The woman must eat \\param{RatioBarsSmoothies} times more protein bars than smoothies. If the woman can consume at most \\param{MaxCalories} calories, how many of each should she eat or drink to maximize her protein intake?",
+  "target_objective": "Maximize the woman's protein intake from the meal preps",
+  "target_constraints": [
+    "Ratio of protein bars to smoothies is exactly RatioBarsSmoothies",
+    "Total calorie intake is at most MaxCalories",
+    "Number of smoothies is non-negative",
+    "Number of protein bars is non-negative"
+  ],
+  "target_parameters": [
+    "Units of protein in one smoothie",
+    "Calories in one smoothie",
+    "Units of protein in one protein bar",
+    "Calories in one protein bar",
+    "The ratio of the quantity of protein bars to smoothies",
+    "Maximum calorie intake"
+  ]
+}

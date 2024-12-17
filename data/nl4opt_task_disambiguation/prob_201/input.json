@@ -1,0 +1,23 @@
+{
+  "vague_description": "A company needs to determine the optimal number of refrigerators and stoves to produce to maximize profits while considering limited resources.",
+  "detailed_description": "An appliance company sells and installs refrigerators and stoves. Each refrigerator takes \\param{MoverTimeRefrigerator} minutes of mover time and \\param{SetupTimeRefrigerator} minutes of setup time. Each stove takes \\param{MoverTimeStove} minutes of mover time and \\param{SetupTimeStove} minutes of setup time. The company has available \\param{TotalMoverTime} minutes of mover time and \\param{TotalSetupTime} minutes of setup time. If the profit per refrigerator is $\\param{ProfitRefrigerator} and the profit per stove is $\\param{ProfitStove}, how many of each should they sell in order to maximize profit?",
+  "target_objective": "Maximize the total profit from the sale and installation of refrigerators and stoves",
+  "target_constraints": [
+    "Number of refrigerators sold is non-negative",
+    "Number of stoves sold is non-negative",
+    "Total mover time for all refrigerators is at most TotalMoverTime",
+    "Total setup time for all refrigerators is at most TotalSetupTime",
+    "Total mover time used is the sum of mover time for refrigerators and stoves and is at most TotalMoverTime",
+    "Total setup time used is the sum of setup time for refrigerators and stoves and is at most TotalSetupTime"
+  ],
+  "target_parameters": [
+    "Profit per refrigerator",
+    "Profit per stove",
+    "Mover time required per refrigerator",
+    "Mover time required per stove",
+    "Setup time required per refrigerator",
+    "Setup time required per stove",
+    "Total available mover time",
+    "Total available setup time"
+  ]
+}

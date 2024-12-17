@@ -1,0 +1,451 @@
+{
+  "vague_description": "Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.",
+  "detailed_description": "The goal is to find the minimal number of nurses the hospital needs to hire for a planning period of \\param{Period}. The hospital has a known demand for nurses across a week, specified by the array \\param{Demand}, where each element corresponds to the demand for a particular day in the period.",
+  "target_objective": "Minimize the number of nurses that the hospital needs to hire for the planning period",
+  "target_constraints": [
+    "Number of nurses is non-negative",
+    "The number of nurses hired must meet or exceed the demand for each day of the period"
+  ],
+  "target_parameters": [
+    "Number of days",
+    "The planning period for nurse staffing",
+    "Array of demands for nurses for days"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.",
+    "(0, 0)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.\nExpert: Are the staffing levels constrained by a budget or cost-related factors?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.\nExpert: Are the staffing levels constrained by a budget or cost-related factors?\nUser: No\n\nExpert: Are there any constraints on the maximum or minimum number of staff that can be employed at any given time?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.\nExpert: Are the staffing levels constrained by a budget or cost-related factors?\nUser: No\n\nExpert: Are there any constraints on the maximum or minimum number of staff that can be employed at any given time?\nUser: Yes\n\nExpert: Is the objective to minimize the total number of staff employed while meeting the demand constraints?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.",
+    "(0, 0)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.\nExpert: Does the problem include constraints specifically limiting the number of overtime hours a staff member can work?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.\nExpert: Does the problem include constraints specifically limiting the number of overtime hours a staff member can work?\nUser: Yes\n\nExpert: Does the problem description include a constraint on the total number of staff members available, limiting it to the current workforce size?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.\nExpert: Does the problem include constraints specifically limiting the number of overtime hours a staff member can work?\nUser: Yes\n\nExpert: Does the problem description include a constraint on the total number of staff members available, limiting it to the current workforce size?\nUser: No\n\nExpert: Does the problem specify that each staff member must have at least one day off per week?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.",
+    "(0, 0)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.\nExpert: Is the demand for staffing over the specified timeframe known in advance, or does it fluctuate unpredictably?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.\nExpert: Is the demand for staffing over the specified timeframe known in advance, or does it fluctuate unpredictably?\nUser: Yes\n\nExpert: Is the fluctuation in demand over the specified timeframe smooth and predictable, or does it occur in sudden spikes or dips?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.\nExpert: Is the demand for staffing over the specified timeframe known in advance, or does it fluctuate unpredictably?\nUser: Yes\n\nExpert: Is the fluctuation in demand over the specified timeframe smooth and predictable, or does it occur in sudden spikes or dips?\nUser: Yes\n\nExpert: Are the staffing requirements independent of one another, or are they interdependent (for example, requiring a specific ratio of staff members with different skills)?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.",
+    "(0, 0)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.\nExpert: Does the time horizon of the problem extend beyond a single day?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.\nExpert: Does the time horizon of the problem extend beyond a single day?\nUser: Yes\n\nExpert: Does the optimization problem involve costs that vary based on staffing levels?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal staffing levels needed to meet varying demand over a specified timeframe.\nExpert: Does the time horizon of the problem extend beyond a single day?\nUser: Yes\n\nExpert: Does the optimization problem involve costs that vary based on staffing levels?\nUser: No\n\nExpert: Is the time horizon of the problem greater than one day?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Staffing levels",
+            "Varying demand",
+            "Specified timeframe"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal staffing levels needed to meet varying demand over a specified timeframe."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The staffing levels must be sufficient to meet the demand at any given time point in the specified timeframe.",
+            "The total number of staff must not exceed the available resources or budget allocated for staffing.",
+            "Staffing levels should account for possible fluctuations in demand, including peak and off-peak periods.",
+            "Any legal or regulatory requirements regarding minimum or maximum staffing levels must be adhered to.",
+            "Staff assignment must respect employee contracts, such as maximum working hours and required breaks.",
+            "There should be contingency for unexpected changes in demand or sudden staff unavailability."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "staffing levels"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the minimum staffing levels required to consistently meet varying demand over a specified timeframe without budget or cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimum number of staff",
+            "maximum number of staff",
+            "demand over time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal staffing levels needed to meet varying demand over a specified timeframe while adhering to constraints on the maximum or minimum number of staff that can be employed at any given time."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maximum number of staff that can be employed at any given time",
+            "Minimum number of staff that can be employed at any given time"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Varying demand over a specified timeframe",
+            "Constraints on maximum and minimum number of staff at any given time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total number of staff employed while meeting the demand constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of staff employed at any given time must meet or exceed the demand requirements.",
+            "There are maximum and minimum limits on the number of staff that can be employed at any given time."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "staffing levels",
+            "demand forecast",
+            "timeframe",
+            "labor costs",
+            "service level requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal staffing levels needed to meet varying demand over a specified timeframe."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The staffing levels must be sufficient to meet the peak demand periods without delay.",
+            "There is a budgetary constraint that limits the total expenditure on staffing.",
+            "The number of staff cannot exceed the maximum capacity of the facility or workspace available.",
+            "Staff schedules must adhere to labor laws, including maximum hours worked per week and mandatory breaks.",
+            "There is a minimum number of staff required at all times due to safety regulations.",
+            "Flexibility in staffing levels is required to respond to unforeseen changes in demand."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Staffing levels",
+            "Varying demand",
+            "Specified timeframe",
+            "Constraints on overtime hours"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal staffing levels needed to meet varying demand over a specified timeframe while minimizing costs and ensuring compliance with constraints on overtime hours for each staff member."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of overtime hours a staff member can work is limited."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "optimal staffing levels",
+            "varying demand",
+            "specified timeframe",
+            "constraints on overtime hours"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal staffing levels required to meet varying demand over a specified timeframe while considering constraints on overtime hours per staff member but without being limited by the current workforce size."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of overtime hours a staff member can work is limited."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Varying demand over a specified timeframe",
+            "Constraint on the number of overtime hours a staff member can work",
+            "Each staff member must have at least one day off per week"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal staffing levels required to meet varying demand while minimizing costs and ensuring compliance with labor constraints such as overtime limits and mandatory rest days."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Staff members are limited in the number of overtime hours they can work.",
+            "Each staff member must have at least one day off per week."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Staffing levels",
+            "Demand",
+            "Timeframe"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal staffing levels needed to meet varying demand over a specified timeframe."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The staffing levels must meet the demand for each time period.",
+            "The number of staff cannot be negative.",
+            "Staffing levels can only be adjusted at the start of each time period.",
+            "There is a limit to the total number of staff that can be employed at any given time.",
+            "Consideration of overtime hours and associated costs.",
+            "The transition of staff between time periods is constrained by training or other related factors.",
+            "Staff may have specific shifts they can work, limiting their availability."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "staffing levels",
+            "demand forecast",
+            "timeframe"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize staffing costs while ensuring that staffing levels meet or exceed the fluctuating demand over the specified timeframe."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Staffing levels must match the varying demand over the specified timeframe.",
+            "Staffing levels can be adjusted to meet predictable fluctuations in demand.",
+            "Sufficient staff must be available at all times to meet the demand without under or over-staffing."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "staffing levels",
+            "demand forecast",
+            "timeframe",
+            "fluctuation characterization",
+            "sudden spikes or dips"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal staffing levels required to meet the known and predictable fluctuating demand over a specified timeframe, ensuring optimal resource allocation and efficiency. This involves balancing staffing costs with the ability to meet demand requirements, considering potential predictable variations in demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Staffing levels must be adjusted to meet known demand levels.",
+            "Demand over the specified timeframe is predictable.",
+            "Staffing adjustments must account for sudden spikes and dips in demand.",
+            "The solution must manage resources efficiently to optimize staffing."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Staffing levels",
+            "Fluctuating demand over a specified timeframe",
+            "Interdependent staffing requirements with skill ratios"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal staffing levels needed to meet varying demand over a specified timeframe, where staffing levels must account for fluctuations in demand and maintain specific ratios of staff members with different skills."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Demand over the specified timeframe is known in advance and fluctuates.",
+            "Fluctuation in demand occurs in both smooth predictable patterns and sudden spikes or dips.",
+            "Staffing requirements are interdependent, requiring specific ratios of staff members with different skills."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Demand over time",
+            "Staff availability",
+            "Staffing cost",
+            "Service level requirements",
+            "Schedule constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal staffing levels needed to meet varying demand over a specified timeframe."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Staff must be sufficient to meet the peak demand period.",
+            "Staff levels should not exceed the budgeted labor costs.",
+            "Ensure that staffing levels comply with labor regulations regarding maximum working hours.",
+            "Minimum staff levels are required to ensure operational efficiency.",
+            "Allow for flexibility in staffing to accommodate sudden changes in demand.",
+            "Consider staff training and skill levels for specific tasks."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Staffing levels",
+            "Timeframe",
+            "Varying demand"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of staffing while ensuring there are enough staff members to meet the varying demand over the given time horizon."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The staffing levels must be sufficient to meet varying demand over a specified timeframe.",
+            "The time horizon of the problem extends beyond a single day, so the staffing solution must account for multi-day variations in demand."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "time horizon",
+            "demand over time",
+            "staffing levels"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal staffing levels needed to meet varying demand over a specified timeframe, ensuring that varying demand is met effectively without considering the cost variations based on staffing levels."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Mathematical model must consider multiple periods or days.",
+            "Demand varies over the specified timeframe.",
+            "Staffing levels must satisfy demand in each period.",
+            "Staffing costs do not vary based on staffing levels."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Demand",
+            "Timeframe",
+            "Staffing levels"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal staffing levels needed to meet varying demand over a specified timeframe, which extends beyond a single day, while considering constraints but without variable cost implications related to staffing levels."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Demand must be met for each time period within the specified timeframe.",
+            "Staffing levels must be non-negative integers.",
+            "The timeframe extends beyond a single day.",
+            "Costs do not vary based on staffing levels."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      }
+    }
+  }
+}

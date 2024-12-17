@@ -1,0 +1,45 @@
+{
+  "vague_description": "Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.",
+  "detailed_description": "We want to know how many shares the investor needs to sell in order to raise the needed money, net of capital gains and transaction costs, \\param{K}, while maximizing the expected value of his portfolio next year. The investor initially bought \\param{Bought} shares at a purchase price of \\param{BuyPrice} per share. The current market price and expected future market price of the shares are \\param{CurrentPrice} and \\param{FuturePrice}, respectively. The transaction cost rate per share sold is \\param{TransactionRate}, and the capital gains tax rate is \\param{TaxRate}.",
+  "target_objective": "Maximize the expected value of the investor's portfolio next year",
+  "target_constraints": [
+    "Number of shares sold is non-negative",
+    "Number of shares sold is less than or equal to Bought",
+    "Amount raised from selling shares after deducting taxes and transaction costs is at least K",
+    "Capital gains tax is applied only on the profit per share (CurrentPrice - BuyPrice)"
+  ],
+  "target_parameters": [
+    "Number of different shares",
+    "Amount of each share initially bought",
+    "Purchase price of each share",
+    "Current market price of each share",
+    "Expected future market price of each share",
+    "Transaction cost rate per share sold",
+    "Capital gains tax rate on the profit from selling shares",
+    "Amount of money the investor needs to raise"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.",
+    "(0, 0)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.\nExpert: Are there specific financial constraints or goals (e.g., a specific amount of cash needed) driving the decision to sell shares?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.\nExpert: Are there specific financial constraints or goals (e.g., a specific amount of cash needed) driving the decision to sell shares?\nUser: Yes\n\nExpert: Are there tax implications or capital gains considerations in selling the shares?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.\nExpert: Are there specific financial constraints or goals (e.g., a specific amount of cash needed) driving the decision to sell shares?\nUser: Yes\n\nExpert: Are there tax implications or capital gains considerations in selling the shares?\nUser: Yes\n\nExpert: Are the transaction fees or brokerage fees a significant factor in the decision-making process?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.",
+    "(0, 0)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.\nExpert: Does the problem include constraints related to maintaining certain account benefits or compliance with risk tolerances after the sale?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.\nExpert: Does the problem include constraints related to maintaining certain account benefits or compliance with risk tolerances after the sale?\nUser: No\n\nExpert: Does the problem consider both transaction fees and taxes on capital gains as constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.\nExpert: Does the problem include constraints related to maintaining certain account benefits or compliance with risk tolerances after the sale?\nUser: No\n\nExpert: Does the problem consider both transaction fees and taxes on capital gains as constraints?\nUser: Yes\n\nExpert: Does the problem description include a distinct parameter for differentiating short-term and long-term capital gains tax rates?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.",
+    "(0, 0)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.\nExpert: Is this a single-period optimization problem, where the goal is to maximize the future portfolio value at a specific point in time, or is it a multi-period problem, where the goal is to maximize the portfolio value over multiple time periods?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.\nExpert: Is this a single-period optimization problem, where the goal is to maximize the future portfolio value at a specific point in time, or is it a multi-period problem, where the goal is to maximize the portfolio value over multiple time periods?\nUser: Yes\n\nExpert: Is time value of money considered in the optimization, such as when the financial goal is to be achieved in the future and the fees are not constant over time?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.\nExpert: Is this a single-period optimization problem, where the goal is to maximize the future portfolio value at a specific point in time, or is it a multi-period problem, where the goal is to maximize the portfolio value over multiple time periods?\nUser: Yes\n\nExpert: Is time value of money considered in the optimization, such as when the financial goal is to be achieved in the future and the fees are not constant over time?\nUser: No\n\nExpert: Are there any constraints on the number of shares that can be sold, such as a minimum or maximum quantity, or a limit on the percentage of the portfolio that can be sold?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.",
+    "(0, 0)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.\nExpert: Does the problem description explicitly include a constraint related to time or a specific point in time?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.\nExpert: Does the problem description explicitly include a constraint related to time or a specific point in time?\nUser: No\n\nExpert: Is the number of shares to sell a fixed parameter in the problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal number of shares to sell to achieve a financial goal considering various fees and maximizing future portfolio value.\nExpert: Does the problem description explicitly include a constraint related to time or a specific point in time?\nUser: No\n\nExpert: Is the number of shares to sell a fixed parameter in the problem?\nUser: No\n\nExpert: Does the problem description explicitly mention a time-dependent parameter (e.g., interest rate, time-to-sell, growth rate)?\nUser: No\n"
+  }
+}

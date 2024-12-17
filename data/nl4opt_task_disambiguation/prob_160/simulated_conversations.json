@@ -1,0 +1,47 @@
+{
+  "vague_description": "A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.",
+  "detailed_description": "A florist transports his flowers to stores in small bouquets and large bouquets. A small bouquet has \\param{SmallBouquetSize} flowers while a large bouquet has \\param{LargeBouquetSize} flowers. The florist can transport at most \\param{MaxSmallBouquets} small bouquets and \\param{MaxLargeBouquets} large bouquets. In total, he can transport at most \\param{MaxTotalBouquets} bouquets and he must transport at least \\param{MinLargeBouquets} large bouquets. Since small bouquets are more popular, he must transport at least \\param{MinSmallLargeRatio} times as many small bouquets as large bouquets. How many of each bouquet should he transport to maximize the total number of flowers that reach the stores?",
+  "target_objective": "Maximize the total number of flowers transported to the stores",
+  "target_constraints": [
+    "Number of small bouquets is non-negative",
+    "Number of large bouquets is non-negative",
+    "At most MaxSmallBouquets small bouquets can be transported",
+    "At most MaxLargeBouquets large bouquets can be transported",
+    "A total of at most MaxTotalBouquets bouquets can be transported",
+    "At least MinLargeBouquets large bouquets must be transported",
+    "The number of small bouquets must be at least MinSmallLargeRatio times the number of large bouquets"
+  ],
+  "target_parameters": [
+    "Number of flowers in a small bouquet",
+    "Number of flowers in a large bouquet",
+    "Maximum number of small bouquets that can be transported",
+    "Maximum number of large bouquets that can be transported",
+    "Total maximum number of bouquets that can be transported",
+    "Minimum number of large bouquets that must be transported",
+    "Minimum ratio of small bouquets to large bouquets"
+  ],
+  "Expert": {
+    "(0,)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.",
+    "(0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Is there a specific total weight or volume limit for the bouquets that the florist can transport at once?\nUser: No.\n",
+    "(0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Is there a specific total weight or volume limit for the bouquets that the florist can transport at once?\nUser: No.\n\nExpert: Are there constraints on the number of each type of bouquet that can be displayed at a delivery location?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Is there a specific total weight or volume limit for the bouquets that the florist can transport at once?\nUser: No.\n\nExpert: Are there constraints on the number of each type of bouquet that can be displayed at a delivery location?\nUser: No.\n\nExpert: Are there constraints related to the availability or budget of flowers needed to create each type of bouquet?\nUser: No.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.",
+    "(0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Does the problem involve variable transportation costs or budgets for transporting bouquets?\nUser: No.\n",
+    "(0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Does the problem involve variable transportation costs or budgets for transporting bouquets?\nUser: No.\n\nExpert: Do the constraints include a limit on the total number of bouquets that can be transported based on the vehicle capacity?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Does the problem involve variable transportation costs or budgets for transporting bouquets?\nUser: No.\n\nExpert: Do the constraints include a limit on the total number of bouquets that can be transported based on the vehicle capacity?\nUser: Yes.\n\nExpert: Do any of the problems have a constraint that directly limits the number of flowers based on a specific minimum requirement?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.",
+    "(0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Is the florist constrained by a limited capacity, such as a fixed number of vehicles or inventory space, when transporting the bouquets?\nUser: No\n",
+    "(0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Is the florist constrained by a limited capacity, such as a fixed number of vehicles or inventory space, when transporting the bouquets?\nUser: No\n\nExpert: Is the florist constrained by time, such as a specific delivery deadline or time window, when transporting the bouquets?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Is the florist constrained by a limited capacity, such as a fixed number of vehicles or inventory space, when transporting the bouquets?\nUser: No\n\nExpert: Is the florist constrained by time, such as a specific delivery deadline or time window, when transporting the bouquets?\nUser: No\n\nExpert: Are the profits or revenues from selling the small and large bouquets different?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.",
+    "(0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Does the problem mention at least one specific hard constraint that translates to a traditional linear inequality (e.g. <=, >=, =) in its constraints section?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Does the problem mention at least one specific hard constraint that translates to a traditional linear inequality (e.g. <=, >=, =) in its constraints section?\nUser: Yes\n\nExpert: Does the problem description mention the number of flower bouquets of any type as a free parameter?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A florist needs to determine the optimal number of small and large bouquets to transport under specific constraints to maximize flower delivery.\nExpert: Does the problem mention at least one specific hard constraint that translates to a traditional linear inequality (e.g. <=, >=, =) in its constraints section?\nUser: Yes\n\nExpert: Does the problem description mention the number of flower bouquets of any type as a free parameter?\nUser: No\n\nExpert: Is the objective function to maximize flower delivery clear and unambiguous (i.e., without any ambiguity or additional information required)?\nUser: Yes\n"
+  }
+}

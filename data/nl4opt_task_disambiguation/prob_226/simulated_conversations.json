@@ -1,0 +1,45 @@
+{
+  "vague_description": "The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.",
+  "detailed_description": "A concert organizer has to transport equipment using carts or trolleys. Carts can transport \\param{CartRate} kg/min of equipment and requires \\param{CartWorkers} workers. Trolleys can transport \\param{TrolleyRate} kg/min of equipment and requires \\param{TrolleyWorkers} workers. There must be at least \\param{MinTrolleys} trolleys to be used. Additionally, only a maximum of \\param{MaxTrolleyPercentage} of the transportation can be using trolleys. The organizer has to deliver at a rate of \\param{DeliveryRate} kg/min of equipment. How many of each transportation method should be used to minimize the total number of workers?",
+  "target_objective": "Minimize the total number of workers required for transportation",
+  "target_constraints": [
+    "Number of carts is non-negative",
+    "Number of trolleys is non-negative",
+    "At least MinTrolleys trolleys must be used",
+    "No more than MaxTrolleyPercentage of the transportation can be performed by trolleys",
+    "The total transportation rate must meet or exceed DeliveryRate kg/min"
+  ],
+  "target_parameters": [
+    "Rate of equipment transportation by a cart",
+    "Number of workers required by a cart",
+    "Rate of equipment transportation by a trolley",
+    "Number of workers required by a trolley",
+    "Minimum number of trolleys to be used",
+    "Maximum percentage of the transportation that can be using trolleys",
+    "Required rate of equipment delivery"
+  ],
+  "Expert": {
+    "(0,)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.",
+    "(0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Are there specific weight or volume limitations for the equipment that influence the choice between using carts and trolleys?\nUser: No.\n",
+    "(0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Are there specific weight or volume limitations for the equipment that influence the choice between using carts and trolleys?\nUser: No.\n\nExpert: Are there any specific cost constraints or budget limitations associated with using carts and trolleys?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Are there specific weight or volume limitations for the equipment that influence the choice between using carts and trolleys?\nUser: No.\n\nExpert: Are there any specific cost constraints or budget limitations associated with using carts and trolleys?\nUser: No.\n\nExpert: Are there any time constraints or deadlines that impact the use of carts and trolleys for equipment delivery?\nUser: No.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.",
+    "(0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Does the problem include constraints related to specific distance limits for carts or trolleys?\nUser: No\n",
+    "(0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Does the problem include constraints related to specific distance limits for carts or trolleys?\nUser: No\n\nExpert: Do any of the problems include a constraint on the total weight or volume capacity that combines carts and trolleys?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Does the problem include constraints related to specific distance limits for carts or trolleys?\nUser: No\n\nExpert: Do any of the problems include a constraint on the total weight or volume capacity that combines carts and trolleys?\nUser: No\n\nExpert: Does the problem involve a constraint directly related to worker availability or a limit on the number of workers that can be deployed?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.",
+    "(0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Is the workforce requirement directly related to the number of carts and trolleys used?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Is the workforce requirement directly related to the number of carts and trolleys used?\nUser: Yes\n\nExpert: Is the workforce requirement directly related to the number of carts and trolleys used?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Is the workforce requirement directly related to the number of carts and trolleys used?\nUser: Yes\n\nExpert: Is the workforce requirement directly related to the number of carts and trolleys used?\nUser: Yes\n\nExpert: Is the workforce requirement directly related to the number of carts and trolleys used?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.",
+    "(0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Does the problem description include a specific or fixed total number of carts and trolleys available for use?\nUser: No\n",
+    "(0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Does the problem description include a specific or fixed total number of carts and trolleys available for use?\nUser: No\n\nExpert: Is the total number of carts and trolleys available for use finite?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The organizer needs to balance the use of carts and trolleys to efficiently deliver equipment while minimizing workforce requirements.\nExpert: Does the problem description include a specific or fixed total number of carts and trolleys available for use?\nUser: No\n\nExpert: Is the total number of carts and trolleys available for use finite?\nUser: No\n\nExpert: Are the quantities of carts and trolleys available for use fixed or specified in the problem description?\nUser: No\n"
+  }
+}

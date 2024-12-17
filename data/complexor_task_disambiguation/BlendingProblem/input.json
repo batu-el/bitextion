@@ -1,0 +1,17 @@
+{
+  "vague_description": "The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.",
+  "detailed_description": "The goal is to minimize the price of an alloy produced from other alloys available on the market. There are \\param{AlloysOnMarket} different alloys that can be bought to blend into the final product. The needed composition of the end alloy requires \\param{RequiredElements} elements. Each alloy on the market has a known composition given by \\param{CompositionDataPercentage_{e,a}}, which indicates the percentage of element e in alloy a. The desired percentage of each element in the final blend is specified by \\param{DesiredBlendPercentage_e}. Furthermore, each alloy a on the market comes with a price \\param{AlloyPrice_a}. The objective of the optimization problem is to determine the quantity of each available alloy that should be used to achieve the desired blend percentages at the minimum total cost, without exceeding the availability of the alloys.",
+  "target_objective": "Minimize the total cost of producing the alloy with the desired blend percentages",
+  "target_constraints": [
+    "Quantity of each alloy used is non-negative",
+    "Final blend must meet required percentages for each of the RequiredElements elements",
+    "Cannot exceed the availability of alloys on the market"
+  ],
+  "target_parameters": [
+    "The number of different alloys available on the market",
+    "The number of elements required in the desired alloy blend",
+    "The composition data indicating the percentage of each required element in each available alloy",
+    "The desired percentage of each required element in the final alloy blend",
+    "The price of each alloy available on the market"
+  ]
+}

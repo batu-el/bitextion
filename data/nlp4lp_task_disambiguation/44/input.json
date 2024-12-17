@@ -1,0 +1,14 @@
+{
+  "vague_description": "The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.",
+  "detailed_description": "How to distribute these files on the floppy disks in order to minimize the number of floppy disks used, given that each floppy disk has a \\param{Capacity} and there are N different files with sizes represented by \\param{Size}.",
+  "target_objective": "Minimize the number of floppy disks used in the distribution of files",
+  "target_constraints": [
+    "The sum of file sizes on each floppy disk cannot exceed the Capacity",
+    "Each file must be placed on exactly one floppy disk",
+    "File sizes are non-negative"
+  ],
+  "target_parameters": [
+    "Total capacity of a floppy disk",
+    "Size of each file j"
+  ]
+}

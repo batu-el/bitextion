@@ -1,0 +1,21 @@
+{
+  "vague_description": "Finding the optimal combination of truck and car trips to meet delivery and fuel requirements for a shipping company.",
+  "detailed_description": "A shipping company needs to transport packages by either truck or car. A truck can transport \\param{PackageTruck} packages per trip while a car can transport \\param{PackageCar} packages per trip. In addition, a truck uses \\param{GasTruck} liters of gas per trip while a car uses \\param{GasCar} liters of gas per trip. There can be at most \\param{MaxTruckTrips} truck trips made and at least \\param{MinCarTripProp} of all the trips must be made by car. The company needs to transport at least \\param{MinPackages} packages. How many of each transportation should they use to minimize the total amount of gas consumed?",
+  "target_objective": "Minimize the total amount of gas consumed for transporting packages",
+  "target_constraints": [
+    "Number of truck trips is non-negative",
+    "Number of car trips is non-negative",
+    "At most MaxTruckTrips truck trips can be made",
+    "At least MinCarTripProp of all trips must be made by cars",
+    "At least MinPackages packages must be transported"
+  ],
+  "target_parameters": [
+    "Number of packages transported per trip by truck",
+    "Number of packages transported per trip by car",
+    "Gas used per trip by truck",
+    "Gas used per trip by car",
+    "Maximum number of truck trips",
+    "Minimum proportion of trips made by car",
+    "Minimum number of packages to be transported"
+  ]
+}

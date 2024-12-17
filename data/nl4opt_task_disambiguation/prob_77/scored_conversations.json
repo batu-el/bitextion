@@ -1,0 +1,471 @@
+{
+  "vague_description": "Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.",
+  "detailed_description": "A post office is buying stamping machines and they can buy a dual or single model stamping machine. A dual model stamping machine can stamp \\param{DualCap} letters per minute while a single model stamping machine can stamp \\param{SingleCap} letters per minute. The dual model stamping machine requires \\param{DualGlue} units of glue per minute while the single model stamping machine requires \\param{SingleGlue} units of glue per minute. Since the single model stamping machine is quieter, the number of single model stamping machines must be more than the number of dual model stamping machines. Further, the post office wants to make sure they can stamp at least \\param{MinLetters} letters per minute and use at most \\param{MaxGlue} units of glue per minute. How many of each stamping machine should they purchase to minimize the total number of stamping machines?",
+  "target_objective": "Minimize the total number of stamping machines purchased",
+  "target_constraints": [
+    "Number of dual model machines is an integer",
+    "Number of single model machines is an integer",
+    "Number of dual model machines is non-negative",
+    "Number of single model machines is non-negative",
+    "Total stamping capacity must be at least MinLetters letters per minute",
+    "Total glue usage must be at most MaxGlue units per minute",
+    "Number of dual model machines stamped DualCap letters per minute each",
+    "Number of single model machines stamped SingleCap letters per minute each",
+    "Number of dual model machines used DualGlue units of glue per minute each",
+    "Number of single model machines used SingleGlue units of glue per minute each",
+    "The number of single model stamping machines must be more than the number of dual model stamping machines"
+  ],
+  "target_parameters": [
+    "Stamping capacity per minute of dual model stamping machine",
+    "Stamping capacity per minute of single model stamping machine",
+    "Glue consumption per minute of dual model stamping machine",
+    "Glue consumption per minute of single model stamping machine",
+    "Minimum total letters stamped per minute",
+    "Maximum glue consumption per minute"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.",
+    "(0, 0)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.\nExpert: Are there specific numeric limits for noise levels and resource usage that the stamping machines must adhere to?\nUser: Yes, the specific numeric limits are that the number of single model stamping machines must be more than the number of dual model stamping machines, and the total usage of glue by the machines should not exceed the available maximum of glue per minute.\n",
+    "(0, 0, 0)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.\nExpert: Are there specific numeric limits for noise levels and resource usage that the stamping machines must adhere to?\nUser: Yes, the specific numeric limits are that the number of single model stamping machines must be more than the number of dual model stamping machines, and the total usage of glue by the machines should not exceed the available maximum of glue per minute.\n\nExpert: Is the objective function quantifying a combination of efficiency, noise, and resource usage into a single scalar value?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.\nExpert: Are there specific numeric limits for noise levels and resource usage that the stamping machines must adhere to?\nUser: Yes, the specific numeric limits are that the number of single model stamping machines must be more than the number of dual model stamping machines, and the total usage of glue by the machines should not exceed the available maximum of glue per minute.\n\nExpert: Is the objective function quantifying a combination of efficiency, noise, and resource usage into a single scalar value?\nUser: No.\n\nExpert: Is the objective function aimed at minimizing noise while also maximizing efficiency for the stamping machines?\nUser: No.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.",
+    "(0, 0)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.\nExpert: Does the objective function explicitly include both cost minimization and efficiency maximization?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.\nExpert: Does the objective function explicitly include both cost minimization and efficiency maximization?\nUser: No\n\nExpert: Is the total noise limit for the stamping machines 70 decibels in any of the constraints?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.\nExpert: Does the objective function explicitly include both cost minimization and efficiency maximization?\nUser: No\n\nExpert: Is the total noise limit for the stamping machines 70 decibels in any of the constraints?\nUser: No\n\nExpert: Is there a constraint regarding the minimum number of machines that must be purchased or the minimum stamping capacity that must be achieved?\nUser: Yes, there is a constraint regarding the minimum stamping capacity that must be achieved (\\param{MinLetters}).\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.",
+    "(0, 0)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.\nExpert: Is the objective function to be maximized and does it relate to the number of mail pieces processed per hour?\nUser: No.\n",
+    "(0, 0, 0)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.\nExpert: Is the objective function to be maximized and does it relate to the number of mail pieces processed per hour?\nUser: No.\n\nExpert: Is the objective function related to cost, with potential constraints on noise levels and/or resource usage?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.\nExpert: Is the objective function to be maximized and does it relate to the number of mail pieces processed per hour?\nUser: No.\n\nExpert: Is the objective function related to cost, with potential constraints on noise levels and/or resource usage?\nUser: No.\n\nExpert: Does the objective function relate to customer satisfaction or delivery deadlines, with potential constraints on efficiency and resource usage?\nUser: No.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.",
+    "(0, 0)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.\nExpert: Is the objective function a single objective or a combination of multiple objectives?\nUser: Yes, the objective function in this problem focuses on a single objective: minimizing the total number of stamping machines while meeting the given constraints.\n",
+    "(0, 0, 0)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.\nExpert: Is the objective function a single objective or a combination of multiple objectives?\nUser: Yes, the objective function in this problem focuses on a single objective: minimizing the total number of stamping machines while meeting the given constraints.\n\nExpert: Does the description mention any constraints?\nUser: Yes, the description mentions several constraints:\n1. The number of single model stamping machines must be more than the number of dual model stamping machines.\n2. The total stamping capacity must meet at least a minimum requirement of letters per minute.\n3. The total glue usage must not exceed a specified maximum limit per minute.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal combination of stamping machines the post office should purchase to balance efficiency, noise, and resource usage constraints.\nExpert: Is the objective function a single objective or a combination of multiple objectives?\nUser: Yes, the objective function in this problem focuses on a single objective: minimizing the total number of stamping machines while meeting the given constraints.\n\nExpert: Does the description mention any constraints?\nUser: Yes, the description mentions several constraints:\n1. The number of single model stamping machines must be more than the number of dual model stamping machines.\n2. The total stamping capacity must meet at least a minimum requirement of letters per minute.\n3. The total glue usage must not exceed a specified maximum limit per minute.\n\nExpert: Does the problem description contain at least two inequalities among the constraints?\nUser: Yes, the problem description contains at least two inequalities among the constraints: one related to the stamping capacity and one related to the glue usage.\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of stamping machines to purchase",
+            "Efficiency of stamping machines",
+            "Noise level of stamping machines",
+            "Resource usage of stamping machines"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Find the optimal combination of stamping machines that maximizes efficiency while minimizing noise and resource usage, subject to the constraints imposed by these factors."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combination of stamping machines must fit within the allocated budget.",
+            "The combined noise level of the stamping machines must not exceed the noise ordinance levels set by local regulations.",
+            "The energy consumption of the machines should not exceed the energy capacity of the facility.",
+            "The machines must meet or exceed a minimum efficiency threshold for processing mail items.",
+            "The total space occupied by the machines must fit within the available floor space in the facility."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "The number of single model stamping machines must be greater than the number of dual model stamping machines.",
+            "The total glue usage by the stamping machines must not exceed the available maximum glue per minute."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal combination of single and dual model stamping machines that maximizes efficiency while ensuring that the number of single model machines exceeds dual model machines and that glue usage does not exceed the maximum available limit per minute."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of single model stamping machines must be more than the number of dual model stamping machines.",
+            "The total usage of glue by the machines should not exceed the available maximum of glue per minute."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "N_single > N_dual",
+            "Glue_usage <= Max_glue_available_per_minute"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal combination of stamping machines such that the number of single model machines exceeds dual models, and the total glue usage does not surpass the maximum available per minute, without quantifying efficiency, noise, and resource usage into a single scalar value."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of single model stamping machines must be more than the number of dual model stamping machines.",
+            "The total usage of glue by the stamping machines should not exceed the available maximum of glue per minute."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "The number of single model stamping machines",
+            "The number of dual model stamping machines",
+            "The total usage of glue by the machines",
+            "The available maximum of glue per minute"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize resource usage while satisfying efficiency and noise level constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of single model stamping machines must be greater than the number of dual model stamping machines.",
+            "The total usage of glue by the stamping machines should not exceed the available maximum amount of glue per minute."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficiency of stamping machines",
+            "Noise levels of stamping machines",
+            "Resource usage of stamping machines"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal combination of stamping machines that achieves a balance between maximizing efficiency, minimizing noise, and optimizing resource usage within predefined constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Efficiency of the stamping machines must meet a certain throughput requirement (e.g., number of stamps per hour).",
+            "The noise level from the machines should not exceed a specified decibel level to ensure a comfortable working environment.",
+            "The total cost of purchasing and operating the stamping machines should be within the allocated budget.",
+            "The machines must not utilize resources (such as space, electricity, etc.) beyond the available limits set by the post office's infrastructure.",
+            "Installation and maintenance requirements of the machines should comply with the post office's operational constraints.",
+            "The footprint (size) of the machines must fit within the designated area for stamping operations.",
+            "The selected combination should meet or exceed the post office's service quality standards."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "efficiency",
+            "noise",
+            "resource usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal combination of stamping machines that balances efficiency with noise reduction, while adhering to resource usage constraints, without directly minimizing cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total budget for purchasing stamping machines should not be exceeded.",
+            "The total noise level produced by the stamping machines should not exceed the acceptable noise threshold defined by the post office regulations.",
+            "The total resource consumption (e.g., energy, space) of the stamping machines should not exceed the available resources within the post office.",
+            "The efficiency level of the selected combination of stamping machines should meet or exceed the minimum required processing capacity stipulated by the post office."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "efficiency",
+            "resource usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal combination of stamping machines that balances efficiency and resource usage, considering given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The selection of stamping machines must balance efficiency and resource usage.",
+            "No explicit cost minimization included in the constraints.",
+            "There is no constraint for a total noise limit of 70 decibels."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "MinLetters"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal combination of stamping machines that maximizes the efficiency while adhering to constraints on resource usage and achieving a specified minimum stamping capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Ensure the minimum stamping capacity is achieved at a level \\\\param{MinLetters}.",
+            "Balance efficiency of the machines while also considering resource usage constraints.",
+            "Machines must be selected based on constraints other than explicitly minimizing noise or cost."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficiency of stamping machines",
+            "Noise level of stamping machines",
+            "Resource usage of stamping machines"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the best combination of stamping machines that optimizes efficiency while minimizing noise and resource usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of purchasing the stamping machines should not exceed the post office's budget.",
+            "The noise level produced by the stamping machines should comply with workplace safety regulations.",
+            "The stamping machines should fit within the available physical space in the post office.",
+            "The energy consumption of the machines should not surpass the post office's allocated energy resources.",
+            "The combination of machines should be able to meet or exceed the current mail processing capacity of the post office."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of stamping machines",
+            "Efficiency rate of each machine",
+            "Noise level of each machine",
+            "Resource consumption rate of each machine",
+            "Budget constraints",
+            "Space availability in the post office"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost function which balances machine efficiency in terms of throughput, noise levels produced, and the level of resource consumption."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Efficiency: The stamping machines must meet a minimum efficiency level specified by processing a certain number of mail pieces per hour.",
+            "Noise: The stamping machines should not exceed a certain decibel level to comply with noise regulations and ensure a comfortable working environment.",
+            "Resource Usage: The stamping machines must operate within specified limits on electricity consumption and maintenance requirements."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "efficiency",
+            "noise",
+            "resource usage",
+            "number of stamping machines"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to find the optimal combination of stamping machines that balance efficiency, noise, and resource usage constraints, without directly maximizing mail pieces processed per hour or minimizing cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total noise generated by the selected combination of stamping machines must not exceed a specified noise level threshold.",
+            "The resource usage (which could include power consumption, maintenance resources, or space) of the selected combination of stamping machines must not exceed available resource capacities."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Combination of stamping machines",
+            "Efficiency constraint",
+            "Noise constraint",
+            "Resource usage constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the noise generated by the stamping machines subject to constraints on efficiency and resource usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Efficiency of stamping machines.",
+            "Noise levels of stamping machines.",
+            "Resource usage by stamping machines."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of stamping machines",
+            "Efficiency level of each machine",
+            "Noise level produced by each machine",
+            "Resource usage of each machine",
+            "Total budget for purchasing machines",
+            "Maximum allowable noise level",
+            "Total available resources for machines"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To identify the most effective set of stamping machines for the post office that maximizes operational efficiency while minimizing noise and resource usage within set constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of the stamping machines must not exceed the budget allocated for equipment purchases.",
+            "The noise level of the machines combined should not exceed the regulatory limits set for the post office environment.",
+            "The machines should have the capability to process a predefined minimum number of packages per hour to ensure efficiency.",
+            "The space required to install the machines should not exceed the available physical space in the post office.",
+            "The energy consumption of the machines should not surpass the energy capacity limit of the post office.",
+            "The machines should be compatible with existing infrastructure and technology used in the post office.",
+            "Maintenance and operational costs should remain within the limits of the operational budget."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Efficiency",
+            "Noise",
+            "Resource Usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the total number of stamping machines required while satisfying efficiency, noise, and resource usage constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total noise level produced by all chosen stamping machines must not exceed the allowable limit defined by the post office's environmental policy.",
+            "The combined operational efficiency of the selected stamping machines must be equal to or greater than the minimum efficiency requirement set by the post office for daily operations.",
+            "The resource usage, such as electricity and maintenance costs, should not exceed the budget allocated for these resources in the fiscal year."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Minimize the total number of stamping machines.",
+            "Constraint 1: The number of single model stamping machines > number of dual model stamping machines.",
+            "Constraint 2: Total stamping capacity \u2265 minimum requirement of letters per minute.",
+            "Constraint 3: Total glue usage \u2264 specified maximum limit per minute."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total number of stamping machines while meeting constraints related to machine types, stamping capacity, and glue usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of single model stamping machines must be greater than the number of dual model stamping machines.",
+            "The total stamping capacity must be at least a specified minimum requirement of letters per minute.",
+            "The total glue usage must be within a specified maximum limit per minute."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of single model stamping machines",
+            "Number of dual model stamping machines",
+            "Total stamping capacity requirement (letters per minute)",
+            "Maximum glue usage limit per minute"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total number of stamping machines while meeting constraints related to machine models, stamping capacity, and glue usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Number of single model stamping machines > Number of dual model stamping machines",
+            "Total stamping capacity >= Minimum letters per minute requirement",
+            "Total glue usage <= Maximum glue limit per minute"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 3
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    }
+  }
+}

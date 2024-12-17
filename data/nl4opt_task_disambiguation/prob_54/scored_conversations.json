@@ -1,0 +1,466 @@
+{
+  "vague_description": "The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.",
+  "detailed_description": "A woodshop can purchase two types of saws, a miter saw and a circular saw. A miter saw can cut \\var{MiterPlanks} planks of wood and produces \\var{MiterSawdust} units of sawdust per day. A circular saw can cut \\var{CircularPlanks} planks of wood and produces \\var{CircularSawdust} units of sawdust per day. The woodshop must cut at least \\var{MinPlanks} planks of wood per day. However, to avoid too much pollution in the woodshop, they can produce at most \\var{MaxSawdust} units of sawdust per day. How many of each type of saw should be purchased to minimize the total number of saws needed?",
+  "target_objective": "Minimize the total number of saws needed",
+  "target_constraints": [
+    "Number of miter saws is an integer",
+    "Number of circular saws is an integer",
+    "Number of miter saws is non-negative",
+    "Number of circular saws is non-negative",
+    "Miter saws must cut at least MinPlanks planks of wood per day when combined with circular saws",
+    "The total sawdust from miter saws and circular saws cannot exceed MaxSawdust units per day"
+  ],
+  "target_parameters": [
+    "Number of planks of wood a miter saw can cut per day",
+    "Number of units of sawdust produced by a miter saw per day",
+    "Number of planks of wood a circular saw can cut per day",
+    "Number of units of sawdust produced by a circular saw per day",
+    "Minimum required number of planks of wood to cut per day",
+    "Maximum amount of sawdust that can be produced per day"
+  ],
+  "Expert": {
+    "(0,)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.",
+    "(0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective to minimize the cost associated with purchasing saws while considering waste management constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective to minimize the cost associated with purchasing saws while considering waste management constraints?\nUser: Yes\n\nExpert: Do the constraints include limits on the maximum or minimum number of saws that can be purchased due to budget or space restrictions?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective to minimize the cost associated with purchasing saws while considering waste management constraints?\nUser: Yes\n\nExpert: Do the constraints include limits on the maximum or minimum number of saws that can be purchased due to budget or space restrictions?\nUser: No\n\nExpert: Are there any constraints related to the production efficiency or waste generation of each saw?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.",
+    "(0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is there a constraint involving the total operational hours or labor constraints in the problem description?\nUser: No\n",
+    "(0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is there a constraint involving the total operational hours or labor constraints in the problem description?\nUser: No\n\nExpert: Does the problem explicitly include a constraint related to the available floor or shop space for saws?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is there a constraint involving the total operational hours or labor constraints in the problem description?\nUser: No\n\nExpert: Does the problem explicitly include a constraint related to the available floor or shop space for saws?\nUser: No\n\nExpert: Does the problem involve maximizing profit?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.",
+    "(0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective of the woodshop to minimize waste while meeting a fixed production target?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective of the woodshop to minimize waste while meeting a fixed production target?\nUser: Yes\n\nExpert: Is the amount of waste generated by each saw constant regardless of usage?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective of the woodshop to minimize waste while meeting a fixed production target?\nUser: Yes\n\nExpert: Is the amount of waste generated by each saw constant regardless of usage?\nUser: Yes\n\nExpert: Is the cost of purchasing and maintaining saws considered a relevant factor in the decision?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.",
+    "(0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective function a maximization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective function a maximization problem?\nUser: No\n\nExpert: Are there any constraints listed in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective function a maximization problem?\nUser: No\n\nExpert: Are there any constraints listed in the problem description?\nUser: Yes\n\nExpert: Is the list of parameters provided for the problem?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Available budget",
+            "Number of saws to purchase",
+            "Cost of each saw",
+            "Production capacity increase per saw",
+            "Waste generated per production unit",
+            "Cost of waste disposal",
+            "Current production output",
+            "Target production output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of saws to purchase in order to maximize production output while minimizing waste."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of saws purchased must be a positive integer.",
+            "The total cost of the saws must not exceed the allocated budget for equipment purchases.",
+            "The combined production output of the saws must meet or exceed the production goals set by the woodshop.",
+            "The number of saws should not produce waste beyond the woodshop's waste management capacity.",
+            "The purchase decision must comply with space constraints within the woodshop where saws will be placed."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost of purchasing saws",
+            "Waste management constraints",
+            "Production output requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of purchasing saws while taking into account constraints related to waste management."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of saws purchased must not exceed the woodshop's budget for equipment.",
+            "The waste generated by production should not surpass the maximum waste capacity that the woodshop can manage.",
+            "The production output with the given number of saws must meet a minimum production requirement.",
+            "The saws available for purchase cannot exceed the woodshop's physical space to house and operate them."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "cost associated with purchasing saws",
+            "waste management constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost associated with purchasing saws while considering waste management constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The cost of purchasing saws.",
+            "Waste management requirements."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize cost of purchasing saws",
+            "Constraints: Production efficiency of each saw",
+            "Constraints: Waste generation of each saw"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost associated with purchasing saws while considering production efficiency and waste generation constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of saws purchased must result in the minimization of total production cost while considering waste management.",
+            "Constraints on production efficiency related to the operation of each saw.",
+            "Constraints on the amount of waste generated per saw to adhere to company waste management policies."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of saws"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of saws to purchase to maximize production output while minimizing waste."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of saws purchased must be an integer value.",
+            "The total cost of purchasing saws cannot exceed the budget allocated for equipment.",
+            "The production output, determined by the number of saws, must meet or exceed a certain threshold to fulfill orders.",
+            "The amount of waste produced from operations must not exceed the waste management capacity of the woodshop.",
+            "The space available in the woodshop limits the maximum number of saws that can be accommodated without hindering operations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of saws to purchase to optimize production output and minimize waste"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of saws that maximizes production output while minimizing waste in the woodshop."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of saws purchased must not exceed the budget allocated for equipment.",
+            "The total production output must meet or exceed a specified minimum threshold determined by production goals.",
+            "Waste generated from production should not exceed a specific waste management capacity.",
+            "Saws must be purchased in whole numbers.",
+            "Production efficiency improvements per additional saw diminish after a certain number is reached (diminishing returns on production output)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of saws to purchase",
+            "production output",
+            "waste management"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of saws to purchase to maximize production output while minimizing waste in the woodshop."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of saws"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize waste while maximizing production output by determining the optimal number of saws to purchase, without explicit constraints on operational hours, labor, or space."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization should balance production output with waste management.",
+            "There are no constraints on operational hours.",
+            "There are no labor constraints.",
+            "There are no floor space constraints.",
+            "Profit maximization is not a constraint or goal."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of saws",
+            "production output",
+            "waste management"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of saws to purchase that maximizes production output while minimizing waste."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of saws purchased must be a non-negative integer.",
+            "The total cost of saws must not exceed the woodshop's budget for equipment.",
+            "There should be enough saws to meet the minimum production output required by the woodshop.",
+            "The waste generated from production should not exceed the maximum waste disposal capacity of the woodshop.",
+            "The saws should be compatible with existing woodshop equipment and processes."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of saws to purchase",
+            "Production output target",
+            "Amount of waste to minimize"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize waste while meeting a fixed production target."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of saws purchased must not exceed budgetary constraints set by the woodshop.",
+            "The production output using the saws must meet or exceed the fixed production target set by the woodshop.",
+            "The waste generated from the production process must be minimized."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of saws to purchase",
+            "Production output requirement",
+            "Waste generated per saw"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize waste while meeting a fixed production target by determining the optimal number of saws to purchase."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each saw generates a constant amount of waste regardless of usage.",
+            "The woodshop must meet a fixed production target.",
+            "The number of saws is a variable that impacts both production and waste generation.",
+            "Total waste generated is the sum of waste from all saws in operation."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of saws to purchase",
+            "Waste generated per saw",
+            "Conversion factor from waste to cost",
+            "Maintenance cost per saw",
+            "Production target"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize the total cost of purchasing and maintaining saws while ensuring the production target is met and minimizing the waste generated, given that the waste generated by each saw is constant regardless of usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of saws purchased must allow the woodshop to meet a fixed production target.",
+            "Each saw contributes a constant amount of waste to the total waste generated.",
+            "The total cost of purchasing and maintaining saws must be within budgetary limits."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production output",
+            "waste management",
+            "number of saws to purchase"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of saws to purchase that maximizes production output while minimizing waste in the woodshop."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of saws purchased must be a positive integer.",
+            "The total cost of saws must not exceed the budget allocated for equipment.",
+            "The production output must meet or exceed the minimum required output for business viability.",
+            "The waste management system's capacity should not be exceeded by the cumulative waste generated from the saws."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of saws to purchase",
+            "Production output",
+            "Waste management"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the waste produced while maintaining the required production output."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the cost of saws and the cost of waste management should not exceed the budget available.",
+            "The total number of saws purchased should be an integer.",
+            "The number of saws should be at least enough to meet the minimum required production output.",
+            "The waste produced from the saws should not exceed the maximum allowable waste capacity of the facility.",
+            "All saws purchased should be compatible with the existing power infrastructure."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of saws to purchase"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize waste while maintaining a specified level of production output."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The cost of purchasing a saw is $500.",
+            "Each saw can cut 20 boards per hour.",
+            "The woodshop operates 8 hours per day.",
+            "The maximum budget for new saws is $10,000.",
+            "The woodshop needs to cut at least 1,500 boards per day.",
+            "Each board produces 0.1 cubic feet of waste.",
+            "The total waste produced per day must not exceed 120 cubic feet."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production output target",
+            "waste management capacity",
+            "saw cost",
+            "saw maintenance cost",
+            "production capacity per saw",
+            "maximum budget",
+            "workspace limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize waste while meeting production requirements by determining the optimal number of saws to purchase."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production output must not exceed the woodshop's daily capacity.",
+            "The total cost of purchasing saws should not exceed the budget allocated for equipment.",
+            "The waste produced per unit of production must be kept below a specified environmental threshold.",
+            "The number of saws purchased should not exceed the maximum number of employees available to operate them at the same time."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    }
+  }
+}

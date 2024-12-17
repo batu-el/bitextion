@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determine the optimal production quantities for two beverage products under specific resource constraints to achieve maximum profitability.",
+  "detailed_description": "A milk tea shop owner would like to sell two different milk teas: black milk tea and matcha milk tea. Each contains both milk and honey. A bottle of black milk tea contains \\param{BlackMilk} grams of milk and \\param{BlackHoney} grams of honey, whereas a bottle of matcha milk tea contains \\param{MatchaMilk} grams of milk and \\param{MatchaHoney} grams of honey. The profit from each bottle of black milk tea sold is \\param{ProfitBlack} and the profit from each bottle of matcha milk tea sold is \\param{ProfitMatcha}. If his total production must not exceed his available stock of \\param{TotalMilk} grams of milk and \\param{TotalHoney} grams of honey, how many bottles of each type of milk tea should be made to maximize profits?",
+  "target_objective": "Maximize the total profit from selling black and matcha milk tea bottles",
+  "target_constraints": [
+    "Number of black milk tea bottles is non-negative",
+    "Number of matcha milk tea bottles is non-negative",
+    "Total milk used for black and matcha milk teas does not exceed TotalMilk grams",
+    "Total honey used for black and matcha milk teas does not exceed TotalHoney grams"
+  ],
+  "target_parameters": [
+    "Amount of milk in a bottle of black milk tea",
+    "Amount of honey in a bottle of black milk tea",
+    "Amount of milk in a bottle of matcha milk tea",
+    "Amount of honey in a bottle of matcha milk tea",
+    "Profit from selling one bottle of black milk tea",
+    "Profit from selling one bottle of matcha milk tea",
+    "Total available amount of milk",
+    "Total available amount of honey"
+  ]
+}

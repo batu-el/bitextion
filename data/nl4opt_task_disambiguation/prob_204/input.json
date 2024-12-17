@@ -1,0 +1,21 @@
+{
+  "vague_description": "A boy seeks to balance nutritional intake and cost for healthy growth.",
+  "detailed_description": "A young boy is trying to grow taller by drinking milk and eating vegetables. He wants to get a minimum of \\param{C} units of calcium and \\param{I} units of iron per day. A glass of milk costs \\param{CostMilk} and contains \\param{CalciumMilk} units of calcium and \\param{IronMilk} units of iron. A plate of vegetables costs \\param{CostVeg} and contains \\param{CalciumVeg} units of calcium and \\param{IronVeg} units of iron. How many of each should he consume to minimize his cost?",
+  "target_objective": "Minimize the total cost of milk and vegetables consumed",
+  "target_constraints": [
+    "Calcium from milk and vegetables must be at least C units",
+    "Iron from milk and vegetables must be at least I units",
+    "Number of glasses of milk is non-negative",
+    "Number of plates of vegetables is non-negative"
+  ],
+  "target_parameters": [
+    "Minimum units of calcium required per day",
+    "Minimum units of iron required per day",
+    "Cost of one glass of milk",
+    "Units of calcium in one glass of milk",
+    "Units of iron in one glass of milk",
+    "Cost of one plate of vegetables",
+    "Units of calcium in one plate of vegetables",
+    "Units of iron in one plate of vegetables"
+  ]
+}

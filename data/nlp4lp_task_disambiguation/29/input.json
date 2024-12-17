@@ -1,0 +1,16 @@
+{
+  "vague_description": "Determine the optimal allocation of resources to meet production and stock demands over a multi-year period.",
+  "detailed_description": "Maximize the total manpower requirement over five years. The manpower requirements for operations one in year k is \\param{ManpowerOne}, and for operations two is \\param{ManpowerTwo}. The stock level of product k at the beginning of the year is \\param{Stock}, the production capacity for product k for the year is \\param{Capacity}, and the demand for product k for the year is \\param{Demand}. The input one coefficient for product k with respect to product j is \\param{InputOne}, and the input two coefficient for product k with respect to product j is \\param{InputTwo}.",
+  "target_objective": "Maximize the total manpower requirement over five years",
+  "target_constraints": [],
+  "target_parameters": [
+    "The number of years over which the total manpower requirement is maximized",
+    "Manpower requirements for operations one in year k",
+    "Manpower requirements for operations two in year k",
+    "Stock level of product k at the beginning of the year",
+    "Production capacity for product k for the year",
+    "Demand for product k for the year",
+    "Input one coefficient for product k with respect to product j",
+    "Input two coefficient for product k with respect to product j"
+  ]
+}

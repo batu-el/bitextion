@@ -1,0 +1,19 @@
+{
+  "vague_description": "Determine the optimal combination of soda cans and glass bottles to meet production constraints and maximize output.",
+  "detailed_description": "A soda company sells soda in two types of containers: cans and glass bottles. A can holds \\param{CanVolume} ml of soda whereas a glass bottle holds \\param{BottleVolume} ml of soda. The soda company needs to bottle at least \\param{MinTotalVolume} ml of soda every day and due to the ability to sell soda cans as packs, there must be at least \\param{CanBottleRatio} times more cans than glass bottles. However, because of previous contracts with gas stations, there must be at least \\param{MinBottles} glass bottles made. How many of each should be made to maximize the total number of units produced?",
+  "target_objective": "Maximize the total number of units (cans and bottles) produced",
+  "target_constraints": [
+    "Number of cans is non-negative",
+    "Number of glass bottles is non-negative",
+    "Total volume of soda from cans and bottles is at least MinTotalVolume ml",
+    "The number of cans is at least CanBottleRatio times greater than the number of glass bottles",
+    "At least MinBottles of glass bottles are produced"
+  ],
+  "target_parameters": [
+    "Volume of soda a can holds",
+    "Volume of soda a glass bottle holds",
+    "Minimum total volume of soda to bottle every day",
+    "Minimum ratio of the number of cans to the number of glass bottles",
+    "Minimum number of glass bottles to produce"
+  ]
+}

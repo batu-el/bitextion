@@ -1,0 +1,17 @@
+{
+  "vague_description": "The task is to calculate optimal trading strategies within given limitations to achieve maximum financial gain.",
+  "detailed_description": "Determine the amount of buying and selling in each period to maximize the profit over the months, given the constraints of maximum storage \\param{Capacity}, holding costs \\param{HoldingCost}, selling prices \\param{Price}, and buying costs \\param{Cost}.",
+  "target_objective": "Maximize the total profit over the months from buying and selling goods",
+  "target_constraints": [
+    "The amount of goods held in storage must be non-negative",
+    "The amount of goods sold in each period must be non-negative",
+    "The amount of goods bought in each period must be non-negative",
+    "The amount of goods stored must not exceed the maximum storage capacity, Capacity"
+  ],
+  "target_parameters": [
+    "Maximum storage capacity",
+    "Cost of holding one unit of product",
+    "Selling price in each period",
+    "Cost of buying in each period"
+  ]
+}

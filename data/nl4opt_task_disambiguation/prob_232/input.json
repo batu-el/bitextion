@@ -1,0 +1,25 @@
+{
+  "vague_description": "Determine the optimal combination of circular and rectangular tables to maximize guest accommodation at a science fair, considering space constraints and participant requirements.",
+  "detailed_description": "In a science fair, there are two types of tables that can be used to display the children\u2019s science experiments. At the circular tables, \\param{PosterBoardsCircular} poster boards and \\param{ParticipantsCircular} participants can fit around the table to cater to \\param{GuestsCircular} guests. At the rectangular tables, \\param{PosterBoardsRectangular} poster boards and \\param{ParticipantsRectangular} participants can fit around the table to cater to \\param{GuestsRectangular} guests. However, each circular table takes up \\param{SpaceCircular} units of space while each rectangular table takes up \\param{SpaceRectangular} units of space. The science fair has must be able to fit at least \\param{MinParticipants} participants and \\param{MinPosterBoards} poster boards. If the science fair has available \\param{TotalSpace} units of space, how many of each type of table should be set up to maximize the number of catered guests?",
+  "target_objective": "Maximize the total number of guests catered by circular and rectangular tables",
+  "target_constraints": [
+    "Number of circular tables is non-negative",
+    "Number of rectangular tables is non-negative",
+    "Participants at circular tables plus participants at rectangular tables is at least MinParticipants",
+    "Poster boards at circular tables plus poster boards at rectangular tables is at least MinPosterBoards",
+    "Space used by circular tables plus space used by rectangular tables does not exceed TotalSpace"
+  ],
+  "target_parameters": [
+    "Number of poster boards that fit around a circular table",
+    "Number of participants that fit around a circular table",
+    "Number of guests catered to by a circular table",
+    "Number of poster boards that fit around a rectangular table",
+    "Number of participants that fit around a rectangular table",
+    "Number of guests catered to by a rectangular table",
+    "Space taken up by a circular table",
+    "Space taken up by a rectangular table",
+    "Minimum number of participants to accommodate",
+    "Minimum number of poster boards to accommodate",
+    "Total available space for the science fair"
+  ]
+}

@@ -1,0 +1,449 @@
+{
+  "vague_description": "The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.",
+  "detailed_description": "A car manufacturer ships their cars on large and small planes. A large plane can carry \\param{LargePlaneCapacity} cars while a small plane can carry \\param{SmallPlaneCapacity} cars. Since large planes cause more pollution, the number of large planes must be less than \\param{PollutionRatio} times the number of small planes. If the manufacturer wants to deliver at least \\param{MinimumCarsDelivered} cars, find the minimum number of planes that can be used.",
+  "target_objective": "Minimize the total number of planes used to deliver the cars",
+  "target_constraints": [
+    "The number of large planes used must be less than PollutionRatio times the number of small planes",
+    "At least MinimumCarsDelivered cars must be delivered",
+    "The number of large planes used is non-negative",
+    "The number of small planes used is non-negative"
+  ],
+  "target_parameters": [
+    "Capacity of a large plane",
+    "Capacity of a small plane",
+    "Minimum number of cars to be delivered",
+    "Pollution factor constraint for large planes"
+  ],
+  "Expert": {
+    "(0,)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.",
+    "(0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the optimization problem involve minimizing pollution as one of its objectives?\nUser: No\n",
+    "(0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the optimization problem involve minimizing pollution as one of its objectives?\nUser: No\n\nExpert: Is the objective function aimed at minimizing the number of planes used?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the optimization problem involve minimizing pollution as one of its objectives?\nUser: No\n\nExpert: Is the objective function aimed at minimizing the number of planes used?\nUser: Yes\n\nExpert: Are there constraints related to the total number of cars that need to be transported?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.",
+    "(0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the problem involve transporting cars from multiple locations?\nUser: No\n",
+    "(0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the problem involve transporting cars from multiple locations?\nUser: No\n\nExpert: Is there a constraint that mandates planes must operate at full capacity to minimize emissions per car?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the problem involve transporting cars from multiple locations?\nUser: No\n\nExpert: Is there a constraint that mandates planes must operate at full capacity to minimize emissions per car?\nUser: No\n\nExpert: Do the problem descriptions specify different pollution constraints for each type of plane rather than a uniform pollution limit for the entire operation?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.",
+    "(0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Are the pollution constraints expressed as a linear inequality?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Are the pollution constraints expressed as a linear inequality?\nUser: Yes.\n\nExpert: Are the capacity limits per plane size expressed as fixed integer capacities?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Are the pollution constraints expressed as a linear inequality?\nUser: Yes.\n\nExpert: Are the capacity limits per plane size expressed as fixed integer capacities?\nUser: Yes.\n\nExpert: Is the objective function to minimize the total number of planes used?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.",
+    "(0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the problem description include any numerical values or specific quantities?\nUser: No\n",
+    "(0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the problem description include any numerical values or specific quantities?\nUser: No\n\nExpert: Does the problem description include the 'transporting cars' phrase in the objective?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The goal is to optimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size.\nExpert: Does the problem description include any numerical values or specific quantities?\nUser: No\n\nExpert: Does the problem description include the 'transporting cars' phrase in the objective?\nUser: Yes\n\nExpert: Is the objective to 'minimize' the number of planes used for transporting cars?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of planes used",
+            "Pollution constraints",
+            "Capacity limits per plane size"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of planes used while adhering to pollution constraints and capacity limits for each plane."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Number of planes must be minimized.",
+            "Each plane has a maximum capacity limit for the number of cars it can transport, depending on its size.",
+            "Total pollution generated by all planes must not exceed the given pollution constraint."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of planes",
+            "pollution constraints",
+            "capacity limits per plane size",
+            "transporting cars"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the number of planes used for transporting cars while adhering to pollution constraints and capacity limits per plane size."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each plane has a specific capacity limit that cannot be exceeded.",
+            "Pollution emitted per plane must be within acceptable environmental regulations."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of planes",
+            "pollution constraints",
+            "capacity limits per plane size"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of planes used for transporting cars while adhering to pollution constraints and capacity limits per plane size."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Pollution constraints per plane must be adhered to.",
+            "Each plane has a specific capacity (in terms of number of cars it can transport) that cannot be exceeded."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of planes used",
+            "capacity limits per plane size",
+            "total number of cars to be transported",
+            "pollution constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the number of planes used for transporting cars."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each plane has a maximum capacity that cannot be exceeded.",
+            "The total number of cars that need to be transported must be met.",
+            "There are pollution limitations that must be adhered to when planning the usage of planes."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of planes",
+            "Pollution constraints",
+            "Capacity limits per plane size"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of airplanes required to transport cars while adhering to pollution constraints and capacity limits for each plane size."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Pollution constraints: The solution must adhere to specified limits on pollution emissions.",
+            "Capacity limits per plane size: Each plane has a maximum capacity that must not be exceeded."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of planes",
+            "pollution constraints",
+            "capacity limits per plane size"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the number of planes required to transport cars while adhering to pollution constraints and capacity limits per plane size."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of planes used should be minimized.",
+            "Each plane has a capacity limit based on its size, which cannot be exceeded.",
+            "There are pollution constraints that need to be adhered to, possibly involving limits on total emissions.",
+            "The cars are transported from a single location to their destination(s)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of planes",
+            "Pollution constraints",
+            "Capacity limits per plane size"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the transportation efficiency of cars by minimizing the number of planes used while adhering to pollution constraints and considering the capacity limits of different plane sizes."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of planes used should be optimized to minimize the total number of planes.",
+            "There are pollution constraints that need to be adhered to.",
+            "There are capacity limits per plane size that need to be considered."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of planes",
+            "Capacity limits per plane size",
+            "Pollution constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the number of planes used for transporting cars while adhering to pollution constraints and capacity limits per plane size."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each plane used for transporting cars must not exceed its maximum capacity limit.",
+            "There is a uniform pollution limit for the entire operation that must not be exceeded.",
+            "The optimization involves using a single location for transporting cars."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of planes",
+            "Pollution constraints",
+            "Capacity limits per plane size"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of planes used for transporting cars."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of planes should be minimized.",
+            "Pollution emissions from all planes must not exceed a predefined limit.",
+            "Each plane must not exceed its maximum capacity in terms of the number of cars it can transport.",
+            "Different plane sizes have different capacity limits that must be adhered to."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of planes used",
+            "pollution constraints",
+            "capacity limits per plane size"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the number of planes used for transporting cars while satisfying pollution constraints (expressed as a linear inequality) and adhering to the capacity limits of each plane size."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of planes used must be minimized.",
+            "Pollution constraints are imposed as linear inequalities.",
+            "Each plane has a specific capacity limit that must not be exceeded.",
+            "Different plane sizes have different carrying capacities and possibly different pollution coefficients."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of planes",
+            "Pollution constraints",
+            "Capacity limits per plane size"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of planes used for transporting cars while satisfying pollution constraints and capacity limits for each plane size."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Pollution constraints are expressed as linear inequalities.",
+            "Capacity limits are fixed integer values per plane size."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of planes of different sizes",
+            "Capacity limits per plane size (integer values)",
+            "Pollution constraints (linear inequalities)",
+            "Objective: minimize the total number of planes used"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total number of planes used for transporting cars while adhering to pollution constraints and capacity limits per plane size."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Pollution constraints are linear inequalities.",
+            "Capacity limits are fixed integer capacities per plane size."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of planes",
+            "Pollution constraints",
+            "Capacity limits per plane size"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the number of planes used for transporting cars while adhering to pollution constraints and meeting capacity limits of each plane size."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of planes used should be minimized.",
+            "Pollution generated by the planes must not exceed a certain limit.",
+            "Each plane has a capacity limit based on its size that cannot be exceeded.",
+            "All cars must be transported, with no car left behind."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of planes used",
+            "pollution constraints",
+            "capacity limits per plane size"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the number of planes used for transporting cars while adhering to pollution constraints and plane capacity limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Pollution levels must not exceed a certain threshold.",
+            "Each plane has a maximum capacity limit for the number of cars or total weight it can carry.",
+            "There is a limited number of planes available for use.",
+            "Certain types or sizes of planes may have additional specific constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimize number of planes",
+            "Pollution constraints",
+            "Capacity limits per plane size",
+            "Transporting cars"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the number of planes used for transporting cars while adhering to pollution constraints and plane capacity limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Number of planes is a parameter to be minimized.",
+            "Planes should transport cars within given capacity limits per plane size.",
+            "The solution should adhere to pollution constraints possibly specified by emissions per plane or by the number of planes.",
+            "Transportation demand for cars must be met."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of planes used",
+            "pollution constraints",
+            "capacity limits per plane size"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the number of planes used for transporting cars given pollution constraints and capacity limits per plane size."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each plane has a maximum capacity limit based on its size.",
+            "The total pollution from all planes must not exceed a specified limit."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "vague_description": "Determine the optimal number of regular and hybrid vans needed to meet delivery and pollution constraints.",
+  "detailed_description": "A shipping company can purchase regular and hybrid vans to make deliveries. A regular van can deliver \\param{PackagesRegular} packages per day and produces \\param{PollutantsRegular} units of pollutants. A hybrid van can deliver \\param{PackagesHybrid} packages per day and produces \\param{PollutantsHybrid} units of pollutants. Due to a new environmental law, they can produce at most \\param{MaxPollutants} units of pollutants per day. However, the company needs to be able to deliver at least \\param{MinPackages} packages per day. How many of each type of van should they buy to minimize the total number of vans needed?",
+  "target_objective": "Minimize the total number of vans needed",
+  "target_constraints": [
+    "Number of regular vans is an integer",
+    "Number of hybrid vans is an integer",
+    "Number of regular vans is non-negative",
+    "Number of hybrid vans is non-negative",
+    "Regular vans can deliver PackagesRegular packages per day each",
+    "Hybrid vans can deliver PackagesHybrid packages per day each",
+    "Regular vans produce PollutantsRegular units of pollutants each",
+    "Hybrid vans produce PollutantsHybrid units of pollutants each",
+    "The company can produce at most MaxPollutants units of pollutants per day",
+    "The company needs to deliver at least MinPackages packages per day"
+  ],
+  "target_parameters": [
+    "Number of packages a regular van can deliver per day",
+    "Units of pollutants produced by a regular van per day",
+    "Number of packages a hybrid van can deliver per day",
+    "Units of pollutants produced by a hybrid van per day",
+    "Maximum allowable units of pollutants per day",
+    "Minimum number of packages needed to be delivered per day"
+  ]
+}

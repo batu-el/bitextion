@@ -1,0 +1,24 @@
+{
+  "vague_description": "Determine the optimal allocation of resources to maximize structural capacity under given constraints.",
+  "detailed_description": "An engineering school has a bridge building competition where students must build as many beam bridges and truss bridges as they can using Popsicle sticks and glue. A beam bridge requires \\param{PopsicleBeam} Popsicle sticks and \\param{GlueBeam} units of glue while a truss bridge requires \\param{PopsicleTruss} Popsicle sticks and \\param{GlueTruss} units of glue. Each team has at most \\param{TotalPopsicles} Popsicle sticks and \\param{TotalGlue} units of glue. In addition, each team can build at most \\param{MaxTruss} truss bridges and the number of beam bridges must be larger than the number of truss bridges. If a beam bridge can hold \\param{MassBeam} grams and a truss bridge can hold \\param{MassTruss} grams, how many of each bridge should a team build to maximize the total mass that can be supported?",
+  "target_objective": "Maximize the total mass that the built bridges can support",
+  "target_constraints": [
+    "Number of beam bridges is non-negative",
+    "Number of truss bridges is non-negative",
+    "Total use of Popsicle sticks is at most TotalPopsicles",
+    "Total use of glue is at most TotalGlue",
+    "At most MaxTruss truss bridges can be built by each team",
+    "Number of beam bridges must be greater than the number of truss bridges"
+  ],
+  "target_parameters": [
+    "Number of Popsicle sticks required for a beam bridge",
+    "Units of glue required for a beam bridge",
+    "Number of Popsicle sticks required for a truss bridge",
+    "Units of glue required for a truss bridge",
+    "Total available Popsicle sticks",
+    "Total available units of glue",
+    "Maximum number of truss bridges",
+    "Mass supported by a beam bridge",
+    "Mass supported by a truss bridge"
+  ]
+}

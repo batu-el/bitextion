@@ -1,0 +1,445 @@
+{
+  "vague_description": "Determine the optimal allocation of resources to maximize output.",
+  "detailed_description": "There are two processes, process A and process B, to plate a coin with gold. Process A requires \\var{GoldA} units of gold, \\var{WireA} wires, and can plate \\var{CoinsA} coins. Process B requires \\var{GoldB} units of gold, \\var{WireB} wires, and can plate \\var{CoinsB} coins. There are \\var{TotalGold} units of gold and \\var{TotalWires} wires available. How many processes of each type should be run to maximize the total number of coins that can be plated?",
+  "target_objective": "Maximize the total number of coins plated by running an optimal number of operations for each process",
+  "target_constraints": [
+    "Number of Process A operations is an integer",
+    "Number of Process B operations is an integer",
+    "Number of Process A operations is non-negative",
+    "Number of Process B operations is non-negative",
+    "Total units of gold used by Process A and B cannot exceed TotalGold",
+    "Total wires used by Process A and B cannot exceed TotalWires"
+  ],
+  "target_parameters": [
+    "Gold requirement for process A",
+    "Wire requirement for process A",
+    "Number of coins plated by process A",
+    "Gold requirement for process B",
+    "Wire requirement for process B",
+    "Number of coins plated by process B",
+    "Total units of gold available",
+    "Total number of wires available"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal allocation of resources to maximize output.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Does the problem involve any constraints on the total amount of resources available?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Does the problem involve any constraints on the total amount of resources available?\nUser: Yes\n\nExpert: Are there multiple types of resources involved in this allocation problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Does the problem involve any constraints on the total amount of resources available?\nUser: Yes\n\nExpert: Are there multiple types of resources involved in this allocation problem?\nUser: Yes\n\nExpert: Are there any constraints or requirements on the minimum or maximum output levels for the problem?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of resources to maximize output.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Does the problem include any constraints related to quality standards that products must meet?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Does the problem include any constraints related to quality standards that products must meet?\nUser: No\n\nExpert: Does the problem involve a budget constraint in terms of monetary units?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Does the problem include any constraints related to quality standards that products must meet?\nUser: No\n\nExpert: Does the problem involve a budget constraint in terms of monetary units?\nUser: No\n\nExpert: Does the problem involve distinct types of resources needing allocation (e.g., labor, raw materials, machine hours) with specific constraints for each type?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal allocation of resources to maximize output.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Are the resources and outputs being compared across different projects or departments within the organization?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Are the resources and outputs being compared across different projects or departments within the organization?\nUser: Yes\n\nExpert: Are the resources being used in a way that varies depending on the project or department they are assigned to (e.g., are resources dedicated to specific projects or can they be reassigned between projects)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Are the resources and outputs being compared across different projects or departments within the organization?\nUser: Yes\n\nExpert: Are the resources being used in a way that varies depending on the project or department they are assigned to (e.g., are resources dedicated to specific projects or can they be reassigned between projects)?\nUser: Yes\n\nExpert: Is the objective to maximize output in terms of a specific metric that can be quantitatively measured (e.g., revenue, profit, units produced)?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of resources to maximize output.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Are any of the constraints containing the word 'resource' or any derivatives (e.g., 'resources', 'resource allocation', etc.)?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Are any of the constraints containing the word 'resource' or any derivatives (e.g., 'resources', 'resource allocation', etc.)?\nUser: No\n\nExpert: Do any of the problem constraints involve time-based constraints (specifically: time, production time, season, weather conditions, etc.)?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to maximize output.\nExpert: Are any of the constraints containing the word 'resource' or any derivatives (e.g., 'resources', 'resource allocation', etc.)?\nUser: No\n\nExpert: Do any of the problem constraints involve time-based constraints (specifically: time, production time, season, weather conditions, etc.)?\nUser: No\n\nExpert: Are there any constraints listed for the given problem?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total available resources",
+            "Resource allocation constraints",
+            "Output function",
+            "Resource cost or usage",
+            "Maximum resource utilization limit",
+            "Production targets or requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output by optimally allocating resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource budget is limited and cannot be exceeded.",
+            "Each resource has an associated cost and contribution to output.",
+            "There is a minimum resource requirement for each task to be undertaken.",
+            "Resources are divisible and can be allocated in fractional units.",
+            "Certain resources may have interdependencies, affecting their collective contribution to output."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "total resource constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of resources to maximize output given constraints on the total amount of resources available."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total amount of resources available is limited."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Constraints",
+            "Multiple Types of Resources",
+            "Objective to Maximize Output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal allocation of multiple types of resources in order to maximize output while considering constraints on the total amount of resources available."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of resources available is limited.",
+            "There are multiple types of resources that need to be allocated."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize output",
+            "Constraints on total amount of resources available",
+            "Multiple types of resources involved"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate multiple types of resources optimally to maximize output within given resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total resources available are limited and cannot be exceeded.",
+            "Multiple types of resources must be considered in the allocation."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output by optimally allocating resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited availability of resources: There is a cap on the total amount of each type of resource that can be allocated.",
+            "Budget constraints: There is an overall budget limit that cannot be exceeded when allocating resources.",
+            "Minimum resource allocation for specific tasks: Some tasks require a minimum amount of certain resources to be allocated to them in order to proceed.",
+            "Time constraint: The resource allocation needs to be planned within a specific time frame to achieve the desired output on schedule.",
+            "Dependency constraints: Some tasks may depend on the completion of others or require simultaneous allocation of resources with other tasks.",
+            "Maximizing output: The objective is to allocate resources in a way that maximizes total output, subject to the given constraints.",
+            "Quality constraints: Resources must be allocated in a manner that does not compromise the quality of the output.",
+            "Human resource constraints: There may be a limit on the number of human resources or labor hours available for allocation.",
+            "Technical or operational constraints: Certain resources may not be compatible with others or may require specific conditions for effective utilization."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Output maximization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize output by optimally allocating resources."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resources",
+            "Output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of resources to maximize output without any constraints related to quality or budget."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize output",
+            "Resource constraints for different types of resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal allocation of distinct types of resources, such as labor, raw materials, and machine hours, in order to maximize output without quality or budget constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of resources is subjected to constraints based on the type of resource, such as labor, raw materials, and machine hours."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation choices",
+            "output levels",
+            "constraints on resources",
+            "relationship between resources and output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of resources in order to maximize output."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total resources available cannot exceed the supply limit of 100 units.",
+            "Each unit of resource A contributes 5 units to output.",
+            "Each unit of resource B contributes 3 units to output.",
+            "Resource A is limited to a maximum of 60 units.",
+            "Resource B is limited to a maximum of 50 units."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources allocated across different projects or departments",
+            "output from each project or department"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of resources across different projects or departments within the organization to maximize the overall output."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources should be allocated across different projects or departments.",
+            "The total allocation of resources to different projects or departments should not exceed the available resources.",
+            "There might be interdependencies between projects that affect resource allocation.",
+            "Resource allocation should aim to maximize output within the organization."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "output",
+            "projects",
+            "departments"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the overall output of the organization by optimally allocating resources across different projects or departments, considering that resources can be varied or reassigned between these projects or departments."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of resources allocated to all projects or departments cannot exceed total available resources.",
+            "The resources can be reassigned between projects but are initially dedicated to specific projects.",
+            "Each project or department must receive a minimum allocation of resources as required to operate.",
+            "The allocation should maximize the overall output across all projects or departments."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "projects",
+            "departments",
+            "resources",
+            "output",
+            "revenue",
+            "profit",
+            "units produced"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal allocation of resources across different projects or departments within an organization to maximize output based on a specific quantifiable metric, such as revenue, profit, or units produced, considering that resources can be reassigned between projects."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources are allocated to multiple projects or departments within the organization.",
+            "Resource usage varies depending on the project or department assignment.",
+            "Resources can be reassigned between projects.",
+            "The objective is to maximize output measured in a specific quantitative metric."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Allocated resources",
+            "Output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output by optimally allocating resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total resources allocated cannot exceed the available budget.",
+            "Each resource category has a minimum allocation requirement.",
+            "The total manpower allocated must remain within the available workforce.",
+            "Output must meet a minimum threshold to be considered acceptable.",
+            "The combination of resources allocated must ensure sustainable operations.",
+            "Time constraints limit the deployment period to within the project's timeline.",
+            "Resource allocation must comply with regulatory policies and standards."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "output",
+            "allocation",
+            "maximize"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the output."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output by optimally allocating resources within the given constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "allocation",
+            "output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize output"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "budget limits",
+            "labor availability",
+            "machine capacity",
+            "storage space"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,479 @@
+{
+  "vague_description": "A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.",
+  "detailed_description": "A flooring company produces engineered laminate planks and carpets. The chief marketer reports an expected demand of at least \\param{Dlaminate} square feet of laminate planks and \\param{Dcarpet} square feet of carpets each week. The shipping contract requires a total of at least \\param{Dtotal} square feet of products each week. However, due to a shortage of raw materials, no more than \\param{Claminate} square feet of laminate planks and \\param{Ccarpet} square feet of carpets can be produced weekly. If a square foot of laminate planks produces a \\param{Plaminate} profit and a square foot of carpets yields a \\param{Pcarpet} profit, how many of each type of product should be made weekly to maximize the company's profit?",
+  "target_objective": "Maximize the company's weekly profit from producing laminate planks and carpets",
+  "target_constraints": [
+    "Produce at least Dlaminate square feet of laminate planks per week",
+    "Produce at least Dcarpet square feet of carpets per week",
+    "Produce a total of at least Dtotal square feet of products each week",
+    "Produce no more than Claminate square feet of laminate planks per week",
+    "Produce no more than Ccarpet square feet of carpets per week",
+    "Number of square feet of laminate planks produced is non-negative",
+    "Number of square feet of carpets produced is non-negative"
+  ],
+  "target_parameters": [
+    "Minimum expected demand for laminate planks per week",
+    "Minimum expected demand for carpets per week",
+    "Minimum total amount of products to be shipped per week",
+    "Maximum production capacity for laminate planks per week",
+    "Maximum production capacity for carpets per week",
+    "Profit per square foot for laminate planks",
+    "Profit per square foot for carpets"
+  ],
+  "Expert": {
+    "(0,)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.",
+    "(0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Are there specific production capacity limits for each type of flooring product?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Are there specific production capacity limits for each type of flooring product?\nUser: Yes\n\nExpert: Are there specific cost coefficients for each type of flooring product related to production or raw materials?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Are there specific production capacity limits for each type of flooring product?\nUser: Yes\n\nExpert: Are there specific cost coefficients for each type of flooring product related to production or raw materials?\nUser: No\n\nExpert: Are there minimum demand requirements for each type of flooring product?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.",
+    "(0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Does the problem include a constraint related to the availability or usage of raw materials?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Does the problem include a constraint related to the availability or usage of raw materials?\nUser: Yes\n\nExpert: Does the problem include a constraint that requires production quantities to meet or exceed forecasted or minimum demand levels for each product?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Does the problem include a constraint related to the availability or usage of raw materials?\nUser: Yes\n\nExpert: Does the problem include a constraint that requires production quantities to meet or exceed forecasted or minimum demand levels for each product?\nUser: Yes\n\nExpert: Do any of the problems include a budget constraint related to production costs?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.",
+    "(0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Do the production quantities of different flooring products interact with each other through a shared resource or constraint?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Do the production quantities of different flooring products interact with each other through a shared resource or constraint?\nUser: Yes\n\nExpert: Are the shared resources or constraints mentioned earlier related to production capacity, such as machines or labor?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Do the production quantities of different flooring products interact with each other through a shared resource or constraint?\nUser: Yes\n\nExpert: Are the shared resources or constraints mentioned earlier related to production capacity, such as machines or labor?\nUser: Yes\n\nExpert: Is the production capacity of the shared resources or constraints fixed and known in advance?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.",
+    "(0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Does the problem description contain a list of individual products (e.g. flooring products, products)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Does the problem description contain a list of individual products (e.g. flooring products, products)?\nUser: Yes\n\nExpert: Is there a reference to 'flooring products' in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A company needs to determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints.\nExpert: Does the problem description contain a list of individual products (e.g. flooring products, products)?\nUser: Yes\n\nExpert: Is there a reference to 'flooring products' in the problem description?\nUser: Yes\n\nExpert: Does the problem description contain the phrase 'optimal production quantities' (case-insensitive)?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of different flooring products",
+            "Profit for each product",
+            "Demand constraints for each product",
+            "Production capacity constraints",
+            "Cost of producing each flooring product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining optimal production quantities of different flooring products while satisfying demand and production constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The company must decide production quantities for multiple flooring products.",
+            "The objective is to maximize profit.",
+            "Demand for each flooring product must be met.",
+            "Production capacity constraints must be adhered to.",
+            "Resources such as materials, labor, or machines have limited availability.",
+            "Each product may have a different profit margin, production cost, and demand level."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of different flooring products",
+            "Demand for each flooring product",
+            "Production capacity limits for each flooring product",
+            "Profit per unit of each flooring product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production quantities of different flooring products that maximize profit while satisfying production capacity limits and demand constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production quantity for each type of flooring product cannot exceed its specific production capacity limit.",
+            "The production quantities must meet or exceed the demand for each type of flooring product."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantity for each type of flooring product",
+            "Production capacity limits for each type of flooring product",
+            "Demand constraints for each type of flooring product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal production quantities of different flooring products, subject to demand and production capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limits for each type of flooring product must not be exceeded.",
+            "Demand for each flooring product must be met."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of different flooring products",
+            "Profit maximization",
+            "Production capacity limits for each type of flooring product",
+            "Minimum demand requirements for each type of flooring product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profit by determining the optimal production quantities of different flooring products while meeting demand constraints and adhering to production capacity limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacities: Each type of flooring product has an upper limit on the quantity that can be produced.",
+            "Minimum demand requirements: Each type of flooring product has a minimum quantity that must be met to satisfy demand."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantity of each flooring product",
+            "Demand constraints for flooring products",
+            "Production capacity constraints",
+            "Profit per unit of flooring product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by determining the optimal production quantities of different flooring products while satisfying demand and adhering to production constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production quantities must meet or exceed the demand for each flooring product.",
+            "The total production quantity for each flooring product cannot exceed the available capacity for its production.",
+            "The sum of the production costs for all flooring products must not exceed the budget allocated for production.",
+            "There must be a minimum production level for each flooring product to maintain market presence or contractual obligations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit from different flooring products",
+            "Constraints:",
+            "- Meet demand for each flooring product",
+            "- Production capacity constraints",
+            "- Raw material availability constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining optimal production quantities of different flooring products while satisfying demand, production, and raw material availability constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Availability of raw materials limits the production capabilities.",
+            "Demand constraints must be met for all flooring products.",
+            "A production capacity constraint exists for the manufacturing processes."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantities of different flooring products",
+            "profit maximization",
+            "meet or exceed forecasted demand",
+            "availability of raw materials as a constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal production quantities of different flooring products while meeting demand, production, and raw material constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Raw material availability constraint: The total quantity of raw materials used in production cannot exceed the available supply.",
+            "Demand fulfillment constraint: Production quantities must meet or exceed forecasted or minimum demand levels for each flooring product."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize profit",
+            "Meet or exceed demand for each product",
+            "Production constrained by raw material availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining optimal production quantities of different flooring products, subject to raw material availability and minimum demand constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limitations on the availability or usage of various raw materials required for product manufacturing.",
+            "Production quantities must meet or exceed forecasted or minimum demand levels for each flooring product."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "decision variables: quantity of each flooring product to produce",
+            "objective function: maximize profit",
+            "constraints: meet demand for each product",
+            "constraints: adhere to production capacity limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from the production of flooring products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limits for each product type.",
+            "Non-negativity constraints (production quantities cannot be negative).",
+            "Meet the minimum demand requirements for each flooring product."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantities of different flooring products",
+            "demand constraints",
+            "production constraints",
+            "shared resource constraint",
+            "profit maximization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production quantities of different flooring products that maximize profit while respecting shared resource constraints and meeting demand."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production of all flooring products must not exceed the total production capacity of the manufacturing facility.",
+            "The production of each type of flooring product must meet or exceed its respective demand.",
+            "There is a shared resource constraint, implying that the combined use of this resource across all products must not exceed its availability."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of flooring products A, B, C, etc.",
+            "Total production capacity of machines (machine hours)",
+            "Total available labor hours",
+            "Demand for each product",
+            "Profit margin per unit of each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profit by determining the optimal production quantities of different flooring products while considering demand, production constraints, and shared resources such as machines or labor."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Sum of the production times for different products must not exceed available machine hours.",
+            "Total labor hours used in production should be less than or equal to available labor hours.",
+            "Production quantities of each flooring product need to satisfy demand for that product.",
+            "Non-negativity constraints: Production quantities must be greater than or equal to zero."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantity of different flooring products",
+            "demand constraints for each product",
+            "shared resource constraint related to production capacity",
+            "production capacity for machines",
+            "production capacity for labor"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production quantities of different flooring products that maximize profit while adhering to demand and production capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production quantities of different flooring products must be determined such that they maximize profit.",
+            "The production quantities must meet the demand for each flooring product.",
+            "Production is constrained by the capacity of shared resources such as machines or labor.",
+            "The production capacity for these shared resources is fixed and known in advance."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of different flooring products",
+            "Profit for each product",
+            "Demand for each product",
+            "Maximum production capacity or constraints for each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profit through optimal production quantities of various flooring products, while ensuring that demand and production constraints are satisfied."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production quantity of each flooring product must meet or exceed the forecasted demand for that product.",
+            "The production capacity for each flooring product must not exceed the available resources such as labor hours, material availability, and machine time.",
+            "The production quantities must be non-negative numbers."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantities",
+            "profit",
+            "demand",
+            "production constraints",
+            "flooring products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal production quantities of different flooring products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let x1, x2, ..., xn be the production quantities for each flooring product.",
+            "Each x_i must be greater than or equal to 0, since you can't produce a negative quantity of any product: x_i >= 0 for all i.",
+            "The total production for each product must be less than or equal to its maximum production capacity due to production constraints: x_i <= max_capacity_i for all i.",
+            "The total production for each product must meet or exceed the demand for that product: x_i >= demand_i for all i.",
+            "The sum of the products of production quantities and their respective production costs should not exceed the total budget: sum(cost_i * x_i) <= budget."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal production quantities",
+            "Different flooring products",
+            "Maximize profit",
+            "Meeting demand",
+            "Production constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal production quantities of different flooring products to maximize profit while meeting demand and production constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each flooring product must meet its respective minimum demand requirement.",
+            "The total production of all flooring products cannot exceed the company's production capacity.",
+            "The company has to adhere to budgetary constraints for production costs.",
+            "The ratio of certain products produced should meet market composition or preference constraints.",
+            "Material constraints limit the quantity of certain raw materials available for production.",
+            "Production time for the products cannot exceed the total available production hours.",
+            "If there are environmental compliance constraints, they must be adhered to."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "flooring products",
+            "production quantities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal production quantities of different flooring products while meeting demand and adhering to production constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production for each type of flooring product must meet or exceed the demand for that product.",
+            "The total production of all flooring products cannot exceed the production capacity.",
+            "The production process for each type of flooring product requires a certain percentage of the available resources, which must not collectively exceed 100% of the resources.",
+            "The profit for each type of flooring product is given and the goal is to maximize the total profit across all products.",
+            "Production of each flooring product must be non-negative."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    }
+  }
+}

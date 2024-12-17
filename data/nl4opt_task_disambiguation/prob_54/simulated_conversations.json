@@ -1,0 +1,45 @@
+{
+  "vague_description": "The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.",
+  "detailed_description": "A woodshop can purchase two types of saws, a miter saw and a circular saw. A miter saw can cut \\var{MiterPlanks} planks of wood and produces \\var{MiterSawdust} units of sawdust per day. A circular saw can cut \\var{CircularPlanks} planks of wood and produces \\var{CircularSawdust} units of sawdust per day. The woodshop must cut at least \\var{MinPlanks} planks of wood per day. However, to avoid too much pollution in the woodshop, they can produce at most \\var{MaxSawdust} units of sawdust per day. How many of each type of saw should be purchased to minimize the total number of saws needed?",
+  "target_objective": "Minimize the total number of saws needed",
+  "target_constraints": [
+    "Number of miter saws is an integer",
+    "Number of circular saws is an integer",
+    "Number of miter saws is non-negative",
+    "Number of circular saws is non-negative",
+    "Miter saws must cut at least MinPlanks planks of wood per day when combined with circular saws",
+    "The total sawdust from miter saws and circular saws cannot exceed MaxSawdust units per day"
+  ],
+  "target_parameters": [
+    "Number of planks of wood a miter saw can cut per day",
+    "Number of units of sawdust produced by a miter saw per day",
+    "Number of planks of wood a circular saw can cut per day",
+    "Number of units of sawdust produced by a circular saw per day",
+    "Minimum required number of planks of wood to cut per day",
+    "Maximum amount of sawdust that can be produced per day"
+  ],
+  "Expert": {
+    "(0,)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.",
+    "(0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective to minimize the cost associated with purchasing saws while considering waste management constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective to minimize the cost associated with purchasing saws while considering waste management constraints?\nUser: Yes\n\nExpert: Do the constraints include limits on the maximum or minimum number of saws that can be purchased due to budget or space restrictions?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective to minimize the cost associated with purchasing saws while considering waste management constraints?\nUser: Yes\n\nExpert: Do the constraints include limits on the maximum or minimum number of saws that can be purchased due to budget or space restrictions?\nUser: No\n\nExpert: Are there any constraints related to the production efficiency or waste generation of each saw?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.",
+    "(0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is there a constraint involving the total operational hours or labor constraints in the problem description?\nUser: No\n",
+    "(0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is there a constraint involving the total operational hours or labor constraints in the problem description?\nUser: No\n\nExpert: Does the problem explicitly include a constraint related to the available floor or shop space for saws?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is there a constraint involving the total operational hours or labor constraints in the problem description?\nUser: No\n\nExpert: Does the problem explicitly include a constraint related to the available floor or shop space for saws?\nUser: No\n\nExpert: Does the problem involve maximizing profit?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.",
+    "(0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective of the woodshop to minimize waste while meeting a fixed production target?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective of the woodshop to minimize waste while meeting a fixed production target?\nUser: Yes\n\nExpert: Is the amount of waste generated by each saw constant regardless of usage?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective of the woodshop to minimize waste while meeting a fixed production target?\nUser: Yes\n\nExpert: Is the amount of waste generated by each saw constant regardless of usage?\nUser: Yes\n\nExpert: Is the cost of purchasing and maintaining saws considered a relevant factor in the decision?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.",
+    "(0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective function a maximization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective function a maximization problem?\nUser: No\n\nExpert: Are there any constraints listed in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.\nExpert: Is the objective function a maximization problem?\nUser: No\n\nExpert: Are there any constraints listed in the problem description?\nUser: Yes\n\nExpert: Is the list of parameters provided for the problem?\nUser: Yes\n"
+  }
+}

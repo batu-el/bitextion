@@ -1,0 +1,44 @@
+{
+  "vague_description": "Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.",
+  "detailed_description": "The Vehicle Routing Problem with Time Windows (VRPTW) involves the distribution of goods between depots and customers using \\param{VehicleCount} vehicles. Each vehicle has to supply \\param{CustomerCount} customers, and has a limited capacity, \\param{VehicleCapacity_i}, for each vehicle i. Each customer, j, has an associated demand, \\param{CustomerDemand_j}, that must be satisfied within the customer-specific time window, defined by the lower and upper bounds, \\param{CustomerLBTW_j} and \\param{CustomerUBTW_j}, respectively. The \\param{CustomerDistance_{i,j}} parameter represents the distance between customer i to customer j, and \\param{CustomerServiceTime_j} denotes the service time for customer j.",
+  "target_objective": "Optimize the routes for all vehicles such that all customer demands are fulfilled within their specific time windows while minimizing total travel distance and time",
+  "target_constraints": [
+    "The capacity of each vehicle i is limited to VehicleCapacity_i",
+    "Each customer j must be served within the time window from CustomerLBTW_j to CustomerUBTW_j",
+    "The number of vehicles available is limited to VehicleCount"
+  ],
+  "target_parameters": [
+    "The number of customers to be supplied",
+    "The number of vehicles available for distribution",
+    "The demand of each customer",
+    "The lower bound of the time window for each customer",
+    "The upper bound of the time window for each customer",
+    "The distance from each customer to every other customer",
+    "The service time required for each customer",
+    "The capacity of each vehicle"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.",
+    "(0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Is there a limit to the number of vehicles available for delivering the packages?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Is there a limit to the number of vehicles available for delivering the packages?\nUser: Yes\n\nExpert: Are there any specific delivery locations that must be visited within certain time windows?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Is there a limit to the number of vehicles available for delivering the packages?\nUser: Yes\n\nExpert: Are there any specific delivery locations that must be visited within certain time windows?\nUser: Yes\n\nExpert: Are there maximum travel distance or time limits for each vehicle when delivering packages?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.",
+    "(0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Does the problem description include a constraint related to the maximum working hours or shift duration for drivers?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Does the problem description include a constraint related to the maximum working hours or shift duration for drivers?\nUser: No\n\nExpert: Do any of the problems include a constraint related to maximum working hours or shift duration for drivers?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Does the problem description include a constraint related to the maximum working hours or shift duration for drivers?\nUser: No\n\nExpert: Do any of the problems include a constraint related to maximum working hours or shift duration for drivers?\nUser: No\n\nExpert: Do any candidate problems consider the impact of traffic or road conditions on travel times in their parameters or constraints?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.",
+    "(0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Are the delivery locations known in advance, or are they subject to change on the day of delivery?\nUser: {\"response\":\"Yes\"}\n",
+    "(0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Are the delivery locations known in advance, or are they subject to change on the day of delivery?\nUser: {\"response\":\"Yes\"}\n\nExpert: Are there any time windows or specific delivery slots that must be adhered to at each location?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Are the delivery locations known in advance, or are they subject to change on the day of delivery?\nUser: {\"response\":\"Yes\"}\n\nExpert: Are there any time windows or specific delivery slots that must be adhered to at each location?\nUser: Yes\n\nExpert: Are delivery capacities or constraints, such as weight or volume limits, imposed on each vehicle?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.",
+    "(0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Are there any route-specific constraints or parameters mentioned in the problem description?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Are there any route-specific constraints or parameters mentioned in the problem description?\nUser: Yes\n\nExpert: Does the problem description contain time windows for each drop-off location?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine efficient routes for a fleet of delivery vehicles to complete all required drop-offs within specific time constraints.\nExpert: Are there any route-specific constraints or parameters mentioned in the problem description?\nUser: Yes\n\nExpert: Does the problem description contain time windows for each drop-off location?\nUser: Yes\n\nExpert: Does the problem have any specific constraints that relate to time or vehicle capacity?\nUser: Yes\n"
+  }
+}

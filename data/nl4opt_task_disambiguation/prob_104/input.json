@@ -1,0 +1,21 @@
+{
+  "vague_description": "A scientist needs to maximize vitamin D intake from juices while managing a preference for apple juice and a constraint on vitamin C consumption.",
+  "detailed_description": "A scientist in the arctic needs to get enough vitamin D and vitamin C in his diet by drinking orange and apple juice. Each box of orange juice contains \\param{VitaminDOrange} units of vitamin D and \\param{VitaminCOrange} units of vitamin C. Each box of apple juice contains \\param{VitaminDApple} units of vitamin D and \\param{VitaminCApple} units of vitamin C. Since the scientist prefers apple juice, he must drink at least \\param{MinRatioAppleToOrange} times as many apple juice boxes as orange juice boxes. However, he must also drink at least \\param{MinOrange} orange juice boxes. To avoid a vitamin C overdose, the scientist can consume at most \\param{MaxVitaminC} units of vitamin C. How many of each juice box should he drink to maximize his total vitamin D intake?",
+  "target_objective": "Maximize the scientist's total vitamin D intake",
+  "target_constraints": [
+    "Number of orange juice boxes is non-negative",
+    "Number of apple juice boxes is non-negative",
+    "Number of apple juice boxes must be at least MinRatioAppleToOrange times the number of orange juice boxes",
+    "Must drink at least MinOrange orange juice boxes",
+    "Total vitamin C from orange and apple juice must not exceed MaxVitaminC"
+  ],
+  "target_parameters": [
+    "Units of vitamin D in one box of orange juice",
+    "Units of vitamin C in one box of orange juice",
+    "Units of vitamin D in one box of apple juice",
+    "Units of vitamin C in one box of apple juice",
+    "Minimum ratio of boxes of apple juice to orange juice",
+    "Minimum number of orange juice boxes the scientist must drink",
+    "Maximum units of vitamin C the scientist can consume"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "vague_description": "Determine the optimal combination of burgers and pizza slices for a man to consume in order to meet his dietary fat and calorie needs while minimizing cholesterol intake and maintaining a specified ratio of pizza slices to burgers.",
+  "detailed_description": "A doctor recommends that a man eat burgers and pizza in order to put on weight. Each burger contains \\param{FatPerBurger} units of fat and \\param{CaloriesPerBurger} calories. Each slice of pizza contains \\param{FatPerPizzaSlice} units of fat and \\param{CaloriesPerPizzaSlice} calories. The man must get at least \\param{MinFat} units of fat and \\param{MinCalories} calories. Further, each burger contains \\param{CholesterolPerBurger} units of cholesterol while each slice of pizza contains \\param{CholesterolPerPizzaSlice} units of cholesterol. Since burgers are slightly more expensive, the man decides to eat at least \\param{PizzaBurgerRatio} times as many slices of pizza as burgers. How many of each should he eat to minimize his cholesterol intake?",
+  "target_objective": "Minimize the total cholesterol intake from burgers and pizzas",
+  "target_constraints": [
+    "Total fat from burgers and pizzas is at least MinFat units",
+    "Total calories from burgers and pizzas is at least MinCalories calories",
+    "The quantity of pizza slices eaten must be at least PizzaBurgerRatio times the quantity of burgers eaten",
+    "Number of burgers eaten is non-negative",
+    "Number of pizza slices eaten is non-negative"
+  ],
+  "target_parameters": [
+    "Fat content per burger",
+    "Calories per burger",
+    "Fat content per slice of pizza",
+    "Calories per slice of pizza",
+    "Minimum required fat",
+    "Minimum required calories",
+    "Cholesterol per burger",
+    "Cholesterol per slice of pizza",
+    "Ratio of the number of pizza slices to the number of burgers"
+  ]
+}

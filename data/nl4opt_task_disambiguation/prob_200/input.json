@@ -1,0 +1,20 @@
+{
+  "vague_description": "A business needs to determine the optimal number of products to manufacture in order to maximize profits while operating under specific time constraints for their machinery.",
+  "detailed_description": "A meat processing plant uses two machines, a meat slicer and a meat packer, to make their hams and pork ribs. To produce one batch of hams requires \\param{HamSlicerHours} hours on the meat slicer and \\param{HamPackerHours} hours on the meat packer. To produce one batch of pork ribs requires \\param{RibSlicerHours} hours on the meat slicer and \\param{RibPackerHours} hours on the meat packer. Each machine runs for at most \\param{MaxHours} hours per year. If the profit per batch of hams is \\param{HamProfit} and the profit per batch of pork ribs is \\param{RibProfit}, how many batches of each should be made to maximize profit?",
+  "target_objective": "Maximize the profit from the batches of hams and pork ribs produced",
+  "target_constraints": [
+    "Number of ham batches is non-negative",
+    "Number of pork rib batches is non-negative",
+    "Total slicer hours for hams and pork ribs is at most MaxHours",
+    "Total packer hours for hams and pork ribs is at most MaxHours"
+  ],
+  "target_parameters": [
+    "Hours required on the meat slicer to produce one batch of hams",
+    "Hours required on the meat packer to produce one batch of hams",
+    "Hours required on the meat slicer to produce one batch of pork ribs",
+    "Hours required on the meat packer to produce one batch of pork ribs",
+    "Maximum operating hours per year for each machine",
+    "Profit per batch of hams",
+    "Profit per batch of pork ribs"
+  ]
+}

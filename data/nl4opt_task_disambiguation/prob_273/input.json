@@ -1,0 +1,17 @@
+{
+  "vague_description": "Determining the optimal number of camel caravans and desert trucks needed to transport goods while considering delivery capacity, travel time, and cost preferences.",
+  "detailed_description": "A company in the desert can transport goods to rural cities either by camel caravans or desert trucks. A camel caravan can deliver \\param{UnitsCamel} units of goods per trip and takes \\param{TimeCamel} hours. A desert truck can deliver \\param{UnitsTruck} units of goods per trip and takes \\param{TimeTruck} hours. However, due to the cost of fuel, the company prefers to have more camel caravans than desert trucks. If the company needs to deliver \\param{GoodsTotal} units of goods, how many of each method of transportation should the company organize to minimize the total number of hours required?",
+  "target_objective": "Minimize the total number of hours to deliver GoodsTotal units of goods",
+  "target_constraints": [
+    "Number of camel caravans is non-negative",
+    "Number of desert trucks is non-negative",
+    "Total units delivered by camel caravans and desert trucks must be at least GoodsTotal"
+  ],
+  "target_parameters": [
+    "Number of units of goods delivered per trip by camel caravan",
+    "Travel time per trip for camel caravan",
+    "Number of units of goods delivered per trip by desert truck",
+    "Travel time per trip for desert truck",
+    "Total units of goods that need to be delivered"
+  ]
+}

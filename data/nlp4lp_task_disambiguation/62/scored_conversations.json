@@ -1,0 +1,484 @@
+{
+  "vague_description": "Determine the optimal production schedule and mix of parts to balance machine usage and profit.",
+  "detailed_description": "How many batches of each part should the manufacturer produce each month to maximize profit, taking into account the number of machines (\\param{M}), the number of types of parts (\\param{P}), the time required to produce a batch on machine \\param{m} for part \\param{p} (\\param{TimeRequired}), the cost of operating machine \\param{m} for a month (\\param{MachineCosts}), the time each machine \\param{m} is available for production each month (\\param{Availability}), the price at which part \\param{p} can be sold (\\param{Prices}), and the setup time required before producing a batch of part \\param{p} (\\param{SetupTime})?",
+  "target_objective": "Maximize profit, which is the total revenue from selling the parts minus the total operating costs of the machines",
+  "target_constraints": [
+    "Each machine m can be used for up to Availability hours per month",
+    "Time required to produce a batch of part p on machine m plus the setup time for part p must not exceed the available time on machine m",
+    "Number of batches for each part is non-negative"
+  ],
+  "target_parameters": [
+    "The number of machines available",
+    "The number of types of parts to produce",
+    "The time required to produce a batch on machine m for part p",
+    "The cost of operating machine m for a month",
+    "The time each machine m is available for production each month",
+    "The price at which part p can be sold",
+    "The setup time required before producing a batch of part p"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.",
+    "(0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Are there constraints on the production capacity or availability of machines for manufacturing the parts?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Are there constraints on the production capacity or availability of machines for manufacturing the parts?\nUser: Yes\n\nExpert: Are there explicit cost or profit values associated with each part or product?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Are there constraints on the production capacity or availability of machines for manufacturing the parts?\nUser: Yes\n\nExpert: Are there explicit cost or profit values associated with each part or product?\nUser: Yes\n\nExpert: Are there specific demand requirements or sales targets for the parts to be produced?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.",
+    "(0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Does the problem description include constraints related to safety regulations or machine maintenance windows?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Does the problem description include constraints related to safety regulations or machine maintenance windows?\nUser: No\n\nExpert: Do the problem descriptions include constraints related to inventory or storage capacity?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Does the problem description include constraints related to safety regulations or machine maintenance windows?\nUser: No\n\nExpert: Do the problem descriptions include constraints related to inventory or storage capacity?\nUser: No\n\nExpert: Does the problem description include constraints related to machine setup times?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.",
+    "(0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Is the production schedule subject to any fixed time constraints, such as a limited number of shifts or production days?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Is the production schedule subject to any fixed time constraints, such as a limited number of shifts or production days?\nUser: No\n\nExpert: Is the production schedule subject to any variable time constraints, such as varying machine availability or worker schedules?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Is the production schedule subject to any fixed time constraints, such as a limited number of shifts or production days?\nUser: No\n\nExpert: Is the production schedule subject to any variable time constraints, such as varying machine availability or worker schedules?\nUser: No\n\nExpert: Are there any costs or penalties associated with production that could impact profit, such as overtime pay, inventory storage fees, or backorder costs?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.",
+    "(0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Does the problem description contain the term 'inventory'?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Does the problem description contain the term 'inventory'?\nUser: No\n\nExpert: Does the problem description contain the term 'machine maintenance' as a constraint?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal production schedule and mix of parts to balance machine usage and profit.\nExpert: Does the problem description contain the term 'inventory'?\nUser: No\n\nExpert: Does the problem description contain the term 'machine maintenance' as a constraint?\nUser: No\n\nExpert: Is the objective directly related to maximizing profit?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedule for machine usage",
+            "Production mix for parts",
+            "Machine usage balance",
+            "Part profitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit while balancing machine usage by determining the optimal mix and schedule of parts to produce."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production schedule must ensure that each machine's capacity is not exceeded.",
+            "The mix of parts produced must meet or exceed current demand forecasts.",
+            "Production durations for each part must be considered to avoid machine bottlenecks.",
+            "Profit margins for each part should be considered to prioritize more profitable items.",
+            "The schedule should allow for maintenance downtime for machines as needed.",
+            "Production should be balanced to avoid over-reliance on a single machine.",
+            "Resource availability, such as labor and materials, must not be exceeded.",
+            "The scheduling must comply with all operational regulations and safety standards.",
+            "The production plan should be adaptable to changes in demand forecasts."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Parts to be manufactured",
+            "Production capacity constraints",
+            "Machine availability constraints",
+            "Objective to balance machine usage and profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the profit by balancing machine usage and the production of parts within the constraints of machine availability and production capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity for each machine is limited.",
+            "Certain machines are available only at specific times.",
+            "Each part requires a certain machine for production.",
+            "The total production time must not exceed the total available machine hours.",
+            "Machine maintenance or downtime must be considered in the schedule."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production capacity constraints",
+            "machine availability constraints",
+            "cost values for each part",
+            "profit values for each part"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production schedule and mix of parts that maximizes profit while balancing machine usage, considering the constraints on production capacity, availability of machines, and specified cost or profit values for each part."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited production capacity for each machine.",
+            "Availability of machines for manufacturing is constrained by time or scheduling limits.",
+            "Each part or product has associated production costs.",
+            "Each part or product has associated profit values that need to be taken into account."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production capacity constraints",
+            "Machine availability constraints",
+            "Cost values for each part",
+            "Profit values for each part",
+            "Demand requirements",
+            "Sales targets"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize total profit from the production of parts while balancing machine usage, taking into account production capacity, machine availability, cost/profit metrics, and meeting specific demand or sales targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited production capacity for manufacturing parts.",
+            "Availability constraints for machines required in the production process.",
+            "Explicit cost values associated with each part.",
+            "Explicit profit values associated with each part.",
+            "Specific demand requirements for parts to be produced.",
+            "Sales targets that must be met for the parts produced."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Schedule",
+            "Mix of Parts",
+            "Machine Usage",
+            "Profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to develop a production schedule and determine the mix of parts produced in such a way that machine usage is balanced while maximizing profit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each machine has a maximum operational capacity (e.g., hours available per day/week).",
+            "Each part requires a specific amount of time on different machines.",
+            "There is a limited supply of raw materials for producing parts.",
+            "The production schedule needs to meet at least the minimum demand requirements for each part.",
+            "Certain parts may have production priority or deadlines.",
+            "Production costs must not exceed a certain budget to maintain profitability.",
+            "Labor availability may constrain production schedules.",
+            "Storage or inventory capacity limits the maximum number of parts produced at any time."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit",
+            "Constraints:",
+            "1. Machine usage balancing",
+            "2. Product demand satisfaction",
+            "3. Resource/material availability",
+            "4. Production capacity limits",
+            "Variables:",
+            "1. Production schedule for each part",
+            "2. Production quantity for each part"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit while balancing machine usage through optimal production scheduling and parts mix."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Machine usage",
+            "Profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal production schedule and mix of parts that maximizes profit while ensuring balanced usage of machines."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize profit",
+            "balance machine usage",
+            "production schedule",
+            "production mix",
+            "machine setup times"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production schedule and mix of parts that maximizes profit while balancing machine usage, considering constraints related to machine setup times."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production schedule must accommodate machine setup times for each part type."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedule for each part",
+            "Mix of parts to produce",
+            "Machine usage constraints",
+            "Profit maximization objectives"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit while balancing machine utilization and production schedule for parts."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine capacity is limited: each machine can operate up to 8 hours per day.",
+            "Each part requires a specific production time on each machine.",
+            "Material availability is limited to a specific quantity per production cycle.",
+            "The demand for each part must be met according to customer contracts.",
+            "Production costs must not exceed budgeted expenses.",
+            "Storage space is limited for finished parts.",
+            "Profit margins for each part type must be considered to ensure profitability.",
+            "Production schedules must comply with worker shift timings and labor regulations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Machine usage balance",
+            "Profit optimization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal production schedule and mix of parts that balances machine usage and maximizes profit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production schedule is not subject to any time constraints such as shifts or production days."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Schedule",
+            "Mix of Parts",
+            "Machine Usage",
+            "Profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production schedule and mix of parts that maximizes profit while ensuring balanced usage of machines."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No fixed time constraints like shifts or production days.",
+            "No variable time constraints related to machine availability.",
+            "No variable time constraints related to worker schedules."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedule",
+            "Mix of parts",
+            "Machine usage",
+            "Profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal production schedule and mix of parts to maximize profit while ensuring balanced machine usage, without being subject to fixed or variable time constraints or additional costs and penalties."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No fixed production time constraints, such as limited shifts or production days.",
+            "No variable time constraints due to machine availability or worker schedules.",
+            "No additional costs or penalties such as overtime pay, inventory storage fees, or backorder costs."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Machine capacities (usage hours, downtime)",
+            "Profit contribution of each part",
+            "Production time required for each part",
+            "Demand forecasts for each part",
+            "Setup times and costs",
+            "Material costs",
+            "Inventory holding costs",
+            "Labor availability and costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production schedule and mix of parts that balances machine usage across available resources while maximizing profit from the production activities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine usage must not exceed 8 hours per day.",
+            "Each type of part requires a specific machine and processing time.",
+            "The production of parts is limited by the availability of raw materials.",
+            "Profit must be maximized subject to production costs and sales price of each part.",
+            "The schedule must adhere to labor availability of 40 hours per week.",
+            "The demand for each type of part must be met as projected in the sales forecast."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production schedule",
+            "mix of parts",
+            "machine usage",
+            "profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production schedule and mix of parts that maximizes profit while balancing machine usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production schedule and mix of parts must balance machine usage.",
+            "The production schedule and mix must maximize profit.",
+            "Inventory is not a constraint in this problem."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production schedule",
+            "mix of parts",
+            "machine usage",
+            "profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to find the optimal balance between machine usage and maximizing profit in the production schedule and mix of parts."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Balance machine usage.",
+            "Optimize profit."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production schedule",
+            "production mix",
+            "machine usage",
+            "profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal production schedule and mix of parts to balance machine usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine usage must be balanced.",
+            "The objective is to maximize profit.",
+            "Only direct constraints related to machine maintenance are excluded.",
+            "Inventory-related constraints are excluded."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    }
+  }
+}

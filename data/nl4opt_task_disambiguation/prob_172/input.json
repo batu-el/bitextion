@@ -1,0 +1,21 @@
+{
+  "vague_description": "A chicken farmer needs to determine the optimal number of bus and car trips to transport chickens, considering various constraints, to minimize transportation time.",
+  "detailed_description": "A chicken farmer has sold his chicken and they need to be transported either by bus or by car. A bus can take \\param{BusCapacity} chicken and takes \\param{BusTripTime} hours per trip. A car can take \\param{CarCapacity} chicken and takes \\param{CarTripTime} hours per trip. There can be at most \\param{MaxBusTrips} bus trips and at least \\param{MinimumCarTripPercentage} of the trips must be by car. If the farmer needs to transport \\param{TotalChicken} chicken, how many trips of each should be done to minimize the total time needed to transport the chicken?",
+  "target_objective": "Minimize the total time needed to transport all chickens",
+  "target_constraints": [
+    "Number of bus trips is non-negative",
+    "Number of car trips is non-negative",
+    "There can be at most MaxBusTrips bus trips",
+    "At least MinimumCarTripPercentage of the trips must be by car",
+    "Total number of chickens transported must be at least TotalChicken"
+  ],
+  "target_parameters": [
+    "Number of chicken a bus can carry",
+    "Time taken per trip by bus",
+    "Maximum number of bus trips allowed",
+    "Percentage of trips that must be by car",
+    "Number of chicken a car can carry",
+    "Time taken per trip by car",
+    "Total number of chicken to be transported"
+  ]
+}

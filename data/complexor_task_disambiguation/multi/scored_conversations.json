@@ -1,0 +1,492 @@
+{
+  "vague_description": "The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.",
+  "detailed_description": "This is a multi-commodity transportation problem. Given a set of origins \\param{OriginNum}, a set of destinations \\param{DestinationNum}, and a set of products \\param{ProductNum}. Each origin i has a certain supply of each product p, \\param{Supply}_{i,p}, and each destination j has a certain demand for each product p, \\param{Demand}_{j,p}. The cost of shipping one unit of product p from origin i to destination j is \\param{Cost}_{i, j, p}. The problem aims to minimize the total cost of shipping all products from the origins to the destinations. It is constrained that the total amount of each product p shipped from each origin i equals its supply, the total amount of each product p shipped to each destination j equals its demand, and the total amount of all products shipped from each origin i to each destination j does not exceed a certain limit \\param{Limit}_{i,j}. The decision variable is the number of units of each product p to be shipped from each origin i to each destination j.",
+  "target_objective": "Minimize the total cost of shipping all products from the origins to the destinations",
+  "target_constraints": [
+    "For each origin i and product p, the total amount shipped equals the supply of that product at that origin: Supply_{i,p}",
+    "For each destination j and product p, the total amount received equals the demand for that product at that destination: Demand_{j,p}",
+    "For each origin i and destination j, the total amount of all products shipped does not exceed Limit_{i,j}",
+    "All shipping quantities are non-negative"
+  ],
+  "target_parameters": [
+    "The number of origins",
+    "The number of destinations",
+    "The number of products",
+    "The supply of each product at each origin",
+    "The demand of each product at each destination",
+    "The limit on the total amount of all products shipped from each origin to each destination",
+    "The cost of shipping one unit of each product from each origin to each destination"
+  ],
+  "Expert": {
+    "(0,)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.",
+    "(0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Is the optimization problem constrained by specific limits on the quantity of resources available at each starting location?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Is the optimization problem constrained by specific limits on the quantity of resources available at each starting location?\nUser: Yes\n\nExpert: Are there specific demand requirements at each destination location that must be met?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Is the optimization problem constrained by specific limits on the quantity of resources available at each starting location?\nUser: Yes\n\nExpert: Are there specific demand requirements at each destination location that must be met?\nUser: Yes\n\nExpert: Is the objective function to be minimized a linear combination of transport costs?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.",
+    "(0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Does the problem include constraints on transportation capacity for the routes or links between nodes?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Does the problem include constraints on transportation capacity for the routes or links between nodes?\nUser: Yes\n\nExpert: Do all candidate problems require integer allocations of resources?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Does the problem include constraints on transportation capacity for the routes or links between nodes?\nUser: Yes\n\nExpert: Do all candidate problems require integer allocations of resources?\nUser: No\n\nExpert: Do any of the problems include flow conservation constraints at non-supply, non-demand nodes?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.",
+    "(0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Is the problem constrained to a static network, where the locations and demands are fixed, or can it change over time?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Is the problem constrained to a static network, where the locations and demands are fixed, or can it change over time?\nUser: Yes\n\nExpert: Is the network a physical, geographical network, such as a road or logistics network, or is it an abstract or conceptual network?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Is the problem constrained to a static network, where the locations and demands are fixed, or can it change over time?\nUser: Yes\n\nExpert: Is the network a physical, geographical network, such as a road or logistics network, or is it an abstract or conceptual network?\nUser: No\n\nExpert: Are the resources of different types (e.g., different goods, services, or personnel)?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.",
+    "(0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Does the problem description explicitly mention all parameters in the singular or plural form?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Does the problem description explicitly mention all parameters in the singular or plural form?\nUser: Yes\n\nExpert: Does the problem description explicitly mention the word 'locations'?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task is to optimally allocate limited resources to meet multiple demands while minimizing transport costs across a network of locations.\nExpert: Does the problem description explicitly mention all parameters in the singular or plural form?\nUser: Yes\n\nExpert: Does the problem description explicitly mention the word 'locations'?\nUser: No\n\nExpert: Are 'resources' and 'demands' explicitly listed as parameters in the problem description?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources",
+            "Multiple demands",
+            "Minimizing transport costs",
+            "Network of locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize transport costs while meeting demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of resources allocated cannot exceed the available supply at each location.",
+            "The demand at each location must be met, meaning the sum of resources allocated to each demand point should equal or exceed its demand.",
+            "Transport costs must be minimized across the entire network, implying that the allocation should be optimized to reduce the total transport cost.",
+            "Resources can only be transported from supply locations to demand locations along the defined network routes.",
+            "Non-negativity constraint: the amount of resources allocated and transported must be greater than or equal to zero."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources at each starting location",
+            "Multiple demands at different locations",
+            "Minimization of transport costs across the network of locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize transport costs while allocating limited resources optimally across a network of locations to meet multiple demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total quantity of resources allocated from each starting location must not exceed the available resources at that location.",
+            "Resources allocated must meet the demand at each destination location.",
+            "Transport costs are to be minimized.",
+            "Resources can only be transferred between specific nodes or locations connected within the network."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource availability constraints at each starting location",
+            "Demand fulfillment requirements at each destination location",
+            "Minimization of transport costs across the network"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to allocate limited resources optimally across a network of locations to meet specific demand requirements at each destination location, while minimizing transportation costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited quantity of resources available at each starting location.",
+            "Specific demand requirements that must be met at each destination location."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource availability limits at starting locations",
+            "Demand requirements at destination locations",
+            "Transport costs",
+            "Objective: Minimize total transport costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total transport costs across a network of locations by optimally allocating limited resources, subject to constraints on resource availability at starting locations and meeting demand requirements at destination locations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantity of resources available at each starting location is limited.",
+            "Each destination location has specific demand requirements that must be met.",
+            "The objective function is a linear combination of transport costs that needs to be minimized."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources",
+            "Multiple demands",
+            "Transport costs",
+            "Network of locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize transport costs for optimal resource allocation across multiple locations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Sum of allocated resources at each location should not exceed the available resources at that location.",
+            "Demand at each location must be fully satisfied by the allocation.",
+            "Transport cost should be minimized.",
+            "Resources allocated from a particular location to another should be non-negative.",
+            "There may be specific capacity limits on how much resource can be transported between certain locations.",
+            "Resources should be conserved across the network; total outflows should equal total inflows plus any initial allocation at a node."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize transportation costs",
+            "Constraints: Meet multiple demands",
+            "Constraints: Limited resources",
+            "Constraints: Transportation capacity limits on routes/links",
+            "Variables: Resource allocation amounts",
+            "Variables: Transportation amounts between locations",
+            "Nodes: Locations in the network",
+            "Demands: Demand to be met at each location",
+            "Resources: Available resources for allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize transportation costs across a network of locations while optimally allocating limited resources to meet multiple demands, considering constraints on transportation capacity for the routes or links between nodes."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of resources allocated to demands must not exceed the total available resources.",
+            "The transportation cost must be minimized.",
+            "Transportation capacity limits must not be exceeded on any route or link between nodes."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "multiple demands",
+            "minimizing transport costs",
+            "network of locations",
+            "transportation capacity constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimally allocate limited resources in a network of locations to meet multiple demands while minimizing transportation costs, taking into account constraints of transportation capacity on the routes."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources are limited and must be allocated optimally.",
+            "Transport costs must be minimized across the network.",
+            "There are constraints on the transportation capacity for the routes or links between nodes.",
+            "Allocations of resources are not required to be integers."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize transport costs across a network of locations.",
+            "Constraints: Include transportation capacity for the routes or links between nodes.",
+            "Resource allocation can be continuous, not necessarily integer.",
+            "No flow conservation constraints at non-supply, non-demand nodes."
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to allocate limited resources across a network of locations to meet multiple demands while minimizing transportation costs, considering constraints on transportation capacity for routes."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited resources must be allocated to meet multiple demands.",
+            "Transportation costs across the network must be minimized.",
+            "There are constraints on transportation capacity for routes or links between nodes.",
+            "Resource allocations are not required to be integers."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resources available at each location",
+            "Demand at each location",
+            "Transport costs between locations",
+            "Decision variables for resource allocation at each location"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize transport costs across a network while meeting multiple demands with limited resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of resources allocated must not exceed the available supply at any origin location.",
+            "The demand requirements at each destination must be fully satisfied with the allocated resources.",
+            "The allocation of resources should be non-negative, meaning no negative shipments are possible.",
+            "Transport costs, which are generally fixed per unit of resource transported between origin and destination pairs, must be minimized.",
+            "Every node in the network, representing either a source or a destination, must have connectivity through the transport system.",
+            "Resource allocation decisions need to adhere to any capacity restrictions on transport routes between locations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources",
+            "Multiple demands",
+            "Transport costs",
+            "Network of locations",
+            "Static network",
+            "Fixed locations and demands"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to allocate limited resources efficiently across a static network of locations to meet various demands while minimizing transport costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The network of locations is static, meaning locations do not change over time.",
+            "Resource demands at each location are fixed and do not vary over time.",
+            "The available resources to allocate are limited.",
+            "The objective is to minimize transport costs across the network."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "demand satisfaction",
+            "transportation cost minimization",
+            "network of locations",
+            "static network",
+            "physical/geographical network"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimally allocate limited resources across a network of locations with fixed demands, minimizing transport costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The network is static, meaning locations and demands are fixed.",
+            "The network is neither physical nor geographical, but rather an abstract or conceptual network.",
+            "Resources are limited and must be optimally allocated.",
+            "Transport costs need to be minimized across the network of locations."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Multiple demand points",
+            "Minimizing transport costs",
+            "Fixed network",
+            "Different types of resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to allocate multiple types of resources optimally across a fixed network of locations to meet demands while minimizing transportation costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The set of locations and demands are fixed and do not change over time.",
+            "The network is not a physical, geographical network but rather a conceptual network.",
+            "Resources are of different types and must be individually allocated based on their type.",
+            "Transport costs must be minimized across the network."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Minimize transport costs",
+            "Constraints: Limited resources",
+            "Demands at multiple locations",
+            "Network of locations",
+            "Decision variables: Allocation levels"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize transport costs across a network of locations while optimally allocating limited resources to meet multiple demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited availability of resources at each location.",
+            "Non-negativity constraint: resources allocated should be non-negative.",
+            "Transport costs associated with moving resources between locations.",
+            "Demand requirements at each location must be satisfied.",
+            "Capacity constraints: each location may have a maximum limit on the resources it can handle."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "limited resources",
+            "multiple demands",
+            "transport costs",
+            "network of locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To strategically distribute finite resources among various locations to fulfill all demands efficiently, with the goal of reducing overall transportation costs across the network."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources are limited and must be allocated optimally.",
+            "Multiple demands must be met across the network.",
+            "Transport costs across locations should be minimized."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "demands",
+            "transport costs",
+            "network"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimally allocate limited resources to multiple demands while minimizing transport costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total allocation of resources across all demands cannot exceed the available supply.",
+            "The solution must minimize the total transportation costs incurred in distributing the resources.",
+            "Demand at each location must be satisfied, if possible, given the resource constraints.",
+            "Resource allocations must be non-negative, i.e., you cannot allocate negative amounts of resources.",
+            "No explicit reference to locations suggests a generic network, so assume homogeneous constraints unless specified otherwise."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resources",
+            "demands",
+            "transport costs",
+            "network of locations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize transport costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources must be allocated in a manner that optimally satisfies all demands.",
+            "Transport costs should be minimized across various allocations.",
+            "The allocation should respect the limits of the available resources.",
+            "Demand requirements at each location must be met.",
+            "The network consists of multiple locations where resources need to be allocated."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    }
+  }
+}

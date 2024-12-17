@@ -1,0 +1,38 @@
+{
+  "vague_description": "The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.",
+  "detailed_description": "How to distribute these files on the floppy disks in order to minimize the number of floppy disks used, given that each floppy disk has a \\param{Capacity} and there are N different files with sizes represented by \\param{Size}.",
+  "target_objective": "Minimize the number of floppy disks used in the distribution of files",
+  "target_constraints": [
+    "The sum of file sizes on each floppy disk cannot exceed the Capacity",
+    "Each file must be placed on exactly one floppy disk",
+    "File sizes are non-negative"
+  ],
+  "target_parameters": [
+    "Total capacity of a floppy disk",
+    "Size of each file j"
+  ],
+  "Expert": {
+    "(0,)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.",
+    "(0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are there specific constraints or limitations on the types of storage mediums available for file allocation?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are there specific constraints or limitations on the types of storage mediums available for file allocation?\nUser: No\n\nExpert: Are there any specific priorities or preferences for allocating certain types of files to particular storage mediums?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are there specific constraints or limitations on the types of storage mediums available for file allocation?\nUser: No\n\nExpert: Are there any specific priorities or preferences for allocating certain types of files to particular storage mediums?\nUser: No\n\nExpert: Is there a defined objective function, such as minimizing total storage cost or maximizing storage utilization, for the file allocation problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.",
+    "(0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Is the objective to minimize the number of storage mediums used?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Is the objective to minimize the number of storage mediums used?\nUser: Yes\n\nExpert: Is the capacity constraint phrased as \"cannot exceed its capacity\" in the constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Is the objective to minimize the number of storage mediums used?\nUser: Yes\n\nExpert: Is the capacity constraint phrased as \"cannot exceed its capacity\" in the constraints?\nUser: Yes\n\nExpert: Do any of the candidate problems omit the constraint that files cannot be split across storage mediums?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.",
+    "(0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are the storage mediums identical in terms of their capacity limits?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are the storage mediums identical in terms of their capacity limits?\nUser: Yes.\n\nExpert: Are there any restrictions on how the files can be split or combined when being allocated to the storage mediums?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are the storage mediums identical in terms of their capacity limits?\nUser: Yes.\n\nExpert: Are there any restrictions on how the files can be split or combined when being allocated to the storage mediums?\nUser: No.\n\nExpert: Are the files to be allocated fixed in size, or can they be dynamically generated or modified?\nUser: Yes, the files are fixed in size and cannot be modified.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.",
+    "(0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are there any constraints that require optimal usage, maximum storage, minimum waste, or a similar goal related to the storage capacity or efficiency?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are there any constraints that require optimal usage, maximum storage, minimum waste, or a similar goal related to the storage capacity or efficiency?\nUser: Yes.\n\nExpert: Does the objective mention maximizing or minimizing a quantity related to storage capacity or efficiency?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: The challenge is to efficiently allocate multiple-sized files across limited capacity storage mediums.\nExpert: Are there any constraints that require optimal usage, maximum storage, minimum waste, or a similar goal related to the storage capacity or efficiency?\nUser: Yes.\n\nExpert: Does the objective mention maximizing or minimizing a quantity related to storage capacity or efficiency?\nUser: Yes.\n\nExpert: Is the number of files limited or is it a free variable in the problem?\nUser: Yes.\n"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "vague_description": "The problem involves assigning participants to resources in a constrained optimization scenario to achieve a specific goal.",
+  "detailed_description": "The Car Selection Problem is a mixed integer programming model that aims to assign \\param{ParticipantNum} participants to \\param{CarNum} cars in a way that maximizes the total number of assignments. Each participant is interested in a subset of cars, represented by \\param{InterestMatrix_{p,c}}, where p and c index participants and cars, respectively. The objective is to find the optimal assignment of participants to cars that satisfies certain constraints.",
+  "target_objective": "Maximize the total number of participant-to-car assignments",
+  "target_constraints": [
+    "Each participant is assigned to at most one car",
+    "A participant can only be assigned to a car if they are interested in that car (InterestMatrix_{p,c} = 1)",
+    "The assignment of a participant to a car is a binary decision (either 0 or 1)"
+  ],
+  "target_parameters": [
+    "The total number of participants",
+    "The total number of available cars",
+    "A binary matrix indicating whether a participant is interested in a particular car (1 for interested and 0 for not interested)"
+  ]
+}

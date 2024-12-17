@@ -1,0 +1,22 @@
+{
+  "vague_description": "Optimize the logistics and inventory management for container unloading to minimize associated costs.",
+  "detailed_description": "Determine a strategy to minimize costs from unloading (\\param{UnloadCosts}), storage (\\param{HoldingCost}), and crane rentals (\\param{CraneCost}) over the period. The demands over the time periods are given by \\param{Demands}, with a corresponding unloading capacity per period specified by \\param{UnloadCapacity}. The system starts with an initial inventory of containers given by \\param{InitContainer}, and the maximum container inventory is limited to \\param{MaxContainer}. The logistics also involve \\param{NumCranes} number of cranes with \\param{CraneCapacity} each to aid in the unloading process.",
+  "target_objective": "Minimize the total costs of UnloadCosts, HoldingCost, and CraneCost",
+  "target_constraints": [
+    "Demands must be met for each time period",
+    "Unloading capacity per period cannot exceed the specified UnloadCapacity",
+    "Maximum container inventory must not exceed MaxContainer"
+  ],
+  "target_parameters": [
+    "The number of time periods",
+    "Demand at time t",
+    "Unloading cost at time t",
+    "Unloading capacity at time t",
+    "Cost for holding containers",
+    "Maximum number of containers that can be held",
+    "Initial number of containers at the start",
+    "Number of cranes available for unloading",
+    "Capacity of each crane",
+    "Cost for renting each crane"
+  ]
+}

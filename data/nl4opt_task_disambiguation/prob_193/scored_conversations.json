@@ -1,0 +1,486 @@
+{
+  "vague_description": "Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.",
+  "detailed_description": "Employees have the option of car-pooling to work or taking the company bus. A car can take \\param{C} employees and produces \\param{Pc} units of pollution, while a bus can take \\param{B} employees and produces \\param{Pb} units of pollution. At least \\param{MinE} employees need to be transported and at most \\param{MaxBuses} buses can be used. How many of each type of transport should be taken to minimize the total pollution produced.",
+  "target_objective": "Minimize the total pollution produced by the transportation of employees",
+  "target_constraints": [
+    "Number of cars is non-negative",
+    "Number of buses is non-negative",
+    "At least MinE employees need to be transported",
+    "At most MaxBuses buses can be used"
+  ],
+  "target_parameters": [
+    "Number of employees per car",
+    "Pollution units produced by one car",
+    "Number of employees per bus",
+    "Pollution units produced by one bus",
+    "Minimum number of employees to be transported",
+    "Maximum number of buses to be used"
+  ],
+  "Expert": {
+    "(0,)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.",
+    "(0, 0)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.\nExpert: Are there specific limitations on the types or numbers of vehicles that can be used in the transportation mix?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.\nExpert: Are there specific limitations on the types or numbers of vehicles that can be used in the transportation mix?\nUser: Yes\n\nExpert: Is there a specific pollution target or limit that the transportation mix must not exceed?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.\nExpert: Are there specific limitations on the types or numbers of vehicles that can be used in the transportation mix?\nUser: Yes\n\nExpert: Is there a specific pollution target or limit that the transportation mix must not exceed?\nUser: No\n\nExpert: Are there specific costs associated with using different types of vehicles in the transportation mix?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.",
+    "(0, 0)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.\nExpert: Is there a constraint that involves ensuring a minimum utilization or frequency for transportation modes in any of the problems?\nUser: No.\n",
+    "(0, 0, 0)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.\nExpert: Is there a constraint that involves ensuring a minimum utilization or frequency for transportation modes in any of the problems?\nUser: No.\n\nExpert: Is there a constraint specifying a maximum operational distance or time for each transportation mode?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.\nExpert: Is there a constraint that involves ensuring a minimum utilization or frequency for transportation modes in any of the problems?\nUser: No.\n\nExpert: Is there a constraint specifying a maximum operational distance or time for each transportation mode?\nUser: No.\n\nExpert: Does the problem description include constraints related to regulatory limits on pollution emissions?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.",
+    "(0, 0)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.\nExpert: Is the problem subject to constraints on the availability of different modes of transportation (e.g., number of buses, cars, or bicycles)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.\nExpert: Is the problem subject to constraints on the availability of different modes of transportation (e.g., number of buses, cars, or bicycles)?\nUser: Yes\n\nExpert: Is the objective function (i.e., minimizing pollution) directly proportional to the mode of transportation, such that more \nUser: transportation leads to more pollution in a linear fashion?\nUser: Yes\n\nExpert: Are there any additional factors that might affect the transportation options, such as cost or time constraints?\nUser: No\n\nExpert: Should I regard cars and buses equally in terms of preference, or is there a priority for selecting a particular type of transport?\nUser: The priority is to minimize pollution.\n\nExpert: Do you want the solution to account for potential future changes in the number of employees needing transport or the pollution levels of each mode?\nUser: No, just focus on the current parameters provided.\n\nExpert: Does the problem have a specified minimum number of cars or buses that must be used, beyond the constraint of transporting all employees?\nUser: No additional minimum constraints are provided beyond transporting all employees.\n\nExpert: Would you like the solution to suggest specific numbers of cars and buses?\nUser: Yes\n\nExpert: Is there additional flexibility in adding new cars or buses if necessary, or must the solution work with existing vehicles only?\nUser: It's flexible to add new vehicles if needed within the specified limits.\n\nExpert: Is there a preference for using a particular mode of transportation if two different configurations yield the same pollution level?\nUser: No preference, just minimize pollution.\n",
+    "(0, 0, 0, 0)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.\nExpert: Is the problem subject to constraints on the availability of different modes of transportation (e.g., number of buses, cars, or bicycles)?\nUser: Yes\n\nExpert: Is the objective function (i.e., minimizing pollution) directly proportional to the mode of transportation, such that more \nUser: transportation leads to more pollution in a linear fashion?\nUser: Yes\n\nExpert: Are there any additional factors that might affect the transportation options, such as cost or time constraints?\nUser: No\n\nExpert: Should I regard cars and buses equally in terms of preference, or is there a priority for selecting a particular type of transport?\nUser: The priority is to minimize pollution.\n\nExpert: Do you want the solution to account for potential future changes in the number of employees needing transport or the pollution levels of each mode?\nUser: No, just focus on the current parameters provided.\n\nExpert: Does the problem have a specified minimum number of cars or buses that must be used, beyond the constraint of transporting all employees?\nUser: No additional minimum constraints are provided beyond transporting all employees.\n\nExpert: Would you like the solution to suggest specific numbers of cars and buses?\nUser: Yes\n\nExpert: Is there additional flexibility in adding new cars or buses if necessary, or must the solution work with existing vehicles only?\nUser: It's flexible to add new vehicles if needed within the specified limits.\n\nExpert: Is there a preference for using a particular mode of transportation if two different configurations yield the same pollution level?\nUser: No preference, just minimize pollution.\n\nExpert: Are the pollution levels of different modes of transportation (e.g., cars, buses, bicycles) known and constant values?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.",
+    "(0, 0)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.\nExpert: Is the objective to minimize pollution?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.\nExpert: Is the objective to minimize pollution?\nUser: Yes.\n\nExpert: Are there any constraints mentioned in the problem description?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.\nExpert: Is the objective to minimize pollution?\nUser: Yes.\n\nExpert: Are there any constraints mentioned in the problem description?\nUser: Yes.\n\nExpert: Does the problem description include any constraints related to the transport of employees?\nUser: Yes.\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "transport modes available",
+            "capacity of each transport mode",
+            "pollution output per transport mode",
+            "number of employees",
+            "minimum transport requirements for employees",
+            "constraints on usage of transport modes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution while satisfying employee transportation demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The transportation options must meet the total employee commuting requirements.",
+            "Each transportation option must not exceed its maximum capacity limits.",
+            "The total pollution generated by the transportation mix must be minimized.",
+            "Budget or cost limitations for the transportation methods may apply.",
+            "Adherence to any legal or policy-related restrictions on transportation modes.",
+            "Satisfaction of employee preferences regarding transportation methods."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Types of vehicles available",
+            "Number of each vehicle type allowed",
+            "Pollution levels of each vehicle",
+            "Employee transport requirements",
+            "Cost of operating each vehicle",
+            "Distance to be covered",
+            "Fuel efficiency of each vehicle",
+            "Availability of drivers for each vehicle type",
+            "Infrastructure limitations such as charging stations for electric vehicles"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution from transportation while satisfying employee transportation needs and adhering to constraints on vehicle types and quantities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There are specific limitations on the types of vehicles that can be used in the transportation mix.",
+            "There are specific limitations on the numbers of vehicles that can be used in the transportation mix.",
+            "The transportation mix must meet employee transport requirements."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize pollution",
+            "Meet employee transport requirements",
+            "Specific limitations on types and numbers of vehicles"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize pollution from employee transportation while meeting transport requirements and adhering to vehicle limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Specific limitations on the types of vehicles that can be used.",
+            "Specific limitations on the numbers of vehicles that can be used.",
+            "Transportation must meet employee transport requirements."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Types of vehicles",
+            "Numbers of vehicles",
+            "Meet employee transport requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal mix of transportation vehicles that minimizes pollution while meeting employee transport requirements, considering limitations on the types or numbers of vehicles without specific cost or pollution targets."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There are limitations on the types or numbers of vehicles that can be used in the transportation mix.",
+            "The transportation mix must meet employee transport requirements."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "transportation options",
+            "pollution levels",
+            "transportation capacity",
+            "employee transport requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution while meeting employee transport requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The transportation mix must meet all employee transport requirements.",
+            "Total emissions from the transportation mix must be minimized.",
+            "Different modes of transportation are available, each with specific emissions levels and passenger capacities.",
+            "The solution must be feasible within the available budget for transportation.",
+            "Legal and regulatory constraints related to transportation and emissions must be adhered to.",
+            "Each employee's transport requirements, such as specific timings or locations, need to be met."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize pollution",
+            "Constraints: Meet employee transport requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution while satisfying all employee transportation requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Minimize pollution emissions from transportation.",
+            "Meet employee transportation needs and schedules.",
+            "Consider available transportation modes (e.g., buses, trains, carpooling)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimize pollution",
+            "meet employee transport requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution generated from transportation activities while satisfying employee transport requirements."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Transportation modes availability",
+            "Employee transport requirements",
+            "Pollution emissions from each transportation mode",
+            "Total cost",
+            "Resource capacity or limits for each transportation mode"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution from employee transportation mix while satisfying all employee transport requirements."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Transport options (e.g., car, bus, bike, walking, shared rides)",
+            "Pollution rates for each transport option (e.g., CO2 emissions per mile)",
+            "Employee transport requirements (e.g., number of employees, transport schedules)",
+            "Distance or route data for each transport option",
+            "Capacity constraints for each transport option (e.g., number of seats in a bus)",
+            "Budget or cost constraints (if applicable)",
+            "Availability or feasibility constraints for each transport option (e.g., bike paths, carpool lanes)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution caused by transportation while meeting all employee transportation requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The transportation capacity must meet or exceed the employee transport requirements.",
+            "The mix of transportation modes should minimize total pollution emissions.",
+            "Each transportation mode's availability and capacity must be considered.",
+            "The transportation budget or cost must not exceed predefined limits.",
+            "Compliance with local and national environmental regulations is mandatory.",
+            "Employee transport schedules and timing constraints must be met."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize pollution",
+            "Meet employee transport requirements",
+            "Availability constraints on transportation modes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution while fulfilling employee transport requirements, considering constraints on the availability of different transportation modes."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must minimally satisfy all employee transport requirements.",
+            "The solution is limited by the availability of different modes of transportation."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "availability of different modes of transportation",
+            "pollution directly proportional to mode of transportation",
+            "priority to minimize pollution",
+            "transport all employees",
+            "suggest specific numbers of cars and buses",
+            "flexibility to add new vehicles if needed",
+            "no preference for mode if pollution is the same"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution by determining the optimal mix of transportation modes while meeting all employee transport requirements, subject to constraints on the availability and number of different transportation modes and the flexibility to add new vehicles if needed."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of vehicles used must be sufficient to meet employee transport requirements.",
+            "The availability of different modes of transportation, such as the number of buses, cars, or bicycles is limited.",
+            "Pollution level is directly proportional to the mode of transportation.",
+            "No additional factors like cost or time constraints are affecting the transportation options.",
+            "There is flexibility in adding new vehicles if needed within the specified limits."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Minimize total pollution generated by the transportation mix.",
+            "Constraints:",
+            "1. Availability constraints: Limited availability of cars, buses, bicycles.",
+            "2. Transportation requirement: Must meet the employee transport needs in full.",
+            "3. Pollution constraints: Pollution levels are mode-specific and constant.",
+            "Solution flexibility: Flexibility to add new vehicles if existing availability does not meet requirements.",
+            "No preferences between modes if they yield the same pollution level.",
+            "Parameters are based on current employee transport needs without consideration for future changes."
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize pollution while ensuring that all employee transport requirements are met, considering constraints on the availability and pollution levels of different modes of transportation, with the flexibility to add new vehicles if necessary."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Availability constraints on the number of different modes of transportation (e.g., cars, buses, bicycles).",
+            "The transportation must meet the employee transport requirements (i.e., enough vehicles to transport all employees).",
+            "Pollution levels of different modes of transportation are known and constant values.",
+            "The solution can incorporate the addition of new vehicles if needed within specified limits.",
+            "No additional costs or time constraints are considered.",
+            "The solution should account for current pollution levels and employee numbers, without considering future changes."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Pollution levels",
+            "Transportation capacity",
+            "Employee transport requirements",
+            "Cost of transportation modes",
+            "Availability of transportation modes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution while ensuring all employee transportation needs are met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The transportation options must meet the total required capacity for employee transportation.",
+            "The pollution produced by the chosen transportation solution must be minimized.",
+            "The transportation options must adhere to budgetary constraints.",
+            "The solution should be feasible given the available transportation options (e.g., public transit availability, number of company vehicles).",
+            "Transportation choices must comply with regulatory and safety standards.",
+            "The transportation schedule must align with working hours and shifts of employees.",
+            "The solution must accommodate any specific requirements, such as accessibility for disabled employees."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize pollution",
+            "Constraints: Meet employee transport requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize pollution while meeting employee transport requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Employee transportation requirements must be met.",
+            "Available modes of transportation should be considered.",
+            "Pollution levels for each mode of transportation should be accounted for.",
+            "Transportation costs must be within budget constraints.",
+            "Time constraints for each transportation option must be considered."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize pollution.",
+            "Constraints: must meet employee transport requirements."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution while meeting employee transport requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The transportation mix must meet the employee transport requirements.",
+            "The transportation mix must be feasible within available resources.",
+            "Any chosen transport mode must comply with existing regulations regarding safety and environmental standards.",
+            "There must be a balance between cost-efficiency and minimizing pollution.",
+            "Any public transportation options must synchronize with employees' work schedules.",
+            "There is a potential upper limit on the number of vehicles or trips that can be used."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Minimize pollution",
+            "Employee transport requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize pollution while meeting employee transport requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All employees must be transported to their destinations.",
+            "Vehicles have a maximum capacity for the number of passengers they can carry.",
+            "The total travel time should not exceed 1 hour per trip.",
+            "Each vehicle type have different levels of pollution emissions.",
+            "The distance between locations should be considered.",
+            "Budget limitations for the cost of transportation.",
+            "Available number of each type of vehicle."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,420 @@
+{
+  "vague_description": "The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.",
+  "detailed_description": "Fit the 'best' straight line \\param{Y} = b\\param{X} + a to this set of data points. The objective is to minimise the sum of absolute deviations of each observed value of \\param{Y} from the value predicted by the linear relationship.",
+  "target_objective": "Minimize the sum of absolute deviations between the observed Y values and the values predicted by the model Y = bX + a",
+  "target_constraints": [],
+  "target_parameters": [
+    "Number of data points",
+    "Observed values of the dependent variable",
+    "Observed values of the independent variable"
+  ],
+  "Expert": {
+    "(0,)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.",
+    "(0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the error metric a sum of squared differences between the observations and the linear representation?\nUser: No\n",
+    "(0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the error metric a sum of squared differences between the observations and the linear representation?\nUser: No\n\nExpert: Is the error metric an absolute difference between the observations and the linear representation?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the error metric a sum of squared differences between the observations and the linear representation?\nUser: No\n\nExpert: Is the error metric an absolute difference between the observations and the linear representation?\nUser: Yes\n\nExpert: Is there a constraint on the coefficients of the linear representation, such as a bound or a sum constraint?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.",
+    "(0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Does the optimization problem include a constraint that requires the sum of any set of coefficients or weights to equal 1?\nUser: No\n",
+    "(0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Does the optimization problem include a constraint that requires the sum of any set of coefficients or weights to equal 1?\nUser: No\n\nExpert: Are there any constraints that restrict the coefficient values to be non-negative?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Does the optimization problem include a constraint that requires the sum of any set of coefficients or weights to equal 1?\nUser: No\n\nExpert: Are there any constraints that restrict the coefficient values to be non-negative?\nUser: No\n\nExpert: Is the objective function explicitly stated as minimizing the mean squared error?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.",
+    "(0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the error metric linear in the observations?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the error metric linear in the observations?\nUser: Yes\n\nExpert: Is the problem constrained to a finite-dimensional space (e.g., number of features or parameters is fixed)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the error metric linear in the observations?\nUser: Yes\n\nExpert: Is the problem constrained to a finite-dimensional space (e.g., number of features or parameters is fixed)?\nUser: Yes\n\nExpert: Is the set of observations linearly independent?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.",
+    "(0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the term 'error metric' mentioned as a parameter or a constraint in the problem description?\nUser: No\n",
+    "(0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the term 'error metric' mentioned as a parameter or a constraint in the problem description?\nUser: No\n\nExpert: Does the problem description include information about a linear representation as one of its parameters?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the term 'error metric' mentioned as a parameter or a constraint in the problem description?\nUser: No\n\nExpert: Does the problem description include information about a linear representation as one of its parameters?\nUser: Yes\n\nExpert: Is the objective a minimization problem?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "set of observations",
+            "optimal linear representation",
+            "error metric"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the specified error metric by finding an optimal linear representation for the given set of observations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must be a linear representation of the observations.",
+            "The linear representation must minimize a specific error metric (e.g., mean squared error, absolute error, etc.)."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "observations",
+            "linear representation",
+            "specific error metric"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find an optimal linear representation for the given set of observations by minimizing a specific error metric that is not the sum of squared differences."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The representation should be linear.",
+            "The error metric must be minimized.",
+            "The error metric is not the sum of squared differences between observations and the linear representation."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Observations",
+            "Linear Representation",
+            "Error Metric - Absolute Difference"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the sum of absolute differences between the observations and the linear representation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The error metric must be the absolute difference between the observations and the linear representation.",
+            "The linear representation must fit within a specified model or parameter space."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "A given set of observations",
+            "A linear representation of the observations",
+            "Absolute difference error metric between the observations and representation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find an optimal linear representation for a set of observations by minimizing the sum of absolute differences between the observations and the linear representation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The error metric is the absolute difference between the observations and the linear representation."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "observations",
+            "error metric"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize a specific error metric by finding an optimal linear representation for a given set of observations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must be a linear representation of the given observations.",
+            "A specific error metric (e.g., least squares error, absolute error, etc.) must be minimized.",
+            "The solution may be subject to other implicit constraints based on the error metric used (such as differentiability for certain methods)."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Observations: A given set of data or inputs for which the linear representation is to be optimized.",
+            "Optimal Linear Representation: The function or model that is to be adjusted to best fit the observations.",
+            "Error Metric: A specific measure of how well the linear representation fits the observations, which is to be minimized."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal linear representation of a given set of observations by minimizing a specific error metric."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of any set of coefficients or weights is not required to equal 1."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Linear coefficients/weights for representation",
+            "Error metric to be minimized"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the specific error metric through optimal linear representation of observations without constraints on the coefficients."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal linear representation",
+            "Set of observations",
+            "Specific error metric"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find an optimal linear representation for a given set of observations by minimizing a specific error metric, without constraints on the sum or non-negativity of coefficients."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Observations: The data points or set of observations for which we are seeking a linear representation.",
+            "Linear Representation: An equation or model that represents the observations as a linear combination of variables or features.",
+            "Error Metric: A specific quantitative measure that assesses the deviation or error of the linear representation from the observations.",
+            "Objective: Minimize the specified error metric, indicating that the linear representation should closely fit the observed data."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the specific error metric for a given set of observations by finding an optimal linear representation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The representation must be linear.",
+            "The error metric to be minimized is predefined.",
+            "The linear representation should apply to a given set of observations.",
+            "The solution must result in the optimal minimization of the error metric."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimization Type: Linear optimization",
+            "Objective: Minimize a linear error metric",
+            "Constraints: None specified",
+            "Variables: Linear representation of observations",
+            "Observation: Given set of observations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the linear error metric for the given set of observations by finding an optimal linear representation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The error metric must be a linear function of the observations.",
+            "The linear representation must be optimal with respect to the specified error metric."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "linear representation",
+            "observations",
+            "specific error metric",
+            "finite-dimensional space"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize a specific linear error metric for a given set of observations by finding an optimal linear representation in a finite-dimensional space."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The error metric must be a linear function of the observations.",
+            "The solution should be found in a finite-dimensional space where the number of features or parameters is fixed."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Finite-dimensional space",
+            "Linear error metric",
+            "Linearly independent observations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find an optimal linear representation that minimizes a specific error metric within a finite-dimensional space for a set of linearly independent observations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The error metric is linear in the observations.",
+            "The optimization is constrained to a finite-dimensional space.",
+            "The set of observations is linearly independent."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Observations: A given set of data points for which a linear representation is sought.",
+            "Linear Representation: A function or model that predicts values based on input variables, aiming for the best fit to the observations.",
+            "Error Metric: The specific criterion, such as mean squared error or absolute error, that is used to evaluate the fit between the predicted values and the actual observations.",
+            "Objective: Minimize the error metric to achieve the optimal linear representation of the observations."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the specified error metric in the linear representation of the given observations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "A set of observations is given.",
+            "The representation must be linear.",
+            "A specific error metric needs to be minimized."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "observations",
+            "linear representation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the specific error metric in a linear representation of a given set of observations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution involves finding a linear representation of a set of observations.",
+            "A specific error metric must be minimized in the process, although the exact metric is not currently specified as a constraint."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "linear representation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find an optimal linear representation for the given set of observations that minimizes the specified error metric."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must be a linear representation of the observations.",
+            "A specific error metric should be minimized.",
+            "The form of linear representation likely needs to be expressed in terms of known variables or coefficients."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "linear representation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the error metric by finding an optimal linear representation of the given set of observations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must be a linear representation of the given set of observations.",
+            "The objective is to minimize a specific error metric."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 5
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 5
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

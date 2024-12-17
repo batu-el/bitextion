@@ -1,0 +1,15 @@
+{
+  "vague_description": "How can we determine the maximum radius of a ball centered within a specified region, such that the entire ball remains inside the region?",
+  "detailed_description": "PROBLEM TYPE\nLP\n\nINPUT FORMAT \n\n{\n    \"A\": [[a_i_j for j in 1, ..., N] for i in 1, ..., M],\n    \"b\": [b_i for i in 1, ..., M]\n}\n\nOBJECTIVE\nWe are interested in finding a ball with the largest possible radius, which is entirely contained within the set \\param{P} (The center of such a ball is called the Chebychev center of \\param{P}).",
+  "target_objective": "Maximize the radius r of the ball centered at the Chebychev center that lies entirely within P",
+  "target_constraints": [
+    "The radii of balls are non-negative",
+    "The ball must be completely within the set P, which is defined by the constraints Ax \u2264 b"
+  ],
+  "target_parameters": [
+    "The number of inequalities defining the set P",
+    "The ambient space dimension of the set P",
+    "The coefficients of the linear inequalities defining the set P",
+    "The right-hand side of the inequalities defining the set P"
+  ]
+}

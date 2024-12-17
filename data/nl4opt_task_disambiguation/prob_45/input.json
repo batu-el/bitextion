@@ -1,0 +1,27 @@
+{
+  "vague_description": "Calculate the optimal planting ratio of blueberries to raspberries while staying within the constraints of available labor and budget.",
+  "detailed_description": "John has a \\var{TotalAcres} acre berry farm on which to plant blueberries and raspberries. John has $\\var{BudgetWatering} to spend on watering and \\var{TotalLaborDays} days worth of labor available. For each acre of blueberries, \\var{LaborBlueberry} days worth of labor and $\\var{CostWaterBlueberry} in watering costs is required. For each acre of raspberries, \\var{LaborRaspberry} days worth of labor and $\\var{CostWaterRaspberry} in watering costs is required. The profit per acre of blueberries is $\\var{ProfitBlueberry} and the profit per acre of raspberries is $\\var{ProfitRaspberry}. Formulate an LP problem in order to maximize profit.",
+  "target_objective": "Maximize the profit from planting blueberries and raspberries",
+  "target_constraints": [
+    "Number of acres of blueberries is non-negative",
+    "Number of acres of raspberries is non-negative",
+    "Total acres of blueberries and raspberries cannot exceed TotalAcres",
+    "Total labor for blueberries and raspberries cannot exceed TotalLaborDays",
+    "Total watering cost for blueberries and raspberries cannot exceed BudgetWatering",
+    "Labor for blueberries per acre is LaborBlueberry",
+    "Watering cost for blueberries per acre is CostWaterBlueberry",
+    "Labor for raspberries per acre is LaborRaspberry",
+    "Watering cost for raspberries per acre is CostWaterRaspberry"
+  ],
+  "target_parameters": [
+    "Total acreage available for planting berries",
+    "Total budget for watering",
+    "Total days worth of labor available",
+    "Days of labor required per acre of blueberries",
+    "Watering cost per acre of blueberries",
+    "Days of labor required per acre of raspberries",
+    "Watering cost per acre of raspberries",
+    "Profit per acre of blueberries",
+    "Profit per acre of raspberries"
+  ]
+}

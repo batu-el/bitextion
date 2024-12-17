@@ -1,0 +1,466 @@
+{
+  "vague_description": "A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.",
+  "detailed_description": "A music company produces two types of digital keyboards, one is full-weighted and another is semi-weighted. Both keyboards are sold for \\param{FullWeightedPrice} and \\param{SemiWeightedPrice} respectively. There are about \\param{TotalChips} oscillator chips available every day from which the full-weighted version requires \\param{ChipsFullWeighted} chips while the semi-weighted version requires \\param{ChipsSemiWeighted} chips. The company has a total of \\param{TotalTime} working hours a day. Both of these keyboards require a production time of \\param{ProductionTimePerKeyboard} hours. What should be the manufacturing quantity for each of the keyboards to maximize the total revenue?",
+  "target_objective": "Maximize the total revenue from manufacturing full-weighted and semi-weighted keyboards",
+  "target_constraints": [
+    "Number of full-weighted keyboards is non-negative",
+    "Number of semi-weighted keyboards is non-negative",
+    "Total number of chips used cannot exceed TotalChips",
+    "Total production time cannot exceed TotalTime hours per day"
+  ],
+  "target_parameters": [
+    "Sale price of the full-weighted keyboard",
+    "Sale price of the semi-weighted keyboard",
+    "Total number of oscillator chips available per day",
+    "Number of oscillator chips required to produce one full-weighted keyboard",
+    "Number of oscillator chips required to produce one semi-weighted keyboard",
+    "Total available production time per day in hours",
+    "Production time required to produce one keyboard (regardless of type) in hours"
+  ],
+  "Expert": {
+    "(0,)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.",
+    "(0, 0)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.\nExpert: Is the objective of the problem to maximize profit?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.\nExpert: Is the objective of the problem to maximize profit?\nUser: Yes\n\nExpert: Are there limits on the availability of chips for producing the digital keyboards?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.\nExpert: Is the objective of the problem to maximize profit?\nUser: Yes\n\nExpert: Are there limits on the availability of chips for producing the digital keyboards?\nUser: Yes\n\nExpert: Are there constraints related to the working hours available for the production of digital keyboards?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.",
+    "(0, 0)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.\nExpert: Does the optimization problem specify exact numerical coefficients for the chip and working hours constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.\nExpert: Does the optimization problem specify exact numerical coefficients for the chip and working hours constraints?\nUser: Yes\n\nExpert: Do any of the candidate problems have a constraint where the coefficients of the variables in the chip availability constraint add up to more than 5?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.\nExpert: Does the optimization problem specify exact numerical coefficients for the chip and working hours constraints?\nUser: Yes\n\nExpert: Do any of the candidate problems have a constraint where the coefficients of the variables in the chip availability constraint add up to more than 5?\nUser: No\n\nExpert: Do any of the problems explicitly include profit per unit as a parameter?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.",
+    "(0, 0)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.\nExpert: Are production quantities of the two types of keyboards directly related to maximizing profit, or is the objective focused on minimizing costs?\nUser: Yes, production quantities directly relate to maximizing profit, as the goal is to maximize total revenue.\n",
+    "(0, 0, 0)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.\nExpert: Are production quantities of the two types of keyboards directly related to maximizing profit, or is the objective focused on minimizing costs?\nUser: Yes, production quantities directly relate to maximizing profit, as the goal is to maximize total revenue.\n\nExpert: Are there any capacity constraints limiting the production quantities of the two types of keyboards?\nUser: Yes, there are capacity constraints based on the available oscillator chips and the total working hours per day.\n",
+    "(0, 0, 0, 0)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.\nExpert: Are production quantities of the two types of keyboards directly related to maximizing profit, or is the objective focused on minimizing costs?\nUser: Yes, production quantities directly relate to maximizing profit, as the goal is to maximize total revenue.\n\nExpert: Are there any capacity constraints limiting the production quantities of the two types of keyboards?\nUser: Yes, there are capacity constraints based on the available oscillator chips and the total working hours per day.\n\nExpert: Do the available oscillator chips and working hours have different capacity limits for each type of keyboard?\nUser: Yes, each type of keyboard requires a different number of oscillator chips, and both types share the same working hours constraint per day due to their equal production time requirement.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.",
+    "(0, 0)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.\nExpert: Can you produce multiple types of keyboards with varying production requirements?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.\nExpert: Can you produce multiple types of keyboards with varying production requirements?\nUser: Yes\n\nExpert: Is the number of keyboard types greater than 1?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A music company must determine the optimal production quantities of two types of digital keyboards within constraints of available chips and working hours.\nExpert: Can you produce multiple types of keyboards with varying production requirements?\nUser: Yes\n\nExpert: Is the number of keyboard types greater than 1?\nUser: Yes\n\nExpert: Is the optimization problem a minimization problem?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantity of Keyboard Type 1",
+            "Production quantity of Keyboard Type 2",
+            "Available chips",
+            "Available working hours"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from the production of two types of digital keyboards."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let X be the number of Type A digital keyboards produced and Y be the number of Type B digital keyboards produced.",
+            "The production of each Type A keyboard requires 2 chips and the production of each Type B keyboard requires 3 chips.",
+            "The total number of available chips is 100.",
+            "The production of each Type A keyboard requires 4 working hours and the production of each Type B keyboard requires 2 working hours.",
+            "The total number of available working hours is 80.",
+            "X >= 0 and Y >= 0 (Non-negativity constraint)."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of Type A keyboards",
+            "Production quantities of Type B keyboards",
+            "Available chips",
+            "Available working hours",
+            "Profit per Type A keyboard",
+            "Profit per Type B keyboard"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from the production of two types of digital keyboards."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of chips used for producing the two types of keyboards must not exceed the available number of chips.",
+            "The total number of working hours used for producing the two types of keyboards must not exceed the available working hours.",
+            "The production quantities of the two types of keyboards must be non-negative."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit",
+            "Constraints: Available chips",
+            "Constraints: Available working hours",
+            "Decision Variables: Production quantities of two types of digital keyboards"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal production quantities of two types of digital keyboards, subject to constraints on the availability of chips and working hours."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited availability of chips for production.",
+            "Limited working hours available for production."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantities of two types of digital keyboards",
+            "availability of chips",
+            "working hours",
+            "maximize profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit for the production of two types of digital keyboards given constraints on chip availability and working hours."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total number of chips used in the production of both types of digital keyboards cannot exceed the available chips.",
+            "Total working hours used in the production of both types of digital keyboards cannot exceed the available working hours."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantity of Keyboard A",
+            "Production quantity of Keyboard B",
+            "Chips available",
+            "Working hours available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profit from selling the two types of digital keyboards."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantity of chips available limits the production of digital keyboards.",
+            "The available working hours constrain the production quantity of digital keyboards.",
+            "The production of each type of digital keyboard requires a specific number of chips.",
+            "The production of each type of digital keyboard requires a specific number of working hours.",
+            "The total production of the two types of keyboards cannot exceed the resource limits of chips and working hours available."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantities of two types of digital keyboards",
+            "available chips",
+            "working hours"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from the production of two types of digital keyboards while adhering to constraints on available chips and working hours."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production of both types of digital keyboards cannot exceed the available quantity of chips.",
+            "The production time for both types of digital keyboards cannot exceed the available working hours."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal production quantities of two types of digital keyboards",
+            "Constraints of available chips and working hours",
+            "Exact numerical coefficients for chip and working hours constraints",
+            "Coefficients in the chip availability constraint do not add up to more than 5"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the profits from the production of two types of digital keyboards given the constraints on the availability of chips and working hours."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The coefficients of the variables in the chip availability constraint add up to 5 or less.",
+            "There are constraints involving the availability of chips and working hours."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantities of two types of digital keyboards",
+            "chip constraints with coefficients summing to 5 or less",
+            "working hours constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production quantities of two types of digital keyboards given constraints on chip availability and working hours."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of coefficients in the chip availability constraint must not exceed 5."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Available chips",
+            "Working hours"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the company's profit by determining the optimal production quantities of two types of digital keyboards while adhering to constraints in available chips and working hours."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "x1 + 2x2 <= C, where C is the total number of available chips",
+            "3x1 + x2 <= H, where H is the total number of available working hours",
+            "x1 >= 0, x2 >= 0 (non-negativity constraints)"
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of digital keyboard type 1",
+            "Production quantities of digital keyboard type 2",
+            "Available chips",
+            "Available working hours"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize total revenue from the production of digital keyboards."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let x be the number of Type 1 keyboards and y be the number of Type 2 keyboards.",
+            "Each Type 1 keyboard requires A1 chips and B1 hours of work.",
+            "Each Type 2 keyboard requires A2 chips and B2 hours of work.",
+            "The total number of chips available is C.",
+            "The total number of working hours available is D.",
+            "x and y must be non-negative integers (i.e., x \u2265 0, y \u2265 0)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of Type A keyboards",
+            "Production quantities of Type B keyboards",
+            "Available oscillator chips",
+            "Available working hours per day",
+            "Revenue from Type A keyboards",
+            "Revenue from Type B keyboards"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize the total revenue by determining the optimal production quantities of two types of digital keyboards, subject to the constraints of available oscillator chips and total working hours."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The combined production of two types of keyboards must not exceed the available oscillator chips.",
+            "The combined production of two types of keyboards must not exceed the total available working hours per day."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimize production quantities of digital keyboards to maximize total revenue",
+            "Constraint of available oscillator chips",
+            "Constraint of total working hours per day",
+            "Different oscillator chip requirement for each keyboard type",
+            "Same working hours requirement for each keyboard type"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the total revenue by determining the optimal production quantities of two types of digital keyboards, considering constraints on available oscillator chips and available working hours."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production quantities of both types of keyboards must not exceed the availability of oscillator chips, with each type requiring a different number of chips.",
+            "The total production time for both types of keyboards is limited by the total working hours available per day. Both types of keyboards require equal production time per unit."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "type of digital keyboards",
+            "production quantities",
+            "available chips",
+            "working hours"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profit from the production of two types of digital keyboards while considering the constraints of available chips and working hours."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of digital keyboards produced cannot exceed the available quantity of chips.",
+            "The total production time for the digital keyboards must not exceed the available working hours."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of type A keyboards",
+            "Production quantities of type B keyboards",
+            "Available chips",
+            "Available working hours",
+            "Production requirements (chips and hours) for type A keyboards",
+            "Production requirements (chips and hours) for type B keyboards"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production output of two types of digital keyboards while adhering to constraints related to the availability of chips and working hours."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production hours for all keyboards must not exceed available working hours.",
+            "Total number of chips used for producing all keyboards must not exceed available chips."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of chip units available",
+            "Total working hours available",
+            "Chip units required per keyboard type",
+            "Production time required per keyboard type",
+            "Production quantities of each keyboard type"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by determining the optimal production quantities of two types of digital keyboards, subject to constraints of limited resources such as available chips and working hours."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must include production quantities for at least two different types of digital keyboards.",
+            "The total production must not exceed the number of available chips.",
+            "The total production must not exceed the available working hours."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Determine optimal production quantities of two types of keyboards",
+            "Constraints of available chips",
+            "Constraints of available working hours"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize production or profit from the two types of digital keyboards given constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production quantity of Type A keyboards must be greater than or equal to zero.",
+            "The production quantity of Type B keyboards must be greater than or equal to zero.",
+            "Production quantities must not exceed the available units of chips.",
+            "Production quantities must not exceed the available working hours."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 5
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 4
+      }
+    }
+  }
+}

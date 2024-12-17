@@ -1,0 +1,13 @@
+{
+  "vague_description": "Optimize a resource management system under specific initial and final conditions.",
+  "detailed_description": "The objective is to minimize the total fuel \\sum_{t=0}^{\\param{TotalTime}-1} |\\param{a_t}| spent subject to the initial position \\param{InitialPosition}, initial velocity \\param{InitialVelocity}, final position \\param{FinalPosition}, final velocity \\param{FinalVelocity}, and total time \\param{TotalTime}.",
+  "target_objective": "Minimize the total fuel, which is the sum of absolute values of acceleration over time",
+  "target_constraints": [],
+  "target_parameters": [
+    "Initial position of the object",
+    "Initial velocity of the object",
+    "Final position of the object",
+    "Final velocity of the object",
+    "Total time over which the object is moving"
+  ]
+}

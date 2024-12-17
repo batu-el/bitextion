@@ -1,0 +1,469 @@
+{
+  "vague_description": "Determining the optimal production strategy for car oils with limited resources to maximize profits.",
+  "detailed_description": "A car manufacturer makes two types of car oils: Oil Max and Oil Max Pro. A container of Oil Max contains \\param{AinMax} grams of substance A, \\param{BinMax} grams of substance B and \\param{CinMax} grams of substance C. A container of Oil Max Pro contains \\param{AinMaxPro} grams of substance A, \\param{BinMaxPro} grams of substance B and \\param{CinMaxPro} grams of substance C. The car manufacturer has \\param{TotalA} grams of substance A, \\param{TotalB} grams of substance B, \\param{TotalC} grams of substance C. In addition, the profit per container of Oil Max is $\\param{ProfitMax} and the profit per container of Oil Max Pro is $\\param{ProfitMaxPro}. How many containers of each type of oil should the car manufacturer make to maximize profit?",
+  "target_objective": "Maximize the total profit from the production of Oil Max and Oil Max Pro containers",
+  "target_constraints": [
+    "Number of Oil Max containers is non-negative",
+    "Number of Oil Max Pro containers is non-negative",
+    "Total grams of substance A used in all containers is at most TotalA",
+    "Total grams of substance B used in all containers is at most TotalB",
+    "Total grams of substance C used in all containers is at most TotalC"
+  ],
+  "target_parameters": [
+    "Amount of substance A in a container of Oil Max",
+    "Amount of substance B in a container of Oil Max",
+    "Amount of substance C in a container of Oil Max",
+    "Amount of substance A in a container of Oil Max Pro",
+    "Amount of substance B in a container of Oil Max Pro",
+    "Amount of substance C in a container of Oil Max Pro",
+    "Total available amount of substance A",
+    "Total available amount of substance B",
+    "Total available amount of substance C",
+    "Profit per container of Oil Max",
+    "Profit per container of Oil Max Pro"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.",
+    "(0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Does the problem involve any specific constraints related to the availability of raw materials?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Does the problem involve any specific constraints related to the availability of raw materials?\nUser: Yes\n\nExpert: Are there constraints related to production capacity or production time limits in this problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Does the problem involve any specific constraints related to the availability of raw materials?\nUser: Yes\n\nExpert: Are there constraints related to production capacity or production time limits in this problem?\nUser: No\n\nExpert: Does the problem consider different types of car oils with varying profit margins?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.",
+    "(0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Do any of the candidate problems include constraints related to maintaining quality standards or specific ingredient proportions?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Do any of the candidate problems include constraints related to maintaining quality standards or specific ingredient proportions?\nUser: No\n\nExpert: Does the problem include a constraint on storage capacity for finished products?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Do any of the candidate problems include constraints related to maintaining quality standards or specific ingredient proportions?\nUser: No\n\nExpert: Does the problem include a constraint on storage capacity for finished products?\nUser: No\n\nExpert: Is there a constraint that explicitly requires meeting or exceeding market demand for any type of car oil?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.",
+    "(0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Is the production of multiple car oil types (e.g. synthetic, conventional, bio-based) being considered in the optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Is the production of multiple car oil types (e.g. synthetic, conventional, bio-based) being considered in the optimization problem?\nUser: No\n\nExpert: Are there any production capacity constraints (e.g. limited facilities, equipment, or personnel) that need to be taken into account in the optimization problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Is the production of multiple car oil types (e.g. synthetic, conventional, bio-based) being considered in the optimization problem?\nUser: No\n\nExpert: Are there any production capacity constraints (e.g. limited facilities, equipment, or personnel) that need to be taken into account in the optimization problem?\nUser: No\n\nExpert: Are there any costs or prices associated with the production and consumption of car oil that are being considered in the optimization problem?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.",
+    "(0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Is 'production strategy' mentioned in the constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Is 'production strategy' mentioned in the constraints?\nUser: No\n\nExpert: Are there any non-numerical parameters in the problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Is 'production strategy' mentioned in the constraints?\nUser: No\n\nExpert: Are there any non-numerical parameters in the problem?\nUser: No\n\nExpert: Is 'production strategy' mentioned as a parameter or parameter list in the description?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production capacity (e.g., units of car oil)",
+            "Raw material availability (e.g., liters of base oil, additives)",
+            "Production costs per unit",
+            "Selling price per unit",
+            "Demand forecast for different types of car oils",
+            "Production time constraints",
+            "Labor availability or capacity",
+            "Equipment or machinery constraints",
+            "Storage capacity for raw materials and finished products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited raw material availability for car oil production.",
+            "Production capacity constraints at manufacturing facilities.",
+            "Specific quality standards that must be met for all car oil products.",
+            "Budget limitations for production costs.",
+            "Time constraints for production schedules and delivery deadlines.",
+            "Market demand requirements for different types of car oil products.",
+            "Regulatory compliance requirements related to environmental and safety standards."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize Profits",
+            "Decision Variables: Quantity of each type of car oil to produce",
+            "Constraints: Availability of raw materials for production, Production capacity, Demand for each type of oil"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits for car oil production given constraints on resource availability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The availability of raw materials for producing car oils is limited."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Raw materials availability",
+            "Maximize profits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits from car oil production under constraints of limited raw material availability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited availability of raw materials"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "raw materials availability",
+            "profit margins of different car oil types"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits from the production of different types of car oils, considering constraints related to the availability of raw materials."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited availability of raw materials.",
+            "Different types of car oils with varying profit margins."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Car oil types",
+            "Resource constraints",
+            "Profit per unit",
+            "Production capacity",
+            "Manufacturing time",
+            "Raw material availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by determining the optimal production strategy for car oils, considering resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The supply of raw materials for producing car oils is limited.",
+            "The production capacity of the machinery used in the manufacturing process is finite.",
+            "There is a maximum allowable labor hours available for the production process.",
+            "Each type of car oil has a demand limit that should not be exceeded.",
+            "There could be environmental or regulatory constraints limiting emissions or waste byproducts.",
+            "Certain ingredients or processes might require specific time frames, adding scheduling constraints.",
+            "Storage capacity for raw materials and finished products is limited."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal production strategy",
+            "Car oils",
+            "Limited resources",
+            "Maximizing profits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits for car oil production given limited resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource limitations for production.",
+            "Requirement to maximize profits.",
+            "Possibly other general business constraints not specified here."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantity of car oils",
+            "resource limitations",
+            "profit maximization objective"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profits given limited resources in the production strategy for car oils."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited resources available for production"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profits",
+            "Limited resources for production",
+            "Decision variables: Quantity of different car oils to produce"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits from the production of car oils given limited resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited resources"
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of different types of car oils",
+            "Available raw materials (e.g., base oils, additives)",
+            "Production capacity (e.g., labor, machine time)",
+            "Demand for each type of car oil",
+            "Selling price of each type of car oil",
+            "Production costs of each type of car oil"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits from car oil production under the constraints of limited resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production of car oils must not exceed the available supply of raw materials.",
+            "Labor hours available restrict the maximum production hours that can be allocated for producing car oils.",
+            "Storage capacity limits the total quantity of car oils that can be produced and stored at any given time.",
+            "The production process must adhere to environmental regulations limiting waste emissions.",
+            "The budget available for production, including raw materials and labor costs, cannot be exceeded."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Maximize profits from car oil production.",
+            "Decision Variable: Quantity of car oil produced.",
+            "Constraints: Resource limitations (such as raw materials, labor, production capacity, etc.)."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profits from the production of car oils with limited resources, considering a single type of car oil."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited resources are available for production.",
+            "The focus is on optimizing the production strategy for a single type of car oil."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profit per unit",
+            "Cost of raw materials",
+            "Availability of raw materials",
+            "Market demand for car oil",
+            "Production cost (excluding raw materials)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the production strategy for car oils using the available resources to maximize profits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maximize profits from the production of car oils.",
+            "Resources are limited for production activities.",
+            "Only a single type of car oil is produced (no consideration for multiple types like synthetic, conventional, or bio-based)."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources",
+            "Maximize profits",
+            "Costs and prices associated with production and consumption of car oil"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profits from the production of a single type of car oil considering the associated costs and prices."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maximize profits.",
+            "Consider costs or prices associated with production and consumption of car oil."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Strategy",
+            "Car Oils",
+            "Limited Resources",
+            "Maximize Profits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits from the production of car oils given limited resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production capacity for car oils is limited by the availability of raw materials.",
+            "Budget constraints affect the ability to purchase raw materials required for production.",
+            "There is a maximum production capacity for car oils due to machinery limits.",
+            "The time available for production is limited by working hours or shifts.",
+            "There is a demand constraint for car oils in the market, which needs to be satisfied to maximize profits.",
+            "There may be regulatory constraints on production or on the types of car oils that can be produced."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Limited resources",
+            "Maximize profits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits from the production of car oils while considering resource limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited resources (e.g., raw materials, labor, production capacity)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production strategy",
+            "car oils",
+            "limited resources",
+            "maximize profits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production strategy for car oils that maximizes profits given limited resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited resources available for production, such as raw materials, labor, or machinery.",
+            "Maximize profits as the objective function.",
+            "No mention of specific production strategies within the constraints.",
+            "All parameters involved in the constraints are numerical."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Oil types",
+            "Production capacity",
+            "Resource availability",
+            "Profit margins",
+            "Demand forecast"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize profits by determining the optimal production strategy for car oils within the constraints of limited resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited availability of resources for production, such as raw materials or labor.",
+            "Objective is to maximize profits from the production of car oils."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

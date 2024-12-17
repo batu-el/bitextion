@@ -1,0 +1,20 @@
+{
+  "vague_description": "The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.",
+  "detailed_description": "How many of each product should the sports produce in order to maximize its profit for the month, given the \\param{N} different raw materials available, where each material i has an available amount of \\param{Available}, and each product j has a requirement of \\param{Requirements} units of material i, a selling price of \\param{Prices}, a production cost of \\param{Costs}, and a market demand of \\param{Demands}?",
+  "target_objective": "Maximize the profit for the month by determining the number of each product to produce",
+  "target_constraints": [
+    "All products must be produced using available raw materials without exceeding their amounts",
+    "Each product's production must meet its raw material requirement per unit",
+    "Each product's production should not exceed its market demand",
+    "Number of units produced of each product must be non-negative"
+  ],
+  "target_parameters": [
+    "Number of different raw materials",
+    "Number of different products",
+    "Amount of raw material i available",
+    "Amount of raw material i required to produce one unit of product j",
+    "Price at which product j can be sold",
+    "Cost of producing one unit of product j",
+    "Demand for product j"
+  ]
+}

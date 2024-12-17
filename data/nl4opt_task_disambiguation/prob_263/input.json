@@ -1,0 +1,19 @@
+{
+  "vague_description": "A drop-in clinic needs to optimize the number of tests performed within a set time while meeting specific testing ratio requirements.",
+  "detailed_description": "A drop-in clinic is performing a test either through the ear or blood. A blood test takes \\param{BloodTestTime} minutes to perform while an ear test takes \\param{EarTestTime} minutes to perform. Since the blood test is more accurate, at least \\param{BloodEarRatio} times as many blood tests should be performed as ear tests. However, at least \\param{MinEarTests} ear tests must be administered. If the drop-in clinic operates for \\param{TotalTime} minutes, maximize the number of tests that can be performed.",
+  "target_objective": "Maximize the total number of tests performed",
+  "target_constraints": [
+    "The time spent on blood tests is non-negative",
+    "The time spent on ear tests is non-negative",
+    "Blood tests performed should be at least [BloodEarRatio] times the ear tests performed",
+    "At least [MinEarTests] ear tests must be administered",
+    "The total time used for all tests cannot exceed [TotalTime] minutes"
+  ],
+  "target_parameters": [
+    "Time taken by one blood test",
+    "Time taken by one ear test",
+    "Minimum ratio of blood tests to ear tests",
+    "Minimum number of ear tests",
+    "Total operational time available"
+  ]
+}

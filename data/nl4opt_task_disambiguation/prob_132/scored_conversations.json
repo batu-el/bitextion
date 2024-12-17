@@ -1,0 +1,453 @@
+{
+  "vague_description": "We need to balance resource constraints and mess production to maximize the slime output.",
+  "detailed_description": "In a science club, there are two tables that can be set up to make slime. At table 1, \\param{Powder1} units of powder and \\param{Glue1} units of glue are used to make \\param{Slime1} units of slime. At table 2, \\param{Powder2} units of powder and \\param{Glue2} units of glue are used to make \\param{Slime2} units of slime. However, table 1 produces \\param{Mess1} units of mess while table 2 produces \\param{Mess2} units of mess. The science club has available \\param{TotalPowder} units of powder and \\param{TotalGlue} units of glue. If at most \\param{MaxMess} units of mess can be made, how many of each table should be set up to maximize the amount of slime produced?",
+  "target_objective": "Maximize the total amount of slime produced by both tables",
+  "target_constraints": [
+    "Number of Table 1 setups is non-negative",
+    "Number of Table 2 setups is non-negative",
+    "Total quantity of powder used by Table 1 and Table 2 does not exceed TotalPowder",
+    "Total quantity of glue used by Table 1 and Table 2 does not exceed TotalGlue",
+    "Total mess produced by Table 1 and Table 2 setups does not exceed MaxMess"
+  ],
+  "target_parameters": [
+    "Units of powder used at table 1",
+    "Units of glue used at table 1",
+    "Units of slime produced at table 1",
+    "Units of powder used at table 2",
+    "Units of glue used at table 2",
+    "Units of slime produced at table 2",
+    "Units of mess produced at table 1",
+    "Units of mess produced at table 2",
+    "Total available units of powder",
+    "Total available units of glue",
+    "Maximum allowable units of mess"
+  ],
+  "Expert": {
+    "(0,)": "User: We need to balance resource constraints and mess production to maximize the slime output.",
+    "(0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Is there a linear relationship between resource usage and slime output in the optimization model?\nUser: Yes\n",
+    "(0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Is there a linear relationship between resource usage and slime output in the optimization model?\nUser: Yes\n\nExpert: Does the optimization problem involve any budgetary constraints on resource usage?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Is there a linear relationship between resource usage and slime output in the optimization model?\nUser: Yes\n\nExpert: Does the optimization problem involve any budgetary constraints on resource usage?\nUser: Yes\n\nExpert: Are there specific limits on the amount of mess that can be produced during the slime production process?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: We need to balance resource constraints and mess production to maximize the slime output.",
+    "(0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Do any of the candidate problem descriptions include a specific constraint related to the budget for production costs?\nUser: No\n",
+    "(0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Do any of the candidate problem descriptions include a specific constraint related to the budget for production costs?\nUser: No\n\nExpert: Does the problem description include constraints related to quality or defect rates of the produced slime?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Do any of the candidate problem descriptions include a specific constraint related to the budget for production costs?\nUser: No\n\nExpert: Does the problem description include constraints related to quality or defect rates of the produced slime?\nUser: No\n\nExpert: Does the problem include environmental constraints?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: We need to balance resource constraints and mess production to maximize the slime output.",
+    "(0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Are the resource constraints fixed and known in advance, or can they vary depending on external factors?\nUser: Yes, the resource constraints (total powder, total glue, and maximum mess allowed) are fixed and known in advance.\n",
+    "(0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Are the resource constraints fixed and known in advance, or can they vary depending on external factors?\nUser: Yes, the resource constraints (total powder, total glue, and maximum mess allowed) are fixed and known in advance.\n\nExpert: Are there multiple types of slime with different production processes, or a single type of slime with a standard production process?\nUser: Yes, there are multiple types of slime with different production processes at each table.\n",
+    "(0, 0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Are the resource constraints fixed and known in advance, or can they vary depending on external factors?\nUser: Yes, the resource constraints (total powder, total glue, and maximum mess allowed) are fixed and known in advance.\n\nExpert: Are there multiple types of slime with different production processes, or a single type of slime with a standard production process?\nUser: Yes, there are multiple types of slime with different production processes at each table.\n\nExpert: Is the objective to maximize the overall slime output across all tables, or to maximize the slime output at an individual table?\nUser: Yes, the objective is to maximize the overall slime output across all tables.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: We need to balance resource constraints and mess production to maximize the slime output.",
+    "(0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Does the problem description contain the word 'resource' more than once in the 'constraints' field?\nUser: No\n",
+    "(0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Does the problem description contain the word 'resource' more than once in the 'constraints' field?\nUser: No\n\nExpert: Is the objective of the problem expressed in terms of maximization rather than minimization?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: We need to balance resource constraints and mess production to maximize the slime output.\nExpert: Does the problem description contain the word 'resource' more than once in the 'constraints' field?\nUser: No\n\nExpert: Is the objective of the problem expressed in terms of maximization rather than minimization?\nUser: Yes\n\nExpert: Is there at least one constraint listed in the problem description?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource constraints",
+            "mess production",
+            "slime output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the slime output while balancing resource constraints and mess production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability for slime production should not exceed a certain limit.",
+            "The amount of mess generated should not surpass a manageable threshold.",
+            "There must be a proportional relationship between resources used and slime output.",
+            "Time allocated for production is limited."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource constraints",
+            "Mess production",
+            "Slime output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize slime output given resource constraints and production limits, assuming a linear relationship between resource usage and slime output."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a linear relationship between resource usage and slime output.",
+            "Total resource utilization must not exceed available resources.",
+            "Mess production is limited by an upper bound to comply with regulations.",
+            "Non-negativity constraint: resource usage and slime output must be non-negative."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource constraints",
+            "Mess production",
+            "Slime output",
+            "Linear relationship between resource usage and slime output",
+            "Budgetary constraints on resource usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize slime output subject to resource constraints and budgetary limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource usage must not exceed the available resources.",
+            "Slime output should be maximized subject to the budgetary constraints on resources.",
+            "There is a linear relationship between resource usage and slime output."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource constraints",
+            "Mess production limits",
+            "Budgetary constraints",
+            "Slime output maximization",
+            "Linear relationship between resources and slime output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize slime output by optimizing resource allocation under resource usage constraints, budgetary limitations, and mess production limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a linear relationship between resource usage and slime output.",
+            "The optimization problem includes budgetary constraints on resource usage.",
+            "There are specific limits on the amount of mess that can be produced."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource constraints",
+            "Mess production",
+            "Slime output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize slime output while balancing resource constraints and mess production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability limits the amount of input materials for slime production.",
+            "Total mess produced during slime production must remain under a certain threshold due to cleanup and environmental concerns."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize slime output",
+            "Resource constraints",
+            "Mess production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the slime output while balancing resource constraints and mess production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Balance resource constraints to maximize slime output.",
+            "Control mess production as part of the balance to maximize slime output.",
+            "No specific budget constraint for production costs."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource constraints",
+            "mess production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize the slime output given resource constraints and production parameters"
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource constraints",
+            "Mess production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize slime output"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints limit the input materials available for production.",
+            "Mess production capacity constraints must be managed to maintain workspace organization."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource constraints",
+            "mess production",
+            "slime output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the slime output while considering resource constraints and mess production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints",
+            "Mess production limitations"
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "total powder",
+            "total glue",
+            "maximum mess allowed"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the slime output given fixed resource constraints such as total powder, total glue, and maximum mess allowed."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total powder is fixed and must not be exceeded.",
+            "Total glue is fixed and must not be exceeded.",
+            "Maximum mess is allowed and must not be exceeded."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "total powder",
+            "total glue",
+            "maximum mess allowed",
+            "multiple types of slime",
+            "different production processes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize slime output given fixed resource constraints across multiple types of slime production processes."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total amount of powder is fixed.",
+            "Total amount of glue is fixed.",
+            "Maximum mess allowed is fixed.",
+            "Different slime types have different production processes at each table."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "total powder",
+            "total glue",
+            "maximum mess allowed",
+            "multiple types of slime",
+            "different production processes at each table"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the overall slime output across all tables while respecting the fixed resource constraints and mess production limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraint on total powder available.",
+            "Resource constraint on total glue available.",
+            "Constraint on maximum mess allowed.",
+            "Multiple types of slime, each with its own production process.",
+            "Fixed and known resource constraints should apply to all tables uniformly."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource constraints",
+            "mess production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the slime output while balancing resource constraints and the extent of mess production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability limits the amount of raw materials that can be used for slime production.",
+            "Mess production should not exceed a certain threshold to maintain cleanliness and safety standards."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize slime output",
+            "resource constraints",
+            "mess production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize the slime output while considering resource constraints and minimizing mess production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Balance resource constraints with mess production.",
+            "Maximize slime output."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource",
+            "mess production",
+            "slime output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize the slime output"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints must be considered when maximizing slime output.",
+            "Mess production must be balanced with resource constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "constraints: resource",
+            "objective function: maximize slime output",
+            "at least one constraint exists"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize the slime output while balancing resource constraints and mess production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The slime output is subject to resource constraints.",
+            "Total resource usage must not exceed available resources.",
+            "Mess production can't exceed acceptable levels."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      }
+    }
+  }
+}

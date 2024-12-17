@@ -1,0 +1,21 @@
+{
+  "vague_description": "How can a man meet his nutritional requirements through a diet of vegetables and fruits while minimizing his expenses?",
+  "detailed_description": "A man only eats vegetables and fruits. A serving of vegetables contains \\var{VitVeg} units of vitamins and \\var{MinVeg} units of minerals. A serving of fruit contains \\var{VitFruit} units of vitamins and \\var{MinFruit} units of minerals. He wants to eat at least \\var{MinVit} units of vitamins and \\var{MinMin} units of minerals. If vegetables cost \\var{CostVeg} per serving and fruits cost \\var{CostFruit} per serving, how many servings of each should he eat to minimize his cost?",
+  "target_objective": "Minimize the cost of the servings of vegetables and fruits",
+  "target_constraints": [
+    "Number of servings of vegetables is non-negative",
+    "Number of servings of fruits is non-negative",
+    "Total units of vitamins from vegetables and fruits must be at least MinVit",
+    "Total units of minerals from vegetables and fruits must be at least MinMin"
+  ],
+  "target_parameters": [
+    "Units of vitamins provided by a serving of vegetables",
+    "Units of minerals provided by a serving of vegetables",
+    "Units of vitamins provided by a serving of fruits",
+    "Units of minerals provided by a serving of fruits",
+    "Minimum required units of vitamins",
+    "Minimum required units of minerals",
+    "Cost of one serving of vegetables",
+    "Cost of one serving of fruits"
+  ]
+}

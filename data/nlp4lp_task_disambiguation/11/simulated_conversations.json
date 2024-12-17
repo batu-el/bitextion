@@ -1,0 +1,43 @@
+{
+  "vague_description": "Assess how to allocate resources efficiently while considering spatial factors and constraints.",
+  "detailed_description": "We want to assign all students to schools, while minimizing the total distance traveled by all students. We have a total number of \\param{S} schools, \\param{G} student groups, and \\param{N} neighborhoods. Each school s has a capacity for student group g represented by \\param{Capacity}. The population of student group g in neighborhood n is given by \\param{Population}. The distance between neighborhood n and school s is denoted as \\param{Distance}. We may ignore the fact that numbers of students must be integers.",
+  "target_objective": "Minimize the total distance traveled by all students in their assignments to schools",
+  "target_constraints": [
+    "Total number of students from each student group g assigned from neighborhood n to schools does not exceed the Population of group g in neighborhood n",
+    "Total number of students from each student group g assigned to school s does not exceed the Capacity of school s for student group g",
+    "Each student is assigned to exactly one school",
+    "All populations, capacities, and distances are non-negative"
+  ],
+  "target_parameters": [
+    "Total number of schools",
+    "Total number of student groups",
+    "Total number of neighborhoods",
+    "Capacity of school s for student group g",
+    "Population of student group g in neighborhood n",
+    "Distance between neighborhood n and school s"
+  ],
+  "Expert": {
+    "(0,)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.",
+    "(0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Does the problem involve optimizing for multiple resources across different geographical locations?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Does the problem involve optimizing for multiple resources across different geographical locations?\nUser: Yes\n\nExpert: Are there specific constraints or limitations that affect resource availability or allocation in each geographical location?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Does the problem involve optimizing for multiple resources across different geographical locations?\nUser: Yes\n\nExpert: Are there specific constraints or limitations that affect resource availability or allocation in each geographical location?\nUser: Yes\n\nExpert: Are there specific performance objectives or targets that need to be achieved through this resource allocation?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.",
+    "(0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Is the objective of the optimization problem to maximize efficiency or utility rather than minimize costs?\nUser: No\n",
+    "(0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Is the objective of the optimization problem to maximize efficiency or utility rather than minimize costs?\nUser: No\n\nExpert: Do all candidate problems include constraints related to environmental or ecological impact considerations?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Is the objective of the optimization problem to maximize efficiency or utility rather than minimize costs?\nUser: No\n\nExpert: Do all candidate problems include constraints related to environmental or ecological impact considerations?\nUser: No\n\nExpert: Does the problem involve spatial connectivity or adjacency information as a constraint or parameter?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.",
+    "(0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Are the spatial factors and constraints of the problem spatially fixed or variable over time?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Are the spatial factors and constraints of the problem spatially fixed or variable over time?\nUser: Yes.\n\nExpert: Are the spatial factors and constraints of the problem dependent on other variables, such as weather, time of day, or season?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Are the spatial factors and constraints of the problem spatially fixed or variable over time?\nUser: Yes.\n\nExpert: Are the spatial factors and constraints of the problem dependent on other variables, such as weather, time of day, or season?\nUser: No.\n\nExpert: Are the spatial factors and constraints of the problem primarily related to physical or geographical boundaries, such as terrain or jurisdictional limits, rather than being abstract or conceptual?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.",
+    "(0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Are spatial constraints explicitly mentioned as a standalone constraint in the problem description?\nUser: No\n",
+    "(0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Are spatial constraints explicitly mentioned as a standalone constraint in the problem description?\nUser: No\n\nExpert: Does the problem description explicitly mention 'spatial constraints' as one of the constraints?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Assess how to allocate resources efficiently while considering spatial factors and constraints.\nExpert: Are spatial constraints explicitly mentioned as a standalone constraint in the problem description?\nUser: No\n\nExpert: Does the problem description explicitly mention 'spatial constraints' as one of the constraints?\nUser: No\n\nExpert: Is the key parameter related to spatial or geographical factors or is it defined in terms of available resources or quantities?\nUser: Yes\n"
+  }
+}

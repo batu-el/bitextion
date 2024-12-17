@@ -1,0 +1,16 @@
+{
+  "vague_description": "The task is to determine the boundary values of a fourth-moment expectation using provided parameters in a linear programming setup.",
+  "detailed_description": "PROBLEM TYPE\nLP\n\nINPUT FORMAT\n\n{\n    \"K\": \\param{K},\n    \"p\": [\\param{P[i]} for i in 0, ..., \\param{K}]\n    \"E[Z]\": \\param{ExpectedZ},\n    \"E[Z^2]\": \\param{ExpectedZSquared},\n}\n\nOBJECTIVE\nUse linear programming to find lower and upper bounds on \\param{E[Z^4]}.",
+  "target_objective": "Determine the lower and upper bounds on the expected value of Z raised to the fourth power",
+  "target_constraints": [
+    "Variable K is non-negative",
+    "Array p[i] is non-negative for each i in 1 to K",
+    "Lower and upper bounds for E[Z^4] should not be negative"
+  ],
+  "target_parameters": [
+    "Number of terms in the sequence",
+    "Coefficients of the linear combination",
+    "Expected value of Z",
+    "Expected value of Z squared"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "vague_description": "The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.",
+  "detailed_description": "The goal is to minimize the price of an alloy produced from other alloys available on the market. There are \\param{AlloysOnMarket} different alloys that can be bought to blend into the final product. The needed composition of the end alloy requires \\param{RequiredElements} elements. Each alloy on the market has a known composition given by \\param{CompositionDataPercentage_{e,a}}, which indicates the percentage of element e in alloy a. The desired percentage of each element in the final blend is specified by \\param{DesiredBlendPercentage_e}. Furthermore, each alloy a on the market comes with a price \\param{AlloyPrice_a}. The objective of the optimization problem is to determine the quantity of each available alloy that should be used to achieve the desired blend percentages at the minimum total cost, without exceeding the availability of the alloys.",
+  "target_objective": "Minimize the total cost of producing the alloy with the desired blend percentages",
+  "target_constraints": [
+    "Quantity of each alloy used is non-negative",
+    "Final blend must meet required percentages for each of the RequiredElements elements",
+    "Cannot exceed the availability of alloys on the market"
+  ],
+  "target_parameters": [
+    "The number of different alloys available on the market",
+    "The number of elements required in the desired alloy blend",
+    "The composition data indicating the percentage of each required element in each available alloy",
+    "The desired percentage of each required element in the final alloy blend",
+    "The price of each alloy available on the market"
+  ],
+  "Expert": {
+    "(0,)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.",
+    "(0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Are there specific constraints related to the ratios or proportions of the constituent materials in the composition?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Are there specific constraints related to the ratios or proportions of the constituent materials in the composition?\nUser: Yes\n\nExpert: Are there constraints related to the minimum or maximum allowable amounts for any of the constituent materials?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Are there specific constraints related to the ratios or proportions of the constituent materials in the composition?\nUser: Yes\n\nExpert: Are there constraints related to the minimum or maximum allowable amounts for any of the constituent materials?\nUser: Yes\n\nExpert: Are there any penalties or costs associated with over-utilizing a particular constituent material, aside from its unit cost?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.",
+    "(0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Does the problem involve specific regulatory or safety constraints on material use?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Does the problem involve specific regulatory or safety constraints on material use?\nUser: No\n\nExpert: Do the constraints specify minimum or maximum usage limits for any of the materials?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Does the problem involve specific regulatory or safety constraints on material use?\nUser: No\n\nExpert: Do the constraints specify minimum or maximum usage limits for any of the materials?\nUser: No\n\nExpert: Is there a constraint related to achieving a specific target weight or total weight for the composition?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.",
+    "(0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Are there any constraints on the availability or procurement of the constituent materials?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Are there any constraints on the availability or procurement of the constituent materials?\nUser: No\n\nExpert: Are the constituent materials available in any specific forms or concentrations that could affect their cost or usage?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Are there any constraints on the availability or procurement of the constituent materials?\nUser: No\n\nExpert: Are the constituent materials available in any specific forms or concentrations that could affect their cost or usage?\nUser: No\n\nExpert: Is the goal to find the composition that meets the target composition exactly, or is it acceptable to find a composition that meets the target composition within some tolerance or range?\nUser: Yes, the goal is to meet the target composition exactly.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.",
+    "(0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Does the problem description contain the word 'cost' in the 'objective' field or in the 'constraints' field in lowercase or uppercase?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Does the problem description contain the word 'cost' in the 'objective' field or in the 'constraints' field in lowercase or uppercase?\nUser: Yes\n\nExpert: Is the objective clearly stated as 'minimize cost'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge involves finding the optimal amounts of various constituent materials to achieve a particular composition at the lowest cost.\nExpert: Does the problem description contain the word 'cost' in the 'objective' field or in the 'constraints' field in lowercase or uppercase?\nUser: Yes\n\nExpert: Is the objective clearly stated as 'minimize cost'?\nUser: Yes\n\nExpert: Do you have more than one constraint in your problem?\nUser: Yes\n"
+  }
+}

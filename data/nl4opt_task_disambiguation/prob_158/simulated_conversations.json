@@ -1,0 +1,41 @@
+{
+  "vague_description": "The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.",
+  "detailed_description": "A school is organizing a field trip to a science center and wants to hire small buses (each with a capacity of \\param{SmallBusCapacity} students) and large buses (each with a capacity of \\param{LargeBusCapacity} students). The school needs to provide transportation for at least \\param{MinStudents} students. In addition, since the parking lot is rather small, a maximum of \\param{MaxLargeBusProportion} of the buses can be large buses. How many of each type of bus should be hired to minimize the total number of buses?",
+  "target_objective": "Minimize the total number of buses needed",
+  "target_constraints": [
+    "The number of small buses is non-negative",
+    "The number of large buses is non-negative",
+    "The total number of students transported must be at least MinStudents",
+    "The number of large buses cannot exceed MaxLargeBusProportion times the total number of buses"
+  ],
+  "target_parameters": [
+    "Capacity of a small bus",
+    "Capacity of a large bus",
+    "Minimum number of students to be transported",
+    "Maximum proportion of large buses"
+  ],
+  "Expert": {
+    "(0,)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.",
+    "(0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Are there specific cost or budget considerations for hiring each type of bus that affect the objective of the optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Are there specific cost or budget considerations for hiring each type of bus that affect the objective of the optimization problem?\nUser: No\n\nExpert: Are there any constraints regarding the maximum or minimum number of small and large buses available for hire?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Are there specific cost or budget considerations for hiring each type of bus that affect the objective of the optimization problem?\nUser: No\n\nExpert: Are there any constraints regarding the maximum or minimum number of small and large buses available for hire?\nUser: No\n\nExpert: Are there specific capacity limitations for each small and large bus that need to be met?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.",
+    "(0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Is the seating capacity of each bus type explicitly stated in the problem description?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Is the seating capacity of each bus type explicitly stated in the problem description?\nUser: Yes\n\nExpert: Do the constraints include separate parking limits for small and large buses?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Is the seating capacity of each bus type explicitly stated in the problem description?\nUser: Yes\n\nExpert: Do the constraints include separate parking limits for small and large buses?\nUser: No\n\nExpert: Do the constraints specify the location of the parking limit (school vs destination)?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.",
+    "(0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Are there any fixed costs or budget constraints that the school must adhere to for hiring buses?\nUser: No\n",
+    "(0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Are there any fixed costs or budget constraints that the school must adhere to for hiring buses?\nUser: No\n\nExpert: Are there any specific requirements or preferences regarding the number of students per bus?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Are there any fixed costs or budget constraints that the school must adhere to for hiring buses?\nUser: No\n\nExpert: Are there any specific requirements or preferences regarding the number of students per bus?\nUser: No\n\nExpert: Are there any geographical or time-sensitive constraints, such as a tight schedule or specific bus routes that need to be followed?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.",
+    "(0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Is the objective to minimize the cost of hiring buses?\nUser: No\n",
+    "(0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Is the objective to minimize the cost of hiring buses?\nUser: No\n\nExpert: Is the objective clearly described in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The school needs to decide how many small and large buses to hire for a field trip to meet student capacity requirements and parking limitations.\nExpert: Is the objective to minimize the cost of hiring buses?\nUser: No\n\nExpert: Is the objective clearly described in the problem description?\nUser: Yes\n\nExpert: Is the objective of the optimization problem a singular, complete sentence?\nUser: Yes\n"
+  }
+}

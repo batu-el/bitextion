@@ -1,0 +1,461 @@
+{
+  "vague_description": "Determining the optimal mix of materials to efficiently manage resources for a gardening project.",
+  "detailed_description": "Both subsoil and topsoil need to be added to a garden bed. One bag of subsoil requires \\param{SubsoilWater} units of water to hydrate while one bag of topsoil requires \\param{TopsoilWater} units of water to hydrate every day. The truck used to transport the dirt has limited capacity and therefore, the farmer has available \\param{TotalBags} bags of topsoil and subsoil combined. In addition, at least \\param{MinTopsoil} bags of topsoil must be used. Since the topsoil is more expensive, at most \\param{MaxTopsoilProportion} of all bags of soil can be topsoil. How many bags of each should be bought to minimize the total amount of water required to hydrate the garden bed?",
+  "target_objective": "Minimize the total amount of water required to hydrate both subsoil and topsoil",
+  "target_constraints": [
+    "Number of subsoil bags is non-negative",
+    "Number of topsoil bags is non-negative",
+    "Combined bags of subsoil and topsoil cannot exceed TotalBags",
+    "At least MinTopsoil bags of topsoil must be used",
+    "Topsoil bags cannot exceed MaxTopsoilProportion times the total bags of soil"
+  ],
+  "target_parameters": [
+    "Units of water required to hydrate one bag of subsoil",
+    "Units of water required to hydrate one bag of topsoil",
+    "Total number of bags of subsoil and topsoil combined available",
+    "Minimum number of bags of topsoil required",
+    "Maximum proportion of topsoil bags"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.",
+    "(0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Are there specific constraints related to the budget or cost of the materials?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Are there specific constraints related to the budget or cost of the materials?\nUser: No\n\nExpert: Are there constraints related to the availability or quantity of the materials?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Are there specific constraints related to the budget or cost of the materials?\nUser: No\n\nExpert: Are there constraints related to the availability or quantity of the materials?\nUser: Yes\n\nExpert: Is there a specific objective you are trying to achieve, such as minimizing waste or maximizing plant growth?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.",
+    "(0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Is there a constraint related to the pH level of the materials used?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Is there a constraint related to the pH level of the materials used?\nUser: No\n\nExpert: Does the problem statement involve constraints related to the percentage composition of organic material in the mixture?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Is there a constraint related to the pH level of the materials used?\nUser: No\n\nExpert: Does the problem statement involve constraints related to the percentage composition of organic material in the mixture?\nUser: No\n\nExpert: Does the optimization problem involve constraints on both the weight and volume of the materials used in the mixture?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.",
+    "(0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Are the materials to be optimized for multiple gardening projects with different requirements (e.g., different types of plants or soil conditions), or is this for a single project?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Are the materials to be optimized for multiple gardening projects with different requirements (e.g., different types of plants or soil conditions), or is this for a single project?\nUser: No\n\nExpert: Is the goal of the optimization to minimize cost, or is there another objective such as maximizing yield or minimizing environmental impact?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Are the materials to be optimized for multiple gardening projects with different requirements (e.g., different types of plants or soil conditions), or is this for a single project?\nUser: No\n\nExpert: Is the goal of the optimization to minimize cost, or is there another objective such as maximizing yield or minimizing environmental impact?\nUser: No\n\nExpert: Is the quantity of the materials to be optimized fixed, or can their quantities be increased or decreased without any constraints?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.",
+    "(0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Does the problem description mention a fixed 'total budget' or a similar constraint that directly limits the amount that can be spent?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Does the problem description mention a fixed 'total budget' or a similar constraint that directly limits the amount that can be spent?\nUser: No\n\nExpert: Does the problem statement explicitly mention an objective other than optimizing a mix of materials for a specific project, such as resource management, budgeting, or efficiency?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal mix of materials to efficiently manage resources for a gardening project.\nExpert: Does the problem description mention a fixed 'total budget' or a similar constraint that directly limits the amount that can be spent?\nUser: No\n\nExpert: Does the problem statement explicitly mention an objective other than optimizing a mix of materials for a specific project, such as resource management, budgeting, or efficiency?\nUser: Yes\n\nExpert: Are there any constraints specified for the problem?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Types of materials available (e.g., compost, soil, mulch, fertilizer)",
+            "Cost of each material",
+            "Availability/quantity of each material",
+            "Nutritional content or benefit contribution of each material",
+            "Space constraints in the garden",
+            "Labor or time required to apply/use each material",
+            "Environmental impact or sustainability factors of each material",
+            "Desired output or goal for the garden (e.g., yield, aesthetic)",
+            "Compatibility or interaction effects between different materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal mix of materials that minimizes cost while ensuring the gardening project meets quality and resource availability constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total material cost should not exceed $500.",
+            "The mix should consist of at least 20% organic material for sustainability.",
+            "Total weight of materials should not exceed 100 kg.",
+            "The mix should meet the nutrient requirements of the plants, with at least 5% nitrogen content.",
+            "Water retention capability should be at least 30% of the total mix volume."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Mix of materials",
+            "Efficiency",
+            "Resource management"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the efficient use of resources for a gardening project by determining the optimal mix of materials."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Availability or quantity of materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal combination of different materials that maximizes resource efficiency while considering the limited availability of each material for a gardening project."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited availability or quantity of materials."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "availability of materials",
+            "quantity of materials",
+            "minimizing waste",
+            "maximizing plant growth"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize plant growth while efficiently managing resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The availability or quantity of each material is limited."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "types of materials available",
+            "cost of each material",
+            "availability of each material",
+            "nutritional content or effectiveness for gardening",
+            "space constraints for storage",
+            "seasonality or growth cycle impact",
+            "environmental or sustainability considerations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal mix of materials that minimizes cost while maximizing resource efficiency for a gardening project."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total weight of materials must not exceed the specified limit based on transport or storage capacity.",
+            "The cost of materials must be within the budget allocated for the project.",
+            "Each type of material must have a minimum and maximum quantity based on the project requirements.",
+            "The chosen materials must meet the quality standards necessary for the gardening project.",
+            "The environmental impact of materials used should comply with regulations or project goals.",
+            "The ratio of different materials should support the optimal growth of the plants involved in the project.",
+            "Certain materials may require compatibility considerations with other selected materials."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "material types",
+            "resource availability",
+            "efficiency criteria",
+            "project requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal mix of materials for efficiently managing resources in a gardening project without considering pH level constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "types of materials to be mixed",
+            "cost of materials",
+            "nutrient content",
+            "availability of materials",
+            "desired volume of mixture",
+            "environmental factors",
+            "time constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal mix of materials for a gardening project that efficiently manages resources."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "optimal mix of materials",
+            "gardening project"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently manage resources for a gardening project by determining the optimal mix of materials."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "material_type",
+            "resource_availability",
+            "cost",
+            "nutrient_content",
+            "durability",
+            "weather_resistance"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal combination of materials that minimizes cost while meeting the resource requirements for a gardening project."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Available budget for purchasing materials does not exceed the allocated funds.",
+            "The total weight of selected materials should not surpass the garden's carrying capacity.",
+            "Selected materials should fulfill specific nutritional or structural requirements for plant growth.",
+            "Compatibility requirements between different materials must be satisfied, e.g., certain fertilizers or soil types work better together.",
+            "The mix must adhere to any environmental or sustainability guidelines, such as those minimizing chemical runoff.",
+            "Materials must be obtainable within designated timeframes for the project deadlines."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "materials",
+            "resource management",
+            "gardening project"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal mix of materials for efficiently managing resources in a single gardening project."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Single project focus",
+            "Resource limitations on the types of materials available",
+            "Efficient allocation of materials without wastage",
+            "Gardening-specific requirements like plant type compatibility and soil condition adaptability"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal mix of materials",
+            "Gardening project",
+            "Efficient resource management"
+          ]
+        },
+        "pred_objective": {
+          "objective": "efficiency in resource management for a single gardening project"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization is for a single gardening project, not multiple projects.",
+            "There is no specific objective mentioned to minimize cost.",
+            "There is no specific objective mentioned to maximize yield.",
+            "There is no specific objective mentioned to minimize environmental impact."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "optimal mix of materials",
+            "efficiently manage resources",
+            "single gardening project",
+            "no specific goal for cost, yield, or environmental impact",
+            "fixed quantities of materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently manage resources for a gardening project by determining the optimal mix of materials."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The materials are to be optimized for a single gardening project.",
+            "There is no specific objective mentioned (such as minimizing cost, maximizing yield, or minimizing environmental impact).",
+            "The quantities of materials can be adjusted without any fixed constraints."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "types of materials (e.g., soil, compost, mulch)",
+            "cost of materials",
+            "availability of materials",
+            "nutrient content of materials",
+            "required nutrient mix for plants",
+            "area of the garden",
+            "budget constraints",
+            "expected weather conditions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total cost of materials while satisfying nutritional requirements for plants in a gardening project."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of materials must not exceed the budget allocated for the project.",
+            "The selected materials must fit within the available space designated for the garden.",
+            "The weight of the materials should not exceed the load-bearing capacity of the garden framework.",
+            "The mix of materials must support the types of plants chosen for the garden.",
+            "The materials should be sustainable and have minimal environmental impact.",
+            "The combination of materials should ensure the longevity and low maintenance of the garden."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "mix of materials",
+            "efficient resource management"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the resource efficiency in a gardening project by identifying the optimal mix of materials without a predefined budget constraint."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The mix of materials must be optimized to efficiently manage resources without a pre-defined fixed 'total budget'."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal mix of materials",
+            "Resource management",
+            "Efficiency"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Efficient resource management for a gardening project through optimal material mix."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total quantity of materials used in the project is fixed or subject to certain limitations.",
+            "The selection of materials should align with efficient resource management goals.",
+            "Material choice is constrained by project-specific objectives, possibly including sustainability or quality standards."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Optimize the mix of materials for efficient resource management for a gardening project.",
+            "Constraints: Specific constraints are mentioned, although not detailed in the conversation.",
+            "No specific fixed budget constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently manage resources by determining the optimal mix of materials for a gardening project."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The mix of materials must efficiently manage resources.",
+            "The solution must align with the objective of optimizing materials for the gardening project.",
+            "The constraints are specific to ensuring efficiency in resource management, aligning with project goals."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    }
+  }
+}

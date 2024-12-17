@@ -1,0 +1,469 @@
+{
+  "vague_description": "The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.",
+  "detailed_description": "An ice cream store can buy two machines, a counter-top sized one and a fridge sized one, to make ice cream. The counter-top sized one can produce \\var{ProdCountertop} cones worth of ice cream every day while the fridge sized one can produce \\var{ProdFridge} cones worth of ice cream every day. The counter-top sized machine outputs \\var{HeatCountertop} units of heat while the fridge sized one outputs \\var{HeatFridge} units of heat. The ice cream store can output at most \\var{MaxHeat} units of heat per day and must produce at least \\var{MinProd} cones worth of ice cream. How many of each machine should they buy to minimize the total number of machines needed?",
+  "target_objective": "Minimize the total number of machines needed",
+  "target_constraints": [
+    "Number of counter-top machines is an integer",
+    "Number of fridge sized machines is an integer",
+    "Number of counter-top machines is non-negative",
+    "Number of fridge sized machines is non-negative",
+    "Total heat output from all machines must not exceed MaxHeat units per day",
+    "Total daily ice cream production must be at least MinProd cones",
+    "Each counter-top machine produces ProdCountertop cones of ice cream per day",
+    "Each fridge sized machine produces ProdFridge cones of ice cream per day",
+    "Each counter-top machine outputs HeatCountertop units of heat",
+    "Each fridge sized machine outputs HeatFridge units of heat"
+  ],
+  "target_parameters": [
+    "Amount of ice cream produced by the counter-top sized machine per day",
+    "Amount of ice cream produced by the fridge sized machine per day",
+    "Heat output by the counter-top sized machine",
+    "Heat output by the fridge sized machine",
+    "Maximum allowable heat output per day",
+    "Minimum required ice cream production per day"
+  ],
+  "Expert": {
+    "(0,)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.",
+    "(0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are there specific budget constraints that impact the number of machines that can be purchased?\nUser: No\n",
+    "(0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are there specific budget constraints that impact the number of machines that can be purchased?\nUser: No\n\nExpert: Does the objective involve minimizing cost or maximizing production capacity?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are there specific budget constraints that impact the number of machines that can be purchased?\nUser: No\n\nExpert: Does the objective involve minimizing cost or maximizing production capacity?\nUser: No\n\nExpert: Does the objective involve balancing production across different sizes of ice cream machines?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.",
+    "(0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Is there a constraint related to the maximum allowable heat output from the machines in BTUs per hour?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Is there a constraint related to the maximum allowable heat output from the machines in BTUs per hour?\nUser: Yes\n\nExpert: Is the production demand specified in gallons or liters per day?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Is there a constraint related to the maximum allowable heat output from the machines in BTUs per hour?\nUser: Yes\n\nExpert: Is the production demand specified in gallons or liters per day?\nUser: No\n\nExpert: Does the problem include a constraint on the total budget for purchasing machines?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.",
+    "(0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are the production and heat constraints dependent on the type and size of the ice cream machine?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are the production and heat constraints dependent on the type and size of the ice cream machine?\nUser: Yes\n\nExpert: Are the production and heat constraints dependent on the type and size of the ice cream machine?  Yes\nUser: {\"response\":\"Yes\"}\n",
+    "(0, 0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are the production and heat constraints dependent on the type and size of the ice cream machine?\nUser: Yes\n\nExpert: Are the production and heat constraints dependent on the type and size of the ice cream machine?  Yes\nUser: {\"response\":\"Yes\"}\n\nExpert: Is the objective of the optimization problem to minimize the total cost of purchasing and operating the ice cream machines?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.",
+    "(0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are there any constraints in the problem description?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are there any constraints in the problem description?\nUser: Yes\n\nExpert: Does the problem description explicitly mention or imply the existence of multiple machine sizes?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The ice cream store needs to determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints.\nExpert: Are there any constraints in the problem description?\nUser: Yes\n\nExpert: Does the problem description explicitly mention or imply the existence of multiple machine sizes?\nUser: Yes\n\nExpert: Is the problem description limited to explicitly mentioning only two constraints (production and heat)?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of different sized ice cream machines",
+            "production constraints",
+            "heat constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of different sized ice cream machines to purchase to maximize production capacity within budget and environmental constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of ice cream machines to be purchased must be determined.",
+            "Each machine size has a different production capacity, which should contribute to the overall production goal of the store.",
+            "The production output from these machines must meet the store's customer demand for ice cream products.",
+            "There are heat generation constraints due to machinery running simultaneously, which may impact the number of machines that can be operated at once.",
+            "The cost of purchasing different machine sizes should be within the allocated budget for new equipment.",
+            "Space constraints may limit the total number of machines that can be installed in the store."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of different sized ice cream machines",
+            "production constraints",
+            "heat constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "minimize the cost of purchasing ice cream machines while ensuring production meets demand and the machines can operate effectively given the heat constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of different sized ice cream machines must adhere to production constraints, ensuring enough capacity to meet expected demand.",
+            "Heat constraints must be considered, which may limit the number and type of machines that can operate simultaneously due to heat output.",
+            "There are no budget constraints impacting the number of machines that can be purchased."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "different sized ice cream machines to purchase",
+            "adhering to production constraints",
+            "adhering to heat constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production capacity of the machines purchased should meet or exceed the store's required ice cream production capacity.",
+            "The heat generation from the machines should not exceed the cooling capacity of the store's air conditioning system.",
+            "There is no budgetary constraint impacting the number of machines that can be purchased."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of different sized ice cream machines",
+            "Production constraints",
+            "Heat constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production must not exceed the capacity of the purchased machines.",
+            "The store must operate within certain heat constraints possibly caused by the operation of the machines."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of different sized ice cream machines to purchase",
+            "production constraints",
+            "heat constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of ice cream machines purchased must allow for production to meet customer demand.",
+            "The size and number of machines must not exceed the available space in the store.",
+            "The machines must operate within the store's budgetary limits.",
+            "Heat output from the machines combined must not exceed the store's ventilation capacity.",
+            "Each machine type has a maximum production capacity that must be respected.",
+            "There may be a minimum number of each machine type required to ensure a diverse product offering (e.g., soft serve, gelato, etc.)."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of different sized ice cream machines to purchase",
+            "Production constraints",
+            "Heat constraints in BTUs per hour"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of different sized ice cream machines to purchase that maximizes or efficiently meets production requirements while complying with heat output constraints in BTUs per hour."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The maximum allowable heat output from the ice cream machines is constrained by the total BTUs per hour they can produce, which must not exceed a certain limit."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of different sized ice cream machines",
+            "heat constraints in BTUs per hour"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal number of each type of ice cream machine to purchase so as to maximize production capabilities while ensuring that the total heat output from the machines does not exceed a specified maximum allowable level."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the heat outputs from all machines must not exceed the maximum allowable heat output in BTUs per hour."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of different sized ice cream machines",
+            "production constraints",
+            "heat constraints in BTUs per hour",
+            "demand in units per day"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maximum allowable heat output from the machines in BTUs per hour."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small ice cream machines",
+            "Number of medium ice cream machines",
+            "Number of large ice cream machines",
+            "Production capacity of small machines",
+            "Production capacity of medium machines",
+            "Production capacity of large machines",
+            "Maximum allowable heat output for small machines",
+            "Maximum allowable heat output for medium machines",
+            "Maximum allowable heat output for large machines"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the number of different sized ice cream machines to purchase while adhering to production and heat constraints, ensuring efficient operations and cost-effectiveness in the ice cream store."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production capacity of ice cream machines must meet store demand.",
+            "Each ice cream machine size has an associated heat output limit.",
+            "The combination of all machines must not exceed the store's heat dissipation capacity."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "types of ice cream machines",
+            "sizes of ice cream machines",
+            "production constraints for each type and size",
+            "heat constraints for each type and size"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of different sized ice cream machines to purchase minimizing cost while ensuring that production and heat constraints specific to each machine type and size are met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of different sized ice cream machines must satisfy production constraints.",
+            "The heat generated by the different sized ice cream machines must be within acceptable limits.",
+            "The production and heat constraints are different for each type and size of the ice cream machine."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of different sized ice cream machines",
+            "Type of ice cream machine",
+            "Size of ice cream machine",
+            "Production constraint per machine type",
+            "Heat constraint per machine type"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of different sized ice cream machines to purchase in order to maximize production efficiency while adhering to specific production and heat constraints associated with each type and size of machine."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of different sized ice cream machines must be determined such that the total production capacity meets the store's demand requirements.",
+            "Each ice cream machine type has a specific production capacity which contributes to the total production of ice cream needed.",
+            "The total heat generated by all machines combined must not exceed the store's cooling capacity.",
+            "Each ice cream machine type and size has a specific amount of heat it generates, which contributes to the total heat produced by all machines.",
+            "The total cost of purchasing the ice cream machines must stay within the allocated budget for machinery."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Type of ice cream machine",
+            "Size of ice cream machine",
+            "Production capacity of each machine type and size",
+            "Heat generation of each machine type and size",
+            "Production constraints related to each machine",
+            "Heat constraints related to each machine"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production capacity of the ice cream store while adhering to production and heat constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of each type of ice cream machine must meet the required production capacity.",
+            "The heat generated by the ice cream machines must not exceed the store's cooling capacity.",
+            "Different sizes of ice cream machines may have different production and heat output levels.",
+            "The selection of ice cream machines must comply with these production and heat constraints."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of small ice cream machines to purchase",
+            "Number of medium ice cream machines to purchase",
+            "Number of large ice cream machines to purchase"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of different sized ice cream machines to purchase to maximize production within the constraints of heat generation and budget limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The ice cream machines must be capable of producing the desired range of ice cream sizes efficiently.",
+            "The machines should not produce excessive heat that exceeds the store's cooling capacity or operational limits.",
+            "The total number of machines purchased should fit within the store's budgetary constraints."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of different sized ice cream machines",
+            "Production constraints",
+            "Heat constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal number of different sized ice cream machines to purchase in order to maximize production efficiency while adhering to specific production and heat constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production capacity of the machines must meet the demand for ice cream.",
+            "The combined heat output of the machines must not exceed the store's cooling capacity.",
+            "Each type of machine has a maximum and minimum purchasing limit.",
+            "The budget for purchasing machines must not be exceeded."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of different machine sizes",
+            "Production constraints",
+            "Heat constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of different sized ice cream machines to purchase while adhering to production and heat constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must adhere to production constraints, meaning that the total ice cream production capacity of the machines must meet or exceed the store's demand.",
+            "The solution must consider heat constraints, implying that the heat generated by the machines should be within permissible limits specified by the store or its environment.",
+            "The decision involves multiple machine sizes, so the constraint may also involve selecting combinations of different sized machines.",
+            "There might be budgetary constraints or space constraints based on the context of purchasing these machines."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "different sized ice cream machines",
+            "production constraint",
+            "heat constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of different sized ice cream machines to purchase such that production needs are met and heat constraints are adhered to."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Determine the optimal number of different sized ice cream machines to purchase.",
+            "Adhere to production constraints.",
+            "Adhere to heat constraints."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 4,
+        "o_score": 0,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      }
+    }
+  }
+}

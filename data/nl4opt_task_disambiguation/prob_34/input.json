@@ -1,0 +1,21 @@
+{
+  "vague_description": "Ayse needs to determine the correct mixture of fertilizers to achieve desired levels of nutrients at minimal cost.",
+  "detailed_description": "Ayse produces a plant growth compound by mixing two types of fertilizer: C and Y. This growth compound must contain at least \\var{MinNitrous} units of nitrous oxide and \\var{MinVitamin} units of vitamin mix. Fertilizer C and Y cost \\var{CostC} and \\var{CostY} per kg respectively. Fertilizer C contains \\var{NitrousC} units of nitrous oxide per kg and \\var{VitaminC} units of vitamin mix per kg. Fertilizer Y contains \\var{NitrousY} units of nitrous oxide per kg and \\var{VitaminY} unit of vitamin mix per kg. Determine the minimum cost of Ayse's compound.",
+  "target_objective": "Minimize the cost of Ayse's compound",
+  "target_constraints": [
+    "The compound must contain at least MinNitrous units of nitrous oxide",
+    "The compound must contain at least MinVitamin units of vitamin mix",
+    "The amount of fertilizer C used is non-negative",
+    "The amount of fertilizer Y used is non-negative"
+  ],
+  "target_parameters": [
+    "Cost of fertilizer C per kg",
+    "Cost of fertilizer Y per kg",
+    "Amount of nitrous oxide per kg in fertilizer C",
+    "Amount of vitamin mix per kg in fertilizer C",
+    "Amount of nitrous oxide per kg in fertilizer Y",
+    "Amount of vitamin mix per kg in fertilizer Y",
+    "Minimum required units of nitrous oxide in the growth compound",
+    "Minimum required units of vitamin mix in the growth compound"
+  ]
+}

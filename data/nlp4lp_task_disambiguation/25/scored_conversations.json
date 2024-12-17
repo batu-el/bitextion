@@ -1,0 +1,485 @@
+{
+  "vague_description": "Deciding optimal mining operations for profitability given constraints and demands.",
+  "detailed_description": "To maximize profit, which mines should be operated each year and how much should they produce? The company has \\param{K} mines and can operate at most \\param{MaxWork} in any given year. For each mine k, there is a royalty cost of \\param{Royalty}, a production limit of \\param{Limit}, and the material extracted has a quality of \\param{Quality}. Each client i requires a material with at least \\param{RequiredQuality}. The price per unit of material sold is \\param{Price}, with a discount \\param{Discount} applied to the royalty cost for each unit sold.",
+  "target_objective": "Maximize the company's profit from operating the mines and selling the material produced while adhering to the constraints of mine operations and client quality requirements",
+  "target_constraints": [
+    "Number of operated mines does not exceed MaxWork",
+    "Each mine k produces a non-negative amount of material",
+    "Each mine k has a production limit of Limit",
+    "The quality of material from each mine k is at least as high as RequiredQuality for each client i"
+  ],
+  "target_parameters": [
+    "Number of mines",
+    "Maximum number of mines that can be operated in a year",
+    "Royalty cost for operating mine k",
+    "Production limit for mine k",
+    "Quality of the material from mine k",
+    "Required quality of the material for client i",
+    "Price per unit of material sold",
+    "Discount on the royalty cost per unit of material sold"
+  ],
+  "Expert": {
+    "(0,)": "User: Deciding optimal mining operations for profitability given constraints and demands.",
+    "(0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Are there specific cost constraints related to labor, equipment, or material that need to be considered in the optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Are there specific cost constraints related to labor, equipment, or material that need to be considered in the optimization problem?\nUser: No\n\nExpert: Are there constraints related to environmental regulations or sustainability targets that impact the mining operations?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Are there specific cost constraints related to labor, equipment, or material that need to be considered in the optimization problem?\nUser: No\n\nExpert: Are there constraints related to environmental regulations or sustainability targets that impact the mining operations?\nUser: No\n\nExpert: Are there specific production capacity or resource availability constraints that need to be considered in the optimization problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Deciding optimal mining operations for profitability given constraints and demands.",
+    "(0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Does the problem consider multiple mining sites with varying characteristics or constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Does the problem consider multiple mining sites with varying characteristics or constraints?\nUser: Yes\n\nExpert: Is there a constraint specifically limiting the amount of ore or mineral to be transported from the sites to the market?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Does the problem consider multiple mining sites with varying characteristics or constraints?\nUser: Yes\n\nExpert: Is there a constraint specifically limiting the amount of ore or mineral to be transported from the sites to the market?\nUser: No\n\nExpert: Do any of the problems include transportation costs as a constraint or parameter?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Deciding optimal mining operations for profitability given constraints and demands.",
+    "(0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Are the costs of extracting and processing ore considered in the optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Are the costs of extracting and processing ore considered in the optimization problem?\nUser: No\n\nExpert: Are the demands for the extracted minerals considered in the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Are the costs of extracting and processing ore considered in the optimization problem?\nUser: No\n\nExpert: Are the demands for the extracted minerals considered in the optimization problem?\nUser: Yes\n\nExpert: Is the goal of the optimization problem to maximize profitability, or is there another objective such as maximizing production volume or minimizing environmental impact?\nUser: Yes, the goal is to maximize profitability.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Deciding optimal mining operations for profitability given constraints and demands.",
+    "(0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Does the problem description include any constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Does the problem description include any constraints?\nUser: Yes\n\nExpert: Are there any explicit or implicit constraints mentioned in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Deciding optimal mining operations for profitability given constraints and demands.\nExpert: Does the problem description include any constraints?\nUser: Yes\n\nExpert: Are there any explicit or implicit constraints mentioned in the problem description?\nUser: Yes\n\nExpert: Are constraints explicitly listed in the problem description?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Mining locations",
+            "Production capacity at each location",
+            "Operational costs",
+            "Demand for mined material",
+            "Logistical constraints (transportation, storage)",
+            "Market prices",
+            "Resource availability",
+            "Environmental regulations",
+            "Labor availability",
+            "Technology and machinery availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profitability of mining operations while satisfying given constraints and demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total mining output must meet or exceed demand.",
+            "Operational costs must not exceed the budget.",
+            "Workforce availability limits the number of active mining hours per day.",
+            "Environmental and safety regulations limit the type and duration of operations.",
+            "Equipment availability may restrict the number of simultaneous operations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profitability",
+            "Constraints",
+            "Demands"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profitability of mining operations while respecting demand requirements."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profitability",
+            "Mining operations constraints",
+            "Demand constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal mining operations plan to maximize profitability while meeting all demands without specific cost or environmental constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production capacity",
+            "resource availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize mining operations to maximize profitability while adhering to production capacity and resource availability constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limitations of mining operations.",
+            "Resource availability constraints for mining raw materials."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost of extraction per unit",
+            "Mining capacity constraints",
+            "Market demand",
+            "Selling price per unit",
+            "Regulatory constraints",
+            "Resource availability",
+            "Operational costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profitability of mining operations while considering operational constraints and meeting demand requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production must meet or exceed current market demand.",
+            "Operating within the budgetary limits set by management.",
+            "Compliance with environmental regulations on emissions and waste.",
+            "Labor resource availability according to current workforce capacity.",
+            "Adhering to safety standards and regulations in mining operations.",
+            "Considering the maintenance schedule to minimize downtime.",
+            "Optimizing logistic operations to ensure timely delivery of outputs."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "mining_sites"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profitability of mining operations by determining the optimal allocation and sequence of operations across multiple mining sites with varying characteristics and constraints while meeting specified demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each mining site has its own set of operational constraints.",
+            "The production cost and capacity may differ for each site.",
+            "There might be varying environmental or legal regulations impacting each site.",
+            "The demand for particular minerals or outcomes must be met in the solution.",
+            "There is likely a budget constraint for overall mining operations.",
+            "There may be transportation or logistical constraints between sites and markets."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Multiple mining sites with varying characteristics or constraints",
+            "No constraint on the amount of ore or mineral transportation to the market"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profitability of mining operations across multiple sites by effectively managing resources and operational constraints while meeting demand."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "multiple mining sites",
+            "varying characteristics or constraints at each site"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profitability from mining operations across multiple sites by optimizing resource allocation and operational scheduling while considering site-specific characteristics and constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each mining site has unique characteristics that impact operations.",
+            "There is a requirement to decide operations for maintaining profitability.",
+            "No constraint on the amount of ore or mineral transport.",
+            "Transportation costs are not included as constraints."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Mining operation costs",
+            "Market demand for mineral resources",
+            "Regulatory constraints",
+            "Environmental impact limits",
+            "Labor availability",
+            "Equipment availability",
+            "Transportation costs",
+            "Energy consumption"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the profitability of mining operations while satisfying resource constraints and meeting market demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "1. The total operational cost should not exceed the budget allocated for the mining operations.",
+            "2. The environmental regulations must be adhered to, limiting emissions and ensuring proper waste disposal.",
+            "3. There is a limited supply of raw materials that can be extracted per day or per month without depleting the resource or violating quotas.",
+            "4. Labor hours are restricted by the availability of workers and local labor laws, including minimum wage and maximum working hours.",
+            "5. Machinery and equipment availability, considering maintenance schedules and breakdowns, impacts operational capacity.",
+            "6. The market demand for the extracted minerals must be met to ensure profitability while avoiding overproduction, which can lead to storage issues or reduction in market prices.",
+            "7. The quality of the extracted minerals must meet industry standards to ensure the product is marketable.",
+            "8. Safety regulations must be fully observed to prevent accidents and ensure worker safety, potentially affecting operational speeds or processes."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "constraints",
+            "demands"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the profitability of mining operations while satisfying demand and adhering to operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The costs of extracting and processing ore are not considered in the optimization problem."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "demand for the extracted minerals"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the profitability of mining operations while meeting the demands for the extracted minerals."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Mineral demand must be met.",
+            "Costs of extracting and processing ore are not considered."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Constraints on mineral demands",
+            "Objective of maximizing profitability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize the profitability of the mining operations while considering the constraints and demands for the extracted minerals."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Demands for the extracted minerals must be met.",
+            "Maximize profitability of mining operations.",
+            "No explicit consideration of costs of extracting and processing ore."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Capital investment limitations",
+            "Equipment and machinery availability",
+            "Labor availability and costs",
+            "Energy consumption limits",
+            "Regulatory compliance",
+            "Market demand for mined materials",
+            "Operational costs",
+            "Ore grade and reserve quality",
+            "Environmental impact and sustainability standards",
+            "Safety and risk management"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profitability of mining operations while satisfying given constraints and meeting product demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The mining operations must not exceed a certain budgetary limit.",
+            "Mining activities must comply with environmental regulations, such as emission caps.",
+            "Labor force constraints, including available manpower and associated costs.",
+            "Equipment availability and maintenance schedules that might limit operation times.",
+            "Demand constraints, such as meeting specific quotas or orders from clients.",
+            "Market price fluctuations that could impact profitability.",
+            "Site-specific constraints, including location accessibility and logistical challenges.",
+            "Safety regulations and protocols that must be strictly adhered to during operations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profitability",
+            "Constraints",
+            "Demands"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profitability of mining operations while satisfying all constraints and meeting demand requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget limits for operational costs.",
+            "Capacity constraints for equipment and labor.",
+            "Environmental regulations and compliance constraints.",
+            "Market demand constraints for mined products.",
+            "Resource availability constraints, such as limited access to raw materials.",
+            "Transportation and logistics constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Mining operations capabilities and limits",
+            "Profitability targets",
+            "Demand requirements",
+            "Resource availability",
+            "Operational costs",
+            "Environmental regulations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal mining operations strategy that maximizes profitability while adhering to the specified constraints and meeting the demand requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Raw material availability constraints due to limited supply.",
+            "Equipment capacity constraints that limit the number of operational hours.",
+            "Labor constraints, including shifts and available workforce.",
+            "Financial constraints, such as budget limits for operational expenses.",
+            "Regulatory constraints regarding safety and environmental regulations.",
+            "Market demand constraints indicating the types and quantities of products needed.",
+            "Time constraints related to project deadlines and delivery schedules."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "mining capacity",
+            "budget constraints",
+            "demand for mined resources",
+            "operational costs",
+            "resource availability",
+            "regulatory constraints",
+            "market prices",
+            "environmental impact"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the profitability of mining operations while satisfying given constraints and demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Constraint 1: The mining operations must not exceed a specified budget limit.",
+            "Constraint 2: The operations should comply with environmental regulations that impose limits on emissions and waste.",
+            "Constraint 3: The labor force is limited to a maximum of 200 workers.",
+            "Constraint 4: Mining operations should fulfill a minimum demand of 10,000 tons of ore per month.",
+            "Constraint 5: Equipment usage should not exceed available capacity determined by the number of machines which is 50 units.",
+            "Constraint 6: The operations must maintain safety standards requiring a minimum of 5 safety inspections per month."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      }
+    }
+  }
+}

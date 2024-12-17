@@ -1,0 +1,23 @@
+{
+  "vague_description": "Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.",
+  "detailed_description": "A factory has two machines, A and B. Each day, machine A can make \\param{ItemsAMadePerDay} items and consumes \\param{ElectricityA} kWh. Machine B can make \\param{ItemsBMadePerDay} items and consumes \\param{ElectricityB} kWh per day. The factory must produce at least \\param{MinItems} items per day and has \\param{MaxElectricity} kWh of electricity available per day. Since there are not many workers that can operate both machines, at most \\param{MaxPercentB} of the machines must be of type B. Further, at least \\param{MinMachineA} machines of type A should be used. How many of each machine should be used to minimize the total number of machines?",
+  "target_objective": "Minimize the total number of machines used (both A and B)",
+  "target_constraints": [
+    "Number of items made by machine A and B together is at least MinItems per day",
+    "Total electricity consumption by machines A and B is at most MaxElectricity kWh per day",
+    "Number of machine B is at most MaxPercentB percent of the total number of machines",
+    "Number of machine A used is at least MinMachineA",
+    "Total electricity used by machine A is at most ElectricityA * number of machine A",
+    "Total electricity used by machine B is at most ElectricityB * number of machine B"
+  ],
+  "target_parameters": [
+    "Number of items machine A can make per day",
+    "Electricity consumed by machine A per day",
+    "Number of items machine B can make per day",
+    "Electricity consumed by machine B per day",
+    "Minimum total items the factory must produce per day",
+    "Maximum amount of electricity available for the factory per day",
+    "Maximum percentage of type B machines",
+    "Minimum number of machine A to be used"
+  ]
+}

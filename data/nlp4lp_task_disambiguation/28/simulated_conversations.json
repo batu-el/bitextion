@@ -1,0 +1,48 @@
+{
+  "vague_description": "Determine the optimal allocation of constrained resources to achieve production goals.",
+  "detailed_description": "Maximize total production in the last two years using the given constraints on production inputs from two resource types (\\param{InputOne} and \\param{InputTwo}), manpower allocations (\\param{ManpowerOne} and \\param{ManpowerTwo}), stock levels (\\param{Stock}), capacities (\\param{Capacity}), and the upper limit of manpower (\\param{ManpowerLimit}).",
+  "target_objective": "Maximize total production in the last two years",
+  "target_constraints": [
+    "The consumption of InputOne per year is non-negative and within its availability",
+    "The consumption of InputTwo per year is non-negative and within its availability",
+    "Manpower allocation for ManpowerOne is non-negative and within its limit",
+    "Manpower allocation for ManpowerTwo is non-negative and within its limit",
+    "Stock levels must be maintained as per Stock non-negativity and limits",
+    "Production capacities must be respected according to Capacity",
+    "The total manpower used must not exceed the upper limit, ManpowerLimit",
+    "All variables of production, resources, and manpower must be non-negative"
+  ],
+  "target_parameters": [
+    "The production inputs from resource type one to product k in year j",
+    "The manpower allocated to resource type one for product k",
+    "The production inputs from resource type two to product k in year j",
+    "The manpower allocated to resource type two for product k",
+    "Stock levels of product k at the start of the planning horizon",
+    "Production capacity for product k",
+    "The upper limit of manpower"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal allocation of constrained resources to achieve production goals.",
+    "(0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Are there specific upper and lower bounds defined for each resource in the optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Are there specific upper and lower bounds defined for each resource in the optimization problem?\nUser: No\n\nExpert: Is there a clearly defined objective function, like maximizing profit or minimizing cost, in this optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Are there specific upper and lower bounds defined for each resource in the optimization problem?\nUser: No\n\nExpert: Is there a clearly defined objective function, like maximizing profit or minimizing cost, in this optimization problem?\nUser: Yes\n\nExpert: Is the objective function related to optimizing a specific numerical production target?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of constrained resources to achieve production goals.",
+    "(0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Does the objective involve maximizing profit in any form?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Does the objective involve maximizing profit in any form?\nUser: No\n\nExpert: Do any of the problem descriptions include environmental impact constraints?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Does the objective involve maximizing profit in any form?\nUser: No\n\nExpert: Do any of the problem descriptions include environmental impact constraints?\nUser: No\n\nExpert: Is the objective function to minimize production time rather than production cost?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal allocation of constrained resources to achieve production goals.",
+    "(0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Are the production goals expressed as a maximization problem (maximize profit, output, etc.)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Are the production goals expressed as a maximization problem (maximize profit, output, etc.)?\nUser: Yes\n\nExpert: Is the objective function (production goal) linear in nature (i.e., directly proportional to the resource allocation)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Are the production goals expressed as a maximization problem (maximize profit, output, etc.)?\nUser: Yes\n\nExpert: Is the objective function (production goal) linear in nature (i.e., directly proportional to the resource allocation)?\nUser: Yes\n\nExpert: Is there a finite set of discrete resources (e.g., labor, equipment) to be allocated, rather than continuous resources (e.g., water, electricity)?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of constrained resources to achieve production goals.",
+    "(0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Is the objective of the problem function maximization?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Is the objective of the problem function maximization?\nUser: Yes\n\nExpert: Does the problem description include any non-empty list of constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Is the objective of the problem function maximization?\nUser: Yes\n\nExpert: Does the problem description include any non-empty list of constraints?\nUser: Yes\n\nExpert: Is the objective function explicitly stated as 'maximize' or does it contain the word 'maximization'?\nUser: Yes\n"
+  }
+}

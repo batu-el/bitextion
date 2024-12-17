@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determining the optimal allocation of resources for maximizing daily customer interactions while adhering to employee limitations.",
+  "detailed_description": "A clothing company can sell their product in two types of stores, a retail store and a factory outlet. A retail store brings in \\param{RetailCustomers} customers every day and requires \\param{RetailEmployees} employees to operate. A factory outlet brings in \\param{OutletCustomers} customers every day and due to the lower traffic and being in more remote areas, requires \\param{OutletEmployees} employees to run. Company executives decided that there must be at least \\param{MinCustomers} customers every day, and can make available \\param{TotalEmployees} employees. How should the company distribute their product to the two types of store to reduce the number of stores that must be open?",
+  "target_objective": "Minimize the number of stores (retail stores and factory outlets) that must be open",
+  "target_constraints": [
+    "Number of retail stores is non-negative",
+    "Number of factory outlets is non-negative",
+    "Total number of customers from retail stores and factory outlets must be at least MinCustomers",
+    "Total number of employees distributed to all stores cannot exceed TotalEmployees",
+    "Each retail store requires RetailEmployees employees to operate",
+    "Each factory outlet requires OutletEmployees employees to run"
+  ],
+  "target_parameters": [
+    "Number of customers a retail store brings in every day",
+    "Number of customers a factory outlet brings in every day",
+    "Number of employees required to operate a retail store",
+    "Number of employees required to operate a factory outlet",
+    "Minimum required number of customers every day",
+    "Total number of employees available to operate all stores"
+  ]
+}

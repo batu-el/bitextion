@@ -1,0 +1,21 @@
+{
+  "vague_description": "Finding the optimal process execution strategy to enhance financial performance given resource and operational constraints.",
+  "detailed_description": "We want to know how many times should we execute each process to maximize the revenue for the next month (you can assume that the number of times that each process is executed is a floating point number). The problem involves \\param{O} options, \\param{P} price points, and \\param{L} processes with \\param{Allocated} resources, \\param{Price} at each price point, \\param{Input} required for each option in each process, \\param{Output} produced for each price point in each process, and \\param{Cost} for each process.",
+  "target_objective": "Maximize the total revenue, which is calculated based on the Price at each price point, the number of times each process is executed, and the Cost for each process",
+  "target_constraints": [
+    "Each process execution number is non-negative",
+    "Total resource allocation for all processes does not exceed Allocated resources",
+    "Inputs required for executing processes for all options do not exceed available Input for each option",
+    "Outputs produced from executing processes for all price points do not exceed the demand represented by Output at each price point"
+  ],
+  "target_parameters": [
+    "Number of options",
+    "Number of price points",
+    "Number of processes",
+    "Allocated resources for each option",
+    "Price at each price point",
+    "Input resources required for each option in each process",
+    "Output produced for each price point in each process",
+    "Cost for each process"
+  ]
+}

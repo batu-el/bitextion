@@ -1,0 +1,49 @@
+{
+  "vague_description": "Determining the optimal production strategy for car oils with limited resources to maximize profits.",
+  "detailed_description": "A car manufacturer makes two types of car oils: Oil Max and Oil Max Pro. A container of Oil Max contains \\param{AinMax} grams of substance A, \\param{BinMax} grams of substance B and \\param{CinMax} grams of substance C. A container of Oil Max Pro contains \\param{AinMaxPro} grams of substance A, \\param{BinMaxPro} grams of substance B and \\param{CinMaxPro} grams of substance C. The car manufacturer has \\param{TotalA} grams of substance A, \\param{TotalB} grams of substance B, \\param{TotalC} grams of substance C. In addition, the profit per container of Oil Max is $\\param{ProfitMax} and the profit per container of Oil Max Pro is $\\param{ProfitMaxPro}. How many containers of each type of oil should the car manufacturer make to maximize profit?",
+  "target_objective": "Maximize the total profit from the production of Oil Max and Oil Max Pro containers",
+  "target_constraints": [
+    "Number of Oil Max containers is non-negative",
+    "Number of Oil Max Pro containers is non-negative",
+    "Total grams of substance A used in all containers is at most TotalA",
+    "Total grams of substance B used in all containers is at most TotalB",
+    "Total grams of substance C used in all containers is at most TotalC"
+  ],
+  "target_parameters": [
+    "Amount of substance A in a container of Oil Max",
+    "Amount of substance B in a container of Oil Max",
+    "Amount of substance C in a container of Oil Max",
+    "Amount of substance A in a container of Oil Max Pro",
+    "Amount of substance B in a container of Oil Max Pro",
+    "Amount of substance C in a container of Oil Max Pro",
+    "Total available amount of substance A",
+    "Total available amount of substance B",
+    "Total available amount of substance C",
+    "Profit per container of Oil Max",
+    "Profit per container of Oil Max Pro"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.",
+    "(0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Does the problem involve any specific constraints related to the availability of raw materials?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Does the problem involve any specific constraints related to the availability of raw materials?\nUser: Yes\n\nExpert: Are there constraints related to production capacity or production time limits in this problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Does the problem involve any specific constraints related to the availability of raw materials?\nUser: Yes\n\nExpert: Are there constraints related to production capacity or production time limits in this problem?\nUser: No\n\nExpert: Does the problem consider different types of car oils with varying profit margins?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.",
+    "(0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Do any of the candidate problems include constraints related to maintaining quality standards or specific ingredient proportions?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Do any of the candidate problems include constraints related to maintaining quality standards or specific ingredient proportions?\nUser: No\n\nExpert: Does the problem include a constraint on storage capacity for finished products?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Do any of the candidate problems include constraints related to maintaining quality standards or specific ingredient proportions?\nUser: No\n\nExpert: Does the problem include a constraint on storage capacity for finished products?\nUser: No\n\nExpert: Is there a constraint that explicitly requires meeting or exceeding market demand for any type of car oil?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.",
+    "(0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Is the production of multiple car oil types (e.g. synthetic, conventional, bio-based) being considered in the optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Is the production of multiple car oil types (e.g. synthetic, conventional, bio-based) being considered in the optimization problem?\nUser: No\n\nExpert: Are there any production capacity constraints (e.g. limited facilities, equipment, or personnel) that need to be taken into account in the optimization problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Is the production of multiple car oil types (e.g. synthetic, conventional, bio-based) being considered in the optimization problem?\nUser: No\n\nExpert: Are there any production capacity constraints (e.g. limited facilities, equipment, or personnel) that need to be taken into account in the optimization problem?\nUser: No\n\nExpert: Are there any costs or prices associated with the production and consumption of car oil that are being considered in the optimization problem?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.",
+    "(0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Is 'production strategy' mentioned in the constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Is 'production strategy' mentioned in the constraints?\nUser: No\n\nExpert: Are there any non-numerical parameters in the problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal production strategy for car oils with limited resources to maximize profits.\nExpert: Is 'production strategy' mentioned in the constraints?\nUser: No\n\nExpert: Are there any non-numerical parameters in the problem?\nUser: No\n\nExpert: Is 'production strategy' mentioned as a parameter or parameter list in the description?\nUser: No\n"
+  }
+}

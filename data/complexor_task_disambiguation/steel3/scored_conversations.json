@@ -1,0 +1,479 @@
+{
+  "vague_description": "We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.",
+  "detailed_description": "Consider a production problem. Given a set of products \\param{ProductNum}. Each product p is produced at a rate of \\param{ProductionRate_p} tons per hour. There are \\param{AvailableHours} hours available in a week. The profit per ton for each product p is \\param{ProfitPerTon_p}. There is a lower limit \\param{MinimumSale_p} and an upper limit \\param{MaximumSale_p} on the tons of each product p sold in a week. The problem aims to maximize the total profit from selling all products. It is constrained that the total of hours used by all products may not exceed the hours available. How to decide the tons of each product p to be produced?",
+  "target_objective": "Maximize the total profit from selling all products within the available hours and given sale constraints for each product",
+  "target_constraints": [
+    "Production quantity for each product p is non-negative",
+    "Total production hours for all products must not exceed AvailableHours",
+    "Each product p must be sold in amounts at least equal to MinimumSale_p tons",
+    "Each product p must be sold in amounts no more than MaximumSale_p tons"
+  ],
+  "target_parameters": [
+    "The number of products",
+    "The production rate of each product in tons per hour",
+    "The profit per ton for each product",
+    "The lower limit on the tons of each product sold in a week",
+    "The upper limit on the tons of each product sold in a week",
+    "The total available hours in a week for production"
+  ],
+  "Expert": {
+    "(0,)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.",
+    "(0, 0)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.\nExpert: Does each type of product have a specific maximum sales limit that must be adhered to?\nUser: Yes\n",
+    "(0, 0, 0)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.\nExpert: Does each type of product have a specific maximum sales limit that must be adhered to?\nUser: Yes\n\nExpert: Are there specific constraints related to the availability or cost of raw materials for production?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.\nExpert: Does each type of product have a specific maximum sales limit that must be adhered to?\nUser: Yes\n\nExpert: Are there specific constraints related to the availability or cost of raw materials for production?\nUser: No\n\nExpert: Are there constraints on the total available production time for all products combined?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.",
+    "(0, 0)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.\nExpert: Does the problem include constraints related to material availability limits for certain products?\nUser: No\n",
+    "(0, 0, 0)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.\nExpert: Does the problem include constraints related to material availability limits for certain products?\nUser: No\n\nExpert: Does the problem include minimum production rates as constraints?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.\nExpert: Does the problem include constraints related to material availability limits for certain products?\nUser: No\n\nExpert: Does the problem include minimum production rates as constraints?\nUser: No\n\nExpert: Does the problem include constraints based on both production time and sales limits for multiple products?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.",
+    "(0, 0)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.\nExpert: Is the production quantity optimization problem a short-term problem (typically less than a month)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.\nExpert: Is the production quantity optimization problem a short-term problem (typically less than a month)?\nUser: Yes\n\nExpert: Is the production rate a fixed parameter or does it vary based on other variables (such as production sequence or worker skill level)?\nUser: Yes, the production rate is a fixed parameter for each product.\n",
+    "(0, 0, 0, 0)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.\nExpert: Is the production quantity optimization problem a short-term problem (typically less than a month)?\nUser: Yes\n\nExpert: Is the production rate a fixed parameter or does it vary based on other variables (such as production sequence or worker skill level)?\nUser: Yes, the production rate is a fixed parameter for each product.\n\nExpert: Are there any special costs associated with setting up or changing production (e.g. setup costs, changeover costs, overtime costs)?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.",
+    "(0, 0)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.\nExpert: Does the optimization problem have exactly 6 distinct parameters (not considering any parameter aliasing or camelCase notation)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.\nExpert: Does the optimization problem have exactly 6 distinct parameters (not considering any parameter aliasing or camelCase notation)?\nUser: Yes\n\nExpert: Does the problem description include a mention of the word 'profit' in the objective?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: We're trying to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits.\nExpert: Does the optimization problem have exactly 6 distinct parameters (not considering any parameter aliasing or camelCase notation)?\nUser: Yes\n\nExpert: Does the problem description include a mention of the word 'profit' in the objective?\nUser: Yes\n\nExpert: Does the problem have at least one constraint?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities",
+            "Profit",
+            "Time constraints",
+            "Production rates",
+            "Sales limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining optimal production quantities subject to constraints on time, production rates, and sales limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production time should not exceed the available hours.",
+            "Production rates must not surpass the maximum capacity of manufacturing equipment.",
+            "Sales limits restrict the maximum quantity of each product that can be sold."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit",
+            "Constraints: Time limits",
+            "Constraints: Production rates",
+            "Constraints: Sales limits for each product type"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production quantities of each product type to maximize profit while adhering to constraints on time, production rates, and maximum sales limits for each type of product."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of production time for all products must not exceed the total available production time.",
+            "Each product's production rate cannot exceed its maximum production capacity.",
+            "The production quantity of each product must not exceed their respective maximum sales limits."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities for different products",
+            "Profit maximization objective",
+            "Time constraints",
+            "Production rate constraints",
+            "Maximum sales limit for each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by determining the optimal production quantities while adhering to constraints on time, production rates, and sales limits for each product."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity is limited by available production time.",
+            "Each product type has a maximum sales limit that cannot be exceeded."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities",
+            "Time constraints",
+            "Production rates",
+            "Sales limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal production quantities for different products to maximize profit while adhering to constraints on total available production time, individual product sales limits, and production rates."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each type of product has a maximum sales limit.",
+            "Constraints exist on the total available production time for all products combined."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Quantities",
+            "Time",
+            "Production Rates",
+            "Sales Limits",
+            "Profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining optimal production quantities within given constraints on time, production rates, and sales limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production time cannot exceed available hours.",
+            "Production rates are limited by machine capacity.",
+            "Sales quantities cannot exceed market demand."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantities",
+            "profit",
+            "time",
+            "production rates",
+            "sales limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profit"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Time available for production is limited.",
+            "Each product has its own production rate.",
+            "There are sales limits for each product."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "time",
+            "production rates",
+            "sales limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "to determine the optimal production quantities to maximize profit given constraints on time, production rates, and sales limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Constraints on available production time.",
+            "Constraints on production rates.",
+            "Constraints on sales limits."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production time",
+            "Production rates",
+            "Sales limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining optimal production quantities under constraints of production time and sales limits for multiple products."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production time constraint for multiple products",
+            "Sales limits constraint for multiple products"
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantities",
+            "profit",
+            "time",
+            "production rates",
+            "sales limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit through optimal production quantities subject to constraints on time, production rates, and sales limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production time must not exceed available time.",
+            "Production rates must align with machine capacity or workforce capability.",
+            "Production quantities must not exceed sales limits or market demand."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities",
+            "Time constraints",
+            "Production rates",
+            "Sales limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal production quantities to maximize profit under constraints on time, production rates, and sales limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Time constraint: The production must be completed within a short-term time frame, typically less than a month.",
+            "Production rate constraint: The production quantities cannot exceed the capacity or capability of the production facilities or workers within the given time frame.",
+            "Sales limit constraint: The production quantities cannot exceed the maximum sales potential or sales agreements."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities",
+            "Profit",
+            "Time constraints",
+            "Production rates",
+            "Sales limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profit given constraints on time, production rates, and sales limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The problem is concerned with optimizing production quantities to maximize profit.",
+            "There is a constraint on time, indicating a limited time frame for production.",
+            "Fixed production rates for each product must be considered during optimization.",
+            "Sales limits pose restrictions on the maximum quantity that can be sold for each product.",
+            "The problem is a short-term optimization (typically less than a month)."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantities",
+            "profit",
+            "time constraints",
+            "production rate constraints",
+            "sales limit constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining optimal production quantities while considering constraints on time, fixed production rates, and sales limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is a constraint on the total time available for production.",
+            "Each product has a fixed production rate that cannot be exceeded.",
+            "There are sales limits for each product that constrain the maximum quantity that can be sold."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantities",
+            "profit",
+            "time",
+            "production rates",
+            "sales limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining optimal production quantities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production time for all items cannot exceed the total available production hours.",
+            "The production rate for each product must not surpass the machine's capacity or human resources availability.",
+            "The quantity of each product produced should not exceed its respective market demand or sales limit for the period."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production_quantities",
+            "profit",
+            "time_constraints",
+            "production_rates",
+            "sales_limits",
+            "max_profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining optimal production quantities within constraints on time, production rates, and sales limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Time available for production is limited per period.",
+            "Each product has a specific production rate that cannot be exceeded.",
+            "There is a maximum sales limit for each product that cannot be exceeded.",
+            "All distinct parameters must be considered within the solution space.",
+            "Production quantities must be non-negative.",
+            "Only 6 distinct parameters can be used in the optimization model."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "profit",
+            "production_quantities",
+            "production_rates",
+            "sales_limits",
+            "constraints",
+            "time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal production quantities considering constraints on time, production rates, and sales limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Time constraint limits the maximum available time that can be used for production.",
+            "Production rate constraint limits the speed or amount of units that can be produced per unit time or production cycle.",
+            "Sales limit constraint dictates the maximum number of units that can be sold or are expected to be sold."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production time limit",
+            "unit production rate",
+            "maximum sales limit",
+            "total cost per unit",
+            "revenue per unit",
+            "objective profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining optimal production quantities, subject to constraints on time, production rates, and sales limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Constraint 1: Total production time for all products must not exceed the available time.",
+            "Constraint 2: Production rates for each product type must not be below a minimum threshold.",
+            "Constraint 3: Sales limits restrict the quantity of each product type that can be sold.",
+            "Constraint 4: The sum of all production quantities must not exceed a certain capacity.",
+            "Constraint 5: Budget constraints limit the total cost of production."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 4,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "vague_description": "The store needs to optimize staffing costs while adhering to constraints related to labor composition and budget limits.",
+  "detailed_description": "A store employs senior citizens who earn \\var{WageSenior} per week and young adults who earn \\var{WageYoung} per week. The store must keep the weekly wage bill below \\var{MaxWageBill}. On any day, the store requires at least \\var{MinWorkers} workers, of whom at least \\var{MinYoung} must be young adults. To ensure the store runs smoothly, the number of young adults should be at least \\var{YoungToSeniorRatio} the number of senior citizens. Formulate a LP to minimize the wage bill.",
+  "target_objective": "Minimize the weekly wage bill",
+  "target_constraints": [
+    "Total weekly wage must not exceed MaxWageBill",
+    "Each day at least MinWorkers must be on duty",
+    "Each day at least MinYoung must be young adults",
+    "Young adults must be at least YoungToSeniorRatio times the number of senior citizens",
+    "Number of senior citizens is non-negative",
+    "Number of young adults is non-negative",
+    "Number of senior citizens is an integer",
+    "Number of young adults is an integer"
+  ],
+  "target_parameters": [
+    "Wage for senior citizens per week",
+    "Wage for young adults per week",
+    "Maximum weekly wage bill",
+    "Minimum number of workers required per day",
+    "Minimum number of young adults required per day",
+    "Minimum fraction of young adults relative to senior citizens"
+  ]
+}

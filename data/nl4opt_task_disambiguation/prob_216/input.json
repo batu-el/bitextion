@@ -1,0 +1,25 @@
+{
+  "vague_description": "The bakery needs to determine the optimal combination of crepe cakes, sponge cakes, and birthday cakes to produce so that they can maximize their profit while not exceeding their available resources of batter and milk.",
+  "detailed_description": "A small bakery has \\param{TotalBatter} grams of batter and \\param{TotalMilk} grams of milk to make their crepe cakes, sponge cakes, and birthday cakes. A crepe cake needs \\param{BatterCrepe} grams of batter and \\param{MilkCrepe} grams of milk. A sponge cake requires \\param{BatterSponge} grams of batter and \\param{MilkSponge} grams of milk. A birthday cake requires \\param{BatterBirthday} grams of batter and \\param{MilkBirthday} grams of milk. If the profit per crepe cake is $\\param{ProfitCrepe}, the profit per sponge cake is $\\param{ProfitSponge}, and the profit per birthday cake is $\\param{ProfitBirthday}, how many of each should the bakery make to maximize their profit?",
+  "target_objective": "Maximize the bakery's profit from making crepe cakes, sponge cakes, and birthday cakes",
+  "target_constraints": [
+    "Number of crepe cakes is non-negative",
+    "Number of sponge cakes is non-negative",
+    "Number of birthday cakes is non-negative",
+    "Total grams of batter used cannot exceed TotalBatter",
+    "Total grams of milk used cannot exceed TotalMilk"
+  ],
+  "target_parameters": [
+    "Total amount of batter available",
+    "Total amount of milk available",
+    "Amount of batter required for a crepe cake",
+    "Amount of milk required for a crepe cake",
+    "Amount of batter required for a sponge cake",
+    "Amount of milk required for a sponge cake",
+    "Amount of batter required for a birthday cake",
+    "Amount of milk required for a birthday cake",
+    "Profit per crepe cake",
+    "Profit per sponge cake",
+    "Profit per birthday cake"
+  ]
+}

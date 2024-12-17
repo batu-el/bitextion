@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determine the optimal distribution of vehicles to transport children considering pollution output and vehicle constraints.",
+  "detailed_description": "Children can go to school either by van or by minibus. A van can take \\param{VanCapacity} kids and produces \\param{VanPollution} units of pollution. A minibus can take \\param{MinibusCapacity} kids and produces \\param{MinibusPollution} units of pollution. There are at least \\param{MinKids} kids that need to go to school and at most \\param{MaxMinibuses} minibuses can be used. In addition, the number of vans used must exceed the number of minibuses. How many of each should be used to minimize the total amount of pollution produced?",
+  "target_objective": "Minimize the total amount of pollution produced",
+  "target_constraints": [
+    "Number of kids transported must be at least MinKids",
+    "Number of minibuses used is non-negative",
+    "Number of vans used is non-negative",
+    "A van can transport up to VanCapacity kids",
+    "A minibus can transport up to MinibusCapacity kids",
+    "No more than MaxMinibuses minibuses can be used"
+  ],
+  "target_parameters": [
+    "Capacity of a van",
+    "Pollution produced by a van",
+    "Capacity of a minibus",
+    "Pollution produced by a minibus",
+    "Minimum number of kids that need transportation",
+    "Maximum number of minibuses allowed"
+  ]
+}

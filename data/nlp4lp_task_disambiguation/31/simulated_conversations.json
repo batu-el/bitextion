@@ -1,0 +1,35 @@
+{
+  "vague_description": "The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.",
+  "detailed_description": "Fit the 'best' straight line \\param{Y} = b\\param{X} + a to this set of data points. The objective is to minimise the sum of absolute deviations of each observed value of \\param{Y} from the value predicted by the linear relationship.",
+  "target_objective": "Minimize the sum of absolute deviations between the observed Y values and the values predicted by the model Y = bX + a",
+  "target_constraints": [],
+  "target_parameters": [
+    "Number of data points",
+    "Observed values of the dependent variable",
+    "Observed values of the independent variable"
+  ],
+  "Expert": {
+    "(0,)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.",
+    "(0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the error metric a sum of squared differences between the observations and the linear representation?\nUser: No\n",
+    "(0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the error metric a sum of squared differences between the observations and the linear representation?\nUser: No\n\nExpert: Is the error metric an absolute difference between the observations and the linear representation?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the error metric a sum of squared differences between the observations and the linear representation?\nUser: No\n\nExpert: Is the error metric an absolute difference between the observations and the linear representation?\nUser: Yes\n\nExpert: Is there a constraint on the coefficients of the linear representation, such as a bound or a sum constraint?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.",
+    "(0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Does the optimization problem include a constraint that requires the sum of any set of coefficients or weights to equal 1?\nUser: No\n",
+    "(0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Does the optimization problem include a constraint that requires the sum of any set of coefficients or weights to equal 1?\nUser: No\n\nExpert: Are there any constraints that restrict the coefficient values to be non-negative?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Does the optimization problem include a constraint that requires the sum of any set of coefficients or weights to equal 1?\nUser: No\n\nExpert: Are there any constraints that restrict the coefficient values to be non-negative?\nUser: No\n\nExpert: Is the objective function explicitly stated as minimizing the mean squared error?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.",
+    "(0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the error metric linear in the observations?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the error metric linear in the observations?\nUser: Yes\n\nExpert: Is the problem constrained to a finite-dimensional space (e.g., number of features or parameters is fixed)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the error metric linear in the observations?\nUser: Yes\n\nExpert: Is the problem constrained to a finite-dimensional space (e.g., number of features or parameters is fixed)?\nUser: Yes\n\nExpert: Is the set of observations linearly independent?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.",
+    "(0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the term 'error metric' mentioned as a parameter or a constraint in the problem description?\nUser: No\n",
+    "(0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the term 'error metric' mentioned as a parameter or a constraint in the problem description?\nUser: No\n\nExpert: Does the problem description include information about a linear representation as one of its parameters?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The task involves finding an optimal linear representation for a given set of observations such that a specific error metric is minimized.\nExpert: Is the term 'error metric' mentioned as a parameter or a constraint in the problem description?\nUser: No\n\nExpert: Does the problem description include information about a linear representation as one of its parameters?\nUser: Yes\n\nExpert: Is the objective a minimization problem?\nUser: Yes\n"
+  }
+}

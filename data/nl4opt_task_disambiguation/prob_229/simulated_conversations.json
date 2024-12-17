@@ -1,0 +1,47 @@
+{
+  "vague_description": "The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.",
+  "detailed_description": "A strata-management company is looking into purchasing two types of air conditioners, a low-power and a high-power model. A low-powered air conditioner can cool down \\param{LowPowerCapacity} housing units and uses \\param{LowPowerElectricity} units of electricity every day. A high-power model can cool down \\param{HighPowerCapacity} housing units and uses \\param{HighPowerElectricity} units of electricity every day. Since the low-powered model is not good for the aesthetics, the strata decided to limit the number of low-powered models to only \\param{MaxLowPowerProportion} and at least \\param{MinHighPower} high-powered models must be used. If the apartment needs to condition at least \\param{MinHousingUnits} housing units and has \\param{TotalElectricity} units of electricity available, how many of each air conditioner should the strata company buy to minimize the total number of air conditioners?",
+  "target_objective": "Minimize the total number of air conditioners purchased",
+  "target_constraints": [
+    "Number of low-power air conditioners is non-negative",
+    "Number of high-power air conditioners is non-negative",
+    "Number of low-power air conditioners limited to MaxLowPowerProportion of the total air conditioners",
+    "At least MinHighPower high-powered air conditioners must be used",
+    "Need to condition at least MinHousingUnits housing units",
+    "Available electricity not to exceed TotalElectricity units"
+  ],
+  "target_parameters": [
+    "Cooling capacity of a low-powered air conditioner",
+    "Electricity usage of a low-powered air conditioner per day",
+    "Cooling capacity of a high-powered air conditioner",
+    "Electricity usage of a high-powered air conditioner per day",
+    "Maximum proportion of low-powered air conditioners",
+    "Minimum number of high-powered air conditioners required",
+    "Minimum number of housing units to condition",
+    "Total electricity available per day"
+  ],
+  "Expert": {
+    "(0,)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.",
+    "(0, 0)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.\nExpert: Is the objective to minimize the cost while satisfying both the aesthetics and power needs?\nUser: No\n",
+    "(0, 0, 0)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.\nExpert: Is the objective to minimize the cost while satisfying both the aesthetics and power needs?\nUser: No\n\nExpert: Is the objective to maximize cooling efficiency while adhering to aesthetics and electricity constraints?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.\nExpert: Is the objective to minimize the cost while satisfying both the aesthetics and power needs?\nUser: No\n\nExpert: Is the objective to maximize cooling efficiency while adhering to aesthetics and electricity constraints?\nUser: No\n\nExpert: Is the objective related to maximizing user satisfaction while meeting electricity constraints?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.",
+    "(0, 0)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.\nExpert: Do the constraints for the problem include a minimum aesthetic value requirement?\nUser: No\n",
+    "(0, 0, 0)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.\nExpert: Do the constraints for the problem include a minimum aesthetic value requirement?\nUser: No\n\nExpert: Do any of the problem descriptions primarily focus on maximizing efficiency or aesthetic values rather than minimizing costs?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.\nExpert: Do the constraints for the problem include a minimum aesthetic value requirement?\nUser: No\n\nExpert: Do any of the problem descriptions primarily focus on maximizing efficiency or aesthetic values rather than minimizing costs?\nUser: No\n\nExpert: Do any of the problems include constraints explicitly specifying a maximum unit limit for each type of air conditioner?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.",
+    "(0, 0)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.\nExpert: Are the two air conditioner types mutually exclusive in terms of installation, meaning one cannot be installed without removing or relocating the other?\nUser: No\n",
+    "(0, 0, 0)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.\nExpert: Are the two air conditioner types mutually exclusive in terms of installation, meaning one cannot be installed without removing or relocating the other?\nUser: No\n\nExpert: Are the two air conditioner types installed at different locations (e.g. different buildings, floors, or areas) within the strata-management company's scope?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.\nExpert: Are the two air conditioner types mutually exclusive in terms of installation, meaning one cannot be installed without removing or relocating the other?\nUser: No\n\nExpert: Are the two air conditioner types installed at different locations (e.g. different buildings, floors, or areas) within the strata-management company's scope?\nUser: Yes\n\nExpert: Can the strata-management company adjust the power consumption of each air conditioner type (e.g. by adjusting usage hours, capacity, or settings) to meet the electricity constraints?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.",
+    "(0, 0)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.\nExpert: Does the problem description explicitly mention both types of air conditioners (e.g., AC1 and AC2) in the parameters? \nUser: No\n",
+    "(0, 0, 0)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.\nExpert: Does the problem description explicitly mention both types of air conditioners (e.g., AC1 and AC2) in the parameters? \nUser: No\n\nExpert: Does the problem description include a specific quantity or numerical value for the objective or one of the constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The strata-management company needs to balance aesthetics, power needs, and electricity constraints to determine the optimal combination of two air conditioner types.\nExpert: Does the problem description explicitly mention both types of air conditioners (e.g., AC1 and AC2) in the parameters? \nUser: No\n\nExpert: Does the problem description include a specific quantity or numerical value for the objective or one of the constraints?\nUser: Yes\n\nExpert: Does the problem statement explicitly mention the word 'minimize' as the objective function for the optimization problem?\nUser: Yes\n"
+  }
+}

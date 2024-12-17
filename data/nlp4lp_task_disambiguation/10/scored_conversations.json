@@ -1,0 +1,419 @@
+{
+  "vague_description": "Determining the optimal values for certain variables to minimize error in a given system based on established equations.",
+  "detailed_description": "Find the lamp powers \\param{power_j} that minimize the absolute error between the illuminations \\param{ill_i} and the desired illuminations \\param{DesiredIlluminations}. The relationship between the lamp powers and the illuminations is given by coefficients \\param{Coefficients}.",
+  "target_objective": "Minimize the absolute error between the actual illumination levels and the desired illumination levels",
+  "target_constraints": [
+    "Lamp powers are non-negative"
+  ],
+  "target_parameters": [
+    "Number of different illuminations",
+    "Number of lamp powers",
+    "Coefficients relating lamp powers to illumination",
+    "Desired level of illuminations"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.",
+    "(0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Are the established equations that define the system linear?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Are the established equations that define the system linear?\nUser: Yes\n\nExpert: Are there any constraints on the variables in your optimization problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Are the established equations that define the system linear?\nUser: Yes\n\nExpert: Are there any constraints on the variables in your optimization problem?\nUser: No\n\nExpert: Are you using a specific method or algorithm for optimization, like least squares or gradient descent?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.",
+    "(0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Is there at least one parameter that is a function of observed data or is derived from experimental models?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Is there at least one parameter that is a function of observed data or is derived from experimental models?\nUser: No\n\nExpert: Do all candidate problems involve non-negativity constraints on their decision variables?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Is there at least one parameter that is a function of observed data or is derived from experimental models?\nUser: No\n\nExpert: Do all candidate problems involve non-negativity constraints on their decision variables?\nUser: Yes\n\nExpert: Do any of the problems have constraints that require the sum of decision variables to equal a fixed constant?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.",
+    "(0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Are the established equations linear with respect to the variables you are trying to optimize?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Are the established equations linear with respect to the variables you are trying to optimize?\nUser: Yes\n\nExpert: Are the established equations fixed, meaning their coefficients are known constants, or do they involve any parameters that are also variables in the optimization problem?\nUser: {\"response\":\"Yes, the coefficients are known constants.\"}\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Are the established equations linear with respect to the variables you are trying to optimize?\nUser: Yes\n\nExpert: Are the established equations fixed, meaning their coefficients are known constants, or do they involve any parameters that are also variables in the optimization problem?\nUser: {\"response\":\"Yes, the coefficients are known constants.\"}\n\nExpert: Is the objective of the optimization problem to minimize the overall error, as opposed to minimizing a specific component of the error?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.",
+    "(0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Does the objective function contain the word 'minimize'?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Does the objective function contain the word 'minimize'?\nUser: Yes\n\nExpert: Does the problem description include any specific constraints?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal values for certain variables to minimize error in a given system based on established equations.\nExpert: Does the objective function contain the word 'minimize'?\nUser: Yes\n\nExpert: Does the problem description include any specific constraints?\nUser: No\n\nExpert: Are there any constraints specified in addition to the objective described as minimizing error in a given system?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "error",
+            "system",
+            "equations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize error in the given system by finding optimal values for certain variables."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The equations governing the system must hold with the chosen variable values.",
+            "The error function to be minimized must be well-defined and differentiable.",
+            "Variables should be within their specified bounds, if any.",
+            "All dependencies between variables should be respected."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "system",
+            "equations",
+            "error",
+            "variables"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the error in the system by optimizing variable values based on linear equations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The system is defined by linear equations.",
+            "The objective is to minimize error."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "variables to be optimized",
+            "objective function to minimize error",
+            "linear equations defining the system",
+            "absence of constraints on the variables"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the values for certain variables that minimize the error in a linear system without any constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "linear equations",
+            "no constraints",
+            "minimize error",
+            "specific optimization method"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal values of variables that minimize the error in a system using linear equations, without constraints, applying a specified optimization method."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "error",
+            "values of variables"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize error in the system by optimizing certain variables."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All equations in the system must be satisfied.",
+            "Variables involved must adhere to their respective bounds, if any.",
+            "Error function to be minimized should be continuous and differentiable.",
+            "All variables should respect any given integer or binary restrictions, if applicable."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Values for certain variables"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize error in a given system by determining the optimal values for certain variables based on established equations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All parameters are constants, as they are not functions of observed data or derived from experimental models."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Values for certain variables",
+            "Non-negativity constraints on decision variables"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the error in the given system by optimizing the values of decision variables subject to non-negativity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All decision variables must be non-negative."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimize error under given equations",
+            "non-negativity on decision variables"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize error in a given system by determining optimal values for decision variables under non-negativity constraints, using established equations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All decision variables must be non-negative."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "variables to be optimized",
+            "objective function to minimize error",
+            "established equations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize error in the given system."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must satisfy all established equations of the system.",
+            "Each variable should stay within its defined bounds, if any are specified.",
+            "Minimization of the error is the primary objective.",
+            "All constraints related to the system's physical or operational limits must be respected.",
+            "Variables may need to be integers or non-negative, depending on the system's requirements."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "A set of linear equations.",
+            "Variables that need optimization to minimize error."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize error in the system by determining the optimal values for the variables within the linear equations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective function is linear with respect to the variables, hence all constraints must maintain the linearity of the problem.",
+            "The solution space needs to be bounded to ensure the existence of optimal solutions when minimizing error.",
+            "All variables should meet non-negativity constraints if applicable in the context of the system being optimized.",
+            "The variables must satisfy the structural constraints dictated by the established equations of the system."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "variables in the established equations for which optimal values are needed"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to find the optimal values for certain variables to minimize the error in a system where the established equations are linear and have known constant coefficients."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The equations are linear with respect to the variables being optimized.",
+            "The coefficients in the equations are known constants."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective function",
+            "variables to be optimized",
+            "known coefficients",
+            "error in system"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the overall error in a given system using established linear equations with known constant coefficients as constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization problem involves linear equations with respect to the variables being optimized.",
+            "The coefficients in the established equations are known constants, not variables in the optimization.",
+            "The objective is to minimize the overall error in the system."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "variables for minimizing error",
+            "established equations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the values for certain variables that minimize the error in the system, respecting the established equations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The variables must satisfy the established equations of the system.",
+            "All variables must be within the feasible region defined by the problem's context or bounds.",
+            "The error function is to be minimized; thus, partial derivatives or gradients must guide the optimization for continuous variables.",
+            "If applicable, variables should maintain any required integer values if they represent discrete quantities."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective function",
+            "variables",
+            "error",
+            "system",
+            "equations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize error in a given system."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The problem involves minimizing an objective function.",
+            "The variables in the system are subject to established equations.",
+            "There are certain constraints that must be met according to the system's requirements, although they are not explicitly mentioned in this conversation."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function",
+            "Error"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize error in the given system using established equations."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Variables to determine: certain variables within the system",
+            "Objective function: minimize error in the system"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize error in a given system based on established equations."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 5
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 4
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    }
+  }
+}

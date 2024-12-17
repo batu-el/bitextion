@@ -1,0 +1,19 @@
+{
+  "vague_description": "A farmer must transport a herd of cows using both trucks and helicopters, while balancing the number of trips and pollution limitations.",
+  "detailed_description": "A farmer decides to move his cows to a nearby farm using helicopters and trucks. A helicopter can take \\param{CowsPerHelicopter} cows per trip and creates \\param{PollutionPerHelicopter} units of pollution. A truck can take \\param{CowsPerTruck} cows per trip and creates \\param{PollutionPerTruck} units of pollution. The farmer needs to transport \\param{TotalCows} cows and he only has enough money for at most \\param{MaxTruckTrips} truck trips. How many of each type of trip should be taken to minimize the total amount of pollution produced?",
+  "target_objective": "Minimize the total amount of pollution produced by the transportation of cows",
+  "target_constraints": [
+    "Number of helicopter trips is non-negative",
+    "Number of truck trips is non-negative",
+    "Total number of cows transported is at least TotalCows",
+    "Total number of truck trips is at most MaxTruckTrips"
+  ],
+  "target_parameters": [
+    "Number of cows per helicopter trip",
+    "Pollution units created by one helicopter trip",
+    "Number of cows per truck trip",
+    "Pollution units created by one truck trip",
+    "Total number of cows to transport",
+    "Maximum number of truck trips allowed"
+  ]
+}

@@ -1,0 +1,470 @@
+{
+  "vague_description": "Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.",
+  "detailed_description": "The objective is to minimize the maximum thrust required, which is max_t |a_t| over the duration T, with initial conditions set by X0, V0, and final conditions set by XT and VT.",
+  "target_objective": "Minimize the maximum thrust required across the given duration T",
+  "target_constraints": [
+    "Thrust limits are determined by minimizing the maximum absolute value of acceleration over time T"
+  ],
+  "target_parameters": [
+    "Initial position of the object",
+    "Initial velocity of the object",
+    "Final position of the object",
+    "Final velocity of the object",
+    "Time duration for the journey"
+  ],
+  "Expert": {
+    "(0,)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.",
+    "(0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there a specific mathematical criterion or model defined for the force used in the spacecraft trajectory optimization?\nUser: No\n",
+    "(0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there a specific mathematical criterion or model defined for the force used in the spacecraft trajectory optimization?\nUser: No\n\nExpert: Are there any constraints on the spacecraft trajectory, such as thrust limits, path boundaries, or timing restrictions?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there a specific mathematical criterion or model defined for the force used in the spacecraft trajectory optimization?\nUser: No\n\nExpert: Are there any constraints on the spacecraft trajectory, such as thrust limits, path boundaries, or timing restrictions?\nUser: No\n\nExpert: Is there an objective function provided that needs to be minimized or maximized for this spacecraft trajectory optimization problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.",
+    "(0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there a constraint related to maintaining communication orientation or ensuring effective communication during the trajectory?\nUser: No\n",
+    "(0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there a constraint related to maintaining communication orientation or ensuring effective communication during the trajectory?\nUser: No\n\nExpert: Does the problem include a constraint related to avoiding collisions with celestial bodies or obstacles?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there a constraint related to maintaining communication orientation or ensuring effective communication during the trajectory?\nUser: No\n\nExpert: Does the problem include a constraint related to avoiding collisions with celestial bodies or obstacles?\nUser: No\n\nExpert: Is there a constraint involving maintaining the spacecraft within specific positional or spatial boundaries during the trajectory?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.",
+    "(0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Are there any constraints on the maximum or minimum velocity of the spacecraft at any point during the trajectory?\nUser: No\n",
+    "(0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Are there any constraints on the maximum or minimum velocity of the spacecraft at any point during the trajectory?\nUser: No\n\nExpert: Are there any constraints on the maximum or minimum acceleration of the spacecraft at any point during the trajectory?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Are there any constraints on the maximum or minimum velocity of the spacecraft at any point during the trajectory?\nUser: No\n\nExpert: Are there any constraints on the maximum or minimum acceleration of the spacecraft at any point during the trajectory?\nUser: No\n\nExpert: Is the objective to reduce the peak force usage while still achieving the shortest possible time to reach the final state?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.",
+    "(0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there any information given about specific or additional constraints beyond the initial, final states, and time constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there any information given about specific or additional constraints beyond the initial, final states, and time constraints?\nUser: No\n\nExpert: Does the problem description include a specific initial state or final state in its constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Find an optimal control strategy for spacecraft trajectory that reduces peak force usage between specified initial and final states.\nExpert: Is there any information given about specific or additional constraints beyond the initial, final states, and time constraints?\nUser: No\n\nExpert: Does the problem description include a specific initial state or final state in its constraints?\nUser: Yes\n\nExpert: Does the description mention a specific 'optimal control strategy' or 'control strategy' in its parameters or objective?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Initial State (Position, Velocity, Mass)",
+            "Final State (Position, Velocity)",
+            "Control Inputs (Thrust, Angle)",
+            "Force Constraints",
+            "Time Period",
+            "Spacecraft Dynamics Model"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal control strategy for a spacecraft trajectory that minimizes the peak force used between given initial and final states."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The trajectory must start from the specified initial state and reach the specified final state.",
+            "The control strategy must minimize the peak force exerted during the trajectory.",
+            "The spacecraft must adhere to physical constraints such as maximum thrust limits and fuel consumption limits.",
+            "The trajectory must obey the dynamical equations governing spacecraft motion.",
+            "Boundary conditions must be satisfied at both the initial and final states as prescribed.",
+            "Intermediate states within the trajectory must comply with safety and operational constraints, such as avoiding collision with obstacles or restricted zones.",
+            "The control strategy must respect any time constraints, such as reaching the final state within a maximum allowable time."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Initial state of the spacecraft",
+            "Final state of the spacecraft",
+            "Peak force usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the peak force usage during the spacecraft's trajectory from the initial to the final state."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The spacecraft must move between specified initial and final states.",
+            "The control strategy should reduce peak force usage."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Initial state of the spacecraft",
+            "Final state of the spacecraft",
+            "Objective: Minimize peak force usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The goal is to minimize the peak force used during the spacecraft's trajectory from its initial to final state."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Initial and final states of the spacecraft trajectory must be specified."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Initial state",
+            "Final state",
+            "Objective function"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize peak force usage in spacecraft trajectory between specified initial and final states."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Initial State: Specified initial position and velocity vector of the spacecraft.",
+            "Final State: Target position and velocity vector that the spacecraft must reach.",
+            "Control Inputs: Set of possible control actions or thrust inputs available to the spacecraft.",
+            "State Dynamics: Equations of motion that describe how the spacecraft's state evolves over time as a function of control inputs.",
+            "Cost Function: Objective to minimize peak force usage throughout the trajectory.",
+            "Constraints: Physical or operational constraints such as thrust limits, fuel limits, and mission-specific constraints."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the maximum thrust force used during the spacecraft's trajectory between the initial and final states."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The trajectory must start from the specified initial state.",
+            "The trajectory must end at the specified final state.",
+            "The control strategy should minimize peak force usage.",
+            "All spacecraft dynamics must be respected, including physical and operational limits.",
+            "Fuel consumption constraints may apply, depending on spacecraft design parameters.",
+            "The control inputs must stay within the allowable force or thrust limits.",
+            "The optimization should account for any applicable gravitational influences or perturbations.",
+            "The strategy must meet any mission-specific time requirements for trajectory completion.",
+            "Safety constraints should be factored in to prevent collisions or violations of safety margins."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Initial state of the spacecraft",
+            "Final state of the spacecraft",
+            "Peak force usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To reduce the peak force usage during the spacecraft trajectory between specified initial and final states."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The trajectory must start from the specified initial state.",
+            "The trajectory must reach the specified final state.",
+            "Peak force usage must be minimized between the initial and final states.",
+            "No specified constraints on communication orientation need to be considered."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "spacecraft trajectory control",
+            "optimal control strategy",
+            "reduce peak force usage",
+            "specified initial state",
+            "specified final state"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine an optimal control strategy for spacecraft trajectory that minimizes the peak force exerted between specified initial and final states without additional constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The trajectory must reduce peak force usage.",
+            "The solution should transition between specified initial and final states."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Initial state of the spacecraft",
+            "Final state of the spacecraft",
+            "Objective to reduce peak force usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize peak force usage during the spacecraft trajectory from specified initial to final states."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No constraint related to maintaining communication orientation or ensuring effective communication during the trajectory.",
+            "No constraint related to avoiding collisions with celestial bodies or obstacles.",
+            "No constraint involving maintaining the spacecraft within specific positional or spatial boundaries during the trajectory."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Initial state of the spacecraft",
+            "Final state of the spacecraft",
+            "Control variables affecting the trajectory",
+            "Time horizon for the trajectory",
+            "Maximum allowable force"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize peak force used in spacecraft trajectory control between given initial and final states."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The spacecraft must start from the initial state defined by specific position and velocity coordinates.",
+            "The spacecraft must reach the final state, also defined by specific position and velocity coordinates.",
+            "Peak force usage along the trajectory should be minimized.",
+            "The trajectory must adhere to the laws of motion and any physical constraints of the spacecraft, such as maximum thrust and fuel limitations.",
+            "The time of travel between the initial and final states must be considered, potentially with upper or lower bounds.",
+            "Any gravitational forces from celestial bodies along the trajectory must be accounted for.",
+            "The control strategy should not violate any safety protocols related to spacecraft operation, such as maximum allowable acceleration for onboard equipment or crew."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "an objective function that minimizes peak force usage",
+            "initial state is specified",
+            "final state is specified",
+            "no constraints on maximum or minimum velocity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the peak force usage during the spacecraft trajectory from the initial to the final state."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The trajectory must begin at the specified initial state.",
+            "The trajectory must end at the specified final state."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Spacecraft trajectory between specified initial and final states",
+            "Objective: Minimize peak force usage",
+            "No constraints on maximum or minimum velocity",
+            "No constraints on maximum or minimum acceleration"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Reduce peak force usage during spacecraft trajectory while transitioning between specified initial and final states."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Initial and final states of the spacecraft",
+            "Force usage must be minimized (specifically, peak force)",
+            "No constraints on velocity",
+            "No constraints on acceleration"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find an optimal control strategy for a spacecraft trajectory that minimizes peak force usage between specified initial and final states."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Initial state of the spacecraft must be maintained at the beginning of the trajectory.",
+            "Final state of the spacecraft must be achieved by the end of the trajectory.",
+            "No constraints on maximum or minimum velocity.",
+            "No constraints on maximum or minimum acceleration."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Initial state of spacecraft (position, velocity)",
+            "Final state of spacecraft (position, velocity)",
+            "Force usage constraints",
+            "Time interval for travel",
+            "Gravitational influences",
+            "Constraints on trajectory path",
+            "Fuel consumption limits",
+            "Spacecraft physical limitations",
+            "Destination arrival time"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the peak force usage required to maneuver a spacecraft from a specified initial state to a desired final state."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The spacecraft must start at the specified initial state.",
+            "The spacecraft must reach the specified final state.",
+            "The trajectory must minimize peak force usage.",
+            "The control strategy must adhere to physical laws of motion.",
+            "The trajectory must comply with any predefined spatial, temporal, or mission-specific constraints (e.g., avoiding obstacles, maintaining communication).",
+            "The solution must be achievable given the spacecraft's power and propulsion capabilities.",
+            "The strategy should avoid exceeding structural force limits of the spacecraft.",
+            "All state and control variables should remain within prescribed bounds during the trajectory."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "initial state of the spacecraft",
+            "final state of the spacecraft",
+            "time constraints for the journey"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the peak force usage during the spacecraft's trajectory while achieving transition from the initial to the final state within given time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Initial state of the spacecraft is specified.",
+            "Final state of the spacecraft is specified.",
+            "There are time constraints for the trajectory.",
+            "Objective is to minimize peak force usage during the trajectory."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Initial state",
+            "Final state",
+            "Time constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine an optimal control strategy that minimizes the peak force exerted during the spacecraft's trajectory from the initial state to the final state."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The trajectory must start from the specified initial state.",
+            "The trajectory must end at the specified final state.",
+            "The control strategy must minimize peak force usage during the trajectory."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "initial state",
+            "final state",
+            "minimize peak force usage"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the peak force usage in the spacecraft trajectory between the specified initial and final states."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Initial state is specified",
+            "Final state is specified"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      }
+    }
+  }
+}

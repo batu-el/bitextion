@@ -1,0 +1,470 @@
+{
+  "vague_description": "The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.",
+  "detailed_description": "How much regular and overtime labor should be utilized each week to assemble the baskets to maximize the profit over the season? The costs for regular and overtime labor are \\param{RegularCost} and \\param{OvertimeCost}, respectively. Each basket requires \\param{AssemblyTime} to assemble, and the material cost per basket is \\param{MaterialCost}. Baskets are sold at \\param{SellingPrice}, with a holding cost of \\param{HoldingCost} and a salvage value of \\param{SalvageValue} at the end of the season. For each week w, the demand for baskets is \\param{Demand}, with available regular and overtime labor given by \\param{RegularLabor} and \\param{OvertimeLabor} respectively.",
+  "target_objective": "Maximize profit from assembly and sale of baskets over the season",
+  "target_constraints": [
+    "Regular labor used in any week is at most RegularLabor",
+    "Overtime labor used in any week is at most OvertimeLabor",
+    "Total assembly time in a week is limited by the sum of regular and overtime labor available",
+    "Total number of baskets assembled must match weekly demand",
+    "Number of baskets assembled must be non-negative",
+    "Regular labor used must be non-negative",
+    "Overtime labor used must be non-negative"
+  ],
+  "target_parameters": [
+    "Cost of regular labor per unit of time",
+    "Cost of overtime labor per unit of time",
+    "Time required to assemble a single basket",
+    "Cost of materials per basket",
+    "Selling price per basket",
+    "Holding cost per basket per unit of time",
+    "Salvage value per unsold basket at the end of the season",
+    "Demand for baskets in week w",
+    "Number of regular labor units available in week w",
+    "Number of overtime labor units available in week w"
+  ],
+  "Expert": {
+    "(0,)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.",
+    "(0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Are there explicit numerical constraints on the available resources in the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Are there explicit numerical constraints on the available resources in the optimization problem?\nUser: Yes\n\nExpert: Is the optimization problem aiming to minimize costs while achieving a specific level of output?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Are there explicit numerical constraints on the available resources in the optimization problem?\nUser: Yes\n\nExpert: Is the optimization problem aiming to minimize costs while achieving a specific level of output?\nUser: No\n\nExpert: Is the optimization problem maximizing output given a certain cost constraint?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.",
+    "(0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Is the objective function solely focused on minimizing cost without explicitly aiming to maximize output or production?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Is the objective function solely focused on minimizing cost without explicitly aiming to maximize output or production?\nUser: No\n\nExpert: Does the problem include a specific efficiency target value or metric that must be achieved?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Is the objective function solely focused on minimizing cost without explicitly aiming to maximize output or production?\nUser: No\n\nExpert: Does the problem include a specific efficiency target value or metric that must be achieved?\nUser: No\n\nExpert: Does the problem description include a constraint related to maintaining quality standards or quality index for the output?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.",
+    "(0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Is there a limited budget constraint that restricts the total amount of resources that can be allocated?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Is there a limited budget constraint that restricts the total amount of resources that can be allocated?\nUser: No\n\nExpert: Is the problem a maximization problem, where the goal is to maximize output (or a related metric), or is it a minimization problem, where the goal is to minimize cost (or a related metric)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Is there a limited budget constraint that restricts the total amount of resources that can be allocated?\nUser: No\n\nExpert: Is the problem a maximization problem, where the goal is to maximize output (or a related metric), or is it a minimization problem, where the goal is to minimize cost (or a related metric)?\nUser: Yes\n\nExpert: Is the problem a maximization problem?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.",
+    "(0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Does the problem description explicitly mention a trade-off between two or more conflicting objectives?\nUser: No\n",
+    "(0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Does the problem description explicitly mention a trade-off between two or more conflicting objectives?\nUser: No\n\nExpert: Does your problem include any constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The problem involves determining the optimal allocation of resources while balancing cost and output to achieve the desired outcome.\nExpert: Does the problem description explicitly mention a trade-off between two or more conflicting objectives?\nUser: No\n\nExpert: Does your problem include any constraints?\nUser: Yes\n\nExpert: Is the objective of the problem to minimize something (cost, resources, etc.)?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "cost",
+            "output",
+            "desired outcome"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of resources to balance cost and output while achieving the desired outcome."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of resources should not exceed the budget.",
+            "The output must meet or exceed the desired level.",
+            "The allocation of resources should be efficient to maximize output.",
+            "All resources must be fully utilized if possible."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource limits",
+            "cost",
+            "output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to find the optimal allocation of resources that minimizes costs while maximizing output, under explicit numerical constraints on the availability of resources, to achieve a desired outcome."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Available budget: $500,000",
+            "Maximum staff: 20 people",
+            "Equipment capacity: 1.2 tons/hour"
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal allocation of resources",
+            "Maximizing desired outcome",
+            "Balancing cost and output",
+            "Explicit numerical constraints on available resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to achieve the desired outcome by optimally allocating resources while balancing cost and output."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability is limited to specific numerical values or ranges.",
+            "The optimization must achieve the desired outcome, which is not explicitly defined as minimizing costs but implies a balance between cost and output."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal allocation of resources",
+            "Balancing cost and output",
+            "Numerical constraints on resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Achieve a desired outcome by optimally allocating resources, considering both cost and output, within certain numerical constraints on available resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There are numerical constraints on the availability of resources.",
+            "The optimization problem does not involve minimizing costs while achieving a specific level of output.",
+            "The optimization problem does not involve maximizing output given a specific cost constraint."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "cost",
+            "output"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of resources to balance cost and output to achieve the desired outcome."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation cannot exceed available resources.",
+            "Total cost must not surpass the budgetary limits.",
+            "Output must meet or exceed minimum desired levels.",
+            "All allocations must ensure non-negative values."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "cost",
+            "output",
+            "resource allocation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize resource allocation by simultaneously minimizing cost and maximizing output to achieve a desired outcome."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The resource allocation must balance both cost and output.",
+            "The solution should achieve a desired outcome, possibly defined in terms of both cost efficiency and sufficient output levels.",
+            "There may be implicit constraints related to resource availability, production capacity, or other system limitations that must be respected during allocation."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "cost",
+            "output",
+            "desired outcome"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal allocation of resources to achieve a balance between cost and output in order to reach a desired outcome."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of resources must balance both cost and output.",
+            "The cost must not exceed available budgetary limits.",
+            "Output must meet or exceed the minimum required levels without an explicit target for efficiency.",
+            "The resources are limited in their availability, thus requiring optimal distribution to achieve the desired outcome."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation",
+            "Cost",
+            "Output",
+            "Desired Outcome"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources optimally, balancing both cost and output, in order to achieve a desired outcome without focusing solely on cost minimization or maximizing output."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must balance cost and output to achieve a desired outcome.",
+            "There is a requirement for an optimal allocation of resources."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "cost",
+            "output",
+            "desired outcome"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of resources to achieve the desired outcome while balancing cost and output."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability: Limited quantities of resources must be allocated efficiently.",
+            "Cost considerations: Allocation must be done within a specified budget to minimize costs.",
+            "Output requirements: The allocation strategy must produce the desired output level.",
+            "Efficiency: Resource allocation should optimize the output per unit of resource used."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal allocation of resources",
+            "Balancing cost and output",
+            "Achieving desired outcome"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of resources to maximize output while considering cost efficiency."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of resources must balance cost and output to achieve the desired outcome."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "cost balancing",
+            "output balancing",
+            "maximization of output",
+            "minimization of cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal allocation of resources to maximize output while balancing cost and achieving the desired outcome, without a limited budget constraint."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The problem involves achieving an optimal allocation of resources.",
+            "There is no constraint on the total amount of resources that can be allocated.",
+            "The goal is either to maximize output or to minimize cost."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Cost balancing",
+            "Output balancing",
+            "Maximization problem"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize output by optimally allocating resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The problem does not include a budget constraint.",
+            "The problem is a maximization problem, focusing on maximizing output or a related metric."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "cost",
+            "output",
+            "desired outcome"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of resources by balancing cost and output to achieve the desired outcome."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total allocated resources cannot exceed the available resources.",
+            "The cost of resources used must be within the budget limits.",
+            "The output produced must meet or exceed the desired performance metrics.",
+            "Resource allocation must adhere to any specific regulatory or policy constraints applicable.",
+            "The solution should maintain a balance between cost efficiency and output quality."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Cost minimization",
+            "Output maximization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the allocation of resources that minimizes cost while achieving a specified level of output."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must not exceed available resources.",
+            "Costs should not surpass a predefined budget.",
+            "Output must meet a minimum threshold requirement."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal resource allocation",
+            "Balancing cost",
+            "Balancing output",
+            "Achieving desired outcome",
+            "Includes constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of resources to balance cost and output to achieve the desired outcome."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation cannot exceed available resources.",
+            "Total cost must remain within the budget.",
+            "Output levels must meet or exceed the minimum required outcome."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize objective function",
+            "resource allocation",
+            "cost consideration",
+            "output consideration",
+            "constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize output while considering resource allocation and constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation limits for different categories",
+            "Output must meet or exceed a specific threshold",
+            "Total costs must remain below a specified budget",
+            "All resources must be effectively utilized",
+            "Specific requirements or quotas for production or service levels"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      }
+    }
+  }
+}

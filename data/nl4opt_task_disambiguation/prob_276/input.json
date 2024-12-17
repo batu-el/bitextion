@@ -1,0 +1,22 @@
+{
+  "vague_description": "Determine the optimal number of spinach and soybean cups for seniors to meet nutritional goals and maximize calorie intake while maintaining certain dietary constraints.",
+  "detailed_description": "A senior home has snacks of spinach and soybeans to increase their intake of iron. A cup of spinach contains \\param{FibreSpinach} units of fibre and \\param{IronSpinach} mg of iron. A cup of soybeans contains \\param{FibreSoybeans} units of fibre and \\param{IronSoybeans} mg of iron. Due to other nutritional requirements, the nurses decided that the number of cups of spinach must exceed the number of cups of soybeans. Furthermore, a cup of spinach contains \\param{CaloriesSpinach} calories while a cup of soybeans contains \\param{CaloriesSoybeans} calories. If they schedule that the elderly need in total at least \\param{TotalFibre} units of fibre and \\param{TotalIron} mg of iron, how many cups of each should the nurses schedule to maximize the seniors\u2019 total caloric intake?",
+  "target_objective": "Maximize the seniors' total caloric intake from cups of spinach and soybeans",
+  "target_constraints": [
+    "Number of cups of spinach is non-negative",
+    "Number of cups of soybeans is non-negative",
+    "Number of cups of spinach must exceed the number of cups of soybeans",
+    "Total intake of fibre must be at least TotalFibre units",
+    "Total intake of iron must be at least TotalIron mg"
+  ],
+  "target_parameters": [
+    "Units of fibre in a cup of spinach",
+    "Milligrams of iron in a cup of spinach",
+    "Calories in a cup of spinach",
+    "Units of fibre in a cup of soybeans",
+    "Milligrams of iron in a cup of soybeans",
+    "Calories in a cup of soybeans",
+    "Total minimum required units of fibre",
+    "Total minimum required milligrams of iron"
+  ]
+}

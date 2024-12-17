@@ -1,0 +1,492 @@
+{
+  "vague_description": "Determine the optimal allocation of constrained resources to achieve production goals.",
+  "detailed_description": "Maximize total production in the last two years using the given constraints on production inputs from two resource types (\\param{InputOne} and \\param{InputTwo}), manpower allocations (\\param{ManpowerOne} and \\param{ManpowerTwo}), stock levels (\\param{Stock}), capacities (\\param{Capacity}), and the upper limit of manpower (\\param{ManpowerLimit}).",
+  "target_objective": "Maximize total production in the last two years",
+  "target_constraints": [
+    "The consumption of InputOne per year is non-negative and within its availability",
+    "The consumption of InputTwo per year is non-negative and within its availability",
+    "Manpower allocation for ManpowerOne is non-negative and within its limit",
+    "Manpower allocation for ManpowerTwo is non-negative and within its limit",
+    "Stock levels must be maintained as per Stock non-negativity and limits",
+    "Production capacities must be respected according to Capacity",
+    "The total manpower used must not exceed the upper limit, ManpowerLimit",
+    "All variables of production, resources, and manpower must be non-negative"
+  ],
+  "target_parameters": [
+    "The production inputs from resource type one to product k in year j",
+    "The manpower allocated to resource type one for product k",
+    "The production inputs from resource type two to product k in year j",
+    "The manpower allocated to resource type two for product k",
+    "Stock levels of product k at the start of the planning horizon",
+    "Production capacity for product k",
+    "The upper limit of manpower"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal allocation of constrained resources to achieve production goals.",
+    "(0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Are there specific upper and lower bounds defined for each resource in the optimization problem?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Are there specific upper and lower bounds defined for each resource in the optimization problem?\nUser: No\n\nExpert: Is there a clearly defined objective function, like maximizing profit or minimizing cost, in this optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Are there specific upper and lower bounds defined for each resource in the optimization problem?\nUser: No\n\nExpert: Is there a clearly defined objective function, like maximizing profit or minimizing cost, in this optimization problem?\nUser: Yes\n\nExpert: Is the objective function related to optimizing a specific numerical production target?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of constrained resources to achieve production goals.",
+    "(0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Does the objective involve maximizing profit in any form?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Does the objective involve maximizing profit in any form?\nUser: No\n\nExpert: Do any of the problem descriptions include environmental impact constraints?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Does the objective involve maximizing profit in any form?\nUser: No\n\nExpert: Do any of the problem descriptions include environmental impact constraints?\nUser: No\n\nExpert: Is the objective function to minimize production time rather than production cost?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal allocation of constrained resources to achieve production goals.",
+    "(0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Are the production goals expressed as a maximization problem (maximize profit, output, etc.)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Are the production goals expressed as a maximization problem (maximize profit, output, etc.)?\nUser: Yes\n\nExpert: Is the objective function (production goal) linear in nature (i.e., directly proportional to the resource allocation)?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Are the production goals expressed as a maximization problem (maximize profit, output, etc.)?\nUser: Yes\n\nExpert: Is the objective function (production goal) linear in nature (i.e., directly proportional to the resource allocation)?\nUser: Yes\n\nExpert: Is there a finite set of discrete resources (e.g., labor, equipment) to be allocated, rather than continuous resources (e.g., water, electricity)?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of constrained resources to achieve production goals.",
+    "(0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Is the objective of the problem function maximization?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Is the objective of the problem function maximization?\nUser: Yes\n\nExpert: Does the problem description include any non-empty list of constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of constrained resources to achieve production goals.\nExpert: Is the objective of the problem function maximization?\nUser: Yes\n\nExpert: Does the problem description include any non-empty list of constraints?\nUser: Yes\n\nExpert: Is the objective function explicitly stated as 'maximize' or does it contain the word 'maximization'?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Maximize production output",
+            "Constraints: Limited resources (e.g., labor, materials, machinery)",
+            "Production goals: Specific target quantities for different products",
+            "Resource availability: Total amount and availability schedule for each resource",
+            "Resource utilization rate: Efficiency or rate at which each resource can be used",
+            "Time horizon: Total time period for the production planning",
+            "Capacity constraints: Maximum limit on the usage of each resource or production line",
+            "Cost constraints: Budget limits for resource procurement or operational costs",
+            "Demand forecasts: Expected demand levels for the finished products",
+            "Inventory levels: Initial and safety stock levels"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the allocation of limited resources in order to meet predefined production targets effectively."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each resource has a limited supply that cannot be exceeded.",
+            "Production goals must be met as specified.",
+            "Resource allocation cannot result in negative quantities assigned to any task.",
+            "The total resources allocated must not exceed the total available resources."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production goals",
+            "Resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To allocate resources in a way that maximizes production output without exceeding available resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources must be allocated in such a way that production goals are achieved.",
+            "Resources are constrained, meaning they are limited in supply, but there are no specific upper or lower bounds defined for each resource."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Single objective",
+            "Constraints: No specific upper or lower bounds on resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to achieve production goals by determining the optimal allocation of constrained resources, guided by a clearly defined objective function such as maximizing profit or minimizing cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No specific upper bounds for resources.",
+            "No specific lower bounds for resources.",
+            "Clearly defined objective function exists (e.g., maximize profit or minimize cost)."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Optimize a specific numerical production target",
+            "Constraints: Constrained resources with no specific upper and lower bounds"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the allocation of constrained resources to achieve a specific numerical production target, likely related to maximizing productivity or efficiency."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The resource allocation should aim to achieve specific production goals related to the objective function.",
+            "There are constraints that stem from the goal of optimizing a specific numerical production target."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resources available: Labor, materials, machines.",
+            "Production goals: Quantity of product A, quantity of product B, etc.",
+            "Constraints: Maximum available hours of labor, maximum units of materials, machine hours, etc.",
+            "Objective: Maximize production output or minimize production costs."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal allocation of constrained resources to achieve production goals."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total resources available are fixed and limited.",
+            "Each type of resource has a specific capacity that cannot be exceeded.",
+            "Production must meet specific demand requirements for all products.",
+            "There are budgetary constraints that limit the cost of resource allocation.",
+            "Time constraints must be adhered to in the production schedule.",
+            "Each resource has a minimum allocation level required to function efficiently.",
+            "Legal and regulatory guidelines must be followed in resource usage."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Achieve production goals (not profit maximization)",
+            "Constraints: Limited or constrained resources",
+            "Decision variables: Allocation of these constrained resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Achieve production goals with optimal resource allocation"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation should achieve specific production goals without exceeding resource limits.",
+            "Resource constraints must be considered, implying limited availability of materials, labor, or machinery.",
+            "The problem does not involve profit maximization, so the goal might be related to fulfilling production targets, minimizing waste, or optimizing resource usage within given limits."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "constrained resources",
+            "production goals"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal allocation of constrained resources to achieve production goals without focusing on maximizing profit or considering environmental impact constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function that achieves production goals without particular emphasis on maximizing profit, minimizing time, or minimizing cost.",
+            "There are constraints related to resource allocation, but not specifically related to environmental impact."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To achieve production goals without maximizing profit, minimizing production time, or considering environmental impact constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources are constrained and need to be optimally allocated.",
+            "The allocation should help achieve production goals.",
+            "The objective does not involve maximizing profit, minimizing production time, or minimizing production cost.",
+            "There are no environmental impact constraints."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Types: List of resources available for allocation (e.g., materials, labor, machinery)",
+            "Resource Availability: Total amount of each resource available for allocation",
+            "Product Types: List of products to be produced",
+            "Production Goals: Target output levels for each product type",
+            "Production Requirements: Amount of each resource needed to produce one unit of each product",
+            "Objective Function: Typically to maximize or minimize a specific metric, such as cost, time, or waste",
+            "Constraints: Restrictions on resource allocation, such as maximum resource usage, budget limits, or time constraints",
+            "Decision Variables: Variables that represent the amount of each resource allocated to each product type"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the best strategy for allocating limited resources in order to meet production targets effectively and efficiently."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of resources must not exceed their available quantities.",
+            "The production output must meet or exceed the specified production goals.",
+            "Processing times for resource allocation should not surpass available operational hours.",
+            "Allocated resources must comply with safety regulations and standards.",
+            "Resource allocations are limited by budget constraints.",
+            "Production processes must adhere to environmental impact regulations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Maximize profit or output.",
+            "Resource Constraints: Limited availability of raw materials, machinery, or labor.",
+            "Production Goals: Specific targets for output or efficiency."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize production output or profit by optimally allocating constrained resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Constraints on the availability of input resources.",
+            "Constraints on production capacity or technology limits.",
+            "Financial or budgetary constraints.",
+            "Quality or standards that need to be maintained.",
+            "Regulatory or compliance constraints.",
+            "Time or scheduling constraints for production."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: maximize profit or output",
+            "Production goals are defined as a linear function",
+            "Resource allocation directly affects the output linearly"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production output using the constrained resources available."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resources are limited in quantity.",
+            "Production must not exceed the available resource capacities.",
+            "Each resource contributes linearly to the production goal.",
+            "All resources must be allocated such that they meet the specified production goals.",
+            "Resource allocation must be positive or zero (non-negative constraint)."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Linear",
+            "Type of Problem: Maximization",
+            "Resources: Continuous",
+            "Constraints: Resource Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit under constraints of continuous resource allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The resources available for allocation are continuous, not discrete.",
+            "The objective function is linear and involves maximizing a certain quantity.",
+            "The total amount of resources available is limited.",
+            "Resource allocation directly impacts the production output in a proportional manner."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource constraints (e.g., raw materials, labor hours, budget)",
+            "target production output or goals",
+            "production cost per unit",
+            "timeframe for production",
+            "machine or operational capacity limits",
+            "demand forecasts",
+            "quality requirements or standards",
+            "resource availability patterns (e.g., seasonal)",
+            "production process efficiencies or inefficiencies",
+            "potential disruptions or risks",
+            "allocation flexibility or fixed commitments",
+            "market dynamics such as price changes or competitor actions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Achieve production goals by determining the optimal allocation of constrained resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability is limited, which restricts the total quantity of resources that can be allocated.",
+            "Production goals must be achieved within the given time frame.",
+            "Each resource has a specific cost associated with its use, influencing budget constraints.",
+            "Some resources might be substitutable, but not infinitely so, affecting allocation flexibility.",
+            "There may be minimum and maximum allocation limits for specific resources based on capacity.",
+            "Quality standards must be maintained, which could limit certain allocations.",
+            "Possible interdependencies between resources could influence efficiency and productivity.",
+            "Legal and environmental regulations could impose additional constraints on resource allocation."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Maximize production output",
+            "Decision variables: Allocation of constrained resources (e.g., labor hours, raw materials)",
+            "Constraints: Resource limitations (e.g., maximum available labor hours, raw material supply limits)",
+            "Production goals: Defined targets for production output",
+            "Demand constraints: Market demand or sales targets",
+            "Time constraints: Deadline for achieving production goals"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize production output by optimally allocating constrained resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability: Each type of resource has a maximum quantity that cannot be exceeded.",
+            "Production capacity: The total production across all units cannot exceed the production capacity.",
+            "Budget constraint: The total cost of resource allocation should not exceed the available budget.",
+            "Demand requirement: The allocation should at least meet the minimum demand for each product.",
+            "Non-negativity: The allocation values should be non-negative, indicating no negative resources can be allocated."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: maximize production output",
+            "Constraints: constrained resources available",
+            "Decision variables: allocation of resources to production processes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the achievement of production goals by optimally allocating constrained resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability constraints: Ensure production does not exceed the available resources. These could include labor hours, raw materials, and machine time.",
+            "Production capacity constraints: Each production line or unit has a maximum production capacity that cannot be exceeded.",
+            "Demand fulfillment constraints: The allocation must meet or exceed the predefined production targets for various products to meet customer demand.",
+            "Budgetary constraints: The cost of resources used in production should not exceed the allocated budget.",
+            "Quality constraints: The quality standards for the final product must be maintained, which might limit the use of certain combinations of resources."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize the production output.",
+            "Constraints: Limited resources for production."
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize the production output given the constrained resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of resources allocated to each production unit cannot exceed the total available resources.",
+            "Each unit of production must receive at least a minimum specified amount of each resource.",
+            "No more than a certain percentage of resources can be allocated to any single production unit.",
+            "Total cost of resource allocation must not exceed the budget limit.",
+            "Production goals for each unit must be met or exceeded with the allocated resources."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      }
+    }
+  }
+}

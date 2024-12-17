@@ -1,0 +1,46 @@
+{
+  "vague_description": "Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.",
+  "detailed_description": "A snow removal company removes snow from neighborhoods using small trucks and large trucks. A small truck requires \\param{PeopleSmallTruck} people to shovel the snow and can carry \\param{CapacitySmallTruck} units of snow. A large truck requires \\param{PeopleLargeTruck} people to shovel the snow and can carry \\param{CapacityLargeTruck} units of snow. The company has available \\param{TotalPeople} people. In addition, because some neighborhoods don\u2019t allow big trucks, at least \\param{MinSmallTrucks} trucks must be small. There must be at least \\param{MinLargeTrucks} large trucks as well, and the number of small trucks must be \\param{TruckProportion} times the number of large trucks. How many of each truck should be used to maximize the total amount of snow that can be transported?",
+  "target_objective": "Maximize the total amount of snow transported by the company",
+  "target_constraints": [
+    "Number of people assigned to small trucks is non-negative",
+    "Number of people assigned to large trucks is non-negative",
+    "The number of people for small and large trucks combined cannot exceed TotalPeople",
+    "At least MinSmallTrucks small trucks must be used",
+    "At least MinLargeTrucks large trucks must be used"
+  ],
+  "target_parameters": [
+    "Number of people required to shovel snow for a small truck",
+    "Capacity of snow that a small truck can carry",
+    "Number of people required to shovel snow for a large truck",
+    "Capacity of snow that a large truck can carry",
+    "Total number of people available for shoveling snow",
+    "Minimum number of small trucks required",
+    "Minimum number of large trucks required",
+    "Proportion of the number of small trucks to large trucks"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.",
+    "(0, 0)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.\nExpert: Is there a specific numerical limit on the total number of personnel available for truck operation?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.\nExpert: Is there a specific numerical limit on the total number of personnel available for truck operation?\nUser: Yes\n\nExpert: Is there a specific numerical limit on the number of small and large trucks available for allocation?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.\nExpert: Is there a specific numerical limit on the total number of personnel available for truck operation?\nUser: Yes\n\nExpert: Is there a specific numerical limit on the number of small and large trucks available for allocation?\nUser: Yes\n\nExpert: Are there specific capacity limits for the snow removal equipments of small and large trucks?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.",
+    "(0, 0)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.\nExpert: Is the operational cost structure dependent on both fuel and personnel costs?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.\nExpert: Is the operational cost structure dependent on both fuel and personnel costs?\nUser: No\n\nExpert: Does the objective involve minimizing the total time required for snow removal?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.\nExpert: Is the operational cost structure dependent on both fuel and personnel costs?\nUser: No\n\nExpert: Does the objective involve minimizing the total time required for snow removal?\nUser: No\n\nExpert: Is the primary objective of the problem related to minimizing truck deployment rather than cost?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.",
+    "(0, 0)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.\nExpert: Are there any hard constraints (e.g., non-negotiable limits) on the number of small or large trucks that can be used for snow removal?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.\nExpert: Are there any hard constraints (e.g., non-negotiable limits) on the number of small or large trucks that can be used for snow removal?\nUser: Yes\n\nExpert: Are these hard constraints related to the total number of trucks, rather than the type of truck (small vs. large)?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.\nExpert: Are there any hard constraints (e.g., non-negotiable limits) on the number of small or large trucks that can be used for snow removal?\nUser: Yes\n\nExpert: Are these hard constraints related to the total number of trucks, rather than the type of truck (small vs. large)?\nUser: No\n\nExpert: Are there any hard constraints specifically limiting the number of large trucks?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.",
+    "(0, 0)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.\nExpert: Are personnel availability and truck capacities explicitly mentioned in the problem constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.\nExpert: Are personnel availability and truck capacities explicitly mentioned in the problem constraints?\nUser: Yes\n\nExpert: Is the objective function to minimize something?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of small and large trucks for a snow removal crew with constraints on personnel, truck capacities, and neighborhood restrictions.\nExpert: Are personnel availability and truck capacities explicitly mentioned in the problem constraints?\nUser: Yes\n\nExpert: Is the objective function to minimize something?\nUser: No\n\nExpert: Does the problem description contain the word 'number' as part of the constraints, objective, parameters, or any other field?\nUser: Yes\n"
+  }
+}

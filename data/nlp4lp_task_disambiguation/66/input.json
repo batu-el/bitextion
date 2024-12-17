@@ -1,0 +1,15 @@
+{
+  "vague_description": "The traveler needs to optimize a route to minimize the travel distance while visiting multiple locations and returning to the original starting point.",
+  "detailed_description": "Determine the shortest route that the traveler can take to visit all \\param{N} towns and return to \\param{StartCity}.",
+  "target_objective": "Minimize the total travel distance for the route",
+  "target_constraints": [
+    "The traveler must visit each town exactly once",
+    "The traveler must return to StartCity after visiting all other towns",
+    "The distance between any two towns is non-negative"
+  ],
+  "target_parameters": [
+    "Number of towns to visit",
+    "Index of the start city",
+    "Distance from city i to city j"
+  ]
+}

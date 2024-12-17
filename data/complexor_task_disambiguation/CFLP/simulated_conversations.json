@@ -1,0 +1,44 @@
+{
+  "vague_description": "Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.",
+  "detailed_description": "Capacitated facility location problems deal with locating \\param{NumberOfFacilities} facilities to serve \\param{NumberOfCustomers} customers, at minimum total cost. Considering potential facility locations and customer zones as fixed points in a network, each facility has a fixed \\param{FacilityFixedCost} and a \\param{FacilityCapacity}. Furthermore, there exists a \\param{CustomerDemand} for each customer zone, and a \\param{FacilityToCustomerTransportCost} representing the cost of transport between facilities and customer zones.",
+  "target_objective": "Minimize the total cost of locating facilities and transporting goods to customer zones",
+  "target_constraints": [
+    "Each facility has a maximum capacity of FacilityCapacity",
+    "Total number of facilities to be located is NumberOfFacilities",
+    "Each customer zone is served by at least one facility and its demand must be met",
+    "Total output for each facility cannot exceed its capacity",
+    "The number of facilities and customers is fixed and non-negative"
+  ],
+  "target_parameters": [
+    "The number of potential facilities that can be established",
+    "The number of customer zones to be served",
+    "The fixed cost associated with establishing a facility",
+    "The cost of transporting goods from each facility to each customer zone",
+    "The capacity of each facility, which limits the amount of goods the facility can handle or produce",
+    "The demand of each customer zone that must be met by the facilities"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.",
+    "(0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Does the optimization problem involve minimizing cost while satisfying resource demand constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Does the optimization problem involve minimizing cost while satisfying resource demand constraints?\nUser: Yes\n\nExpert: Are there specific constraints on the maximum capacity of resources that can be allocated to each requirement?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Does the optimization problem involve minimizing cost while satisfying resource demand constraints?\nUser: Yes\n\nExpert: Are there specific constraints on the maximum capacity of resources that can be allocated to each requirement?\nUser: Yes\n\nExpert: Are there multiple types of resources involved, each with its own cost and capacity constraints?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.",
+    "(0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Do the constraints include a budget limit or cost constraint that must not be exceeded?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Do the constraints include a budget limit or cost constraint that must not be exceeded?\nUser: No\n\nExpert: Does the problem focus on minimizing time-related objectives while considering task dependencies?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Do the constraints include a budget limit or cost constraint that must not be exceeded?\nUser: No\n\nExpert: Does the problem focus on minimizing time-related objectives while considering task dependencies?\nUser: No\n\nExpert: Does the objective involve minimizing some aspect of resource usage?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.",
+    "(0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Is the objective to minimize costs?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Is the objective to minimize costs?\nUser: Yes\n\nExpert: Is the allocation of resources subject to any hard constraints, such as fixed capacity limits, that cannot be exceeded?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Is the objective to minimize costs?\nUser: Yes\n\nExpert: Is the allocation of resources subject to any hard constraints, such as fixed capacity limits, that cannot be exceeded?\nUser: Yes\n\nExpert: Is the problem dynamic, meaning the requirements and capacity limits change over time, or is it a static problem where these aspects remain constant?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.",
+    "(0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Is the objective of the optimization problem exactly 'Optimal Resource Allocation' (ignoring case)?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Is the objective of the optimization problem exactly 'Optimal Resource Allocation' (ignoring case)?\nUser: No\n\nExpert: Is the objective explicitly mentioned as 'Optimal Load Distribution' or similar?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal allocation of resources to meet diverse requirements with limited capacity is a complex challenge, deeply intertwined with logistical considerations and cost implications.\nExpert: Is the objective of the optimization problem exactly 'Optimal Resource Allocation' (ignoring case)?\nUser: No\n\nExpert: Is the objective explicitly mentioned as 'Optimal Load Distribution' or similar?\nUser: No\n\nExpert: Does the optimization problem description explicitly mention the word 'minimize' or a similar term in the objective section?\nUser: Yes\n"
+  }
+}

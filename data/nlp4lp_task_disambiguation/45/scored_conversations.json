@@ -1,0 +1,486 @@
+{
+  "vague_description": "Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.",
+  "detailed_description": "Minimize the total transportation cost. This cost is calculated based on the number of depots \\param{I}, the number of ports \\param{J}, the cost \\param{Price} per unit distance for transporting goods, and the distance \\param{Distance} between depot i and port j.",
+  "target_objective": "Minimize the total transportation cost from depots to ports",
+  "target_constraints": [
+    "The number of depots I is non-negative",
+    "The number of ports J is non-negative",
+    "Cost per unit distance Price is non-negative",
+    "Distance between each depot i and port j is non-negative"
+  ],
+  "target_parameters": [
+    "Number of depots",
+    "Number of ports",
+    "Cost per unit distance for transporting goods",
+    "Distance between depot i and port j"
+  ],
+  "Expert": {
+    "(0,)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.",
+    "(0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Is the goal to minimize both transportation costs and time, or is the focus solely on reducing monetary expenses?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Is the goal to minimize both transportation costs and time, or is the focus solely on reducing monetary expenses?\nUser: No\n\nExpert: Are there specific constraints on the capacity of depots and means of transportation?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Is the goal to minimize both transportation costs and time, or is the focus solely on reducing monetary expenses?\nUser: No\n\nExpert: Are there specific constraints on the capacity of depots and means of transportation?\nUser: No\n\nExpert: Are there fixed routes that must be used, or is route optimization part of the problem?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.",
+    "(0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Does the problem include the constraint that the total supply from all depots must meet or exceed the total demand across all ports?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Does the problem include the constraint that the total supply from all depots must meet or exceed the total demand across all ports?\nUser: Yes\n\nExpert: Does the problem include constraints or parameters related to the availability or capacity of transportation routes or modes?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Does the problem include the constraint that the total supply from all depots must meet or exceed the total demand across all ports?\nUser: Yes\n\nExpert: Does the problem include constraints or parameters related to the availability or capacity of transportation routes or modes?\nUser: No\n\nExpert: Do any of the problem descriptions mention specific routes between depots and ports in the parameters?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.",
+    "(0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Are there multiple types of goods being transported with different priorities or requirements?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Are there multiple types of goods being transported with different priorities or requirements?\nUser: No\n\nExpert: Are there multiple depots involved in moving goods to the ports?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Are there multiple types of goods being transported with different priorities or requirements?\nUser: No\n\nExpert: Are there multiple depots involved in moving goods to the ports?\nUser: Yes\n\nExpert: Are the capacities of the depots or the ports a constraint in the optimization problem?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.",
+    "(0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Is the objective of the optimization problem to minimize expenses or costs?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Is the objective of the optimization problem to minimize expenses or costs?\nUser: Yes\n\nExpert: Does the problem description mention a 'fleet of vehicles'? \nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize logistics to reduce expenses incurred in moving goods from various depots to ports.\nExpert: Is the objective of the optimization problem to minimize expenses or costs?\nUser: Yes\n\nExpert: Does the problem description mention a 'fleet of vehicles'? \nUser: No\n\nExpert: Does the problem description include constraints related to the movement or transfer of goods?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of depots",
+            "Number of ports",
+            "Transportation cost from each depot to each port",
+            "Total goods available at each depot",
+            "Total goods required at each port",
+            "Transport capacity limitations",
+            "Possible transport routes",
+            "Lead time constraints",
+            "Storage limits at depots",
+            "Storage limits at ports"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the expenses incurred in transporting goods from depots to ports."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All goods must be delivered from depots to ports by their required delivery dates.",
+            "Transportation costs must be minimized while meeting all delivery requirements.",
+            "Each vehicle's capacity cannot be exceeded.",
+            "Loading and unloading times must be considered in scheduling deliveries.",
+            "Routes must comply with road network restrictions, including weight limits and vehicle sizes.",
+            "The number of vehicles available for transportation is limited.",
+            "The total distance traveled by all vehicles must be minimized to reduce fuel consumption.",
+            "Environmental regulations regarding emissions must be adhered to.",
+            "Driver working hours and rest periods must comply with labor laws."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Monetary expenses",
+            "Transportation costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to reduce transportation costs associated with moving goods from various depots to ports."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization must focus solely on reducing monetary expenses incurred in moving goods from the depots to ports."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Transportation Costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the total transportation costs incurred in moving goods from various depots to ports."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimize transportation costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to reduce expenses incurred in moving goods from various depots to ports."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Transportation costs should be minimized.",
+            "There are no constraints on depot capacities.",
+            "There are no constraints on the means of transportation.",
+            "Route optimization is allowed and encouraged."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "logistics routes from depots to ports",
+            "transportation costs associated with each route",
+            "capacity of each vehicle used in transportation",
+            "availability and scheduling of vehicles",
+            "priority or urgency of moving goods",
+            "storage costs at depots and ports",
+            "regulatory or route constraints",
+            "weather or seasonal impact on routes",
+            "labor costs for drivers and handlers",
+            "fuel costs for transportation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total cost of transporting goods from multiple depots to the designated ports."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Goods must be delivered to ports within the specified time frames to avoid delays and penalties.",
+            "All depots have a limited storage capacity which must not be exceeded at any time.",
+            "Vehicles used for transportation have weight and volume capacities that must not be exceeded.",
+            "There are fixed operational hours for loading and unloading goods at both depots and ports.",
+            "Certain routes between depots and ports have restricted access or specific compliance requirements that must be adhered to.",
+            "Transportation costs vary based on distance, fuel prices, and vehicle type which should be minimized.",
+            "Environmental regulations may restrict the use of certain vehicle types or require carbon emission considerations.",
+            "The availability of vehicles and drivers may fluctuate, requiring schedule and resource adaptability.",
+            "Port authorities may impose specific import/export restrictions or additional handling fees.",
+            "There may be varying priority levels for different types of goods affecting their transportation urgency."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize logistics expenses",
+            "Constraint: Total supply from all depots must meet or exceed total demand across all ports"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the total transportation costs incurred while moving goods from various depots to ports, ensuring that the total supply from all depots meets or exceeds the total demand across all ports."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total supply from all depots must meet or exceed the total demand across all ports."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Total supply from all depots must meet or exceed total demand at all ports."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the expenses incurred in moving goods from various depots to ports while ensuring that the total supply meets or exceeds the total demand across all ports."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total supply from all depots must meet or exceed the total demand across all ports."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Supply from depots meets or exceeds demand at ports",
+            "Specific routes between depots and ports"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total logistics expenses incurred in transporting goods from various depots to ports while ensuring that the supply from depots meets or exceeds the demand at the ports."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total supply from all depots must meet or exceed the total demand across all ports.",
+            "Specific routes between depots and ports are included in the parameters."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Travel distance between depots and ports.",
+            "Handling costs at each depot and port.",
+            "Cargo volume or weight to be transported.",
+            "Transportation costs depending on mode of transport.",
+            "Time constraints or deadlines for delivery.",
+            "Capacity limitations at depots and ports.",
+            "Availability and schedule of transportation vehicles.",
+            "Fuel costs and consumption rates.",
+            "Labor costs and availability at depots and ports.",
+            "Maintenance or operational costs of equipment."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the transportation costs involved in moving goods from multiple depots to designated ports while ensuring timely delivery and efficient use of resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The location and capacity of each depot.",
+            "The distance between each depot and the targeted ports.",
+            "The volume of goods to be transported from each depot.",
+            "The availability and capacity of transport modes (e.g., trucks, trains).",
+            "The cost associated with each transport mode and route.",
+            "Time constraints for delivery.",
+            "Regulatory and compliance requirements related to transport and logistics.",
+            "Environmental regulations and considerations for reduced emissions.",
+            "Storage limitations at destination ports.",
+            "The need to minimize empty returns (backhauls) to improve efficiency."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective: minimize total transportation cost",
+            "decision variables: quantity of goods to transport from each depot to each port",
+            "constraints: availability of goods at depots",
+            "constraints: demand or capacity at ports",
+            "constraints: transportation capacity or limits between depots and ports"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize logistics expenses by optimizing the transportation of goods from various depots to ports, ensuring cost-effective routing and scheduling."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Single type of goods with no differentiation in priority or requirements.",
+            "Minimize transportation expenses from depots to ports."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Multiple depots",
+            "Ports",
+            "Goods to be transported"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the logistics of transporting goods from various depots to ports in order to minimize expenses."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Goods are transported from multiple depots to ports.",
+            "All goods have the same priority and requirements.",
+            "The objective is to reduce logistics expenses."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "multiple depots",
+            "capacities of depots",
+            "capacities of ports"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost of transporting goods from multiple depots to ports while considering the capacity constraints of the depots and the ports."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each depot has a specific capacity limit for the goods it can handle.",
+            "Each port has a specific capacity limit for the goods it can accommodate."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Depots: List and locations of depots",
+            "Ports: List and locations of ports",
+            "Transportation costs between each depot and port",
+            "Capacity of transportation vehicles",
+            "Depot supply levels",
+            "Port demand levels",
+            "Time constraints for delivery",
+            "Loading and unloading times",
+            "Routes available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total logistics costs associated with transporting goods from multiple depots to various ports."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The capacity of each depot must not be exceeded when assigning amounts of goods to be transported to ports.",
+            "Each port has a maximum receiving capacity per time period that must not be surpassed.",
+            "Goods must be delivered to the ports within a specified time frame to meet shipping schedules.",
+            "Transportation costs between depots and ports vary and must be included in the total expense calculations.",
+            "There are constraints on the types of vehicles that can be used based on the goods' nature and volume.",
+            "Environmental regulations may limit certain routes or require specific transportation modes (e.g., rail over road, electric vehicles).",
+            "Availability of transportation vehicles may vary based on scheduling, requiring coordination and advanced planning."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Expenses incurred in transporting goods from depots to ports",
+            "Locations of depots and ports",
+            "Capacity and availability of transport vehicles",
+            "Transport routes",
+            "Transportation costs per route",
+            "Goods demand at ports",
+            "Goods supply at depots",
+            "Any constraints related to time, vehicle load capacity, or route availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the expenses or costs associated with transporting goods from various depots to ports."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Goods must be moved from various depots to ports within a specified time frame.",
+            "Total transportation cost must be minimized.",
+            "Capacity constraints of transportation vehicles should not be exceeded.",
+            "Availability of transportation vehicles must be considered.",
+            "Delivery deadlines for goods at the ports must be met.",
+            "Compliance with regulations regarding load limits on transportation routes.",
+            "A balanced distribution of goods should be maintained across all transportation modes used.",
+            "Storage capacities at depots and ports should not be exceeded."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "depots",
+            "ports",
+            "goods movement",
+            "expenses or costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the expenses incurred in transporting goods from depots to ports."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Goods must be moved from various depots to specific ports.",
+            "Each depot has a certain capacity of goods it can dispatch.",
+            "Each port has a capacity to receive goods.",
+            "The routes from depots to ports have specific costs associated with them.",
+            "The goods must be delivered within certain time windows, if specified."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Minimize logistics expenses or costs",
+            "No specific fleet of vehicles mentioned",
+            "No constraints on movement or transfer of goods"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the expenses incurred in moving goods from various depots to ports."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      }
+    }
+  }
+}

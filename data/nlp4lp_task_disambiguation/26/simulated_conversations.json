@@ -1,0 +1,76 @@
+{
+  "vague_description": "Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.",
+  "detailed_description": "How should the farmer operate over the next five years to maximize profit using \\param{AllSpace}, \\param{NHeifers}, \\param{NMilk}, \\param{HeiferSpace}, \\param{CowSpace}, \\param{CowCalve}, \\param{PriceBullock}, \\param{PriceHeifer}, \\param{PriceCow}, \\param{LossHeifer}, \\param{LossCow}, \\param{RevenueMilk}, \\param{NMaxCow}, \\param{CowOutlay}, \\param{CowGrain}, \\param{CowSugar}, \\param{SugarPerAcre}, \\param{SpaceGrain}, \\param{GrainDivision}, \\param{GrainYield}, \\param{BuyPriceGrain}, \\param{SellPriceGrain}, \\param{BuyPriceSugar}, \\param{SellPriceSugar}, \\param{LabourHeifers}, \\param{LabourCow}, \\param{LabourGrain}, \\param{LabourSugar}, \\param{ExtraHeifers}, \\param{ExtraCow}, \\param{ExtraGrain}, \\param{ExtraSugar}, \\param{LabourCost}, \\param{LabourHour}, and \\param{ExtraLabourCost}?",
+  "target_objective": "Maximize the farmer's profit over the next five years",
+  "target_constraints": [
+    "Total space used by heifers and cows cannot exceed AllSpace",
+    "Number of heifers is initially NHeifers and cannot be negative",
+    "Each cow can calve at most CowCalve times over the five years",
+    "Number of cows cannot exceed NMaxCow",
+    "Number of acres allocated to sugar production cannot exceed SugarPerAcre",
+    "Number of acres allocated to grain production cannot exceed SpaceGrain",
+    "Total space allocated to grain must be a multiple of GrainDivision",
+    "Maximum labour hours available without extra cost is LabourHour"
+  ],
+  "target_parameters": [
+    "Total space available for all animals and activities",
+    "Number of heifers",
+    "Quantity of milk produced",
+    "Space required per heifer",
+    "Space required per cow",
+    "Number of calves per cow",
+    "Price of a sold bullock",
+    "Price of a sold heifer",
+    "Price of a sold cow",
+    "Loss for selling a heifer",
+    "Loss for selling a cow",
+    "Revenue from milk production",
+    "Maximum number of cows that can be housed",
+    "Outlay for maintaining a cow",
+    "Amount of grain consumed by a cow",
+    "Amount of sugar consumed by a cow",
+    "Amount of sugar produced per acre",
+    "Space required per acre of grain",
+    "Division of overall space dedicated to grain production",
+    "Yield of grain per acre",
+    "Buy price of grain",
+    "Sell price of grain",
+    "Buy price of sugar",
+    "Sell price of sugar",
+    "Labour hours required for heifers",
+    "Labour hours required for cows",
+    "Labour hours required for grain production",
+    "Labour hours required for sugar production",
+    "Extra heifers",
+    "Extra cows",
+    "Extra grain",
+    "Extra sugar",
+    "Labour cost",
+    "Labour hours available",
+    "Extra labour cost"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.",
+    "(0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Does the problem contain specific constraints on resources like budget, land availability, or labor?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Does the problem contain specific constraints on resources like budget, land availability, or labor?\nUser: Yes\n\nExpert: Are there specific environmental or sustainability constraints, such as limits on water usage or greenhouse gas emissions, that must be considered in the optimization problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Does the problem contain specific constraints on resources like budget, land availability, or labor?\nUser: Yes\n\nExpert: Are there specific environmental or sustainability constraints, such as limits on water usage or greenhouse gas emissions, that must be considered in the optimization problem?\nUser: No\n\nExpert: Are there multiple types of crops or livestock involved in the optimization problem that each have different cultivation or management requirements?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.",
+    "(0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Does the problem specify a fixed total land area available for farming in hectares?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Does the problem specify a fixed total land area available for farming in hectares?\nUser: Yes\n\nExpert: Do any of the candidate problems include constraints related to environmental regulations or sustainable practices?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Does the problem specify a fixed total land area available for farming in hectares?\nUser: Yes\n\nExpert: Do any of the candidate problems include constraints related to environmental regulations or sustainable practices?\nUser: No\n\nExpert: Does the problem include constraints that specifically limit water usage for irrigation?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.",
+    "(0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Is the farm's primary goal to maximize the overall revenue, or is there a secondary goal that also needs to be considered, such as minimizing environmental impact or ensuring food security?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Is the farm's primary goal to maximize the overall revenue, or is there a secondary goal that also needs to be considered, such as minimizing environmental impact or ensuring food security?\nUser: Yes\n\nExpert: Is the environmental impact constraint or goal secondary to the financial return, or are they treated as equally important objectives?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Is the farm's primary goal to maximize the overall revenue, or is there a secondary goal that also needs to be considered, such as minimizing environmental impact or ensuring food security?\nUser: Yes\n\nExpert: Is the environmental impact constraint or goal secondary to the financial return, or are they treated as equally important objectives?\nUser: No\n\nExpert: Is the environmental impact constraint or goal subordinate to other factors, such as the farm's physical or labor resources, in terms of importance?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.",
+    "(0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Is the word 'resource' in the first word of the 'constraints' list of the problem description?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Is the word 'resource' in the first word of the 'constraints' list of the problem description?\nUser: No\n\nExpert: Do any of the problem descriptions explicitly mention numbers or specific physical quantities in their constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Is the word 'resource' in the first word of the 'constraints' list of the problem description?\nUser: No\n\nExpert: Do any of the problem descriptions explicitly mention numbers or specific physical quantities in their constraints?\nUser: Yes\n\nExpert: Are there any constraints related to the initial investment, investment budget, or equipment costs?\nUser: No\n"
+  }
+}

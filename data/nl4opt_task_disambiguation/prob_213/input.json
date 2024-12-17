@@ -1,0 +1,19 @@
+{
+  "vague_description": "A fashion company must determine the optimal number of regular and premium handbags to sell within budgetary and sales constraints to maximize monthly profit.",
+  "detailed_description": "A fashion company sells regular handbags and premium handbags made of higher quality material. They can sell regular handbags at a profit of \\param{ProfitRegular} each and premium handbags at a profit of \\param{ProfitPremium} each. The total monthly cost of manufacturing is \\param{CostRegular} per regular handbag and \\param{CostPremium} per premium handbag. The company has a total budget of \\param{Budget} and can sell at most \\param{MaxHandbags} handbags of either type per month. How many of each handbag should they sell to maximize its monthly profit?",
+  "target_objective": "Maximize the company's monthly profit from selling regular and premium handbags",
+  "target_constraints": [
+    "Number of regular handbags sold is non-negative",
+    "Number of premium handbags sold is non-negative",
+    "Total cost of manufacturing regular handbags plus premium handbags cannot exceed Budget",
+    "Total number of handbags sold cannot exceed MaxHandbags per month"
+  ],
+  "target_parameters": [
+    "Profit per regular handbag sold",
+    "Profit per premium handbag sold",
+    "Cost of manufacturing a regular handbag",
+    "Cost of manufacturing a premium handbag",
+    "Total monthly budget for manufacturing",
+    "Maximum number of handbags that can be sold per month"
+  ]
+}

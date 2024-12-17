@@ -1,0 +1,45 @@
+{
+  "vague_description": "Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.",
+  "detailed_description": "Maximize total productive capacity at the end of the five years. The problem parameters are a matrix of coefficients \\param{InputOne}, a vector of manpower coefficients for input one \\param{ManpowerOne}, a matrix of coefficients \\param{InputTwo}, a vector of manpower coefficients for input two \\param{Manpowertwo}, initial stock levels \\param{Stock}, productive capacities \\param{Capacity}, a company-wide manpower limit \\param{ManpowerLimit}, and demand for each productive unit \\param{Demand}.",
+  "target_objective": "Maximize total productive capacity at the end of the five years",
+  "target_constraints": [
+    "There is a company-wide manpower limit denoted by ManpowerLimit",
+    "The production must meet certain demand levels specified by Demand",
+    "Each input usage and productive capacity must be non-negative"
+  ],
+  "target_parameters": [
+    "Total number of years in the planning horizon",
+    "Input one coefficients matrix",
+    "Manpower coefficients for input one",
+    "Input two coefficients matrix",
+    "Manpower coefficients for input two",
+    "Initial stock level for each of the productive units",
+    "Productive capacity for each productive unit",
+    "Company-wide manpower limit",
+    "Demand for each of the productive units at the end of the planning horizon"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Are there specific numerical limits or quantities defined for manpower, materials, or demand in this problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Are there specific numerical limits or quantities defined for manpower, materials, or demand in this problem?\nUser: Yes\n\nExpert: Is the objective function related to maximizing production output explicitly defined or quantified in terms of resource usage?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Are there specific numerical limits or quantities defined for manpower, materials, or demand in this problem?\nUser: Yes\n\nExpert: Is the objective function related to maximizing production output explicitly defined or quantified in terms of resource usage?\nUser: Yes\n\nExpert: Are there any constraints or limits on the availability or cost of resources that might affect the production output?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Do any of the problems involve constraints related to compliance with safety and regulatory standards?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Do any of the problems involve constraints related to compliance with safety and regulatory standards?\nUser: No\n\nExpert: Does the problem have constraints that include both a manpower allocation limit and a material usage standard?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Do any of the problems involve constraints related to compliance with safety and regulatory standards?\nUser: No\n\nExpert: Does the problem have constraints that include both a manpower allocation limit and a material usage standard?\nUser: Yes\n\nExpert: Do any of the candidate problems have constraints related to market demand forecast for production limits?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Is the problem a multi-period optimization problem, meaning the production output and constraints vary over the given period?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Is the problem a multi-period optimization problem, meaning the production output and constraints vary over the given period?\nUser: Yes\n\nExpert: Is the production output to be maximized subject to any capacity constraints, such as a maximum number of units that can be produced within the given period?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Is the problem a multi-period optimization problem, meaning the production output and constraints vary over the given period?\nUser: Yes\n\nExpert: Is the production output to be maximized subject to any capacity constraints, such as a maximum number of units that can be produced within the given period?\nUser: Yes\n\nExpert: Are the capacity constraints fixed and known in advance, or do they vary dynamically depending on factors like production schedule or external events?\nUser: Fixed and known in advance.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.",
+    "(0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Is 'demand' mentioned as a constraint in the problem description without the word 'requirements'?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Is 'demand' mentioned as a constraint in the problem description without the word 'requirements'?\nUser: Yes\n\nExpert: Is the production output objective explicitly stated as 'Maximize' or 'maximize'?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of resources to achieve the highest production output over a given period, considering constraints on manpower, materials, and demand requirements.\nExpert: Is 'demand' mentioned as a constraint in the problem description without the word 'requirements'?\nUser: Yes\n\nExpert: Is the production output objective explicitly stated as 'Maximize' or 'maximize'?\nUser: Yes\n\nExpert: Is the production output parameter defined as part of the parameters?\nUser: No\n"
+  }
+}

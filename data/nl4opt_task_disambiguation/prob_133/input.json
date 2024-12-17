@@ -1,0 +1,21 @@
+{
+  "vague_description": "The company must balance production constraints between two types of pharmaceutical pills to optimize manufacturing outputs.",
+  "detailed_description": "A pharmaceutical company has \\param{TotalPainkillerUnits} units of painkiller medicine and makes daytime and nighttime painkiller pills. A daytime pill has \\param{DaytimePainkillerUnits} units of painkiller medicine and \\param{DaytimeSleepUnits} units of sleep medicine. A nighttime pill has \\param{NighttimePainkillerUnits} units of painkiller medicine and \\param{NighttimeSleepUnits} units of sleep medicine. Since some people don\u2019t want the sleeping effect, at least \\param{MinimumDaytimePercentage} of the pills must be daytime pills. However, at least \\param{MinimumNighttimePills} nighttime pills must be made. How many of each pill should be made to minimize the total amount of sleep medicine required?",
+  "target_objective": "Minimize the total amount of sleep medicine used in the pills",
+  "target_constraints": [
+    "Total units of painkiller medicine used cannot exceed TotalPainkillerUnits",
+    "At least MinimumDaytimePercentage % of the total number of pills must be daytime pills",
+    "At least MinimumNighttimePills nighttime pills must be made",
+    "Number of daytime pills is non-negative",
+    "Number of nighttime pills is non-negative"
+  ],
+  "target_parameters": [
+    "Total units of painkiller medicine available",
+    "Units of painkiller medicine per daytime pill",
+    "Units of sleep medicine per daytime pill",
+    "Units of painkiller medicine per nighttime pill",
+    "Units of sleep medicine per nighttime pill",
+    "Minimum percentage of pills that must be daytime pills",
+    "Minimum number of nighttime pills required"
+  ]
+}

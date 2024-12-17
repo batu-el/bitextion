@@ -1,0 +1,20 @@
+{
+  "vague_description": "The clinic must balance efficiency and accuracy while conducting patient temperature checks within operational hours.",
+  "detailed_description": "A doctor's office takes the temperature of patients one by one either by using an electronic or regular thermometer. The electronic thermometer takes \\param{TimeElectronic} minutes to make a reading while the regular thermometer takes \\param{TimeRegular} minutes to make a reading. Since the electronic thermometer is more accurate, at least \\param{RatioElectronicRegular} times as many patients should have their temperature checked by the electronic thermometer than the regular thermometer. Since the electronic thermometer has a cooldown time, at least \\param{MinPatientsRegular} patients should have their temperature checked by a regular thermometer. If the office is open for \\param{TotalTime} minutes, maximize the number of patients whose temperature can be taken?",
+  "target_objective": "Maximize the number of patients whose temperature can be taken within the TotalTime",
+  "target_constraints": [
+    "Number of patients checked by electronic thermometer is non-negative",
+    "Number of patients checked by regular thermometer is non-negative",
+    "Time used for electronic thermometer readings is at most TotalTime",
+    "Time used for regular thermometer readings is at most TotalTime",
+    "At least {RatioElectronicRegular} times as many patients should be checked by electronic thermometer compared to regular thermometer",
+    "At least {MinPatientsRegular} patients should be checked by regular thermometer"
+  ],
+  "target_parameters": [
+    "Time taken by the electronic thermometer for one reading",
+    "Time taken by the regular thermometer for one reading",
+    "Minimum ratio of patients checked by the electronic thermometer to those checked by the regular thermometer",
+    "Minimum number of patients checked by the regular thermometer",
+    "Total time the doctor's office is open"
+  ]
+}

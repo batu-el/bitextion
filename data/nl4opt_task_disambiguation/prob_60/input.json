@@ -1,0 +1,27 @@
+{
+  "vague_description": "The city needs to allocate resources effectively for snow removal, balancing labor hours and budget constraints with varying worker contracts.",
+  "detailed_description": "A city employs seasonal and permanent snow removers. A seasonal snow remover works \\var{HoursSeasonal} hours per shift and gets paid \\var{PaySeasonal}. A permanent snow remover works \\var{HoursPermanent} hours per shift and gets paid \\var{PayPermanent}. Currently the city needs \\var{TotalHoursRequired} hours of snow remover labor after a heavy snowfall. If the city has a budget of \\var{TotalBudget}, how many of each type of worker should be hired to minimize the total number of snow removers?",
+  "target_objective": "Minimize the total number of snow removers",
+  "target_constraints": [
+    "Seasonal snow removers work HoursSeasonal hours per shift",
+    "Permanent snow removers work HoursPermanent hours per shift",
+    "The city pays seasonal snow removers PaySeasonal per shift",
+    "The city pays permanent snow removers PayPermanent per shift",
+    "The city needs TotalHoursRequired hours of snow remover labor",
+    "The city has a budget of TotalBudget",
+    "Number of seasonal snow removers is an integer",
+    "Number of permanent snow removers is an integer",
+    "Number of seasonal snow removers is non-negative",
+    "Number of permanent snow removers is non-negative",
+    "Total hours worked by seasonal and permanent snow removers should meet or exceed TotalHoursRequired",
+    "Total budget spent on seasonal and permanent snow removers should not exceed TotalBudget"
+  ],
+  "target_parameters": [
+    "Number of hours a seasonal snow remover works per shift",
+    "Payment for a seasonal snow remover per shift",
+    "Number of hours a permanent snow remover works per shift",
+    "Payment for a permanent snow remover per shift",
+    "Total required labor hours for snow removal",
+    "Total budget for snow removal"
+  ]
+}

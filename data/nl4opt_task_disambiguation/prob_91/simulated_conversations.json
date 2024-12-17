@@ -1,0 +1,47 @@
+{
+  "vague_description": "Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.",
+  "detailed_description": "A factory has two machines, A and B. Each day, machine A can make \\param{ItemsAMadePerDay} items and consumes \\param{ElectricityA} kWh. Machine B can make \\param{ItemsBMadePerDay} items and consumes \\param{ElectricityB} kWh per day. The factory must produce at least \\param{MinItems} items per day and has \\param{MaxElectricity} kWh of electricity available per day. Since there are not many workers that can operate both machines, at most \\param{MaxPercentB} of the machines must be of type B. Further, at least \\param{MinMachineA} machines of type A should be used. How many of each machine should be used to minimize the total number of machines?",
+  "target_objective": "Minimize the total number of machines used (both A and B)",
+  "target_constraints": [
+    "Number of items made by machine A and B together is at least MinItems per day",
+    "Total electricity consumption by machines A and B is at most MaxElectricity kWh per day",
+    "Number of machine B is at most MaxPercentB percent of the total number of machines",
+    "Number of machine A used is at least MinMachineA",
+    "Total electricity used by machine A is at most ElectricityA * number of machine A",
+    "Total electricity used by machine B is at most ElectricityB * number of machine B"
+  ],
+  "target_parameters": [
+    "Number of items machine A can make per day",
+    "Electricity consumed by machine A per day",
+    "Number of items machine B can make per day",
+    "Electricity consumed by machine B per day",
+    "Minimum total items the factory must produce per day",
+    "Maximum amount of electricity available for the factory per day",
+    "Maximum percentage of type B machines",
+    "Minimum number of machine A to be used"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.",
+    "(0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Are there specific production targets for machines A and B that must be met?\nUser: No, the only constraints are the total production requirement, electricity consumption, and machine ratio limits.\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Are there specific production targets for machines A and B that must be met?\nUser: No, the only constraints are the total production requirement, electricity consumption, and machine ratio limits.\n\nExpert: Can machines A and B produce different quantities per unit time?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Are there specific production targets for machines A and B that must be met?\nUser: No, the only constraints are the total production requirement, electricity consumption, and machine ratio limits.\n\nExpert: Can machines A and B produce different quantities per unit time?\nUser: Yes.\n\nExpert: Are there upper and lower bounds on the number of machines A and B that can be used?\nUser: Yes.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.",
+    "(0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the objective of the optimization problem to minimize the total number of machines used?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the objective of the optimization problem to minimize the total number of machines used?\nUser: Yes\n\nExpert: Is the production requirement or target specified as a fixed numerical value rather than a variable?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the objective of the optimization problem to minimize the total number of machines used?\nUser: Yes\n\nExpert: Is the production requirement or target specified as a fixed numerical value rather than a variable?\nUser: Yes\n\nExpert: Is the energy consumption limit greater than or equal to 5000 energy units per day in the problem description?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.",
+    "(0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the production level a fixed value or can it be adjusted within certain limits?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the production level a fixed value or can it be adjusted within certain limits?\nUser: Yes.\n\nExpert: Are there any restrictions or limitations on the usage of machine A relative to machine B?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the production level a fixed value or can it be adjusted within certain limits?\nUser: Yes.\n\nExpert: Are there any restrictions or limitations on the usage of machine A relative to machine B?\nUser: Yes.\n\nExpert: Is the amount of energy required to run machine A different from the amount of energy required to run machine B?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.",
+    "(0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the objective of the problem to minimize a cost (or revenue) function, or to minimize a quantity that represents the level of resource usage, not necessarily linked to a monetary value?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the objective of the problem to minimize a cost (or revenue) function, or to minimize a quantity that represents the level of resource usage, not necessarily linked to a monetary value?\nUser: No\n\nExpert: Does the problem statement explicitly mention the objective as minimizing the total machine usage, using the phrase 'minimize total machine usage' exactly, regardless of case?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal allocation of machines A and B in a factory to meet production and energy constraints while minimizing total machine usage.\nExpert: Is the objective of the problem to minimize a cost (or revenue) function, or to minimize a quantity that represents the level of resource usage, not necessarily linked to a monetary value?\nUser: No\n\nExpert: Does the problem statement explicitly mention the objective as minimizing the total machine usage, using the phrase 'minimize total machine usage' exactly, regardless of case?\nUser: Yes\n\nExpert: Does the problem description explicitly mention 'production levels' or 'energy levels' as parameters?\nUser: No\n"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "vague_description": "How do you achieve the highest possible value given constraints on transactions and fluctuating conditions?",
+  "detailed_description": "The objective is to maximize the number of units of currency \\param{N} that we end up with at the end of the day, through a sequence of currency transactions. We start with a certain amount \\param{Start} for each currency, there is a limit \\param{Limit} to the number of transactions we can perform for each currency, and the exchange rates are given by \\param{Rate}.",
+  "target_objective": "Maximize the final total number of units of currency N",
+  "target_constraints": [
+    "Number of transactions for each currency is non-negative",
+    "Number of transactions for each currency does not exceed the specified Limit"
+  ],
+  "target_parameters": [
+    "Number of different currencies",
+    "Initial amount of currency i",
+    "Limit for the number of transactions for currency i",
+    "Exchange rate from currency i to currency j"
+  ]
+}

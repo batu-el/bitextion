@@ -1,0 +1,24 @@
+{
+  "vague_description": "The manufacturer faces the challenge of determining the optimal production schedule to maximize profits while managing costs and constraints.",
+  "detailed_description": "PROBLEM TYPE\nLP\n\nINPUT FORMAT \n\n{\n    \"time_required\": [[TimeRequired for p in 1, ..., P] for m in 1, ..., M],\n    \"machine_costs\": [MachineCosts for m in 1, ..., M],\n    \"availability\": [Availability for m in 1, ..., M],\n    \"prices\": [Prices for p in 1, ..., P],\n    \"min_batches\": [MinBatches for p in 1, ..., P],\n    \"standard_cost\": StandardCost,\n    \"overtime_cost\": OvertimeCost,\n    \"overtime_hour\": OvertimeHour\n}\n\n\nOBJECTIVE\nHow many batches of each part should the manufacturer produce each month to maximize profit?",
+  "target_objective": "Maximize profit from producing and selling parts",
+  "target_constraints": [
+    "Each part p requires TimeRequired for p hours of machine time on machine m",
+    "Machine m is available for Availability for m hours per month",
+    "At least MinBatches for p batches of each part p must be produced",
+    "Overtime operation is allowed for up to OvertimeHour hours",
+    "The number of batches produced for any part must be non-negative"
+  ],
+  "target_parameters": [
+    "Number of machines",
+    "Number of part types",
+    "Time required to produce one batch of part p on machine m",
+    "Cost of operating machine m for one month",
+    "Number of hours machine m is available each month without overtime",
+    "Price received for selling one batch of part p",
+    "Minimum number of batches of part p to be produced",
+    "Standard cost for operating all machines during normal operating hours",
+    "Extra cost for operating a machine in overtime per hour",
+    "Number of overtime hours available for machine m"
+  ]
+}

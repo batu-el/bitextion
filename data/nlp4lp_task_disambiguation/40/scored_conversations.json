@@ -1,0 +1,465 @@
+{
+  "vague_description": "Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.",
+  "detailed_description": "Formulate the problem of determining the quantities of each spare part to be made during the month so as to maximize profit. The number of different spare parts is \\param{K}. The number of machines capable of making the spare parts is \\param{S}. The time taken to make spare part \\param{k} on machine \\param{s} is given by \\param{Time}. The profit obtained from making spare part \\param{k} is \\param{Profit}. Each machine \\param{s} has a capacity of \\param{Capacity} for the spare parts.",
+  "target_objective": "Maximize the total profit from producing the spare parts",
+  "target_constraints": [
+    "Quantities of each spare part must be non-negative",
+    "Time to produce each spare part must not exceed the available machine time",
+    "Total time used on each machine s must not exceed its capacity Capacity"
+  ],
+  "target_parameters": [
+    "Number of different spare parts",
+    "Number of machines capable of making the spare parts",
+    "Time taken to make spare part k on machine s",
+    "Profit obtained from making spare part k",
+    "Capacity of machine s for the spare parts"
+  ],
+  "Expert": {
+    "(0,)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.",
+    "(0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Are there multiple types of spare parts being produced, each with different production times and profit margins?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Are there multiple types of spare parts being produced, each with different production times and profit margins?\nUser: Yes\n\nExpert: Are there specific constraints regarding the maximum capacity or availability of each machine used in the production process?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Are there multiple types of spare parts being produced, each with different production times and profit margins?\nUser: Yes\n\nExpert: Are there specific constraints regarding the maximum capacity or availability of each machine used in the production process?\nUser: Yes\n\nExpert: Are there constraints related to the availability of raw materials required to produce the spare parts?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.",
+    "(0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Do the problem descriptions include a constraint related to meeting minimum production or demand requirements for spare parts?\nUser: No\n",
+    "(0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Do the problem descriptions include a constraint related to meeting minimum production or demand requirements for spare parts?\nUser: No\n\nExpert: Does the problem description include constraints related to machine setup times when switching production from one spare part to another?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Do the problem descriptions include a constraint related to meeting minimum production or demand requirements for spare parts?\nUser: No\n\nExpert: Does the problem description include constraints related to machine setup times when switching production from one spare part to another?\nUser: No\n\nExpert: Do the constraints include limiting the production capacity of spare parts based on raw material availability?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.",
+    "(0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Is the objective function based on a linear or non-linear relationship between the production quantities of the spare parts and the profit?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Is the objective function based on a linear or non-linear relationship between the production quantities of the spare parts and the profit?\nUser: Yes\n\nExpert: Are the constraints of machines' capacity and time for producing spare parts represented by linear equations?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Is the objective function based on a linear or non-linear relationship between the production quantities of the spare parts and the profit?\nUser: Yes\n\nExpert: Are the constraints of machines' capacity and time for producing spare parts represented by linear equations?\nUser: Yes\n\nExpert: Do the constraints of machines' capacity and time for producing spare parts have the same time horizon or time period as the objective function (i.e., do they all operate over the same time period)?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.",
+    "(0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Does the problem description contain a specific, numerical constraint, such as a machine's capacity or production time?\nUser: No\n",
+    "(0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Does the problem description contain a specific, numerical constraint, such as a machine's capacity or production time?\nUser: No\n\nExpert: Is the word 'machine' in the objective or parameters description of the problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Decide on the optimal production schedule to maximize profit given constraints of machines' capacity and time for producing various spare parts.\nExpert: Does the problem description contain a specific, numerical constraint, such as a machine's capacity or production time?\nUser: No\n\nExpert: Is the word 'machine' in the objective or parameters description of the problem?\nUser: Yes\n\nExpert: Are machines' capacity mentioned before 'time for producing various spare parts' in the problem description?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "machines' capacity",
+            "time for producing various spare parts"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by determining the best production schedule that fits within given machine capacity and time constraints for producing various spare parts."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The available capacity of each machine must not be exceeded.",
+            "The total production time for all spare parts must not exceed the available time slots.",
+            "Each part may have a minimum and maximum production quantity requirement."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit.",
+            "Decision Variables: Quantities of each type of spare part to produce.",
+            "Constraints:",
+            "- Machine capacity constraints (maximum number of parts a machine can produce in a given time period).",
+            "- Time constraints (total available production time for all machines).",
+            "Parameters:",
+            "- Profit margin for each spare part type.",
+            "- Production time required for each spare part type.",
+            "- Machine capacity for each type of spare part."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the production schedule that maximizes profit while considering constraints on machine capacity and available production time for different types of spare parts."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine capacity limits the number of spare parts that can be produced simultaneously.",
+            "Each type of spare part has a specific production time per unit.",
+            "Production times for different spare parts may vary.",
+            "Different spare parts have different profit margins.",
+            "The total production time for a given scheduling period is limited."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedule",
+            "Profit margin for each type of spare part",
+            "Production time for each type of spare part",
+            "Machines' capacity constraints",
+            "Machines' availability constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal production schedule that maximizes profit by efficiently allocating machine capacity and time among different types of spare parts with varying production times and profit margins, while adhering to the constraints of machine capacity and availability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine capacity limits the number of spare parts produced.",
+            "Machine availability restricts the production time for spare parts.",
+            "Each spare part type has a specific production time per unit.",
+            "Each spare part type has a different profit margin per unit."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production times for each type of spare part",
+            "Profit margins for each type of spare part",
+            "Maximum capacity for each machine",
+            "Availability time for each machine"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by determining the optimal production schedule for multiple types of spare parts, considering the constraints of machine capacity and availability, as well as varying production times and profit margins for each spare part."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity limits per machine.",
+            "Time availability constraints for each machine.",
+            "Different production times for each type of spare part.",
+            "Different profit margins for each type of spare part."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "machines' capacity",
+            "available production time",
+            "profit per spare part",
+            "time required per spare part"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production schedule that maximizes profit while adhering to the constraints of available machine capacity and production time for various spare parts."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total machine production time must not exceed available machine hours.",
+            "Each spare part must be produced within the capacity limits of the respective machines.",
+            "Production of each part must be completed within the scheduled production period."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production schedule",
+            "Profit maximization",
+            "Machines' capacity",
+            "Time constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to decide on the optimal production schedule for producing various spare parts in order to maximize profit, while considering the constraints of machines' capacity and time."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total machine capacity must not be exceeded for any production period.",
+            "The total time for producing spare parts must not exceed the available production time in any period."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "machines' capacity",
+            "time for producing various spare parts"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining an optimal production schedule for spare parts, subject to constraints on machine capacity and production time."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machines have a capacity limit for production.",
+            "There is a time constraint for producing various spare parts."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "machines' capacity",
+            "time for producing various spare parts"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal production schedule for spare parts given constraints of machines' capacity and time."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machines' capacity",
+            "Machines' time for producing spare parts"
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Profit",
+            "Decision variables: Production schedule for each type of spare part",
+            "Constraints:",
+            "1. Machine capacity limits",
+            "2. Time availability for production on each machine"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing the production schedule under machine capacity and time constraints for various spare parts."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine capacity limits the number of spare parts that can be produced in a given time frame.",
+            "Each machine has a specific time allocation for producing different types of spare parts.",
+            "Total production time is limited by the operational hours of the machinery.",
+            "There may be a fixed or variable cost associated with operating each machine within the capacity and time constraints."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Maximize profit",
+            "Decision Variables: Production quantities of various spare parts",
+            "Constraints: Machines' capacity",
+            "Constraints: Time available for producing spare parts"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profit by determining the optimal production schedule for spare parts, considering constraints related to the capacity and time availability of machines."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production time for all spare parts must not exceed the available machine operational hours.",
+            "The production quantities for each spare part cannot exceed the respective machine's maximum production capacity.",
+            "Each spare part must be produced with the designated machine resources to adhere to production requirements.",
+            "The set production schedule must ensure that the time constraints for each machine and overall capacity limits are not violated."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Maximize profit based on the production quantities of spare parts",
+            "Constraints: Machines' capacity limits for producing spare parts",
+            "Constraints: Time limits for producing spare parts with available machine hours",
+            "Type of problem: Linear optimization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal production schedule for spare parts, considering machine capacity and time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production schedule must not exceed the maximum machine capacity.",
+            "Total production time for spare parts must be within the available working hours.",
+            "Each spare part has a minimum production requirement.",
+            "Machines have a reliability factor that may adjust capacity constraints.",
+            "Material availability may limit production quantities.",
+            "Regulatory constraints might impose additional limits on production quantities."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Linear function to maximize profit based on production quantities of spare parts.",
+            "Constraints: Linear equations for machines' capacity and production time of spare parts.",
+            "Time Horizon: Same as the constraints and the objective function, consistent for all components."
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize profit by determining the optimal production schedule for various spare parts, within the constraints of machines' capacity and time."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production schedule must not exceed the capacity of each machine.",
+            "The total production time for all spare parts must not exceed the available time for production.",
+            "All constraints are linear equations.",
+            "The time horizon or period for the capacity and time constraints matches the time period of the objective function."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production schedule",
+            "machines' capacity",
+            "time",
+            "various spare parts"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal production schedule for spare parts, considering machine capacity and time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine capacity limitations: Each machine has a maximum number of units it can produce in a given time period.",
+            "Time constraints: Production must be scheduled within the available operational hours of the machines.",
+            "Resource availability: Ensure that raw materials or subcomponents needed for production are available and that their supply does not exceed demand during the schedule.",
+            "Production demands: The schedule must meet the minimum output requirements for each spare part to ensure market demands are satisfied.",
+            "Labor constraints: Ensure there are enough workers available during the production times or adjust production to fit labor availability.",
+            "Maintenance schedules: Account for any planned maintenance that may reduce machine availability."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Machines' capacity",
+            "Time for producing various spare parts"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by optimizing the production schedule while considering constraints related to machines' capacity and time for producing various spare parts."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machines have a limited capacity that must be taken into account when planning the production schedule.",
+            "There is only a certain amount of time available for production, which limits how many spare parts can be produced."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize profit",
+            "machines' capacity",
+            "production time",
+            "production schedule",
+            "spare parts"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from production while considering constraints related to machine capacity and production time for spare parts."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production schedule must respect the capacities of available machines.",
+            "The production schedule must adhere to the time limitations for producing each spare part."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "time for producing various spare parts",
+            "machines' capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from producing spare parts given constraints on production time and machine capacity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production schedule must consider the time required for producing various spare parts.",
+            "Production is limited by the capacity of the machines available."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 4,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 4,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      }
+    }
+  }
+}

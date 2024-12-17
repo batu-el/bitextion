@@ -1,0 +1,417 @@
+{
+  "vague_description": "Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.",
+  "detailed_description": "Fit the \u2018best\u2019 quadratic curve y = c * x^2 + b * x + a to this set of data points. The objective is to minimize the sum of absolute deviations of each observed value of \\param{ObservedValues} from the value predicted by the quadratic relationship with \\param{ObservedXValues}.",
+  "target_objective": "Minimize the sum of absolute deviations between the observed values (ObservedValues) and the values predicted by the quadratic function using the observed x-values (ObservedXValues)",
+  "target_constraints": [
+    "The curve is a quadratic function of the form y = c * x^2 + b * x + a"
+  ],
+  "target_parameters": [
+    "Number of data points",
+    "Observed y values at each data point k",
+    "Observed x values at each data point k"
+  ],
+  "Expert": {
+    "(0,)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.",
+    "(0, 0)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.\nExpert: Is the error being minimized the sum of squared differences between predicted and observed data values, i.e., the least squares criterion?\nUser: No\n",
+    "(0, 0, 0)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.\nExpert: Is the error being minimized the sum of squared differences between predicted and observed data values, i.e., the least squares criterion?\nUser: No\n\nExpert: Is the error being minimized based on an absolute differences criterion, such as mean absolute error or median absolute deviation?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.\nExpert: Is the error being minimized the sum of squared differences between predicted and observed data values, i.e., the least squares criterion?\nUser: No\n\nExpert: Is the error being minimized based on an absolute differences criterion, such as mean absolute error or median absolute deviation?\nUser: Yes\n\nExpert: Is the optimization problem subject to any constraints on the parameters of the quadratic model?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.",
+    "(0, 0)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.\nExpert: Does the problem include a constraint related to the non-negativity of the parameters or coefficients?\nUser: No\n",
+    "(0, 0, 0)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.\nExpert: Does the problem include a constraint related to the non-negativity of the parameters or coefficients?\nUser: No\n\nExpert: Does the problem include the constraint that the predicted values are calculated using a set of input data points?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.\nExpert: Does the problem include a constraint related to the non-negativity of the parameters or coefficients?\nUser: No\n\nExpert: Does the problem include the constraint that the predicted values are calculated using a set of input data points?\nUser: Yes\n\nExpert: Is there a constraint mentioning whether the coefficients a, b, and c are restricted to real numbers or non-negative values?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.",
+    "(0, 0)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.\nExpert: Is the error measured in this problem subject to any constraints, such as being non-negative?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.\nExpert: Is the error measured in this problem subject to any constraints, such as being non-negative?\nUser: Yes\n\nExpert: Are these constraints absolute (i.e., the error cannot be zero), or is zero a feasible value for the error?\nUser: Zero is a feasible value for the error.\n",
+    "(0, 0, 0, 0)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.\nExpert: Is the error measured in this problem subject to any constraints, such as being non-negative?\nUser: Yes\n\nExpert: Are these constraints absolute (i.e., the error cannot be zero), or is zero a feasible value for the error?\nUser: Zero is a feasible value for the error.\n\nExpert: Is the feasibility of zero error the same for all data points?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.",
+    "(0, 0)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.\nExpert: Does the problem description contain a mention of 'minimize' in the objective field?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.\nExpert: Does the problem description contain a mention of 'minimize' in the objective field?\nUser: Yes\n\nExpert: Is the 'parameters' list non-empty?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Finding the optimal parameters for a quadratic model that minimizes error between predicted and observed data values.\nExpert: Does the problem description contain a mention of 'minimize' in the objective field?\nUser: Yes\n\nExpert: Is the 'parameters' list non-empty?\nUser: No\n\nExpert: Does the problem have any constraints?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "coefficients of the quadratic model"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find optimal parameters for a quadratic model that minimize the error between predicted and observed data values."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The model must fit within the quadratic form: y = ax^2 + bx + c.",
+            "The parameters a, b, and c must be chosen such that the error between the predicted values (y) and the observed data values is minimized.",
+            "The error is typically quantified using a loss function, such as mean squared error or another relevant metric.",
+            "The input data set must consist of paired observed data points (x, y).",
+            "The optimization must not allow non-finite or non-real number solutions for the parameters a, b, and c."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "quadratic model parameters",
+            "error"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the error between predicted and observed data values based on a criterion other than the least squares method."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The error metric is not the sum of squared differences (least squares).",
+            "The model is quadratic in nature, relying on quadratic parameters.",
+            "The goal is to minimize error between predicted and observed data values, following a different metric than least squares."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "mean absolute error",
+            "median absolute deviation"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the absolute differences between predicted and observed data values using a quadratic model."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The error is minimized based on an absolute differences criterion, not a sum of squared differences.",
+            "The quadratic model used for prediction should be parameterized appropriately for minimizing absolute error.",
+            "The optimization must account for absolute measures such as mean absolute error or median absolute deviation, potentially using linear programming methods."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "mean_absolute_error",
+            "quadratic_model",
+            "no_constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Find the parameters for a quadratic model that minimize the absolute differences between predicted and observed data values, without any constraints on the model parameters."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The error being minimized is based on an absolute differences criterion, such as mean absolute error or median absolute deviation."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "coefficients of the quadratic terms",
+            "coefficients of the linear terms",
+            "constant term"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the error between predicted and observed data values by optimizing the parameters of a quadratic model."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The model needs to be quadratic, so it must be in the form ax^2 + bx + c.",
+            "The parameters a, b, and c must define a function that minimizes the error between predicted values and observed data values.",
+            "The error is typically measured using a loss function like Mean Squared Error (MSE) or another suitable metric.",
+            "The parameter a should not be zero, as that would make the equation linear.",
+            "Constraints might include boundaries on the parameter values, such as a, b, c within certain ranges, to prevent overfitting or underfitting."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Coefficients of the quadratic model (a, b, c)",
+            "Observed data values",
+            "Predicted data values from the quadratic model"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the error between predicted and observed data values by optimizing the parameters of a quadratic model."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Minimize the error between predicted and observed data values using a quadratic model.",
+            "Decision Variables: Coefficients of the quadratic model (e.g., a, b, and c for a quadratic equation of the form ax^2 + bx + c).",
+            "Constraints: The predicted values are calculated based on a given set of input data points."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the error between predicted and observed data values by finding the optimal parameters of a quadratic model, given a set of input data points."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The predicted values must be calculated using a given set of input data points."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "a",
+            "b",
+            "c"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the error between predicted and observed data values in a quadratic model by optimizing the coefficients of the model."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The predicted values are calculated using a set of input data points."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quadratic coefficient for 'x^2' term",
+            "Linear coefficient for 'x' term",
+            "Constant coefficient"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the error between predicted and observed data values."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The model must be quadratic, generally of the form y = ax^2 + bx + c.",
+            "The model must minimize the error between predicted and observed data values.",
+            "The parameters to be optimized are a, b, and c within the quadratic equation.",
+            "Observed data values and corresponding x-values must be provided.",
+            "The error can be measured using a suitable metric, such as mean squared error or mean absolute error."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Error measured is non-negative"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal parameters for a quadratic model that minimize the non-negative error between predicted and observed data values."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The error must be non-negative."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quadratic model parameters that minimize error",
+            "Error between predicted and observed data values",
+            "Non-negative constraint on error"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the error between predicted and observed data values using optimal parameters for a quadratic model, while ensuring the error is non-negative."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Error must be non-negative.",
+            "Zero is a feasible value for the error."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimize error",
+            "find optimal parameters for a quadratic model",
+            "non-negative error",
+            "zero is feasible for error across all data points"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the error between predicted and observed data values in a quadratic model."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Error must be non-negative for all data points.",
+            "Zero error is a feasible value for all data points."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "coefficients of the quadratic function (a, b, c)",
+            "input data values (x)",
+            "observed data values (y)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the error between predicted and observed data values using a quadratic model."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The model is quadratic, meaning the form is y = ax^2 + bx + c, where a, b, and c are the parameters.",
+            "The error metric is used to assess the difference between predicted and observed values, such as mean squared error (MSE).",
+            "The parameters a, b, and c need to be chosen such that they fit the available observed data points.",
+            "There is a requirement to minimize the error between the predicted and actual observations across all data points.",
+            "Possible constraints on the parameters might exist such as non-negativity or bounded range depending on context but are not explicitly mentioned in the prompt."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "minimize error between predicted and observed data values"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the error between predicted and observed data values using a quadratic model."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The model to be optimized is a quadratic model.",
+            "The objective is to minimize error between predicted and observed data values."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "Minimize error between predicted and observed data values."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective is to minimize error.",
+            "No specific parameters are provided to optimize within the quadratic model."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "objective: minimize error",
+            "model type: quadratic"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the error between the predicted and observed data values by optimizing the parameters of a quadratic model."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "vague_description": "How can the zoo efficiently plan the transportation of monkeys to the vet considering various restrictions on the number of trips and transportation modes?",
+  "detailed_description": "A zoo needs to transport their monkeys to the vet either by bus or by car. A bus can transport \\param{BusCapacity} monkeys per trip and takes \\param{BusDuration} minutes. A car can transport \\param{CarCapacity} monkeys per trip and takes \\param{CarDuration} minutes. There can be at most \\param{MaxBusTrips} bus trips. In addition, since the monkeys get aggressive when there are too many in one place at least \\param{MinCarTripProportion} of the trips should be by car. If the zoo needs to transport \\param{TotalMonkeys} monkeys, how many trips of each should be done to minimize the total time required to transport the monkeys?",
+  "target_objective": "Minimize the total time required to transport all the monkeys to the vet",
+  "target_constraints": [
+    "Number of bus trips is non-negative",
+    "Number of car trips is non-negative",
+    "The number of bus trips can be at most MaxBusTrips",
+    "At least MinCarTripProportion of the trips must be by car",
+    "Total number of monkeys transported must be at least TotalMonkeys"
+  ],
+  "target_parameters": [
+    "Number of monkeys that can be transported per bus trip",
+    "Duration of one bus trip",
+    "Number of monkeys that can be transported per car trip",
+    "Duration of one car trip",
+    "Maximum number of bus trips allowed",
+    "Minimum proportion of trips that must be by car",
+    "Total number of monkeys to be transported"
+  ]
+}

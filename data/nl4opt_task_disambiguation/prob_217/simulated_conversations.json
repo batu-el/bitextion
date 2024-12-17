@@ -1,0 +1,49 @@
+{
+  "vague_description": "The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.",
+  "detailed_description": "Super Shop sells cat paw snacks and gold shark snacks in bulk. It plans to sell them into two snack mix products. The first mix contains \\param{PctCatPawFirst}% cat paw snacks and \\param{PctGoldSharkFirst}% gold shark snacks. The second mix contains \\param{PctCatPawSecond}% cat paw snacks and \\param{PctGoldSharkSecond}% gold shark snacks. The store has on hand \\param{TotalCatPaw} kg of cat paw snacks and \\param{TotalGoldShark} kg of gold shark snacks. If the profit per kg of the first mix is $\\param{ProfitFirstMix} and the profit per kg of the second mix is $\\param{ProfitSecondMix}, how many kg of each should be prepared to maximize profit?",
+  "target_objective": "Maximize the total profit from both snack mixes",
+  "target_constraints": [
+    "Amount of cat paw snacks in the first mix is non-negative",
+    "Amount of gold shark snacks in the first mix is non-negative",
+    "Amount of cat paw snacks in the second mix is non-negative",
+    "Amount of gold shark snacks in the second mix is non-negative",
+    "Total amount of cat paw snacks in both mixes cannot exceed TotalCatPaw kg",
+    "Total amount of gold shark snacks in both mixes cannot exceed TotalGoldShark kg",
+    "The first mix must contain PctCatPawFirst% cat paw snacks and PctGoldSharkFirst% gold shark snacks",
+    "The second mix must contain PctCatPawSecond% cat paw snacks and PctGoldSharkSecond% gold shark snacks"
+  ],
+  "target_parameters": [
+    "Percentage of cat paw snacks in the first snack mix",
+    "Percentage of gold shark snacks in the first snack mix",
+    "Percentage of cat paw snacks in the second snack mix",
+    "Percentage of gold shark snacks in the second snack mix",
+    "Total kg of cat paw snacks available",
+    "Total kg of gold shark snacks available",
+    "Profit per kg of the first snack mix",
+    "Profit per kg of the second snack mix"
+  ],
+  "Expert": {
+    "(0,)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.",
+    "(0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Does the problem include both equality and inequality constraints related to ingredient proportions and inventory limits?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Does the problem include both equality and inequality constraints related to ingredient proportions and inventory limits?\nUser: Yes\n\nExpert: Are the profit coefficients for the two snack products linear in terms of their quantities in the objective function?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Does the problem include both equality and inequality constraints related to ingredient proportions and inventory limits?\nUser: Yes\n\nExpert: Are the profit coefficients for the two snack products linear in terms of their quantities in the objective function?\nUser: Yes\n\nExpert: Are there additional production constraints beyond the ingredient proportions and inventory limits, such as time or labor constraints?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.",
+    "(0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Does any problem description include a constraint on the maximum number of units that can be produced of any product?\nUser: No\n",
+    "(0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Does any problem description include a constraint on the maximum number of units that can be produced of any product?\nUser: No\n\nExpert: Does the problem involve exactly two types of ingredients for the snack products?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Does any problem description include a constraint on the maximum number of units that can be produced of any product?\nUser: No\n\nExpert: Does the problem involve exactly two types of ingredients for the snack products?\nUser: Yes\n\nExpert: Do the problem descriptions include explicit numerical values for profit per unit of the products?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.",
+    "(0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Are the quantities of the two snack products to be determined integers?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Are the quantities of the two snack products to be determined integers?\nUser: Yes.\n\nExpert: Is there a fixed upper limit on the inventory for each of the two snack products?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Are the quantities of the two snack products to be determined integers?\nUser: Yes.\n\nExpert: Is there a fixed upper limit on the inventory for each of the two snack products?\nUser: No.\n\nExpert: Are there any constraints on the ingredient proportions of the two snack products?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.",
+    "(0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Are 'ingredient proportions' listed as a constraint in a case-insensitive manner at least twice in the problem descriptions?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Are 'ingredient proportions' listed as a constraint in a case-insensitive manner at least twice in the problem descriptions?\nUser: Yes\n\nExpert: Are all constraint values exactly the same as the keys in the parameters dictionary?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The challenge is to determine the optimal quantities of two mixed snack products to maximize profit given specific ingredient proportions and limited inventory.\nExpert: Are 'ingredient proportions' listed as a constraint in a case-insensitive manner at least twice in the problem descriptions?\nUser: Yes\n\nExpert: Are all constraint values exactly the same as the keys in the parameters dictionary?\nUser: No\n\nExpert: Are the provided problem parameters specific values or general variable names?\nUser: General variable names\n"
+  }
+}

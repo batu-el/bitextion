@@ -1,0 +1,16 @@
+{
+  "vague_description": "Determine the optimal distribution strategy for packing jam using a combination of small and large jars to satisfy retailer preferences and achieve minimum shipment volume.",
+  "detailed_description": "A jam company sends its product out in small and large jars. A \\param{SmallJarVolume} ml small jar can hold while a \\param{LargeJarVolume} ml large jar can hold. Most stores prefer the smaller size, and so the number of large jars cannot exceed the number of small jars. If the company wants to ship at least \\param{MinimumVolume} ml of jam, find the minimum number of jars that can be used.",
+  "target_objective": "Minimize the total number of jars used to ship at least MinimumVolume ml of jam",
+  "target_constraints": [
+    "Number of large jars is non-negative",
+    "Number of small jars is non-negative",
+    "Number of large jars does not exceed the number of small jars",
+    "Total volume of jam in jars is at least MinimumVolume ml"
+  ],
+  "target_parameters": [
+    "Volume of jam that a small jar can hold",
+    "Volume of jam that a large jar can hold",
+    "Minimum total volume of jam needed for shipment"
+  ]
+}

@@ -1,0 +1,438 @@
+{
+  "vague_description": "Determine optimal ingredient proportions within time constraints for product effectiveness.",
+  "detailed_description": "Both coconut oil and lavender need to be added to a body wash. One unit of coconut oil takes \\param{CoconutOilTime} minutes to be effective while one unit of lavender takes \\param{LavenderTime} minutes to be effective. The body wash must contain at least \\param{MinCoconutOilUnits} units of coconut oil and at most \\param{MaxCombinedUnits} units of both ingredients. Since too much coconut oil can make the body wash too oily, there can be at most \\param{MaxOilLavenderRatio} times the amount of coconut oil as lavenders in the body wash. How many units of each should be added to the body wash to minimize the total amount of time it takes for the mixture to be effective? (Note: one must be added before the other)",
+  "target_objective": "Minimize the total effective time for the body wash mixture",
+  "target_constraints": [
+    "Coconut oil units are non-negative",
+    "Lavender units are non-negative",
+    "At least MinCoconutOilUnits units of coconut oil must be added",
+    "At most MaxCombinedUnits of coconut oil and lavender can be added in total",
+    "The ratio of coconut oil to lavender units cannot exceed MaxOilLavenderRatio"
+  ],
+  "target_parameters": [
+    "Time in minutes for one unit of coconut oil to be effective",
+    "Time in minutes for one unit of lavender to be effective",
+    "Minimum required units of coconut oil",
+    "Maximum allowed units of both ingredients combined",
+    "Maximum allowed ratio of units of coconut oil to units of lavender"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.",
+    "(0, 0)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.\nExpert: Are there cost constraints or budget limitations associated with selecting the ingredients?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.\nExpert: Are there cost constraints or budget limitations associated with selecting the ingredients?\nUser: No\n\nExpert: Is there a specific target or goal for the product's effectiveness that must be achieved?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.\nExpert: Are there cost constraints or budget limitations associated with selecting the ingredients?\nUser: No\n\nExpert: Is there a specific target or goal for the product's effectiveness that must be achieved?\nUser: No\n\nExpert: Are there any constraints on the availability or supply of the ingredients?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.",
+    "(0, 0)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.\nExpert: Does the problem involve constraints related to the cost of ingredients?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.\nExpert: Does the problem involve constraints related to the cost of ingredients?\nUser: No\n\nExpert: Does the problem include a constraint that the total proportions or weight of ingredients must equal a specific value?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.\nExpert: Does the problem involve constraints related to the cost of ingredients?\nUser: No\n\nExpert: Does the problem include a constraint that the total proportions or weight of ingredients must equal a specific value?\nUser: No\n\nExpert: Does the problem include a constraint related to ingredient interaction or combination effects?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.",
+    "(0, 0)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.\nExpert: Is the product effectiveness measured by a continuous or discrete variable?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.\nExpert: Is the product effectiveness measured by a continuous or discrete variable?\nUser: Yes\n\nExpert: Is the product effectiveness variable known or observable beforehand, or does it need to be determined through experimentation or simulation?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.\nExpert: Is the product effectiveness measured by a continuous or discrete variable?\nUser: Yes\n\nExpert: Is the product effectiveness variable known or observable beforehand, or does it need to be determined through experimentation or simulation?\nUser: No\n\nExpert: Is the cost of ingredients directly impacted by the time available for production, or are they fixed regardless of the production schedule?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.",
+    "(0, 0)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.\nExpert: Are time constraints explicitly mentioned in the problem constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.\nExpert: Are time constraints explicitly mentioned in the problem constraints?\nUser: No\n\nExpert: Is there a mention of time constraint in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine optimal ingredient proportions within time constraints for product effectiveness.\nExpert: Are time constraints explicitly mentioned in the problem constraints?\nUser: No\n\nExpert: Is there a mention of time constraint in the problem description?\nUser: Yes\n\nExpert: Is the objective of the problem multiple words or a single phrase?\nUser: Multiple words\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "ingredient proportions",
+            "time constraints",
+            "product effectiveness"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal proportions of ingredients in a product while meeting specific time constraints to ensure the product's effectiveness."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The proportions of ingredients must sum up to a fixed total, representing the complete product.",
+            "Each ingredient must be used within specified minimum and maximum percentages to maintain product effectiveness.",
+            "The total time for mixing and preparation of the ingredients should not exceed a specified limit.",
+            "Ingredient availability might impose an upper limit on the amount that can be used.",
+            "The solution must be feasible within production constraints such as equipment capacity and operational hours."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "ingredient proportions",
+            "time constraints",
+            "product effectiveness"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal proportions of ingredients that maximize product effectiveness while adhering to a specific time constraint for production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The proportions of ingredients must ensure product effectiveness.",
+            "The optimization process must be completed within the specified time constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Ingredient proportions",
+            "Time constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal proportions of ingredients that maximize product effectiveness within given time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization must consider time constraints for product effectiveness."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "ingredient proportions",
+            "time constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal proportions of ingredients to maximize product effectiveness within a given time frame."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Time constraint for product effectiveness"
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Ingredient proportions",
+            "Time constraints",
+            "Product effectiveness"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal proportions of ingredients that maximize product effectiveness while adhering to given time constraints for preparation or production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the ingredient proportions must equal 100% or 1 if using fraction representation.",
+            "The optimal mix must be determined within a specific time frame, possibly due to production or testing deadlines.",
+            "Each ingredient proportion must meet specific minimum and maximum limits based on regulatory or formulation guidelines.",
+            "The effectiveness of the product must meet or exceed a predetermined threshold, possibly measured through testing or historical data.",
+            "The solution must consider the cost of ingredients to ensure it stays within budget constraints.",
+            "Certain ingredient combinations may interact either positively or negatively, affecting overall product effectiveness and must be modeled in the constraints."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "ingredient proportions",
+            "time constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal proportions of ingredients to maximize product effectiveness within given time constraints, disregarding cost considerations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There are time constraints related to product effectiveness.",
+            "No cost constraints for the ingredients."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "ingredient proportions",
+            "time constraints",
+            "product effectiveness"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Optimize the proportions of ingredients to maximize product effectiveness while adhering to time constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Ingredient proportions",
+            "Time constraints",
+            "Product effectiveness",
+            "Ingredient interaction or combination effects"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the proportions of ingredients that maximize product effectiveness while considering constraints related to ingredient interaction or combination effects, within a given time limit for achieving optimal results."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimal ingredient proportions must consider interaction or combination effects for product effectiveness."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Ingredient A proportion",
+            "Ingredient B proportion",
+            "Time Constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal proportions of ingredients that maximize product effectiveness while adhering to given time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of ingredient proportions must be equal to 100%.",
+            "Each ingredient proportion must be between minimum and maximum allowable values.",
+            "The total time to prepare the ingredients should not exceed the available preparation time."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "ingredient proportions",
+            "time constraints",
+            "product effectiveness as a continuous variable"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal proportions of ingredients to maximize product effectiveness while staying within predefined time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The sum of the proportions of all ingredients must equal 1 or 100%, representing the whole formulation.",
+            "Each ingredient proportion must be within permissible limits determined by safety, regulatory, or formulation guidelines (e.g., minimum and maximum allowable percentages for each ingredient).",
+            "The preparation time for the mix of ingredients must be within a given time constraint, ensuring the entire process does not exceed available or allocated time for production."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "optimal ingredient proportions",
+            "time constraints",
+            "product effectiveness as a function of ingredient proportions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal proportions of ingredients within specified time constraints, ensuring maximum product effectiveness, which is measured as a continuous variable and needs to be determined through experimentation or simulation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The ingredient proportions must meet a target level of product effectiveness.",
+            "The determination of product effectiveness is not directly observable and needs to be resolved through experimentation or simulation.",
+            "Optimization must be performed within specified time constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "ingredient proportions",
+            "production time constraints",
+            "product effectiveness"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal proportions of ingredients that maximize the effectiveness of the product within given time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The effectiveness of the product is not a known variable prior to experimentation or simulation.",
+            "The proportions of ingredients need to be optimized within a limited time frame for production.",
+            "Cost of ingredients is not influenced by the time available for production."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Ingredient proportions",
+            "Time constraints",
+            "Product effectiveness"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal proportions of ingredients in a product formulation that maximize effectiveness, while adhering to time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total proportion of all ingredients must add up to 100%.",
+            "Each ingredient must have a minimum percentage specified for effectiveness.",
+            "The preparation time for mixing ingredients must not exceed the given time constraint.",
+            "Some ingredients may have upper limits for safety or cost-effectiveness.",
+            "The proportions must ensure the product's effectiveness criteria are met."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Ingredient proportions",
+            "Product effectiveness",
+            "Time constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine optimal ingredient proportions for product effectiveness without explicit time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimal ingredient proportions must be determined without exceeding a preset total quantity limit for all ingredients combined.",
+            "Each ingredient may have a specific minimum and maximum limit in which it must lie.",
+            "The total cost of the ingredients should not exceed a specified budget or cost constraint.",
+            "The combination of ingredients must meet effectiveness requirements, potentially defined as a range of acceptable values for product performance metrics."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "ingredient proportions",
+            "time constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the optimal ingredient proportions for maximizing product effectiveness while considering implicit time constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There are time constraints on determining the optimal proportions of ingredients.",
+            "The ingredient proportions must effectively combine to achieve the desired product outcome."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Ingredient proportions",
+            "Time constraints",
+            "Product effectiveness"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine optimal ingredient proportions for product effectiveness"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective is to determine the optimal proportions of ingredients to maximize product effectiveness.",
+            "There is a time constraint that affects how the proportions are determined, although not explicitly mentioned as a formal constraint."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 0
+      }
+    }
+  }
+}

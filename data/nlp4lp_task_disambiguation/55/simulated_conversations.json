@@ -1,0 +1,43 @@
+{
+  "vague_description": "Decide the optimal allocation of resources to minimize expenses while meeting required targets.",
+  "detailed_description": "How much electricity should each power plant send to each city to minimize the total transmission cost, given there are \\param{P} power plants with a supply capacity of \\param{Supply}, \\param{C} cities with a demand of \\param{Demand}, and the transmission costs between power plants and cities are \\param{TransmissionCosts}?",
+  "target_objective": "Minimize the total transmission cost from power plants to cities",
+  "target_constraints": [
+    "Each power plant has a limited supply capacity of Supply",
+    "Each city has a specific electricity demand of Demand",
+    "The total electricity supplied to each city must meet its demand",
+    "A power plant cannot send more electricity than its supply capacity",
+    "Electricity sent from any power plant to any city is non-negative"
+  ],
+  "target_parameters": [
+    "Number of power plants",
+    "Number of cities",
+    "Electricity supply capacity of power plant p",
+    "Electricity demand of city c",
+    "Transmission cost from power plant p to city c"
+  ],
+  "Expert": {
+    "(0,)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.",
+    "(0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Are there specific constraints on the maximum or minimum amount of resources that can be allocated to each target?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Are there specific constraints on the maximum or minimum amount of resources that can be allocated to each target?\nUser: Yes\n\nExpert: Are the expenses directly proportional to the resource allocation?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Are there specific constraints on the maximum or minimum amount of resources that can be allocated to each target?\nUser: Yes\n\nExpert: Are the expenses directly proportional to the resource allocation?\nUser: Yes\n\nExpert: Are there multiple types of resources involved in the allocation?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.",
+    "(0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Do the constraints include non-negativity requirements for the resources allocated in all candidate problems?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Do the constraints include non-negativity requirements for the resources allocated in all candidate problems?\nUser: Yes\n\nExpert: Does the problem description include constraints specifically related to minimum resource allocations for certain projects or categories?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Do the constraints include non-negativity requirements for the resources allocated in all candidate problems?\nUser: Yes\n\nExpert: Does the problem description include constraints specifically related to minimum resource allocations for certain projects or categories?\nUser: No\n\nExpert: Does the problem description include a constraint that explicitly limits the total resource allocation to not exceed the available budget?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.",
+    "(0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Are the resources to be allocated limited in quantity?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Are the resources to be allocated limited in quantity?\nUser: Yes.\n\nExpert: Are the targets to be met related to a specific product or service?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Are the resources to be allocated limited in quantity?\nUser: Yes.\n\nExpert: Are the targets to be met related to a specific product or service?\nUser: Yes.\n\nExpert: Can the product or service levels be adjusted, or are they fixed?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.",
+    "(0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Is the number of constraints given a fixed, small number (less than or equal to 3)?\nUser: No\n",
+    "(0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Is the number of constraints given a fixed, small number (less than or equal to 3)?\nUser: No\n\nExpert: Does the objective of the problem involve minimizing a singular value (e.g., 'minimize expenses'), rather than minimizing a function or expression (e.g., 'minimize total expenses')?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Decide the optimal allocation of resources to minimize expenses while meeting required targets.\nExpert: Is the number of constraints given a fixed, small number (less than or equal to 3)?\nUser: No\n\nExpert: Does the objective of the problem involve minimizing a singular value (e.g., 'minimize expenses'), rather than minimizing a function or expression (e.g., 'minimize total expenses')?\nUser: No\n\nExpert: Is the objective function of the problem described as 'minimize' or 'minimize total expenses'?\nUser: Yes\n"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "vague_description": "Decide the optimal mix of lights to install while meeting constraints on minimum number of lights, electricity usage, and specific lamp type requirements.",
+  "detailed_description": "A lighting company has access to two types of lights to provide their customers, an LED fixture, and a fluorescence lamp. The LED light uses \\param{ELed} units of electricity per hour and needs to be changed \\param{NLed} times a decade. Conversely, the fluorescence lamp uses \\param{EFluorescence} units of electricity per hour and needs to be changed \\param{NFluorescence} times a decade. Due to previous installations, at least \\param{PFluorescence} implemented lights must be fluorescence lamps. If the customer requires at least \\param{MinLights} light fixtures and can use at most \\param{MaxElectricity} units of electricity, how many of each light should be installed to reduce the total number of light changes?",
+  "target_objective": "Minimize the total number of light changes over a decade",
+  "target_constraints": [
+    "At least PFluorescence fluorescence lamps must be installed",
+    "At least MinLights light fixtures are required in total",
+    "No more than MaxElectricity units of electricity can be used per hour",
+    "Number of LED lights is non-negative",
+    "Number of fluorescence lamps is non-negative"
+  ],
+  "target_parameters": [
+    "Electricity used per hour by an LED light",
+    "Times an LED light needs to be changed per decade",
+    "Electricity used per hour by a fluorescence lamp",
+    "Times a fluorescence lamp needs to be changed per decade",
+    "Minimum percentage of lights that must be fluorescence lamps",
+    "Minimum number of light fixtures required",
+    "Maximum units of electricity that can be used"
+  ]
+}

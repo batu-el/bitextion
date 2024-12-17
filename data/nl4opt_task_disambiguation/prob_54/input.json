@@ -1,0 +1,21 @@
+{
+  "vague_description": "The woodshop is trying to balance production output with waste management by deciding the optimal number of saws to purchase.",
+  "detailed_description": "A woodshop can purchase two types of saws, a miter saw and a circular saw. A miter saw can cut \\var{MiterPlanks} planks of wood and produces \\var{MiterSawdust} units of sawdust per day. A circular saw can cut \\var{CircularPlanks} planks of wood and produces \\var{CircularSawdust} units of sawdust per day. The woodshop must cut at least \\var{MinPlanks} planks of wood per day. However, to avoid too much pollution in the woodshop, they can produce at most \\var{MaxSawdust} units of sawdust per day. How many of each type of saw should be purchased to minimize the total number of saws needed?",
+  "target_objective": "Minimize the total number of saws needed",
+  "target_constraints": [
+    "Number of miter saws is an integer",
+    "Number of circular saws is an integer",
+    "Number of miter saws is non-negative",
+    "Number of circular saws is non-negative",
+    "Miter saws must cut at least MinPlanks planks of wood per day when combined with circular saws",
+    "The total sawdust from miter saws and circular saws cannot exceed MaxSawdust units per day"
+  ],
+  "target_parameters": [
+    "Number of planks of wood a miter saw can cut per day",
+    "Number of units of sawdust produced by a miter saw per day",
+    "Number of planks of wood a circular saw can cut per day",
+    "Number of units of sawdust produced by a circular saw per day",
+    "Minimum required number of planks of wood to cut per day",
+    "Maximum amount of sawdust that can be produced per day"
+  ]
+}

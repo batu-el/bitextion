@@ -1,0 +1,459 @@
+{
+  "vague_description": "Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.",
+  "detailed_description": "Consider a diet problem. Given a set of nutrients \\param{NutrientCount} and a set of foods \\param{FoodCount}. Each food j has a cost \\param{Cost_j} and a range of amount that can be bought [\\param{FoodMin_j}, \\param{FoodMax_j}]. Each nutrient i has a range of amount that should be included in the diet [\\param{NutrientMin_i}, \\param{NutrientMax_i}]. The amount of nutrient i in food j is \\param{AmountNutrient_{i, j}}. The problem aims to minimize the total cost of buying foods. It is constrained that the total amount of each nutrient i in the bought foods should be within its range. How to decide the amount of each food j to buy?",
+  "target_objective": "Minimize the total cost of buying foods while ensuring that nutritional constraints are met",
+  "target_constraints": [
+    "For each food j, the amount bought must be greater than or equal to FoodMin_j",
+    "For each food j, the amount bought must be less than or equal to FoodMax_j",
+    "For each nutrient i, the total amount must be greater than or equal to NutrientMin_i",
+    "For each nutrient i, the total amount must be less than or equal to NutrientMax_i",
+    "All food quantities must be non-negative"
+  ],
+  "target_parameters": [
+    "The number of different nutrients",
+    "The number of different foods",
+    "The cost of each food item",
+    "The minimum quantity of each food that can be bought",
+    "The maximum quantity of each food that can be bought",
+    "The minimum required quantity of each nutrient",
+    "The maximum allowed quantity of each nutrient",
+    "The amount of each nutrient in each food"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.",
+    "(0, 0)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.\nExpert: Is there a list of specific food items available for purchase with their respective prices and nutrient content?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.\nExpert: Is there a list of specific food items available for purchase with their respective prices and nutrient content?\nUser: No\n\nExpert: Are there any specific nutrient requirements or daily intake goals that must be met?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.\nExpert: Is there a list of specific food items available for purchase with their respective prices and nutrient content?\nUser: No\n\nExpert: Are there any specific nutrient requirements or daily intake goals that must be met?\nUser: Yes\n\nExpert: Is the optimization problem required to consider any dietary restrictions or allergies that exclude certain foods from being purchased?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.",
+    "(0, 0)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.\nExpert: Does the problem include a constraint on the intake of vitamin C?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.\nExpert: Does the problem include a constraint on the intake of vitamin C?\nUser: No\n\nExpert: Does the problem include a constraint on cholesterol intake?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.\nExpert: Does the problem include a constraint on the intake of vitamin C?\nUser: No\n\nExpert: Does the problem include a constraint on cholesterol intake?\nUser: No\n\nExpert: Does the problem have a constraint on the maximum intake of fat?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.",
+    "(0, 0)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.\nExpert: Are the nutrient requirements of the optimization problem defined in terms of a fixed set of ingredients, rather than general macro-nutrients such as calories, proteins, or fats?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.\nExpert: Are the nutrient requirements of the optimization problem defined in terms of a fixed set of ingredients, rather than general macro-nutrients such as calories, proteins, or fats?\nUser: Yes\n\nExpert: Are the ingredients in the optimization problem subject to any storage or shelf-life constraints?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.\nExpert: Are the nutrient requirements of the optimization problem defined in terms of a fixed set of ingredients, rather than general macro-nutrients such as calories, proteins, or fats?\nUser: Yes\n\nExpert: Are the ingredients in the optimization problem subject to any storage or shelf-life constraints?\nUser: No\n\nExpert: Are there any integer or quantity constraints on the amount of each ingredient that can be purchased, such as whole numbers of units or minimum purchase quantities?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.",
+    "(0, 0)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.\nExpert: Is the quantity of available food items limited and/or are there inventory limits on these items?\nUser: Yes, the quantity of each food item is limited to be within its specified range [FoodMin_j, FoodMax_j].\n",
+    "(0, 0, 0)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.\nExpert: Is the quantity of available food items limited and/or are there inventory limits on these items?\nUser: Yes, the quantity of each food item is limited to be within its specified range [FoodMin_j, FoodMax_j].\n\nExpert: Does the optimization problem explicitly include constraints related to non-negativity of variables or quantities?\nUser: Yes, the optimization problem includes constraints ensuring that the quantity of each food item bought is within its specified range, which implicitly includes the constraint for non-negativity.\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal quantities of food items to purchase in order to meet specific nutrient requirements while minimizing overall cost.\nExpert: Is the quantity of available food items limited and/or are there inventory limits on these items?\nUser: Yes, the quantity of each food item is limited to be within its specified range [FoodMin_j, FoodMax_j].\n\nExpert: Does the optimization problem explicitly include constraints related to non-negativity of variables or quantities?\nUser: Yes, the optimization problem includes constraints ensuring that the quantity of each food item bought is within its specified range, which implicitly includes the constraint for non-negativity.\n\nExpert: Does the problem description explicitly mention the price of each food item as a parameter?\nUser: Yes, the problem description explicitly mentions the cost (or price) of each food item as the parameter \\( \\text{Cost}_j \\).\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Nutrient requirements (e.g., daily values of vitamins, minerals, protein, etc.)",
+            "List of food items available for purchase",
+            "Cost per unit of each food item",
+            "Nutritional content per unit of each food item"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the minimum cost of purchasing food items while ensuring that specific nutrient requirements are met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total intake of calories must meet a specified minimum requirement.",
+            "The total intake of protein must meet a specified minimum requirement.",
+            "The total intake of carbohydrates must meet a specified minimum requirement.",
+            "The total intake of fats must meet a specified minimum requirement.",
+            "The cost of the chosen quantities of each food item should be minimized.",
+            "The quantities of food items must be non-negative, i.e., you cannot purchase negative quantities.",
+            "The total intake of each nutrient must not exceed a specified maximum to avoid excess intake."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "List of available food items",
+            "Prices of each food item",
+            "Nutrient content of each food item",
+            "Specific nutrient requirements",
+            "Objective function to minimize cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the overall cost of purchasing food items while meeting specific nutrient requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The selection of food items is unknown.",
+            "Nutrient requirements must be met in the optimal solution.",
+            "The objective is to minimize the overall cost of purchasing the food items."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Nutrient requirements",
+            "Food items list",
+            "Prices of food items",
+            "Nutrient content of each food item"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the overall cost of purchasing food items while meeting specific nutritional requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must meet specific nutrient requirements (e.g., minimum daily intake of protein, carbohydrates, vitamins, etc.).",
+            "The solution must minimize the overall cost of purchasing food items."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "List of specific food items available for purchase with their respective prices and nutrient content",
+            "Specific nutrient requirements or daily intake goals"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal quantities of food items to purchase in order to meet the specified daily nutrient requirements while minimizing the overall cost of the food items."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Meet specific nutrient requirements or daily intake goals for nutrients such as calories, protein, carbohydrates, fats, vitamins, and minerals.",
+            "Minimize the overall cost associated with purchasing the food items."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Nutrient requirements",
+            "Prices of food items",
+            "Nutritional content of each food item",
+            "Available food items"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the overall cost of food items while meeting specific nutrient requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of the food items chosen must be minimized.",
+            "The combination of food items must meet specific nutrient requirements, such as minimum daily values for calories, protein, carbohydrates, fats, vitamins, and minerals.",
+            "Each food item can only be included in non-negative quantities.",
+            "The sum of the chosen food items must not exceed a predefined budget, if any.",
+            "Nutrient levels provided by each food item must be considered in terms of contributing to the overall nutrient requirements."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "quantities of each food item to purchase",
+            "nutritional requirements for nutrients excluding vitamin C",
+            "cost of each food item"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the overall cost of purchasing food items while meeting specific nutrient requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantities of food items must satisfy specific nutrient requirements, such as calories, protein, fat, carbohydrates, vitamins, and minerals.",
+            "The overall cost of purchasing the food items must be minimized."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "quantities of food items to purchase",
+            "nutrient requirements",
+            "overall cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal quantities of food items to purchase to meet specific nutrient requirements at the lowest possible cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Meet specific nutrient requirements (excluding vitamin C).",
+            "Minimize overall cost of food items."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal quantities of food items",
+            "Meet specific nutrient requirements",
+            "Minimize overall cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the overall cost of purchasing food items while meeting specific nutrient requirements."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of different food items to purchase",
+            "Nutrient requirements to meet (e.g., protein, carbohydrates, vitamins)",
+            "Cost of each food item",
+            "Nutrient content of each food item",
+            "Possible budget constraint",
+            "Minimum and maximum purchase quantities for each item"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the overall cost of purchasing food items while meeting specific nutrient requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of the selected quantities of food items should be minimized.",
+            "The total nutrients provided by the selected quantities of food items must meet or exceed the specific nutrient requirements.",
+            "Each food item can only be purchased in non-negative quantities."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "quantities of food items",
+            "specific ingredient nutrient requirements",
+            "overall cost minimization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal quantities of specific food items to purchase such that specific nutrient requirements are met while minimizing the overall cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Meet the specific nutrient requirements for each food item.",
+            "Purchase within the fixed set of ingredients available.",
+            "Minimize overall cost while meeting nutrient requirements for the specified food items."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Food items list",
+            "Specific nutrient requirements for each food item",
+            "Cost of each food item"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal quantities of specific food items to purchase in order to meet particular nutrient requirements while minimizing the total cost of purchasing these items."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The problem is limited to a fixed set of ingredients rather than general macro-nutrients.",
+            "There are no storage or shelf-life constraints on the ingredients."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "fixed set of ingredients",
+            "nutrient requirements defined for specific ingredients",
+            "minimize overall cost"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the quantities of specific food items to purchase in order to meet defined nutrient requirements while minimizing the overall cost, without any storage, shelf-life, or integer constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Purchase quantities must satisfy specific nutrient requirements.",
+            "All quantities should contribute to minimizing overall cost."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of different food items",
+            "Nutrient requirements (e.g., protein, vitamins, minerals)",
+            "Cost of each food item"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of purchasing food items while meeting specified nutrient requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total nutrient intake for each nutrient should meet or exceed the recommended dietary allowance (RDA) specified for each nutrient.",
+            "The total cost of purchasing the food items must be minimized.",
+            "Each food item can be purchased in non-negative quantities (i.e., zero or more units).",
+            "Any dietary restrictions or preferences (such as vegetarian or allergen-free) specified by the user must be respected."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Nutrient requirements",
+            "Cost of food items",
+            "Minimum and maximum allowable purchase quantities for each food item"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the overall cost of purchasing food items while meeting specific nutrient requirements and staying within the specified range for each food item's quantity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "For each food item j, the quantity purchased must be between FoodMin_j and FoodMax_j.",
+            "The combination of food items must satisfy the specific nutrient requirements.",
+            "The overall cost of the food items should be minimized."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Nutritional requirements to be fulfilled",
+            "Unit costs of each food item",
+            "Food_min: Minimum quantity allowed for each food item",
+            "Food_max: Maximum quantity allowed for each food item",
+            "Non-negativity constraints implicitly included due to range limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the overall cost of purchasing food items while meeting specific nutrient requirements and adhering to quantity limits for each item."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantity of each food item purchased is limited to be within its specific range [FoodMin_j, FoodMax_j].",
+            "Each food item's quantity is non-negative."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Nutrient requirements",
+            "Overall cost",
+            "Food quantities",
+            "Quantities within specified range (FoodMin_j, FoodMax_j)",
+            "Non-negativity of quantities",
+            "Price of each food item (Cost_j)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the overall cost of purchasing food items while meeting specific nutrient requirements and adhering to quantity limits for each food item."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "For each food item j, the quantity purchased must be within the range [FoodMin_j, FoodMax_j].",
+            "Quantities must be non-negative, implicitly covered by the range constraints.",
+            "The total nutrient requirements must be met, which are specified as minimum levels for certain nutrients.",
+            "The objective function primarily aims to minimize the total cost, modeled as the sum of the products of quantities and their respective unit costs: sum(Quantity_j * Cost_j) over all food items j."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 3
+      }
+    }
+  }
+}

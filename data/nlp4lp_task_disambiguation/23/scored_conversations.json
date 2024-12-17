@@ -1,0 +1,497 @@
+{
+  "vague_description": "Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.",
+  "detailed_description": "The company\u2019s declared objective is to minimize redundancy. Requirement are given as \\param{K} different resources each having \\param{I} specific requirements, where \\param{Strength} is the strength of each type of resource, \\param{LessOneWaste} is the value when wastage of resources is less than optimal, \\param{MoreOneWaste} is the value when wastage of resources is more than optimal. \\param{Recruit} is the number of recruited resources of each type, \\param{CostRedundancy} is the cost of redundancy for each type of resource, \\param{NumOverman} signifies the number of overmanned positions, \\param{CostOverman} is the cost of overmanning for each type of resource, and \\param{NumShortwork} represents the number of shortworked positions with \\param{CostShort} as the cost of short working for each type of resource. How should they operate in order to do this?",
+  "target_objective": "Minimize the total cost of redundancy, overmanning, and short working for the company",
+  "target_constraints": [
+    "Recruit, NumOverman, and NumShortwork must be non-negative for each type of resource",
+    "Amount of each resource used must be at least equal to I - LessOneWaste if there is less wastage",
+    "Amount of each resource used must not exceed I + MoreOneWaste if there is more wastage"
+  ],
+  "target_parameters": [
+    "Total number of different types of resources",
+    "Number of different requirements for each type of resource",
+    "Strength of each type of resource",
+    "Value when wastage of resources is less than optimal",
+    "Value when wastage of resources is more than optimal",
+    "Number of recruited resources of each type",
+    "Cost of redundancy for each type of resource",
+    "Number of overmanned positions",
+    "Cost of overmanning for each type of resource",
+    "Number of shortworked positions",
+    "Cost of short working for each type of resource"
+  ],
+  "Expert": {
+    "(0,)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.",
+    "(0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Is the problem centered around optimizing a single objective function related to cost minimization?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Is the problem centered around optimizing a single objective function related to cost minimization?\nUser: Yes\n\nExpert: Are there specific constraints on the workforce effectiveness that need to be met in this optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Is the problem centered around optimizing a single objective function related to cost minimization?\nUser: Yes\n\nExpert: Are there specific constraints on the workforce effectiveness that need to be met in this optimization problem?\nUser: Yes\n\nExpert: Does the optimization problem include constraints related to resource availability or budget limits?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.",
+    "(0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Does the objective of the optimization problem involve maximizing workforce productivity or effectiveness, either explicitly or implicitly through associated constraints?\nUser: No\n",
+    "(0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Does the objective of the optimization problem involve maximizing workforce productivity or effectiveness, either explicitly or implicitly through associated constraints?\nUser: No\n\nExpert: Does the problem include a constraint specifically related to maintaining workforce effectiveness or operational efficiency?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Does the objective of the optimization problem involve maximizing workforce productivity or effectiveness, either explicitly or implicitly through associated constraints?\nUser: No\n\nExpert: Does the problem include a constraint specifically related to maintaining workforce effectiveness or operational efficiency?\nUser: No\n\nExpert: Does the problem include constraints related to departmental resource allocation beyond budget and waste limits?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.",
+    "(0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Are the costs in the optimization problem mainly fixed or variable?\nUser: The costs seem to be mainly variable, given factors like redundancy, overmanning, and short working which can fluctuate based on recruitment and resource allocation decisions.\n",
+    "(0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Are the costs in the optimization problem mainly fixed or variable?\nUser: The costs seem to be mainly variable, given factors like redundancy, overmanning, and short working which can fluctuate based on recruitment and resource allocation decisions.\n\nExpert: Are there any hard constraints (e.g. laws, regulations, equipment capacity limits) that must be satisfied in the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Are the costs in the optimization problem mainly fixed or variable?\nUser: The costs seem to be mainly variable, given factors like redundancy, overmanning, and short working which can fluctuate based on recruitment and resource allocation decisions.\n\nExpert: Are there any hard constraints (e.g. laws, regulations, equipment capacity limits) that must be satisfied in the optimization problem?\nUser: Yes\n\nExpert: Do the hard constraints you mentioned primarily involve limits on the capacity or utilization of existing equipment or personnel? \nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.",
+    "(0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Is the workforce size fixed?\nUser: No.\n",
+    "(0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Is the workforce size fixed?\nUser: No.\n\nExpert: Does the problem statement explicitly mention non-negativity constraints on all variables (workforce size, resource allocation, and/or efficiency factors)?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Balancing resource allocation to minimize costs and waste while ensuring optimal workforce effectiveness.\nExpert: Is the workforce size fixed?\nUser: No.\n\nExpert: Does the problem statement explicitly mention non-negativity constraints on all variables (workforce size, resource allocation, and/or efficiency factors)?\nUser: No.\n\nExpert: Are the workforce size and resource allocation variables explicitly mentioned as being non-negative or are they allowed to be negative?\nUser: No.\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Minimize costs",
+            "Minimize waste",
+            "Ensure optimal workforce effectiveness"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs and waste while ensuring optimal workforce effectiveness by balancing resource allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must not exceed the available budget.",
+            "Waste generation must be minimized below a certain threshold.",
+            "Workforce effectiveness must be maintained or improved according to pre-defined performance metrics.",
+            "All assigned resources must comply with regulatory or organizational guidelines.",
+            "Time constraints for project completion must be adhered to.",
+            "Resource distribution needs to ensure equity among workforce departments."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Cost minimization",
+            "Waste minimization",
+            "Workforce effectiveness"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must not exceed the available budget.",
+            "Workforce effectiveness must meet or exceed a predefined threshold.",
+            "Waste must be minimized without compromising resource utility.",
+            "All resources must be utilized to some extent without remaining idle.",
+            "The solution must comply with any relevant labor or industry regulations."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Cost minimization",
+            "Workforce effectiveness constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize costs and waste in resource allocation while ensuring optimal workforce effectiveness, subject to constraints on workforce effectiveness."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The solution must minimize costs related to resource allocation.",
+            "The solution must minimize waste derived from resource allocation.",
+            "The solution should ensure optimal workforce effectiveness, meeting pre-defined effectiveness criteria or thresholds.",
+            "There may be constraints related to the availability of resources, limiting how they can be allocated.",
+            "There may be constraints on workforce availability or maximum working hours per employee.",
+            "There may be additional constraints based on specific operational requirements or regulations that affect workforce allocation."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective function: Minimize costs",
+            "Constraint: Ensure workforce effectiveness",
+            "Constraint: Resource availability limits",
+            "Constraint: Budget limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize costs and waste while ensuring optimal workforce effectiveness, subject to constraints on workforce effectiveness, resource availability, and budget limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Ensure workforce effectiveness meets a specified level or higher.",
+            "Resource allocation must not exceed available resources.",
+            "Stay within the specified budget limits."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "minimize costs",
+            "minimize waste",
+            "optimal workforce effectiveness"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs and waste while maintaining optimal workforce effectiveness through balanced resource allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total cost must be minimized.",
+            "Total waste must be minimized.",
+            "Workforce effectiveness must be optimized.",
+            "Resources allocated should not exceed budget limits.",
+            "Resources allocated should not lead to excessive waste.",
+            "Workforce productivity should be maintained at required levels."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "minimize costs",
+            "minimize waste"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs and waste while ensuring optimal workforce effectiveness."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation should minimize costs.",
+            "Resource allocation should minimize waste.",
+            "Resource allocation should ensure optimal workforce effectiveness.",
+            "Workforce productivity or effectiveness is not to be maximized as part of the objective."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "minimize costs",
+            "minimize waste"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize costs and waste while ensuring optimal resource allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation should minimize costs.",
+            "Resource allocation should minimize waste."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Costs",
+            "Waste"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs and waste"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Costs should be minimized.",
+            "Waste should be minimized."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Cost minimization",
+            "Waste minimization",
+            "Workforce effectiveness"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs and waste while ensuring optimal workforce effectiveness through balanced resource allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation of resources must be within the available budget limits to minimize costs.",
+            "Resource allocation should align with workforce needs without surpassing resource availability to prevent waste.",
+            "Workforce effectiveness targets must be met, ensuring that sufficient resources are available to the workforce to maintain productivity and effectiveness.",
+            "Maintain compliance with any regulatory requirements regarding resource usage and workforce management.",
+            "The solution must be scalable to adjust for changing workforce size or resource availability without incurring significant additional costs."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Costs",
+            "Resource allocation",
+            "Workforce effectiveness",
+            "Redundancy",
+            "Overmanning",
+            "Short working",
+            "Recruitment decisions"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize costs and waste while ensuring optimal workforce effectiveness by effectively balancing resource allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The optimization problem must minimize variable costs associated with redundancy, overmanning, and inefficient resource allocation.",
+            "Resource allocation must be balanced to prevent waste.",
+            "The optimization must ensure workforce effectiveness is maintained at an optimal level.",
+            "Decisions on recruitment must be factored into the resource allocation strategy to manage workforce size and efficiency.",
+            "Constraints on working hours and task allocations to ensure neither overmanning nor short working periods."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation decisions",
+            "Costs associated with redundancy",
+            "Cost associated with overmanning",
+            "Cost associated with short working",
+            "Workforce effectiveness",
+            "Laws",
+            "Regulations",
+            "Equipment capacity limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize variable costs and waste associated with workforce allocation while maintaining optimal effectiveness, subject to constraints such as laws, regulations, and equipment capacities."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Workforce levels must comply with labor laws and regulations, ensuring minimum wage and maximum working hours are respected.",
+            "Redundancy numbers should not exceed the legal limits of layoffs without necessary justifications and processes.",
+            "Equipment capacity must be respected, ensuring that no allocation exceeds available machinery capabilities.",
+            "Budgetary constraints for resource allocation should be maintained to prevent overspending.",
+            "Waste production must be minimized while not surpassing environmental regulations on waste disposal.",
+            "Minimum staffing requirements for safety and operational effectiveness must be adhered to."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Variable costs",
+            "Workforce effectiveness",
+            "Redundancy",
+            "Overmanning",
+            "Short working",
+            "Resource allocation decisions",
+            "Hard constraints related to laws and regulations",
+            "Equipment capacity limits",
+            "Personnel capacity limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize variable costs and waste while ensuring optimal workforce effectiveness, within the constraints of equipment and personnel capacity limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Costs are primarily variable due to factors such as redundancy, overmanning, and short working.",
+            "Hard constraints involve limits on the capacity or utilization of equipment and personnel.",
+            "Compliance with relevant laws and regulations must be maintained."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation quantities",
+            "Cost of resources",
+            "Amount of waste generated",
+            "Workforce effectiveness levels"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs and waste while ensuring optimal workforce effectiveness by balancing resource allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total workforce size must not exceed available headcount resources.",
+            "Resource allocation should result in costs that do not exceed the budgetary limits set.",
+            "Waste should be minimized, keeping it below a defined threshold level to satisfy sustainability goals.",
+            "The workforce effectiveness must achieve or exceed a certain minimum performance index."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Minimize costs",
+            "Minimize waste",
+            "Ensure optimal workforce effectiveness",
+            "Variable workforce size"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to allocate resources in such a way that minimizes costs and waste while ensuring the workforce is optimally effective, with the allowance for adjusting the workforce size as part of the solution."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must minimize both costs and waste.",
+            "Workforce effectiveness must be optimized.",
+            "The size of the workforce is not fixed and can be adjusted as needed."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Workforce size is variable.",
+            "Balancing resource allocation to minimize costs.",
+            "Minimizing waste.",
+            "Ensuring optimal workforce effectiveness.",
+            "No explicit mention of non-negativity constraints on variables."
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs and waste while ensuring optimal workforce effectiveness by balancing resource allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource allocation must be within the available resource limits.",
+            "Total costs incurred should remain under the defined budget.",
+            "Minimize waste during resource allocation.",
+            "Workforce effectiveness should meet or exceed the required productivity levels."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "workforce_size",
+            "resource_allocation",
+            "costs",
+            "waste",
+            "workforce_effectiveness"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize costs and waste while ensuring optimal workforce effectiveness through balancing resource allocation."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Workforce size is variable, not fixed.",
+            "No explicit non-negativity constraints are applied to workforce size, resource allocation, or efficiency factors.",
+            "Resource allocation must minimize costs and waste.",
+            "Resource allocation must ensure optimal workforce effectiveness."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 0
+      }
+    }
+  }
+}

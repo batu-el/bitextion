@@ -1,0 +1,435 @@
+{
+  "vague_description": "A company must determine the optimal quantities of two related products to produce while managing resource constraints.",
+  "detailed_description": "A biotechnology company has AntibioticsAvailable units of antibiotics available which is important to the process of making a first-dose and second-dose of vaccines. The first-dose vaccine requires AntibioticsFirstDose units of antibiotics and GelatineFirstDose mg of gelatine whereas the second-dose vaccine requires AntibioticsSecondDose units of antibiotics and GelatineSecondDose mg of gelatine. Since the first-dose vaccine is required before the second-dose vaccine, there must be more first-dose than second-dose vaccines manufactured. However, at least MinimumSecondDose second-dose vaccines must be made. How many of each vaccine should be made to minimize the amount of gelatine used?",
+  "target_objective": "Minimize the total amount of gelatine used in the vaccine production",
+  "target_constraints": [
+    "The number of first-dose vaccines is non-negative",
+    "The number of second-dose vaccines is non-negative",
+    "The total antibiotics used cannot exceed the AntibioticsAvailable units",
+    "The number of first-dose vaccines must be greater than the number of second-dose vaccines",
+    "At least MinimumSecondDose second-dose vaccines must be produced"
+  ],
+  "target_parameters": [
+    "Total units of antibiotics available",
+    "Units of antibiotics required for first-dose vaccine",
+    "Units of antibiotics required for second-dose vaccine",
+    "Milligrams of gelatine required for first-dose vaccine",
+    "Milligrams of gelatine required for second-dose vaccine",
+    "Minimum number of second-dose vaccines to be produced"
+  ],
+  "Expert": {
+    "(0,)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.",
+    "(0, 0)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.\nExpert: Are the resource constraints based on the availability of raw materials required for production?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.\nExpert: Are the resource constraints based on the availability of raw materials required for production?\nUser: Yes.\n\nExpert: Are the objectives of the optimization problem primarily to maximize profit?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.\nExpert: Are the resource constraints based on the availability of raw materials required for production?\nUser: Yes.\n\nExpert: Are the objectives of the optimization problem primarily to maximize profit?\nUser: No.\n\nExpert: Is the objective of the optimization problem related to minimizing costs or resources used?\nUser: Yes.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.",
+    "(0, 0)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.\nExpert: Do any problems include market demand constraints that limit the production of products?\nUser: No\n",
+    "(0, 0, 0)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.\nExpert: Do any problems include market demand constraints that limit the production of products?\nUser: No\n\nExpert: Is there a constraint explicitly limiting the maximum production of any product?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.\nExpert: Do any problems include market demand constraints that limit the production of products?\nUser: No\n\nExpert: Is there a constraint explicitly limiting the maximum production of any product?\nUser: No\n\nExpert: Does the problem explicitly state the profit per unit for both products?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.",
+    "(0, 0)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.\nExpert: Are the resources constrained by the availability of a shared input material?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.\nExpert: Are the resources constrained by the availability of a shared input material?\nUser: Yes\n\nExpert: Is the shared input material perfectly divisible and can be purchased on the market at a fixed price?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.\nExpert: Are the resources constrained by the availability of a shared input material?\nUser: Yes\n\nExpert: Is the shared input material perfectly divisible and can be purchased on the market at a fixed price?\nUser: No\n\nExpert: Do the production processes for the two products differ in terms of the required amount of the shared input material?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.",
+    "(0, 0)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.\nExpert: Does the objective function mention profit in the name or description?\nUser: No\n",
+    "(0, 0, 0)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.\nExpert: Does the objective function mention profit in the name or description?\nUser: No\n\nExpert: Are the related product quantities explicitly mentioned in the problem description parameters?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A company must determine the optimal quantities of two related products to produce while managing resource constraints.\nExpert: Does the objective function mention profit in the name or description?\nUser: No\n\nExpert: Are the related product quantities explicitly mentioned in the problem description parameters?\nUser: Yes\n\nExpert: Does the problem explicitly mention the quantities of more than one product in its parameter list?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of Product A to produce",
+            "Quantity of Product B to produce",
+            "Available resources (e.g., raw materials, labor hours)",
+            "Resource usage per unit of Product A",
+            "Resource usage per unit of Product B",
+            "Profit per unit of Product A",
+            "Profit per unit of Product B"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal quantities of two related products to produce under resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of resources used for the production of the two products cannot exceed the available resource capacity.",
+            "The production quantities of the two products must be non-negative, as negative production is not possible.",
+            "Possibly additional constraints related to the market demand or regulatory requirements specific to each product."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of two related products",
+            "Raw materials availability constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal quantities of two related products to maximize profit while adhering to resource restraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantity of raw material A used in producing both products cannot exceed the available supply.",
+            "The quantity of raw material B used in producing both products cannot exceed the available supply."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "quantities of two related products",
+            "resource constraints based on availability of raw materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal quantities of two related products to produce while managing resource constraints related to raw material availability, with a focus on objectives other than maximizing profit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantity of Product A and Product B produced must not exceed the available amounts of raw materials required for each product.",
+            "The total production of Product A and Product B must be non-negative, i.e., zero or greater."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of two related products to produce",
+            "Availability of raw materials required",
+            "Objective: Minimize costs or resources used"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimizing costs or the resources used in the production of two related products under resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production quantities of the two products must not exceed the availability of raw materials.",
+            "The objective is to minimize costs or resources used in the production process."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of two products to produce",
+            "Resource availability and constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the overall profit by determining the optimal production quantities of two related products given resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production of both products cannot exceed the available manufacturing capacity.",
+            "The production of each product must account for the availability of raw materials, which are limited.",
+            "Each product has a minimum demand requirement that must be met.",
+            "There may be labor constraints, such that the total labor hours used cannot exceed the available labor hours."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal quantities of two related products",
+            "Resource constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal quantities of two related products to produce under given resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints: The production of the two products must not exceed the available resources such as raw materials, labor, or machine hours.",
+            "Non-negativity constraints: The quantities of the products to be produced must be non-negative (i.e., you cannot produce a negative quantity of a product)."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource constraints",
+            "Quantities of two products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal quantities of two related products to produce while managing resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints impacting combined production of both products.",
+            "No market demand constraints.",
+            "No explicit maximum production limits for individual products."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Product Quantities",
+            "Resource Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize the total production quantities of both products while managing resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The company must manage resource constraints while producing the two products."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "quantity of product 1",
+            "quantity of product 2"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production quantities of two related products, maximizing profit while adhering to resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of resources used by the production of both products cannot exceed the available resources.",
+            "Production of each product must be non-negative, meaning the quantity produced cannot be less than zero."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of two related products to produce",
+            "Availability of a shared input material"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the profit from producing two related products while managing constraints on the availability of a shared input material."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Let x1 and x2 represent the quantities of the two products.",
+            "Let M represent the total available amount of the shared input material.",
+            "a1 and a2 are the amounts of the input material required for each unit of products 1 and 2, respectively.",
+            "Thus, a constraint on the input material availability is: a1 * x1 + a2 * x2 <= M."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of two related products to produce (decision variables)",
+            "Constraint on the availability of a shared input material (resource constraint)",
+            "Indivisible input material (resource constraint)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the production of the two related products while ensuring that the usage of the limited shared input material is optimally allocated between the products under the existing resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The two products must share the input material, which has a limited availability.",
+            "The input material cannot be divided perfectly and is likely available in integer quantities."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal production quantities of two products",
+            "Resource constraint of shared input material",
+            "Indivisible shared input material availability",
+            "Different input material requirements for the two products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production quantities of two related products while managing resource constraints, specifically the availability of a shared input material with differing production process requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The availability of a shared input material is limited.",
+            "The production processes of the two products require different amounts of the shared input material."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of Product A",
+            "Quantity of Product B",
+            "Resource Constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit or minimize cost while ensuring that the production quantities do not exceed available resources."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total cost of production must not exceed the budget allocated by the company.",
+            "The combined production of both products must not exceed the maximum production capacity of the facility.",
+            "The availability of raw materials limits the production quantities for each product.",
+            "Demand forecasts determine a minimum production level for each product to maintain market presence.",
+            "The production process is limited by a maximum labor hour availability.",
+            "The quality of each product must meet a minimum standard as outlined by industry regulations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of two related products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize or minimize the resource utilization or production efficiency."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource limitations for the production of two products.",
+            "Production quantities must be non-negative."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "product quantities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal quantities of the two related products to produce within resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of units produced for the two products cannot exceed the available production capacity.",
+            "The amount of resources used for producing both products must not exceed the available resources.",
+            "The production of each product must be within given minimum and maximum production limits if specified.",
+            "There may be a dependency or relationship between the product quantities that affects how they can be split or shared.",
+            "Other constraints could involve meeting specific demand requirements for each product."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantities of two related products"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize production costs while considering resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantities of two related products must be optimized.",
+            "There are resource constraints to be managed."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 1
+      }
+    }
+  }
+}

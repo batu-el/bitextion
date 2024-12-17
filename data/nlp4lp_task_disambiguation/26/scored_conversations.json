@@ -1,0 +1,557 @@
+{
+  "vague_description": "Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.",
+  "detailed_description": "How should the farmer operate over the next five years to maximize profit using \\param{AllSpace}, \\param{NHeifers}, \\param{NMilk}, \\param{HeiferSpace}, \\param{CowSpace}, \\param{CowCalve}, \\param{PriceBullock}, \\param{PriceHeifer}, \\param{PriceCow}, \\param{LossHeifer}, \\param{LossCow}, \\param{RevenueMilk}, \\param{NMaxCow}, \\param{CowOutlay}, \\param{CowGrain}, \\param{CowSugar}, \\param{SugarPerAcre}, \\param{SpaceGrain}, \\param{GrainDivision}, \\param{GrainYield}, \\param{BuyPriceGrain}, \\param{SellPriceGrain}, \\param{BuyPriceSugar}, \\param{SellPriceSugar}, \\param{LabourHeifers}, \\param{LabourCow}, \\param{LabourGrain}, \\param{LabourSugar}, \\param{ExtraHeifers}, \\param{ExtraCow}, \\param{ExtraGrain}, \\param{ExtraSugar}, \\param{LabourCost}, \\param{LabourHour}, and \\param{ExtraLabourCost}?",
+  "target_objective": "Maximize the farmer's profit over the next five years",
+  "target_constraints": [
+    "Total space used by heifers and cows cannot exceed AllSpace",
+    "Number of heifers is initially NHeifers and cannot be negative",
+    "Each cow can calve at most CowCalve times over the five years",
+    "Number of cows cannot exceed NMaxCow",
+    "Number of acres allocated to sugar production cannot exceed SugarPerAcre",
+    "Number of acres allocated to grain production cannot exceed SpaceGrain",
+    "Total space allocated to grain must be a multiple of GrainDivision",
+    "Maximum labour hours available without extra cost is LabourHour"
+  ],
+  "target_parameters": [
+    "Total space available for all animals and activities",
+    "Number of heifers",
+    "Quantity of milk produced",
+    "Space required per heifer",
+    "Space required per cow",
+    "Number of calves per cow",
+    "Price of a sold bullock",
+    "Price of a sold heifer",
+    "Price of a sold cow",
+    "Loss for selling a heifer",
+    "Loss for selling a cow",
+    "Revenue from milk production",
+    "Maximum number of cows that can be housed",
+    "Outlay for maintaining a cow",
+    "Amount of grain consumed by a cow",
+    "Amount of sugar consumed by a cow",
+    "Amount of sugar produced per acre",
+    "Space required per acre of grain",
+    "Division of overall space dedicated to grain production",
+    "Yield of grain per acre",
+    "Buy price of grain",
+    "Sell price of grain",
+    "Buy price of sugar",
+    "Sell price of sugar",
+    "Labour hours required for heifers",
+    "Labour hours required for cows",
+    "Labour hours required for grain production",
+    "Labour hours required for sugar production",
+    "Extra heifers",
+    "Extra cows",
+    "Extra grain",
+    "Extra sugar",
+    "Labour cost",
+    "Labour hours available",
+    "Extra labour cost"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.",
+    "(0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Does the problem contain specific constraints on resources like budget, land availability, or labor?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Does the problem contain specific constraints on resources like budget, land availability, or labor?\nUser: Yes\n\nExpert: Are there specific environmental or sustainability constraints, such as limits on water usage or greenhouse gas emissions, that must be considered in the optimization problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Does the problem contain specific constraints on resources like budget, land availability, or labor?\nUser: Yes\n\nExpert: Are there specific environmental or sustainability constraints, such as limits on water usage or greenhouse gas emissions, that must be considered in the optimization problem?\nUser: No\n\nExpert: Are there multiple types of crops or livestock involved in the optimization problem that each have different cultivation or management requirements?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.",
+    "(0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Does the problem specify a fixed total land area available for farming in hectares?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Does the problem specify a fixed total land area available for farming in hectares?\nUser: Yes\n\nExpert: Do any of the candidate problems include constraints related to environmental regulations or sustainable practices?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Does the problem specify a fixed total land area available for farming in hectares?\nUser: Yes\n\nExpert: Do any of the candidate problems include constraints related to environmental regulations or sustainable practices?\nUser: No\n\nExpert: Does the problem include constraints that specifically limit water usage for irrigation?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.",
+    "(0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Is the farm's primary goal to maximize the overall revenue, or is there a secondary goal that also needs to be considered, such as minimizing environmental impact or ensuring food security?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Is the farm's primary goal to maximize the overall revenue, or is there a secondary goal that also needs to be considered, such as minimizing environmental impact or ensuring food security?\nUser: Yes\n\nExpert: Is the environmental impact constraint or goal secondary to the financial return, or are they treated as equally important objectives?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Is the farm's primary goal to maximize the overall revenue, or is there a secondary goal that also needs to be considered, such as minimizing environmental impact or ensuring food security?\nUser: Yes\n\nExpert: Is the environmental impact constraint or goal secondary to the financial return, or are they treated as equally important objectives?\nUser: No\n\nExpert: Is the environmental impact constraint or goal subordinate to other factors, such as the farm's physical or labor resources, in terms of importance?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.",
+    "(0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Is the word 'resource' in the first word of the 'constraints' list of the problem description?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Is the word 'resource' in the first word of the 'constraints' list of the problem description?\nUser: No\n\nExpert: Do any of the problem descriptions explicitly mention numbers or specific physical quantities in their constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal strategies for resource allocation, livestock management, and crop production that will lead to the highest financial return in a multi-variable farming scenario.\nExpert: Is the word 'resource' in the first word of the 'constraints' list of the problem description?\nUser: No\n\nExpert: Do any of the problem descriptions explicitly mention numbers or specific physical quantities in their constraints?\nUser: Yes\n\nExpert: Are there any constraints related to the initial investment, investment budget, or equipment costs?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource availability",
+            "Labor costs",
+            "Market prices for livestock",
+            "Market prices for crops",
+            "Climate conditions",
+            "Water supply",
+            "Soil quality",
+            "Farm size",
+            "Crop rotation schedules",
+            "Livestock health and growth rates"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To achieve the highest financial return in a multi-variable farming scenario through optimal strategies in resource allocation, livestock management, and crop production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total available farming land is limited and cannot be exceeded by the cumulative land required for different crops and livestock.",
+            "Water resources are constrained by seasonal availability and cannot surpass a specified allocation per crop and livestock type.",
+            "Financial budget limits the total expenditure on seeds, fertilizers, livestock feed, and labor.",
+            "Labor availability is restricted to a fixed number of hours per week across all farming activities.",
+            "Crop planting must adhere to rotational cropping rules to prevent soil depletion.",
+            "Livestock must be maintained at sustainable levels to ensure health and productivity, adhering to welfare standards.",
+            "Market demand dictates that certain crops and livestock products must not exceed or fall below a specific production level.",
+            "Weather and climate conditions impose a growing season limit on specific crops.",
+            "Environmental regulations require that farming practices must minimize chemical runoff and maintain biodiversity."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation strategies",
+            "Livestock management strategies",
+            "Crop production strategies",
+            "Highest financial return",
+            "Budget constraints",
+            "Land availability constraints",
+            "Labor constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the financial return in a farming scenario by determining optimal strategies for resource allocation, livestock management, and crop production while adhering to constraints on resources such as budget, land availability, and labor."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The budget for all farming activities must not exceed $500,000 annually.",
+            "The total land available for livestock and crop production is 1,000 acres.",
+            "The maximum labor force available is 100 workers."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "budget",
+            "land availability",
+            "labor"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal strategies for resource allocation, livestock management, and crop production that maximize financial return in a multi-variable farming scenario, given constraints on resources such as budget, land availability, and labor."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraints for resource allocation",
+            "Land availability constraints for farming activities",
+            "Labor constraints for managing livestock and crop production"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Budget constraints",
+            "Land availability constraints",
+            "Labor constraints",
+            "Crop management requirements for multiple crops",
+            "Livestock management requirements for various livestock"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize financial return through optimal resource allocation, livestock management, and crop production, considering constraints on budget, land availability, and labor, in a multi-variable farming scenario with different crop and livestock requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget limitation on total expenditure for resources and operations.",
+            "Fixed land availability to be allocated between different crops and livestock.",
+            "Labor availability constraints across different farming activities.",
+            "Different cultivation and management requirements for multiple types of crops and livestock."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation strategies",
+            "Livestock management techniques",
+            "Crop production methods",
+            "Financial return"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize financial returns by optimizing resource allocation, livestock management, and crop production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget limitation for resource allocation.",
+            "Maximum available land area for cultivation and livestock raising.",
+            "Water usage restrictions based on local regulations.",
+            "Crop rotation and soil fertility maintenance requirements.",
+            "Labor availability constraints during peak seasons.",
+            "Market demand for specific crop types and livestock products.",
+            "Environmental and sustainability standards compliance.",
+            "Fixed costs associated with machinery, seeds, and fertilizer.",
+            "Maximum carrying capacity for livestock based on available resources.",
+            "Weather and climate variability impacting crop yield.",
+            "Time constraints related to the planting and harvesting seasons.",
+            "Legal and policy constraints for agricultural practices."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation",
+            "Livestock Management",
+            "Crop Production",
+            "Financial Return",
+            "Total Land Area (hectares)"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine optimal strategies for resource allocation, livestock management, and crop production that maximize financial returns given a fixed total land area."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total land area available for farming is fixed."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "livestock management",
+            "crop production",
+            "financial return",
+            "land area available"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize financial return in a farming scenario by optimizing resource allocation, livestock management, and crop production within a fixed total land area."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total land area available is fixed in hectares."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Land area in hectares",
+            "Financial return",
+            "Resource allocation strategies",
+            "Livestock management strategies",
+            "Crop production strategies"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the financial return from resource allocation, livestock management, and crop production given a fixed total land area without constraints on environmental regulations or water usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total fixed land area available for farming in hectares."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation budget",
+            "Number of livestock",
+            "Types of livestock",
+            "Crop types",
+            "Available land",
+            "Water resources",
+            "Labor availability",
+            "Market prices for crops",
+            "Market prices for livestock products",
+            "Crop yield rates",
+            "Cost of feed for livestock",
+            "Cost of seeds and fertilizers",
+            "Weather conditions",
+            "Disease incidence rates for crops and livestock",
+            "Cost of labor",
+            "Government regulations",
+            "Environmental impact considerations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize financial return by optimizing strategies for resource allocation, livestock management, and crop production in a multi-variable farming scenario."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total land area available for farming is limited.",
+            "There is a fixed budget for purchasing resources such as seeds, fertilizers, and livestock.",
+            "There are seasonal weather patterns that influence crop growth periods.",
+            "Crops have different planting and harvesting times, affecting labor allocation.",
+            "Certain crops and livestock require specific types of equipment, which may have limited availability.",
+            "Water resources are limited and must be allocated efficiently across all farming activities.",
+            "The market prices for crops and livestock vary and may impact financial returns.",
+            "There are labor constraints, including availability and costs of hiring workers.",
+            "Livestock require ongoing maintenance, including feed and veterinary care, with associated costs.",
+            "Different crops have varying soil and nutrient requirements, which affect crop rotation decisions."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize overall revenue",
+            "Minimize environmental impact",
+            "Ensure food security"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal strategies for resource allocation, livestock management, and crop production that will maximize overall financial return, while also considering potential secondary goals such as environmental impact or food security."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Primary goal is to maximize overall revenue.",
+            "Secondary goals include minimizing environmental impact and ensuring food security.",
+            "Resource allocation decisions need to consider availability and cost-effectiveness of resources.",
+            "Livestock management strategies must comply with animal welfare standards.",
+            "Crop production strategies should be aligned with sustainable agricultural practices.",
+            "All strategic decisions need to follow regulatory and legal requirements.",
+            "Limited availability of arable land needs to be taken into account.",
+            "Strategies must consider seasonal climate variations and potential impact on crop yields.",
+            "Budget constraints for implementing new strategies need to be considered.",
+            "Balance between short-term profitability and long-term sustainability must be maintained."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource Allocation",
+            "Livestock Management",
+            "Crop Production",
+            "Financial Return",
+            "Environmental Impact"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize financial return in farming operations by optimizing resource allocation, livestock management, and crop production strategies."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Primary goal: Maximize overall financial return.",
+            "Secondary goal: Minimize environmental impact.",
+            "Financial return objective is more important than minimizing environmental impact."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Livestock management",
+            "Crop production",
+            "Financial return",
+            "Environmental impact",
+            "Physical resources",
+            "Labor resources"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize financial return from resource allocation, livestock management, and crop production while considering environmental impact as a constraint."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Maximize overall financial return.",
+            "Environmental impact is a secondary constraint, less important than financial return.",
+            "Resource (physical and labor) availability is prioritized over minimizing environmental impact."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource allocation",
+            "Livestock management",
+            "Crop production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize the overall financial return from farming by optimizing resource allocation, livestock management, and crop production strategies."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Budget constraints for resource allocation, requiring allocation to stay within financial limits.",
+            "Capacity constraints for livestock housing and crop storage to prevent exceeding physical space limitations.",
+            "Labor availability constraints, ensuring labor utilization stays within the limits of available workforce.",
+            "Land use constraints, ensuring total land allocation does not exceed available farmland.",
+            "Water usage constraints, staying within sustainable water consumption limits.",
+            "Environmental regulations, ensuring practices adhere to legal requirements on emissions and waste disposal.",
+            "Time constraints for crop growth cycles and livestock maturity, ensuring tasks are completed within seasonal time frames."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "strategies for resource allocation",
+            "livestock management",
+            "crop production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize the financial return in a multi-variable farming scenario by optimizing strategies for resource allocation, livestock management, and crop production."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Optimal allocation strategies must adhere to seasonal weather patterns and predicted climate conditions to maximize crop yields and livestock health.",
+            "Resource allocation must not exceed the available manpower, equipment, and budget constraints while ensuring sustainable farming practices.",
+            "Crop production plans should consider soil health and crop rotation schedules to maintain long-term land productivity.",
+            "Livestock management strategies must ensure animal welfare and comply with all relevant health and safety regulations.",
+            "The financial return must be calculated over a specific time horizon, incorporating market trends and price forecasts.",
+            "Environmental impact assessments must be conducted to minimize ecological damage and promote biodiversity.",
+            "Energy consumption for farming operations should be minimized, leveraging renewable energy sources where possible.",
+            "Water usage must be optimized to prevent wastage and align with local water conservation policies."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "livestock management",
+            "crop production",
+            "financial return",
+            "constraints with numbers or physical quantities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize financial return by optimizing resource allocation, livestock management, and crop production strategies in a farming scenario."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Crop production must comply with seasonal weather patterns.",
+            "Livestock cannot be increased by more than 20% per year.",
+            "Total water usage for all farming activities must not exceed 500,000 gallons per month.",
+            "Fertilizer application should not surpass 120 kg per hectare.",
+            "Financial investment in resources should not exceed $100,000 annually.",
+            "Land available for cultivation is capped at 200 hectares."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "resource allocation",
+            "livestock management",
+            "crop production",
+            "financial return"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize financial return from resource allocation, livestock management, and crop production in a farming scenario."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There are specific physical quantities mentioned in the constraints, but none related to initial investment, investment budget, or equipment costs."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      }
+    }
+  }
+}

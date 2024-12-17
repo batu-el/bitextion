@@ -1,0 +1,23 @@
+{
+  "vague_description": "Determine the optimal combination of two meal replacement drinks such that a man's dietary needs are satisfied with the least sugar intake and constraints on protein, calories, and caffeine content from one of the brands.",
+  "detailed_description": "A man on a strict diet only drinks meal replacement drinks from two brands, alpha and omega. The alpha brand drink contains \\param{ProteinAlpha} grams of protein, \\param{SugarAlpha} grams of sugar, and \\param{CaloriesAlpha} calories per bottle. The omega brand drink contains \\param{ProteinOmega} grams of protein, \\param{SugarOmega} grams of sugar, and \\param{CaloriesOmega} calories per bottle. The man wants to get at least \\param{MinProtein} grams of protein and \\param{MinCalories} calories. In addition, because the omega brand drink contains tiny amounts of caffeine, at most \\param{MaxPropOmega} of the drink should be omega brand. How many bottles of each should he drink to minimize his sugar intake?",
+  "target_objective": "Minimize the total sugar intake from both the alpha and omega brand drinks",
+  "target_constraints": [
+    "Number of alpha brand drinks is non-negative",
+    "Number of omega brand drinks is non-negative",
+    "The drinks must provide at least MinProtein grams of protein",
+    "The drinks must provide at least MinCalories calories",
+    "At most MaxPropOmega of the drink should be omega brand"
+  ],
+  "target_parameters": [
+    "Protein content per bottle of alpha brand",
+    "Sugar content per bottle of alpha brand",
+    "Calories per bottle of alpha brand",
+    "Protein content per bottle of omega brand",
+    "Sugar content per bottle of omega brand",
+    "Calories per bottle of omega brand",
+    "Minimum protein requirement",
+    "Minimum calorie requirement",
+    "Maximum proportion of the drink that can be omega brand"
+  ]
+}

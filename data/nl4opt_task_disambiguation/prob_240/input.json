@@ -1,0 +1,18 @@
+{
+  "vague_description": "An institution is trying to optimize its budget allocation for necessary supplies while meeting specific demand and supply constraints.",
+  "detailed_description": "A hospital purchases two pills available for the patients to take one at a time. One pill is taken as a prevention and another is taken for treatment. The prevention pill takes \\param{PreventionPillCost} dollars to make while the treatment pill takes \\param{TreatmentPillCost} dollars to make. Since the prevention pill is in higher demand, the hospital must purchase at least \\param{PreventionTreatmentRatio} times as many prevention pills as treatment pills. In addition, the hospital must purchase at least \\param{MinTreatmentPills} treatment pills. If the clinic only has a budget of \\param{Budget} dollars, maximize the number of patients that can be treated.",
+  "target_objective": "Maximize the number of patients that can be treated",
+  "target_constraints": [
+    "The number of prevention pills must be at least PreventionTreatmentRatio times the number of treatment pills",
+    "At least MinTreatmentPills treatment pills must be purchased",
+    "The total cost must not exceed the budget Budget dollars",
+    "The numbers of prevention and treatment pills are non-negative"
+  ],
+  "target_parameters": [
+    "Cost to make one prevention pill",
+    "Cost to make one treatment pill",
+    "Minimum ratio of prevention pills to treatment pills",
+    "Minimum number of treatment pills the hospital must purchase",
+    "Budget of the hospital for purchasing pills"
+  ]
+}

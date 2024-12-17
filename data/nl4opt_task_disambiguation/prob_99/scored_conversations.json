@@ -1,0 +1,482 @@
+{
+  "vague_description": "Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.",
+  "detailed_description": "A candy company is making peach flavored candy and cherry flavored candy. Each pack of peach flavored candy requires \\param{PeachRequirement} units of peach flavoring and \\param{PeachSyrup} units of special syrup. Each pack of cherry flavored candy requires \\param{CherryRequirement} units of cherry flavoring and \\param{CherrySyrup} units of special syrup. The company has available \\param{TotalPeach} units of peach flavoring and \\param{TotalCherry} units of cherry flavoring. Peach candy is much more popular and thus the number of peach candy packs must be larger than the number of cherry candy packs. In addition, at least \\param{MinimumCherryPercentage} of the pack must be cherry flavored. How many of each should be made to minimize the total amount of special syrup used?",
+  "target_objective": "Minimize the total amount of special syrup used in producing the candy packs",
+  "target_constraints": [
+    "Number of peach flavored candy packs is non-negative",
+    "Number of cherry flavored candy packs is non-negative",
+    "Total used peach flavoring cannot exceed TotalPeach units",
+    "Total used cherry flavoring cannot exceed TotalCherry units",
+    "Number of peach candy packs must be greater than the number of cherry candy packs",
+    "At least MinimumCherryPercentage of the pack must be cherry flavored"
+  ],
+  "target_parameters": [
+    "Units of peach flavoring required to produce one pack of peach flavored candy",
+    "Units of special syrup required to produce one pack of peach flavored candy",
+    "Units of cherry flavoring required to produce one pack of cherry flavored candy",
+    "Units of special syrup required to produce one pack of cherry flavored candy",
+    "Total available units of peach flavoring",
+    "Total available units of cherry flavoring",
+    "Minimum percentage of the total packs that must be cherry flavored"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.",
+    "(0, 0)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.\nExpert: Are there specific constraints on the total amount of resources available for candy production?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.\nExpert: Are there specific constraints on the total amount of resources available for candy production?\nUser: Yes\n\nExpert: Are there any constraints regarding the maximum or minimum demand for either peach or cherry candy packs?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.\nExpert: Are there specific constraints on the total amount of resources available for candy production?\nUser: Yes\n\nExpert: Are there any constraints regarding the maximum or minimum demand for either peach or cherry candy packs?\nUser: Yes\n\nExpert: Do the resource constraints involve specific quantities of ingredients or time required for production of each pack?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.",
+    "(0, 0)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.\nExpert: Does any candidate problem include a constraint on packaging capacity?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.\nExpert: Does any candidate problem include a constraint on packaging capacity?\nUser: No\n\nExpert: Does any problem include a constraint specifically related to the cost or budget for production? (e.g., 'production cost should not exceed available budget')\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.\nExpert: Does any candidate problem include a constraint on packaging capacity?\nUser: No\n\nExpert: Does any problem include a constraint specifically related to the cost or budget for production? (e.g., 'production cost should not exceed available budget')\nUser: No\n\nExpert: Does the objective of the problem involve maximizing profit from selling candy packs?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.",
+    "(0, 0)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.\nExpert: Are the resource constraints primarily related to production capacity, ingredient availability, or storage and packaging limitations?\nUser: Ingredient availability. The constraints are related to the limited amounts of peach and cherry flavoring available, and the requirement for a specific amount of special syrup per candy pack.\n",
+    "(0, 0, 0)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.\nExpert: Are the resource constraints primarily related to production capacity, ingredient availability, or storage and packaging limitations?\nUser: Ingredient availability. The constraints are related to the limited amounts of peach and cherry flavoring available, and the requirement for a specific amount of special syrup per candy pack.\n\nExpert: Are the flavorings (peach and cherry) the only two ingredients with availability constraints, or are there other ingredients with constraints as well?\nUser: Yes, the flavorings (peach and cherry) are the only two ingredients with availability constraints in this context.\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.\nExpert: Are the resource constraints primarily related to production capacity, ingredient availability, or storage and packaging limitations?\nUser: Ingredient availability. The constraints are related to the limited amounts of peach and cherry flavoring available, and the requirement for a specific amount of special syrup per candy pack.\n\nExpert: Are the flavorings (peach and cherry) the only two ingredients with availability constraints, or are there other ingredients with constraints as well?\nUser: Yes, the flavorings (peach and cherry) are the only two ingredients with availability constraints in this context.\n\nExpert: Is the objective of the optimization problem to maximize profit, or to meet a specific demand for the peach and cherry candy packs while minimizing resource waste?\nUser: No.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.",
+    "(0, 0)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.\nExpert: Are there any non-monetary constraints among the given constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.\nExpert: Are there any non-monetary constraints among the given constraints?\nUser: Yes\n\nExpert: Does the problem description explicitly mention customer satisfaction as an objective or constraint?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.\nExpert: Are there any non-monetary constraints among the given constraints?\nUser: Yes\n\nExpert: Does the problem description explicitly mention customer satisfaction as an objective or constraint?\nUser: No\n\nExpert: Does the problem statement explicitly mention revenue as the objective function rather than profit?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "quantity of peach candy packs",
+            "quantity of cherry candy packs",
+            "available resources",
+            "popularity preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal quantity of peach and cherry candy packs to produce while considering resource constraints and consumer preference data."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of peach and cherry candy packs produced must not exceed the maximum production capacity available.",
+            "The production of peach and cherry candy packs must adhere to the resource availability for ingredients used in both types of candies.",
+            "The quantity produced of each type of candy pack must align with the popularity and market demand preferences for peach and cherry flavors."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of peach candy packs",
+            "Quantity of cherry candy packs",
+            "Resource constraints (e.g., amount of sugar, packaging material)",
+            "Popularity preferences of peach vs. cherry candies"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production of peach and cherry candy packs while adhering to resource constraints and meeting the desirable popularity proportions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production resources available are limited.",
+            "The quantity produced must be a certain proportion based on popularity preferences."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource constraints for production",
+            "Maximum demand for peach candy packs",
+            "Minimum demand for peach candy packs",
+            "Maximum demand for cherry candy packs",
+            "Minimum demand for cherry candy packs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profits by determining the optimal production quantities of peach and cherry candy packs, considering resource availability constraints and market demand preferences."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total available resources for candy production.",
+            "Maximum demand for peach candy packs.",
+            "Minimum demand for cherry candy packs."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Resource constraints on candy production",
+            "Maximum or minimum demand for peach candy packs",
+            "Maximum or minimum demand for cherry candy packs",
+            "Quantities of ingredients needed for each candy pack",
+            "Time required for production of each candy pack"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production and combination of peach and cherry candy packs while satisfying resource limitations related to ingredient availability and production time, as well as meeting specific demand constraints for these candy types."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total resource availability must not be exceeded.",
+            "Production should meet minimum demand for peach packs.",
+            "Production should meet minimum demand for cherry packs.",
+            "There is a specific quantity of ingredients required for each peach pack.",
+            "There is a specific quantity of ingredients required for each cherry pack.",
+            "There is a specific amount of production time required for each peach pack.",
+            "There is a specific amount of production time required for each cherry pack."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of peach candy packs",
+            "Quantity of cherry candy packs",
+            "Resource constraints",
+            "Popularity preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total production of peach and cherry candy packs while adhering to resource constraints and ensuring alignment with popularity preferences."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total quantity of peach and cherry candy packs produced must not exceed the available resource limit.",
+            "The production of peach and cherry candy packs should align with their respective popularity levels or market demand.",
+            "There might be a budget or cost constraint limiting the production capacity.",
+            "Each type of candy pack production might require different amounts of different resources (e.g., sugar, labor hours).",
+            "Quality standards must be met for each candy type, possibly implying a minimum and maximum limit on production quantities."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "peach candy packs production quantity",
+            "cherry candy packs production quantity",
+            "resource constraints",
+            "popularity preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production of peach and cherry candy packs while adhering to resource constraints and meeting popularity preferences."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The decision variables are the quantities of peach and cherry candy packs to produce.",
+            "The solution should not exceed available production resources such as labor, raw materials, and time.",
+            "The choice of quantities should incorporate consumer preference data showing relative popularity of peach vs cherry flavors.",
+            "All production output should meet minimum quality standards for both peach and cherry candy packs.",
+            "The production plan must align with economic feasibility, ensuring cost doesn't exceed budgetary limits."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Optimal quantity of peach candy packs",
+            "Optimal quantity of cherry candy packs",
+            "Resource constraints",
+            "Popularity preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production of peach and cherry candy packs while considering resource limitations and consumer preference priorities."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "optimal quantity of peach candy packs",
+            "optimal quantity of cherry candy packs",
+            "resource constraints",
+            "popularity preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize customer satisfaction based on popularity preferences while adhering to resource constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "There is no constraint on packaging capacity.",
+            "There is no constraint related to the cost or budget for production.",
+            "The problem does not involve maximizing profit from selling candy packs.",
+            "There are resource constraints on producing peach and cherry candy packs.",
+            "There are popularity preferences to consider when producing peach and cherry candy packs."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Peach candy pack quantity",
+            "Cherry candy pack quantity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profit while adhering to resource constraints and prioritizing products based on their popularity."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of peach and cherry candy packs produced must not exceed the available packaging capacity.",
+            "The production of candy packs must align with available sugar resources, considering specific sugar requirements for each type of candy.",
+            "Both peach and cherry candies must meet a minimum production quantity to satisfy the popularity among the customers.",
+            "Production time limits should not be exceeded, considering the time taken to produce each type of candy.",
+            "Budgetary constraints for production costs related to raw materials, labor, and overheads must be adhered to.",
+            "Quality control standards require a specific percentage of each batch to pass testing, which affects production viable outputs."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of peach candy packs to produce",
+            "Quantity of cherry candy packs to produce",
+            "Amount of peach flavoring available",
+            "Amount of cherry flavoring available",
+            "Amount of special syrup needed per peach candy pack",
+            "Amount of special syrup needed per cherry candy pack",
+            "Total amount of special syrup available",
+            "Consumer popularity ratio of peach to cherry candy packs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the total profit from selling peach and cherry candy packs while considering the limited availability of peach and cherry flavorings and the required amount of special syrup per candy pack."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited amount of peach flavoring available.",
+            "Limited amount of cherry flavoring available.",
+            "Specific amount of special syrup required per candy pack."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of peach candy packs",
+            "Quantity of cherry candy packs",
+            "Availability of peach flavoring",
+            "Availability of cherry flavoring",
+            "Amount of special syrup per candy pack"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production of peach and cherry candy packs within the constraints of available peach and cherry flavorings, while considering consumer popularity preferences."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantity of peach candy packs produced must not exceed the available amount of peach flavoring.",
+            "The quantity of cherry candy packs produced must not exceed the available amount of cherry flavoring.",
+            "Each candy pack requires a specific amount of special syrup, and the total usage of special syrup must not exceed its available quantity."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of peach candy packs",
+            "Quantity of cherry candy packs",
+            "Amount of peach flavoring available",
+            "Amount of cherry flavoring available",
+            "Amount of special syrup per candy pack"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the production quantities of peach and cherry candy packs while adhering to ingredient availability constraints, likely balancing flavor preference ratios or a similar non-profit-driven goal."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited availability of peach flavoring.",
+            "Limited availability of cherry flavoring.",
+            "Requirement of a specific amount of special syrup per candy pack."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Peach and cherry candy packs quantity",
+            "Resource constraints",
+            "Popularity preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production of candy packs while considering resources and meeting popularity preferences."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production of peach and cherry candy packs is limited by available resources.",
+            "The total quantity of peach and cherry candy packs produced must not exceed the maximum production capacity.",
+            "The production of each type of candy must meet minimum popularity preferences thresholds.",
+            "Resource allocation for production must ensure that essential ingredients and materials are not depleted beyond inventory levels."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of peach candy packs",
+            "Quantity of cherry candy packs",
+            "Resource availability for production",
+            "Popularity preference weights",
+            "Non-monetary constraints related to production"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production of peach and cherry candy packs under resource constraints and balancing popularity preferences."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total combined weight of peach and cherry candy packs cannot exceed the weight limit set by production resources.",
+            "There is a fixed ratio of peach to cherry candy packs that must be maintained to meet market preferences.",
+            "The total number of candy packs produced must be within the capacity limit of the production facility.",
+            "The peach candy packs rely on a unique ingredient that is limited in supply, imposing a cap on the number of peach packs that can be produced.",
+            "The candy packs must meet an overall quality standard that is assessed on a batch basis."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Quantity of peach candy packs",
+            "Quantity of cherry candy packs",
+            "Resource constraints (e.g., ingredients, time)",
+            "Popularity preferences between peach and cherry candy",
+            "Non-monetary constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the production of peach and cherry candy packs by efficiently utilizing available resources while considering popularity preferences."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints for production (e.g., limited supply of ingredients, machinery capacity).",
+            "Popularity preferences indicating a certain demand ratio or minimum production of a specific type of candy (e.g., must produce at least a certain percentage of peach candy relative to cherry candy)."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Peach candy pack production quantity",
+            "Cherry candy pack production quantity",
+            "Resource constraints",
+            "Popularity preferences"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit while respecting resource constraints and adjusting for popularity preferences between peach and cherry candy packs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource constraints on the production of peach and cherry candy packs.",
+            "Peach and cherry candy packs must meet certain popularity preferences."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 1,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 0,
+        "c_score": 1
+      }
+    }
+  }
+}

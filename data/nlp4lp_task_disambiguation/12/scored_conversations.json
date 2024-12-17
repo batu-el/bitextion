@@ -1,0 +1,472 @@
+{
+  "vague_description": "Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.",
+  "detailed_description": "Minimize the total cost of the production and inventory schedule over \\param{T} periods, given \\param{Deliver} for each period, a \\param{StorageCost} for holding inventory, and a \\param{SwitchCost} for changing production between periods.",
+  "target_objective": "Minimize the total cost of production and inventory over T periods",
+  "target_constraints": [
+    "The production amount in each period is non-negative",
+    "The inventory level in each period is non-negative",
+    "The production schedule must meet the delivery requirement Deliver in each period",
+    "The switch cost is incurred when changing production between periods"
+  ],
+  "target_parameters": [
+    "Demand for the product in each period i",
+    "Cost to hold one unit of product in storage for one period",
+    "Cost to switch the production from one period to another",
+    "Total number of periods"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.",
+    "(0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Are there specific production capacity limits or constraints that must be adhered to during the scheduling period?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Are there specific production capacity limits or constraints that must be adhered to during the scheduling period?\nUser: No\n\nExpert: Are there any penalties or costs associated with not meeting demand within the timeframe?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Are there specific production capacity limits or constraints that must be adhered to during the scheduling period?\nUser: No\n\nExpert: Are there any penalties or costs associated with not meeting demand within the timeframe?\nUser: No\n\nExpert: Are the switching fees fixed, or do they vary based on the schedule or other factors?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.",
+    "(0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Does the problem include constraints related to inventory levels such as safety stock or initial/final inventory levels?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Does the problem include constraints related to inventory levels such as safety stock or initial/final inventory levels?\nUser: Yes\n\nExpert: Does the problem involve constraints or parameters related to multiple product types?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Does the problem include constraints related to inventory levels such as safety stock or initial/final inventory levels?\nUser: Yes\n\nExpert: Does the problem involve constraints or parameters related to multiple product types?\nUser: No\n\nExpert: Does the problem include a constraint that total production must meet or exceed the demand for each period?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.",
+    "(0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Is there a limit on the number of times the production facility can be switched to a different mode or supplier?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Is there a limit on the number of times the production facility can be switched to a different mode or supplier?\nUser: No\n\nExpert: Is the objective of the optimization problem to minimize total costs over the given timeframe?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Is there a limit on the number of times the production facility can be switched to a different mode or supplier?\nUser: No\n\nExpert: Is the objective of the optimization problem to minimize total costs over the given timeframe?\nUser: Yes\n\nExpert: Is there a fixed production capacity that cannot be exceeded at any point during the given timeframe?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.",
+    "(0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Is there a constraint that limits the maximum or minimum production level?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Is there a constraint that limits the maximum or minimum production level?\nUser: No\n\nExpert: Does the problem description contain a constraint regarding the maximum storage capacity, maximum or minimum production level, or total available storage budget?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Is there a constraint that limits the maximum or minimum production level?\nUser: No\n\nExpert: Does the problem description contain a constraint regarding the maximum storage capacity, maximum or minimum production level, or total available storage budget?\nUser: No\n\nExpert: Is there at least one constraint in the problem description?\nUser: No\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production costs",
+            "storage expenses",
+            "switching fees",
+            "timeframe"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to find a schedule that minimizes the combined costs of production, storage, and switching over a given time period."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production cost over the timeframe must not exceed the allocated budget for production.",
+            "Storage expenses should be minimized without exceeding the maximum storage capacity at any time point in the schedule.",
+            "Production cannot exceed maximum daily production capacity limits.",
+            "Switching fees incurred from changing production lines or schedules should be accounted for and minimized.",
+            "The schedule must meet minimum daily production requirements.",
+            "Operational hours and labor constraints must be adhered to as per regional labor laws.",
+            "Environmental regulations must be complied with during production.",
+            "There must be a buffer in the schedule to accommodate potential disruptions in supply chain or unforeseen maintenance."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production costs",
+            "storage expenses",
+            "switching fees"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total costs, which include production costs, storage expenses, and switching fees, over the given timeframe."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production costs",
+            "Storage expenses",
+            "Switching fees"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To find the schedule that minimizes the total sum of production costs, storage expenses, and switching fees over the given timeframe."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No production capacity limits.",
+            "No penalties or costs for unmet demand."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production costs",
+            "Storage expenses",
+            "Switching fees"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost, which includes production costs, storage expenses, and switching fees, over the designated timeframe."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Switching fees vary based on the schedule or other factors."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production costs",
+            "Storage expenses",
+            "Switching fees",
+            "Timeframe"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the total production costs, storage expenses, and switching fees over a designated timeframe."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production costs should be minimized over the designated timeframe.",
+            "Storage expenses must not exceed the allocated budget for storage.",
+            "Switching fees should be minimized when changing production lines or halting operations.",
+            "The production schedule must meet all demand requirements without under or overproduction.",
+            "Inventory levels must remain within storage capacity limits at all times.",
+            "Switching operations should only occur when cost-effective within the designated timeframe."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production costs",
+            "Storage expenses",
+            "Switching fees",
+            "Safety stock levels",
+            "Initial inventory levels",
+            "Final inventory levels",
+            "Timeframe"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the total costs comprising production, storage, and switching expenses while adhering to constraints on inventory levels, including safety stock and initial or final inventory requirements, over the designated timeframe."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The schedule must meet specified safety stock levels.",
+            "Initial inventory levels are predefined and must be respected.",
+            "Final inventory levels must meet an end-of-period target.",
+            "Production capacity is limited by a maximum and minimum output per period.",
+            "Storage capacity for finished goods is limited.",
+            "Switching between products incurs a specific fee that needs to be minimized."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production costs",
+            "storage expenses",
+            "switching fees",
+            "designated timeframe",
+            "safety stock",
+            "initial/final inventory levels"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost, which includes production costs, storage expenses, and switching fees, subject to constraints on inventory levels, including safety stock and initial or final inventory levels, for a single product type over the given timeframe."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Inventory levels must adhere to safety stock requirements.",
+            "Initial and final inventory levels must meet specified criteria.",
+            "There is only one product type involved in the scheduling."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production costs",
+            "storage expenses",
+            "switching fees",
+            "safety stock levels",
+            "initial inventory levels",
+            "final inventory levels",
+            "demand for each period"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to develop a production schedule that minimizes the sum of production costs, storage expenses, and switching fees over a given timeframe, while adhering to constraints related to inventory levels and meeting the demand for each period."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Safety stock levels must be maintained throughout the scheduling period.",
+            "Initial inventory levels for the product must be considered at the start of the schedule.",
+            "Final inventory levels for the product must be reached or maintained at the end of the schedule.",
+            "Total production must meet or exceed the demand for each period."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production costs",
+            "storage expenses",
+            "switching fees",
+            "timeframe"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To create a schedule that minimizes the combined total of production costs, storage expenses, and switching fees within a given time period."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production cost must stay within the allocated budget for the entire timeframe.",
+            "Storage expenses must not exceed the storage capacity limits at any given time.",
+            "Switching fees should be minimized, especially when changing from one production schedule to another.",
+            "Production must meet customer demand without exceeding it at any point during the timeframe.",
+            "Operational hours or shifts must comply with labor regulations and resource availability.",
+            "Machine or equipment limitations, such as maximum production capacity and downtime for maintenance, need to be considered."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production costs",
+            "storage expenses",
+            "switching fees",
+            "timeframe"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine a production schedule that minimizes the sum of production costs, storage expenses, and switching fees over a given timeframe."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No limit on the number of times the production facility can be switched to a different mode or supplier."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "timeframe",
+            "production costs",
+            "storage expenses",
+            "switching fees"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total costs, including production costs, storage expenses, and switching fees, over the specified timeframe."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production must not exceed capacity limits.",
+            "Storage expenses must account for inventory holding costs based on projected inventory levels.",
+            "Switching between production modes or suppliers can occur any number of times, but each switch incurs a fixed switching fee.",
+            "Total production costs, storage expenses, and switching fees must add up to the minimum possible within the given timeframe.",
+            "Demand must be met without shortages.",
+            "Production cannot be negative and must start from zero when switched to a new mode."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production costs",
+            "storage expenses",
+            "switching fees",
+            "timeframe",
+            "total costs minimization"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total costs, including production costs, storage expenses, and switching fees, over the designated timeframe."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The objective is to minimize total costs (including production costs, storage expenses, and switching fees) over the designated timeframe.",
+            "There is no limit on the number of times the production facility can be switched to a different mode or supplier.",
+            "There is no fixed production capacity that cannot be exceeded."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production costs",
+            "storage expenses",
+            "switching fees",
+            "designated timeframe"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total cost by optimizing the production schedule, balancing production costs, storage expenses, and switching fees over the given timeframe."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production must meet or exceed demand at all times.",
+            "Total production costs, including labor and materials, must remain within the budget set for the timeframe.",
+            "Storage capacity is limited, and inventory levels cannot exceed this capacity.",
+            "Switching between different production lines or product types incurs a fee each time the switch is made.",
+            "The schedule must comply with workforce regulations, including maximum working hours per week.",
+            "Materials and components required for production should be sourced in a timely manner to avoid delays, adhering to lead times from suppliers.",
+            "The schedule must incorporate maintenance downtimes for equipment, ensuring regular upkeep without disrupting output."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Costs",
+            "Storage Expenses",
+            "Switching Fees",
+            "Designated Timeframe"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize the total cost, which includes production costs, storage expenses, and switching fees, over the designated timeframe."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production costs",
+            "Storage expenses",
+            "Switching fees",
+            "Designated timeframe"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine a production schedule that minimizes the combined costs of production, storage, and switching over the given timeframe."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "No constraint on the maximum or minimum production level.",
+            "No constraint on the maximum storage capacity.",
+            "No constraint on the total available storage budget."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Costs",
+            "Storage Expenses",
+            "Switching Fees",
+            "Timeframe"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the schedule that minimizes the combined production costs, storage expenses, and switching fees over the specified timeframe."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    }
+  }
+}

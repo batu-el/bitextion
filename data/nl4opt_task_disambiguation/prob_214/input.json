@@ -1,0 +1,22 @@
+{
+  "vague_description": "A woman wants to gamble a certain amount on sports bets with varying chances of losing and payout potential, while keeping her overall risk within a specified maximum limit.",
+  "detailed_description": "A woman has \\param{B} to gamble on two sports bets: a basketball tournament, a horse race, and a soccer game. Based on simple analysis, the woman determines her chance of losing her money would be \\param{Pbasketball} for basketball tournament, \\param{Phorse} for horse race, and \\param{Psoccer} for the soccer game. The payout for each dollar put on each bet will be \\param{Rbasketball} for basketball tournament, \\param{Rhorse} for horse race, and \\param{Rsoccer} for the soccer game. Knowing herself, she limits her average chance of losing her money should be at most \\param{Pmax}. Could you help her determine how much to money to put on each sport bet to maximize her average payout?",
+  "target_objective": "Maximize the woman's average payout from betting on the basketball tournament, horse race, and soccer game",
+  "target_constraints": [
+    "Total money spent on all bets is at most B",
+    "Money spent on basketball bet is non-negative",
+    "Money spent on horse race bet is non-negative",
+    "Money spent on soccer game bet is non-negative",
+    "Average chance of losing money should not exceed Pmax"
+  ],
+  "target_parameters": [
+    "Total budget available to gamble",
+    "Probability of losing money on the basketball bet",
+    "Probability of losing money on the horse race bet",
+    "Probability of losing money on the soccer bet",
+    "Payout for each dollar bet on the basketball tournament",
+    "Payout for each dollar bet on the horse race",
+    "Payout for each dollar bet on the soccer game",
+    "Maximum average probability of losing money"
+  ]
+}

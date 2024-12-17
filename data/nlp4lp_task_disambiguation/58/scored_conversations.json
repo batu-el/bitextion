@@ -1,0 +1,472 @@
+{
+  "vague_description": "Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.",
+  "detailed_description": "Determine the quantity of batches for each part the manufacturer should produce every month, ensuring all constraints are met, where the manufacturer has \\param{P} different parts, \\param{M} machines, \\param{TimeRequired} matrix indicating the time each machine takes to produce a part, \\param{MachineCosts} indicating the cost of each machine, \\param{Availability} of each machine, \\param{Prices} of each part, \\param{MinBatches} required for each part, a \\param{StandardCost} of running a machine per hour, an \\param{OvertimeCost} for running a machine beyond the standard hours, an \\param{OvertimeHour} available for overtime work for each machine, and a \\param{MinProfit} that the manufacturer aims to achieve.",
+  "target_objective": "Determine the optimal quantity of batches for each part to maximize the manufacturer's monthly profit, given machine availability and costs, while meeting the minimum batch requirements and not exceeding the overtime limits.",
+  "target_constraints": [
+    "Each machine's use time per part must not exceed the machine's availability",
+    "Each machine has a limited number of overtime hours that can be used",
+    "There is a minimum number of batches to be produced for each part",
+    "The total standard and overtime costs must enable achieving a minimum target profit",
+    "All produced batches for each part must be non-negative",
+    "The time used on each machine when producing parts must be non-negative",
+    "Overtime used on each machine must be non-negative and cannot exceed the available overtime hours"
+  ],
+  "target_parameters": [
+    "Number of machines",
+    "Number of parts to be produced",
+    "Time required to produce each part 'p' on machine 'm'",
+    "Cost associated with each machine 'm'",
+    "Availability in hours of each machine 'm' per month",
+    "Price obtained from selling each part 'p'",
+    "Minimum number of batches of part 'p' that must be produced",
+    "Standard cost for a machine to run for one hour",
+    "Overtime cost for a machine to run for one hour beyond the standard availability",
+    "Numbers of overtime hours available for a machine to run beyond standard availability",
+    "The minimum profit the manufacturer wants to achieve"
+  ],
+  "Expert": {
+    "(0,)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.",
+    "(0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Does the problem specify the available resources, such as raw materials and labor?\nUser: No\n",
+    "(0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Does the problem specify the available resources, such as raw materials and labor?\nUser: No\n\nExpert: Does the problem include information about production costs per unit for each product involved?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Does the problem specify the available resources, such as raw materials and labor?\nUser: No\n\nExpert: Does the problem include information about production costs per unit for each product involved?\nUser: No\n\nExpert: Are there constraints related to the capacity or availability of the machines used in production?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.",
+    "(0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Is the production time constraint for machine usage specified on a weekly basis in the problem?\nUser: No\n",
+    "(0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Is the production time constraint for machine usage specified on a weekly basis in the problem?\nUser: No\n\nExpert: Is the total production cost constraint explicitly defined as an exact dollar value budget in the problem?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Is the production time constraint for machine usage specified on a weekly basis in the problem?\nUser: No\n\nExpert: Is the total production cost constraint explicitly defined as an exact dollar value budget in the problem?\nUser: No\n\nExpert: Does the problem include a constraint requiring production levels to meet a minimum demand for each product type?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.",
+    "(0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Are the production costs considered as fixed costs or variable costs in the optimization problem?\nUser: Fixed costs\n",
+    "(0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Are the production costs considered as fixed costs or variable costs in the optimization problem?\nUser: Fixed costs\n\nExpert: Are there any constraints on the production capacity of the machines?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Are the production costs considered as fixed costs or variable costs in the optimization problem?\nUser: Fixed costs\n\nExpert: Are there any constraints on the production capacity of the machines?\nUser: Yes\n\nExpert: Is the production capacity of the machines considered constant or time-varying, meaning does the capacity change over time due to factors like maintenance or seasonal variability? \nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.",
+    "(0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Is the objective function phrase including maximizing profit case sensitive?\nUser: No\n",
+    "(0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Is the objective function phrase including maximizing profit case sensitive?\nUser: No\n\nExpert: Does the description list the objective as 'Maximize Profit' in a case-sensitive manner?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints.\nExpert: Is the objective function phrase including maximizing profit case sensitive?\nUser: No\n\nExpert: Does the description list the objective as 'Maximize Profit' in a case-sensitive manner?\nUser: No\n\nExpert: Does the candidate problem description include a specific objective value (e.g., 'maximize profit') rather than a general expression (e.g., 'maximize', 'maximize' without a specific value)?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production plan",
+            "Profit",
+            "Machine constraints",
+            "Cost constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production must not exceed machine capacity limits.",
+            "Total cost of production must not exceed budgetary constraints.",
+            "Ensure product quality standards, which may limit production methods.",
+            "Adhere to labor availability and shift constraints.",
+            "Compliance with environmental and safety regulations in production.",
+            "Meet minimum order quantities or contractual obligations for specific products."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production levels of each product",
+            "Profit contribution per unit of product",
+            "Machine capacity per production period",
+            "Max allowable cost per period",
+            "Production cost per unit of product",
+            "Machine time required per unit of product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit given machine and cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine constraints - Limited availability of machinery dictates production scheduling and capacity.",
+            "Cost constraints - Production costs must not exceed budget limits or allocated costs.",
+            "Profit maximization - Objective function is to optimize production output to ensure maximum profitability within the defined constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production plan",
+            "profit maximization",
+            "machine constraints",
+            "cost constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profit."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production plan must maximize profit.",
+            "The production must adhere to machine constraints.",
+            "The production must adhere to cost constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "profit maximization",
+            "machine constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit given machine capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine capacity constraints must be adhered to.",
+            "The production plan must maximize profit."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantities for each product",
+            "machine capacity",
+            "production cost",
+            "selling price per product",
+            "maximum available budget",
+            "total demand",
+            "resource availability"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit while adhering to machine and cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity of each machine should not be exceeded.",
+            "Total production cost should remain within the allocated budget.",
+            "Meet minimum production requirements for all products."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "profit function",
+            "machine constraints",
+            "cost constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit while adhering to machine usage and cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production plan must maximize profit.",
+            "The production must adhere to machine constraints, though the specific time constraint for machine usage is not provided.",
+            "The production must adhere to cost constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Machine production time constraint on a basis other than weekly",
+            "Total production cost constraint without an exact dollar value"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit from production while adhering to machine usage and cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine usage time is constrained but not on a weekly basis.",
+            "Total production cost is limited but not by an exact dollar value budget."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities of different product types",
+            "Profit coefficients for each product",
+            "Machine usage coefficients for each product",
+            "Cost coefficients for each product",
+            "Minimum demand requirement for each product type"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit from product production while satisfying minimum demand levels for each product type given unspecified constraints on machine usage time and production costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Machine usage does not have a specified weekly time constraint.",
+            "The total production cost is not limited to an exact dollar budget.",
+            "Production levels must meet a minimum demand for each product type."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production quantities for each product type",
+            "Machine availability and capacity",
+            "Material costs",
+            "Labor costs",
+            "Product selling prices",
+            "Production time per unit for each product",
+            "Maintenance costs",
+            "Budget limitations"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal production plan that maximizes profit subject to machine and cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production capacity of each machine cannot be exceeded.",
+            "The total cost of production must not surpass a predefined budget.",
+            "There may be minimum or maximum production requirements for certain products.",
+            "The production must meet the demand for each product without overproduction.",
+            "There could be constraints on the availability of raw materials.",
+            "Labor hours available may limit the production quantities.",
+            "Production should conform with quality and safety regulations, if any apply."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Plan",
+            "Maximize Profit",
+            "Machine Constraints",
+            "Cost Constraints",
+            "Fixed Costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal production plan, considering fixed production costs and adhering to machine and other relevant constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production plan must maximize profit.",
+            "Machine capacity constraints must be adhered to.",
+            "Fixed costs must be considered, implying variable costs are not part of the constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Maximize profit",
+            "Cost Type: Fixed Costs",
+            "Constraints: Machine Capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize profit from production while adhering to machine capacity and fixed cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production must not exceed the machine capacity per period.",
+            "Fixed costs are already accounted for, so the focus is on maximizing profit given these constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "fixed costs",
+            "production capacity of machines"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit while satisfying fixed machine capacity constraints and fixed production costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Fixed production costs.",
+            "Machine production capacity limitations are constant over time."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize: profit",
+            "constraint: machine capacity",
+            "constraint: cost budget"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal production plan under given machine and cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity should not exceed the machine's maximum output per hour.",
+            "Total production cost should not exceed the budget.",
+            "Each product requires a specific amount of machine time and this should be accounted for when planning the production schedule."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize Profit",
+            "Constraints: Machine Constraints",
+            "Constraints: Cost Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To calculate the optimal production plan that maximizes profit while adhering to machine and cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production plan must maximize profit.",
+            "The plan must adhere to machine constraints.",
+            "The plan must adhere to cost constraints."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize Profit",
+            "Machine Constraints",
+            "Cost Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit while adhering to machine and cost constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The production plan must adhere to machine capacity constraints.",
+            "The production plan must consider cost constraints."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Maximize Profit",
+            "Constraints: Machine Constraints",
+            "Constraints: Cost Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profit"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Adhere to machine capacity constraints",
+            "Meet cost constraints",
+            "Maximize profit"
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      }
+    }
+  }
+}

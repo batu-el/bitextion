@@ -1,0 +1,464 @@
+{
+  "vague_description": "Determining optimal production allocation to maximize profits within operational constraints.",
+  "detailed_description": "Consider a production problem. Given a set of products \\param{NumProducts} and a set of stages \\param{NumStages}. Each product p has a certain production rate \\param{ProductionRate_{p,s}} in each stage s and a certain profit \\param{ProfitPerTon_p} per ton. Each stage s has a certain number of hours \\param{StageAvailability_s} available per week. There are also lower and upper limits on the tons of each product sold in a week, \\param{MinCommitment_p} and \\param{MaxMarketLimit_p} respectively. The problem aims to maximize the total profit from all products. It is constrained that the total number of hours used by all products in each stage s may not exceed the hours available. How to decide the number of tons to be produced for each product p?",
+  "target_objective": "Maximize the total profit from all the products produced",
+  "target_constraints": [
+    "Number of tons of each product p is non-negative",
+    "Total hours used in each stage s by all products cannot exceed StageAvailability_s",
+    "Each product p has a minimum production commitment of MinCommitment_p tons per week",
+    "Each product p has a maximum market limit of MaxMarketLimit_p tons per week"
+  ],
+  "target_parameters": [
+    "The number of different products",
+    "The number of different stages",
+    "The production rate of product p in stage s",
+    "The profit per ton for each product",
+    "The minimum number of tons of product p that can be sold in a week",
+    "The maximum market limit on the tons of product p sold in a week",
+    "The number of hours available per week for each stage"
+  ],
+  "Expert": {
+    "(0,)": "User: Determining optimal production allocation to maximize profits within operational constraints.",
+    "(0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Are there any constraints on the availability of resources, such as raw materials or labor, that affect production?\nUser: No\n",
+    "(0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Are there any constraints on the availability of resources, such as raw materials or labor, that affect production?\nUser: No\n\nExpert: Are there any limits on the production capacity of individual units or facilities that could restrict the total production?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Are there any constraints on the availability of resources, such as raw materials or labor, that affect production?\nUser: No\n\nExpert: Are there any limits on the production capacity of individual units or facilities that could restrict the total production?\nUser: No\n\nExpert: Is there a specific demand requirement for each product that must be met?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determining optimal production allocation to maximize profits within operational constraints.",
+    "(0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Is the production capacity constraint specified in units of time (e.g., hours, days) rather than just units of products?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Is the production capacity constraint specified in units of time (e.g., hours, days) rather than just units of products?\nUser: Yes.\n\nExpert: Do half of the candidate problems include a constraint that specifies minimum production or order requirements for each product?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Is the production capacity constraint specified in units of time (e.g., hours, days) rather than just units of products?\nUser: Yes.\n\nExpert: Do half of the candidate problems include a constraint that specifies minimum production or order requirements for each product?\nUser: Yes.\n\nExpert: Does the problem include a constraint related to inventory holding or storage capacity?\nUser: No.\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determining optimal production allocation to maximize profits within operational constraints.",
+    "(0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Are these operational constraints primarily related to resource availability (such as labor, equipment, or raw materials)?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Are these operational constraints primarily related to resource availability (such as labor, equipment, or raw materials)?\nUser: Yes.\n\nExpert: Are there any seasonal or time-varying changes in resource availability or demand that need to be considered in the production allocation?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Are these operational constraints primarily related to resource availability (such as labor, equipment, or raw materials)?\nUser: Yes.\n\nExpert: Are there any seasonal or time-varying changes in resource availability or demand that need to be considered in the production allocation?\nUser: No.\n\nExpert: Are the production costs (such as labor, equipment, or raw material costs) considered fixed costs in your analysis or do they vary with the quantity produced?\nUser: No.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determining optimal production allocation to maximize profits within operational constraints.",
+    "(0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Does the problem description contain the word 'production' in both the constraints and parameters sections?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Does the problem description contain the word 'production' in both the constraints and parameters sections?\nUser: Yes\n\nExpert: Is the objective function in the problem completely specified by a single word (e.g., 'maximize', 'minimize', 'maximize profit')?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determining optimal production allocation to maximize profits within operational constraints.\nExpert: Does the problem description contain the word 'production' in both the constraints and parameters sections?\nUser: Yes\n\nExpert: Is the objective function in the problem completely specified by a single word (e.g., 'maximize', 'minimize', 'maximize profit')?\nUser: No\n\nExpert: Is the objective of the problem explicitly stated as 'maximize' or 'maximize profit'? \nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production levels for various products",
+            "Available resources",
+            "Resource consumption rates for each product",
+            "Profit margin per product",
+            "Operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by determining the optimal production allocation while adhering to the given operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production must not exceed available resources.",
+            "Production quantity for each product must not be negative.",
+            "Operational hours must not exceed the available workforce hours.",
+            "Material usage for production must be within the available material limits.",
+            "Production capacity for each product line must not be exceeded.",
+            "Overall production must meet at least a minimum threshold to be viable.",
+            "Any environmental or regulatory standards must be adhered to during production."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production allocation",
+            "maximize profits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits through optimal production allocation without resource availability constraints."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective Function: Maximize profits",
+            "Decision Variables: Production allocation for different products",
+            "Constraints: None"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine optimal production allocation that maximizes profits."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": []
+        },
+        "pred_objective": {
+          "objective": "Maximize profits through optimal production allocation without constraints on resources, production capacity, or demand requirements."
+        },
+        "pred_constraints": {
+          "constraints": []
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "production quantity for each product type",
+            "cost per unit of each product type",
+            "selling price per unit of each product type",
+            "production capacity limits",
+            "resource availability",
+            "time constraints",
+            "demand forecasts for each product type"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by allocating production resources efficiently while adhering to operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity cannot exceed 10,000 units per month.",
+            "Raw material availability limits production to 8,000 units per month.",
+            "At least 20% of the production must be Product A.",
+            "Labor hours are capped at 15,000 hours per month.",
+            "Storage space allows for a maximum of 5,000 units at any time.",
+            "Demand forecasts indicate a minimum requirement of 1,000 units for Product B per month.",
+            "Production line changeover time is 4 hours between different products, limiting changes to a maximum of 3 times per month."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production capacity constraint in units of time",
+            "Profit maximization objective",
+            "Operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by optimally allocating production resources, considering operational constraints such as production capacity in terms of time and product units."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production must be allocated to maximize profits.",
+            "Production capacity is constrained by available time, measured in units such as hours or days.",
+            "Each product must be produced within the available operational time limits."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production capacity (units of time)",
+            "Minimum production/order requirements for each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal production allocation that maximizes profits while considering operational constraints such as production capacity constraints measured in time and minimum production requirements for each product."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity constraint specified in units of time, e.g., the number of production hours available.",
+            "Minimum production or order requirements for each product."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production capacity in time units",
+            "minimum production or order requirements for each product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits through the optimal allocation of production resources while adhering to time-based production capacity constraints and minimum production requirements for each product."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity is limited and specified in units of time, such as hours or days.",
+            "There are minimum production or order requirements for each product."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Quantity",
+            "Profit Margin",
+            "Operational Constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize profits by determining the optimal production allocation, while adhering to operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total production capacity cannot exceed the available manufacturing resources.",
+            "Production levels for each product must meet the minimum demand.",
+            "Material usage for all products must not surpass the available materials.",
+            "Workforce limitations must be adhered to\u2014overtime and understaffing are not allowed.",
+            "Production must align with storage capacity to avoid excess inventory.",
+            "Compliance with safety and environmental regulations is required."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production levels per product",
+            "labor hours available",
+            "equipment capacity",
+            "raw material availability",
+            "profit per product",
+            "production time per product"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profits through optimal production allocation while adhering to operational constraints related to resource availability."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability for labor.",
+            "Resource availability for equipment.",
+            "Resource availability for raw materials."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production allocation",
+            "Profit maximization",
+            "Resource availability constraints",
+            "Labor",
+            "Equipment",
+            "Raw materials"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits by optimally allocating production resources such as labor, equipment, and raw materials within given availability constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability constraints for labor.",
+            "Resource availability constraints for equipment.",
+            "Resource availability constraints for raw materials.",
+            "No seasonal or time-varying changes in resource availability."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production_quantities",
+            "resource_availability",
+            "production_costs",
+            "profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profits from production by determining the optimal allocation of resources within fixed operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Resource availability constraints: Production is limited by the availability of labor, equipment, and raw materials.",
+            "Production cost constraints: Costs are fixed and do not vary with the quantity produced."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Production Capacity Limit",
+            "Raw Material Availability",
+            "Labor Availability",
+            "Maximize Profit",
+            "Minimum Production Requirement",
+            "Demand Forecast",
+            "Cost of Production",
+            "Selling Price per Unit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total production cannot exceed the maximum production capacity of the factory.",
+            "The production of each product must meet a minimum threshold as required by existing contracts.",
+            "The production of certain products may be limited by the availability of raw materials.",
+            "The production allocation must respect labor limitations, including maximum working hours and shifts.",
+            "Environmental regulations might impose additional limits on emissions from production processes.",
+            "The quality standards for each product must be maintained and met."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profits",
+            "Constraints: Operational constraints related to production processes",
+            "Parameters: Factors influencing production allocation such as costs, resources, capacity limits"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profits from production allocation decisions while adhering to operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production must not exceed the available inventory levels.",
+            "Production allocation must satisfy market demand for all products.",
+            "Production capacity must not exceed the available labor hours.",
+            "The total production must remain within budget constraints.",
+            "Production processes must adhere to the environmental regulations."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production",
+            "profits",
+            "operational constraints"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal allocation of production resources to maximize overall profits while considering the given operational constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The allocation should respect production limits",
+            "Must adhere to rising cost constraints for excess production",
+            "Include balance between various production lines",
+            "Consider availability of resources impacting production"
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "production",
+            "constraints",
+            "maximize profit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profit"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Production capacity should not exceed the maximum available capacity.",
+            "Allocation should include all production resources without leaving any resource idle.",
+            "The production allocation must ensure that the costs do not exceed the budget available.",
+            "All end products must meet the quality standards set by the industry.",
+            "The production timeline should adhere to the specified delivery schedules."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 5,
+        "c_score": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "vague_description": "The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.",
+  "detailed_description": "How many of each product should the sports produce in order to maximize its profit for the month, given the \\param{N} different raw materials available, where each material i has an available amount of \\param{Available}, and each product j has a requirement of \\param{Requirements} units of material i, a selling price of \\param{Prices}, a production cost of \\param{Costs}, and a market demand of \\param{Demands}?",
+  "target_objective": "Maximize the profit for the month by determining the number of each product to produce",
+  "target_constraints": [
+    "All products must be produced using available raw materials without exceeding their amounts",
+    "Each product's production must meet its raw material requirement per unit",
+    "Each product's production should not exceed its market demand",
+    "Number of units produced of each product must be non-negative"
+  ],
+  "target_parameters": [
+    "Number of different raw materials",
+    "Number of different products",
+    "Amount of raw material i available",
+    "Amount of raw material i required to produce one unit of product j",
+    "Price at which product j can be sold",
+    "Cost of producing one unit of product j",
+    "Demand for product j"
+  ],
+  "Expert": {
+    "(0,)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.",
+    "(0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Are there constraints on the availability of raw materials for producing the sports products?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Are there constraints on the availability of raw materials for producing the sports products?\nUser: Yes\n\nExpert: Are there multiple types of sports products involved in this optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Are there constraints on the availability of raw materials for producing the sports products?\nUser: Yes\n\nExpert: Are there multiple types of sports products involved in this optimization problem?\nUser: Yes\n\nExpert: Does the problem include constraints related to production capacities or machine availability?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.",
+    "(0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Do any of the problems include a constraint specifically related to storage capacity limits?\nUser: No\n",
+    "(0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Do any of the problems include a constraint specifically related to storage capacity limits?\nUser: No\n\nExpert: Does the problem include a constraint related to meeting or exceeding a minimum market demand for each product?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Do any of the problems include a constraint specifically related to storage capacity limits?\nUser: No\n\nExpert: Does the problem include a constraint related to meeting or exceeding a minimum market demand for each product?\nUser: Yes\n\nExpert: Is there a constraint related to a production cost budget in the problem description?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.",
+    "(0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Are the production quantities of different sports products related to each other through a physical constraint, such as shared resources or facilities?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Are the production quantities of different sports products related to each other through a physical constraint, such as shared resources or facilities?\nUser: Yes\n\nExpert: Are the physical constraints shared across all sports products, or are there distinct groups of products that share the same set of resources or facilities?\nUser: Yes, the physical constraints are shared across all sports products.\n",
+    "(0, 0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Are the production quantities of different sports products related to each other through a physical constraint, such as shared resources or facilities?\nUser: Yes\n\nExpert: Are the physical constraints shared across all sports products, or are there distinct groups of products that share the same set of resources or facilities?\nUser: Yes, the physical constraints are shared across all sports products.\n\nExpert: Are these shared physical constraints represented by a fixed and deterministic allocation of resources, or are there variable and uncertain allocations that need to be considered in the optimization model?\nUser: Fixed and deterministic allocations.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.",
+    "(0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Is 'resource availability' mentioned in the problem description as a parameter?\nUser: Yes\n",
+    "(0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Is 'resource availability' mentioned in the problem description as a parameter?\nUser: Yes\n\nExpert: Is the production quantity a parameter that directly influences the objective?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The company needs to determine the optimal production quantities of various sports products to maximize profits, factoring in resource limitations, costs, and market demands.\nExpert: Is 'resource availability' mentioned in the problem description as a parameter?\nUser: Yes\n\nExpert: Is the production quantity a parameter that directly influences the objective?\nUser: Yes\n\nExpert: Does the parameter 'resource availability' appear in the problem description?\nUser: Yes\n"
+  }
+}

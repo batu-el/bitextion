@@ -1,0 +1,464 @@
+{
+  "vague_description": "Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.",
+  "detailed_description": "PROBLEM TYPE: LP\n\nINPUT FORMAT:\n\n{\n    \"routes\": [\n       {\n        \"start\": i,\n        \"end\": j,\n        \"C\": \\param{Cost}_{i,j},\n       }\n    ],\n    \"demand\": [\n        {\n            \"destination\": l,\n            \"D\": \\param{Demand}_{l}\n        }\n    ],\n    \"supply\": [\n        {\n            \"terminal\": k,\n            \"S\": \\param{Supply}_{k}\n        }\n    ]\n}\n\nOBJECTIVE: What quantity of soybeans should they transport from source to destination to minimize transportation costs?",
+  "target_objective": "Minimize the total transportation costs of delivering soybeans from terminals to destinations",
+  "target_constraints": [
+    "Transported quantity from terminal to destination is non-negative",
+    "Transported quantity from each terminal cannot exceed its supply",
+    "Transported quantity to each destination must meet its demand"
+  ],
+  "target_parameters": [
+    "Number of terminals",
+    "Number of destinations",
+    "Cost of transportation for route from terminal i to destination j",
+    "Demand at each destination",
+    "Supply at each terminal"
+  ],
+  "Expert": {
+    "(0,)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.",
+    "(0, 0)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.\nExpert: Is there a limit or capacity on the amount each supply terminal can provide?\nUser: Yes, the supply terminal capacities are given in the problem's \"supply\" section.\n",
+    "(0, 0, 0)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.\nExpert: Is there a limit or capacity on the amount each supply terminal can provide?\nUser: Yes, the supply terminal capacities are given in the problem's \"supply\" section.\n\nExpert: Are there any constraints related to the type of transportation used, such as different modes of transport with specific cost structures or limits?\nUser: No, the problem only provides a general cost per route without specifying different transportation modes or additional constraints.\n",
+    "(0, 0, 0, 0)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.\nExpert: Is there a limit or capacity on the amount each supply terminal can provide?\nUser: Yes, the supply terminal capacities are given in the problem's \"supply\" section.\n\nExpert: Are there any constraints related to the type of transportation used, such as different modes of transport with specific cost structures or limits?\nUser: No, the problem only provides a general cost per route without specifying different transportation modes or additional constraints.\n\nExpert: Are the costs for each route constant, or do they depend on the quantity transported?\nUser: No, the costs for each route are constant and do not depend on the quantity transported.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.",
+    "(0, 0)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.\nExpert: Is there a constraint involving route capacity limits in the problem formulation?\nUser: No\n",
+    "(0, 0, 0)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.\nExpert: Is there a constraint involving route capacity limits in the problem formulation?\nUser: No\n\nExpert: Is there a constraint in any problem that restricts the amount of soybeans transported on each route based on a route-specific capacity limit?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.\nExpert: Is there a constraint involving route capacity limits in the problem formulation?\nUser: No\n\nExpert: Is there a constraint in any problem that restricts the amount of soybeans transported on each route based on a route-specific capacity limit?\nUser: No\n\nExpert: Does the problem description explicitly mention non-negativity constraints for soybean shipments?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.",
+    "(0, 0)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.\nExpert: Is the flow of soybeans from supply terminals to destination demands restricted by a capacity constraint (i.e., each supply terminal has a limited amount of soybeans to distribute)?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.\nExpert: Is the flow of soybeans from supply terminals to destination demands restricted by a capacity constraint (i.e., each supply terminal has a limited amount of soybeans to distribute)?\nUser: Yes\n\nExpert: Is the capacity constraint for each supply terminal fixed, or can it be adjusted before the distribution starts?\nUser: Yes, the capacity constraint for each supply terminal is fixed.\n",
+    "(0, 0, 0, 0)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.\nExpert: Is the flow of soybeans from supply terminals to destination demands restricted by a capacity constraint (i.e., each supply terminal has a limited amount of soybeans to distribute)?\nUser: Yes\n\nExpert: Is the capacity constraint for each supply terminal fixed, or can it be adjusted before the distribution starts?\nUser: Yes, the capacity constraint for each supply terminal is fixed.\n\nExpert: Is the capacity constraint for each supply terminal a hard constraint (i.e., it must be met exactly) or a soft constraint (i.e., it can be violated but with some penalty in the objective function)?\nUser: No, the capacity constraint for each supply terminal is a hard constraint.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.",
+    "(0, 0)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.\nExpert: Does the description contain the word 'limited supply' or 'available supply'?\nUser: No\n",
+    "(0, 0, 0)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.\nExpert: Does the description contain the word 'limited supply' or 'available supply'?\nUser: No\n\nExpert: Does the problem statement explicitly mention that not all destinations must meet their demand?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Given a set of supply terminals, destination demands, and costs for routes, determine the optimal distribution of soybeans to minimize total transportation cost while meeting demand.\nExpert: Does the description contain the word 'limited supply' or 'available supply'?\nUser: No\n\nExpert: Does the problem statement explicitly mention that not all destinations must meet their demand?\nUser: No\n\nExpert: Is the available supply explicitly mentioned in the problem description?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Set of supply terminals",
+            "Destination demands",
+            "Costs for routes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total transportation cost of distributing soybeans while satisfying destination demands from supply terminals."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total supply allocation from all supply terminals must equal the total demand.",
+            "The sum of supplies allocated from each terminal to all destinations cannot exceed the total supply available at that terminal.",
+            "The amount of supply sent to each destination from all terminals must meet the demand at that destination.",
+            "The transportation cost for each route is fixed and should be multiplied by the quantity shipped along that route.",
+            "Solution must ensure all destination demands are met without exceeding any terminal's supply."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Supply terminals with known capacities",
+            "Destination demands",
+            "Costs for transportation routes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total transportation cost while meeting the demand at each destination, considering the supply capacities at each terminal."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total amount of soybeans distributed from each supply terminal cannot exceed its given capacity.",
+            "The total amount of soybeans delivered to each destination must meet its demand.",
+            "The distribution should minimize total transportation costs across all routes."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Supply terminal capacities",
+            "Destination demands",
+            "Transportation costs per route"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total transportation cost while satisfying demand at each destination, subject to supply terminal capacity constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total transportation cost needs to be minimized.",
+            "The supply from each terminal cannot exceed its specified capacity.",
+            "All destination demands must be met by the supplied soybeans."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "supply terminal capacities",
+            "destination demands",
+            "costs for routes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal distribution of soybeans from supply terminals to destinations to minimize the total transportation cost, while respecting supply capacities at each terminal and meeting the demand at each destination."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The supply terminals have a capacity limit which restricts the amount they can provide.",
+            "Each destination demand must be met exactly, implying that the total supply received at each destination should equal its demand.",
+            "The transportation cost for each route is constant regardless of the quantity transported, meaning it won't vary with the amount moved along each route."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "supply terminals",
+            "destination demands",
+            "route costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total transportation cost while satisfying the demand at each destination from the supply at each terminal."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total supply of soybeans from each supply terminal cannot exceed its maximum capacity.",
+            "The total demand at each destination must be met.",
+            "Soybeans can only be transported along the given routes.",
+            "The total transportation cost is computed based on the specified cost for each route.",
+            "Non-negativity constraint: the amount of soybeans transported on each route must be zero or positive."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Supply terminals",
+            "Destination demands",
+            "Costs for routes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total transportation cost of distributing soybeans from supply terminals to destinations while ensuring that demand at each destination is met."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Meet all destination demands.",
+            "Supply at each terminal cannot be exceeded.",
+            "Minimize total transportation costs."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Supply terminals",
+            "Destination demands",
+            "Costs for routes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total transportation cost by optimizing the distribution of soybeans from supply terminals to meet destination demands without route capacity restrictions."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "All destination demands must be met.",
+            "Transportation should be restricted to available terminals only.",
+            "Transportation cost should be minimized."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "set of supply terminals",
+            "destination demands",
+            "costs for routes",
+            "non-negativity constraints for shipments"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total transportation cost of distributing soybeans while meeting all destination demands without exceeding supply limits."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each destination demand must be met.",
+            "Total transportation cost should be minimized.",
+            "Soybean shipments on each route must be non-negative."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Set of supply terminals",
+            "Destination demands",
+            "Cost for routes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total transportation cost of distributing soybeans from supply terminals to destination demands."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The amount of soybeans supplied from each terminal cannot exceed its supply capacity.",
+            "The total amount of soybeans delivered to each destination must satisfy its demand requirement.",
+            "The transportation cost for each route is given and should be taken into account in the total cost calculation.",
+            "No negative quantities of soybeans can be transported on any route.",
+            "Soybeans can only be transported along the defined routes between supply terminals and destinations."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Set of supply terminals",
+            "Destination demands",
+            "Route costs",
+            "Supply capacities"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize the total transportation cost of distributing soybeans from supply terminals to destinations while satisfying all destination demands without exceeding the capacity constraints of each supply terminal."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each supply terminal has a limited capacity of soybeans that it can distribute.",
+            "The total amount of soybeans transported from all supply terminals to a destination must meet the demand at that destination.",
+            "The transportation flow must not exceed the available capacity of any supply terminal."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Supply terminals",
+            "Destination demands",
+            "Costs for routes",
+            "Capacity constraint (fixed) for each supply terminal"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total transportation cost of distributing soybeans from supply terminals to destinations while meeting demand, subject to fixed capacity constraints at each terminal."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each supply terminal has a fixed capacity constraint on the amount of soybeans it can distribute.",
+            "The distribution must meet all destination demands.",
+            "The objective is to minimize the total transportation cost."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Supply Terminals",
+            "Destination Demands",
+            "Transportation Costs",
+            "Capacity Constraint"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total transportation cost of distributing soybeans from supply terminals to destination demands while adhering to capacity limits at each supply terminal and meeting demand at all destinations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total transportation cost should be minimized.",
+            "Supply terminal capacities are fixed and must be adhered to (hard constraint).",
+            "Demand at each destination must be fully satisfied (demand must be met exactly for each destination).",
+            "Flow of soybeans from supply terminals to destination demands cannot exceed the supply terminal's capacity."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Supply terminals: Set of locations where soybeans are stocked, each with a certain supply capacity of soybeans.",
+            "Destination demands: Set of locations where soybeans need to be delivered, each with a specific demand volume that must be met.",
+            "Transportation costs: The costs associated with transporting soybeans from each supply terminal to each destination, typically varying based on distance or other factors.",
+            "Decision variables: Quantity of soybeans to be transported from each supply terminal to each destination.",
+            "Objective: Minimize the total transportation cost, calculated as the sum of products of transportation volumes and costs per route.",
+            "Constraints: Ensure the total amount of soybeans transported from each supply terminal does not exceed its supply capacity, and the total amount of soybeans delivered to each destination meets or exceeds its demand requirement."
+          ]
+        },
+        "pred_objective": {
+          "objective": "To minimize total transportation cost while meeting the demand for soybeans at various destinations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "For each destination, the total amount of soybeans received from all supply terminals must meet the demand at that destination.",
+            "The amount of soybeans shipped from a supply terminal to a destination must be non-negative.",
+            "The total amount of soybeans shipped from any supply terminal to all destinations should not exceed the available supply at that terminal."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "supply terminals",
+            "destination demands",
+            "costs for routes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the total transportation cost of distributing soybeans from supply terminals to meet the exact demands at various destinations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The supply from each terminal must be greater than or equal to zero.",
+            "Each destination's demand must be met fully.",
+            "The amount shipped from each supply terminal cannot exceed the total quantity at that terminal.",
+            "The shipped quantity on each route should be non-negative.",
+            "The total cost is the sum of the products of the quantity shipped on each route and its respective cost, which needs to be minimized."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "set of supply terminals",
+            "destination demands",
+            "costs for routes"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal distribution of soybeans from supply terminals to meet all destination demands with the minimum total transportation cost."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The quantity of soybeans supplied by each terminal must be non-negative.",
+            "The quantity of soybeans delivered to each destination must be non-negative.",
+            "The sum of soybeans supplied from each terminal should be equal to or greater than the total demand of all destinations.",
+            "The supply from each terminal to all destinations combined should not exceed the terminal's capacity if applicable (but capacity is not explicitly mentioned or limited in this case).",
+            "The total soybeans delivered to each destination must be equal to the demand of that destination."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Supply terminals",
+            "Destination demands",
+            "Routes costs",
+            "Available supply"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize total transportation cost while meeting all destination demands given the supply constraints at the terminals."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total supply from all terminals cannot exceed the available supply.",
+            "The sum of soybeans sent to all destinations from a terminal cannot exceed that terminal's available supply.",
+            "The demand at each destination must be fully met."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 4
+      },
+      "(0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 4,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 4,
+        "c_score": 3
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 5
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 3
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 3,
+        "o_score": 5,
+        "c_score": 3
+      }
+    }
+  }
+}

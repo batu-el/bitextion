@@ -1,0 +1,41 @@
+{
+  "vague_description": "Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.",
+  "detailed_description": "Minimize the total cost of the production and inventory schedule over \\param{T} periods, given \\param{Deliver} for each period, a \\param{StorageCost} for holding inventory, and a \\param{SwitchCost} for changing production between periods.",
+  "target_objective": "Minimize the total cost of production and inventory over T periods",
+  "target_constraints": [
+    "The production amount in each period is non-negative",
+    "The inventory level in each period is non-negative",
+    "The production schedule must meet the delivery requirement Deliver in each period",
+    "The switch cost is incurred when changing production between periods"
+  ],
+  "target_parameters": [
+    "Demand for the product in each period i",
+    "Cost to hold one unit of product in storage for one period",
+    "Cost to switch the production from one period to another",
+    "Total number of periods"
+  ],
+  "Expert": {
+    "(0,)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.",
+    "(0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Are there specific production capacity limits or constraints that must be adhered to during the scheduling period?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Are there specific production capacity limits or constraints that must be adhered to during the scheduling period?\nUser: No\n\nExpert: Are there any penalties or costs associated with not meeting demand within the timeframe?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Are there specific production capacity limits or constraints that must be adhered to during the scheduling period?\nUser: No\n\nExpert: Are there any penalties or costs associated with not meeting demand within the timeframe?\nUser: No\n\nExpert: Are the switching fees fixed, or do they vary based on the schedule or other factors?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.",
+    "(0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Does the problem include constraints related to inventory levels such as safety stock or initial/final inventory levels?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Does the problem include constraints related to inventory levels such as safety stock or initial/final inventory levels?\nUser: Yes\n\nExpert: Does the problem involve constraints or parameters related to multiple product types?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Does the problem include constraints related to inventory levels such as safety stock or initial/final inventory levels?\nUser: Yes\n\nExpert: Does the problem involve constraints or parameters related to multiple product types?\nUser: No\n\nExpert: Does the problem include a constraint that total production must meet or exceed the demand for each period?\nUser: Yes\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.",
+    "(0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Is there a limit on the number of times the production facility can be switched to a different mode or supplier?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Is there a limit on the number of times the production facility can be switched to a different mode or supplier?\nUser: No\n\nExpert: Is the objective of the optimization problem to minimize total costs over the given timeframe?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Is there a limit on the number of times the production facility can be switched to a different mode or supplier?\nUser: No\n\nExpert: Is the objective of the optimization problem to minimize total costs over the given timeframe?\nUser: Yes\n\nExpert: Is there a fixed production capacity that cannot be exceeded at any point during the given timeframe?\nUser: No\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.",
+    "(0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Is there a constraint that limits the maximum or minimum production level?\nUser: No\n",
+    "(0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Is there a constraint that limits the maximum or minimum production level?\nUser: No\n\nExpert: Does the problem description contain a constraint regarding the maximum storage capacity, maximum or minimum production level, or total available storage budget?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Determine the optimal schedule to balance production costs, storage expenses, and switching fees over a designated timeframe.\nExpert: Is there a constraint that limits the maximum or minimum production level?\nUser: No\n\nExpert: Does the problem description contain a constraint regarding the maximum storage capacity, maximum or minimum production level, or total available storage budget?\nUser: No\n\nExpert: Is there at least one constraint in the problem description?\nUser: No\n"
+  }
+}

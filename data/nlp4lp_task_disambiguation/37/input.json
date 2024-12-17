@@ -1,0 +1,16 @@
+{
+  "vague_description": "The task is to find the optimal combination of foods that meets nutritional requirements while minimizing costs.",
+  "detailed_description": "We want to minimize the total prices of the foods to purchase. Each food type has a price, a nutrition matrix that contains the amount of nutrients in each food, and there is a demand for each type of nutrient to be met.",
+  "target_objective": "Minimize the total price of the foods purchased while meeting the nutritional demands",
+  "target_constraints": [
+    "The total amount of each nutrient from all food types must meet or exceed the specific demand for that nutrient",
+    "The number of units purchased from each food type is non-negative"
+  ],
+  "target_parameters": [
+    "Number of different types of food",
+    "Number of nutrients to consider",
+    "Price of food k",
+    "Demand for nutrient m",
+    "Amount of nutrient m in food k"
+  ]
+}

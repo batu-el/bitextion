@@ -1,0 +1,19 @@
+{
+  "vague_description": "The airport is trying to balance luggage capacity with pollution constraints by optimizing the number of new vehicles they buy.",
+  "detailed_description": "An airport buys two types of vehicles, a 4-wheeler and 3-wheeler, to help move luggage. A 4-wheeler vehicle can move \\param{CapacityFourWheeler} luggage per day and produces \\param{PollutionFourWheeler} units of pollutant per day. A 3-wheeler vehicle can move \\param{CapacityThreeWheeler} luggage per day and produces \\param{PollutionThreeWheeler} units of pollutant per day. The airport needs to be able to move at least \\param{MinLuggageCapacity} luggage per day. To avoid over-polluting the airport, they can produce at most \\param{MaxPollution} units of pollutant per day. How many of each vehicle should the airport buy to minimize the total number of vehicles needed.",
+  "target_objective": "Minimize the total number of vehicles purchased",
+  "target_constraints": [
+    "Number of 4-wheeler vehicles is non-negative",
+    "Number of 3-wheeler vehicles is non-negative",
+    "Total luggage capacity must be at least MinLuggageCapacity per day",
+    "Total pollutant production must be at most MaxPollution units per day"
+  ],
+  "target_parameters": [
+    "Luggage movement capacity of a 4-wheeler vehicle per day",
+    "Pollution produced by a 4-wheeler vehicle per day",
+    "Luggage movement capacity of a 3-wheeler vehicle per day",
+    "Pollution produced by a 3-wheeler vehicle per day",
+    "Minimum total luggage movement capacity required per day",
+    "Maximum allowable pollution output per day"
+  ]
+}

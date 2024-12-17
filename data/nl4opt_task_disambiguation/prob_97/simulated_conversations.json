@@ -1,0 +1,43 @@
+{
+  "vague_description": "The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.",
+  "detailed_description": "An office is buying printers for their headquarters, a premium model and a regular model. The premium model can print \\param{PremiumSpeed} pages per minute while the regular model can print \\param{RegularSpeed} pages per minute. In addition, the premium model requires \\param{PremiumInkUse} units of ink per minute while the regular model requires \\param{RegularInkUse} units of ink per minute. The office wants to make sure that at least \\param{MinPages} pages can be printed per minute and that at most \\param{MaxInk} units of ink are used per minute. Since the premium model is more user friendly, the number of regular printers must be less than the number of premium printers. How many of each printer should be bought to minimize the total number of printers in the office?",
+  "target_objective": "Minimize the total number of printers purchased",
+  "target_constraints": [
+    "Number of premium printers is non-negative",
+    "Number of regular printers is non-negative",
+    "Total printing speed is at least MinPages pages per minute",
+    "Total ink usage is at most MaxInk units per minute"
+  ],
+  "target_parameters": [
+    "Speed of printing for the premium model",
+    "Speed of printing for the regular model",
+    "Units of ink used per minute by the premium model",
+    "Units of ink used per minute by the regular model",
+    "Minimum pages to be printed per minute by the office",
+    "Maximum units of ink to be used per minute by the office"
+  ],
+  "Expert": {
+    "(0,)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.",
+    "(0, 0)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.\nExpert: Is there a specific cost-related objective that you want to minimize or maximize, such as minimizing total purchase and operational costs?\nUser: No.\n",
+    "(0, 0, 0)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.\nExpert: Is there a specific cost-related objective that you want to minimize or maximize, such as minimizing total purchase and operational costs?\nUser: No.\n\nExpert: Are there specific constraints on the quantity or type of printers that must be purchased?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.\nExpert: Is there a specific cost-related objective that you want to minimize or maximize, such as minimizing total purchase and operational costs?\nUser: No.\n\nExpert: Are there specific constraints on the quantity or type of printers that must be purchased?\nUser: Yes.\n\nExpert: Are there constraints related to the performance or capacity of the printers, such as pages per minute or maximum ink usage?\nUser: Yes.\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.",
+    "(0, 0)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.\nExpert: Does the problem involve a constraint limiting the ink usage to be below 1,500 mL or 1.5 liters per month?\nUser: No\n",
+    "(0, 0, 0)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.\nExpert: Does the problem involve a constraint limiting the ink usage to be below 1,500 mL or 1.5 liters per month?\nUser: No\n\nExpert: Do any of the candidate problems specify that at least one specific type of printer must be purchased?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.\nExpert: Does the problem involve a constraint limiting the ink usage to be below 1,500 mL or 1.5 liters per month?\nUser: No\n\nExpert: Do any of the candidate problems specify that at least one specific type of printer must be purchased?\nUser: No\n\nExpert: Does the problem include a constraint related to the minimum percentage of total printing that must be handled by a specific type of printer?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.",
+    "(0, 0)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.\nExpert: Is there a fixed budget or cost constraint for purchasing and maintaining these printers?\nUser: No.\n",
+    "(0, 0, 0)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.\nExpert: Is there a fixed budget or cost constraint for purchasing and maintaining these printers?\nUser: No.\n\nExpert: Is there a maximum limit on the number of printers that can be purchased?\nUser: No.\n",
+    "(0, 0, 0, 0)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.\nExpert: Is there a fixed budget or cost constraint for purchasing and maintaining these printers?\nUser: No.\n\nExpert: Is there a maximum limit on the number of printers that can be purchased?\nUser: No.\n\nExpert: Are there any specific printing volume or ink usage targets that the office needs to meet?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.",
+    "(0, 0)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.\nExpert: Are there explicit expressions of numerical values for the parameters (e.g., costs, usage rates, printing requirements) in the problem description?\nUser: No\n",
+    "(0, 0, 0)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.\nExpert: Are there explicit expressions of numerical values for the parameters (e.g., costs, usage rates, printing requirements) in the problem description?\nUser: No\n\nExpert: Do you have a complete list of parameters required to describe the optimization problem?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: The office needs to determine a purchase strategy for two types of printers to meet specific printing and ink usage requirements efficiently.\nExpert: Are there explicit expressions of numerical values for the parameters (e.g., costs, usage rates, printing requirements) in the problem description?\nUser: No\n\nExpert: Do you have a complete list of parameters required to describe the optimization problem?\nUser: Yes\n\nExpert: Is the objective to 'minimize costs' or similar, without specifying the resource being minimized? (Does the objective not contain specific resources like 'cost of ink' or 'electric cost'?) \nUser: No\n"
+  }
+}

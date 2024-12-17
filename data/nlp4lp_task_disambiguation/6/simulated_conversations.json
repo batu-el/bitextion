@@ -1,0 +1,37 @@
+{
+  "vague_description": "Optimize a resource management system under specific initial and final conditions.",
+  "detailed_description": "The objective is to minimize the total fuel \\sum_{t=0}^{\\param{TotalTime}-1} |\\param{a_t}| spent subject to the initial position \\param{InitialPosition}, initial velocity \\param{InitialVelocity}, final position \\param{FinalPosition}, final velocity \\param{FinalVelocity}, and total time \\param{TotalTime}.",
+  "target_objective": "Minimize the total fuel, which is the sum of absolute values of acceleration over time",
+  "target_constraints": [],
+  "target_parameters": [
+    "Initial position of the object",
+    "Initial velocity of the object",
+    "Final position of the object",
+    "Final velocity of the object",
+    "Total time over which the object is moving"
+  ],
+  "Expert": {
+    "(0,)": "User: Optimize a resource management system under specific initial and final conditions.",
+    "(0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Does the optimization problem involve constraints related to time, such as deadlines or specific timeframes for managing resources?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Does the optimization problem involve constraints related to time, such as deadlines or specific timeframes for managing resources?\nUser: Yes\n\nExpert: Are the resources being managed subject to capacity constraints, such as limits on availability or usage at any given time?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Does the optimization problem involve constraints related to time, such as deadlines or specific timeframes for managing resources?\nUser: Yes\n\nExpert: Are the resources being managed subject to capacity constraints, such as limits on availability or usage at any given time?\nUser: Yes\n\nExpert: Are there cost considerations involved, such as minimizing expenditure or staying within a budget, in the optimization problem?\nUser: Yes\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: Optimize a resource management system under specific initial and final conditions.",
+    "(0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the problem related to resource allocation?\nUser: No\n",
+    "(0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the problem related to resource allocation?\nUser: No\n\nExpert: Does the objective of the problem involve minimizing total operational cost?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the problem related to resource allocation?\nUser: No\n\nExpert: Does the objective of the problem involve minimizing total operational cost?\nUser: No\n\nExpert: Does the objective function involve minimizing time in any form?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: Optimize a resource management system under specific initial and final conditions.",
+    "(0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the optimization problem to minimize a cost or maximize a benefit?\nUser: Yes\n",
+    "(0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the optimization problem to minimize a cost or maximize a benefit?\nUser: Yes\n\nExpert: Is the cost or benefit being optimized a monetary one?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the optimization problem to minimize a cost or maximize a benefit?\nUser: Yes\n\nExpert: Is the cost or benefit being optimized a monetary one?\nUser: No\n\nExpert: Is the cost or benefit being optimized related to a measurable quantity, such as energy, water, or another resource?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: Optimize a resource management system under specific initial and final conditions.",
+    "(0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the problem to 'Optimize Resource Management System under Specific Initial and Final Conditions'? Or, Is the objective of the problem to 'Minimize the total cost of resource allocation'? \nUser: No\n",
+    "(0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the problem to 'Optimize Resource Management System under Specific Initial and Final Conditions'? Or, Is the objective of the problem to 'Minimize the total cost of resource allocation'? \nUser: No\n\nExpert: Is the objective stated clearly in the problem description?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: Optimize a resource management system under specific initial and final conditions.\nExpert: Is the objective of the problem to 'Optimize Resource Management System under Specific Initial and Final Conditions'? Or, Is the objective of the problem to 'Minimize the total cost of resource allocation'? \nUser: No\n\nExpert: Is the objective stated clearly in the problem description?\nUser: Yes\n\nExpert: Does the problem description contain any constraints related to resource availability or capacity within the timeframe of the problem? \nUser: Yes\n"
+  }
+}

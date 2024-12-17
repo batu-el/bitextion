@@ -1,0 +1,19 @@
+{
+  "vague_description": "Determine the optimal number of full-time and part-time workers needed for a project without exceeding the budget.",
+  "detailed_description": "An accounting firm employs part time workers and full time workers. Full time workers work \\param{FullTimeShiftHours} hours per shift while part time workers work \\param{PartTimeShiftHours} hours per shift. In addition, full time workers are paid \\param{FullTimeShiftPay} per shift while part time workers are paid \\param{PartTimeShiftPay} per shift. Currently, the accounting firm has a project requiring \\param{TotalLaborHours} hours of labor. If the firm has a budget of \\param{TotalBudget}, how many of each type of worker should be scheduled to minimize the total number of workers.",
+  "target_objective": "Minimize the total number of full time and part time workers scheduled for the project",
+  "target_constraints": [
+    "Number of full time workers is non-negative",
+    "Number of part time workers is non-negative",
+    "The sum of labor hours of full time and part time workers must meet or exceed TotalLaborHours",
+    "The total pay for all full time and part time workers must not exceed TotalBudget"
+  ],
+  "target_parameters": [
+    "Number of hours per shift for full time workers",
+    "Number of hours per shift for part time workers",
+    "Payment per shift for full time workers",
+    "Payment per shift for part time workers",
+    "Total required hours of labor for the project",
+    "Total budget for labor on the project"
+  ]
+}

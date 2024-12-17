@@ -1,0 +1,19 @@
+{
+  "vague_description": "We need to determine the appropriate proportions of two ingredients in a product while maintaining efficacy and staying within safety limits.",
+  "detailed_description": "Both sulfate and ginger need to be added to a shampoo. One unit of sulfate takes \\param{SulfateTime} minutes to be effective while one unit of ginger takes \\param{GingerTime} minutes to be effective. The shampoo must contain at least \\param{MinSulfate} units of sulfates and a total of \\param{TotalUnits} units of both ingredients. Since too much sulfate can damage the hair, there can be at most \\param{MaxSulfateGingerRatio} times the amount of sulfate as ginger in the shampoo. How many units of each should be added to the shampoo to minimize the total amount of time it takes for the mixture to be effective? (Note: one must be added before the other)",
+  "target_objective": "Minimize the total time for the shampoo mixture to be effective",
+  "target_constraints": [
+    "Units of sulfate must be at least MinSulfate",
+    "Total units of sulfate and ginger must equal TotalUnits",
+    "Sulfate-to-ginger ratio must be at most MaxSulfateGingerRatio",
+    "Units of sulfate are non-negative",
+    "Units of ginger are non-negative"
+  ],
+  "target_parameters": [
+    "Time for one unit of sulfate to be effective",
+    "Time for one unit of ginger to be effective",
+    "Minimum required units of sulfate",
+    "Total required units of ingredients",
+    "Maximum ratio of sulfate to ginger"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "vague_description": "Find the optimal transportation mix for minimizing pollution while meeting employee transport requirements.",
+  "detailed_description": "Employees have the option of car-pooling to work or taking the company bus. A car can take \\param{C} employees and produces \\param{Pc} units of pollution, while a bus can take \\param{B} employees and produces \\param{Pb} units of pollution. At least \\param{MinE} employees need to be transported and at most \\param{MaxBuses} buses can be used. How many of each type of transport should be taken to minimize the total pollution produced.",
+  "target_objective": "Minimize the total pollution produced by the transportation of employees",
+  "target_constraints": [
+    "Number of cars is non-negative",
+    "Number of buses is non-negative",
+    "At least MinE employees need to be transported",
+    "At most MaxBuses buses can be used"
+  ],
+  "target_parameters": [
+    "Number of employees per car",
+    "Pollution units produced by one car",
+    "Number of employees per bus",
+    "Pollution units produced by one bus",
+    "Minimum number of employees to be transported",
+    "Maximum number of buses to be used"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "vague_description": "Determine the optimal combination of large and small ships to meet a container transport requirement while adhering to port constraints.",
+  "detailed_description": "An international shipping company uses large and small ships to transport containers around the world. A large ship can carry \\param{LargeShipCapacity} containers while a small ship can carry \\param{SmallShipCapacity} containers. Because most ports are small, the number of large ships cannot exceed the number of small ships. If the company is under contract needs to transport at least \\param{MinContainers} containers, find the minimum number of ships that can be used.",
+  "target_objective": "Minimize the number of ships used to fulfill the contract",
+  "target_constraints": [
+    "Number of large ships is non-negative",
+    "Number of small ships is non-negative",
+    "The number of large ships cannot exceed the number of small ships",
+    "At least MinContainers containers must be transported"
+  ],
+  "target_parameters": [
+    "Capacity of a large ship",
+    "Capacity of a small ship",
+    "Minimum total number of containers required to be transported"
+  ]
+}

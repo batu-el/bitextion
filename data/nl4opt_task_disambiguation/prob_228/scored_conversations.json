@@ -1,0 +1,471 @@
+{
+  "vague_description": "A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.",
+  "detailed_description": "An extremely large ski resort is looking into purchasing two types of ski lifts, a densely-seated one and a loosely-seated one. The densely-seated ski lift is able to bring \\param{GuestsPerMinDense} guests up the slopes every minute whereas the loosely-seated ski lift can transport \\param{GuestsPerMinLoose} guests every minute. The densely-seated ski lift uses \\param{ElectricityDense} units of electricity and the loosely-seated lift uses \\param{ElectricityLoose} units of electricity. There must be at least \\param{MinLooseLifts} loosely-seated ski lifts because they move slower and are friendlier for beginners. The ski resort needs at least \\param{MinGuestsPerMin} guests every minute to make a profit and has available \\param{TotalElectricity} units of electricity. How many of each type of ski lifts should they plan to install to minimize the total number of ski lifts needed?",
+  "target_objective": "Minimize the total number of ski lifts needed",
+  "target_constraints": [
+    "Number of densely-seated ski lifts is non-negative",
+    "Number of loosely-seated ski lifts is non-negative",
+    "Number of loosely-seated ski lifts is at least MinLooseLifts",
+    "Guests transported per minute by densely-seated and loosely-seated ski lifts combined is at least MinGuestsPerMin",
+    "Electricity used by all ski lifts combined does not exceed TotalElectricity"
+  ],
+  "target_parameters": [
+    "Number of guests transported per minute by the densely-seated ski lift",
+    "Number of guests transported per minute by the loosely-seated ski lift",
+    "Electricity units used by the densely-seated ski lift",
+    "Electricity units used by the loosely-seated ski lift",
+    "Minimum number of loosely-seated ski lifts required",
+    "Minimum number of guests per minute required for profit",
+    "Total available units of electricity"
+  ],
+  "Expert": {
+    "(0,)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.",
+    "(0, 0)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.\nExpert: Does the problem specify multiple criteria or objectives for optimization beyond just the number of ski lifts?\nUser: No\n",
+    "(0, 0, 0)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.\nExpert: Does the problem specify multiple criteria or objectives for optimization beyond just the number of ski lifts?\nUser: No\n\nExpert: Are there specific types or categories of ski lifts mentioned that have different requirements or costs associated with them?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.\nExpert: Does the problem specify multiple criteria or objectives for optimization beyond just the number of ski lifts?\nUser: No\n\nExpert: Are there specific types or categories of ski lifts mentioned that have different requirements or costs associated with them?\nUser: Yes\n\nExpert: Are there constraints related to the physical space or terrain in which the ski lifts must be installed?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.",
+    "(0, 0)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.\nExpert: Is there a constraint involving a budget limit on the total cost of installation and operation of ski lifts?\nUser: No\n",
+    "(0, 0, 0)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.\nExpert: Is there a constraint involving a budget limit on the total cost of installation and operation of ski lifts?\nUser: No\n\nExpert: Does the problem include maximizing the total number of guests transported as part of the objective?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.\nExpert: Is there a constraint involving a budget limit on the total cost of installation and operation of ski lifts?\nUser: No\n\nExpert: Does the problem include maximizing the total number of guests transported as part of the objective?\nUser: No\n\nExpert: Does the problem explicitly mention spatial constraints related to the physical space available for ski lift installations?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.",
+    "(0, 0)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.\nExpert: Is the electricity consumption of the ski lifts one of the key factors in this optimization problem?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.\nExpert: Is the electricity consumption of the ski lifts one of the key factors in this optimization problem?\nUser: Yes\n\nExpert: Does the electricity consumption of the ski lifts directly affect the objective function (e.g. minimize electricity cost, maximize ski lift capacity)?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.\nExpert: Is the electricity consumption of the ski lifts one of the key factors in this optimization problem?\nUser: Yes\n\nExpert: Does the electricity consumption of the ski lifts directly affect the objective function (e.g. minimize electricity cost, maximize ski lift capacity)?\nUser: No\n\nExpert: Do the electricity consumption levels of the ski lifts have an upper limit or constraint that must be adhered to (e.g. maximum allowed energy consumption, renewable energy target)?\nUser: Yes\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.",
+    "(0, 0)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.\nExpert: Is the objective function explicitly stated as 'maximize' or 'minimize' in the problem description?\nUser: Yes\n",
+    "(0, 0, 0)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.\nExpert: Is the objective function explicitly stated as 'maximize' or 'minimize' in the problem description?\nUser: Yes\n\nExpert: Does the problem have any non-trivial constraints?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: A large ski resort must decide how many of each type of ski lift to install in order to meet guest transport and electricity use requirements efficiently.\nExpert: Is the objective function explicitly stated as 'maximize' or 'minimize' in the problem description?\nUser: Yes\n\nExpert: Does the problem have any non-trivial constraints?\nUser: Yes\n\nExpert: Are there any constraints in the problem description?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of chair lifts to install",
+            "Number of gondola lifts to install",
+            "Guest transport capacity target",
+            "Electricity usage limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of each type of ski lift to install, maximizing guest transport efficiency while minimizing electricity consumption."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of ski lifts must meet or exceed the guest transport demand for peak times.",
+            "The installation of ski lifts must not exceed the budget allocated for infrastructure.",
+            "The electricity consumption of all ski lifts combined must not exceed the maximum energy capacity available to the resort.",
+            "Each type of ski lift has a maximum number of units that can be installed due to space and terrain limitations.",
+            "There may be environmental or safety regulations limiting the types or numbers of lifts that can be installed."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of each type of ski lift to install",
+            "Guest transport requirements",
+            "Electricity use requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To optimize the number of each type of ski lift to meet guest transport and electricity use requirements efficiently at the ski resort."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The ski resort must meet specific guest transport requirements, which could involve a minimum number of people that need to be transported per hour or day.",
+            "The ski resort must consider electricity use requirements, which could involve staying under a specific energy consumption limit or budget.",
+            "Each type of ski lift has a maximum capacity and electricity use rate, which may vary between different models or brands.",
+            "There may be spatial or infrastructure limitations, such as the available area for installing lifts or limitations in existing power grid connections.",
+            "Installation and operational costs might need to be considered to ensure the solution is economically viable within a given budget."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of each type of ski lift to install",
+            "Types of ski lifts",
+            "Guest transport requirements",
+            "Electricity use requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of each type of ski lift to install in order to efficiently meet guest transportation and minimize electricity usage requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of ski lifts must meet or exceed the guest transport requirement.",
+            "Electricity usage across all ski lifts must not exceed the maximum allowable electricity use for the resort.",
+            "Each type of ski lift has its own installation cost, which must be considered in budgeting.",
+            "There may be a maximum or minimum number of lifts of each type that can be installed, depending on availability or practical constraints.",
+            "The selection of ski lifts should efficiently meet both guest transport needs and stay within electricity use limits."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of each type of ski lift to install",
+            "Types of ski lifts with different requirements or costs",
+            "Guest transport requirements",
+            "Electricity use requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost or resource usage of installing different types of ski lifts while meeting guest transport requirements and adhering to electricity use limitations."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Each type of ski lift must meet specific transport requirements for guests.",
+            "Each type of ski lift must adhere to electricity use requirements.",
+            "There is no constraint related to physical space or terrain for ski lift installation."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of each type of ski lift to install",
+            "Guest transport requirements",
+            "Electricity use requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of each type of ski lift to install to efficiently meet guest transport and electricity use requirements at a ski resort."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of each type of ski lift must be a non-negative integer.",
+            "The total guest transport capacity of the ski lifts must meet or exceed the expected number of daily guests during peak season.",
+            "The total electricity consumption of the ski lifts must not exceed the electricity use limit set by the resort.",
+            "The chosen configuration of ski lifts should stay within the resort's budget for installation.",
+            "The geographic and environmental regulations of the resort area must be adhered to when installing ski lifts.",
+            "The total capacity of ski lifts must ensure minimal waiting times for guests, with a specific maximum average waiting time defined by the resort management."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "types of ski lifts",
+            "efficiency goals for guest transport",
+            "efficiency goals for electricity use",
+            "guest transport capacity requirements",
+            "electricity usage requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number of each type of ski lift to install at a ski resort in order to efficiently meet guest transport requirements and electricity use requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The ski lifts must meet guest transport requirements, meaning they have to support a certain capacity of guests per hour.",
+            "The ski lifts must operate within a certain limit of electricity usage.",
+            "There is no budget limit on the total cost of installation and operation of ski lifts."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "types of ski lifts",
+            "guest transport requirements",
+            "electricity use requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to determine the optimal number and types of ski lifts to install at a ski resort, focusing on meeting specific guest transport and electricity usage requirements efficiently."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total electricity consumption by all ski lifts combined must not exceed a specified electricity usage limit.",
+            "The collective transport capacity of all ski lifts should meet or exceed a minimum guest transport requirement."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of each type of ski lift to install",
+            "Guest transport requirements",
+            "Electricity use requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To efficiently meet guest transport and electricity use requirements by determining the number of each type of ski lift to install at the resort."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of each type of ski lift to be installed must meet the guest transport requirements.",
+            "The number of each type of ski lift to be installed must meet the electricity use requirements efficiently."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of each type of ski lift to install",
+            "Guest transport requirements",
+            "Electricity use requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number and type of ski lifts to install that balance guest transportation needs and electricity usage efficiency."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total number of ski lifts installed must meet the guest transport requirement, ensuring sufficient capacity to accommodate all expected guests during peak hours.",
+            "The total electricity consumption of all installed ski lifts must not exceed the available electricity supply capacity of the resort.",
+            "Each type of ski lift has a specific capacity and electricity consumption that must be considered in the calculations.",
+            "The number of each type of ski lift can only be a whole number (since a fraction of a lift cannot be installed).",
+            "The installation costs of the ski lifts must remain within the budget allocated by the ski resort management.",
+            "The total space available for ski lifts installation is limited and must be adhered to."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of each type of ski lift",
+            "Guest transport requirements",
+            "Electricity consumption of ski lifts"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to determine the optimal number of each type of ski lift to install at a large ski resort, while efficiently meeting guest transportation needs and minimizing electricity consumption."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Total electricity consumption of all installed ski lifts must not exceed a given daily limit.",
+            "The number of ski lifts installed must be sufficient to meet the minimum transport requirement for guests.",
+            "Installation and operational costs of ski lifts should remain within the budget constraints of the ski resort.",
+            "Each type of ski lift has a maximum capacity, and the selection should ensure that the combined capacity meets peak demand.",
+            "There might be zoning or spatial constraints that limit the number and type of ski lifts that can be installed in certain areas of the resort."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of each type of ski lift",
+            "guest transport requirements",
+            "electricity use requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To determine the optimal number and type of ski lifts to install at the resort to efficiently meet guest transport requirements while considering electricity consumption constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The ski lifts must meet guest transport requirements.",
+            "The ski lifts must meet specific electricity use limitations."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of each type of ski lift to install",
+            "guest transport efficiency",
+            "electricity consumption upper limit"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Determine the optimal number of each type of ski lift to install in order to meet guest transport demand while adhering to electricity consumption constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total electricity consumption of the ski lifts must not exceed the maximum allowed energy consumption."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of each type of ski lift to install",
+            "Guest transport requirements",
+            "Electricity use requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of installing and operating different types of ski lifts while meeting transport capacity and electricity consumption constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The total guest transport capacity of all ski lifts must meet or exceed a specified minimum to handle peak guest volumes.",
+            "The total electricity usage of all ski lifts should not exceed a specified maximum to maintain energy efficiency and reduce costs.",
+            "Each type of ski lift installed has a maximum and minimum number that can be operationally and safely implemented due to space, engineering, or maintenance constraints.",
+            "Budgetary limitations on the total cost of installing and maintaining all ski lifts must be observed."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Types of ski lifts available",
+            "Capacity of each type of ski lift",
+            "Cost of installing each type of ski lift",
+            "Electricity consumption of each type of ski lift",
+            "Maximum allowable budget for installation",
+            "Maximum allowable electricity usage",
+            "Expected number of guests needing transport",
+            "Target transport capacity"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to minimize electricity use while meeting guest transport requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of each type of ski lift installed must meet the ski resort's guest transport requirements.",
+            "The total electricity use by the installed ski lifts must not exceed the resort's electricity capacity or requirements.",
+            "The number of ski lifts installed cannot be negative, i.e., it must be a non-negative integer constraint."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "number of each type of ski lift",
+            "guest transport requirements",
+            "electricity use requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to minimize costs while meeting guest transport and electricity use requirements efficiently."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The number of ski lifts of each type must be sufficient to meet the guest transport requirements, i.e., the total capacity must at least match expected guest numbers.",
+            "Electricity use for operating the ski lifts must stay within the resort's power supply limits.",
+            "Each type of ski lift may have its own operational and spatial constraints that limit the number of such lifts that can be installed.",
+            "Budgetary constraints that cap the spending on installing various types of ski lifts."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Number of each type of ski lift",
+            "Guest transport requirements",
+            "Electricity use requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Minimize the cost of installing ski lifts while meeting guest transport needs and adhering to electricity use requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Guest transportation requirement must be met.",
+            "Electricity use should not exceed a specific limit.",
+            "Number of each type of ski lift must be a non-negative integer.",
+            "Capacity of each type lift must be considered in total guest transport capacity."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 1
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 3
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 1
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 2
+      },
+      "(0, 0)": {
+        "p_score": 2,
+        "o_score": 0,
+        "c_score": 4
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 1,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 2,
+        "c_score": 3
+      }
+    }
+  }
+}

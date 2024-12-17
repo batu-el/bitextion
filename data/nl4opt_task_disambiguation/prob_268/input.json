@@ -1,0 +1,21 @@
+{
+  "vague_description": "Determine the optimal schedule of in-vivo and ex-vivo experiments that minimizes radiation while adhering to time constraints.",
+  "detailed_description": "A researcher must perform two types of experiments, in-vivo and ex-vivo. In-vivo experiments require \\param{TimeInVivoPrep} minutes to prepare and \\param{TimeInVivoExec} minutes to execute. Ex-vivo experiments require \\param{TimeExVivoPrep} minutes to prepare and \\param{TimeExVivoExec} minutes to execute. In addition, in-vivo experiments give the researcher \\param{RadiationInVivo} units of radiation while ex-vivo experiments give the researcher \\param{RadiationExVivo} units of radiation. At most \\param{MaxTimePrep} minutes can be used for preparation and \\param{MaxTimeExec} minutes for execution of the experiments. How many of each experiment should be scheduled by the researcher to minimize the total radiation received by the researcher?",
+  "target_objective": "Minimize the total radiation received by the researcher",
+  "target_constraints": [
+    "Number of in-vivo experiments is non-negative",
+    "Number of ex-vivo experiments is non-negative",
+    "Total preparation time for all experiments is at most MaxTimePrep",
+    "Total execution time for all experiments is at most MaxTimeExec"
+  ],
+  "target_parameters": [
+    "Time to prepare one in-vivo experiment",
+    "Time to execute one in-vivo experiment",
+    "Time to prepare one ex-vivo experiment",
+    "Time to execute one ex-vivo experiment",
+    "Radiation units received from one in-vivo experiment",
+    "Radiation units received from one ex-vivo experiment",
+    "Maximum time allowed for preparing the experiments",
+    "Maximum time allowed for executing the experiments"
+  ]
+}

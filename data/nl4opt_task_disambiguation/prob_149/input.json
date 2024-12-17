@@ -1,0 +1,20 @@
+{
+  "vague_description": "Determining the optimal number of trips using different transport methods while staying within budget and meeting transport requirements.",
+  "detailed_description": "A chocolate company can transport their boxes of chocolate either using their own vans or by renting trucks. Their vans can transport \\param{VanCapacity} boxes per trip while a truck can transport \\param{TruckCapacity} boxes per trip. Since they own their vans, the cost per van trip is \\param{VanCost} while the cost per truck trip is \\param{TruckCost}. The company needs to transport at least \\param{MinBoxes} boxes of chocolate and they have a budget of \\param{Budget}. Since the vans also provide advertising, the number of trips by van must be larger than the number of trips by trucks. How many of trip by each should be done to minimize the total number of trips?",
+  "target_objective": "Minimize the total number of van and truck trips",
+  "target_constraints": [
+    "Number of van trips is non-negative",
+    "Number of truck trips is non-negative",
+    "Total boxes transported must be at least MinBoxes",
+    "Total cost does not exceed Budget",
+    "Number of van trips must be larger than the number of truck trips"
+  ],
+  "target_parameters": [
+    "The capacity of a van",
+    "The capacity of a truck",
+    "Cost per van trip",
+    "Cost per truck trip",
+    "Minimum number of boxes to transport",
+    "Budget for transportation"
+  ]
+}

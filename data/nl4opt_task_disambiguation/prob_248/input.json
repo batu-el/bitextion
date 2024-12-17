@@ -1,0 +1,23 @@
+{
+  "vague_description": "Determining the optimal balance between salads and fruit bowls to meet dietary vitamin and fiber requirements while maximizing potassium intake and adhering to preparation restrictions.",
+  "detailed_description": "A navy ship is stocking food onto their submarine and their staff can eat either a salad or fruit bowl for their fibre and vitamin intake. The nutritionist in charge of this voyage needs to ensure that their staff gets at least \\param{V} units of vitamin and \\param{F} units of fibre each. Each salad contains \\param{VSalad} units of vitamins and \\param{FSalad} units of fibre. Each fruit bowl contains \\param{VFruitBowl} units of vitamin and \\param{FFruitBowl} units of fibre. In addition, since fruit bowls take longer to prepare, at most \\param{MaxFruitBowlProportion} of their meals should be fruit bowls. If each salad contains \\param{KSalad} units of potassium and each fruit bowl contains \\param{KFruitBowl} units of potassium, how many of each should they prepare for each staff to maximize their potassium intake?",
+  "target_objective": "Maximize the potassium intake (KSalad units per salad and KFruitBowl units per fruit bowl) for each staff",
+  "target_constraints": [
+    "Each staff must receive at least V units of vitamins",
+    "Each staff must receive at least F units of fibre",
+    "Each staff is limited to a maximum proportion of MaxFruitBowlProportion of their total meals as fruit bowls",
+    "Number of salads prepared for each staff is non-negative",
+    "Number of fruit bowls prepared for each staff is non-negative"
+  ],
+  "target_parameters": [
+    "Minimum units of vitamin intake required per staff",
+    "Minimum units of fibre intake required per staff",
+    "Units of vitamins in one salad",
+    "Units of fibre in one salad",
+    "Units of vitamins in one fruit bowl",
+    "Units of fibre in one fruit bowl",
+    "Maximum proportion of meals that can be fruit bowls",
+    "Units of potassium in one salad",
+    "Units of potassium in one fruit bowl"
+  ]
+}

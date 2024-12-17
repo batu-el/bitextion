@@ -1,0 +1,487 @@
+{
+  "vague_description": "How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?",
+  "detailed_description": "How should the manufacture manage the steel to maximize profit? The manufacture has to decide on the optimal quantity of \\param{SteelQuantity} tons of steel to produce, taking into account the required \\param{ManganesePercent} percent manganese and ensuring the silicon content is between \\param{SiliconMinPercent} percent and \\param{SiliconMaxPercent} percent. The available stocks contain \\param{SiliconContent} percent Silicon and \\param{ManganeseContent} percent Manganese. The price of manganese is set at \\param{ManganesePrice} per ton, and the material cost for each stock is \\param{MaterialCost}. The company sells the steel at a price of \\param{SellingPrice} per ton but also incurs a melting cost of \\param{MeltingPrice} per ton.",
+  "target_objective": "Maximize the company's profit from the steel produced",
+  "target_constraints": [
+    "Total quantity of steel produced is SteelQuantity tons",
+    "Steel must contain ManganesePercent percent manganese",
+    "Silicon content in steel must be at least SiliconMinPercent percent",
+    "Silicon content in steel must be at most SiliconMaxPercent percent"
+  ],
+  "target_parameters": [
+    "Amount of steel to produce in tons",
+    "Percentage of manganese in the steel required",
+    "Minimum percentage of silicon in the steel required",
+    "Maximum percentage of silicon in the steel allowed",
+    "Silicon content in the k-th stock",
+    "Manganese content in the k-th stock",
+    "Price of manganese per ton",
+    "Cost of the k-th stock material per ton",
+    "Selling price of steel per ton",
+    "Price to melt one ton of steel"
+  ],
+  "Expert": {
+    "(0,)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?",
+    "(0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem involve specific upper or lower bounds on the amounts of materials used in the composition of the product?\nUser: Yes\n",
+    "(0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem involve specific upper or lower bounds on the amounts of materials used in the composition of the product?\nUser: Yes\n\nExpert: Are there variable costs associated with the amounts of materials used beyond the fixed costs of manufacturing?\nUser: Yes\n",
+    "(0, 0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem involve specific upper or lower bounds on the amounts of materials used in the composition of the product?\nUser: Yes\n\nExpert: Are there variable costs associated with the amounts of materials used beyond the fixed costs of manufacturing?\nUser: Yes\n\nExpert: Are there multiple products being manufactured that affect the composition requirements and costs?\nUser: No\n"
+  },
+  "Expert_BiTextion": {
+    "(0,)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?",
+    "(0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem description include a constraint related to environmental regulations?\nUser: No\n",
+    "(0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem description include a constraint related to environmental regulations?\nUser: No\n\nExpert: Do any of the candidate problem descriptions explicitly state a specific numerical budget value?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem description include a constraint related to environmental regulations?\nUser: No\n\nExpert: Do any of the candidate problem descriptions explicitly state a specific numerical budget value?\nUser: No\n\nExpert: Does the problem include a constraint on meeting market demand or customer orders for the product?\nUser: No\n"
+  },
+  "Expert_8b": {
+    "(0,)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?",
+    "(0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Is the manufacturing process subject to any physical or engineering constraints (e.g., limited production capacity, material availability, regulatory requirements)?\nUser: Yes.\n",
+    "(0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Is the manufacturing process subject to any physical or engineering constraints (e.g., limited production capacity, material availability, regulatory requirements)?\nUser: Yes.\n\nExpert: Are these constraints linear (can be represented by a straight line or a set of straight lines) rather than nonlinear (curved or more complex shapes)?\nUser: Yes.\n",
+    "(0, 0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Is the manufacturing process subject to any physical or engineering constraints (e.g., limited production capacity, material availability, regulatory requirements)?\nUser: Yes.\n\nExpert: Are these constraints linear (can be represented by a straight line or a set of straight lines) rather than nonlinear (curved or more complex shapes)?\nUser: Yes.\n\nExpert: Do you have a clear and quantitative objective function to maximize the profit?\nUser: Yes.\n"
+  },
+  "Expert_8b_BiTextion": {
+    "(0,)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?",
+    "(0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem description include any constraints?\nUser: Yes\n",
+    "(0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem description include any constraints?\nUser: Yes\n\nExpert: Does the description contain the exact phrase 'maximize profit' (ignoring case)?\nUser: No\n",
+    "(0, 0, 0, 0)": "User: How can the profit be maximized while balancing the composition requirements and costs associated with the manufacturing process?\nExpert: Does the problem description include any constraints?\nUser: Yes\n\nExpert: Does the description contain the exact phrase 'maximize profit' (ignoring case)?\nUser: No\n\nExpert: Is any constraint mentioned in the problem description?\nUser: Yes\n"
+  },
+  "formulation": {
+    "Expert": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profit",
+            "Manufacturing Costs",
+            "Composition Requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by optimizing the selection and proportions of materials in the manufacturing process, while adhering to composition requirements and minimizing production costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The composition requirements must be met, ensuring that the blend of materials or ingredients adheres to specified ratios or percentages.",
+            "All costs associated with the manufacturing process, including materials, labor, and overhead, should not exceed the allocated budget.",
+            "The solution should conform to operational constraints such as production capacity, time limitations, and resource availability.",
+            "The quality standards for the manufactured product must be maintained, meeting any relevant industry or safety regulations.",
+            "The environmental impact must be considered, potentially limiting emissions or waste produced during manufacturing."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profit maximization",
+            "Composition requirements",
+            "Manufacturing costs",
+            "Upper bounds on material amounts",
+            "Lower bounds on material amounts"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing the use of materials in the manufacturing process while adhering to composition requirements and minimizing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The amounts of materials used in the composition of the product must adhere to specific upper and lower bounds.",
+            "Costs associated with the manufacturing process need to be taken into account.",
+            "The composition requirements of the product must be balanced alongside profits."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Amounts of materials used in the product composition",
+            "Upper and lower bounds on material amounts",
+            "Variable costs associated with material usage",
+            "Fixed costs of manufacturing"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing material composition subject to composition requirements, cost constraints, and upper and lower bounds on material usage."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The amounts of materials are subject to specific upper bounds.",
+            "The amounts of materials are subject to specific lower bounds.",
+            "The composition of the product must meet certain requirements.",
+            "There are variable costs that depend on the amounts of materials used beyond the fixed costs."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize: Profit",
+            "Variable: Amounts of different materials used (x_1, x_2, ..., x_n)",
+            "Constraints: Upper and lower bounds on amounts of materials used",
+            "Objective function: Profit = Revenue - Variable Costs - Fixed Costs",
+            "Constraints: Variable costs depend on amounts of materials (c_1*x_1 + c_2*x_2 + ... + c_n*x_n)",
+            "Manufacturing process involves a single product",
+            "Composition requirements must be met"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by determining the optimal amounts of materials used in the manufacturing process, subject to composition requirements, bounds on material usage, and variable costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The amount of each material used must satisfy both upper and lower bounds in the product composition.",
+            "The cost of materials used in manufacturing should be minimized along with maximizing profit.",
+            "Fixed costs of manufacturing are included, but variable costs depend on the amount of material used."
+          ]
+        }
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profit to be maximized",
+            "Composition requirements",
+            "Costs associated with the manufacturing process"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by optimizing the composition and costs in the manufacturing process while satisfying all specified composition requirements."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The composition of the product must meet specified requirements (e.g., percentage of each ingredient).",
+            "The total cost of manufacturing, including raw materials and labor, must not exceed the budget.",
+            "Production capacity limits must be adhered to.",
+            "Quality standards and regulatory requirements must be maintained.",
+            "Minimize waste and environmental impact during the manufacturing process."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profit",
+            "Composition Requirements",
+            "Manufacturing Costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profit by optimizing the manufacturing process while adhering to composition requirements and minimizing associated costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Balancing the composition requirements of the products.",
+            "Managing costs associated with the manufacturing process."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "profit maximization",
+            "composition requirements",
+            "manufacturing process costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profit subject to composition requirements and manufacturing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Balance the composition requirements.",
+            "Consider manufacturing costs associated with the process."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "profit maximization",
+            "composition requirements",
+            "costs associated with the manufacturing process"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by optimizing the manufacturing process, considering the composition requirements and manufacturing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The composition requirements of the manufacturing process must be balanced.",
+            "Costs associated with the manufacturing process must be taken into account."
+          ]
+        }
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profit",
+            "Composition Requirements",
+            "Manufacturing Costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit by optimizing the composition of materials to meet requirements and minimize costs in the manufacturing process."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The profit maximization is subject to composition requirements which dictate the proportions of raw materials used in the manufacturing process.",
+            "There are cost constraints related to the acquisition, processing, and utilization of these raw materials.",
+            "There are budgetary limits for the overall production process that cannot be exceeded.",
+            "Manufacturing capacities or limitations in terms of machinery and labor availability may impose additional restrictions.",
+            "Quality standards and regulatory compliance must be maintained throughout the manufacturing process.",
+            "Inventory levels must be managed to balance between overstocking and stockouts.",
+            "Market demand should be considered to ensure sufficient production without overproduction."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profit maximization",
+            "Composition requirements",
+            "Manufacturing costs",
+            "Physical constraints",
+            "Engineering constraints",
+            "Limited production capacity",
+            "Material availability",
+            "Regulatory requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize the profit by balancing composition requirements and manufacturing costs while adhering to physical or engineering constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The manufacturing process must adhere to composition requirements, meaning the final product must meet specific compositional criteria.",
+            "There is a limited production capacity that restricts the maximum amount of product that can be produced over a given time period.",
+            "Material availability constraints require that the total quantity of raw materials used in production does not exceed the quantities available.",
+            "There are cost constraints associated with manufacturing, which may involve minimizing the cost of production or staying within a budget.",
+            "Regulatory requirements impose additional constraints on the manufacturing process to ensure compliance with industry regulations or standards."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profit Maximization",
+            "Composition Requirements",
+            "Costs",
+            "Physical or Engineering Constraints",
+            "Production Capacity",
+            "Material Availability",
+            "Regulatory Requirements"
+          ]
+        },
+        "pred_objective": {
+          "objective": "Maximize profit subject to linear constraints related to composition requirements, costs, production capacity, material availability, and regulatory requirements in the manufacturing process."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Limited production capacity.",
+            "Material availability constraints.",
+            "Regulatory requirements on the manufacturing process.",
+            "Linear constraints on the manufacturing process."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Profit to be maximized",
+            "Composition requirements",
+            "Costs associated with the manufacturing process",
+            "Physical or engineering constraints",
+            "Linear constraints",
+            "Objective function"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective is to maximize profit in the manufacturing process while ensuring that the composition requirements are balanced and costs are minimized, subject to linear physical, engineering, and regulatory constraints."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The manufacturing process is subject to constraints related to production capacity.",
+            "The manufacturing process is subject to constraints related to material availability.",
+            "The manufacturing process must adhere to regulatory requirements.",
+            "All constraints are linear."
+          ]
+        }
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "pred_parameters": {
+          "parameters": [
+            "Objective: Maximize profit",
+            "Constraint: Meet composition requirements",
+            "Constraint: Control manufacturing costs"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit by optimizing the manufacturing process, ensuring that composition requirements are met while minimizing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The composition requirements must be met; this includes maintaining the specific proportions or standards for the product being manufactured.",
+            "The total cost of the manufacturing process cannot exceed the budget allocated for production.",
+            "Manufacturing capacity cannot exceed the available resources (labor, machinery, etc.).",
+            "Production must adhere to regulatory standards and guidelines regarding safety, environmental impact, and quality.",
+            "The product demand must be met without overproducing beyond what can be sold or stored appropriately."
+          ]
+        }
+      },
+      "(0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "Maximize Profit",
+            "Balance composition requirements",
+            "Consider costs in the manufacturing process",
+            "Constraints are present"
+          ]
+        },
+        "pred_objective": {
+          "objective": "The objective of the optimization problem is to maximize profit while adhering to the composition requirements and minimizing associated manufacturing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The product must meet minimum composition requirements in terms of material or ingredient proportions.",
+            "The total cost of materials must not exceed a specific budget.",
+            "The manufacturing process must not exceed a certain time limit.",
+            "The product must adhere to safety and quality standards set by industry regulations.",
+            "The manufacturing process must utilize available resources without wastage or exceeding capacity."
+          ]
+        }
+      },
+      "(0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "maximize profit",
+            "balance composition requirements",
+            "minimize costs",
+            "manufacturing process"
+          ]
+        },
+        "pred_objective": {
+          "objective": "maximize profit by balancing composition requirements and manufacturing costs"
+        },
+        "pred_constraints": {
+          "constraints": [
+            "The composition requirements of the product must be met.",
+            "The cost associated with the manufacturing process should be minimized.",
+            "All production must comply with industry standards and regulations.",
+            "Raw material availability could be limited, impacting production scalability.",
+            "Production process has a maximum capacity limit.",
+            "The time for production might be constrained by labor or operational hours."
+          ]
+        }
+      },
+      "(0, 0, 0, 0)": {
+        "pred_parameters": {
+          "parameters": [
+            "composition requirements",
+            "costs associated with the manufacturing process"
+          ]
+        },
+        "pred_objective": {
+          "objective": "To maximize profit while satisfying composition requirements and managing associated manufacturing costs."
+        },
+        "pred_constraints": {
+          "constraints": [
+            "Balancing the composition requirements in the manufacturing process.",
+            "Managing costs associated with the manufacturing process."
+          ]
+        }
+      }
+    }
+  },
+  "score": {
+    "Expert": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 2,
+        "o_score": 3,
+        "c_score": 2
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      }
+    },
+    "Expert_BiTextion": {
+      "(0,)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      }
+    },
+    "Expert_8b": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 3,
+        "c_score": 0
+      }
+    },
+    "Expert_8b_BiTextion": {
+      "(0,)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      },
+      "(0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 1
+      },
+      "(0, 0, 0)": {
+        "p_score": 1,
+        "o_score": 4,
+        "c_score": 0
+      },
+      "(0, 0, 0, 0)": {
+        "p_score": 0,
+        "o_score": 3,
+        "c_score": 0
+      }
+    }
+  }
+}

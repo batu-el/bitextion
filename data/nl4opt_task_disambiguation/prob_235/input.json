@@ -1,0 +1,21 @@
+{
+  "vague_description": "The dentist must decide how to allocate limited resources of resin and pain killers to fill cavities in molars and canines while meeting specific requirements.",
+  "detailed_description": "A dentist has \\param{TotalResin} units of resin to fill cavities in both molars and canines. Molars require \\param{ResinMolar} units of resin and \\param{PainKillerMolar} units of pain killer. Canines require \\param{ResinCanine} units of resin and \\param{PainKillerCanine} units of pain killer. Since this dentist sees more cavities in canines, at least \\param{MinCaninePercentage} of cavities filled must be in canines. In addition, the dentist must reserve materials to fill at least \\param{MinMolars} molars. How many of each type of teeth should the dentist schedule to fill to minimize the amount of pain killer needed?",
+  "target_objective": "Minimize the total amount of pain killer needed for filling cavities",
+  "target_constraints": [
+    "Total resin used for all cavities is at most TotalResin",
+    "At least MinCaninePercentage of cavities filled must be canines",
+    "At least MinMolars molars must be filled",
+    "Number of molars to be filled is non-negative",
+    "Number of canines to be filled is non-negative"
+  ],
+  "target_parameters": [
+    "Total units of resin available",
+    "Units of resin required per molar",
+    "Units of resin required per canine",
+    "Units of pain killer required per molar",
+    "Units of pain killer required per canine",
+    "Minimum percentage of cavities to be filled in canines",
+    "Minimum number of molars required to be filled"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "vague_description": "Finding the quickest delivery route involves calculating the minimal time path across a grid network of varying street travel times.",
+  "detailed_description": "Determine the optimal path the delivery person should take to ensure the package is delivered in the least amount of time. The path is constrained by the number of east-west streets, \\param{N}, and the number of north-south streets, \\param{W}. Each east-west street segment \\param{WestTime} and each north-south street segment \\param{NorthTime} takes a certain amount of time to cross.",
+  "target_objective": "Minimize the total amount of time to deliver the package",
+  "target_constraints": [
+    "The number of east-west street segments used cannot exceed N",
+    "The number of north-south street segments used cannot exceed W",
+    "East-west street segments are non-negative",
+    "North-south street segments are non-negative"
+  ],
+  "target_parameters": [
+    "Number of east-west streets",
+    "Number of north-south streets",
+    "Time to cross street segment going west, for given street n and segment w",
+    "Time to cross street segment going north, for given street n and segment w"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "vague_description": "Determining the optimal quantity of peach and cherry candy packs to produce under resource constraints and popularity preferences.",
+  "detailed_description": "A candy company is making peach flavored candy and cherry flavored candy. Each pack of peach flavored candy requires \\param{PeachRequirement} units of peach flavoring and \\param{PeachSyrup} units of special syrup. Each pack of cherry flavored candy requires \\param{CherryRequirement} units of cherry flavoring and \\param{CherrySyrup} units of special syrup. The company has available \\param{TotalPeach} units of peach flavoring and \\param{TotalCherry} units of cherry flavoring. Peach candy is much more popular and thus the number of peach candy packs must be larger than the number of cherry candy packs. In addition, at least \\param{MinimumCherryPercentage} of the pack must be cherry flavored. How many of each should be made to minimize the total amount of special syrup used?",
+  "target_objective": "Minimize the total amount of special syrup used in producing the candy packs",
+  "target_constraints": [
+    "Number of peach flavored candy packs is non-negative",
+    "Number of cherry flavored candy packs is non-negative",
+    "Total used peach flavoring cannot exceed TotalPeach units",
+    "Total used cherry flavoring cannot exceed TotalCherry units",
+    "Number of peach candy packs must be greater than the number of cherry candy packs",
+    "At least MinimumCherryPercentage of the pack must be cherry flavored"
+  ],
+  "target_parameters": [
+    "Units of peach flavoring required to produce one pack of peach flavored candy",
+    "Units of special syrup required to produce one pack of peach flavored candy",
+    "Units of cherry flavoring required to produce one pack of cherry flavored candy",
+    "Units of special syrup required to produce one pack of cherry flavored candy",
+    "Total available units of peach flavoring",
+    "Total available units of cherry flavoring",
+    "Minimum percentage of the total packs that must be cherry flavored"
+  ]
+}

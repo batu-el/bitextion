@@ -1,0 +1,22 @@
+{
+  "vague_description": "Determine the number of servings of almonds and cashews that meet specified calorie and protein requirements while minimizing fat intake.",
+  "detailed_description": "A woman eats cashews and almonds to get her calorie and protein intake. A serving of almonds contains \\param{CaloriesAlmonds} calories and \\param{ProteinAlmonds} grams of protein. A serving of cashews contains \\param{CaloriesCashews} calories and \\param{ProteinCashews} grams of protein. The woman decides to eat at least twice as many servings of almonds as cashews. Furthermore, a serving of almonds contains \\param{FatAlmonds} grams of fat while a serving of cashews contains \\param{FatCashews} grams of fat. If the woman needs to consume at least \\param{MinCalories} calories and \\param{MinProtein} grams of protein this week, how many servings of each should she eat to minimize her fat intake?",
+  "target_objective": "Minimize the total fat intake from servings of almonds and cashews",
+  "target_constraints": [
+    "Number of servings of almonds is non-negative",
+    "Number of servings of cashews is non-negative",
+    "Number of servings of almonds must be at least twice the number of servings of cashews",
+    "Total calorie intake must be at least MinCalories",
+    "Total protein intake must be at least MinProtein"
+  ],
+  "target_parameters": [
+    "Calories per serving of almonds",
+    "Protein per serving of almonds",
+    "Calories per serving of cashews",
+    "Protein per serving of cashews",
+    "Fat per serving of almonds",
+    "Fat per serving of cashews",
+    "Minimum total calories required",
+    "Minimum total protein required"
+  ]
+}

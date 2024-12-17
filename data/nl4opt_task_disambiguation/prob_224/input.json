@@ -1,0 +1,19 @@
+{
+  "vague_description": "Determine the optimal allocation of tests and checks within given constraints to maximize patient throughput at the station.",
+  "detailed_description": "A disease testing station is conducting a temperature check and/or a blood test on each patient. A temperature check takes \\param{TemperatureCheckTime} minutes while a blood test takes \\param{BloodTestTime} minutes. The disease testing station must conduct at least \\param{MinBloodTests} blood tests. Since the temperature check is recommended to be performed on most people, the testing station requires that the temperature check is performed at least \\param{TemperatureBloodTestFactor} times as many as the blood test. If the disease testing station only has a total of \\param{TotalStaffTime} staff minutes, how many of each test or check should be done to maximize the number of patients seen?",
+  "target_objective": "Maximize the number of patients seen",
+  "target_constraints": [
+    "Number of temperature checks performed is non-negative",
+    "Number of blood tests performed is non-negative",
+    "At least MinBloodTests blood tests must be conducted",
+    "The number of temperature checks must be at least TemperatureBloodTestFactor times the number of blood tests",
+    "The total time spent on both temperature checks and blood tests cannot exceed TotalStaffTime minutes"
+  ],
+  "target_parameters": [
+    "Time taken for a temperature check",
+    "Time taken for a blood test",
+    "Minimum number of blood tests required",
+    "Factor by which temperature checks must be more than blood tests",
+    "Total staff time available in minutes"
+  ]
+}
