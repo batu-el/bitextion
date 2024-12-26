@@ -1,6 +1,6 @@
 # BiTextion
 
-When interacting with automated optimization modeling systems, such as [Optimus](https://arxiv.org/abs/2310.06116), the burden of clearly and precisely describing complex problems falls upon the users, which can be challenging, especially for non-experts, who are the primary user base for these systems. This observation motivates our research to develop a system that can ask clarifying questions to help non-expert users precisely describe complex optimization problems. 
+**Abstract:** When interacting with automated optimization modeling systems, such as [Optimus](https://arxiv.org/abs/2310.06116), the burden of clearly and precisely describing complex problems falls upon the users, which can be challenging, especially for non-experts, who are the primary user base for these systems. This observation motivates our research to develop a system that can ask clarifying questions to help non-expert users precisely describe complex optimization problems. 
 
 We introduce Textual Bisection (**BiTextion**), a framework that (i) samples candidate *detailed problem descriptions* conditioned on a *vague problem description*, and (ii) narrows down the search space by posing questions that efficiently resolve ambiguities. 
 
