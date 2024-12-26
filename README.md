@@ -5,3 +5,5 @@ When interacting with automated optimization modeling systems, such as [Optimus]
 We introduce Textual Bisection (**BiTextion**), a framework that (i) samples candidate *detailed problem descriptions* conditioned on a *vague problem description*, and (ii) narrows down the search space by posing questions that efficiently resolve ambiguities. 
 
 Our simulated user study provides experimental evidence showing that **BiTextion** improves the performance of Llama3.1-8b when eliciting the constraints of an optimization problem. We find that **BiTextion** can enhance the performance of smaller models but may not consistently deliver similar gains when applied to larger models, underscoring the need for model-specific test-time strategies.
+
+Link to the Paper: to be added
