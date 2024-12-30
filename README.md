@@ -18,6 +18,6 @@ When interacting with automated optimization modeling systems, such as [Optimus]
 @article{elbitextion2024,
     title={BiTextion: Sociotechnical Alignment in Automated Optimization Modeling via Textual Bisection for Task Disambiguation},
     author={El, Batu and Udell, Madeleine},
-    journal={arXiv preprint},
+    journal={preprint},
     year={2024}
 }
